@@ -9,14 +9,14 @@ import {
   LayoutDashboard, Trophy, Shield, ArrowUpRight, ArrowDownRight,
   Minus, Download, Activity, MessageCircle, X, Send, AlertTriangle,
   Star, Eye, Swords, BookOpen, Filter, Calendar, MapPin, Clock,
-  ChevronUp, RotateCcw, Flame, Crosshair
+  ChevronUp, RotateCcw, Flame, Crosshair, Menu
 } from "lucide-react";
 
-// ═══════════════════════════════════════════════════════════════
-// DOWNFIELD OS v6 — 2026 Season Preview + Real 2024 NFL Data
-// ═══════════════════════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// DOWNFIELD OS v6 â 2026 Season Preview + Real 2024 NFL Data
+// âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 
-// ── TEAMS & DNA ───────────────────────────────────────────────
+// ââ TEAMS & DNA âââââââââââââââââââââââââââââââââââââââââââââââ
 const T = [
   { a: "ARI", n: "Cardinals", c: "NFC", d: "West" }, { a: "ATL", n: "Falcons", c: "NFC", d: "South" },
   { a: "BAL", n: "Ravens", c: "AFC", d: "North" }, { a: "BUF", n: "Bills", c: "AFC", d: "East" },
@@ -54,7 +54,7 @@ const DNA = {
   TEN:{p:.51,e:.41,x:.06,s:"Levis Growing Pains"},WAS:{p:.57,e:.50,x:.10,s:"Jayden Daniels Sensation"},
 };
 
-// ── REAL 2024 ROSTERS ────────────────────────────────────────────
+// ââ REAL 2024 ROSTERS ââââââââââââââââââââââââââââââââââââââââââââ
 const ROSTERS_2024 = {
   ARI: {
     offense: [
@@ -990,7 +990,7 @@ function genRoster(team) {
   return ROSTERS_2024[team] || ROSTERS_2024.ARI; // fallback
 }
 
-// ── 2026 PROJECTED ROSTER ENGINE ────────────────────────────
+// ââ 2026 PROJECTED ROSTER ENGINE ââââââââââââââââââââââââââââ
 // Merges 2024 base roster with 2026 FA additions/losses
 function genRoster2026(team) {
   const base = ROSTERS_2024[team] || ROSTERS_2024.ARI;
@@ -1027,7 +1027,7 @@ function genRoster2026(team) {
   return { offense, defense, note: fa.note || null };
 }
 
-// ── 2025 SEASON RECORDS ─────────────────────────────────────
+// ââ 2025 SEASON RECORDS âââââââââââââââââââââââââââââââââââââ
 const RECORDS_2025 = {
   NE:{w:14,l:3},DEN:{w:14,l:3},SEA:{w:14,l:3},JAX:{w:13,l:4},
   BUF:{w:12,l:5},HOU:{w:12,l:5},LAR:{w:12,l:5},SF:{w:12,l:5},
@@ -1039,7 +1039,7 @@ const RECORDS_2025 = {
   NYJ:{w:3,l:14},TEN:{w:3,l:14},LV:{w:3,l:14},ARI:{w:3,l:14},
 };
 
-// ── 2026 OPPONENTS (all 32 teams) ───────────────────────────
+// ââ 2026 OPPONENTS (all 32 teams) âââââââââââââââââââââââââââ
 const OPPONENTS_2026 = {
   ARI:{home:["LAR","SEA","SF","ATL","CAR","CLE","DET","JAX","TEN"],away:["LAR","SEA","SF","CHI","DAL","DEN","GB","HOU","MIN"]},
   ATL:{home:["CAR","NO","TB","BAL","CIN","JAX","LAC","NE"],away:["CAR","NO","TB","ARI","BUF","CLE","DEN","HOU","NYJ"]},
@@ -1075,7 +1075,7 @@ const OPPONENTS_2026 = {
   WAS:{home:["DAL","NYG","PHI","DET","KC","LV","MIN","NO","SEA"],away:["DAL","NYG","PHI","DEN","LAR","NE","NYJ","TB"]},
 };
 
-// ── 2026 FREE AGENCY & ROSTER MOVES ─────────────────────────
+// ââ 2026 FREE AGENCY & ROSTER MOVES âââââââââââââââââââââââââ
 const FA_MOVES_2026 = {
   ARI:{added:[{name:"Tyler Allgeier",pos:"RB"},{name:"Isaac Seumalo",pos:"OG"},{name:"Gardner Minshew",pos:"QB"}],lost:[]},
   ATL:{added:[{name:"Tua Tagovailoa",pos:"QB",deal:"$1.3M/1yr",note:"competing with Penix Jr"},{name:"Jahan Dotson",pos:"WR"}],lost:[{name:"Kirk Cousins",pos:"QB",note:"released"}],note:"Kyle Pitts franchise tagged; Penix returning from Nov 2025 ACL"},
@@ -1111,7 +1111,7 @@ const FA_MOVES_2026 = {
   WAS:{added:[{name:"Odafe Oweh",pos:"EDGE",deal:"$100M"},{name:"Laremy Tunsil",pos:"OT"},{name:"Rachaad White",pos:"RB"},{name:"Chigoziem Okonkwo",pos:"TE"}],lost:[]},
 };
 
-// ── 2026 DRAFT NEEDS ────────────────────────────────────────
+// ââ 2026 DRAFT NEEDS ââââââââââââââââââââââââââââââââââââââââ
 const DRAFT_NEEDS_2026 = {
   ARI:["QB","EDGE","CB","OL"],ATL:["EDGE","OL","RB","S"],BAL:["WR","OL","CB","LB"],
   BUF:["OL","DL","LB","S"],CAR:["OL","WR","CB","S"],CHI:["EDGE","OL","CB","DL"],
@@ -1126,22 +1126,22 @@ const DRAFT_NEEDS_2026 = {
   TEN:["QB","OL","WR","CB"],WAS:["DL","LB","CB","S"],
 };
 
-// ── 2026 UPDATED DNA (post-FA identity shifts) ──────────────
+// ââ 2026 UPDATED DNA (post-FA identity shifts) ââââââââââââââ
 const DNA_2026 = {
-  ARI:{p:.55,e:.40,x:.06,s:"Rebuilding — Minshew Bridge Year"},
-  ATL:{p:.56,e:.46,x:.08,s:"Penix/Tua QB Battle — Penix Back from ACL"},
+  ARI:{p:.55,e:.40,x:.06,s:"Rebuilding â Minshew Bridge Year"},
+  ATL:{p:.56,e:.46,x:.08,s:"Penix/Tua QB Battle â Penix Back from ACL"},
   BAL:{p:.44,e:.56,x:.13,s:"Lamar + Hendrickson Pass Rush"},
   BUF:{p:.60,e:.54,x:.12,s:"Allen + DJ Moore Deep Threats"},
   CAR:{p:.54,e:.39,x:.06,s:"Phillips Anchors New Defense"},
-  CHI:{p:.57,e:.48,x:.08,s:"Caleb Year 3 — Odunze & Burden Lead"},
+  CHI:{p:.57,e:.48,x:.08,s:"Caleb Year 3 â Odunze & Burden Lead"},
   CIN:{p:.62,e:.50,x:.10,s:"Burrow's Revamped D-Line"},
   CLE:{p:.52,e:.40,x:.06,s:"OL Overhaul, Still Need QB"},
   DAL:{p:.58,e:.44,x:.08,s:"Pickens + Gary Refresh"},
-  DEN:{p:.53,e:.50,x:.09,s:"Nix Year 3 — Proven Contender"},
+  DEN:{p:.53,e:.50,x:.09,s:"Nix Year 3 â Proven Contender"},
   DET:{p:.55,e:.54,x:.11,s:"Pacheco Replaces Monty"},
   GB:{p:.54,e:.46,x:.09,s:"Love Minus Key Pieces"},
   HOU:{p:.57,e:.50,x:.10,s:"Stroud's Upgraded Backfield"},
-  IND:{p:.55,e:.48,x:.08,s:"Daniel Jones Franchise QB — Richardson Out"},
+  IND:{p:.55,e:.48,x:.08,s:"Daniel Jones Franchise QB â Richardson Out"},
   JAX:{p:.57,e:.42,x:.07,s:"Lawrence Redemption Season"},
   KC:{p:.57,e:.49,x:.09,s:"Kenneth Walker Replaces Lost CB"},
   LAC:{p:.53,e:.49,x:.08,s:"Herbert's Steady Ship"},
@@ -1169,7 +1169,7 @@ function recordStr(tm) {
   return r.t ? `${r.w}-${r.l}-${r.t}` : `${r.w}-${r.l}`;
 }
 
-// ── WIN PROJECTION ENGINE ───────────────────────────────────
+// ââ WIN PROJECTION ENGINE âââââââââââââââââââââââââââââââââââ
 // Power rating: composite of DNA efficiency, explosive rate, and 2025 record
 function teamPower(tm) {
   const dna = DNA_2026[tm] || DNA[tm];
@@ -1185,7 +1185,7 @@ function gameWinProb(team, opp, isHome) {
   const pB = teamPower(opp);
   // Log5 formula
   const raw = (pA * (1 - pB)) / (pA * (1 - pB) + pB * (1 - pA));
-  // Home field advantage: ~57% historical NFL home win rate → +3.5% boost
+  // Home field advantage: ~57% historical NFL home win rate â +3.5% boost
   const hfa = isHome ? 0.035 : -0.035;
   return Math.min(0.95, Math.max(0.05, raw + hfa));
 }
@@ -1239,7 +1239,7 @@ function projectSeason(tm) {
   };
 }
 
-// All 32 teams projected — with ranks
+// All 32 teams projected â with ranks
 function projectAll32() {
   const projections = {};
   T.forEach(t => { projections[t.a] = projectSeason(t.a); });
@@ -1252,10 +1252,10 @@ function projectAll32() {
   return projections;
 }
 
-// ── SEEDED RNG ──────────────────────────────────────────────
+// ââ SEEDED RNG ââââââââââââââââââââââââââââââââââââââââââââââ
 function sr(seed) { let s = seed; return () => { s = (s*16807)%2147483647; return (s-1)/2147483646; }; }
 
-// ── ENHANCED DATA GENERATION (v4) ───────────────────────────
+// ââ ENHANCED DATA GENERATION (v4) âââââââââââââââââââââââââââ
 // New fields: scoreDiff, driveId, complete (pass), personnel, timeLeft
 function generatePlays() {
   const plays = []; let id = 1; const r = sr(42);
@@ -1356,7 +1356,7 @@ function generatePlays() {
   return plays;
 }
 
-// ── FILTER ENGINE ─────────────────────────────────────────────
+// ââ FILTER ENGINE âââââââââââââââââââââââââââââââââââââââââââââ
 const DEFAULT_FILTERS = {
   season: "all", weekMin: 1, weekMax: 18,
   down: "all", distBucket: "all",
@@ -1397,7 +1397,7 @@ function applyFilters(plays, f) {
   });
 }
 
-// ── AGGREGATION ─────────────────────────────────────────────
+// ââ AGGREGATION âââââââââââââââââââââââââââââââââââââââââââââ
 function agg(plays, tm) {
   const o = plays.filter(p => p.off === tm), d = plays.filter(p => p.def === tm), t = o.length || 1;
   const passes = o.filter(p => p.type === "Pass");
@@ -1425,24 +1425,24 @@ function lgbl(plays) {
 const pct = v => (v * 100).toFixed(1) + "%";
 const tn = a => T.find(t => t.a === a)?.n || a;
 
-// ── NARRATIVE GENERATORS ────────────────────────────────────
+// ââ NARRATIVE GENERATORS ââââââââââââââââââââââââââââââââââââ
 function teamSoWhat(tm, stats, bl) {
   const lines = [];
   const pg = stats.pr - bl.pr, sg = stats.sr - bl.sr, eg = stats.xr - bl.xr;
-  if (pg > .10) lines.push(`${tn(tm)} is one of the most pass-happy teams in football. They throw it on nearly two-thirds of their plays — everyone in the building knows it's coming, and they dare you to stop it.`);
+  if (pg > .10) lines.push(`${tn(tm)} is one of the most pass-happy teams in football. They throw it on nearly two-thirds of their plays â everyone in the building knows it's coming, and they dare you to stop it.`);
   else if (pg > .05) lines.push(`${tn(tm)} leans on the pass a bit more than most teams, but not to an extreme degree. They're willing to throw to set up the run.`);
   else if (pg < -.10) lines.push(`${tn(tm)} wants to run the football. Period. They'll line up in heavy sets and try to impose their will physically. If you can't stop the run, you're not beating this team.`);
   else if (pg < -.05) lines.push(`${tn(tm)} tilts run-heavy compared to the league. They trust their ground game and use play-action off it.`);
-  else lines.push(`${tn(tm)} is balanced — they'll run or throw based on the situation, which makes them harder to prepare for.`);
+  else lines.push(`${tn(tm)} is balanced â they'll run or throw based on the situation, which makes them harder to prepare for.`);
   if (sg > .06) lines.push(`They're also really efficient. They consistently gain positive yardage, stay ahead of the chains, and rarely put themselves in 3rd-and-long. That's the hallmark of a well-coached offense.`);
-  else if (sg > .03) lines.push(`Their efficiency is solid — above average — meaning they generally stay on schedule and avoid obvious passing situations.`);
+  else if (sg > .03) lines.push(`Their efficiency is solid â above average â meaning they generally stay on schedule and avoid obvious passing situations.`);
   else if (sg < -.06) lines.push(`The problem? They're not efficient. They fall behind the sticks constantly, which puts them in predictable 3rd-and-long situations where defenses can pin their ears back and rush.`);
-  else if (sg < -.03) lines.push(`Their efficiency is a concern — they're slightly below the league floor, meaning they'll face more long-yardage situations than they'd like.`);
+  else if (sg < -.03) lines.push(`Their efficiency is a concern â they're slightly below the league floor, meaning they'll face more long-yardage situations than they'd like.`);
   else lines.push(`Efficiency-wise, they're right in the middle of the pack. Not elite, not broken.`);
   if (eg > .04) lines.push(`Here's what makes them scary: the explosive play rate. Any play could go for 20+ yards. You play single-high safety against this team, you're going to get burned.`);
-  else if (eg > .02) lines.push(`They've got a decent big-play element — above average in explosive plays, which keeps defenses honest.`);
+  else if (eg > .02) lines.push(`They've got a decent big-play element â above average in explosive plays, which keeps defenses honest.`);
   else if (eg < -.03) lines.push(`What they lack is the home-run ball. Big plays are rare for this offense, which means they need long, sustained drives to score. If you're patient on defense and don't bust a coverage, you'll be fine.`);
-  else lines.push(`Their explosive play rate is around average — they'll hit some chunk plays but won't consistently threaten deep.`);
+  else lines.push(`Their explosive play rate is around average â they'll hit some chunk plays but won't consistently threaten deep.`);
   return lines.join("\n\n");
 }
 
@@ -1464,12 +1464,12 @@ function scriptedPlaysPreview(tm, stats, roster) {
   if (d.p > .58) {
     lines.push(`Expect 9-10 passes and 5-6 runs in the first 15. Quick-game concepts to get ${roster.offense.find(p => p.pos === "QB")?.name} in rhythm, 1-2 shot plays to ${roster.offense.find(p => p.pos === "WR1")?.name}, play-action on early downs.`);
   } else if (d.p < .48) {
-    lines.push(`Heavy run early — 9-10 runs and 5-6 passes. Inside zone and power with ${roster.offense.find(p => p.pos === "RB1")?.name}, play-action shots off run-action.`);
+    lines.push(`Heavy run early â 9-10 runs and 5-6 passes. Inside zone and power with ${roster.offense.find(p => p.pos === "RB1")?.name}, play-action shots off run-action.`);
   } else {
-    lines.push(`Balanced script — 7-8 pass / 7-8 run split. Mix of zone runs and quick passes to test what the defense gives them.`);
+    lines.push(`Balanced script â 7-8 pass / 7-8 run split. Mix of zone runs and quick passes to test what the defense gives them.`);
   }
   if (stats.sr > .48) lines.push(`They're efficient enough that scripted drives usually result in 1-2 first downs.`);
-  else lines.push(`Efficiency has been below average — if you force a 3-and-out on the opening drive, you set the tone.`);
+  else lines.push(`Efficiency has been below average â if you force a 3-and-out on the opening drive, you set the tone.`);
   return lines.join("\n");
 }
 
@@ -1496,7 +1496,7 @@ function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
 function gmVoice(tm, stats, bl, needs) {
   const lines = [`*If I'm sitting in ${tn(tm)}'s war room right now:*`];
   needs.forEach(n => {
-    if (n.severity === "High") lines.push(`\n**"We have to fix ${n.weakness.toLowerCase()}."** Not optional. I'm looking at ${n.need.toLowerCase()} in the first two rounds — a ${n.archetype.toLowerCase()}.`);
+    if (n.severity === "High") lines.push(`\n**"We have to fix ${n.weakness.toLowerCase()}."** Not optional. I'm looking at ${n.need.toLowerCase()} in the first two rounds â a ${n.archetype.toLowerCase()}.`);
     else if (n.severity === "Medium") lines.push(`\n**"${n.weakness} needs attention."** If the right ${n.need.toLowerCase()} falls on Day 2, we jump.`);
     else lines.push(`\n**"We're in good shape."** Best player available. ${n.archetype}`);
   });
@@ -1514,7 +1514,7 @@ function genNeeds(tm, stats, bl) {
   return needs;
 }
 
-// ── CHATBOT ENGINE ──────────────────────────────────────────
+// ââ CHATBOT ENGINE ââââââââââââââââââââââââââââââââââââââââââ
 function chatAnswer(question, plays, rosters) {
   const q = question.toLowerCase();
   const allStats = {}; T.forEach(t => { allStats[t.a] = agg(plays, t.a); });
@@ -1522,23 +1522,23 @@ function chatAnswer(question, plays, rosters) {
   const teamMatch = T.find(t => q.includes(t.a.toLowerCase()) || q.includes(t.n.toLowerCase()));
   if (q.includes("best") && (q.includes("offense") || q.includes("team"))) {
     const sorted = T.map(t => ({ t, s: allStats[t.a] })).sort((a, b) => (b.s.sr * .4 + b.s.xr * 3) - (a.s.sr * .4 + a.s.xr * 3));
-    return `Best offenses:\n\n1. **${tn(sorted[0].t.a)}** — ${DNA[sorted[0].t.a].s}. Success rate ${pct(sorted[0].s.sr)}, explosive rate ${pct(sorted[0].s.xr)}.\n2. **${tn(sorted[1].t.a)}** — ${DNA[sorted[1].t.a].s}.\n3. **${tn(sorted[2].t.a)}** — ${DNA[sorted[2].t.a].s}.\n\nWorst: **${tn(sorted[31].t.a)}** and **${tn(sorted[30].t.a)}**.`;
+    return `Best offenses:\n\n1. **${tn(sorted[0].t.a)}** â ${DNA[sorted[0].t.a].s}. Success rate ${pct(sorted[0].s.sr)}, explosive rate ${pct(sorted[0].s.xr)}.\n2. **${tn(sorted[1].t.a)}** â ${DNA[sorted[1].t.a].s}.\n3. **${tn(sorted[2].t.a)}** â ${DNA[sorted[2].t.a].s}.\n\nWorst: **${tn(sorted[31].t.a)}** and **${tn(sorted[30].t.a)}**.`;
   }
   if (q.includes("worst") && (q.includes("defense") || q.includes("defend"))) {
     const sorted = T.map(t => ({ t, s: allStats[t.a] })).sort((a, b) => b.s.dsr - a.s.dsr);
-    return `Worst defenses by success rate allowed:\n\n1. **${tn(sorted[0].t.a)}** — ${pct(sorted[0].s.dsr)} success rate allowed.\n2. **${tn(sorted[1].t.a)}** — ${pct(sorted[1].s.dsr)}.\n3. **${tn(sorted[2].t.a)}** — ${pct(sorted[2].s.dsr)}.`;
+    return `Worst defenses by success rate allowed:\n\n1. **${tn(sorted[0].t.a)}** â ${pct(sorted[0].s.dsr)} success rate allowed.\n2. **${tn(sorted[1].t.a)}** â ${pct(sorted[1].s.dsr)}.\n3. **${tn(sorted[2].t.a)}** â ${pct(sorted[2].s.dsr)}.`;
   }
   if (q.includes("explosive") || q.includes("big play")) {
     const sorted = T.map(t => ({ t, s: allStats[t.a] })).sort((a, b) => b.s.xr - a.s.xr);
-    return `Most explosive offenses:\n\n1. **${tn(sorted[0].t.a)}** — ${pct(sorted[0].s.xr)} big play rate\n2. **${tn(sorted[1].t.a)}** — ${pct(sorted[1].s.xr)}\n3. **${tn(sorted[2].t.a)}** — ${pct(sorted[2].s.xr)}\n\nLeague avg: ${pct(bl.xr)}.`;
+    return `Most explosive offenses:\n\n1. **${tn(sorted[0].t.a)}** â ${pct(sorted[0].s.xr)} big play rate\n2. **${tn(sorted[1].t.a)}** â ${pct(sorted[1].s.xr)}\n3. **${tn(sorted[2].t.a)}** â ${pct(sorted[2].s.xr)}\n\nLeague avg: ${pct(bl.xr)}.`;
   }
   if (q.includes("completion") || q.includes("comp rate")) {
     const sorted = T.map(t => ({ t, s: allStats[t.a] })).sort((a, b) => b.s.compRate - a.s.compRate);
-    return `Highest completion rates:\n\n1. **${tn(sorted[0].t.a)}** — ${pct(sorted[0].s.compRate)}\n2. **${tn(sorted[1].t.a)}** — ${pct(sorted[1].s.compRate)}\n3. **${tn(sorted[2].t.a)}** — ${pct(sorted[2].s.compRate)}\n\nLeague avg: ${pct(bl.compRate)}.`;
+    return `Highest completion rates:\n\n1. **${tn(sorted[0].t.a)}** â ${pct(sorted[0].s.compRate)}\n2. **${tn(sorted[1].t.a)}** â ${pct(sorted[1].s.compRate)}\n3. **${tn(sorted[2].t.a)}** â ${pct(sorted[2].s.compRate)}\n\nLeague avg: ${pct(bl.compRate)}.`;
   }
   if (q.includes("sack")) {
     const sorted = T.map(t => ({ t, s: allStats[t.a] })).sort((a, b) => b.s.sackRate - a.s.sackRate);
-    return `Highest sack rates taken:\n\n1. **${tn(sorted[0].t.a)}** — ${pct(sorted[0].s.sackRate)} of dropbacks\n2. **${tn(sorted[1].t.a)}** — ${pct(sorted[1].s.sackRate)}\n3. **${tn(sorted[2].t.a)}** — ${pct(sorted[2].s.sackRate)}\n\nThese QBs are under siege.`;
+    return `Highest sack rates taken:\n\n1. **${tn(sorted[0].t.a)}** â ${pct(sorted[0].s.sackRate)} of dropbacks\n2. **${tn(sorted[1].t.a)}** â ${pct(sorted[1].s.sackRate)}\n3. **${tn(sorted[2].t.a)}** â ${pct(sorted[2].s.sackRate)}\n\nThese QBs are under siege.`;
   }
   if (q.includes("filter") || q.includes("how") && q.includes("use")) {
     return `Use the filter panel (funnel icon in the sidebar) to slice data by:\n\n- **Season** (2023, 2024, 2025)\n- **Weeks** (range slider)\n- **Down** (1st through 4th)\n- **Distance** (short/medium/long)\n- **Field position** (own territory/midfield/red zone)\n- **Quarter, Home/Away, Weather**\n- **Score differential** (winning/losing/close/blowout)\n- **Personnel grouping** (11, 12, 21, etc.)\n- **2-minute drill mode**\n\nAll pages update instantly when you change filters.`;
@@ -1546,7 +1546,7 @@ function chatAnswer(question, plays, rosters) {
   if (teamMatch) return teamSoWhat(teamMatch.a, allStats[teamMatch.a], bl);
   if (q.includes("red zone")) {
     const rz = plays.filter(p => p.rz);
-    return `In the red zone, teams pass ${pct(rz.filter(p => p.type === "Pass").length / (rz.length || 1))} of the time (vs ${pct(bl.pr)} overall). Compressed fields make separation harder — power runs and quick passes dominate inside the 20.`;
+    return `In the red zone, teams pass ${pct(rz.filter(p => p.type === "Pass").length / (rz.length || 1))} of the time (vs ${pct(bl.pr)} overall). Compressed fields make separation harder â power runs and quick passes dominate inside the 20.`;
   }
   if (q.includes("personnel") || q.includes("11 personnel") || q.includes("12 personnel")) {
     const p11 = plays.filter(p => p.pers === "11"), p12 = plays.filter(p => p.pers === "12");
@@ -1555,10 +1555,10 @@ function chatAnswer(question, plays, rosters) {
   return `Try asking about:\n- Any team name ("Tell me about the Chiefs")\n- "Who has the best offense?"\n- "Which defenses are worst?"\n- "Most explosive teams?"\n- "Completion rate leaders"\n- "Who gets sacked most?"\n- "Red zone tendencies"\n- "Personnel grouping usage"\n- "How do I use filters?"`;
 }
 
-// ── UI COMPONENTS ───────────────────────────────────────────
+// ââ UI COMPONENTS âââââââââââââââââââââââââââââââââââââââââââ
 const tooltipStyle = { background: "#fff", border: "1px solid #e2e8f0", borderRadius: 10, color: "#0f172a", boxShadow: "0 4px 12px rgba(0,0,0,.08)" };
 
-// ── RATING BAR (visual player grade) ────────────────────────
+// ââ RATING BAR (visual player grade) ââââââââââââââââââââââââ
 function RatingBar({ value, max = 100, label, color }) {
   const pctVal = Math.min(100, Math.max(0, (value / max) * 100));
   const barColor = color || (pctVal >= 90 ? "#2563eb" : pctVal >= 78 ? "#16a34a" : pctVal >= 65 ? "#eab308" : "#dc2626");
@@ -1573,7 +1573,7 @@ function RatingBar({ value, max = 100, label, color }) {
   );
 }
 
-// ── MATCHUP GRADE BADGE ─────────────────────────────────────
+// ââ MATCHUP GRADE BADGE âââââââââââââââââââââââââââââââââââââ
 function MatchupGrade({ grade }) {
   const config = {
     "A+": { bg: "#f0fdf4", color: "#16a34a", border: "#bbf7d0" },
@@ -1648,13 +1648,13 @@ function TeamSelect({ value, onChange, label }) {
     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
       <label style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>{label}</label>
       <select value={value} onChange={e => onChange(e.target.value)} style={{ background: "#fff", color: "#0f172a", border: "1px solid #e2e8f0", borderRadius: 10, padding: "10px 14px", fontSize: 14, cursor: "pointer", fontWeight: 600 }}>
-        {T.map(t => <option key={t.a} value={t.a}>{t.a} — {t.n}</option>)}
+        {T.map(t => <option key={t.a} value={t.a}>{t.a} â {t.n}</option>)}
       </select>
     </div>
   );
 }
 
-// ── FILTER PANEL ────────────────────────────────────────────
+// ââ FILTER PANEL ââââââââââââââââââââââââââââââââââââââââââââ
 function FilterPanel({ filters, setFilters, playCount, totalCount }) {
   const update = (key, val) => setFilters(prev => ({ ...prev, [key]: val }));
   const isActive = JSON.stringify(filters) !== JSON.stringify(DEFAULT_FILTERS);
@@ -1684,7 +1684,7 @@ function FilterPanel({ filters, setFilters, playCount, totalCount }) {
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Weeks {filters.weekMin}–{filters.weekMax}</div>
+        <div style={lblStyle}>Weeks {filters.weekMin}â{filters.weekMax}</div>
         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
           <input type="range" min={1} max={18} value={filters.weekMin} onChange={e => update("weekMin", Math.min(Number(e.target.value), filters.weekMax))} style={{ flex: 1, accentColor: "#f97316" }} />
           <input type="range" min={1} max={18} value={filters.weekMax} onChange={e => update("weekMax", Math.max(Number(e.target.value), filters.weekMin))} style={{ flex: 1, accentColor: "#f97316" }} />
@@ -1771,10 +1771,10 @@ function FilterPanel({ filters, setFilters, playCount, totalCount }) {
   );
 }
 
-// ── CHATBOT ─────────────────────────────────────────────────
+// ââ CHATBOT âââââââââââââââââââââââââââââââââââââââââââââââââ
 function Chatbot({ plays, rosters }) {
   const [open, setOpen] = useState(false);
-  const [msgs, setMsgs] = useState([{ role: "bot", text: "Hey! I'm your DownfieldOS assistant. Ask me anything — try \"tell me about the Chiefs\" or \"who has the best offense?\" or \"how do I use filters?\"" }]);
+  const [msgs, setMsgs] = useState([{ role: "bot", text: "Hey! I'm your DownfieldOS assistant. Ask me anything â try \"tell me about the Chiefs\" or \"who has the best offense?\" or \"how do I use filters?\"" }]);
   const [input, setInput] = useState("");
   const endRef = useRef(null);
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs]);
@@ -1816,7 +1816,7 @@ function Chatbot({ plays, rosters }) {
   );
 }
 
-// ── PAGE: THIS WEEK (NEW) ───────────────────────────────────
+// ââ PAGE: THIS WEEK (NEW) âââââââââââââââââââââââââââââââââââ
 function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
   const [selectedSeason, setSelectedSeason] = useState(2025);
@@ -1876,15 +1876,15 @@ function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost }) {
     const mismatches = [];
     if (aStats.xr > bl.xr + .02 && hStats.dxr > bl.xr + .02) mismatches.push({ text: `${tn(game.away)} explosive O vs leaky ${tn(game.home)} D`, tone: "warning" });
     if (hStats.xr > bl.xr + .02 && aStats.dxr > bl.xr + .02) mismatches.push({ text: `${tn(game.home)} explosive O vs leaky ${tn(game.away)} D`, tone: "warning" });
-    if (aStats.pr > bl.pr + .06 && hStats.dsr < bl.sr - .02) mismatches.push({ text: `${tn(game.away)} pass-heavy vs stingy ${tn(game.home)} D — chess match`, tone: "elite" });
-    if (hStats.pr > bl.pr + .06 && aStats.dsr < bl.sr - .02) mismatches.push({ text: `${tn(game.home)} pass-heavy vs stingy ${tn(game.away)} D — chess match`, tone: "elite" });
+    if (aStats.pr > bl.pr + .06 && hStats.dsr < bl.sr - .02) mismatches.push({ text: `${tn(game.away)} pass-heavy vs stingy ${tn(game.home)} D â chess match`, tone: "elite" });
+    if (hStats.pr > bl.pr + .06 && aStats.dsr < bl.sr - .02) mismatches.push({ text: `${tn(game.home)} pass-heavy vs stingy ${tn(game.away)} D â chess match`, tone: "elite" });
 
     // "Watch for this"
     const watchFor = [];
     const hWR1 = hR?.offense.find(p => p.pos === "WR1"), aCB1 = aR?.defense.find(p => p.pos === "CB1");
     const aWR1 = aR?.offense.find(p => p.pos === "WR1"), hCB1 = hR?.defense.find(p => p.pos === "CB1");
-    if (hWR1 && aCB1 && Math.abs(hWR1.rating - aCB1.rating) > 12) watchFor.push(`${hWR1.name} (${hWR1.rating}) vs ${aCB1.name} (${aCB1.rating}) — ${hWR1.rating > aCB1.rating ? "advantage offense" : "lockdown corner"}`);
-    if (aWR1 && hCB1 && Math.abs(aWR1.rating - hCB1.rating) > 12) watchFor.push(`${aWR1.name} (${aWR1.rating}) vs ${hCB1.name} (${hCB1.rating}) — ${aWR1.rating > hCB1.rating ? "advantage offense" : "lockdown corner"}`);
+    if (hWR1 && aCB1 && Math.abs(hWR1.rating - aCB1.rating) > 12) watchFor.push(`${hWR1.name} (${hWR1.rating}) vs ${aCB1.name} (${aCB1.rating}) â ${hWR1.rating > aCB1.rating ? "advantage offense" : "lockdown corner"}`);
+    if (aWR1 && hCB1 && Math.abs(aWR1.rating - hCB1.rating) > 12) watchFor.push(`${aWR1.name} (${aWR1.rating}) vs ${hCB1.name} (${hCB1.rating}) â ${aWR1.rating > hCB1.rating ? "advantage offense" : "lockdown corner"}`);
 
     return (
       <div style={{ background: "#fff", borderRadius: 16, border: game.isGOTW ? "2px solid #f97316" : "1px solid #e2e8f0", overflow: "hidden", marginBottom: 12, transition: "all .2s", boxShadow: game.isGOTW ? "0 4px 20px rgba(249,115,22,0.12)" : "none" }}>
@@ -2013,7 +2013,7 @@ function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost }) {
   );
 }
 
-// ── PAGE: SO WHAT DASHBOARD ─────────────────────────────────
+// ââ PAGE: SO WHAT DASHBOARD âââââââââââââââââââââââââââââââââ
 function SoWhatDashboard({ plays }) {
   const bl = useMemo(() => lgbl(plays), [plays]);
   const ranked = useMemo(() => T.map(t => ({ a: t.a, n: t.n, s: agg(plays, t.a) })).sort((a, b) => (b.s.sr * .4 + b.s.xr * 3 + b.s.pr * .2) - (a.s.sr * .4 + a.s.xr * 3 + a.s.pr * .2)), [plays]);
@@ -2032,14 +2032,14 @@ function SoWhatDashboard({ plays }) {
       <InsightCard tone="elite" icon={Star} stat={`#1`} headline={`${tn(best.a)} has the best offense in football`} body={`#1 in our composite. ${DNA[best.a].s}. Success rate ${pct(best.s.sr)} (avg: ${pct(bl.sr)}), explosive rate ${pct(best.s.xr)}. They move the ball consistently AND can hurt you deep.`} />
       <InsightCard tone="positive" icon={Zap} stat={pct(mostExplosive.s.xr)} headline={`${tn(mostExplosive.a)} is the most dangerous per-play`} body={`${pct(mostExplosive.s.xr)} of plays go for a big gain (avg: ${pct(bl.xr)}). Roughly 1 in ${Math.round(1 / mostExplosive.s.xr)} plays is a chunk play. You cannot play conservative defense against them.`} />
       <InsightCard tone="negative" icon={AlertTriangle} stat={pct(leastEfficient.s.sr)} headline={`${tn(leastEfficient.a)} can't stay on schedule`} body={`Dead last at ${pct(leastEfficient.s.sr)} success rate. They constantly face 3rd-and-long, where defenses pin their ears back. Vicious cycle.`} />
-      <InsightCard tone="warning" icon={Eye} stat={pct(worstDef.s.dsr)} headline={`${tn(worstDef.a)}'s defense is getting shredded`} body={`Allowing ${pct(worstDef.s.dsr)} success rate — worst in the league. Opposing offenses gain positive yardage on ${(worstDef.s.dsr * 100).toFixed(0)}%+ of plays.`} />
-      <InsightCard tone="neutral" icon={Activity} stat={pct(mostRunHeavy.s.pr)} headline={`${tn(mostRunHeavy.a)} runs more than anyone`} body={`Only ${pct(mostRunHeavy.s.pr)} pass rate — lowest in the NFL. Stop the run and you stop this team.`} />
+      <InsightCard tone="warning" icon={Eye} stat={pct(worstDef.s.dsr)} headline={`${tn(worstDef.a)}'s defense is getting shredded`} body={`Allowing ${pct(worstDef.s.dsr)} success rate â worst in the league. Opposing offenses gain positive yardage on ${(worstDef.s.dsr * 100).toFixed(0)}%+ of plays.`} />
+      <InsightCard tone="neutral" icon={Activity} stat={pct(mostRunHeavy.s.pr)} headline={`${tn(mostRunHeavy.a)} runs more than anyone`} body={`Only ${pct(mostRunHeavy.s.pr)} pass rate â lowest in the NFL. Stop the run and you stop this team.`} />
       <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly. The chatbot (orange button) answers questions about anything you see.`} />
     </div>
   );
 }
 
-// ── PAGE: MATCHUP CENTER ────────────────────────────────────
+// ââ PAGE: MATCHUP CENTER ââââââââââââââââââââââââââââââââââââ
 function MatchupCenter({ plays, rosters, initialOff, initialDef }) {
   const [offTm, setOffTm] = useState(initialOff || "KC");
   const [defTm, setDefTm] = useState(initialDef || "BUF");
@@ -2131,7 +2131,7 @@ function MatchupCenter({ plays, rosters, initialOff, initialDef }) {
   );
 }
 
-// ── PAGE: FANTASY INTEL ─────────────────────────────────────
+// ââ PAGE: FANTASY INTEL âââââââââââââââââââââââââââââââââââââ
 function FantasyIntel({ plays, rosters }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
@@ -2267,11 +2267,11 @@ function FantasyIntel({ plays, rosters }) {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 20 }}>
           <InsightCard tone="positive" icon={Flame} stat={Math.round(bestEnv[posFilter].score).toString()}
             headline={`Best ${posFilter} environment: ${bestEnv[posFilter].player?.name}`}
-            body={`${tn(bestEnv.off)} vs ${tn(bestEnv.def)} — ${bestEnv[posFilter].boom > 0.3 ? "high ceiling week" : "solid floor"}. ${posFilter === "QB" ? `Pass volume projects high against a defense allowing ${pct(bestEnv.dStats.dsr)} success rate.` : posFilter === "RB" ? `This run game should find lanes against a defense giving up yards.` : `Receivers should eat against this secondary.`}`} />
+            body={`${tn(bestEnv.off)} vs ${tn(bestEnv.def)} â ${bestEnv[posFilter].boom > 0.3 ? "high ceiling week" : "solid floor"}. ${posFilter === "QB" ? `Pass volume projects high against a defense allowing ${pct(bestEnv.dStats.dsr)} success rate.` : posFilter === "RB" ? `This run game should find lanes against a defense giving up yards.` : `Receivers should eat against this secondary.`}`} />
           {worstEnv && worstEnv[posFilter] && (
             <InsightCard tone="negative" icon={AlertTriangle} stat={Math.round(worstEnv[posFilter].score).toString()}
               headline={`Worst ${posFilter} environment: ${worstEnv[posFilter].player?.name}`}
-              body={`${tn(worstEnv.off)} vs ${tn(worstEnv.def)} — tough sledding. ${worstEnv.dStats.dsr < bl.sr - 0.02 ? "This defense is stingy." : "The offense's efficiency is the problem here."}`} />
+              body={`${tn(worstEnv.off)} vs ${tn(worstEnv.def)} â tough sledding. ${worstEnv.dStats.dsr < bl.sr - 0.02 ? "This defense is stingy." : "The offense's efficiency is the problem here."}`} />
           )}
         </div>
       )}
@@ -2279,7 +2279,7 @@ function FantasyIntel({ plays, rosters }) {
       {/* Rankings table */}
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden" }}>
         <div style={{ padding: "16px 16px 8px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div style={{ fontSize: 16, fontWeight: 800, color: "#0f172a" }}>{posFilter} Matchup Rankings — Week {selectedWeek}</div>
+          <div style={{ fontSize: 16, fontWeight: 800, color: "#0f172a" }}>{posFilter} Matchup Rankings â Week {selectedWeek}</div>
           <div style={{ display: "flex", gap: 16, fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
             <span>Score</span><span style={{ width: 120, textAlign: "center" }}>Boom / Bust</span>
           </div>
@@ -2290,7 +2290,7 @@ function FantasyIntel({ plays, rosters }) {
   );
 }
 
-// ── PAGE: TEAM INTEL ────────────────────────────────────────
+// ââ PAGE: TEAM INTEL ââââââââââââââââââââââââââââââââââââââââ
 function TeamIntel({ plays, rosters }) {
   const [team, setTeam] = useState("KC");
   const stats = useMemo(() => agg(plays, team), [plays, team]);
@@ -2338,7 +2338,7 @@ function TeamIntel({ plays, rosters }) {
   );
 }
 
-// ── PAGE: WAR ROOM ──────────────────────────────────────────
+// ââ PAGE: WAR ROOM ââââââââââââââââââââââââââââââââââââââââââ
 function WarRoom({ plays }) {
   const [team, setTeam] = useState("CAR");
   const stats = useMemo(() => agg(plays, team), [plays, team]);
@@ -2375,16 +2375,16 @@ function WarRoom({ plays }) {
   );
 }
 
-// ── INSTAGRAM POST CARD ─────────────────────────────────────
+// ââ INSTAGRAM POST CARD âââââââââââââââââââââââââââââââââââââ
 function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose }) {
   const aGrade = calcMatchupGrade(aStats, hStats, bl);
   const hGrade = calcMatchupGrade(hStats, aStats, bl);
   const topMismatch = (() => {
     if (aStats.xr > bl.xr + .02 && hStats.dxr > bl.xr + .02) return `${tn(away)} explosive offense meets porous ${tn(home)} defense`;
     if (hStats.xr > bl.xr + .02 && aStats.dxr > bl.xr + .02) return `${tn(home)} explosive offense meets porous ${tn(away)} defense`;
-    if (aStats.sr > bl.sr + .03) return `${tn(away)} offense is rolling — top-tier efficiency`;
+    if (aStats.sr > bl.sr + .03) return `${tn(away)} offense is rolling â top-tier efficiency`;
     if (hStats.sr > bl.sr + .03) return `${tn(home)} at home with elite efficiency`;
-    return `Evenly matched — execution decides it`;
+    return `Evenly matched â execution decides it`;
   })();
   const aWR1 = rosters[away]?.offense.find(p => p.pos === "WR1");
   const hWR1 = rosters[home]?.offense.find(p => p.pos === "WR1");
@@ -2462,13 +2462,13 @@ function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose }) {
           {/* Footer */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: 12 }}>
             <div style={{ fontSize: 10, color: "#475569" }}>downfieldos.com</div>
-            <div style={{ fontSize: 10, color: "#475569" }}>Swipe for full breakdown →</div>
+            <div style={{ fontSize: 10, color: "#475569" }}>Swipe for full breakdown â</div>
           </div>
         </div>
 
         {/* Actions */}
         <div style={{ padding: "16px 24px", display: "flex", gap: 12, background: "#1e293b" }}>
-          <button onClick={() => { if(cardRef.current) { navigator.clipboard?.writeText(`${tn(away)} @ ${tn(home)} — Matchup Preview by DownfieldOS\n\n${topMismatch}\n\n${tn(away)} OFF Grade: ${aGrade} | ${tn(home)} OFF Grade: ${hGrade}\n\nKey stats:\nPass Rate: ${pct(aStats.pr)} vs ${pct(hStats.pr)}\nSuccess: ${pct(aStats.sr)} vs ${pct(hStats.sr)}\nExplosive: ${pct(aStats.xr)} vs ${pct(hStats.xr)}\n\n#NFL #DownfieldOS #${tn(away).replace(/\s/g,"")} #${tn(home).replace(/\s/g,"")}`); } }} style={{ flex: 1, padding: "12px 16px", borderRadius: 10, background: "#f97316", border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>Copy Caption</button>
+          <button onClick={() => { if(cardRef.current) { navigator.clipboard?.writeText(`${tn(away)} @ ${tn(home)} â Matchup Preview by DownfieldOS\n\n${topMismatch}\n\n${tn(away)} OFF Grade: ${aGrade} | ${tn(home)} OFF Grade: ${hGrade}\n\nKey stats:\nPass Rate: ${pct(aStats.pr)} vs ${pct(hStats.pr)}\nSuccess: ${pct(aStats.sr)} vs ${pct(hStats.sr)}\nExplosive: ${pct(aStats.xr)} vs ${pct(hStats.xr)}\n\n#NFL #DownfieldOS #${tn(away).replace(/\s/g,"")} #${tn(home).replace(/\s/g,"")}`); } }} style={{ flex: 1, padding: "12px 16px", borderRadius: 10, background: "#f97316", border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>Copy Caption</button>
           <button onClick={onClose} style={{ padding: "12px 16px", borderRadius: 10, background: "#334155", border: "none", color: "#94a3b8", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>Close</button>
         </div>
       </div>
@@ -2476,7 +2476,7 @@ function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose }) {
   );
 }
 
-// ── PAGE: ADMIN (POST MANAGER) ──────────────────────────────
+// ââ PAGE: ADMIN (POST MANAGER) ââââââââââââââââââââââââââââââ
 function AdminPanel({ plays, rosters }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
   const [generatedPosts, setGeneratedPosts] = useState([]);
@@ -2514,7 +2514,7 @@ function AdminPanel({ plays, rosters }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 32, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -1 }}>Admin — Post Manager</h2>
+      <h2 style={{ fontSize: 32, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -1 }}>Admin â Post Manager</h2>
       <p style={{ fontSize: 15, color: "#64748b", margin: "0 0 24px" }}>Generate and manage Instagram matchup posts for every game.</p>
 
       <div style={{ display: "flex", gap: 12, marginBottom: 24, alignItems: "flex-end" }}>
@@ -2590,7 +2590,7 @@ function AdminPanel({ plays, rosters }) {
   );
 }
 
-// ── PAGE: 2026 SEASON PREVIEW ────────────────────────────────
+// ââ PAGE: 2026 SEASON PREVIEW ââââââââââââââââââââââââââââââââ
 function Season2026({ plays, rosters, onNavigateMatchup }) {
   const [myTeam, setMyTeam] = useState("BUF");
   const [viewMode, setViewMode] = useState("matchups"); // matchups | roster | needs
@@ -2598,7 +2598,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
 
   const opp = OPPONENTS_2026[myTeam] || { home: [], away: [] };
   const allOpponents = [...opp.home.map(t => ({ team: t, loc: "HOME" })), ...opp.away.map(t => ({ team: t, loc: "AWAY" }))];
-  // Deduplicate division (played twice — keep both as home/away)
+  // Deduplicate division (played twice â keep both as home/away)
   const myInfo = T.find(t => t.a === myTeam);
   const dna26 = DNA_2026[myTeam] || DNA[myTeam];
   const fa = FA_MOVES_2026[myTeam] || { added: [], lost: [] };
@@ -2621,7 +2621,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
           <TrendingUp size={20} color="#f97316" />
           <h1 style={{ fontSize: 24, fontWeight: 900, color: "#0f172a", margin: 0 }}>2026 Season Preview</h1>
         </div>
-        <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Opponents confirmed — weekly schedule TBD. Updated with free agency moves.</p>
+        <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Opponents confirmed â weekly schedule TBD. Updated with free agency moves.</p>
       </div>
 
       {/* Team Selector */}
@@ -2629,7 +2629,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <label style={{ fontSize: 13, fontWeight: 700, color: "#334155" }}>My Team</label>
           <select value={myTeam} onChange={e => setMyTeam(e.target.value)} style={{ padding: "8px 14px", borderRadius: 10, border: "1px solid #e2e8f0", fontSize: 13, fontWeight: 600, background: "#fff", cursor: "pointer" }}>
-            {T.map(t => <option key={t.a} value={t.a}>{t.a} — {t.n}</option>)}
+            {T.map(t => <option key={t.a} value={t.a}>{t.a} â {t.n}</option>)}
           </select>
         </div>
         <div style={{ display: "flex", gap: 4 }}>
@@ -2646,7 +2646,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div>
             <div style={{ fontSize: 28, fontWeight: 900, fontFamily: "monospace" }}>{myTeam}</div>
-            <div style={{ fontSize: 14, color: "#94a3b8" }}>{myInfo?.n} — {myInfo?.c} {myInfo?.d}</div>
+            <div style={{ fontSize: 14, color: "#94a3b8" }}>{myInfo?.n} â {myInfo?.c} {myInfo?.d}</div>
             <div style={{ fontSize: 16, fontWeight: 700, color: "#f97316", marginTop: 6 }}>{dna26.s}</div>
           </div>
           <div style={{ textAlign: "right" }}>
@@ -2664,7 +2664,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         </div>
       </div>
 
-      {/* ── MATCHUPS VIEW ── */}
+      {/* ââ MATCHUPS VIEW ââ */}
       {viewMode === "matchups" && (
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 12 }}>2026 Opponents</h3>
@@ -2691,7 +2691,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
                       {oItem.loc === "HOME" ? "HOME" : "AWAY"}
                     </span>
                   </div>
-                  <div style={{ fontSize: 12, color: "#64748b", marginBottom: 6 }}>{tn(oItem.team)} — {oppDna?.s}</div>
+                  <div style={{ fontSize: 12, color: "#64748b", marginBottom: 6 }}>{tn(oItem.team)} â {oppDna?.s}</div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ fontSize: 12, fontWeight: 700, color: "#334155" }}>2025: {recordStr(oItem.team)}</span>
                     <MatchupGrade grade={grade} />
@@ -2706,7 +2706,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         </div>
       )}
 
-      {/* ── WIN PROJECTIONS VIEW ── */}
+      {/* ââ WIN PROJECTIONS VIEW ââ */}
       {viewMode === "projections" && (() => {
         const all32 = projectAll32();
         const proj = all32[myTeam];
@@ -2722,7 +2722,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
                 <div>
                   <div style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5 }}>Projected Record</div>
                   <div style={{ fontSize: 40, fontWeight: 900, fontFamily: "monospace", lineHeight: 1 }}>{pW.toFixed(1)}<span style={{ fontSize: 20, color: "#64748b" }}>-{(17 - pW).toFixed(1)}</span></div>
-                  <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 4 }}>Range: {proj.floor}–{proj.ceiling} wins (90% confidence)</div>
+                  <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 4 }}>Range: {proj.floor}â{proj.ceiling} wins (90% confidence)</div>
                 </div>
                 <div style={{ display: "flex", gap: 20 }}>
                   <div style={{ textAlign: "center" }}>
@@ -2810,7 +2810,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         );
       })()}
 
-      {/* ── ROSTER VIEW (MERGED 2026 PROJECTION) ── */}
+      {/* ââ ROSTER VIEW (MERGED 2026 PROJECTION) ââ */}
       {viewMode === "roster" && (
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>Projected 2026 Roster</h3>
@@ -2880,7 +2880,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
         </div>
       )}
 
-      {/* ── DRAFT NEEDS VIEW ── */}
+      {/* ââ DRAFT NEEDS VIEW ââ */}
       {viewMode === "needs" && (
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 12 }}>2026 Draft Priorities</h3>
@@ -2932,7 +2932,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
   );
 }
 
-// ── MAIN APP ────────────────────────────────────────────────
+// ââ MAIN APP ââââââââââââââââââââââââââââââââââââââââââââââââ
 const MODULES = [
   { id: "season2026", label: "2026 Preview", icon: TrendingUp },
   { id: "thisweek", label: "This Week", icon: Calendar },
@@ -2951,6 +2951,18 @@ export default function DownfieldOS() {
   const [matchupOff, setMatchupOff] = useState(null);
   const [matchupDef, setMatchupDef] = useState(null);
   const [postPreview, setPostPreview] = useState(null);
+
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth < 768);
+  useEffect(() => {
+    const onResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (!mobile) setMobileSidebarOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const navigateToMatchup = useCallback((off, def) => {
     setMatchupOff(off);
@@ -2988,7 +3000,7 @@ export default function DownfieldOS() {
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
             {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => setActive(m.id)} />)}
             <div style={{ height: 1, background: "#1e293b", margin: "8px 0" }} />
-            <NavItem icon={Filter} label="Filters" active={showFilters} onClick={() => setShowFilters(!showFilters)} badge={isFiltered ? "ON" : null} />
+      <div style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
           </div>
           <div style={{ padding: "12px 16px", background: "#1e293b15", borderRadius: 10, marginTop: 16 }}>
             <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace", marginBottom: 4 }}>System Status</div>
@@ -2998,8 +3010,8 @@ export default function DownfieldOS() {
             </div>
             <div style={{ fontSize: 11, color: "#475569", marginTop: 6 }}>
               {isFiltered ? `${filteredPlays.length.toLocaleString()} / ${allPlays.length.toLocaleString()} plays` : `${allPlays.length.toLocaleString()} plays analyzed`}
-            </div>
-            <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v6 — 2026 Season Preview</div>
+            {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => { setActive(m.id); if (isMobile) setMobileSidebarOpen(false); }} />)}
+            <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v6 â 2026 Season Preview</div>
           </div>
         </div>
 
@@ -3023,9 +3035,21 @@ export default function DownfieldOS() {
           {active === "warroom" && <WarRoom plays={filteredPlays} />}
           {active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}
         </div>
+      {isMobile && mobileSidebarOpen && <div onClick={() => setMobileSidebarOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1400 }} />}
       </div>
 
-      {/* Post preview modal */}
+        <div style={{ padding: isMobile ? 16 : 32, maxWidth: 1000, margin: "0 auto" }}>
+          {isMobile && (
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
+              <button onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)} style={{ background: "#0d1117", border: "none", borderRadius: 8, width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+                <Menu size={20} color="#fff" />
+              </button>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <Zap size={16} color="#f97316" />
+                <span style={{ fontWeight: 800, fontSize: 15, color: "#0d1117" }}>DownfieldOS</span>
+              </div>
+            </div>
+          )}
       {postPreview && (
         <InstaPostCard
           away={postPreview.away} home={postPreview.home}
