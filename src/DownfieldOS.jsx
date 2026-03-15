@@ -2988,7 +2988,7 @@ export default function DownfieldOS() {
   return (
     <div style={{ display: "flex", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" }}>
       {/* Sidebar */}
-      <div style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: "flex", transition: "width .2s" }}>
+      <div style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
         {/* Nav */}
         <div style={{ width: 220, padding: "20px 12px", display: "flex", flexDirection: "column", flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 4px", marginBottom: 32 }}>
@@ -2998,9 +2998,9 @@ export default function DownfieldOS() {
             <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -.5 }}>DownfieldOS</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
-            {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => setActive(m.id)} />)}
+            {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => { setActive(m.id); if (isMobile) setMobileSidebarOpen(false); }} />)}
             <div style={{ height: 1, background: "#1e293b", margin: "8px 0" }} />
-      <div style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
+            <NavItem icon={Filter} label="Filters" active={showFilters} onClick={() => setShowFilters(!showFilters)} badge={isFiltered ? "ON" : null} />
           </div>
           <div style={{ padding: "12px 16px", background: "#1e293b15", borderRadius: 10, marginTop: 16 }}>
             <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace", marginBottom: 4 }}>System Status</div>
@@ -3010,7 +3010,7 @@ export default function DownfieldOS() {
             </div>
             <div style={{ fontSize: 11, color: "#475569", marginTop: 6 }}>
               {isFiltered ? `${filteredPlays.length.toLocaleString()} / ${allPlays.length.toLocaleString()} plays` : `${allPlays.length.toLocaleString()} plays analyzed`}
-            {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => { setActive(m.id); if (isMobile) setMobileSidebarOpen(false); }} />)}
+            </div>
             <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v6 â 2026 Season Preview</div>
           </div>
         </div>
@@ -3023,21 +3023,9 @@ export default function DownfieldOS() {
         )}
       </div>
 
+      {isMobile && mobileSidebarOpen && <div onClick={() => setMobileSidebarOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1400 }} />}
       {/* Main */}
       <div style={{ flex: 1, background: "#f8fafc", overflow: "auto" }}>
-        <div style={{ padding: 32, maxWidth: 1000, margin: "0 auto" }}>
-          {active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} />}
-          {active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}
-          {active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}
-          {active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} />}
-          {active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}
-          {active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} />}
-          {active === "warroom" && <WarRoom plays={filteredPlays} />}
-          {active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}
-        </div>
-      {isMobile && mobileSidebarOpen && <div onClick={() => setMobileSidebarOpen(false)} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1400 }} />}
-      </div>
-
         <div style={{ padding: isMobile ? 16 : 32, maxWidth: 1000, margin: "0 auto" }}>
           {isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
@@ -3050,6 +3038,18 @@ export default function DownfieldOS() {
               </div>
             </div>
           )}
+          {active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} />}
+          {active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}
+          {active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}
+          {active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} />}
+          {active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}
+          {active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} />}
+          {active === "warroom" && <WarRoom plays={filteredPlays} />}
+          {active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}
+        </div>
+      </div>
+
+      {/* Post preview modal */}
       {postPreview && (
         <InstaPostCard
           away={postPreview.away} home={postPreview.home}
