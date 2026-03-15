@@ -2538,7 +2538,7 @@ function AdminPanel({ plays, rosters }) {
       )}
 
       {/* Post grid */}
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(isMobile ? "100%" : "280px", 1fr))", gap: 16 }}>
+      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 16 }}>
         {(generatedPosts.length > 0 ? generatedPosts : weekGames.map(g => ({ away: g.away, home: g.home, aStats: agg(plays, g.away), hStats: agg(plays, g.home), status: "draft" }))).map((post, i) => {
           const aGrade = calcMatchupGrade(post.aStats, post.hStats, bl);
           const hGrade = calcMatchupGrade(post.hStats, post.aStats, bl);
@@ -2668,7 +2668,7 @@ function Season2026({ plays, rosters, onNavigateMatchup }) {
       {viewMode === "matchups" && (
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 12 }}>2026 Opponents</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(isMobile ? "100%" : "280px", 1fr))", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
             {allOpponents.map((oItem, i) => {
               const oppDna = DNA_2026[oItem.team] || DNA[oItem.team];
               const oppRec = RECORDS_2025[oItem.team];
