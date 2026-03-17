@@ -1,8 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
+import { calcMatchupGrade } from '../../utils/grading';
+import { generateTweetThread } from '../../utils/tweetThread';
 import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
@@ -17,6 +19,8 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   useEffect(() => { if (initialDef) setDefTm(initialDef); }, [initialDef]);
   useEffect(() => { if (primaryTeam && !initialOff) setOffTm(primaryTeam); }, [primaryTeam]);
   const [showPlayers, setShowPlayers] = useState(false);
+  const [showThread, setShowThread] = useState(false);
+  const [copiedIdx, setCopiedIdx] = useState(null);
   const os = useMemo(() => agg(plays, offTm), [plays, offTm]);
   const ds = useMemo(() => agg(plays, defTm), [plays, defTm]);
   const bl = useMemo(() => lgbl(plays), [plays]);
@@ -25,6 +29,14 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const offScript = useMemo(() => scriptedPlaysPreview(offTm, os, oR), [offTm, os, oR]);
   const defScript = useMemo(() => scriptedPlaysPreview(defTm, agg(plays, defTm), rosters[defTm]), [defTm, plays, rosters]);
   const playerMatchups = useMemo(() => playerMatchupSummary(oR, dR, offTm, defTm), [oR, dR, offTm, defTm]);
+  const grade = useMemo(() => calcMatchupGrade(os, ds, bl), [os, ds, bl]);
+  const thread = useMemo(() => generateTweetThread(offTm, defTm, os, ds, bl, grade), [offTm, defTm, os, ds, bl, grade]);
+
+  const copyTweet = (text, idx) => {
+    navigator.clipboard?.writeText(text);
+    setCopiedIdx(idx);
+    setTimeout(() => setCopiedIdx(null), 1500);
+  };
 
   return (
     <div>
@@ -97,6 +109,43 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Tweet Thread Generator */}
+      <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden", marginTop: 20 }}>
+        <button onClick={() => setShowThread(!showThread)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", borderBottom: showThread ? "1px solid #e2e8f0" : "none" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Twitter size={20} color="#1d9bf0" />
+            <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Generate Tweet Thread</span>
+            <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>5 tweets</span>
+          </div>
+          {showThread ? <ChevronDown size={20} color="#94a3b8" /> : <ChevronRight size={20} color="#94a3b8" />}
+        </button>
+        {showThread && (
+          <div style={{ padding: 24 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+              <div style={{ fontSize: 13, color: "#64748b" }}>Ready to post. Copy each tweet individually or copy all at once.</div>
+              <button onClick={() => copyTweet(thread.join("\n\n---\n\n"), -1)} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 14px", borderRadius: 8, border: "1px solid #e2e8f0", background: copiedIdx === -1 ? "#f0fdf4" : "#fff", fontSize: 12, fontWeight: 600, color: copiedIdx === -1 ? "#16a34a" : "#64748b", cursor: "pointer" }}>
+                {copiedIdx === -1 ? <Check size={13} /> : <Copy size={13} />}
+                {copiedIdx === -1 ? "Copied!" : "Copy All"}
+              </button>
+            </div>
+            {thread.map((tweet, i) => (
+              <div key={i} style={{ background: "#f8fafc", borderRadius: 12, padding: 16, marginBottom: 12, border: "1px solid #f1f5f9" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#1d9bf0", fontFamily: "monospace" }}>Tweet {i + 1}/5</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ fontSize: 11, color: tweet.length > 280 ? "#dc2626" : "#94a3b8", fontFamily: "monospace" }}>{tweet.length}/280</span>
+                    <button onClick={() => copyTweet(tweet, i)} style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 10px", borderRadius: 6, border: "1px solid #e2e8f0", background: copiedIdx === i ? "#f0fdf4" : "#fff", fontSize: 11, fontWeight: 600, color: copiedIdx === i ? "#16a34a" : "#64748b", cursor: "pointer" }}>
+                      {copiedIdx === i ? <><Check size={11} /> Copied</> : <><Copy size={11} /> Copy</>}
+                    </button>
+                  </div>
+                </div>
+                <div style={{ fontSize: 14, color: "#0f172a", lineHeight: 1.6, whiteSpace: "pre-wrap" }}>{tweet}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -8,3 +8,4 @@ export { recordStr, teamPower, gameWinProb, projectSeason, projectAll32 } from '
 export { generatePlays } from './playGenerator';
 export { teamSoWhat, matchupPreview, scriptedPlaysPreview, playerMatchupSummary, gmVoice, genNeeds } from './narratives';
 export { downloadCSV } from './csvExport';
+export { generateTweetThread } from './tweetThread';

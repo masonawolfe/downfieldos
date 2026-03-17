@@ -128,10 +128,10 @@ export default function DownfieldOS() {
             </div>
           )}
           <ErrorBoundary label="2026 Preview">{active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} primaryTeam={primaryTeam} />}</ErrorBoundary>
-          <ErrorBoundary label="This Week">{active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}</ErrorBoundary>
-          <ErrorBoundary label="So What?">{active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}</ErrorBoundary>
+          <ErrorBoundary label="This Week">{active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} primaryTeam={primaryTeam} />}</ErrorBoundary>
+          <ErrorBoundary label="So What?">{active === "dashboard" && <SoWhatDashboard plays={filteredPlays} primaryTeam={primaryTeam} />}</ErrorBoundary>
           <ErrorBoundary label="Matchup Preview">{active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} primaryTeam={primaryTeam} />}</ErrorBoundary>
-          <ErrorBoundary label="Fantasy Intel">{active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}</ErrorBoundary>
+          <ErrorBoundary label="Fantasy Intel">{active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} />}</ErrorBoundary>
           <ErrorBoundary label="Team Intel">{active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} />}</ErrorBoundary>
           <ErrorBoundary label="War Room">{active === "warroom" && <WarRoom plays={filteredPlays} primaryTeam={primaryTeam} />}</ErrorBoundary>
           <ErrorBoundary label="Admin">{active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}</ErrorBoundary>

@@ -9,7 +9,7 @@ import { MatchupGrade } from '../ui/MatchupGrade';
 import { InsightCard } from '../ui/InsightCard';
 import { RatingBar } from '../ui/RatingBar';
 
-export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost }) {
+export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
   const [selectedSeason, setSelectedSeason] = useState(2025);
   const [expandedGame, setExpandedGame] = useState(null);
@@ -199,7 +199,11 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost }) 
       {weekGames.length === 0 ? (
         <InsightCard tone="neutral" icon={Calendar} headline="No games found" body={`No matchup data for Season ${selectedSeason}, Week ${selectedWeek}. Try a different week.`} />
       ) : (
-        weekGames.map(g => <GameCard key={g.gameId} game={g} />)
+        [...weekGames].sort((a, b) => {
+          const aHas = primaryTeam && (a.home === primaryTeam || a.away === primaryTeam) ? 1 : 0;
+          const bHas = primaryTeam && (b.home === primaryTeam || b.away === primaryTeam) ? 1 : 0;
+          return bHas - aHas;
+        }).map(g => <GameCard key={g.gameId} game={g} />)
       )}
     </div>
   );

@@ -11,7 +11,7 @@ import { RatingBar } from '../ui/RatingBar';
 import { InsightCard } from '../ui/InsightCard';
 import { ExportButton } from '../ui/ExportButton';
 
-export function FantasyIntel({ plays, rosters }) {
+export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
   const bl = useMemo(() => lgbl(plays), [plays]);
@@ -87,9 +87,10 @@ export function FantasyIntel({ plays, rosters }) {
     const gradeColor = pos.score > 75 ? "#16a34a" : pos.score > 55 ? "#2563eb" : pos.score > 45 ? "#eab308" : "#dc2626";
     const boomPct = Math.round(pos.boom * 100);
     const bustPct = Math.round(pos.bust * 100);
+    const isMyTeam = primaryTeam && item.off === primaryTeam;
 
     return (
-      <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid #f1f5f9" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid #f1f5f9", background: isMyTeam ? "#fff7ed" : "transparent", borderLeft: isMyTeam ? "3px solid #f97316" : "3px solid transparent" }}>
         <div style={{ width: 28, fontSize: 14, fontWeight: 800, color: rank <= 3 ? "#f97316" : rank <= 8 ? "#0f172a" : "#94a3b8", fontFamily: "monospace" }}>#{rank}</div>
         <div style={{ width: 42, height: 42, borderRadius: 10, background: gradeColor + "15", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <span style={{ fontSize: 16, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{grade}</span>
