@@ -1,10 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { calcMatchupGrade } from '../../utils/grading';
 import { generateTweetThread } from '../../utils/tweetThread';
+import { generatePrepSheet, generateNewsletterDraft } from '../../utils/prepSheet';
 import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
@@ -36,6 +37,18 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
     navigator.clipboard?.writeText(text);
     setCopiedIdx(idx);
     setTimeout(() => setCopiedIdx(null), 1500);
+  };
+
+  const downloadText = (filename, content) => {
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -109,6 +122,18 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Content Export Tools */}
+      <div style={{ display: "flex", gap: 10, marginTop: 20, flexWrap: "wrap" }}>
+        <button onClick={() => downloadText(`prep-sheet-${offTm}-vs-${defTm}.txt`, generatePrepSheet(offTm, defTm, os, ds, bl, grade, oR, dR, playerMatchups))} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 20px", borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", fontSize: 13, fontWeight: 700, color: "#0f172a", cursor: "pointer", transition: "all .15s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#f97316"; e.currentTarget.style.color = "#f97316"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#0f172a"; }}>
+          <Mic size={16} /> Podcast Prep Sheet
+          <Download size={13} style={{ opacity: 0.5 }} />
+        </button>
+        <button onClick={() => downloadText(`newsletter-${offTm}-vs-${defTm}.md`, generateNewsletterDraft(offTm, defTm, os, ds, bl, grade, oR, dR))} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 20px", borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", fontSize: 13, fontWeight: 700, color: "#0f172a", cursor: "pointer", transition: "all .15s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#f97316"; e.currentTarget.style.color = "#f97316"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#0f172a"; }}>
+          <FileText size={16} /> Newsletter Draft
+          <Download size={13} style={{ opacity: 0.5 }} />
+        </button>
       </div>
 
       {/* Tweet Thread Generator */}

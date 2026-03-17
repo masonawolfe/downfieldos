@@ -1,12 +1,15 @@
-import { useMemo } from "react";
-import { Star, Zap, AlertTriangle, Eye, Activity, BookOpen, Target } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Star, Zap, AlertTriangle, Eye, Activity, BookOpen, Target, ChevronDown, ChevronRight, Users } from "lucide-react";
 import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { InsightCard } from '../ui/InsightCard';
 
 export function SoWhatDashboard({ plays, primaryTeam }) {
+  const isMobile = useIsMobile();
+  const [showCards, setShowCards] = useState(false);
   const bl = useMemo(() => lgbl(plays), [plays]);
   const ranked = useMemo(() => T.map(t => ({ a: t.a, n: t.n, s: agg(plays, t.a) })).sort((a, b) => (b.s.sr * .4 + b.s.xr * 3 + b.s.pr * .2) - (a.s.sr * .4 + a.s.xr * 3 + a.s.pr * .2)), [plays]);
   const best = ranked[0], worst = ranked[31];
@@ -33,7 +36,47 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
       <InsightCard tone="negative" icon={AlertTriangle} stat={pct(leastEfficient.s.sr)} headline={`${tn(leastEfficient.a)} can't stay on schedule`} body={`Dead last at ${pct(leastEfficient.s.sr)} success rate. They constantly face 3rd-and-long, where defenses pin their ears back. Vicious cycle.`} />
       <InsightCard tone="warning" icon={Eye} stat={pct(worstDef.s.dsr)} headline={`${tn(worstDef.a)}'s defense is getting shredded`} body={`Allowing ${pct(worstDef.s.dsr)} success rate — worst in the league. Opposing offenses gain positive yardage on ${(worstDef.s.dsr * 100).toFixed(0)}%+ of plays.`} />
       <InsightCard tone="neutral" icon={Activity} stat={pct(mostRunHeavy.s.pr)} headline={`${tn(mostRunHeavy.a)} runs more than anyone`} body={`Only ${pct(mostRunHeavy.s.pr)} pass rate — lowest in the NFL. Stop the run and you stop this team.`} />
-      <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly. The chatbot (orange button) answers questions about anything you see.`} />
+      {/* Team Identity Cards */}
+      <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden", marginTop: 12, marginBottom: 12 }}>
+        <button onClick={() => setShowCards(!showCards)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", borderBottom: showCards ? "1px solid #e2e8f0" : "none" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Users size={20} color="#f97316" />
+            <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Team Identity Cards</span>
+            <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>32 teams</span>
+          </div>
+          {showCards ? <ChevronDown size={20} color="#94a3b8" /> : <ChevronRight size={20} color="#94a3b8" />}
+        </button>
+        {showCards && (
+          <div style={{ padding: 20, display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
+            {ranked.map((r, i) => {
+              const d = DNA[r.a];
+              const rank = i + 1;
+              const isMyTeam = primaryTeam && r.a === primaryTeam;
+              const mood = rank <= 8 ? { label: "Rolling", color: "#16a34a", bg: "#f0fdf4" } : rank <= 16 ? { label: "Solid", color: "#2563eb", bg: "#eff6ff" } : rank <= 24 ? { label: "Struggling", color: "#d97706", bg: "#fffbeb" } : { label: "Pain", color: "#dc2626", bg: "#fef2f2" };
+              const style = r.s.pr > bl.pr + 0.05 ? "Pass-heavy" : r.s.pr < bl.pr - 0.05 ? "Run-heavy" : "Balanced";
+              return (
+                <div key={r.a} style={{ background: mood.bg, borderRadius: 12, padding: 16, border: isMyTeam ? "2px solid #f97316" : "1px solid #f1f5f9", position: "relative" }}>
+                  {isMyTeam && <div style={{ position: "absolute", top: 8, right: 10, fontSize: 10, fontWeight: 800, color: "#f97316", letterSpacing: 1 }}>MY TEAM</div>}
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <span style={{ fontSize: 11, fontWeight: 800, color: "#94a3b8", fontFamily: "monospace" }}>#{rank}</span>
+                    <span style={{ fontSize: 15, fontWeight: 800, color: "#0f172a" }}>{tn(r.a)}</span>
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color: mood.color, marginBottom: 6 }}>{d?.s || ""}</div>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 8 }}>
+                    <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 6, background: mood.color + "15", color: mood.color, fontWeight: 700 }}>{mood.label}</span>
+                    <span style={{ fontSize: 11, padding: "2px 8px", borderRadius: 6, background: "#f1f5f9", color: "#64748b", fontWeight: 600 }}>{style}</span>
+                  </div>
+                  <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.5 }}>
+                    SR {pct(r.s.sr)} | XR {pct(r.s.xr)} | PR {pct(r.s.pr)}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly.`} />
     </div>
   );
 }
