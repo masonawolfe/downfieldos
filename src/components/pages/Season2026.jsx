@@ -14,8 +14,10 @@ import { recordStr, projectAll32 } from '../../utils/projections';
 import { genRoster2026 } from '../../utils/roster';
 import { gmVoice, genNeeds } from '../../utils/narratives';
 import { calcMatchupGrade } from '../../utils/grading';
+import { downloadCSV } from '../../utils/csvExport';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
+import { ExportButton } from '../ui/ExportButton';
 
 export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -95,7 +97,21 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {/* -- MATCHUPS VIEW -- */}
       {viewMode === "matchups" && (
         <div>
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 12 }}>2026 Opponents</h3>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents</h3>
+            <ExportButton onClick={() => {
+              const headers = ["Opponent", "Location", "Division", "2025 Record", "Identity", "Matchup Grade"];
+              const rows = allOpponents.map(oItem => {
+                const oppDna = DNA_2026[oItem.team] || DNA[oItem.team];
+                const oppStats = agg(plays, oItem.team);
+                const myStats = agg(plays, myTeam);
+                const grade = calcMatchupGrade(myStats, oppStats, bl);
+                const isDivision = T.find(t => t.a === oItem.team)?.d === myInfo?.d && T.find(t => t.a === oItem.team)?.c === myInfo?.c;
+                return [tn(oItem.team), oItem.loc, isDivision ? "Yes" : "No", recordStr(oItem.team), oppDna?.s, grade];
+              });
+              downloadCSV(`${myTeam}-2026-opponents`, headers, rows);
+            }} />
+          </div>
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
             {allOpponents.map((oItem, i) => {
               const oppDna = DNA_2026[oItem.team] || DNA[oItem.team];
@@ -214,7 +230,18 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
             </div>
 
             {/* League-wide Rankings */}
-            <h4 style={{ fontSize: 14, fontWeight: 800, color: "#0f172a", marginBottom: 8 }}>League-Wide Win Projections</h4>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <h4 style={{ fontSize: 14, fontWeight: 800, color: "#0f172a", margin: 0 }}>League-Wide Win Projections</h4>
+              <ExportButton onClick={() => {
+                const headers = ["Rank", "Team", "Projected Wins", "Floor", "Ceiling", "SOS Rank"];
+                const ranked = T.map(t => t.a).sort((a, b) => (all32[b]?.projectedWins || 0) - (all32[a]?.projectedWins || 0));
+                const rows = ranked.map((tm, i) => {
+                  const p = all32[tm];
+                  return p ? [i + 1, tm, p.projectedWins.toFixed(1), p.floor, p.ceiling, p.sosRank] : null;
+                }).filter(Boolean);
+                downloadCSV("league-win-projections-2026", headers, rows);
+              }} />
+            </div>
             <div style={{ background: "#fff", borderRadius: 12, border: "1px solid #e2e8f0", padding: 16, maxHeight: 400, overflowY: "auto" }}>
               {T.map(t => t.a).sort((a, b) => (all32[b]?.projectedWins || 0) - (all32[a]?.projectedWins || 0)).map((tm, i) => {
                 const p = all32[tm];

@@ -10,7 +10,7 @@ import { generatePlays } from './utils/playGenerator';
 import { genRoster } from './utils/roster';
 import { lgbl } from './utils/aggregation';
 import { sr } from './utils/rng';
-import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect } from './components/ui';
+import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect, ErrorBoundary } from './components/ui';
 import { Season2026 } from './components/pages/Season2026';
 import { ThisWeek } from './components/pages/ThisWeek';
 import { SoWhatDashboard } from './components/pages/SoWhatDashboard';
@@ -127,14 +127,14 @@ export default function DownfieldOS() {
               </div>
             </div>
           )}
-          {active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} primaryTeam={primaryTeam} />}
-          {active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}
-          {active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}
-          {active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} primaryTeam={primaryTeam} />}
-          {active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}
-          {active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} />}
-          {active === "warroom" && <WarRoom plays={filteredPlays} primaryTeam={primaryTeam} />}
-          {active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}
+          <ErrorBoundary label="2026 Preview">{active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} primaryTeam={primaryTeam} />}</ErrorBoundary>
+          <ErrorBoundary label="This Week">{active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}</ErrorBoundary>
+          <ErrorBoundary label="So What?">{active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}</ErrorBoundary>
+          <ErrorBoundary label="Matchup Preview">{active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} primaryTeam={primaryTeam} />}</ErrorBoundary>
+          <ErrorBoundary label="Fantasy Intel">{active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}</ErrorBoundary>
+          <ErrorBoundary label="Team Intel">{active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} />}</ErrorBoundary>
+          <ErrorBoundary label="War Room">{active === "warroom" && <WarRoom plays={filteredPlays} primaryTeam={primaryTeam} />}</ErrorBoundary>
+          <ErrorBoundary label="Admin">{active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}</ErrorBoundary>
         </div>
       </div>
 

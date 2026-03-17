@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Zap } from "lucide-react";
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
@@ -21,12 +21,28 @@ export function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose
   const hCB1 = rosters[home]?.defense.find(p => p.pos === "CB1");
 
   const cardRef = useRef(null);
+  const FORMATS = [
+    { id: "ig-portrait", label: "IG Portrait", w: 440, ratio: "4/5" },
+    { id: "ig-square", label: "IG Square", w: 440, ratio: "1/1" },
+    { id: "twitter", label: "Twitter", w: 520, ratio: "1200/675" },
+    { id: "story", label: "Story/TikTok", w: 340, ratio: "9/16" },
+  ];
+  const [formatIdx, setFormatIdx] = useState(0);
+  const fmt = FORMATS[formatIdx];
+  const isCompact = fmt.id === "twitter";
+  const isTall = fmt.id === "story";
 
   return (
     <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }} onClick={onClose}>
-      <div onClick={e => e.stopPropagation()} style={{ width: 440, background: "#0f172a", borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}>
-        {/* Post card - Instagram 4:5 ratio */}
-        <div ref={cardRef} style={{ width: 440, aspectRatio: "4/5", background: "linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)", padding: 32, display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative", overflow: "hidden" }}>
+      <div onClick={e => e.stopPropagation()} style={{ width: fmt.w, background: "#0f172a", borderRadius: 24, overflow: "hidden", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", maxHeight: "90vh", overflowY: "auto" }}>
+        {/* Format selector */}
+        <div style={{ display: "flex", gap: 4, padding: "12px 16px", background: "#1e293b", justifyContent: "center" }}>
+          {FORMATS.map((f, i) => (
+            <button key={f.id} onClick={() => setFormatIdx(i)} style={{ padding: "5px 12px", borderRadius: 6, border: "1px solid", borderColor: i === formatIdx ? "#f97316" : "#334155", background: i === formatIdx ? "#f97316" : "transparent", color: i === formatIdx ? "#fff" : "#94a3b8", fontSize: 11, fontWeight: 700, cursor: "pointer" }}>{f.label}</button>
+          ))}
+        </div>
+        {/* Post card */}
+        <div ref={cardRef} style={{ width: fmt.w, aspectRatio: fmt.ratio, background: "linear-gradient(145deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)", padding: isCompact ? 20 : isTall ? 28 : 32, display: "flex", flexDirection: "column", justifyContent: "space-between", position: "relative", overflow: "hidden" }}>
           {/* Decorative elements */}
           <div style={{ position: "absolute", top: -60, right: -60, width: 200, height: 200, borderRadius: "50%", background: "rgba(249,115,22,0.08)" }} />
           <div style={{ position: "absolute", bottom: -40, left: -40, width: 150, height: 150, borderRadius: "50%", background: "rgba(249,115,22,0.05)" }} />

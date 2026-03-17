@@ -3,7 +3,9 @@ import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { teamSoWhat } from '../../utils/narratives';
+import { downloadCSV } from '../../utils/csvExport';
 import { TeamSelect } from '../ui/TeamSelect';
+import { ExportButton } from '../ui/ExportButton';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -15,8 +17,20 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: 28, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -.5 }}>Team Intel</h2>
-      <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>Everything you need to know. Filters apply to all metrics.</p>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+        <div>
+          <h2 style={{ fontSize: 28, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -.5 }}>Team Intel</h2>
+          <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>Everything you need to know. Filters apply to all metrics.</p>
+        </div>
+        <ExportButton label="Export Roster" onClick={() => {
+          const headers = ["Unit", "Position", "Player", "Grade", "Rating", "Trait"];
+          const rows = [
+            ...roster.offense.map(p => ["Offense", p.pos, p.name, p.grade, p.rating, p.trait]),
+            ...roster.defense.map(p => ["Defense", p.pos, p.name, p.grade, p.rating, p.trait]),
+          ];
+          downloadCSV(`${team}-roster`, headers, rows);
+        }} />
+      </div>
       <TeamSelect value={team} onChange={setTeam} label="Team" />
       <div style={{ marginTop: 20, background: "#0f172a", borderRadius: 16, padding: 24, marginBottom: 20, display: "flex", alignItems: "center", gap: 20 }}>
         <div style={{ background: "#1e293b", borderRadius: 14, width: 72, height: 72, display: "flex", alignItems: "center", justifyContent: "center" }}>

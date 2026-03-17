@@ -5,9 +5,11 @@ import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
+import { downloadCSV } from '../../utils/csvExport';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { RatingBar } from '../ui/RatingBar';
 import { InsightCard } from '../ui/InsightCard';
+import { ExportButton } from '../ui/ExportButton';
 
 export function FantasyIntel({ plays, rosters }) {
   const [posFilter, setPosFilter] = useState("QB");
@@ -157,8 +159,20 @@ export function FantasyIntel({ plays, rosters }) {
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden" }}>
         <div style={{ padding: "16px 16px 8px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ fontSize: 16, fontWeight: 800, color: "#0f172a" }}>{posFilter} Matchup Rankings — Week {selectedWeek}</div>
-          <div style={{ display: "flex", gap: 16, fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
-            <span>Score</span><span style={{ width: 120, textAlign: "center" }}>Boom / Bust</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <ExportButton onClick={() => {
+              const headers = ["Rank", "Player", "Team", "Opponent", "Score", "Grade", "Boom%", "Bust%"];
+              const rows = sorted.slice(0, 16).map((item, i) => {
+                const pos = item[posFilter];
+                if (!pos || !pos.player) return null;
+                const grade = pos.score > 85 ? "A+" : pos.score > 75 ? "A" : pos.score > 65 ? "B+" : pos.score > 55 ? "B" : pos.score > 45 ? "C" : "D";
+                return [i + 1, pos.player.name, item.off, item.def, Math.round(pos.score), grade, Math.round(pos.boom * 100), Math.round(pos.bust * 100)];
+              }).filter(Boolean);
+              downloadCSV(`fantasy-${posFilter}-week${selectedWeek}`, headers, rows);
+            }} />
+            <div style={{ display: "flex", gap: 16, fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
+              <span>Score</span><span style={{ width: 120, textAlign: "center" }}>Boom / Bust</span>
+            </div>
           </div>
         </div>
         {sorted.slice(0, 16).map((item, i) => <FantasyRow key={`${item.off}-${item.def}`} item={item} rank={i + 1} />)}
