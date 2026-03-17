@@ -10,7 +10,7 @@ import { generatePlays } from './utils/playGenerator';
 import { genRoster } from './utils/roster';
 import { lgbl } from './utils/aggregation';
 import { sr } from './utils/rng';
-import { NavItem, FilterPanel, InstaPostCard, Logo } from './components/ui';
+import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect } from './components/ui';
 import { Season2026 } from './components/pages/Season2026';
 import { ThisWeek } from './components/pages/ThisWeek';
 import { SoWhatDashboard } from './components/pages/SoWhatDashboard';
@@ -39,6 +39,8 @@ export default function DownfieldOS() {
   const [matchupOff, setMatchupOff] = useState(null);
   const [matchupDef, setMatchupDef] = useState(null);
   const [postPreview, setPostPreview] = useState(null);
+  const [primaryTeam, setPrimaryTeam] = useState(() => localStorage.getItem('dfos-primary-team') || 'BUF');
+  useEffect(() => { localStorage.setItem('dfos-primary-team', primaryTeam); }, [primaryTeam]);
 
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const isMobile = useIsMobile();
@@ -77,6 +79,12 @@ export default function DownfieldOS() {
               <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -.5 }}>DownfieldOS</div>
             </div>
             <div style={{ fontSize: 11, color: "#8B949E", letterSpacing: 1.5, marginTop: 6, paddingLeft: 46 }}>Football, understood.</div>
+          </div>
+          <div style={{ padding: "0 4px", marginBottom: 16 }}>
+            <select value={primaryTeam} onChange={e => setPrimaryTeam(e.target.value)} style={{ width: "100%", background: "#1e293b", color: "#e2e8f0", border: "1px solid #334155", borderRadius: 8, padding: "8px 10px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+              {T.map(t => <option key={t.a} value={t.a}>{t.a} — {t.n}</option>)}
+            </select>
+            <div style={{ fontSize: 10, color: "#475569", marginTop: 4, textTransform: "uppercase", letterSpacing: 1.2 }}>My Team</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
             {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => { setActive(m.id); if (isMobile) setMobileSidebarOpen(false); }} />)}
@@ -119,13 +127,13 @@ export default function DownfieldOS() {
               </div>
             </div>
           )}
-          {active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} />}
+          {active === "season2026" && <Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} primaryTeam={primaryTeam} />}
           {active === "thisweek" && <ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} />}
           {active === "dashboard" && <SoWhatDashboard plays={filteredPlays} />}
-          {active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} />}
+          {active === "matchup" && <MatchupCenter plays={filteredPlays} rosters={rosters} initialOff={matchupOff} initialDef={matchupDef} primaryTeam={primaryTeam} />}
           {active === "fantasy" && <FantasyIntel plays={filteredPlays} rosters={rosters} />}
-          {active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} />}
-          {active === "warroom" && <WarRoom plays={filteredPlays} />}
+          {active === "intel" && <TeamIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} />}
+          {active === "warroom" && <WarRoom plays={filteredPlays} primaryTeam={primaryTeam} />}
           {active === "admin" && <AdminPanel plays={filteredPlays} rosters={rosters} />}
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { TrendingUp, ArrowUpRight, ArrowDownRight, BookOpen } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { T } from '../../data/teams';
@@ -17,9 +17,10 @@ import { calcMatchupGrade } from '../../utils/grading';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 
-export function Season2026({ plays, rosters, onNavigateMatchup }) {
+export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
   const isMobile = useIsMobile();
-  const [myTeam, setMyTeam] = useState("BUF");
+  const [myTeam, setMyTeam] = useState(primaryTeam || "BUF");
+  useEffect(() => { if (primaryTeam) setMyTeam(primaryTeam); }, [primaryTeam]);
   const [viewMode, setViewMode] = useState("matchups"); // matchups | roster | needs
   const bl = useMemo(() => lgbl(plays), [plays]);
 

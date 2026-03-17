@@ -9,12 +9,13 @@ import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
 import { MatchupGrade } from '../ui/MatchupGrade';
 
-export function MatchupCenter({ plays, rosters, initialOff, initialDef }) {
+export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
-  const [offTm, setOffTm] = useState(initialOff || "KC");
+  const [offTm, setOffTm] = useState(initialOff || primaryTeam || "KC");
   const [defTm, setDefTm] = useState(initialDef || "BUF");
   useEffect(() => { if (initialOff) setOffTm(initialOff); }, [initialOff]);
   useEffect(() => { if (initialDef) setDefTm(initialDef); }, [initialDef]);
+  useEffect(() => { if (primaryTeam && !initialOff) setOffTm(primaryTeam); }, [primaryTeam]);
   const [showPlayers, setShowPlayers] = useState(false);
   const os = useMemo(() => agg(plays, offTm), [plays, offTm]);
   const ds = useMemo(() => agg(plays, defTm), [plays, defTm]);

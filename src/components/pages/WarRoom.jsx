@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Shield } from "lucide-react";
 import { agg, lgbl } from '../../utils/aggregation';
 import { teamSoWhat, gmVoice, genNeeds } from '../../utils/narratives';
@@ -6,8 +6,9 @@ import { tn } from '../../utils/formatters';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 
-export function WarRoom({ plays }) {
-  const [team, setTeam] = useState("CAR");
+export function WarRoom({ plays, primaryTeam }) {
+  const [team, setTeam] = useState(primaryTeam || "CAR");
+  useEffect(() => { if (primaryTeam) setTeam(primaryTeam); }, [primaryTeam]);
   const stats = useMemo(() => agg(plays, team), [plays, team]);
   const bl = useMemo(() => lgbl(plays), [plays]);
   const needs = useMemo(() => genNeeds(team, stats, bl), [team, stats, bl]);

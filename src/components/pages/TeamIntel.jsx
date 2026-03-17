@@ -1,12 +1,13 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { teamSoWhat } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 
-export function TeamIntel({ plays, rosters }) {
-  const [team, setTeam] = useState("KC");
+export function TeamIntel({ plays, rosters, primaryTeam }) {
+  const [team, setTeam] = useState(primaryTeam || "KC");
+  useEffect(() => { if (primaryTeam) setTeam(primaryTeam); }, [primaryTeam]);
   const stats = useMemo(() => agg(plays, team), [plays, team]);
   const bl = useMemo(() => lgbl(plays), [plays]);
   const overview = useMemo(() => teamSoWhat(team, stats, bl), [team, stats, bl]);
