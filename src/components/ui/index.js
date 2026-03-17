@@ -7,3 +7,4 @@ export { NavItem } from './NavItem';
 export { TeamSelect } from './TeamSelect';
 export { FilterPanel } from './FilterPanel';
 export { InstaPostCard } from './InstaPostCard';
+export { Logo } from './Logo';

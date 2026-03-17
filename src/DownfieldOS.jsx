@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
 import {
-  Zap, Target, TrendingUp, Calendar, Star, Swords,
+  Target, TrendingUp, Calendar, Star, Swords,
   Flame, Eye, Shield, Filter, Menu
 } from "lucide-react";
 import { useIsMobile } from './hooks/useIsMobile';
@@ -10,7 +10,7 @@ import { generatePlays } from './utils/playGenerator';
 import { genRoster } from './utils/roster';
 import { lgbl } from './utils/aggregation';
 import { sr } from './utils/rng';
-import { NavItem, FilterPanel, InstaPostCard } from './components/ui';
+import { NavItem, FilterPanel, InstaPostCard, Logo } from './components/ui';
 import { Season2026 } from './components/pages/Season2026';
 import { ThisWeek } from './components/pages/ThisWeek';
 import { SoWhatDashboard } from './components/pages/SoWhatDashboard';
@@ -19,7 +19,7 @@ import { FantasyIntel } from './components/pages/FantasyIntel';
 import { TeamIntel } from './components/pages/TeamIntel';
 import { WarRoom } from './components/pages/WarRoom';
 import { AdminPanel } from './components/pages/AdminPanel';
-import { Chatbot } from './components/pages/Chatbot';
+
 
 const MODULES = [
   { id: "season2026", label: "2026 Preview", icon: TrendingUp },
@@ -71,11 +71,12 @@ export default function DownfieldOS() {
       <div style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
         {/* Nav */}
         <div style={{ width: 220, padding: "20px 12px", display: "flex", flexDirection: "column", flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 4px", marginBottom: 32 }}>
-            <div style={{ background: "#1e293b", borderRadius: 10, width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Zap size={18} color="#f97316" />
+          <div style={{ padding: "0 4px", marginBottom: 32 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Logo size={36} />
+              <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -.5 }}>DownfieldOS</div>
             </div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -.5 }}>DownfieldOS</div>
+            <div style={{ fontSize: 11, color: "#8B949E", letterSpacing: 1.5, marginTop: 6, paddingLeft: 46 }}>Football, understood.</div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
             {MODULES.map(m => <NavItem key={m.id} icon={m.icon} label={m.label} active={active === m.id} onClick={() => { setActive(m.id); if (isMobile) setMobileSidebarOpen(false); }} />)}
@@ -113,7 +114,7 @@ export default function DownfieldOS() {
                 <Menu size={20} color="#fff" />
               </button>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <Zap size={16} color="#f97316" />
+                <Logo size={28} />
                 <span style={{ fontWeight: 800, fontSize: 15, color: "#0d1117" }}>DownfieldOS</span>
               </div>
             </div>
@@ -139,8 +140,6 @@ export default function DownfieldOS() {
         />
       )}
 
-      {/* Chatbot */}
-      <Chatbot plays={filteredPlays} rosters={rosters} />
     </div>
   );
 }

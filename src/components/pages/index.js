@@ -1,4 +1,3 @@
-export { Chatbot } from './Chatbot';
 export { ThisWeek } from './ThisWeek';
 export { SoWhatDashboard } from './SoWhatDashboard';
 export { MatchupCenter } from './MatchupCenter';
