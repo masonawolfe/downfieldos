@@ -1,11 +1,11 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { calcMatchupGrade } from '../../utils/grading';
 import { generateTweetThread } from '../../utils/tweetThread';
-import { generatePrepSheet, generateNewsletterDraft } from '../../utils/prepSheet';
+import { generatePrepSheet, generateNewsletterDraft, generateArticle } from '../../utils/prepSheet';
 import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
@@ -132,6 +132,10 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         </button>
         <button onClick={() => downloadText(`newsletter-${offTm}-vs-${defTm}.md`, generateNewsletterDraft(offTm, defTm, os, ds, bl, grade, oR, dR))} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 20px", borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", fontSize: 13, fontWeight: 700, color: "#0f172a", cursor: "pointer", transition: "all .15s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#f97316"; e.currentTarget.style.color = "#f97316"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#0f172a"; }}>
           <FileText size={16} /> Newsletter Draft
+          <Download size={13} style={{ opacity: 0.5 }} />
+        </button>
+        <button onClick={() => downloadText(`article-${offTm}-vs-${defTm}.txt`, generateArticle(offTm, defTm, os, ds, bl, grade, oR, dR))} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "12px 20px", borderRadius: 12, border: "1px solid #e2e8f0", background: "#fff", fontSize: 13, fontWeight: 700, color: "#0f172a", cursor: "pointer", transition: "all .15s" }} onMouseEnter={e => { e.currentTarget.style.borderColor = "#f97316"; e.currentTarget.style.color = "#f97316"; }} onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.color = "#0f172a"; }}>
+          <PenLine size={16} /> Article (~300 words)
           <Download size={13} style={{ opacity: 0.5 }} />
         </button>
       </div>

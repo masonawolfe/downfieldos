@@ -9,4 +9,4 @@ export { generatePlays } from './playGenerator';
 export { teamSoWhat, matchupPreview, scriptedPlaysPreview, playerMatchupSummary, gmVoice, genNeeds } from './narratives';
 export { downloadCSV } from './csvExport';
 export { generateTweetThread } from './tweetThread';
-export { generatePrepSheet, generateNewsletterDraft } from './prepSheet';
+export { generatePrepSheet, generateNewsletterDraft, generateArticle } from './prepSheet';

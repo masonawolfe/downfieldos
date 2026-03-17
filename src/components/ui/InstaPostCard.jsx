@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Zap } from "lucide-react";
+import { Zap, Upload, X } from "lucide-react";
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { DNA } from '../../data/dna';
@@ -28,9 +28,29 @@ export function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose
     { id: "story", label: "Story/TikTok", w: 340, ratio: "9/16" },
   ];
   const [formatIdx, setFormatIdx] = useState(0);
+  const [customLogo, setCustomLogo] = useState(() => localStorage.getItem("dfos-custom-logo") || null);
+  const logoInputRef = useRef(null);
   const fmt = FORMATS[formatIdx];
   const isCompact = fmt.id === "twitter";
   const isTall = fmt.id === "story";
+
+  const handleLogoUpload = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const dataUrl = ev.target.result;
+      setCustomLogo(dataUrl);
+      localStorage.setItem("dfos-custom-logo", dataUrl);
+    };
+    reader.readAsDataURL(file);
+    e.target.value = "";
+  };
+
+  const clearLogo = () => {
+    setCustomLogo(null);
+    localStorage.removeItem("dfos-custom-logo");
+  };
 
   return (
     <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 2000, display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }} onClick={onClose}>
@@ -50,8 +70,14 @@ export function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose
           {/* Header */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
-              <Zap size={16} color="#f97316" />
-              <span style={{ fontSize: 13, fontWeight: 800, color: "#f97316", letterSpacing: 2, textTransform: "uppercase" }}>DownfieldOS</span>
+              {customLogo ? (
+                <img src={customLogo} alt="Logo" style={{ height: 24, maxWidth: 140, objectFit: "contain" }} />
+              ) : (
+                <>
+                  <Zap size={16} color="#f97316" />
+                  <span style={{ fontSize: 13, fontWeight: 800, color: "#f97316", letterSpacing: 2, textTransform: "uppercase" }}>DownfieldOS</span>
+                </>
+              )}
               <span style={{ fontSize: 11, color: "#475569", marginLeft: "auto" }}>Matchup Preview</span>
             </div>
 
@@ -111,8 +137,22 @@ export function InstaPostCard({ away, home, aStats, hStats, bl, rosters, onClose
           </div>
         </div>
 
+        {/* Logo upload */}
+        <input ref={logoInputRef} type="file" accept="image/*" onChange={handleLogoUpload} style={{ display: "none" }} />
+        <div style={{ padding: "8px 24px 0", background: "#1e293b", display: "flex", alignItems: "center", gap: 8 }}>
+          <button onClick={() => logoInputRef.current?.click()} style={{ display: "flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 8, border: "1px solid #334155", background: "transparent", color: "#94a3b8", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+            <Upload size={12} /> {customLogo ? "Change Logo" : "Add Your Logo"}
+          </button>
+          {customLogo && (
+            <button onClick={clearLogo} style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 10px", borderRadius: 8, border: "1px solid #334155", background: "transparent", color: "#94a3b8", fontSize: 11, fontWeight: 600, cursor: "pointer" }}>
+              <X size={12} /> Reset
+            </button>
+          )}
+          <span style={{ fontSize: 10, color: "#475569", marginLeft: "auto" }}>Co-brand your cards</span>
+        </div>
+
         {/* Actions */}
-        <div style={{ padding: "16px 24px", display: "flex", gap: 12, background: "#1e293b" }}>
+        <div style={{ padding: "12px 24px 16px", display: "flex", gap: 12, background: "#1e293b" }}>
           <button onClick={() => { if(cardRef.current) { navigator.clipboard?.writeText(`${tn(away)} @ ${tn(home)} — Matchup Preview by DownfieldOS\n\n${topMismatch}\n\n${tn(away)} OFF Grade: ${aGrade} | ${tn(home)} OFF Grade: ${hGrade}\n\nKey stats:\nPass Rate: ${pct(aStats.pr)} vs ${pct(hStats.pr)}\nSuccess: ${pct(aStats.sr)} vs ${pct(hStats.sr)}\nExplosive: ${pct(aStats.xr)} vs ${pct(hStats.xr)}\n\n#NFL #DownfieldOS #${tn(away).replace(/\s/g,"")} #${tn(home).replace(/\s/g,"")}`); } }} style={{ flex: 1, padding: "12px 16px", borderRadius: 10, background: "#f97316", border: "none", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>Copy Caption</button>
           <button onClick={onClose} style={{ padding: "12px 16px", borderRadius: 10, background: "#334155", border: "none", color: "#94a3b8", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>Close</button>
         </div>
