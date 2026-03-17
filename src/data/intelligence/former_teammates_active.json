@@ -1,0 +1,6621 @@
+{
+  "metadata": {
+    "generated": "2026-03-16T23:04:55.355170",
+    "data_type": "synthetic",
+    "seasons": [
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "total_edges": 287,
+    "current_players": 1663
+  },
+  "edges": {
+    "pid_2013_84508-pid_2018_55647": {
+      "player_1": {
+        "id": "pid_2013_84508",
+        "name": "Matthew Lee",
+        "team": "KC",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2018_55647",
+        "name": "Larry Moore",
+        "team": "DAL",
+        "position": "P"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2010_11067-pid_2010_31900": {
+      "player_1": {
+        "id": "pid_2010_11067",
+        "name": "Stephen Rogers",
+        "team": "LV",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2010_31900",
+        "name": "Jacob Lewis",
+        "team": "NO",
+        "position": "S"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2010_11067-pid_2010_72824": {
+      "player_1": {
+        "id": "pid_2010_11067",
+        "name": "Stephen Rogers",
+        "team": "LV",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2010_72824",
+        "name": "Gary Lee",
+        "team": "CIN",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2010_11067-pid_2013_59425": {
+      "player_1": {
+        "id": "pid_2010_11067",
+        "name": "Stephen Rogers",
+        "team": "LV",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2013_59425",
+        "name": "Jacob Moore",
+        "team": "LAC",
+        "position": "P"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_11067-pid_2014_51862": {
+      "player_1": {
+        "id": "pid_2010_11067",
+        "name": "Stephen Rogers",
+        "team": "LV",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2014_51862",
+        "name": "Matthew Rivera",
+        "team": "PIT",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_11067-pid_2017_83503": {
+      "player_1": {
+        "id": "pid_2010_11067",
+        "name": "Stephen Rogers",
+        "team": "LV",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2017_83503",
+        "name": "Dennis Martinez",
+        "team": "BAL",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_75613-pid_2016_44261": {
+      "player_1": {
+        "id": "pid_2010_75613",
+        "name": "Adam Taylor",
+        "team": "ATL",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2016_44261",
+        "name": "Noah Miller",
+        "team": "DET",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2010_75613-pid_2023_82428": {
+      "player_1": {
+        "id": "pid_2010_75613",
+        "name": "Adam Taylor",
+        "team": "ATL",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2023_82428",
+        "name": "Benjamin Davis",
+        "team": "WAS",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2016_72328-pid_2017_97685": {
+      "player_1": {
+        "id": "pid_2016_72328",
+        "name": "Aaron Williams",
+        "team": "SEA",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2017_97685",
+        "name": "William Hernandez",
+        "team": "KC",
+        "position": "H"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "HOU"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2010_51419-pid_2013_67852": {
+      "player_1": {
+        "id": "pid_2010_51419",
+        "name": "Samuel Lewis",
+        "team": "CIN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2013_67852",
+        "name": "Patrick Collins",
+        "team": "MIN",
+        "position": "H"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2013_18332-pid_2015_82603": {
+      "player_1": {
+        "id": "pid_2013_18332",
+        "name": "Charles Rivera",
+        "team": "SEA",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2015_82603",
+        "name": "Aaron Brown",
+        "team": "DET",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2016_26103-pid_2016_62198": {
+      "player_1": {
+        "id": "pid_2016_26103",
+        "name": "Liam White",
+        "team": "TEN",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2016_62198",
+        "name": "Michael Brown",
+        "team": "ARI",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "NO"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2014_17220-pid_2018_65706": {
+      "player_1": {
+        "id": "pid_2014_17220",
+        "name": "Henry Wilson",
+        "team": "SF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2018_65706",
+        "name": "Joseph Fernandez",
+        "team": "NO",
+        "position": "P"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2014_17220-pid_2015_84597": {
+      "player_1": {
+        "id": "pid_2014_17220",
+        "name": "Henry Wilson",
+        "team": "SF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2015_84597",
+        "name": "Samuel Collins",
+        "team": "TB",
+        "position": "G"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2015_84597-pid_2018_65706": {
+      "player_1": {
+        "id": "pid_2015_84597",
+        "name": "Samuel Collins",
+        "team": "TB",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2018_65706",
+        "name": "Joseph Fernandez",
+        "team": "NO",
+        "position": "P"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2017_80587-pid_2018_74485": {
+      "player_1": {
+        "id": "pid_2017_80587",
+        "name": "Thomas Lee",
+        "team": "TEN",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2018_74485",
+        "name": "James Roberts",
+        "team": "PHI",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "TB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2012_94325-pid_2017_12744": {
+      "player_1": {
+        "id": "pid_2012_94325",
+        "name": "Kyle Clark",
+        "team": "CAR",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2017_12744",
+        "name": "Timothy Wilson",
+        "team": "DAL",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_94325-pid_2013_30548": {
+      "player_1": {
+        "id": "pid_2012_94325",
+        "name": "Kyle Clark",
+        "team": "CAR",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2013_30548",
+        "name": "Jeffrey Johnson",
+        "team": "CIN",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_66142-pid_2018_32618": {
+      "player_1": {
+        "id": "pid_2012_66142",
+        "name": "Robert Williams",
+        "team": "NYJ",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2018_32618",
+        "name": "David Martin",
+        "team": "IND",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2018
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 7
+    },
+    "pid_2012_77273-pid_2020_61842": {
+      "player_1": {
+        "id": "pid_2012_77273",
+        "name": "Joseph Taylor",
+        "team": "NE",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2020_61842",
+        "name": "Daniel Fernandez",
+        "team": "DEN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_77273-pid_2022_45112": {
+      "player_1": {
+        "id": "pid_2012_77273",
+        "name": "Joseph Taylor",
+        "team": "NE",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2022_45112",
+        "name": "Kyle Johnson",
+        "team": "SEA",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_77273-pid_2015_21690": {
+      "player_1": {
+        "id": "pid_2012_77273",
+        "name": "Joseph Taylor",
+        "team": "NE",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2015_21690",
+        "name": "James Martin",
+        "team": "BUF",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_77273-pid_2017_50733": {
+      "player_1": {
+        "id": "pid_2012_77273",
+        "name": "Joseph Taylor",
+        "team": "NE",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2017_50733",
+        "name": "Jason Ramirez",
+        "team": "CAR",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_18416-pid_2014_38119": {
+      "player_1": {
+        "id": "pid_2010_18416",
+        "name": "Timothy Jones",
+        "team": "ATL",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2014_38119",
+        "name": "Richard Williams",
+        "team": "ARI",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2010_18416-pid_2015_35595": {
+      "player_1": {
+        "id": "pid_2010_18416",
+        "name": "Timothy Jones",
+        "team": "ATL",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2015_35595",
+        "name": "John Martinez",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_18416-pid_2013_71174": {
+      "player_1": {
+        "id": "pid_2010_18416",
+        "name": "Timothy Jones",
+        "team": "ATL",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2015_47508-pid_2016_19572": {
+      "player_1": {
+        "id": "pid_2015_47508",
+        "name": "Richard Moore",
+        "team": "PHI",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2016_19572",
+        "name": "Ryan Moore",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 6
+    },
+    "pid_2013_10830-pid_2015_47508": {
+      "player_1": {
+        "id": "pid_2013_10830",
+        "name": "Ronald Williams",
+        "team": "SF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2015_47508",
+        "name": "Richard Moore",
+        "team": "PHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2013_10830-pid_2015_41619": {
+      "player_1": {
+        "id": "pid_2013_10830",
+        "name": "Ronald Williams",
+        "team": "SF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2015_41619",
+        "name": "Scott Robinson",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2013_10830-pid_2016_19572": {
+      "player_1": {
+        "id": "pid_2013_10830",
+        "name": "Ronald Williams",
+        "team": "SF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2016_19572",
+        "name": "Ryan Moore",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2015_41619-pid_2015_47508": {
+      "player_1": {
+        "id": "pid_2015_41619",
+        "name": "Scott Robinson",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2015_47508",
+        "name": "Richard Moore",
+        "team": "PHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 6
+    },
+    "pid_2015_41619-pid_2016_19572": {
+      "player_1": {
+        "id": "pid_2015_41619",
+        "name": "Scott Robinson",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2016_19572",
+        "name": "Ryan Moore",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 6
+    },
+    "pid_2015_74512-pid_2017_98204": {
+      "player_1": {
+        "id": "pid_2015_74512",
+        "name": "Samuel Robinson",
+        "team": "DET",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2017_98204",
+        "name": "Justin Lee",
+        "team": "DAL",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2010_31740-pid_2011_88951": {
+      "player_1": {
+        "id": "pid_2010_31740",
+        "name": "Stephen Williams",
+        "team": "NO",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2011_88951",
+        "name": "Jacob Hernandez",
+        "team": "LAC",
+        "position": "T"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2011_74927-pid_2014_95868": {
+      "player_1": {
+        "id": "pid_2011_74927",
+        "name": "Daniel Jones",
+        "team": "SF",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2014_95868",
+        "name": "Justin Rodriguez",
+        "team": "LV",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2014_40028-pid_2015_17568": {
+      "player_1": {
+        "id": "pid_2014_40028",
+        "name": "Stephen Taylor",
+        "team": "CHI",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2015_17568",
+        "name": "Richard Hernandez",
+        "team": "PIT",
+        "position": "G"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "NO"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2010_78011-pid_2019_10819": {
+      "player_1": {
+        "id": "pid_2010_78011",
+        "name": "David Green",
+        "team": "TEN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2019_10819",
+        "name": "Timothy Lee",
+        "team": "SF",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2010_78011-pid_2011_71054": {
+      "player_1": {
+        "id": "pid_2010_78011",
+        "name": "David Green",
+        "team": "TEN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2011_71054",
+        "name": "Anthony Harris",
+        "team": "MIA",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_78011-pid_2012_22029": {
+      "player_1": {
+        "id": "pid_2010_78011",
+        "name": "David Green",
+        "team": "TEN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2012_22029",
+        "name": "Brandon Green",
+        "team": "DEN",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_21696-pid_2019_86423": {
+      "player_1": {
+        "id": "pid_2010_21696",
+        "name": "Dennis Taylor",
+        "team": "LV",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2019_86423",
+        "name": "Stephen Morgan",
+        "team": "HOU",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "PIT"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2012_43261-pid_2013_19589": {
+      "player_1": {
+        "id": "pid_2012_43261",
+        "name": "Jason Anderson",
+        "team": "SF",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2013_19589",
+        "name": "William Campbell",
+        "team": "NYG",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 6
+    },
+    "pid_2011_16695-pid_2016_49066": {
+      "player_1": {
+        "id": "pid_2011_16695",
+        "name": "Alexander Martin",
+        "team": "MIA",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2016_49066",
+        "name": "Noah Harris",
+        "team": "BAL",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 6
+    },
+    "pid_2014_71269-pid_2014_92997": {
+      "player_1": {
+        "id": "pid_2014_71269",
+        "name": "Daniel Phillips",
+        "team": "TEN",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2014_92997",
+        "name": "Frank Davis",
+        "team": "PHI",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2019
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 6
+    },
+    "pid_2017_69097-pid_2020_39725": {
+      "player_1": {
+        "id": "pid_2017_69097",
+        "name": "Henry Jackson",
+        "team": "ATL",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2020_39725",
+        "name": "Kyle Thomas",
+        "team": "NE",
+        "position": "C"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "ARI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_35121-pid_2014_64990": {
+      "player_1": {
+        "id": "pid_2010_35121",
+        "name": "Nicholas Campbell",
+        "team": "SF",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2014_64990",
+        "name": "Jacob Allen",
+        "team": "BAL",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_74089-pid_2018_52676": {
+      "player_1": {
+        "id": "pid_2010_74089",
+        "name": "Douglas Miller",
+        "team": "CLE",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2018_52676",
+        "name": "Joseph Anderson",
+        "team": "SF",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2012_71230-pid_2014_94709": {
+      "player_1": {
+        "id": "pid_2012_71230",
+        "name": "Aaron Campbell",
+        "team": "TEN",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2014_94709",
+        "name": "Matthew Ramirez",
+        "team": "DEN",
+        "position": "H"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2012_36272-pid_2020_81877": {
+      "player_1": {
+        "id": "pid_2012_36272",
+        "name": "Jacob Smith",
+        "team": "MIN",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2020_81877",
+        "name": "Mason Jones",
+        "team": "PHI",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_71054-pid_2012_22029": {
+      "player_1": {
+        "id": "pid_2011_71054",
+        "name": "Anthony Harris",
+        "team": "MIA",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2012_22029",
+        "name": "Brandon Green",
+        "team": "DEN",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2015_27874-pid_2019_40689": {
+      "player_1": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2019_40689",
+        "name": "Matthew Miller",
+        "team": "KC",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2015_27874-pid_2015_49467": {
+      "player_1": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2015_49467",
+        "name": "Larry Allen",
+        "team": "ATL",
+        "position": "C"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2015_27874-pid_2016_28772": {
+      "player_1": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2016_28772",
+        "name": "Ryan Morgan",
+        "team": "CLE",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 4
+    },
+    "pid_2015_27874-pid_2021_17054": {
+      "player_1": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2021_17054",
+        "name": "Frank Fernandez",
+        "team": "NYJ",
+        "position": "S"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2015_49467-pid_2019_40689": {
+      "player_1": {
+        "id": "pid_2015_49467",
+        "name": "Larry Allen",
+        "team": "ATL",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2019_40689",
+        "name": "Matthew Miller",
+        "team": "KC",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2013_66050-pid_2019_40689": {
+      "player_1": {
+        "id": "pid_2013_66050",
+        "name": "Justin Johnson",
+        "team": "SEA",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2019_40689",
+        "name": "Matthew Miller",
+        "team": "KC",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2013_66050-pid_2015_27874": {
+      "player_1": {
+        "id": "pid_2013_66050",
+        "name": "Justin Johnson",
+        "team": "SEA",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2013_66050-pid_2015_49467": {
+      "player_1": {
+        "id": "pid_2013_66050",
+        "name": "Justin Johnson",
+        "team": "SEA",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2015_49467",
+        "name": "Larry Allen",
+        "team": "ATL",
+        "position": "C"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_89879-pid_2019_40689": {
+      "player_1": {
+        "id": "pid_2011_89879",
+        "name": "Adam Harris",
+        "team": "ARI",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2019_40689",
+        "name": "Matthew Miller",
+        "team": "KC",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_89879-pid_2015_27874": {
+      "player_1": {
+        "id": "pid_2011_89879",
+        "name": "Adam Harris",
+        "team": "ARI",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_89879-pid_2015_49467": {
+      "player_1": {
+        "id": "pid_2011_89879",
+        "name": "Adam Harris",
+        "team": "ARI",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2015_49467",
+        "name": "Larry Allen",
+        "team": "ATL",
+        "position": "C"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_89879-pid_2013_66050": {
+      "player_1": {
+        "id": "pid_2011_89879",
+        "name": "Adam Harris",
+        "team": "ARI",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2013_66050",
+        "name": "Justin Johnson",
+        "team": "SEA",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_36805-pid_2016_33876": {
+      "player_1": {
+        "id": "pid_2011_36805",
+        "name": "Liam Rivera",
+        "team": "LAC",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2016_33876",
+        "name": "Jacob Anderson",
+        "team": "WAS",
+        "position": "K"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_36805-pid_2015_68250": {
+      "player_1": {
+        "id": "pid_2011_36805",
+        "name": "Liam Rivera",
+        "team": "LAC",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2015_68250",
+        "name": "Brandon Thompson",
+        "team": "CAR",
+        "position": "P"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2015_68250-pid_2016_33876": {
+      "player_1": {
+        "id": "pid_2015_68250",
+        "name": "Brandon Thompson",
+        "team": "CAR",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2016_33876",
+        "name": "Jacob Anderson",
+        "team": "WAS",
+        "position": "K"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2016_88781-pid_2018_20205": {
+      "player_1": {
+        "id": "pid_2016_88781",
+        "name": "Henry Taylor",
+        "team": "BAL",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2018_20205",
+        "name": "William Smith",
+        "team": "JAX",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2012_79887-pid_2016_72328": {
+      "player_1": {
+        "id": "pid_2012_79887",
+        "name": "Samuel Collins",
+        "team": "WAS",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2016_72328",
+        "name": "Aaron Williams",
+        "team": "SEA",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2011_72398-pid_2016_72328": {
+      "player_1": {
+        "id": "pid_2011_72398",
+        "name": "Edward Scott",
+        "team": "PHI",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2016_72328",
+        "name": "Aaron Williams",
+        "team": "SEA",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2011_72398-pid_2012_79887": {
+      "player_1": {
+        "id": "pid_2011_72398",
+        "name": "Edward Scott",
+        "team": "PHI",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2012_79887",
+        "name": "Samuel Collins",
+        "team": "WAS",
+        "position": "S"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2018_81479-pid_2019_91090": {
+      "player_1": {
+        "id": "pid_2018_81479",
+        "name": "Kyle Gonzalez",
+        "team": "HOU",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2019_91090",
+        "name": "Patrick Anderson",
+        "team": "NYJ",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2018_81479-pid_2020_40859": {
+      "player_1": {
+        "id": "pid_2018_81479",
+        "name": "Kyle Gonzalez",
+        "team": "HOU",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2020_40859",
+        "name": "Michael Roberts",
+        "team": "GB",
+        "position": "G"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_45623-pid_2018_81479": {
+      "player_1": {
+        "id": "pid_2011_45623",
+        "name": "James Ramirez",
+        "team": "LAR",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2018_81479",
+        "name": "Kyle Gonzalez",
+        "team": "HOU",
+        "position": "G"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_45623-pid_2019_91090": {
+      "player_1": {
+        "id": "pid_2011_45623",
+        "name": "James Ramirez",
+        "team": "LAR",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2019_91090",
+        "name": "Patrick Anderson",
+        "team": "NYJ",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_45623-pid_2020_40859": {
+      "player_1": {
+        "id": "pid_2011_45623",
+        "name": "James Ramirez",
+        "team": "LAR",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2020_40859",
+        "name": "Michael Roberts",
+        "team": "GB",
+        "position": "G"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2019_91090-pid_2020_40859": {
+      "player_1": {
+        "id": "pid_2019_91090",
+        "name": "Patrick Anderson",
+        "team": "NYJ",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2020_40859",
+        "name": "Michael Roberts",
+        "team": "GB",
+        "position": "G"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_28673-pid_2017_41556": {
+      "player_1": {
+        "id": "pid_2011_28673",
+        "name": "John Sanchez",
+        "team": "DEN",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2017_41556",
+        "name": "Aaron Perez",
+        "team": "BAL",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_66510-pid_2015_65593": {
+      "player_1": {
+        "id": "pid_2010_66510",
+        "name": "Dennis Anderson",
+        "team": "BUF",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2015_65593",
+        "name": "Jacob Perez",
+        "team": "SEA",
+        "position": "C"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_66510-pid_2015_81535": {
+      "player_1": {
+        "id": "pid_2010_66510",
+        "name": "Dennis Anderson",
+        "team": "BUF",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2015_81535",
+        "name": "William Miller",
+        "team": "NYG",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_66510-pid_2011_31947": {
+      "player_1": {
+        "id": "pid_2010_66510",
+        "name": "Dennis Anderson",
+        "team": "BUF",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2011_31947",
+        "name": "Steven Lee",
+        "team": "PIT",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_66510-pid_2010_84688": {
+      "player_1": {
+        "id": "pid_2010_66510",
+        "name": "Dennis Anderson",
+        "team": "BUF",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2010_84688",
+        "name": "Timothy Allen",
+        "team": "IND",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2018_41473-pid_2019_60597": {
+      "player_1": {
+        "id": "pid_2018_41473",
+        "name": "Eric Lewis",
+        "team": "JAX",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2019_60597",
+        "name": "Gary Campbell",
+        "team": "SF",
+        "position": "K"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "PIT"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2013_87185-pid_2019_60597": {
+      "player_1": {
+        "id": "pid_2013_87185",
+        "name": "Larry Taylor",
+        "team": "SEA",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2019_60597",
+        "name": "Gary Campbell",
+        "team": "SF",
+        "position": "K"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "PIT"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2013_87185-pid_2018_41473": {
+      "player_1": {
+        "id": "pid_2013_87185",
+        "name": "Larry Taylor",
+        "team": "SEA",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2018_41473",
+        "name": "Eric Lewis",
+        "team": "JAX",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "PIT"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_37929-pid_2020_98418": {
+      "player_1": {
+        "id": "pid_2011_37929",
+        "name": "Peter Harris",
+        "team": "LV",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2020_98418",
+        "name": "Jacob Miller",
+        "team": "SEA",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2011_37929-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2011_37929",
+        "name": "Peter Harris",
+        "team": "LV",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_37929-pid_2015_85289": {
+      "player_1": {
+        "id": "pid_2011_37929",
+        "name": "Peter Harris",
+        "team": "LV",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2015_85289",
+        "name": "Adam Lee",
+        "team": "KC",
+        "position": "S"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_37929-pid_2016_81304": {
+      "player_1": {
+        "id": "pid_2011_37929",
+        "name": "Peter Harris",
+        "team": "LV",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2016_81304",
+        "name": "Larry Rivera",
+        "team": "NO",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_37929-pid_2013_64782": {
+      "player_1": {
+        "id": "pid_2011_37929",
+        "name": "Peter Harris",
+        "team": "LV",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2013_64782",
+        "name": "Ronald Campbell",
+        "team": "WAS",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_65522-pid_2018_99651": {
+      "player_1": {
+        "id": "pid_2018_65522",
+        "name": "Noah Smith",
+        "team": "JAX",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2018_99651",
+        "name": "Jacob Thomas",
+        "team": "MIA",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "TB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2018_65522-pid_2022_52688": {
+      "player_1": {
+        "id": "pid_2018_65522",
+        "name": "Noah Smith",
+        "team": "JAX",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2022_52688",
+        "name": "Peter Wilson",
+        "team": "TB",
+        "position": "S"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_65522-pid_2024_15915": {
+      "player_1": {
+        "id": "pid_2018_65522",
+        "name": "Noah Smith",
+        "team": "JAX",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2024_15915",
+        "name": "Justin King",
+        "team": "PIT",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_25061-pid_2019_52990": {
+      "player_1": {
+        "id": "pid_2011_25061",
+        "name": "Peter Sanchez",
+        "team": "ARI",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2019_52990",
+        "name": "Stephen Harris",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2011_25061-pid_2018_66979": {
+      "player_1": {
+        "id": "pid_2011_25061",
+        "name": "Peter Sanchez",
+        "team": "ARI",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2018_66979",
+        "name": "Richard Morgan",
+        "team": "DAL",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 5
+    },
+    "pid_2018_66979-pid_2019_52990": {
+      "player_1": {
+        "id": "pid_2018_66979",
+        "name": "Richard Morgan",
+        "team": "DAL",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2019_52990",
+        "name": "Stephen Harris",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2020
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 5
+    },
+    "pid_2010_62809-pid_2015_53369": {
+      "player_1": {
+        "id": "pid_2010_62809",
+        "name": "William Young",
+        "team": "DAL",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2015_53369",
+        "name": "Scott Rivera",
+        "team": "MIN",
+        "position": "T"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2019_67565-pid_2021_26806": {
+      "player_1": {
+        "id": "pid_2019_67565",
+        "name": "Gary Thompson",
+        "team": "HOU",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2021_26806",
+        "name": "Tyler Ramirez",
+        "team": "CHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_65691-pid_2021_26806": {
+      "player_1": {
+        "id": "pid_2012_65691",
+        "name": "John White",
+        "team": "HOU",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2021_26806",
+        "name": "Tyler Ramirez",
+        "team": "CHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_65691-pid_2015_70122": {
+      "player_1": {
+        "id": "pid_2012_65691",
+        "name": "John White",
+        "team": "HOU",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2015_70122",
+        "name": "Jerry Sanchez",
+        "team": "CLE",
+        "position": "S"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2015_70122-pid_2019_67565": {
+      "player_1": {
+        "id": "pid_2015_70122",
+        "name": "Jerry Sanchez",
+        "team": "CLE",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_67565",
+        "name": "Gary Thompson",
+        "team": "HOU",
+        "position": "C"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2015_70122-pid_2021_26806": {
+      "player_1": {
+        "id": "pid_2015_70122",
+        "name": "Jerry Sanchez",
+        "team": "CLE",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2021_26806",
+        "name": "Tyler Ramirez",
+        "team": "CHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2015_70122-pid_2022_73355": {
+      "player_1": {
+        "id": "pid_2015_70122",
+        "name": "Jerry Sanchez",
+        "team": "CLE",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2022_73355",
+        "name": "Eric Scott",
+        "team": "DET",
+        "position": "T"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2015_70122-pid_2021_62231": {
+      "player_1": {
+        "id": "pid_2015_70122",
+        "name": "Jerry Sanchez",
+        "team": "CLE",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2021_62231",
+        "name": "Kyle Peterson",
+        "team": "PIT",
+        "position": "K"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2017_12744-pid_2018_14424": {
+      "player_1": {
+        "id": "pid_2017_12744",
+        "name": "Timothy Wilson",
+        "team": "DAL",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2018_14424",
+        "name": "John Peterson",
+        "team": "CAR",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2011_40300-pid_2012_94325": {
+      "player_1": {
+        "id": "pid_2011_40300",
+        "name": "James Gonzalez",
+        "team": "JAX",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2012_94325",
+        "name": "Kyle Clark",
+        "team": "CAR",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2011_40300-pid_2017_12744": {
+      "player_1": {
+        "id": "pid_2011_40300",
+        "name": "James Gonzalez",
+        "team": "JAX",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2017_12744",
+        "name": "Timothy Wilson",
+        "team": "DAL",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 4
+    },
+    "pid_2011_40300-pid_2018_14424": {
+      "player_1": {
+        "id": "pid_2011_40300",
+        "name": "James Gonzalez",
+        "team": "JAX",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2018_14424",
+        "name": "John Peterson",
+        "team": "CAR",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2011_40300-pid_2013_30548": {
+      "player_1": {
+        "id": "pid_2011_40300",
+        "name": "James Gonzalez",
+        "team": "JAX",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2013_30548",
+        "name": "Jeffrey Johnson",
+        "team": "CIN",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2013_30548-pid_2017_12744": {
+      "player_1": {
+        "id": "pid_2013_30548",
+        "name": "Jeffrey Johnson",
+        "team": "CIN",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2017_12744",
+        "name": "Timothy Wilson",
+        "team": "DAL",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2013_30548-pid_2018_14424": {
+      "player_1": {
+        "id": "pid_2013_30548",
+        "name": "Jeffrey Johnson",
+        "team": "CIN",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2018_14424",
+        "name": "John Peterson",
+        "team": "CAR",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2014_15219-pid_2016_12276": {
+      "player_1": {
+        "id": "pid_2014_15219",
+        "name": "Liam Wright",
+        "team": "NO",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2016_12276",
+        "name": "John Allen",
+        "team": "TB",
+        "position": "S"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 4
+    },
+    "pid_2016_28772-pid_2021_17054": {
+      "player_1": {
+        "id": "pid_2016_28772",
+        "name": "Ryan Morgan",
+        "team": "CLE",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2021_17054",
+        "name": "Frank Fernandez",
+        "team": "NYJ",
+        "position": "S"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2010_26872-pid_2015_81105": {
+      "player_1": {
+        "id": "pid_2010_26872",
+        "name": "Noah Harris",
+        "team": "NYG",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2015_81105",
+        "name": "Ronald Fernandez",
+        "team": "SF",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2010_26872-pid_2011_22544": {
+      "player_1": {
+        "id": "pid_2010_26872",
+        "name": "Noah Harris",
+        "team": "NYG",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2011_22544",
+        "name": "Noah Fernandez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_89057-pid_2018_22643": {
+      "player_1": {
+        "id": "pid_2011_89057",
+        "name": "Benjamin Clark",
+        "team": "CIN",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2018_22643",
+        "name": "Scott Fernandez",
+        "team": "NYG",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2017_11340-pid_2017_95589": {
+      "player_1": {
+        "id": "pid_2017_11340",
+        "name": "Ronald Clark",
+        "team": "NE",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2017_95589",
+        "name": "Stephen Garcia",
+        "team": "ATL",
+        "position": "K"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2013_92846-pid_2018_79070": {
+      "player_1": {
+        "id": "pid_2013_92846",
+        "name": "Mason King",
+        "team": "CIN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2018_79070",
+        "name": "Dennis Ramirez",
+        "team": "PHI",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2011_32160-pid_2013_92846": {
+      "player_1": {
+        "id": "pid_2011_32160",
+        "name": "Stephen Moore",
+        "team": "NE",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2013_92846",
+        "name": "Mason King",
+        "team": "CIN",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2011_32160-pid_2018_79070": {
+      "player_1": {
+        "id": "pid_2011_32160",
+        "name": "Stephen Moore",
+        "team": "NE",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2018_79070",
+        "name": "Dennis Ramirez",
+        "team": "PHI",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2010_15052-pid_2020_42468": {
+      "player_1": {
+        "id": "pid_2010_15052",
+        "name": "Christopher Robinson",
+        "team": "PHI",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2020_42468",
+        "name": "Scott Torres",
+        "team": "CIN",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2013_62828-pid_2020_86267": {
+      "player_1": {
+        "id": "pid_2013_62828",
+        "name": "Jeffrey Martinez",
+        "team": "CAR",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2020_86267",
+        "name": "Aaron Thompson",
+        "team": "CLE",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "PIT"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2018_86202-pid_2021_27164": {
+      "player_1": {
+        "id": "pid_2018_86202",
+        "name": "Anthony Anderson",
+        "team": "CLE",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2021_27164",
+        "name": "Jonathan Harris",
+        "team": "DET",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2018_86202-pid_2021_64363": {
+      "player_1": {
+        "id": "pid_2018_86202",
+        "name": "Anthony Anderson",
+        "team": "CLE",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2021_64363",
+        "name": "Brandon Gonzalez",
+        "team": "ATL",
+        "position": "T"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2021_27164-pid_2021_64363": {
+      "player_1": {
+        "id": "pid_2021_27164",
+        "name": "Jonathan Harris",
+        "team": "DET",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2021_64363",
+        "name": "Brandon Gonzalez",
+        "team": "ATL",
+        "position": "T"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2014_70438-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2014_70438",
+        "name": "Jack Gonzalez",
+        "team": "GB",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_52255-pid_2014_70438": {
+      "player_1": {
+        "id": "pid_2012_52255",
+        "name": "Douglas Campbell",
+        "team": "TEN",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2014_70438",
+        "name": "Jack Gonzalez",
+        "team": "GB",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2012_52255-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2012_52255",
+        "name": "Douglas Campbell",
+        "team": "TEN",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 4
+    },
+    "pid_2013_74365-pid_2014_60216": {
+      "player_1": {
+        "id": "pid_2013_74365",
+        "name": "Gregory Rodriguez",
+        "team": "CHI",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2014_60216",
+        "name": "Henry Adams",
+        "team": "MIN",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 4
+    },
+    "pid_2014_60216-pid_2020_11759": {
+      "player_1": {
+        "id": "pid_2014_60216",
+        "name": "Henry Adams",
+        "team": "MIN",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2020_11759",
+        "name": "James Davis",
+        "team": "CHI",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2021
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 4
+    },
+    "pid_2010_68601-pid_2017_32223": {
+      "player_1": {
+        "id": "pid_2010_68601",
+        "name": "Larry Garcia",
+        "team": "TB",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2017_32223",
+        "name": "Frank Wright",
+        "team": "ATL",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_68601-pid_2011_22544": {
+      "player_1": {
+        "id": "pid_2010_68601",
+        "name": "Larry Garcia",
+        "team": "TB",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2011_22544",
+        "name": "Noah Fernandez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2010_68601-pid_2018_29918": {
+      "player_1": {
+        "id": "pid_2010_68601",
+        "name": "Larry Garcia",
+        "team": "TB",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2018_29918",
+        "name": "Peter Robinson",
+        "team": "NE",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2010_68601-pid_2019_96402": {
+      "player_1": {
+        "id": "pid_2010_68601",
+        "name": "Larry Garcia",
+        "team": "TB",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2019_96402",
+        "name": "Jonathan Fernandez",
+        "team": "CAR",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_32223-pid_2018_29918": {
+      "player_1": {
+        "id": "pid_2017_32223",
+        "name": "Frank Wright",
+        "team": "ATL",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2018_29918",
+        "name": "Peter Robinson",
+        "team": "NE",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_32223-pid_2019_96402": {
+      "player_1": {
+        "id": "pid_2017_32223",
+        "name": "Frank Wright",
+        "team": "ATL",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2019_96402",
+        "name": "Jonathan Fernandez",
+        "team": "CAR",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_22544-pid_2017_32223": {
+      "player_1": {
+        "id": "pid_2011_22544",
+        "name": "Noah Fernandez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2017_32223",
+        "name": "Frank Wright",
+        "team": "ATL",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_22544-pid_2018_29918": {
+      "player_1": {
+        "id": "pid_2011_22544",
+        "name": "Noah Fernandez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2018_29918",
+        "name": "Peter Robinson",
+        "team": "NE",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2011_22544-pid_2019_96402": {
+      "player_1": {
+        "id": "pid_2011_22544",
+        "name": "Noah Fernandez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2019_96402",
+        "name": "Jonathan Fernandez",
+        "team": "CAR",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2018_29918-pid_2019_96402": {
+      "player_1": {
+        "id": "pid_2018_29918",
+        "name": "Peter Robinson",
+        "team": "NE",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_96402",
+        "name": "Jonathan Fernandez",
+        "team": "CAR",
+        "position": "S"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_34925-pid_2021_26806": {
+      "player_1": {
+        "id": "pid_2012_34925",
+        "name": "Jonathan Roberts",
+        "team": "IND",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2021_26806",
+        "name": "Tyler Ramirez",
+        "team": "CHI",
+        "position": "C"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_21761-pid_2018_59039": {
+      "player_1": {
+        "id": "pid_2011_21761",
+        "name": "Daniel Martin",
+        "team": "NO",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2018_59039",
+        "name": "Jacob Fernandez",
+        "team": "DEN",
+        "position": "G"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "DAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_21761-pid_2016_68924": {
+      "player_1": {
+        "id": "pid_2011_21761",
+        "name": "Daniel Martin",
+        "team": "NO",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2016_68924",
+        "name": "Ryan Davis",
+        "team": "KC",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "DAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2016_68924-pid_2018_59039": {
+      "player_1": {
+        "id": "pid_2016_68924",
+        "name": "Ryan Davis",
+        "team": "KC",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2018_59039",
+        "name": "Jacob Fernandez",
+        "team": "DEN",
+        "position": "G"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "DAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_55998-pid_2020_18986": {
+      "player_1": {
+        "id": "pid_2012_55998",
+        "name": "Steven Jackson",
+        "team": "NYJ",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2020_18986",
+        "name": "Christopher Thompson",
+        "team": "CIN",
+        "position": "C"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "HOU"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_55998-pid_2021_15423": {
+      "player_1": {
+        "id": "pid_2012_55998",
+        "name": "Steven Jackson",
+        "team": "NYJ",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2021_15423",
+        "name": "Jose Johnson",
+        "team": "WAS",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "HOU"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2015_19360-pid_2021_36937": {
+      "player_1": {
+        "id": "pid_2015_19360",
+        "name": "Anthony Ramirez",
+        "team": "BAL",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2021_36937",
+        "name": "David Rodriguez",
+        "team": "TEN",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "DET"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2011_72035-pid_2017_69097": {
+      "player_1": {
+        "id": "pid_2011_72035",
+        "name": "Samuel Allen",
+        "team": "NO",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2017_69097",
+        "name": "Henry Jackson",
+        "team": "ATL",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2020_18986-pid_2021_15423": {
+      "player_1": {
+        "id": "pid_2020_18986",
+        "name": "Christopher Thompson",
+        "team": "CIN",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2021_15423",
+        "name": "Jose Johnson",
+        "team": "WAS",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "HOU"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_75491-pid_2017_63611": {
+      "player_1": {
+        "id": "pid_2012_75491",
+        "name": "Patrick Taylor",
+        "team": "MIN",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2017_63611",
+        "name": "Gregory Lewis",
+        "team": "ARI",
+        "position": "H"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_63611-pid_2022_79258": {
+      "player_1": {
+        "id": "pid_2017_63611",
+        "name": "Gregory Lewis",
+        "team": "ARI",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2022_79258",
+        "name": "Jack Miller",
+        "team": "LAR",
+        "position": "T"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NO"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2020_73498-pid_2020_81913": {
+      "player_1": {
+        "id": "pid_2020_73498",
+        "name": "Aaron Rogers",
+        "team": "ARI",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2020_81913",
+        "name": "Matthew Scott",
+        "team": "HOU",
+        "position": "K"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2013_48839-pid_2022_70820": {
+      "player_1": {
+        "id": "pid_2013_48839",
+        "name": "Peter Anderson",
+        "team": "CIN",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2022_70820",
+        "name": "Frank Peterson",
+        "team": "ARI",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_77860-pid_2020_89353": {
+      "player_1": {
+        "id": "pid_2012_77860",
+        "name": "Tyler Allen",
+        "team": "NYG",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2020_89353",
+        "name": "Jose Davis",
+        "team": "MIA",
+        "position": "P"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_77860-pid_2017_29712": {
+      "player_1": {
+        "id": "pid_2012_77860",
+        "name": "Tyler Allen",
+        "team": "NYG",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2017_29712",
+        "name": "Aaron Wilson",
+        "team": "NYJ",
+        "position": "C"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_29712-pid_2020_89353": {
+      "player_1": {
+        "id": "pid_2017_29712",
+        "name": "Aaron Wilson",
+        "team": "NYJ",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2020_89353",
+        "name": "Jose Davis",
+        "team": "MIA",
+        "position": "P"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2020_61842-pid_2022_45112": {
+      "player_1": {
+        "id": "pid_2020_61842",
+        "name": "Daniel Fernandez",
+        "team": "DEN",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2022_45112",
+        "name": "Kyle Johnson",
+        "team": "SEA",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_38120-pid_2012_77273": {
+      "player_1": {
+        "id": "pid_2011_38120",
+        "name": "Jonathan Smith",
+        "team": "GB",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2012_77273",
+        "name": "Joseph Taylor",
+        "team": "NE",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2011_38120-pid_2020_61842": {
+      "player_1": {
+        "id": "pid_2011_38120",
+        "name": "Jonathan Smith",
+        "team": "GB",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2020_61842",
+        "name": "Daniel Fernandez",
+        "team": "DEN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_38120-pid_2022_45112": {
+      "player_1": {
+        "id": "pid_2011_38120",
+        "name": "Jonathan Smith",
+        "team": "GB",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2022_45112",
+        "name": "Kyle Johnson",
+        "team": "SEA",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_38120-pid_2015_21690": {
+      "player_1": {
+        "id": "pid_2011_38120",
+        "name": "Jonathan Smith",
+        "team": "GB",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2015_21690",
+        "name": "James Martin",
+        "team": "BUF",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_38120-pid_2017_50733": {
+      "player_1": {
+        "id": "pid_2011_38120",
+        "name": "Jonathan Smith",
+        "team": "GB",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2017_50733",
+        "name": "Jason Ramirez",
+        "team": "CAR",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2015_21690-pid_2020_61842": {
+      "player_1": {
+        "id": "pid_2015_21690",
+        "name": "James Martin",
+        "team": "BUF",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2020_61842",
+        "name": "Daniel Fernandez",
+        "team": "DEN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2015_21690-pid_2022_45112": {
+      "player_1": {
+        "id": "pid_2015_21690",
+        "name": "James Martin",
+        "team": "BUF",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2022_45112",
+        "name": "Kyle Johnson",
+        "team": "SEA",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2015_21690-pid_2017_50733": {
+      "player_1": {
+        "id": "pid_2015_21690",
+        "name": "James Martin",
+        "team": "BUF",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2017_50733",
+        "name": "Jason Ramirez",
+        "team": "CAR",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_50733-pid_2020_61842": {
+      "player_1": {
+        "id": "pid_2017_50733",
+        "name": "Jason Ramirez",
+        "team": "CAR",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2020_61842",
+        "name": "Daniel Fernandez",
+        "team": "DEN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2017_50733-pid_2022_45112": {
+      "player_1": {
+        "id": "pid_2017_50733",
+        "name": "Jason Ramirez",
+        "team": "CAR",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2022_45112",
+        "name": "Kyle Johnson",
+        "team": "SEA",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_55698-pid_2019_31146": {
+      "player_1": {
+        "id": "pid_2010_55698",
+        "name": "Henry Gonzalez",
+        "team": "JAX",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_31146",
+        "name": "Liam Allen",
+        "team": "NO",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_55698-pid_2018_66604": {
+      "player_1": {
+        "id": "pid_2010_55698",
+        "name": "Henry Gonzalez",
+        "team": "JAX",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2018_66604",
+        "name": "Jason Sanchez",
+        "team": "ATL",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 3
+    },
+    "pid_2018_66604-pid_2019_31146": {
+      "player_1": {
+        "id": "pid_2018_66604",
+        "name": "Jason Sanchez",
+        "team": "ATL",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2019_31146",
+        "name": "Liam Allen",
+        "team": "NO",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2018_37599-pid_2021_98357": {
+      "player_1": {
+        "id": "pid_2018_37599",
+        "name": "Christopher Allen",
+        "team": "MIN",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2021_98357",
+        "name": "Henry Thompson",
+        "team": "NYG",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_70398-pid_2012_33581": {
+      "player_1": {
+        "id": "pid_2011_70398",
+        "name": "James Garcia",
+        "team": "DEN",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2012_33581",
+        "name": "Jose Ramirez",
+        "team": "SEA",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_70398-pid_2020_58884": {
+      "player_1": {
+        "id": "pid_2011_70398",
+        "name": "James Garcia",
+        "team": "DEN",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2020_58884",
+        "name": "Benjamin Phillips",
+        "team": "BAL",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2012_33581-pid_2020_58884": {
+      "player_1": {
+        "id": "pid_2012_33581",
+        "name": "Jose Ramirez",
+        "team": "SEA",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2020_58884",
+        "name": "Benjamin Phillips",
+        "team": "BAL",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2019_11033-pid_2022_46640": {
+      "player_1": {
+        "id": "pid_2019_11033",
+        "name": "Jonathan Wright",
+        "team": "IND",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2022_46640",
+        "name": "Nicholas Johnson",
+        "team": "BAL",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_15389-pid_2022_46640": {
+      "player_1": {
+        "id": "pid_2011_15389",
+        "name": "Richard Davis",
+        "team": "IND",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2022_46640",
+        "name": "Nicholas Johnson",
+        "team": "BAL",
+        "position": "SS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2011_89091-pid_2018_60002": {
+      "player_1": {
+        "id": "pid_2011_89091",
+        "name": "Patrick Phillips",
+        "team": "NYG",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_89091-pid_2021_42679": {
+      "player_1": {
+        "id": "pid_2011_89091",
+        "name": "Patrick Phillips",
+        "team": "NYG",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2021_42679",
+        "name": "Brian Collins",
+        "team": "PHI",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_31947-pid_2015_81535": {
+      "player_1": {
+        "id": "pid_2011_31947",
+        "name": "Steven Lee",
+        "team": "PIT",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2015_81535",
+        "name": "William Miller",
+        "team": "NYG",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_84688-pid_2015_81535": {
+      "player_1": {
+        "id": "pid_2010_84688",
+        "name": "Timothy Allen",
+        "team": "IND",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2015_81535",
+        "name": "William Miller",
+        "team": "NYG",
+        "position": "T"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_84688-pid_2011_31947": {
+      "player_1": {
+        "id": "pid_2010_84688",
+        "name": "Timothy Allen",
+        "team": "IND",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2011_31947",
+        "name": "Steven Lee",
+        "team": "PIT",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_84688-pid_2018_50836": {
+      "player_1": {
+        "id": "pid_2010_84688",
+        "name": "Timothy Allen",
+        "team": "IND",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2018_50836",
+        "name": "Dennis Taylor",
+        "team": "GB",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_11689-pid_2010_18416": {
+      "player_1": {
+        "id": "pid_2010_11689",
+        "name": "Brian Garcia",
+        "team": "DET",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2010_18416",
+        "name": "Timothy Jones",
+        "team": "ATL",
+        "position": "K"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_11689-pid_2015_35595": {
+      "player_1": {
+        "id": "pid_2010_11689",
+        "name": "Brian Garcia",
+        "team": "DET",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2015_35595",
+        "name": "John Martinez",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2010_11689-pid_2013_71174": {
+      "player_1": {
+        "id": "pid_2010_11689",
+        "name": "Brian Garcia",
+        "team": "DET",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2013_71174-pid_2015_35595": {
+      "player_1": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2015_35595",
+        "name": "John Martinez",
+        "team": "PIT",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2022
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 3
+    },
+    "pid_2013_71174-pid_2020_77147": {
+      "player_1": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2020_77147",
+        "name": "Jacob Lopez",
+        "team": "ARI",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2013_71174-pid_2019_51672": {
+      "player_1": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2019_51672",
+        "name": "Jack Allen",
+        "team": "NYG",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_62071-pid_2015_73673": {
+      "player_1": {
+        "id": "pid_2012_62071",
+        "name": "Samuel Lopez",
+        "team": "GB",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2015_73673",
+        "name": "Jerry Perez",
+        "team": "DEN",
+        "position": "K"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "BAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_67661-pid_2013_94881": {
+      "player_1": {
+        "id": "pid_2012_67661",
+        "name": "Donald Brown",
+        "team": "HOU",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2013_94881",
+        "name": "Alexander Johnson",
+        "team": "LAC",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2019_51672-pid_2020_77147": {
+      "player_1": {
+        "id": "pid_2019_51672",
+        "name": "Jack Allen",
+        "team": "NYG",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2020_77147",
+        "name": "Jacob Lopez",
+        "team": "ARI",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59314-pid_2013_71174": {
+      "player_1": {
+        "id": "pid_2012_59314",
+        "name": "Robert Anderson",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2013_71174",
+        "name": "Jacob Allen",
+        "team": "LAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59314-pid_2020_77147": {
+      "player_1": {
+        "id": "pid_2012_59314",
+        "name": "Robert Anderson",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2020_77147",
+        "name": "Jacob Lopez",
+        "team": "ARI",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59314-pid_2019_51672": {
+      "player_1": {
+        "id": "pid_2012_59314",
+        "name": "Robert Anderson",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2019_51672",
+        "name": "Jack Allen",
+        "team": "NYG",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59696-pid_2018_60002": {
+      "player_1": {
+        "id": "pid_2012_59696",
+        "name": "Samuel Anderson",
+        "team": "LAR",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59696-pid_2021_58240": {
+      "player_1": {
+        "id": "pid_2012_59696",
+        "name": "Samuel Anderson",
+        "team": "LAR",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2021_58240",
+        "name": "Brandon King",
+        "team": "KC",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_59696-pid_2016_91794": {
+      "player_1": {
+        "id": "pid_2012_59696",
+        "name": "Samuel Anderson",
+        "team": "LAR",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2016_91794",
+        "name": "Adam Peterson",
+        "team": "PIT",
+        "position": "T"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2018_60002-pid_2021_58240": {
+      "player_1": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2021_58240",
+        "name": "Brandon King",
+        "team": "KC",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2018_60002-pid_2021_42679": {
+      "player_1": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2021_42679",
+        "name": "Brian Collins",
+        "team": "PHI",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2016_91794-pid_2018_60002": {
+      "player_1": {
+        "id": "pid_2016_91794",
+        "name": "Adam Peterson",
+        "team": "PIT",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2016_91794-pid_2021_58240": {
+      "player_1": {
+        "id": "pid_2016_91794",
+        "name": "Adam Peterson",
+        "team": "PIT",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2021_58240",
+        "name": "Brandon King",
+        "team": "KC",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_56410-pid_2017_19900": {
+      "player_1": {
+        "id": "pid_2014_56410",
+        "name": "Jacob Phillips",
+        "team": "MIA",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2017_19900",
+        "name": "Charles Rogers",
+        "team": "LAC",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "CLE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2010_72824-pid_2013_59425": {
+      "player_1": {
+        "id": "pid_2010_72824",
+        "name": "Gary Lee",
+        "team": "CIN",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2013_59425",
+        "name": "Jacob Moore",
+        "team": "LAC",
+        "position": "P"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_72824-pid_2014_51862": {
+      "player_1": {
+        "id": "pid_2010_72824",
+        "name": "Gary Lee",
+        "team": "CIN",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2014_51862",
+        "name": "Matthew Rivera",
+        "team": "PIT",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_72824-pid_2017_83503": {
+      "player_1": {
+        "id": "pid_2010_72824",
+        "name": "Gary Lee",
+        "team": "CIN",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2017_83503",
+        "name": "Dennis Martinez",
+        "team": "BAL",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2013_59425-pid_2014_51862": {
+      "player_1": {
+        "id": "pid_2013_59425",
+        "name": "Jacob Moore",
+        "team": "LAC",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2014_51862",
+        "name": "Matthew Rivera",
+        "team": "PIT",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2013_59425-pid_2017_83503": {
+      "player_1": {
+        "id": "pid_2013_59425",
+        "name": "Jacob Moore",
+        "team": "LAC",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2017_83503",
+        "name": "Dennis Martinez",
+        "team": "BAL",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_51862-pid_2017_83503": {
+      "player_1": {
+        "id": "pid_2014_51862",
+        "name": "Matthew Rivera",
+        "team": "PIT",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2017_83503",
+        "name": "Dennis Martinez",
+        "team": "BAL",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2015_48530-pid_2020_97651": {
+      "player_1": {
+        "id": "pid_2015_48530",
+        "name": "Alexander King",
+        "team": "ARI",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2020_97651",
+        "name": "Jose Harris",
+        "team": "DEN",
+        "position": "G"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2013_35610-pid_2020_51909": {
+      "player_1": {
+        "id": "pid_2013_35610",
+        "name": "William Roberts",
+        "team": "DAL",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2020_51909",
+        "name": "Edward Brown",
+        "team": "CHI",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_89411-pid_2015_94605": {
+      "player_1": {
+        "id": "pid_2012_89411",
+        "name": "Douglas Scott",
+        "team": "NO",
+        "position": "SS"
+      },
+      "player_2": {
+        "id": "pid_2015_94605",
+        "name": "Brian Lee",
+        "team": "JAX",
+        "position": "G"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NO"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2021_62231-pid_2022_73355": {
+      "player_1": {
+        "id": "pid_2021_62231",
+        "name": "Kyle Peterson",
+        "team": "PIT",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2022_73355",
+        "name": "Eric Scott",
+        "team": "DET",
+        "position": "T"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_20598-pid_2013_92829": {
+      "player_1": {
+        "id": "pid_2012_20598",
+        "name": "Tyler Campbell",
+        "team": "ATL",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2013_92829",
+        "name": "Matthew Perez",
+        "team": "GB",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2012_20598-pid_2018_35898": {
+      "player_1": {
+        "id": "pid_2012_20598",
+        "name": "Tyler Campbell",
+        "team": "ATL",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2018_35898",
+        "name": "Noah Clark",
+        "team": "DET",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2013_92829-pid_2018_35898": {
+      "player_1": {
+        "id": "pid_2013_92829",
+        "name": "Matthew Perez",
+        "team": "GB",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2018_35898",
+        "name": "Noah Clark",
+        "team": "DET",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_82803-pid_2015_27874": {
+      "player_1": {
+        "id": "pid_2014_82803",
+        "name": "Gregory Taylor",
+        "team": "JAX",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2011_50946-pid_2015_27874": {
+      "player_1": {
+        "id": "pid_2011_50946",
+        "name": "Jacob Moore",
+        "team": "BAL",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2015_27874",
+        "name": "James Collins",
+        "team": "WAS",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2011_50946-pid_2014_82803": {
+      "player_1": {
+        "id": "pid_2011_50946",
+        "name": "Jacob Moore",
+        "team": "BAL",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2014_82803",
+        "name": "Gregory Taylor",
+        "team": "JAX",
+        "position": "H"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_65779-pid_2023_22602": {
+      "player_1": {
+        "id": "pid_2014_65779",
+        "name": "Gary Harris",
+        "team": "CLE",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2023_22602",
+        "name": "Ryan Williams",
+        "team": "SF",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_65779-pid_2022_87272": {
+      "player_1": {
+        "id": "pid_2014_65779",
+        "name": "Gary Harris",
+        "team": "CLE",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2022_87272",
+        "name": "Christopher Brown",
+        "team": "BUF",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2014_65779-pid_2022_53720": {
+      "player_1": {
+        "id": "pid_2014_65779",
+        "name": "Gary Harris",
+        "team": "CLE",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2022_53720",
+        "name": "Frank Davis",
+        "team": "BUF",
+        "position": "C"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2022_87272-pid_2023_22602": {
+      "player_1": {
+        "id": "pid_2022_87272",
+        "name": "Christopher Brown",
+        "team": "BUF",
+        "position": "LS"
+      },
+      "player_2": {
+        "id": "pid_2023_22602",
+        "name": "Ryan Williams",
+        "team": "SF",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 2
+    },
+    "pid_2022_53720-pid_2023_22602": {
+      "player_1": {
+        "id": "pid_2022_53720",
+        "name": "Frank Davis",
+        "team": "BUF",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2023_22602",
+        "name": "Ryan Williams",
+        "team": "SF",
+        "position": "S"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "SF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_10028-pid_2012_22029": {
+      "player_1": {
+        "id": "pid_2010_10028",
+        "name": "Christopher Lee",
+        "team": "KC",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2012_22029",
+        "name": "Brandon Green",
+        "team": "DEN",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2023
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 2
+    },
+    "pid_2010_79397-pid_2011_19028": {
+      "player_1": {
+        "id": "pid_2010_79397",
+        "name": "Douglas Martinez",
+        "team": "NYG",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2011_19028",
+        "name": "Steven Fernandez",
+        "team": "CIN",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_79397-pid_2014_64795": {
+      "player_1": {
+        "id": "pid_2010_79397",
+        "name": "Douglas Martinez",
+        "team": "NYG",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2014_64795",
+        "name": "Jeffrey Sanchez",
+        "team": "IND",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_79397-pid_2016_61723": {
+      "player_1": {
+        "id": "pid_2010_79397",
+        "name": "Douglas Martinez",
+        "team": "NYG",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2016_61723",
+        "name": "Michael Martin",
+        "team": "HOU",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2010_79397-pid_2022_70374": {
+      "player_1": {
+        "id": "pid_2010_79397",
+        "name": "Douglas Martinez",
+        "team": "NYG",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2022_70374",
+        "name": "Gary Robinson",
+        "team": "KC",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_19028-pid_2014_64795": {
+      "player_1": {
+        "id": "pid_2011_19028",
+        "name": "Steven Fernandez",
+        "team": "CIN",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2014_64795",
+        "name": "Jeffrey Sanchez",
+        "team": "IND",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_19028-pid_2016_61723": {
+      "player_1": {
+        "id": "pid_2011_19028",
+        "name": "Steven Fernandez",
+        "team": "CIN",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2016_61723",
+        "name": "Michael Martin",
+        "team": "HOU",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_19028-pid_2022_70374": {
+      "player_1": {
+        "id": "pid_2011_19028",
+        "name": "Steven Fernandez",
+        "team": "CIN",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2022_70374",
+        "name": "Gary Robinson",
+        "team": "KC",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2014_64795-pid_2016_61723": {
+      "player_1": {
+        "id": "pid_2014_64795",
+        "name": "Jeffrey Sanchez",
+        "team": "IND",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2016_61723",
+        "name": "Michael Martin",
+        "team": "HOU",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2014_64795-pid_2022_70374": {
+      "player_1": {
+        "id": "pid_2014_64795",
+        "name": "Jeffrey Sanchez",
+        "team": "IND",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2022_70374",
+        "name": "Gary Robinson",
+        "team": "KC",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2016_61723-pid_2022_70374": {
+      "player_1": {
+        "id": "pid_2016_61723",
+        "name": "Michael Martin",
+        "team": "HOU",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2022_70374",
+        "name": "Gary Robinson",
+        "team": "KC",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "ATL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_91336-pid_2021_36461": {
+      "player_1": {
+        "id": "pid_2018_91336",
+        "name": "Tyler Adams",
+        "team": "BUF",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2021_36461",
+        "name": "Charles Allen",
+        "team": "ARI",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_93068-pid_2021_36461": {
+      "player_1": {
+        "id": "pid_2010_93068",
+        "name": "David Roberts",
+        "team": "WAS",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2021_36461",
+        "name": "Charles Allen",
+        "team": "ARI",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_93068-pid_2018_91336": {
+      "player_1": {
+        "id": "pid_2010_93068",
+        "name": "David Roberts",
+        "team": "WAS",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2018_91336",
+        "name": "Tyler Adams",
+        "team": "BUF",
+        "position": "H"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_50836-pid_2023_59315": {
+      "player_1": {
+        "id": "pid_2018_50836",
+        "name": "Dennis Taylor",
+        "team": "GB",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2023_59315",
+        "name": "Liam Smith",
+        "team": "IND",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_17920-pid_2010_84688": {
+      "player_1": {
+        "id": "pid_2010_17920",
+        "name": "Liam Lewis",
+        "team": "TEN",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2010_84688",
+        "name": "Timothy Allen",
+        "team": "IND",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_17920-pid_2018_50836": {
+      "player_1": {
+        "id": "pid_2010_17920",
+        "name": "Liam Lewis",
+        "team": "TEN",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2018_50836",
+        "name": "Dennis Taylor",
+        "team": "GB",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_17920-pid_2023_59315": {
+      "player_1": {
+        "id": "pid_2010_17920",
+        "name": "Liam Lewis",
+        "team": "TEN",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2023_59315",
+        "name": "Liam Smith",
+        "team": "IND",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "BUF"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2019_59383-pid_2020_28626": {
+      "player_1": {
+        "id": "pid_2019_59383",
+        "name": "Larry Torres",
+        "team": "NO",
+        "position": "T"
+      },
+      "player_2": {
+        "id": "pid_2020_28626",
+        "name": "Jacob Lewis",
+        "team": "CLE",
+        "position": "LS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "DAL"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2016_44261-pid_2023_82428": {
+      "player_1": {
+        "id": "pid_2016_44261",
+        "name": "Noah Miller",
+        "team": "DET",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2023_82428",
+        "name": "Benjamin Davis",
+        "team": "WAS",
+        "position": "FB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "DEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_91561-pid_2019_47504": {
+      "player_1": {
+        "id": "pid_2018_91561",
+        "name": "Edward Martinez",
+        "team": "ATL",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_47504",
+        "name": "Benjamin Taylor",
+        "team": "TB",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "GB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2011_85466-pid_2011_89091": {
+      "player_1": {
+        "id": "pid_2011_85466",
+        "name": "William Smith",
+        "team": "TB",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2011_89091",
+        "name": "Patrick Phillips",
+        "team": "NYG",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_85466-pid_2018_60002": {
+      "player_1": {
+        "id": "pid_2011_85466",
+        "name": "William Smith",
+        "team": "TB",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2018_60002",
+        "name": "Jacob Rogers",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_85466-pid_2021_42679": {
+      "player_1": {
+        "id": "pid_2011_85466",
+        "name": "William Smith",
+        "team": "TB",
+        "position": "G"
+      },
+      "player_2": {
+        "id": "pid_2021_42679",
+        "name": "Brian Collins",
+        "team": "PHI",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "IND"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_23684-pid_2014_10104": {
+      "player_1": {
+        "id": "pid_2011_23684",
+        "name": "Robert Anderson",
+        "team": "IND",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2014_10104",
+        "name": "Ryan Roberts",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2011_23684-pid_2011_52151": {
+      "player_1": {
+        "id": "pid_2011_23684",
+        "name": "Robert Anderson",
+        "team": "IND",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2011_52151",
+        "name": "Ryan Thomas",
+        "team": "NO",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_23684-pid_2013_38585": {
+      "player_1": {
+        "id": "pid_2011_23684",
+        "name": "Robert Anderson",
+        "team": "IND",
+        "position": "DT"
+      },
+      "player_2": {
+        "id": "pid_2013_38585",
+        "name": "Timothy Lopez",
+        "team": "SF",
+        "position": "T"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_52151-pid_2014_10104": {
+      "player_1": {
+        "id": "pid_2011_52151",
+        "name": "Ryan Thomas",
+        "team": "NO",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2014_10104",
+        "name": "Ryan Roberts",
+        "team": "SF",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_52151-pid_2013_38585": {
+      "player_1": {
+        "id": "pid_2011_52151",
+        "name": "Ryan Thomas",
+        "team": "NO",
+        "position": "LB"
+      },
+      "player_2": {
+        "id": "pid_2013_38585",
+        "name": "Timothy Lopez",
+        "team": "SF",
+        "position": "T"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "JAX"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_85289-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2015_85289",
+        "name": "Adam Lee",
+        "team": "KC",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_85289-pid_2016_81304": {
+      "player_1": {
+        "id": "pid_2015_85289",
+        "name": "Adam Lee",
+        "team": "KC",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2016_81304",
+        "name": "Larry Rivera",
+        "team": "NO",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2016_81304-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2016_81304",
+        "name": "Larry Rivera",
+        "team": "NO",
+        "position": "TE"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2013_64782-pid_2019_61489": {
+      "player_1": {
+        "id": "pid_2013_64782",
+        "name": "Ronald Campbell",
+        "team": "WAS",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2019_61489",
+        "name": "Brian Young",
+        "team": "JAX",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2013_64782-pid_2015_85289": {
+      "player_1": {
+        "id": "pid_2013_64782",
+        "name": "Ronald Campbell",
+        "team": "WAS",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2015_85289",
+        "name": "Adam Lee",
+        "team": "KC",
+        "position": "S"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2013_64782-pid_2016_81304": {
+      "player_1": {
+        "id": "pid_2013_64782",
+        "name": "Ronald Campbell",
+        "team": "WAS",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2016_81304",
+        "name": "Larry Rivera",
+        "team": "NO",
+        "position": "TE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "KC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_51481-pid_2011_56673": {
+      "player_1": {
+        "id": "pid_2010_51481",
+        "name": "Richard Rodriguez",
+        "team": "CIN",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2011_56673",
+        "name": "Frank Rodriguez",
+        "team": "NYG",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2010_51481-pid_2012_44824": {
+      "player_1": {
+        "id": "pid_2010_51481",
+        "name": "Richard Rodriguez",
+        "team": "CIN",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2012_44824",
+        "name": "Thomas Green",
+        "team": "DET",
+        "position": "H"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2011_56673-pid_2012_44824": {
+      "player_1": {
+        "id": "pid_2011_56673",
+        "name": "Frank Rodriguez",
+        "team": "NYG",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2012_44824",
+        "name": "Thomas Green",
+        "team": "DET",
+        "position": "H"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAC"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2022_52688-pid_2024_15915": {
+      "player_1": {
+        "id": "pid_2022_52688",
+        "name": "Peter Wilson",
+        "team": "TB",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2024_15915",
+        "name": "Justin King",
+        "team": "PIT",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_51323-pid_2018_65522": {
+      "player_1": {
+        "id": "pid_2018_51323",
+        "name": "Jonathan Torres",
+        "team": "CAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2018_65522",
+        "name": "Noah Smith",
+        "team": "JAX",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_51323-pid_2022_52688": {
+      "player_1": {
+        "id": "pid_2018_51323",
+        "name": "Jonathan Torres",
+        "team": "CAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2022_52688",
+        "name": "Peter Wilson",
+        "team": "TB",
+        "position": "S"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2018_51323-pid_2024_15915": {
+      "player_1": {
+        "id": "pid_2018_51323",
+        "name": "Jonathan Torres",
+        "team": "CAR",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2024_15915",
+        "name": "Justin King",
+        "team": "PIT",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_25351-pid_2018_65522": {
+      "player_1": {
+        "id": "pid_2015_25351",
+        "name": "Alexander Ramirez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2018_65522",
+        "name": "Noah Smith",
+        "team": "JAX",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_25351-pid_2022_52688": {
+      "player_1": {
+        "id": "pid_2015_25351",
+        "name": "Alexander Ramirez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2022_52688",
+        "name": "Peter Wilson",
+        "team": "TB",
+        "position": "S"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_25351-pid_2018_51323": {
+      "player_1": {
+        "id": "pid_2015_25351",
+        "name": "Alexander Ramirez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2018_51323",
+        "name": "Jonathan Torres",
+        "team": "CAR",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_25351-pid_2024_15915": {
+      "player_1": {
+        "id": "pid_2015_25351",
+        "name": "Alexander Ramirez",
+        "team": "BAL",
+        "position": "H"
+      },
+      "player_2": {
+        "id": "pid_2024_15915",
+        "name": "Justin King",
+        "team": "PIT",
+        "position": "K"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LAR"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2012_76098-pid_2012_98540": {
+      "player_1": {
+        "id": "pid_2012_76098",
+        "name": "Jeffrey Lopez",
+        "team": "GB",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2012_98540",
+        "name": "Jacob Hernandez",
+        "team": "NO",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "LV"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2019_99280-pid_2023_25329": {
+      "player_1": {
+        "id": "pid_2019_99280",
+        "name": "Nicholas Scott",
+        "team": "LAC",
+        "position": "C"
+      },
+      "player_2": {
+        "id": "pid_2023_25329",
+        "name": "Peter Morgan",
+        "team": "CIN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_84141-pid_2019_99280": {
+      "player_1": {
+        "id": "pid_2015_84141",
+        "name": "Richard Harris",
+        "team": "ATL",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2019_99280",
+        "name": "Nicholas Scott",
+        "team": "LAC",
+        "position": "C"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2015_84141-pid_2023_25329": {
+      "player_1": {
+        "id": "pid_2015_84141",
+        "name": "Richard Harris",
+        "team": "ATL",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2023_25329",
+        "name": "Peter Morgan",
+        "team": "CIN",
+        "position": "LB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2020_76221-pid_2023_68048": {
+      "player_1": {
+        "id": "pid_2020_76221",
+        "name": "Donald Collins",
+        "team": "DEN",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2023_68048",
+        "name": "Tyler Lewis",
+        "team": "TB",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2017_91130-pid_2020_76221": {
+      "player_1": {
+        "id": "pid_2017_91130",
+        "name": "Benjamin Rodriguez",
+        "team": "SF",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2020_76221",
+        "name": "Donald Collins",
+        "team": "DEN",
+        "position": "DE"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2017_91130-pid_2023_68048": {
+      "player_1": {
+        "id": "pid_2017_91130",
+        "name": "Benjamin Rodriguez",
+        "team": "SF",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2023_68048",
+        "name": "Tyler Lewis",
+        "team": "TB",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "MIN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2020_25497-pid_2024_24772": {
+      "player_1": {
+        "id": "pid_2020_25497",
+        "name": "Benjamin Morgan",
+        "team": "PIT",
+        "position": "WR"
+      },
+      "player_2": {
+        "id": "pid_2024_24772",
+        "name": "Brandon Garcia",
+        "team": "SEA",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NE"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2022_65759-pid_2023_42806": {
+      "player_1": {
+        "id": "pid_2022_65759",
+        "name": "Stephen Taylor",
+        "team": "PIT",
+        "position": "DE"
+      },
+      "player_2": {
+        "id": "pid_2023_42806",
+        "name": "Jacob Garcia",
+        "team": "ARI",
+        "position": "WR"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NYG"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2014_51888-pid_2022_20658": {
+      "player_1": {
+        "id": "pid_2014_51888",
+        "name": "Frank Harris",
+        "team": "BAL",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2022_20658",
+        "name": "Michael Jackson",
+        "team": "SEA",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2014_51888-pid_2020_51896": {
+      "player_1": {
+        "id": "pid_2014_51888",
+        "name": "Frank Harris",
+        "team": "BAL",
+        "position": "S"
+      },
+      "player_2": {
+        "id": "pid_2020_51896",
+        "name": "Mason Davis",
+        "team": "CLE",
+        "position": "QB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2020_51896-pid_2022_20658": {
+      "player_1": {
+        "id": "pid_2020_51896",
+        "name": "Mason Davis",
+        "team": "CLE",
+        "position": "QB"
+      },
+      "player_2": {
+        "id": "pid_2022_20658",
+        "name": "Michael Jackson",
+        "team": "SEA",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "NYJ"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    },
+    "pid_2018_56655-pid_2021_86840": {
+      "player_1": {
+        "id": "pid_2018_56655",
+        "name": "Patrick Collins",
+        "team": "TEN",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2021_86840",
+        "name": "Jason Davis",
+        "team": "NO",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2018_56655-pid_2023_77299": {
+      "player_1": {
+        "id": "pid_2018_56655",
+        "name": "Patrick Collins",
+        "team": "TEN",
+        "position": "FB"
+      },
+      "player_2": {
+        "id": "pid_2023_77299",
+        "name": "Jacob Johnson",
+        "team": "DET",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2022_69539-pid_2023_77299": {
+      "player_1": {
+        "id": "pid_2022_69539",
+        "name": "Daniel Thompson",
+        "team": "TEN",
+        "position": "RB"
+      },
+      "player_2": {
+        "id": "pid_2023_77299",
+        "name": "Jacob Johnson",
+        "team": "DET",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2021_86840-pid_2022_69539": {
+      "player_1": {
+        "id": "pid_2021_86840",
+        "name": "Jason Davis",
+        "team": "NO",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2022_69539",
+        "name": "Daniel Thompson",
+        "team": "TEN",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2021_86840-pid_2023_77299": {
+      "player_1": {
+        "id": "pid_2021_86840",
+        "name": "Jason Davis",
+        "team": "NO",
+        "position": "FS"
+      },
+      "player_2": {
+        "id": "pid_2023_77299",
+        "name": "Jacob Johnson",
+        "team": "DET",
+        "position": "FS"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "PHI"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2024_18645-pid_2024_21174": {
+      "player_1": {
+        "id": "pid_2024_18645",
+        "name": "Timothy Johnson",
+        "team": "BUF",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2024_21174",
+        "name": "Gary Taylor",
+        "team": "CAR",
+        "position": "RB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "SEA"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2012_33334-pid_2014_65356": {
+      "player_1": {
+        "id": "pid_2012_33334",
+        "name": "Gary White",
+        "team": "GB",
+        "position": "P"
+      },
+      "player_2": {
+        "id": "pid_2014_65356",
+        "name": "Jacob Garcia",
+        "team": "SEA",
+        "position": "CB"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "TB"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2020_78793-pid_2024_64321": {
+      "player_1": {
+        "id": "pid_2020_78793",
+        "name": "Justin Johnson",
+        "team": "HOU",
+        "position": "K"
+      },
+      "player_2": {
+        "id": "pid_2024_64321",
+        "name": "Jacob White",
+        "team": "NE",
+        "position": "G"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "TEN"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": false,
+      "years_since_overlap": 1
+    },
+    "pid_2014_19644-pid_2018_23441": {
+      "player_1": {
+        "id": "pid_2014_19644",
+        "name": "Aaron Brown",
+        "team": "MIN",
+        "position": "CB"
+      },
+      "player_2": {
+        "id": "pid_2018_23441",
+        "name": "Matthew Collins",
+        "team": "DEN",
+        "position": "DT"
+      },
+      "co_seasons": [
+        2024
+      ],
+      "co_teams": [
+        "WAS"
+      ],
+      "overlap_duration": "brief",
+      "same_position_group": true,
+      "years_since_overlap": 1
+    }
+  }
+}

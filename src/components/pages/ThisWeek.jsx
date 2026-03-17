@@ -8,6 +8,7 @@ import { matchupPreview } from '../../utils/narratives';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { InsightCard } from '../ui/InsightCard';
 import { RatingBar } from '../ui/RatingBar';
+import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
@@ -128,6 +129,11 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Former Teammates compact badge */}
+            <div style={{ marginBottom: 12 }}>
+              <FormerTeammatesCard team1={game.away} team2={game.home} compact />
             </div>
 
             {/* Mismatches */}

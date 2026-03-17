@@ -11,6 +11,7 @@ import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
 import { MatchupGrade } from '../ui/MatchupGrade';
+import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -122,6 +123,11 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Former Teammates Intelligence */}
+      <div style={{ marginTop: 20 }}>
+        <FormerTeammatesCard team1={offTm} team2={defTm} />
       </div>
 
       {/* Content Export Tools */}
