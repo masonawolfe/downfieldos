@@ -12,3 +12,4 @@ export { generateTweetThread } from './tweetThread';
 export { generatePrepSheet, generateNewsletterDraft, generateArticle } from './prepSheet';
 export { getRevengeGames, getRevengeGameSummary } from './revengeGames';
 export { schemeSimilarity, calcSchemeFamiliarity, getFamiliarityExtremes } from './schemeFamiliarity';
+export { calcCoachingTreeOverlap, getCoachingTreeConnections } from './coachingTree';

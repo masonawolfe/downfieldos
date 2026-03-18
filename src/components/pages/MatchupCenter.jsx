@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield, GitBranch } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
@@ -14,6 +14,7 @@ import { MatchupGrade } from '../ui/MatchupGrade';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 import { getRevengeGameSummary } from '../../utils/revengeGames';
 import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
+import { calcCoachingTreeOverlap } from '../../utils/coachingTree';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -37,6 +38,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const thread = useMemo(() => generateTweetThread(offTm, defTm, os, ds, bl, grade), [offTm, defTm, os, ds, bl, grade]);
   const revenge = useMemo(() => getRevengeGameSummary(offTm, defTm), [offTm, defTm]);
   const schemeFam = useMemo(() => calcSchemeFamiliarity(offTm, defTm), [offTm, defTm]);
+  const coachTree = useMemo(() => calcCoachingTreeOverlap(offTm, defTm), [offTm, defTm]);
 
   const copyTweet = (text, idx) => {
     navigator.clipboard?.writeText(text);
@@ -148,6 +150,48 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             <span style={{ fontSize: 12, color: "#94a3b8" }}>{tn(offTm)} offense vs {tn(defTm)} defense</span>
           </div>
           <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{schemeFam.narrative}</div>
+        </div>
+
+        {/* Coaching Tree Overlap */}
+        <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <GitBranch size={20} color="#8b5cf6" />
+              <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Coaching Tree</span>
+            </div>
+            {coachTree.overlapScore > 0 && (
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>Overlap</div>
+                <div style={{ fontSize: 24, fontWeight: 900, color: coachTree.overlapScore >= 70 ? "#8b5cf6" : "#94a3b8", fontFamily: "monospace" }}>{coachTree.overlapScore}</div>
+              </div>
+            )}
+          </div>
+          {coachTree.sharedTrees.length > 0 && (
+            <div style={{ display: "flex", gap: 6, marginBottom: 10, flexWrap: "wrap" }}>
+              {coachTree.sharedTrees.map((tree, i) => (
+                <span key={i} style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: "#f5f3ff", color: "#7c3aed" }}>{tree.name} Tree</span>
+              ))}
+            </div>
+          )}
+          {coachTree.details && (
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 12 }}>
+              <div style={{ padding: "10px 14px", background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{tn(offTm)}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{coachTree.details.team1.hc}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>OC: {coachTree.details.team1.oc}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team1.dc}</div>
+                <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team1.style}</div>
+              </div>
+              <div style={{ padding: "10px 14px", background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{tn(defTm)}</div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{coachTree.details.team2.hc}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>OC: {coachTree.details.team2.oc}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team2.dc}</div>
+                <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team2.style}</div>
+              </div>
+            </div>
+          )}
+          <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{coachTree.narrative}</div>
         </div>
 
         {/* Revenge Games */}
