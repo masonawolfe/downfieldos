@@ -83,21 +83,23 @@ export function FormerTeammatesCard({ team1, team2, compact = false }) {
               <div key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "10px 14px", background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
                 <div>
                   <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>
-                    {conn.player_1_name} <span style={{ color: "#94a3b8", fontWeight: 400 }}>({conn.player_1_position})</span>
+                    {conn.player_1_name} <span style={{ color: "#94a3b8", fontWeight: 400 }}>({conn.player_1_position || ""})</span>
                   </div>
-                  <div style={{ fontSize: 12, color: "#64748b" }}>
-                    ↔ {conn.player_2_name} <span style={{ color: "#94a3b8" }}>({conn.player_2_position})</span>
-                  </div>
+                  {conn.player_2_name && (
+                    <div style={{ fontSize: 12, color: "#64748b" }}>
+                      ↔ {conn.player_2_name} <span style={{ color: "#94a3b8" }}>({conn.player_2_position || ""})</span>
+                    </div>
+                  )}
                   <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 2 }}>
-                    {conn.teams?.join(", ")}{conn.same_position_group ? " · Same position room" : ""}
+                    {conn.co_teams?.join(", ")}
                   </div>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
-                  <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, ...durationStyle(conn.overlap_duration) }}>
-                    {conn.overlap_duration}
+                  <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, ...durationStyle(conn.duration) }}>
+                    {conn.duration}
                   </span>
-                  {conn.years_since_overlap != null && (
-                    <span style={{ fontSize: 10, color: "#94a3b8" }}>{conn.years_since_overlap}y ago</span>
+                  {conn.years_since != null && (
+                    <span style={{ fontSize: 10, color: "#94a3b8" }}>{conn.years_since}y ago</span>
                   )}
                 </div>
               </div>

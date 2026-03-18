@@ -3,14 +3,42 @@
  *
  * Provides functions for querying and analyzing player-player connections
  * from the former teammates graph.
+ *
+ * Uses real nflverse roster data processed by scripts/fetch-nflverse-rosters.js.
  */
 
 import formerTeammatesActive from '../data/intelligence/former_teammates_active.json';
 import formerTeammatesByMatchup from '../data/intelligence/former_teammates_by_matchup.json';
 
+const edges = formerTeammatesActive.edges || {};
+
+/**
+ * Get all edge IDs for a team-pair matchup
+ */
+function getMatchupEdgeIds(team1, team2) {
+  const key1 = [team1, team2].sort().join('_');
+  return formerTeammatesByMatchup.matchups?.[key1] || [];
+}
+
+/**
+ * Get all edges (full objects) for a matchup
+ */
+function getMatchupEdges(team1, team2) {
+  const ids = getMatchupEdgeIds(team1, team2);
+  return ids.map(id => edges[id]).filter(Boolean);
+}
+
+/**
+ * Classify overlap duration from years
+ */
+function classifyDuration(years) {
+  if (years >= 4) return 'deep';
+  if (years >= 2) return 'moderate';
+  return 'brief';
+}
+
 /**
  * Get all matchups with connections
- * @returns {array} Array of matchup codes with connection data
  */
 export function getAllMatchupsWithConnections() {
   return Object.keys(formerTeammatesByMatchup.matchups || {});
@@ -18,121 +46,64 @@ export function getAllMatchupsWithConnections() {
 
 /**
  * Get connections for a specific matchup
- * @param {string} team1 - First team (e.g., 'PHI')
- * @param {string} team2 - Second team (e.g., 'DAL')
- * @returns {object} { connections: [], summary: {} }
+ * Returns edge objects with normalized fields
  */
-export function getMatchupData(team1, team2) {
-  const key = `${team1}-${team2}`;
-  return formerTeammatesByMatchup.matchups?.[key] || { connections: [], summary: {} };
+export function getMatchupConnections(team1, team2) {
+  return getMatchupEdges(team1, team2).map(edge => ({
+    ...edge,
+    duration: classifyDuration(edge.overlap_years || 1),
+    player_1_name: edge.player_1?.name,
+    player_1_position: edge.player_1?.pos || edge.player_1?.position,
+    player_1_team: edge.player_1?.team,
+    player_2_name: edge.player_2?.name,
+    player_2_position: edge.player_2?.pos || edge.player_2?.position,
+    player_2_team: edge.player_2?.team,
+  }));
 }
 
 /**
  * Get connection statistics for a matchup
- * @param {string} team1
- * @param {string} team2
- * @returns {object} Summary of connection types
  */
 export function getMatchupStats(team1, team2) {
-  const data = getMatchupData(team1, team2);
-  return data.summary || {
-    total_connections: 0,
-    deep_connections: 0,
-    moderate_connections: 0,
-    brief_connections: 0,
-    same_position_group_count: 0,
+  const conns = getMatchupEdges(team1, team2);
+  const total = conns.length;
+  const deep = conns.filter(e => (e.overlap_years || 1) >= 4).length;
+  const moderate = conns.filter(e => { const y = e.overlap_years || 1; return y >= 2 && y < 4; }).length;
+  const brief = total - deep - moderate;
+
+  return {
+    total_connections: total,
+    deep_connections: deep,
+    moderate_connections: moderate,
+    brief_connections: brief,
   };
 }
 
 /**
- * Filter connections by overlap duration
- * @param {string} team1
- * @param {string} team2
- * @param {string} duration - 'deep', 'moderate', or 'brief'
- * @returns {array} Filtered connections
- */
-export function getConnectionsByDuration(team1, team2, duration) {
-  const data = getMatchupData(team1, team2);
-  return (data.connections || []).filter(c => c.overlap_duration === duration);
-}
-
-/**
- * Get connections where both players are in the same position group
- * (practiced daily together)
- * @param {string} team1
- * @param {string} team2
- * @returns {array} Connections with same position group flag
- */
-export function getSamePositionGroupConnections(team1, team2) {
-  const data = getMatchupData(team1, team2);
-  return (data.connections || []).filter(c => c.same_position_group);
-}
-
-/**
- * Get most recent connections (fewest years since overlap)
- * @param {string} team1
- * @param {string} team2
- * @param {number} limit - How many to return
- * @returns {array} Connections sorted by recency
- */
-export function getMostRecentConnections(team1, team2, limit = 5) {
-  const data = getMatchupData(team1, team2);
-  const connections = (data.connections || [])
-    .sort((a, b) => a.years_since_overlap - b.years_since_overlap);
-  return connections.slice(0, limit);
-}
-
-/**
- * Get deepest connections (most overlap duration)
- * @param {string} team1
- * @param {string} team2
- * @param {number} limit - How many to return
- * @returns {array} Connections sorted by overlap duration
+ * Get deepest connections (most overlap years)
  */
 export function getDeepestConnections(team1, team2, limit = 5) {
-  const data = getMatchupData(team1, team2);
-  const durationOrder = { deep: 3, moderate: 2, brief: 1 };
-  const connections = (data.connections || [])
-    .sort((a, b) => {
-      const aScore = durationOrder[a.overlap_duration] || 0;
-      const bScore = durationOrder[b.overlap_duration] || 0;
-      if (bScore !== aScore) return bScore - aScore;
-      return a.years_since_overlap - b.years_since_overlap;
-    });
-  return connections.slice(0, limit);
+  const conns = getMatchupConnections(team1, team2);
+  return conns
+    .sort((a, b) => (b.overlap_years || 1) - (a.overlap_years || 1) || (a.years_since || 0) - (b.years_since || 0))
+    .slice(0, limit);
 }
 
 /**
- * Get connections by position group
- * Useful for analyzing specific unit compatibility
- * @param {string} team1
- * @param {string} team2
- * @param {string} posGroup - Position group (e.g., 'QB', 'OL', 'DL', 'DB')
- * @returns {array} Connections involving the position group
+ * Get most recent connections
  */
-export function getConnectionsByPositionGroup(team1, team2, posGroup) {
-  const data = getMatchupData(team1, team2);
-  return (data.connections || []).filter(c => {
-    // Check if either player is in the requested position group
-    return (
-      c.player_1_position?.toUpperCase().includes(posGroup) ||
-      c.player_2_position?.toUpperCase().includes(posGroup)
-    );
-  });
+export function getMostRecentConnections(team1, team2, limit = 5) {
+  const conns = getMatchupConnections(team1, team2);
+  return conns
+    .sort((a, b) => (a.years_since || 0) - (b.years_since || 0))
+    .slice(0, limit);
 }
 
 /**
  * Generate insight text for a matchup's connections
- * @param {string} team1
- * @param {string} team2
- * @returns {object} { headline, bullet_points, narrative }
  */
 export function generateInsights(team1, team2) {
   const stats = getMatchupStats(team1, team2);
-  const deepConns = getConnectionsByDuration(team1, team2, 'deep');
-  const samePos = getSamePositionGroupConnections(team1, team2);
-  const topConnections = getDeepestConnections(team1, team2, 3);
-
   const total = stats.total_connections || 0;
 
   if (total === 0) {
@@ -148,36 +119,19 @@ export function generateInsights(team1, team2) {
   const headline = `${total} Former Teammate${total === 1 ? '' : 's'} Between ${team1} and ${team2}`;
 
   const bullet_points = [];
-
-  if (deepConns.length > 0) {
-    bullet_points.push(
-      `${deepConns.length} deep connection${deepConns.length === 1 ? '' : 's'} (3+ years together)`
-    );
+  if (stats.deep_connections > 0) {
+    bullet_points.push(`${stats.deep_connections} deep connection${stats.deep_connections === 1 ? '' : 's'} (4+ years together)`);
   }
-
   if (stats.moderate_connections > 0) {
-    bullet_points.push(
-      `${stats.moderate_connections} moderate connection${stats.moderate_connections === 1 ? '' : 's'} (2-3 years)`
-    );
+    bullet_points.push(`${stats.moderate_connections} moderate connection${stats.moderate_connections === 1 ? '' : 's'} (2-3 years)`);
   }
 
-  if (samePos.length > 0) {
-    bullet_points.push(
-      `${samePos.length} same-position-group connection${samePos.length === 1 ? '' : 's'} (practiced daily)`
-    );
-  }
+  const topConnections = getDeepestConnections(team1, team2, 3);
 
-  // Generate narrative
   let narrative = `${total} former teammate${total === 1 ? '' : 's'} between ${team1} and ${team2}`;
-
-  if (deepConns.length > 0) {
-    narrative += `, with ${deepConns.length} deep connection${deepConns.length === 1 ? '' : 's'}`;
+  if (stats.deep_connections > 0) {
+    narrative += `, with ${stats.deep_connections} deep connection${stats.deep_connections === 1 ? '' : 's'}`;
   }
-
-  if (samePos.length > 0) {
-    narrative += `. Key insight: ${samePos.length} player${samePos.length === 1 ? '' : 's'} who practiced together in the same position room`;
-  }
-
   narrative += '.';
 
   return {
@@ -190,75 +144,38 @@ export function generateInsights(team1, team2) {
 }
 
 /**
- * Get connection details for a specific player pair
- * Useful for player-level matchup analysis
- * @param {string} playerId1
- * @param {string} playerId2
- * @returns {object|null} Connection data or null if not found
- */
-export function getPlayerConnection(playerId1, playerId2) {
-  const edges = formerTeammatesActive.edges || {};
-  const key = `${playerId1}-${playerId2}`;
-  return edges[key] || null;
-}
-
-/**
- * Get all connections for a specific player across all matchups
- * @param {string} playerId
- * @returns {array} All edges involving this player
- */
-export function getPlayerTeammateHistory(playerId) {
-  const edges = formerTeammatesActive.edges || {};
-  return Object.values(edges).filter(
-    edge => edge.player_1.id === playerId || edge.player_2.id === playerId
-  );
-}
-
-/**
  * Calculate a "chemistry score" for two teams
  * Based on depth and recency of connections
- * @param {string} team1
- * @param {string} team2
- * @returns {number} Score from 0-100
  */
 export function calculateChemistryScore(team1, team2) {
   const stats = getMatchupStats(team1, team2);
-  const deepConns = getConnectionsByDuration(team1, team2, 'deep');
-  const samePos = getSamePositionGroupConnections(team1, team2);
-  const recent = getMostRecentConnections(team1, team2, 10);
+  const conns = getMatchupConnections(team1, team2);
 
-  // Weighted scoring:
-  // - Deep connections: 30 points each
-  // - Same position: 20 points each
-  // - Recent (0-2 years): 15 points each, Medium (3-5): 10, Old (6+): 5
   let score = 0;
 
-  score += deepConns.length * 30;
-  score += samePos.length * 20;
+  // Deep connections are most valuable
+  score += stats.deep_connections * 25;
+  score += stats.moderate_connections * 12;
+  score += stats.brief_connections * 4;
 
-  recent.forEach(conn => {
-    if (conn.years_since_overlap <= 2) {
-      score += 15;
-    } else if (conn.years_since_overlap <= 5) {
-      score += 10;
-    } else {
-      score += 5;
-    }
+  // Recency bonus
+  conns.slice(0, 10).forEach(c => {
+    const ys = c.years_since || 0;
+    if (ys <= 1) score += 10;
+    else if (ys <= 3) score += 5;
+    else score += 2;
   });
 
-  // Cap at 100
   return Math.min(score, 100);
 }
 
 /**
- * Get matchups with the strongest chemistry (top X)
- * @param {number} limit - How many matchups to return
- * @returns {array} Matchup codes sorted by chemistry score
+ * Get matchups with the strongest chemistry
  */
 export function getTopChemistryMatchups(limit = 10) {
   const matchups = getAllMatchupsWithConnections();
   const scored = matchups.map(matchup => {
-    const [team1, team2] = matchup.split('-');
+    const [team1, team2] = matchup.split('_');
     const score = calculateChemistryScore(team1, team2);
     return { matchup, score, team1, team2 };
   });
