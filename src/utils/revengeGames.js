@@ -7,7 +7,7 @@
  * Uses real nflverse roster data processed by scripts/fetch-nflverse-rosters.js.
  */
 
-import formerTeammatesActive from '../data/intelligence/former_teammates_active.json';
+import { formerTeammatesActive } from '../data/intelligence';
 
 /**
  * Get all players in the current matchup who are facing a former team.

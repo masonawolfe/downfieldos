@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import formerTeammatesActive from '../data/intelligence/former_teammates_active.json';
-import formerTeammatesByMatchup from '../data/intelligence/former_teammates_by_matchup.json';
+import { formerTeammatesActive, formerTeammatesByMatchup } from '../data/intelligence';
 
 /**
  * Hook to query former teammate connections

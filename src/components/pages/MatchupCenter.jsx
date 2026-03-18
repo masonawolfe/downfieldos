@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield, GitBranch } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield, GitBranch, ArrowRightLeft } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
@@ -17,6 +17,10 @@ import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcCoachingTreeOverlap } from '../../utils/coachingTree';
 import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
 import { calcEnvironmentFactors } from '../../utils/environmentFactors';
+import { getFreeAgentIntel } from '../../utils/freeAgentIntel';
+import { generateMatchupIntelSummary } from '../../utils/matchupIntelSummary';
+import { calculateChemistryScore } from '../../utils/formerTeammates';
+import { calcFilmStudy } from '../../utils/filmStudy';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -28,6 +32,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const [showPlayers, setShowPlayers] = useState(false);
   const [showThread, setShowThread] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState(null);
+  const [gameWeek, setGameWeek] = useState(1);
   const os = useMemo(() => agg(plays, offTm), [plays, offTm]);
   const ds = useMemo(() => agg(plays, defTm), [plays, defTm]);
   const bl = useMemo(() => lgbl(plays), [plays]);
@@ -43,6 +48,12 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const coachTree = useMemo(() => calcCoachingTreeOverlap(offTm, defTm), [offTm, defTm]);
   const divFam = useMemo(() => calcDivisionalFamiliarity(offTm, defTm), [offTm, defTm]);
   const envFactors = useMemo(() => calcEnvironmentFactors(defTm, offTm), [defTm, offTm]);
+  const faIntel = useMemo(() => getFreeAgentIntel(offTm, defTm), [offTm, defTm]);
+  const chemScore = useMemo(() => calculateChemistryScore(offTm, defTm), [offTm, defTm]);
+  const filmStudy = useMemo(() => calcFilmStudy(offTm, defTm, gameWeek), [offTm, defTm, gameWeek]);
+  const intelSummary = useMemo(() => generateMatchupIntelSummary({
+    offTm, defTm, schemeFam, coachTree, divFam, envFactors, revenge, faIntel, chemScore
+  }), [offTm, defTm, schemeFam, coachTree, divFam, envFactors, revenge, faIntel, chemScore]);
 
   const copyTweet = (text, idx) => {
     navigator.clipboard?.writeText(text);
@@ -70,6 +81,12 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         <TeamSelect value={offTm} onChange={setOffTm} label="Offense" />
         <div style={{ fontSize: 24, color: "#94a3b8", fontWeight: 800, paddingBottom: 8 }}>vs</div>
         <TeamSelect value={defTm} onChange={setDefTm} label="Defense" />
+        <div style={{ paddingBottom: 4 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Week</div>
+          <select value={gameWeek} onChange={e => setGameWeek(Number(e.target.value))} style={{ padding: "8px 12px", borderRadius: 10, border: "1px solid #e2e8f0", fontSize: 13, fontWeight: 600, background: "#fff", cursor: "pointer", color: "#0f172a" }}>
+            {Array.from({ length: 18 }, (_, i) => <option key={i + 1} value={i + 1}>Week {i + 1}</option>)}
+          </select>
+        </div>
       </div>
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}><MarkdownBlock text={preview} /></div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
@@ -137,6 +154,34 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
 
       {/* Matchup Intelligence */}
       <div style={{ marginTop: 20, display: "grid", gap: 16 }}>
+        {/* Intelligence Summary Header */}
+        <div style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", borderRadius: 16, padding: "24px 28px", color: "#fff" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ fontSize: 20 }}>🧠</span>
+              <span style={{ fontSize: 20, fontWeight: 900, letterSpacing: -0.5 }}>Matchup Intelligence</span>
+              <span style={{ fontSize: 12, color: "#94a3b8", background: "#ffffff15", padding: "2px 10px", borderRadius: 10 }}>{intelSummary.totalSignals} signal{intelSummary.totalSignals === 1 ? "" : "s"}</span>
+            </div>
+            <div style={{ display: "flex", gap: 8 }}>
+              {intelSummary.positiveEdges > 0 && <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: "#16a34a25", color: "#4ade80" }}>+{intelSummary.positiveEdges} edge{intelSummary.positiveEdges > 1 ? "s" : ""}</span>}
+              {intelSummary.negativeEdges > 0 && <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: "#dc262625", color: "#f87171" }}>{intelSummary.negativeEdges} risk{intelSummary.negativeEdges > 1 ? "s" : ""}</span>}
+              {intelSummary.wildCards > 0 && <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: "#f9731625", color: "#fb923c" }}>{intelSummary.wildCards} wild card{intelSummary.wildCards > 1 ? "s" : ""}</span>}
+            </div>
+          </div>
+          <div style={{ fontSize: 14, color: "#cbd5e1", lineHeight: 1.6, marginBottom: intelSummary.edges.length > 0 ? 16 : 0 }}>{intelSummary.narrative}</div>
+          {intelSummary.edges.length > 0 && (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {intelSummary.edges.slice(0, 4).map((edge, i) => (
+                <div key={i} style={{ fontSize: 11, padding: "6px 12px", borderRadius: 8, background: "#ffffff08", border: "1px solid #ffffff15", color: "#e2e8f0" }}>
+                  <span style={{ fontWeight: 700, color: edge.impact === "positive" ? "#4ade80" : edge.impact === "negative" ? "#f87171" : edge.impact === "wild_card" ? "#fb923c" : "#94a3b8" }}>{edge.signal}</span>
+                  <span style={{ color: "#64748b", marginLeft: 6 }}>·</span>
+                  <span style={{ color: "#94a3b8", marginLeft: 6 }}>{edge.detail.length > 60 ? edge.detail.slice(0, 57) + "…" : edge.detail}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
         {/* Divisional Familiarity Banner */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 20px", borderRadius: 12, background: divFam.tone === "hot" ? "linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)" : divFam.tone === "warm" ? "linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)" : "#f8fafc", border: divFam.tone === "hot" ? "1px solid #fca5a5" : divFam.tone === "warm" ? "1px solid #fcd34d" : "1px solid #e2e8f0" }}>
           <span style={{ fontSize: 11, fontWeight: 800, padding: "3px 10px", borderRadius: 6, background: divFam.tone === "hot" ? "#dc2626" : divFam.tone === "warm" ? "#f59e0b" : "#94a3b8", color: "#fff", textTransform: "uppercase", letterSpacing: 1 }}>{divFam.badge}</span>
@@ -232,6 +277,76 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
               ))}
             </div>
             <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{envFactors.narrative}</div>
+          </div>
+        )}
+
+        {/* Film Study / Scheme Age */}
+        {filmStudy.factors.length > 0 && (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 18 }}>🎬</span>
+                <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Film Study</span>
+                <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>Week {gameWeek}</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: filmStudy.filmVolume === "None" || filmStudy.filmVolume === "Minimal" ? "#fef2f2" : filmStudy.filmVolume === "Limited" ? "#fff7ed" : "#f0fdf4", color: filmStudy.filmVolume === "None" || filmStudy.filmVolume === "Minimal" ? "#dc2626" : filmStudy.filmVolume === "Limited" ? "#ea580c" : "#16a34a" }}>{filmStudy.filmVolume} Film</span>
+                <span style={{ fontSize: 11, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: "#eff6ff", color: "#2563eb" }}>{filmStudy.installationAge.label}</span>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8, marginBottom: 12 }}>
+              {filmStudy.factors.filter(f => f.severity !== "low").map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", background: f.severity === "high" ? "#fef2f2" : "#f8fafc", borderRadius: 10, border: `1px solid ${f.severity === "high" ? "#fca5a5" : "#f1f5f9"}` }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: f.severity === "high" ? "#dc2626" : "#f59e0b", color: "#fff", textTransform: "uppercase", flexShrink: 0, marginTop: 2 }}>{f.severity}</span>
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", marginBottom: 2 }}>{f.label}</div>
+                    <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.5 }}>{f.description}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{filmStudy.narrative}</div>
+          </div>
+        )}
+
+        {/* Free Agent Intelligence */}
+        {faIntel.total > 0 && (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <ArrowRightLeft size={20} color="#0891b2" />
+                <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Free Agent Intel</span>
+                <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>{faIntel.total} move{faIntel.total === 1 ? "" : "s"}</span>
+              </div>
+              {faIntel.intelScore > 0 && (
+                <div style={{ textAlign: "right" }}>
+                  <div style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>Intel Value</div>
+                  <div style={{ fontSize: 24, fontWeight: 900, color: faIntel.intelScore >= 70 ? "#0891b2" : faIntel.intelScore >= 40 ? "#f97316" : "#94a3b8", fontFamily: "monospace" }}>{faIntel.intelScore}</div>
+                </div>
+              )}
+            </div>
+            <div style={{ display: "grid", gap: 8, marginBottom: 12 }}>
+              {faIntel.moves.map((move, i) => {
+                const tierColor = move.intelTier === "ELITE" ? "#0891b2" : move.intelTier === "HIGH" ? "#f97316" : "#94a3b8";
+                return (
+                  <div key={i} style={{ padding: "12px 16px", background: "#f8fafc", borderRadius: 12, border: "1px solid #f1f5f9" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{move.player}</span>
+                        <span style={{ fontSize: 11, color: "#94a3b8" }}>{move.position} · {tn(move.from)} → {tn(move.to)}</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: tierColor + "15", color: tierColor, textTransform: "uppercase", letterSpacing: 0.5 }}>{move.intelTier}</span>
+                        <span style={{ fontSize: 12, fontWeight: 800, color: tierColor, fontFamily: "monospace" }}>{move.intelScore}</span>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.5 }}>{move.narrative}</div>
+                    {move.deal && <div style={{ fontSize: 11, color: "#0891b2", marginTop: 4 }}>Deal: {move.deal}</div>}
+                  </div>
+                );
+              })}
+            </div>
+            {faIntel.narrative && <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{faIntel.narrative}</div>}
           </div>
         )}
 

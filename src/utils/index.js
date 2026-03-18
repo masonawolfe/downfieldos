@@ -15,3 +15,6 @@ export { schemeSimilarity, calcSchemeFamiliarity, getFamiliarityExtremes } from 
 export { calcCoachingTreeOverlap, getCoachingTreeConnections } from './coachingTree';
 export { calcDivisionalFamiliarity, getDivisionalRivals } from './divisionalFamiliarity';
 export { calcEnvironmentFactors } from './environmentFactors';
+export { getFreeAgentIntel, getTeamMoves } from './freeAgentIntel';
+export { generateMatchupIntelSummary } from './matchupIntelSummary';
+export { calcFilmStudy } from './filmStudy';
