@@ -15,6 +15,7 @@ import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 import { getRevengeGameSummary } from '../../utils/revengeGames';
 import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcCoachingTreeOverlap } from '../../utils/coachingTree';
+import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -39,6 +40,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const revenge = useMemo(() => getRevengeGameSummary(offTm, defTm), [offTm, defTm]);
   const schemeFam = useMemo(() => calcSchemeFamiliarity(offTm, defTm), [offTm, defTm]);
   const coachTree = useMemo(() => calcCoachingTreeOverlap(offTm, defTm), [offTm, defTm]);
+  const divFam = useMemo(() => calcDivisionalFamiliarity(offTm, defTm), [offTm, defTm]);
 
   const copyTweet = (text, idx) => {
     navigator.clipboard?.writeText(text);
@@ -133,6 +135,14 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
 
       {/* Matchup Intelligence */}
       <div style={{ marginTop: 20, display: "grid", gap: 16 }}>
+        {/* Divisional Familiarity Banner */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "14px 20px", borderRadius: 12, background: divFam.tone === "hot" ? "linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%)" : divFam.tone === "warm" ? "linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%)" : "#f8fafc", border: divFam.tone === "hot" ? "1px solid #fca5a5" : divFam.tone === "warm" ? "1px solid #fcd34d" : "1px solid #e2e8f0" }}>
+          <span style={{ fontSize: 11, fontWeight: 800, padding: "3px 10px", borderRadius: 6, background: divFam.tone === "hot" ? "#dc2626" : divFam.tone === "warm" ? "#f59e0b" : "#94a3b8", color: "#fff", textTransform: "uppercase", letterSpacing: 1 }}>{divFam.badge}</span>
+          <span style={{ fontSize: 13, fontWeight: 600, color: "#334155" }}>{divFam.relationship}</span>
+          {divFam.gamesPerYear >= 2 && <span style={{ fontSize: 11, color: "#dc2626", fontWeight: 700 }}>2x per season</span>}
+          <span style={{ fontSize: 12, color: "#94a3b8", marginLeft: "auto" }}>Familiarity: <strong style={{ color: divFam.tone === "hot" ? "#dc2626" : divFam.tone === "warm" ? "#d97706" : "#64748b" }}>{divFam.familiarity}</strong></span>
+        </div>
+
         {/* Scheme Familiarity */}
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
