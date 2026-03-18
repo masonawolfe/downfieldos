@@ -14,3 +14,4 @@ export { getRevengeGames, getRevengeGameSummary } from './revengeGames';
 export { schemeSimilarity, calcSchemeFamiliarity, getFamiliarityExtremes } from './schemeFamiliarity';
 export { calcCoachingTreeOverlap, getCoachingTreeConnections } from './coachingTree';
 export { calcDivisionalFamiliarity, getDivisionalRivals } from './divisionalFamiliarity';
+export { calcEnvironmentFactors } from './environmentFactors';

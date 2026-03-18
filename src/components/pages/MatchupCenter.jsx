@@ -16,6 +16,7 @@ import { getRevengeGameSummary } from '../../utils/revengeGames';
 import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcCoachingTreeOverlap } from '../../utils/coachingTree';
 import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
+import { calcEnvironmentFactors } from '../../utils/environmentFactors';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -41,6 +42,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const schemeFam = useMemo(() => calcSchemeFamiliarity(offTm, defTm), [offTm, defTm]);
   const coachTree = useMemo(() => calcCoachingTreeOverlap(offTm, defTm), [offTm, defTm]);
   const divFam = useMemo(() => calcDivisionalFamiliarity(offTm, defTm), [offTm, defTm]);
+  const envFactors = useMemo(() => calcEnvironmentFactors(defTm, offTm), [defTm, offTm]);
 
   const copyTweet = (text, idx) => {
     navigator.clipboard?.writeText(text);
@@ -203,6 +205,35 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
           )}
           <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{coachTree.narrative}</div>
         </div>
+
+        {/* Environment Factors */}
+        {envFactors.factors.length > 0 && (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontSize: 18 }}>🏟️</span>
+                <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Environment</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 11, color: "#94a3b8" }}>{envFactors.homeCity}</span>
+                {envFactors.dome && <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: "#dbeafe", color: "#2563eb" }}>DOME</span>}
+                <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: envFactors.surface === "grass" ? "#dcfce7" : "#f1f5f9", color: envFactors.surface === "grass" ? "#16a34a" : "#64748b" }}>{envFactors.surface.toUpperCase()}</span>
+              </div>
+            </div>
+            <div style={{ display: "grid", gap: 8, marginBottom: 12 }}>
+              {envFactors.factors.filter(f => f.severity !== "low").map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", background: f.severity === "high" ? "#fef2f2" : "#f8fafc", borderRadius: 10, border: `1px solid ${f.severity === "high" ? "#fca5a5" : "#f1f5f9"}` }}>
+                  <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: f.severity === "high" ? "#dc2626" : "#f59e0b", color: "#fff", textTransform: "uppercase", flexShrink: 0, marginTop: 2 }}>{f.severity}</span>
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", marginBottom: 2 }}>{f.label}</div>
+                    <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.5 }}>{f.description}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{envFactors.narrative}</div>
+          </div>
+        )}
 
         {/* Revenge Games */}
         {revenge.total > 0 && (
