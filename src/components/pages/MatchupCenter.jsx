@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine } from "lucide-react";
+import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
@@ -12,6 +12,8 @@ import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
+import { getRevengeGameSummary } from '../../utils/revengeGames';
+import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -33,6 +35,8 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const playerMatchups = useMemo(() => playerMatchupSummary(oR, dR, offTm, defTm), [oR, dR, offTm, defTm]);
   const grade = useMemo(() => calcMatchupGrade(os, ds, bl), [os, ds, bl]);
   const thread = useMemo(() => generateTweetThread(offTm, defTm, os, ds, bl, grade), [offTm, defTm, os, ds, bl, grade]);
+  const revenge = useMemo(() => getRevengeGameSummary(offTm, defTm), [offTm, defTm]);
+  const schemeFam = useMemo(() => calcSchemeFamiliarity(offTm, defTm), [offTm, defTm]);
 
   const copyTweet = (text, idx) => {
     navigator.clipboard?.writeText(text);
@@ -125,8 +129,59 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         </div>
       </div>
 
-      {/* Former Teammates Intelligence */}
-      <div style={{ marginTop: 20 }}>
+      {/* Matchup Intelligence */}
+      <div style={{ marginTop: 20, display: "grid", gap: 16 }}>
+        {/* Scheme Familiarity */}
+        <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Shield size={20} color="#2563eb" />
+              <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Scheme Familiarity</span>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <div style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>Score</div>
+              <div style={{ fontSize: 24, fontWeight: 900, color: schemeFam.tone === "positive" ? "#16a34a" : schemeFam.tone === "warning" ? "#f97316" : "#2563eb", fontFamily: "monospace" }}>{schemeFam.score}</div>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+            <span style={{ fontSize: 12, fontWeight: 700, padding: "3px 10px", borderRadius: 8, background: schemeFam.tone === "positive" ? "#f0fdf4" : schemeFam.tone === "warning" ? "#fff7ed" : "#eff6ff", color: schemeFam.tone === "positive" ? "#16a34a" : schemeFam.tone === "warning" ? "#ea580c" : "#2563eb" }}>{schemeFam.label}</span>
+            <span style={{ fontSize: 12, color: "#94a3b8" }}>{tn(offTm)} offense vs {tn(defTm)} defense</span>
+          </div>
+          <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{schemeFam.narrative}</div>
+        </div>
+
+        {/* Revenge Games */}
+        {revenge.total > 0 && (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <Flame size={20} color="#dc2626" />
+              <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>{revenge.headline}</span>
+              <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>{revenge.total} total</span>
+            </div>
+            <div style={{ display: "grid", gap: 10 }}>
+              {revenge.games.slice(0, 4).map((rg, i) => {
+                const sentColor = rg.sentiment === "GRUDGE" ? "#dc2626" : rg.sentiment === "MOTIVATED" ? "#f97316" : rg.sentiment === "GRATEFUL" ? "#16a34a" : "#94a3b8";
+                return (
+                  <div key={i} style={{ padding: "12px 16px", background: "#f8fafc", borderRadius: 12, border: "1px solid #f1f5f9" }}>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                        <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{rg.player}</span>
+                        <span style={{ fontSize: 11, color: "#94a3b8" }}>{rg.position} · {rg.currentTeam}</span>
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        <span style={{ fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 6, background: sentColor + "15", color: sentColor, textTransform: "uppercase", letterSpacing: 0.5 }}>{rg.sentiment}</span>
+                        <span style={{ fontSize: 12, fontWeight: 800, color: rg.intensity >= 50 ? "#dc2626" : "#94a3b8", fontFamily: "monospace" }}>{rg.intensity}</span>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.5 }}>{rg.narrative}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* Former Teammates */}
         <FormerTeammatesCard team1={offTm} team2={defTm} />
       </div>
 
