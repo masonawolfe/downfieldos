@@ -246,7 +246,7 @@ export default function DownfieldOS() {
             <div style={{ fontSize: 11, color: "#475569", marginTop: 6 }}>
               {isFiltered ? `${filteredPlays.length.toLocaleString()} / ${allPlays.length.toLocaleString()} plays` : `${allPlays.length.toLocaleString()} plays analyzed`}
             </div>
-            <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v6 — 2026 Season Preview</div>
+            <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v7 — {typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'}</div>
           </div>
         </nav>
 

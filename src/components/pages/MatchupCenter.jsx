@@ -147,9 +147,15 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
       <div style={{ background: "#0f172a", borderRadius: 16, padding: 24 }}>
         <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 700, margin: "0 0 16px" }}>By the Numbers</h3>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 16 }}>
-          {[["Pass Rate", os.pr, ds.dpr, "Throw rate vs pass faced"], ["Success Rate", os.sr, ds.dsr, "Efficiency vs stinginess"], ["Explosive Rate", os.xr, ds.dxr, "Big plays vs prevention"], ["Completion", os.compRate, null, "Pass completion rate"], ["Sack Rate", os.sackRate, null, "How often QB is sacked"]].map(([lbl, ov, dv, desc]) => (
+          {[["Pass Rate", os.pr, ds.dpr, "Throw rate vs pass faced", true], ["Success Rate", os.sr, ds.dsr, "Efficiency vs stinginess", true], ["Explosive Rate", os.xr, ds.dxr, "Big plays vs prevention", true], ["Completion", os.compRate, null, "Pass completion rate", false], ["Sack Rate", os.sackRate, null, "How often QB is sacked", false]].map(([lbl, ov, dv, desc, hasEdge]) => {
+            const edgeText = hasEdge && dv !== null ? (ov > dv + 0.02 ? `Edge: ${offTm}` : dv > ov + 0.02 ? `Edge: ${defTm}` : "Even") : null;
+            const edgeColor = edgeText?.includes(offTm) ? "#22c55e" : edgeText?.includes(defTm) ? "#f87171" : "#64748b";
+            return (
             <div key={lbl} style={{ background: "#1e293b", borderRadius: 12, padding: 16 }}>
-              <div style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5, fontFamily: "monospace", marginBottom: 8 }}>{lbl}</div>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <div style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5, fontFamily: "monospace" }}>{lbl}</div>
+                {edgeText && <span style={{ fontSize: 10, fontWeight: 700, color: edgeColor, background: edgeColor + "20", padding: "2px 8px", borderRadius: 6 }}>{edgeText}</span>}
+              </div>
               <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
                 <span style={{ color: "#f97316", fontWeight: 700, fontSize: 20 }}>{pct(ov)}</span>
                 {dv !== null && <span style={{ color: "#a855f7", fontWeight: 700, fontSize: 20 }}>{pct(dv)}</span>}
@@ -157,7 +163,8 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
               {dv !== null && <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#64748b", marginBottom: 8 }}><span>{offTm} OFF</span><span>{defTm} DEF</span></div>}
               <div style={{ fontSize: 12, color: "#94a3b8", lineHeight: 1.4 }}>{desc}</div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

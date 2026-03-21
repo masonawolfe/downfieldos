@@ -1,8 +1,8 @@
-import { ROSTERS_2024 } from '../data/rosters2024';
+import { ROSTERS_2025 } from '../data/rosters2025';
 import { FA_MOVES_2026 } from '../data/faMoves2026';
 
 export function genRoster(team) {
-  return ROSTERS_2024[team] || ROSTERS_2024.ARI; // fallback
+  return ROSTERS_2025[team] || ROSTERS_2025.ARI; // fallback
 }
 
 // ── Position renumbering ────────────────────────────────────
@@ -46,7 +46,7 @@ const SPECIAL_POS = new Set(["QB", "TE", "LT", "LG", "C", "RG", "RT", "FS", "SS"
 // ── 2026 PROJECTED ROSTER ENGINE ────────────────────────────
 // Merges 2024 base roster with 2026 FA additions/losses
 export function genRoster2026(team) {
-  const base = ROSTERS_2024[team] || ROSTERS_2024.ARI;
+  const base = ROSTERS_2025[team] || ROSTERS_2025.ARI;
   const fa = FA_MOVES_2026[team];
   if (!fa) return { offense: base.offense.map(p => ({ ...p, isNew: false })), defense: base.defense.map(p => ({ ...p, isNew: false })) };
 
