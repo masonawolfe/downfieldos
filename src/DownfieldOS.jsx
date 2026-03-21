@@ -24,6 +24,7 @@ import { WarRoom } from './components/pages/WarRoom';
 import { AdminPanel } from './components/pages/AdminPanel';
 import { LandingPage } from './components/pages/LandingPage';
 import { HomeDashboard } from './components/pages/HomeDashboard';
+import { GamePrep } from './components/pages/GamePrep';
 
 /**
  * Route config — maps URL paths to module metadata.
@@ -305,6 +306,7 @@ export default function DownfieldOS() {
             <Route path="/team-intel" element={<ErrorBoundary label="Team Intel"><TeamIntel plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/war-room" element={<ErrorBoundary label="War Room"><WarRoom plays={filteredPlays} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/admin" element={<ErrorBoundary label="Admin"><AdminPanel plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
+            <Route path="/game-prep" element={<ErrorBoundary label="Game Prep"><GamePrep plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} navigate={navigate} /></ErrorBoundary>} />
             {/* Team-specific routes */}
             <Route path="/team/:teamCode" element={<ErrorBoundary label="Team Intel"><TeamRouteWrapper plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/matchup/:matchup" element={<ErrorBoundary label="Matchup Preview"><MatchupRouteWrapper plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} /></ErrorBoundary>} />
