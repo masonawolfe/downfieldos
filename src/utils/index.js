@@ -18,3 +18,4 @@ export { calcEnvironmentFactors } from './environmentFactors';
 export { getFreeAgentIntel, getTeamMoves } from './freeAgentIntel';
 export { generateMatchupIntelSummary } from './matchupIntelSummary';
 export { calcFilmStudy } from './filmStudy';
+export { calcDramaScore, getTopDramaMatchups } from './dramaScore';

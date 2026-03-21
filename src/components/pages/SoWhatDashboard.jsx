@@ -7,6 +7,7 @@ import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { InsightCard } from '../ui/InsightCard';
 import { FanSentimentCard } from '../ui/FanSentimentCard';
+import { getTopDramaMatchups } from '../../utils/dramaScore';
 
 export function SoWhatDashboard({ plays, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -81,6 +82,35 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
       <div style={{ marginTop: 12, marginBottom: 12 }}>
         <FanSentimentCard primaryTeam={primaryTeam} />
       </div>
+
+      {/* Drama Rankings */}
+      {(() => {
+        const teamCodes = T.map(t => t.a);
+        const topDrama = getTopDramaMatchups(teamCodes, 5);
+        return (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 20, marginBottom: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
+              <span style={{ fontSize: 20 }}>🎭</span>
+              <span style={{ fontSize: 16, fontWeight: 800, color: "#0f172a" }}>Drama Rankings</span>
+              <span style={{ fontSize: 11, color: "#94a3b8" }}>Most narratively loaded matchups</span>
+            </div>
+            {topDrama.map((m, i) => (
+              <div key={`${m.team1}-${m.team2}`} style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: i < topDrama.length - 1 ? "1px solid #f1f5f9" : "none" }}>
+                <span style={{ fontSize: 16, fontWeight: 900, color: i === 0 ? "#f97316" : "#94a3b8", fontFamily: "monospace", width: 24 }}>#{i + 1}</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 15, fontWeight: 800, color: "#0f172a" }}>{tn(m.team1)} vs {tn(m.team2)}</div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 4 }}>
+                    {m.factors.map((f, fi) => (
+                      <span key={fi} style={{ fontSize: 11, color: "#64748b", background: "#f1f5f9", padding: "2px 8px", borderRadius: 6 }}>{f.icon} {f.label}</span>
+                    ))}
+                  </div>
+                </div>
+                <div style={{ fontSize: 22, fontWeight: 900, color: m.score > 60 ? "#dc2626" : m.score > 40 ? "#f97316" : "#eab308", fontFamily: "monospace" }}>{m.score}</div>
+              </div>
+            ))}
+          </div>
+        );
+      })()}
 
       <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly.`} />
     </div>
