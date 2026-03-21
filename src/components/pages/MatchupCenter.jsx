@@ -82,12 +82,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         <TeamSelect value={offTm} onChange={setOffTm} label="Offense" />
         <div style={{ fontSize: 24, color: "#94a3b8", fontWeight: 800, paddingBottom: 8 }}>vs</div>
         <TeamSelect value={defTm} onChange={setDefTm} label="Defense" />
-        <div style={{ paddingBottom: 4 }}>
-          <div style={{ fontSize: 11, fontWeight: 600, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>Week</div>
-          <select value={gameWeek} onChange={e => setGameWeek(Number(e.target.value))} style={{ padding: "8px 12px", borderRadius: 10, border: "1px solid #e2e8f0", fontSize: 13, fontWeight: 600, background: "#fff", cursor: "pointer", color: "#0f172a" }}>
-            {Array.from({ length: 18 }, (_, i) => <option key={i + 1} value={i + 1}>Week {i + 1}</option>)}
-          </select>
-        </div>
+        {/* Week selector hidden until 2026 schedule is announced (mid-May) */}
       </div>
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}><MarkdownBlock text={preview} /></div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
