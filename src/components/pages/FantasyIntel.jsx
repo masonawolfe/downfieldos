@@ -8,6 +8,7 @@ import { pct, tn } from '../../utils/formatters';
 import { downloadCSV } from '../../utils/csvExport';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { RatingBar } from '../ui/RatingBar';
+import { MethodologyTip } from '../ui/MethodologyTip';
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { InsightCard } from '../ui/InsightCard';
 import { ExportButton } from '../ui/ExportButton';
@@ -184,7 +185,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
               downloadCSV(`fantasy-${posFilter}-week${selectedWeek}`, headers, rows);
             }} />
             <div style={{ display: "flex", gap: 16, fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
-              <span>Score</span><span style={{ width: 120, textAlign: "center" }}>Boom / Bust</span>
+              <span style={{ display: "flex", alignItems: "center", gap: 4 }}>Score <MethodologyTip type="opportunityScore" /></span><span style={{ display: "flex", alignItems: "center", gap: 4, width: 120, justifyContent: "center" }}>Boom / Bust <MethodologyTip type="boomPct" /></span>
             </div>
           </div>
         </div>
