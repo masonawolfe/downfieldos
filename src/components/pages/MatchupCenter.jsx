@@ -21,6 +21,7 @@ import { getFreeAgentIntel } from '../../utils/freeAgentIntel';
 import { generateMatchupIntelSummary } from '../../utils/matchupIntelSummary';
 import { calculateChemistryScore } from '../../utils/formerTeammates';
 import { calcFilmStudy } from '../../utils/filmStudy';
+import { RefereeProfileCard } from '../ui/RefereeProfileCard';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -106,8 +107,8 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
           <div style={{ padding: 24 }}>
             {playerMatchups.map((m, i) => {
               const edge = m.off.rating - m.def.rating;
-              const edgeColor = edge > 10 ? "#16a34a" : edge < -10 ? "#dc2626" : "#eab308";
-              const edgeLabel = edge > 10 ? "OFF +" + edge : edge < -10 ? "DEF +" + Math.abs(edge) : "EVEN";
+              const edgeColor = edge > 5 ? "#16a34a" : edge < -5 ? "#dc2626" : "#eab308";
+              const edgeLabel = edge > 5 ? "OFF +" + edge : edge < -5 ? "DEF +" + Math.abs(edge) : "EVEN";
               return (
                 <div key={i} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: i < playerMatchups.length - 1 ? "1px solid #f1f5f9" : "none" }}>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
@@ -383,6 +384,9 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
 
         {/* Former Teammates */}
         <FormerTeammatesCard team1={offTm} team2={defTm} />
+
+        {/* Referee Crew Profiles */}
+        <RefereeProfileCard />
       </div>
 
       {/* Content Export Tools */}

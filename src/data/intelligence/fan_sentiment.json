@@ -1,0 +1,492 @@
+{
+  "date": "2026-03-17",
+  "season_context": "offseason_free_agency",
+  "league_context": "Record $301.2M salary cap creates aggressive spending environment across league",
+  "teams": [
+    {
+      "team": "PHI",
+      "name": "Philadelphia Eagles",
+      "subreddit": "r/eagles",
+      "hope": 8,
+      "anger": 3,
+      "excitement": 8,
+      "delusion": 3,
+      "misery_index": 2.0,
+      "one_liner": "Eagles roster has all the talent to compete for another Super Bowl, but fans worry about thin safety depth",
+      "top_topics": ["Adoree Jackson retention", "Reed Blankenship departure", "Elite roster maintained"]
+    },
+    {
+      "team": "DAL",
+      "name": "Dallas Cowboys",
+      "subreddit": "r/cowboys",
+      "hope": 6,
+      "anger": 5,
+      "excitement": 6,
+      "delusion": 5,
+      "misery_index": 4.0,
+      "one_liner": "More active than recent years with defensive upgrades, but salary cap finally opened up the toolbox",
+      "top_topics": ["Rashan Gary trade", "Otito Ogbonnia signing", "Cap restructuring success"]
+    },
+    {
+      "team": "KC",
+      "name": "Kansas City Chiefs",
+      "subreddit": "r/KansasCityChiefs",
+      "hope": 7,
+      "anger": 4,
+      "excitement": 7,
+      "delusion": 4,
+      "misery_index": 3.3,
+      "one_liner": "Kenneth Walker III addition energizes fanbase after 9-game collapse, but edge rush still weak",
+      "top_topics": ["Kenneth Walker III signing", "Most important offseason for Veach", "Edge rusher concerns remain"]
+    },
+    {
+      "team": "BUF",
+      "name": "Buffalo Bills",
+      "subreddit": "r/BuffaloBills",
+      "hope": 7,
+      "anger": 3,
+      "excitement": 8,
+      "delusion": 3,
+      "misery_index": 2.0,
+      "one_liner": "D.J. Moore and Bradley Chubb addresses long-awaited needs, new stadium and coaching transition add complexity",
+      "top_topics": ["D.J. Moore acquisition", "Bradley Chubb signing", "Sean McDermott departure", "New Highmark Stadium"]
+    },
+    {
+      "team": "SF",
+      "name": "San Francisco 49ers",
+      "subreddit": "r/49ers",
+      "hope": 6,
+      "anger": 5,
+      "excitement": 5,
+      "delusion": 6,
+      "misery_index": 5.0,
+      "one_liner": "Mixed grades—Mike Evans addresses short-term, but offensive line and Trent Williams uncertainty cloud outlook",
+      "top_topics": ["Mike Evans 33-year-old addition", "Trent Williams contract standoff", "Line building criticisms"]
+    },
+    {
+      "team": "GB",
+      "name": "Green Bay Packers",
+      "subreddit": "r/GreenBayPackers",
+      "hope": 6,
+      "anger": 5,
+      "excitement": 5,
+      "delusion": 5,
+      "misery_index": 4.7,
+      "one_liner": "Anticlimactic offseason with Kirk Cousins debate, but offensive line locked up long-term",
+      "top_topics": ["Rashan Gary trade relief", "QB backup search", "Offensive line stability", "Defensive letdown"]
+    },
+    {
+      "team": "DET",
+      "name": "Detroit Lions",
+      "subreddit": "r/DetroitLions",
+      "hope": 5,
+      "anger": 6,
+      "excitement": 4,
+      "delusion": 3,
+      "misery_index": 6.3,
+      "one_liner": "Fans depressed by quiet start and key departures (Anzalone, Decker, Montgomery), but team stirring now",
+      "top_topics": ["Key departures", "Cade Mays signing", "Edge rusher void", "Defensive roster holes"]
+    },
+    {
+      "team": "TB",
+      "name": "Tampa Bay Buccaneers",
+      "subreddit": "r/buccaneers",
+      "hope": 5,
+      "anger": 5,
+      "excitement": 5,
+      "delusion": 4,
+      "misery_index": 5.0,
+      "one_liner": "Mike Evans departure hits hard, but Alex Anzalone elite coverage skills and Cade Otton retention provide stability",
+      "top_topics": ["Mike Evans departure", "Alex Anzalone signing", "Cade Otton retention", "Need edge rusher"]
+    },
+    {
+      "team": "PIT",
+      "name": "Pittsburgh Steelers",
+      "subreddit": "r/steelers",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 8,
+      "delusion": 3,
+      "misery_index": 1.7,
+      "one_liner": "Michael Pittman and Rico Dowdle moves have fans electrified, Omar Khan delivering aggressive offseason for Mike McCarthy",
+      "top_topics": ["Michael Pittman Jr. trade", "Rico Dowdle signing", "Momentum building", "Division impact"]
+    },
+    {
+      "team": "LAR",
+      "name": "Los Angeles Rams",
+      "subreddit": "r/LosAngelesRams",
+      "hope": 7,
+      "anger": 3,
+      "excitement": 7,
+      "delusion": 3,
+      "misery_index": 2.0,
+      "one_liner": "Secondary fortified with $200M+ spent on cornerbacks (Trent McDuffie, Jaylen Watson), championship window wide open",
+      "top_topics": ["Trent McDuffie trade", "Jaylen Watson signing", "Secondary overhaul", "Super Bowl window"]
+    },
+    {
+      "team": "NYJ",
+      "name": "New York Jets",
+      "subreddit": "r/nyjets",
+      "hope": 4,
+      "anger": 7,
+      "excitement": 3,
+      "delusion": 5,
+      "misery_index": 7.7,
+      "one_liner": "Fans disgusted by QB direction (Wentz, Brissett, Smith over elite prospects), but rebuild roster shows competence",
+      "top_topics": ["QB choice controversy", "Geno Smith vs Wentz debate", "Minkah Fitzpatrick acquisition", "Desperation moves"]
+    },
+    {
+      "team": "BAL",
+      "name": "Baltimore Ravens",
+      "subreddit": "r/ravens",
+      "hope": 7,
+      "anger": 3,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 2.0,
+      "one_liner": "Trey Hendrickson deal thrills fans after Maxx Crosby trade fell through, kept draft picks, Super Bowl contender mood",
+      "top_topics": ["Trey Hendrickson signing", "Maxx Crosby trade rejection", "Tyler Linderbaum departure", "Draft capital preserved"]
+    },
+    {
+      "team": "MIA",
+      "name": "Miami Dolphins",
+      "subreddit": "r/miamidolphins",
+      "hope": 3,
+      "anger": 6,
+      "excitement": 3,
+      "delusion": 7,
+      "misery_index": 8.0,
+      "one_liner": "Full rebuild under new regime, Malik Willis gamble over Tua, Waddle trade to Broncos signals 'tanking' narrative",
+      "top_topics": ["Tua benching", "Malik Willis signing", "Waddle trade", "Dead cap eating", "Rebuild skepticism"]
+    },
+    {
+      "team": "CIN",
+      "name": "Cincinnati Bengals",
+      "subreddit": "r/bengals",
+      "hope": 7,
+      "anger": 3,
+      "excitement": 7,
+      "delusion": 3,
+      "misery_index": 2.0,
+      "one_liner": "Bold Day 1 with Bryan Cook, Boye Mafe, Jonathan Allen—aggressive defense-first approach after 6-11 season",
+      "top_topics": ["Pass rush upgrades", "Bryan Cook signing", "Jonathan Allen addition", "Championship window opening"]
+    },
+    {
+      "team": "DEN",
+      "name": "Denver Broncos",
+      "subreddit": "r/DenverBroncos",
+      "hope": 5,
+      "anger": 7,
+      "excitement": 3,
+      "delusion": 4,
+      "misery_index": 7.3,
+      "one_liner": "Only team with zero outside signings despite freed cap space—fans calling approach 'bizarre' and 'weird,' prefer run-it-back",
+      "top_topics": ["Lack of external signings", "Cap constraints", "Running it back approach", "Fan frustration mounting"]
+    },
+    {
+      "team": "ARI",
+      "name": "Arizona Cardinals",
+      "subreddit": "r/ArizonaCardinals",
+      "hope": 4,
+      "anger": 6,
+      "excitement": 3,
+      "delusion": 6,
+      "misery_index": 7.0,
+      "one_liner": "Isaac Seumalo and Tyler Allgeier help rushing attack, but QB execution was a 'swing and miss' and defense untouched",
+      "top_topics": ["Isaac Seumalo signing", "Tyler Allgeier addition", "QB whiff", "Defense ignored", "Ossenfort job security"]
+    },
+    {
+      "team": "NE",
+      "name": "New England Patriots",
+      "subreddit": "r/Patriots",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "74% of fans see roster improvement; Kevin Byard, Dre'Mont Jones, Romeo Doubs fill holes, some edge rusher skepticism remains",
+      "top_topics": ["Kevin Byard acquisition", "Edge rusher need persists", "Dre'Mont Jones signing", "WR upgrades"]
+    },
+    {
+      "team": "SEA",
+      "name": "Seattle Seahawks",
+      "subreddit": "r/Seahawks",
+      "hope": 8,
+      "anger": 2,
+      "excitement": 8,
+      "delusion": 2,
+      "misery_index": 1.3,
+      "one_liner": "Super Bowl champs retaining core (Rashid Shaheed re-signed), lost Kenneth Walker but keeping band together for repeat run",
+      "top_topics": ["Rashid Shaheed retention", "Kenneth Walker departure", "Defensive losses", "Run-it-back mentality"]
+    },
+    {
+      "team": "LAC",
+      "name": "Los Angeles Chargers",
+      "subreddit": "r/Chargers",
+      "hope": 5,
+      "anger": 5,
+      "excitement": 5,
+      "delusion": 4,
+      "misery_index": 5.0,
+      "one_liner": "Odafe Oweh's departure to WAS stings, Charlie Kolar quiet gem signing, OL spending remains concern for Herbert protection",
+      "top_topics": ["Odafe Oweh loss", "Charlie Kolar discovery", "OL spending gaps", "Justin Herbert protection"]
+    },
+    {
+      "team": "WAS",
+      "name": "Washington Commanders",
+      "subreddit": "r/commanders",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "Adam Peters firing spree with seven defensive signings has transformed roster; Flores defensive scheme excites fans",
+      "top_topics": ["Adam Peters aggressive moves", "Flores defensive scheme", "Seven defensive signings", "Responsible roster building"]
+    },
+    {
+      "team": "MIN",
+      "name": "Minnesota Vikings",
+      "subreddit": "r/minnesotavikings",
+      "hope": 5,
+      "anger": 4,
+      "excitement": 4,
+      "delusion": 5,
+      "misery_index": 5.3,
+      "one_liner": "Conservative 'supplementing' approach without permanent GM; Murray QB competition signals McCarthy's end potential",
+      "top_topics": ["No permanent GM", "Derek Murray signing", "QB competition", "Budget-conscious approach", "Cap constraints"]
+    },
+    {
+      "team": "CHI",
+      "name": "Chicago Bears",
+      "subreddit": "r/CHIBears",
+      "hope": 6,
+      "anger": 4,
+      "excitement": 6,
+      "delusion": 3,
+      "misery_index": 3.3,
+      "one_liner": "PFF B-grade for measured approach; Kalif Raymond and Garrett Bradbury additions solid, but no fireworks for eager fans",
+      "top_topics": ["Kalif Raymond signing", "Garrett Bradbury trade", "Braxton Jones controversy", "Defensive additions", "Low-key approach"]
+    },
+    {
+      "team": "TEN",
+      "name": "Tennessee Titans",
+      "subreddit": "r/Titans",
+      "hope": 8,
+      "anger": 2,
+      "excitement": 8,
+      "delusion": 3,
+      "misery_index": 1.3,
+      "one_liner": "Robert Saleh spending spree ($270M+) with coaching tree connections excites Nashville; 11 of 14 signings familiar to staff",
+      "top_topics": ["Robert Saleh aggressive signings", "Wandale Robinson addition", "Franklin-Myers signing", "Cam Ward support", "Secondary focus questioned"]
+    },
+    {
+      "team": "HOU",
+      "name": "Houston Texans",
+      "subreddit": "r/Texans",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "OL upgrades (Braden Smith, Ed Ingram) address critical need; Reed Blankenship fortifies elite defense further",
+      "top_topics": ["Braden Smith signing", "OL priority addressed", "Reed Blankenship addition", "Defense reinforcement", "More interior work needed"]
+    },
+    {
+      "team": "JAX",
+      "name": "Jacksonville Jaguars",
+      "subreddit": "r/Jaguars",
+      "hope": 3,
+      "anger": 7,
+      "excitement": 2,
+      "delusion": 5,
+      "misery_index": 8.3,
+      "one_liner": "Defending AFC South champs ghosted free agency; Travis Etienne and Devin Lloyd departed, rivals aggressively closed gap",
+      "top_topics": ["Travis Etienne departure", "Devin Lloyd loss", "Passive approach", "Draft gold strategy risky", "Pass rush untouched"]
+    },
+    {
+      "team": "IND",
+      "name": "Indianapolis Colts",
+      "subreddit": "r/Colts",
+      "hope": 6,
+      "anger": 4,
+      "excitement": 6,
+      "delusion": 3,
+      "misery_index": 3.3,
+      "one_liner": "Daniel Jones re-signed ($88M), Alec Pierce extended ($116M), but key defenders (Paye, Cross, Franklin) departed weakening D",
+      "top_topics": ["Daniel Jones re-signing", "Alec Pierce extension", "Kwity Paye departure", "Nick Cross loss", "Defense weakened"]
+    },
+    {
+      "team": "NO",
+      "name": "New Orleans Saints",
+      "subreddit": "r/Saints",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "First time in years genuine hope replaces cap hell; Travis Etienne signing and David Edwards fortify trenches under Loomis",
+      "top_topics": ["Travis Etienne signing", "David Edwards OG addition", "Kaden Elliss return", "Cap space freedom", "QB plan still unclear"]
+    },
+    {
+      "team": "ATL",
+      "name": "Atlanta Falcons",
+      "subreddit": "r/falcons",
+      "hope": 6,
+      "anger": 4,
+      "excitement": 5,
+      "delusion": 4,
+      "misery_index": 4.3,
+      "one_liner": "Tua Tagovailoa addition encouraging but WR whiff on Jahan Dotson (D+ grade) underwhelms fans; conservative Cunningham approach",
+      "top_topics": ["Tua Tagovailoa signing", "Jahan Dotson disappointment", "WR needs unmet", "Conservative approach", "No NFC South splashes"]
+    },
+    {
+      "team": "LV",
+      "name": "Las Vegas Raiders",
+      "subreddit": "r/raiders",
+      "hope": 7,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "Highest spending ($281M+), Tyler Linderbaum splash signing, Nakobe Dean/Quay Walker Georgia connection, media praise rolling in",
+      "top_topics": ["Tyler Linderbaum center signing", "Nakobe Dean acquisition", "Quay Walker addition", "Kwity Paye DE", "Highest spender league"]
+    }
+  ],
+  "rankings": {
+    "most_miserable": [
+      {
+        "rank": 1,
+        "team": "JAX",
+        "name": "Jacksonville Jaguars",
+        "misery_index": 8.3,
+        "reason": "Defending AFC South champs lost star RB and LB to free agency while rivals strengthened"
+      },
+      {
+        "rank": 2,
+        "team": "MIA",
+        "name": "Miami Dolphins",
+        "misery_index": 8.0,
+        "reason": "Full rebuild with Tua benching, Malik Willis gamble, Waddle trade creating 'tanking' narrative"
+      },
+      {
+        "rank": 3,
+        "team": "DEN",
+        "name": "Denver Broncos",
+        "misery_index": 7.3,
+        "reason": "Only team with zero outside signings; cap freed but no aggression causing frustration"
+      },
+      {
+        "rank": 4,
+        "team": "NYJ",
+        "name": "New York Jets",
+        "misery_index": 7.7,
+        "reason": "Fans disgusted by QB direction despite adding defensive pieces; 3-14 season wounds fresh"
+      },
+      {
+        "rank": 5,
+        "team": "ARI",
+        "name": "Arizona Cardinals",
+        "misery_index": 7.0,
+        "reason": "Defense completely ignored, QB execution a whiff, Ossenfort's job security questionable"
+      }
+    ],
+    "most_hopeful": [
+      {
+        "rank": 1,
+        "team": "SEA",
+        "name": "Seattle Seahawks",
+        "hope_score": 8,
+        "reason": "Super Bowl champs retaining core; Schneider's way proving successful again"
+      },
+      {
+        "rank": 2,
+        "team": "TEN",
+        "name": "Tennessee Titans",
+        "hope_score": 8,
+        "reason": "Robert Saleh aggressive spending ($270M+) with coaching tree synergy excites Nashville"
+      },
+      {
+        "rank": 3,
+        "team": "PHI",
+        "name": "Philadelphia Eagles",
+        "hope_score": 8,
+        "reason": "Roster has all talent to compete for another Super Bowl despite safety depth concerns"
+      },
+      {
+        "rank": 4,
+        "team": "BUF",
+        "name": "Buffalo Bills",
+        "hope_score": 7,
+        "reason": "D.J. Moore and Bradley Chubb address long-awaited needs; Super Bowl contender status"
+      },
+      {
+        "rank": 5,
+        "team": "KC",
+        "name": "Kansas City Chiefs",
+        "hope_score": 7,
+        "reason": "Kenneth Walker III energizes after 9-game collapse; 'most important offseason' energy"
+      }
+    ],
+    "most_delusional": [
+      {
+        "rank": 1,
+        "team": "MIA",
+        "name": "Miami Dolphins",
+        "delusion_score": 7,
+        "reason": "Believing Malik Willis solves QB position; tanking narrative undermines credibility"
+      },
+      {
+        "rank": 2,
+        "team": "ARI",
+        "name": "Arizona Cardinals",
+        "delusion_score": 6,
+        "reason": "Ossenfort job in jeopardy, defense ignored, QB approach detached from reality"
+      },
+      {
+        "rank": 3,
+        "team": "SF",
+        "name": "San Francisco 49ers",
+        "delusion_score": 6,
+        "reason": "Mike Evans (age 33) won't solve OL/DL issues; analytical disconnect from needs"
+      },
+      {
+        "rank": 4,
+        "team": "MIN",
+        "name": "Minnesota Vikings",
+        "delusion_score": 5,
+        "reason": "Derek Murray QB 'competition' while budget-constrained and no permanent GM"
+      },
+      {
+        "rank": 5,
+        "team": "DAL",
+        "name": "Dallas Cowboys",
+        "delusion_score": 5,
+        "reason": "Believe newly freed cap space fixes dynasty window issues overnight"
+      }
+    ]
+  },
+  "league_insights": {
+    "spending_leaders": [
+      {"team": "LV", "name": "Las Vegas Raiders", "spending": "$281M+", "approach": "All-in aggressive"},
+      {"team": "TEN", "name": "Tennessee Titans", "spending": "$270M+", "approach": "Saleh coaching tree"},
+      {"team": "LAR", "name": "Los Angeles Rams", "spending": "$200M+ (secondary focus)", "approach": "Championship window"}
+    ],
+    "quietest_teams": [
+      {"team": "DEN", "name": "Denver Broncos", "signings": "0 outside free agents", "sentiment": "Frustrated"},
+      {"team": "JAX", "name": "Jacksonville Jaguars", "signings": "Minimal", "sentiment": "Disappointed"},
+      {"team": "GB", "name": "Green Bay Packers", "signings": "Anticlimactic", "sentiment": "Mixed"}
+    ],
+    "biggest_storylines": [
+      "Russell Wilson cap era finally over—teams able to spend freely",
+      "Malik Willis QB gamble with Dolphins signals offensive reset",
+      "Defensive scheme coordination (Saleh with Titans, Flores with Commanders)",
+      "Veteran QBs dominate (Willis, Tagovailoa, Jones) over draft prospects",
+      "Pass rush remains undersupplied across league despite needs"
+    ]
+  },
+  "notes": {
+    "methodology": "Web searches across official team sources, SB Nation team sites, ESPN trackers, analyst grades, and fan sentiment surveys (SB Nation Reacts)",
+    "sentiment_basis": "Current fan mood during March 2026 free agency period based on signings, trades, departures, and immediate reactions",
+    "scoring_framework": "1-10 scales reflecting emotional temperature at snapshot moment, not predictive of season outcome"
+  }
+}

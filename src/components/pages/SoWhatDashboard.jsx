@@ -6,6 +6,7 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { InsightCard } from '../ui/InsightCard';
+import { FanSentimentCard } from '../ui/FanSentimentCard';
 
 export function SoWhatDashboard({ plays, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -74,6 +75,11 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
             })}
           </div>
         )}
+      </div>
+
+      {/* Fan Sentiment — Misery Index */}
+      <div style={{ marginTop: 12, marginBottom: 12 }}>
+        <FanSentimentCard primaryTeam={primaryTeam} />
       </div>
 
       <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly.`} />

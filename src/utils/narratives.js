@@ -50,21 +50,32 @@ export function scriptedPlaysPreview(tm, stats, roster) {
 
 export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
   const matchups = [];
-  const wr1 = offRoster.offense.find(p => p.pos === "WR1"), cb1 = defRoster.defense.find(p => p.pos === "CB1");
+  const unknown = { name: "TBD", grade: "TBD", rating: 65, trait: "Unknown", pos: "?" };
+  const findOff = pos => offRoster.offense.find(p => p.pos === pos) || unknown;
+  const findDef = pos => defRoster.defense.find(p => p.pos === pos) || unknown;
+
+  const wr1 = findOff("WR1"), cb1 = findDef("CB1");
   const e1 = wr1.rating - cb1.rating;
   matchups.push({ off: wr1, def: cb1, label: "WR1 vs CB1", verdict: e1 > 10 ? `Big advantage ${offTm}. ${wr1.name} should feast.` : e1 < -10 ? `Advantage ${defTm}. ${cb1.name} can lock this down.` : `Coin-flip. Individual execution decides it.` });
-  const wr2 = offRoster.offense.find(p => p.pos === "WR2"), cb2 = defRoster.defense.find(p => p.pos === "CB2");
+
+  const wr2 = findOff("WR2"), cb2 = findDef("CB2");
   matchups.push({ off: wr2, def: cb2, label: "WR2 vs CB2", verdict: wr2.rating - cb2.rating > 8 ? `Exploitable matchup for the offense.` : `Relatively even.` });
-  const wr3 = offRoster.offense.find(p => p.pos === "WR3"), scb = defRoster.defense.find(p => p.pos === "SCB");
+
+  const wr3 = findOff("WR3"), scb = findDef("SCB");
   matchups.push({ off: wr3, def: scb, label: "Slot Battle", verdict: wr3.rating > scb.rating + 5 ? `Slot is where this offense creates separation.` : `Slot is locked down.` });
-  const rb = offRoster.offense.find(p => p.pos === "RB1"), lb = defRoster.defense.find(p => p.pos === "LB1");
+
+  const rb = findOff("RB1"), lb = findDef("LB1");
   matchups.push({ off: rb, def: lb, label: "RB vs LB", verdict: rb.rating > lb.rating + 5 ? `${rb.name} has the edge in the run game and checkdowns.` : `${lb.name} can match up. Run game won't come easy.` });
-  const lt = offRoster.offense.find(p => p.pos === "LT"), edge1 = defRoster.defense.find(p => p.pos === "EDGE1");
+
+  const lt = findOff("LT"), edge1 = findDef("EDGE1");
   matchups.push({ off: lt, def: edge1, label: "LT vs EDGE1", verdict: lt.rating >= edge1.rating ? `QB should have time.` : `${edge1.name} is going to be a problem. Expect quick passes.` });
-  const rt = offRoster.offense.find(p => p.pos === "RT"), edge2 = defRoster.defense.find(p => p.pos === "EDGE2");
+
+  const rt = findOff("RT"), edge2 = findDef("EDGE2");
   matchups.push({ off: rt, def: edge2, label: "RT vs EDGE2", verdict: rt.rating >= edge2.rating ? `Solid protection.` : `Another pressure point.` });
-  const te = offRoster.offense.find(p => p.pos === "TE"), ss = defRoster.defense.find(p => p.pos === "SS");
+
+  const te = findOff("TE"), ss = findDef("SS");
   matchups.push({ off: te, def: ss, label: "TE vs Safety", verdict: te.trait === "Receiving TE" && te.rating > ss.rating ? `${te.name} is a weapon. Matchup to exploit.` : `Handled. TE is more blocker than threat.` });
+
   return matchups;
 }
 

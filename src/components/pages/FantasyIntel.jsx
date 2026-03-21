@@ -10,6 +10,7 @@ import { MatchupGrade } from '../ui/MatchupGrade';
 import { RatingBar } from '../ui/RatingBar';
 import { InsightCard } from '../ui/InsightCard';
 import { ExportButton } from '../ui/ExportButton';
+import { ContractYearCard } from '../ui/ContractYearCard';
 
 export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
@@ -47,18 +48,19 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
 
       // QB score: pass volume + efficiency environment + explosive upside
       const qbScore = (passVol / 35) * 30 + (defPassSR / (bl.sr || 0.45)) * 25 + (oStats.xr / (bl.xr || 0.08)) * 25 + (oStats.compRate / (bl.compRate || 0.62)) * 20;
-      const qb = oR.offense.find(p => p.pos === "QB");
+      const unknown = { name: "TBD", grade: "TBD", rating: 65, trait: "Unknown", pos: "?" };
+      const qb = oR.offense.find(p => p.pos === "QB") || unknown;
 
       // RB score: rush volume + receiving + defense weakness
       const rbScore = (rushVol / 30) * 30 + (dStats.dsr / (bl.sr || 0.45)) * 25 + (d.p < 0.52 ? 15 : 5) + (oStats.sr / (bl.sr || 0.45)) * 20;
-      const rb = oR.offense.find(p => p.pos === "RB1");
+      const rb = oR.offense.find(p => p.pos === "RB1") || unknown;
 
       // WR1 score: pass volume + explosive + target share proxy
       const wr1Score = (passVol / 35) * 25 + (defExpRate / (bl.xr || 0.08)) * 25 + (oStats.xr / (bl.xr || 0.08)) * 25 + (d.p > 0.56 ? 15 : 5);
-      const wr1 = oR.offense.find(p => p.pos === "WR1");
+      const wr1 = oR.offense.find(p => p.pos === "WR1") || unknown;
 
       // TE score
-      const te = oR.offense.find(p => p.pos === "TE");
+      const te = oR.offense.find(p => p.pos === "TE") || unknown;
       const teScore = (passVol / 35) * 20 + (te.trait === "Receiving TE" ? 30 : 10) + (defPassSR / (bl.sr || 0.45)) * 20 + (dStats.dxr > bl.xr ? 15 : 5);
 
       // Boom/bust
@@ -177,6 +179,11 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
           </div>
         </div>
         {sorted.slice(0, 16).map((item, i) => <FantasyRow key={`${item.off}-${item.def}`} item={item} rank={i + 1} />)}
+      </div>
+
+      {/* Contract Year Players */}
+      <div style={{ marginTop: 20 }}>
+        <ContractYearCard />
       </div>
     </div>
   );

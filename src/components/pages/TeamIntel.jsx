@@ -6,6 +6,7 @@ import { teamSoWhat } from '../../utils/narratives';
 import { downloadCSV } from '../../utils/csvExport';
 import { TeamSelect } from '../ui/TeamSelect';
 import { ExportButton } from '../ui/ExportButton';
+import { ContractYearCard } from '../ui/ContractYearCard';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -63,6 +64,11 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           </div>
         </div>
       ))}
+
+      {/* Contract Year Players for this team */}
+      <div style={{ marginTop: 16 }}>
+        <ContractYearCard filterTeam={team} compact />
+      </div>
     </div>
   );
 }
