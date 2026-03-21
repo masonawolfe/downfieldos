@@ -42,7 +42,7 @@ export function LandingPage({ onSelectTeam, navigate }) {
 
   const handleExplore = (team) => {
     onSelectTeam(team);
-    navigate("/");
+    navigate("/dashboard");
   };
 
   return (

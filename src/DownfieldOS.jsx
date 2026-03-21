@@ -29,7 +29,7 @@ import { HomeDashboard } from './components/pages/HomeDashboard';
  * `id` is used for internal references, `path` for the URL.
  */
 const MODULES = [
-  { id: "home", path: "/", label: "Home", icon: Home },
+  { id: "home", path: "/dashboard", label: "Home", icon: Home },
   { id: "season2026", path: "/2026-preview", label: "2026 Preview", icon: TrendingUp },
   { id: "thisweek", path: "/this-week", label: "This Week", icon: Calendar },
   { id: "dashboard", path: "/so-what", label: "So What?", icon: Star },
@@ -46,6 +46,10 @@ const MODULES = [
 const PAGE_META = {
   "/": {
     title: "DownfieldOS — Football Intelligence Operating System",
+    description: "Football, understood. The intelligence operating system for football. 57,810 plays transformed into narrative, publishable, decision-ready intelligence.",
+  },
+  "/dashboard": {
+    title: "Dashboard | DownfieldOS",
     description: "Your personalized football intelligence dashboard. Matchup previews, fantasy intel, and decision-ready insights from 57,810 plays.",
   },
   "/2026-preview": {
@@ -189,11 +193,11 @@ export default function DownfieldOS() {
   const currentPath = location.pathname.replace(/\/+$/, '') || '/';
   const activeModule = MODULES.find(m => currentPath === m.path || currentPath.startsWith(m.path + '/'));
 
-  // Landing page for first-time visitors at root
-  if (showLandingPage && currentPath === '/') {
+  // Landing page at root — always shown
+  if (currentPath === '/') {
     return (
       <LandingPage
-        onSelectTeam={(team) => { setPrimaryTeam(team); setShowLandingPage(false); }}
+        onSelectTeam={(team) => { setPrimaryTeam(team); }}
         navigate={navigate}
       />
     );
@@ -270,7 +274,7 @@ export default function DownfieldOS() {
             </div>
           )}
           <Routes>
-            <Route path="/" element={<ErrorBoundary label="Home"><HomeDashboard plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} navigate={navigate} onNavigateMatchup={navigateToMatchup} /></ErrorBoundary>} />
+            <Route path="/dashboard" element={<ErrorBoundary label="Home"><HomeDashboard plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} navigate={navigate} onNavigateMatchup={navigateToMatchup} /></ErrorBoundary>} />
             <Route path="/2026-preview" element={<ErrorBoundary label="2026 Preview"><Season2026 plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/this-week" element={<ErrorBoundary label="This Week"><ThisWeek plays={filteredPlays} rosters={rosters} onNavigateMatchup={navigateToMatchup} onGeneratePost={generatePost} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/so-what" element={<ErrorBoundary label="So What?"><SoWhatDashboard plays={filteredPlays} primaryTeam={primaryTeam} /></ErrorBoundary>} />

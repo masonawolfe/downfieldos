@@ -4,7 +4,7 @@ import { T } from '../../data/teams';
 import { tn } from '../../utils/formatters';
 
 const MODULES = [
-  { icon: Home, label: "Home", path: "/", keywords: "home dashboard hq" },
+  { icon: Home, label: "Home", path: "/dashboard", keywords: "home dashboard hq" },
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview", keywords: "season preview opponents projections roster draft" },
   { icon: Calendar, label: "This Week", path: "/this-week", keywords: "games week schedule matchups" },
   { icon: Star, label: "So What?", path: "/so-what", keywords: "insights headlines sentiment misery" },
