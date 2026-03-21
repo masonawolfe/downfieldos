@@ -13,6 +13,7 @@ import { lgbl } from './utils/aggregation';
 import { sr } from './utils/rng';
 import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect, ErrorBoundary } from './components/ui';
 import { CommandPalette } from './components/ui/CommandPalette';
+import { Walkthrough, useWalkthrough } from './components/ui/Walkthrough';
 import { Season2026 } from './components/pages/Season2026';
 import { ThisWeek } from './components/pages/ThisWeek';
 import { SoWhatDashboard } from './components/pages/SoWhatDashboard';
@@ -165,6 +166,7 @@ export default function DownfieldOS() {
 
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [cmdKOpen, setCmdKOpen] = useState(false);
+  const [showWalkthrough, dismissWalkthrough] = useWalkthrough();
   const isMobile = useIsMobile();
 
   // Cmd+K / Ctrl+K keyboard shortcut
@@ -321,6 +323,9 @@ export default function DownfieldOS() {
           onClose={() => setPostPreview(null)}
         />
       )}
+
+      {/* First-visit walkthrough */}
+      {showWalkthrough && <Walkthrough onDismiss={dismissWalkthrough} />}
 
       {/* Command Palette (Cmd+K) */}
       <CommandPalette
