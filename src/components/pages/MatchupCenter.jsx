@@ -30,7 +30,8 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   useEffect(() => { if (initialOff) setOffTm(initialOff); }, [initialOff]);
   useEffect(() => { if (initialDef) setDefTm(initialDef); }, [initialDef]);
   useEffect(() => { if (primaryTeam && !initialOff) setOffTm(primaryTeam); }, [primaryTeam]);
-  const [showPlayers, setShowPlayers] = useState(false);
+  const [showPlayers, setShowPlayers] = useState(true);
+  const [playerSide, setPlayerSide] = useState("off"); // "off" = offTm's offense, "def" = defTm's offense
   const [showThread, setShowThread] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [gameWeek, setGameWeek] = useState(1);
@@ -41,7 +42,11 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const preview = useMemo(() => matchupPreview(offTm, defTm, os, ds, bl), [offTm, defTm, os, ds, bl]);
   const offScript = useMemo(() => scriptedPlaysPreview(offTm, os, oR), [offTm, os, oR]);
   const defScript = useMemo(() => scriptedPlaysPreview(defTm, agg(plays, defTm), rosters[defTm]), [defTm, plays, rosters]);
-  const playerMatchups = useMemo(() => playerMatchupSummary(oR, dR, offTm, defTm), [oR, dR, offTm, defTm]);
+  const playerMatchupsOff = useMemo(() => playerMatchupSummary(oR, dR, offTm, defTm), [oR, dR, offTm, defTm]);
+  const playerMatchupsDef = useMemo(() => playerMatchupSummary(rosters[defTm], rosters[offTm], defTm, offTm), [rosters, offTm, defTm]);
+  const playerMatchups = playerSide === "off" ? playerMatchupsOff : playerMatchupsDef;
+  const playerOffLabel = playerSide === "off" ? offTm : defTm;
+  const playerDefLabel = playerSide === "off" ? defTm : offTm;
   const grade = useMemo(() => calcMatchupGrade(os, ds, bl), [os, ds, bl]);
   const thread = useMemo(() => generateTweetThread(offTm, defTm, os, ds, bl, grade), [offTm, defTm, os, ds, bl, grade]);
   const revenge = useMemo(() => getRevengeGameSummary(offTm, defTm), [offTm, defTm]);
@@ -89,47 +94,55 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}><MarkdownBlock text={offScript} /></div>
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}><MarkdownBlock text={defScript} /></div>
       </div>
+      {/* Player-Level Matchups — always visible */}
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden", marginBottom: 20 }}>
-        <button onClick={() => setShowPlayers(!showPlayers)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", borderBottom: showPlayers ? "1px solid #e2e8f0" : "none" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <Swords size={20} color="#f97316" />
-            <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Player-Level Matchups</span>
-            <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>{tn(offTm)} OFF vs {tn(defTm)} DEF</span>
+        <div style={{ padding: "20px 24px", borderBottom: "1px solid #e2e8f0" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Swords size={20} color="#f97316" />
+              <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Player-Level Matchups</span>
+            </div>
+            <div style={{ display: "flex", borderRadius: 8, overflow: "hidden", border: "1px solid #e2e8f0" }}>
+              <button onClick={() => setPlayerSide("off")} style={{ padding: "6px 14px", fontSize: 12, fontWeight: 700, border: "none", cursor: "pointer", background: playerSide === "off" ? "#f97316" : "#fff", color: playerSide === "off" ? "#fff" : "#64748b" }}>
+                {offTm} Offense
+              </button>
+              <button onClick={() => setPlayerSide("def")} style={{ padding: "6px 14px", fontSize: 12, fontWeight: 700, border: "none", borderLeft: "1px solid #e2e8f0", cursor: "pointer", background: playerSide === "def" ? "#f97316" : "#fff", color: playerSide === "def" ? "#fff" : "#64748b" }}>
+                {defTm} Offense
+              </button>
+            </div>
           </div>
-          {showPlayers ? <ChevronDown size={20} color="#94a3b8" /> : <ChevronRight size={20} color="#94a3b8" />}
-        </button>
-        {showPlayers && (
-          <div style={{ padding: 24 }}>
-            {playerMatchups.map((m, i) => {
-              const edge = m.off.rating - m.def.rating;
-              const edgeColor = edge > 5 ? "#16a34a" : edge < -5 ? "#dc2626" : "#eab308";
-              const edgeLabel = edge > 5 ? "OFF +" + edge : edge < -5 ? "DEF +" + Math.abs(edge) : "EVEN";
-              return (
-                <div key={i} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: i < playerMatchups.length - 1 ? "1px solid #f1f5f9" : "none" }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#f97316" }}>{m.label}</div>
-                    <span style={{ fontSize: 11, fontWeight: 800, color: edgeColor, background: edgeColor + "15", padding: "3px 10px", borderRadius: 8, fontFamily: "monospace" }}>{edgeLabel}</span>
-                  </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 10 }}>
-                    <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
-                      <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
-                      <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.off.name}</div>
-                      <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade} | {m.off.trait}</div>
-                      <RatingBar value={m.off.rating} color="#16a34a" />
-                    </div>
-                    <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
-                      <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
-                      <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.def.name}</div>
-                      <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.def.pos} | {m.def.grade} | {m.def.trait}</div>
-                      <RatingBar value={m.def.rating} color="#dc2626" />
-                    </div>
-                  </div>
-                  <div style={{ fontSize: 14, color: "#334155", lineHeight: 1.6 }}>{m.verdict}</div>
+          <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 6 }}>{tn(playerOffLabel)} offense vs {tn(playerDefLabel)} defense</div>
+        </div>
+        <div style={{ padding: 24 }}>
+          {playerMatchups.map((m, i) => {
+            const edge = m.off.rating - m.def.rating;
+            const edgeColor = edge > 5 ? "#16a34a" : edge < -5 ? "#dc2626" : "#eab308";
+            const edgeLabel = edge > 5 ? "OFF +" + edge : edge < -5 ? "DEF +" + Math.abs(edge) : "EVEN";
+            return (
+              <div key={i} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: i < playerMatchups.length - 1 ? "1px solid #f1f5f9" : "none" }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "#f97316" }}>{m.label}</div>
+                  <span style={{ fontSize: 11, fontWeight: 800, color: edgeColor, background: edgeColor + "15", padding: "3px 10px", borderRadius: 8, fontFamily: "monospace" }}>{edgeLabel}</span>
                 </div>
-              );
-            })}
-          </div>
-        )}
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 10 }}>
+                  <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
+                    <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.off.name}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade} | {m.off.trait}</div>
+                    <RatingBar value={m.off.rating} color="#16a34a" />
+                  </div>
+                  <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
+                    <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.def.name}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.def.pos} | {m.def.grade} | {m.def.trait}</div>
+                    <RatingBar value={m.def.rating} color="#dc2626" />
+                  </div>
+                </div>
+                <div style={{ fontSize: 14, color: "#334155", lineHeight: 1.6 }}>{m.verdict}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div style={{ background: "#0f172a", borderRadius: 16, padding: 24 }}>
         <h3 style={{ color: "#fff", fontSize: 16, fontWeight: 700, margin: "0 0 16px" }}>By the Numbers</h3>
