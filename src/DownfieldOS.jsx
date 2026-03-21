@@ -28,17 +28,26 @@ import { HomeDashboard } from './components/pages/HomeDashboard';
  * Route config — maps URL paths to module metadata.
  * `id` is used for internal references, `path` for the URL.
  */
-const MODULES = [
-  { id: "home", path: "/dashboard", label: "Home", icon: Home },
-  { id: "season2026", path: "/2026-preview", label: "2026 Preview", icon: TrendingUp },
-  { id: "thisweek", path: "/this-week", label: "This Week", icon: Calendar },
-  { id: "dashboard", path: "/so-what", label: "So What?", icon: Star },
-  { id: "matchup", path: "/matchup-preview", label: "Matchup Preview", icon: Swords },
-  { id: "fantasy", path: "/fantasy-intel", label: "Fantasy Intel", icon: Flame },
-  { id: "intel", path: "/team-intel", label: "Team Intel", icon: Eye },
-  { id: "warroom", path: "/war-room", label: "War Room", icon: Shield },
-  { id: "admin", path: "/admin", label: "Admin", icon: Target },
+const MODULE_GROUPS = [
+  { label: null, items: [
+    { id: "home", path: "/dashboard", label: "Home", icon: Home },
+  ]},
+  { label: "OVERVIEW", items: [
+    { id: "season2026", path: "/2026-preview", label: "2026 Preview", icon: TrendingUp },
+    { id: "thisweek", path: "/this-week", label: "This Week", icon: Calendar },
+    { id: "dashboard", path: "/so-what", label: "So What?", icon: Star },
+  ]},
+  { label: "INTELLIGENCE", items: [
+    { id: "matchup", path: "/matchup-preview", label: "Matchup Preview", icon: Swords },
+    { id: "intel", path: "/team-intel", label: "Team Intel", icon: Eye },
+    { id: "warroom", path: "/war-room", label: "War Room", icon: Shield },
+  ]},
+  { label: "CONTENT", items: [
+    { id: "fantasy", path: "/fantasy-intel", label: "Fantasy Intel", icon: Flame },
+    { id: "admin", path: "/admin", label: "Admin", icon: Target },
+  ]},
 ];
+const MODULES = MODULE_GROUPS.flatMap(g => g.items);
 
 /**
  * Page metadata — title, description, OG tags per route.
@@ -106,6 +115,11 @@ function updateMeta(path) {
   setMeta("name", "twitter:card", "summary_large_image");
   setMeta("name", "twitter:title", meta.title);
   setMeta("name", "twitter:description", meta.description);
+
+  // Canonical URL
+  let canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) { canonical = document.createElement("link"); canonical.setAttribute("rel", "canonical"); document.head.appendChild(canonical); }
+  canonical.setAttribute("href", `https://downfieldos.com${path}`);
 
   // JSON-LD structured data
   let jsonLd = document.querySelector('script[type="application/ld+json"]');
@@ -225,14 +239,19 @@ export default function DownfieldOS() {
             </select>
           </div>
           <div role="list" style={{ display: "flex", flexDirection: "column", gap: 4, flex: 1 }}>
-            {MODULES.map(m => (
-              <NavItem
-                key={m.id}
-                icon={m.icon}
-                label={m.label}
-                active={activeModule?.id === m.id}
-                onClick={() => { navigate(m.path); if (isMobile) setMobileSidebarOpen(false); }}
-              />
+            {MODULE_GROUPS.map((group, gi) => (
+              <div key={gi}>
+                {group.label && <div style={{ fontSize: 9, fontWeight: 800, color: "#475569", textTransform: "uppercase", letterSpacing: 1.5, padding: "8px 12px 4px", marginTop: gi > 0 ? 4 : 0 }}>{group.label}</div>}
+                {group.items.map(m => (
+                  <NavItem
+                    key={m.id}
+                    icon={m.icon}
+                    label={m.label}
+                    active={activeModule?.id === m.id}
+                    onClick={() => { navigate(m.path); if (isMobile) setMobileSidebarOpen(false); }}
+                  />
+                ))}
+              </div>
             ))}
             <div style={{ height: 1, background: "#1e293b", margin: "8px 0" }} />
             <NavItem icon={Filter} label="Filters" active={showFilters} onClick={() => setShowFilters(!showFilters)} badge={isFiltered ? "ON" : null} />
@@ -247,6 +266,7 @@ export default function DownfieldOS() {
               {isFiltered ? `${filteredPlays.length.toLocaleString()} / ${allPlays.length.toLocaleString()} plays` : `${allPlays.length.toLocaleString()} plays analyzed`}
             </div>
             <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v7 — {typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'}</div>
+            <a href="mailto:masonawolfe@gmail.com?subject=DownfieldOS%20Feedback" style={{ display: "block", fontSize: 10, color: "#f97316", marginTop: 8, textDecoration: "none" }}>Send Feedback</a>
           </div>
         </nav>
 

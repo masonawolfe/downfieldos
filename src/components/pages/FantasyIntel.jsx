@@ -8,6 +8,7 @@ import { pct, tn } from '../../utils/formatters';
 import { downloadCSV } from '../../utils/csvExport';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { RatingBar } from '../ui/RatingBar';
+import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { InsightCard } from '../ui/InsightCard';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
@@ -82,6 +83,11 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
     [matchupBoard, posFilter]
   );
 
+  const contractYearNames = useMemo(() => {
+    const players = contractYearData?.contract_year_players || [];
+    return new Set(players.map(p => p.player));
+  }, []);
+
   function FantasyRow({ item, rank }) {
     const pos = item[posFilter];
     if (!pos || !pos.player) return null;
@@ -90,6 +96,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
     const boomPct = Math.round(pos.boom * 100);
     const bustPct = Math.round(pos.bust * 100);
     const isMyTeam = primaryTeam && item.off === primaryTeam;
+    const isContractYear = contractYearNames.has(pos.player.name);
 
     return (
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid #f1f5f9", background: isMyTeam ? "#fff7ed" : "transparent", borderLeft: isMyTeam ? "3px solid #f97316" : "3px solid transparent" }}>
@@ -98,7 +105,10 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
           <span style={{ fontSize: 16, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{grade}</span>
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{pos.player.name}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{pos.player.name}</span>
+            {isContractYear && <span style={{ fontSize: 9, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "1px 6px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>Contract Yr</span>}
+          </div>
           <div style={{ fontSize: 12, color: "#64748b" }}>{tn(item.off)} {posFilter} vs {tn(item.def)}</div>
         </div>
         <div style={{ width: 100 }}>

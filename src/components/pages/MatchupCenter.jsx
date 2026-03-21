@@ -89,6 +89,18 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         <TeamSelect value={defTm} onChange={setDefTm} label="Defense" />
         {/* Week selector hidden until 2026 schedule is announced (mid-May) */}
       </div>
+      {/* Quick Export Bar */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
+        <button onClick={() => downloadText(`${offTm}_vs_${defTm}_prep.txt`, generatePrepSheet(offTm, defTm, os, ds, bl, grade, oR, dR, playerMatchups))} style={{ display: "flex", alignItems: "center", gap: 6, background: "#0d1117", border: "none", borderRadius: 8, padding: "8px 14px", color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
+          <Mic size={14} /> Podcast Prep
+        </button>
+        <button onClick={() => setShowThread(!showThread)} style={{ display: "flex", alignItems: "center", gap: 6, background: "#0d1117", border: "none", borderRadius: 8, padding: "8px 14px", color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
+          <Twitter size={14} /> Tweet Thread
+        </button>
+        <button onClick={() => downloadText(`${offTm}_vs_${defTm}_article.txt`, preview + '\n\n' + offScript + '\n\n' + defScript)} style={{ display: "flex", alignItems: "center", gap: 6, background: "#0d1117", border: "none", borderRadius: 8, padding: "8px 14px", color: "#fff", fontSize: 12, fontWeight: 700, cursor: "pointer" }}>
+          <Download size={14} /> Article Draft
+        </button>
+      </div>
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}><MarkdownBlock text={preview} /></div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24 }}><MarkdownBlock text={offScript} /></div>
