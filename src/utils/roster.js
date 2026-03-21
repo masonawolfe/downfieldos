@@ -9,17 +9,32 @@ export function genRoster(team) {
 // After merging additions/removals, re-assign numbered positions
 // so downstream code can do .find(p => p.pos === "WR1") reliably.
 function renumberPositions(players) {
-  const counts = {};
-  // Positions that get numbered (WR1/WR2/WR3, RB1/RB2, CB1/CB2, etc.)
-  const numberableOff = new Set(["WR", "RB"]);
-  const numberableDef = new Set(["EDGE", "DT", "LB", "CB"]);
-  const numberable = new Set([...numberableOff, ...numberableDef]);
+  const numberable = new Set(["WR", "RB", "EDGE", "DT", "LB", "CB"]);
 
-  return players.map(p => {
+  // Collect all players in each numberable position group
+  const groups = {};
+  const nonNumberable = [];
+  players.forEach(p => {
     const basePos = p.pos.replace(/[0-9]/g, "");
     if (numberable.has(basePos)) {
+      if (!groups[basePos]) groups[basePos] = [];
+      groups[basePos].push(p);
+    } else {
+      nonNumberable.push(p);
+    }
+  });
+
+  // Sort each group by rating (highest = WR1, next = WR2, etc.)
+  Object.values(groups).forEach(g => g.sort((a, b) => (b.rating || 0) - (a.rating || 0)));
+
+  // Rebuild in original position order but with sorted players within each group
+  const counts = {};
+  return players.map(p => {
+    const basePos = p.pos.replace(/[0-9]/g, "");
+    if (numberable.has(basePos) && groups[basePos]?.length) {
       counts[basePos] = (counts[basePos] || 0) + 1;
-      return { ...p, pos: `${basePos}${counts[basePos]}` };
+      const next = groups[basePos].shift();
+      return { ...next, pos: `${basePos}${counts[basePos]}` };
     }
     return { ...p };
   });
@@ -46,8 +61,8 @@ export function genRoster2026(team) {
   const added = fa.added || [];
   added.forEach(p => {
     const entry = {
-      pos: p.pos, name: p.name, grade: "TBD", rating: 75,
-      trait: p.note || p.deal || "New Addition", isNew: true,
+      pos: p.pos, name: p.name, grade: p.grade || "TBD", rating: p.rating || 75,
+      trait: p.trait || p.note || p.deal || "New Addition", isNew: true,
       deal: p.deal || null, faNote: p.note || null
     };
     if (offPositions.has(p.pos) || offPositions.has(p.pos.replace(/[0-9]/g, ""))) {
