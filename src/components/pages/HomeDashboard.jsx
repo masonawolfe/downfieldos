@@ -14,7 +14,7 @@ import { calcEnvironmentFactors } from '../../utils/environmentFactors';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
 
 const QUICK_LINKS = [
-  { icon: TrendingUp, label: "2026 Preview", path: "/" },
+  { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
   { icon: Calendar, label: "This Week", path: "/this-week" },
   { icon: Star, label: "So What?", path: "/so-what" },
   { icon: Swords, label: "Matchup Preview", path: "/matchup-preview" },

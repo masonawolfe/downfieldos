@@ -140,7 +140,7 @@ export function LandingPage({ onSelectTeam, navigate }) {
         {/* Additional modules row */}
         <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 20, flexWrap: "wrap" }}>
           {[
-            { icon: TrendingUp, label: "2026 Preview", path: "/" },
+            { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
             { icon: Eye, label: "Team Intel", path: "/team-intel" },
             { icon: Shield, label: "War Room", path: "/war-room" },
           ].map(m => {
@@ -148,7 +148,7 @@ export function LandingPage({ onSelectTeam, navigate }) {
             return (
               <button
                 key={m.label}
-                onClick={() => { onSelectTeam("CHI"); navigate(m.path === "/" ? "/2026-preview" : m.path); }}
+                onClick={() => { onSelectTeam("CHI"); navigate(m.path); }}
                 style={{ display: "flex", alignItems: "center", gap: 6, background: "transparent", border: "1px solid #30363d", borderRadius: 8, padding: "8px 16px", color: "#8B949E", fontSize: 13, fontWeight: 600, cursor: "pointer" }}
               >
                 <Icon size={14} /> {m.label}
