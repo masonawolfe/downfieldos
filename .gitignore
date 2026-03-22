@@ -2,3 +2,7 @@ node_modules
 dist
 .vite
 *.local
+
+# Generated play data (built at deploy time via npm run data:pbp)
+public/data/plays-*.json
+public/data/plays-meta.json

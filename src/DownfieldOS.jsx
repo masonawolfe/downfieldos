@@ -7,7 +7,7 @@ import {
 import { useIsMobile } from './hooks/useIsMobile';
 import { T } from './data/teams';
 import { DEFAULT_FILTERS, applyFilters } from './utils/filters';
-import { generatePlays } from './utils/playGenerator';
+import { generatePlays, loadCurrentSeason, loadAllSeasons } from './utils/playGenerator';
 import { genRoster2026 } from './utils/roster';
 import { lgbl } from './utils/aggregation';
 import { sr } from './utils/rng';
@@ -196,8 +196,24 @@ export default function DownfieldOS() {
     setPostPreview({ away, home, aStats, hStats });
   }, []);
 
-  const allPlays = useMemo(() => generatePlays(), []);
-  const filteredPlays = useMemo(() => applyFilters(allPlays, filters), [allPlays, filters]);
+  // Load real NFL play data (async, with synthetic fallback)
+  const [allPlays, setAllPlays] = useState(null);
+  const [dataLoading, setDataLoading] = useState(true);
+
+  useEffect(() => {
+    loadCurrentSeason()
+      .then(plays => { setAllPlays(plays); setDataLoading(false); })
+      .catch(() => { setAllPlays(generatePlays()); setDataLoading(false); });
+  }, []);
+
+  // Background-prefetch older seasons after initial render
+  useEffect(() => {
+    if (!dataLoading && allPlays) {
+      loadAllSeasons().then(setAllPlays);
+    }
+  }, [dataLoading]);
+
+  const filteredPlays = useMemo(() => allPlays ? applyFilters(allPlays, filters) : [], [allPlays, filters]);
   const isFiltered = JSON.stringify(filters) !== JSON.stringify(DEFAULT_FILTERS);
 
   const rosters = useMemo(() => {
@@ -209,6 +225,19 @@ export default function DownfieldOS() {
   // Which module is active based on current path
   const currentPath = location.pathname.replace(/\/+$/, '') || '/';
   const activeModule = MODULES.find(m => currentPath === m.path || currentPath.startsWith(m.path + '/'));
+
+  // Loading state while play data fetches
+  if (dataLoading) {
+    return (
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh", background: "#0d1117", flexDirection: "column", gap: 16 }}>
+        <Logo size={48} />
+        <div style={{ fontSize: 14, color: "#8B949E", fontWeight: 600 }}>Loading play data...</div>
+        <div style={{ width: 200, height: 3, background: "#1e293b", borderRadius: 2, overflow: "hidden" }}>
+          <div style={{ width: "60%", height: "100%", background: "#f97316", borderRadius: 2, animation: "loading 1.5s ease-in-out infinite" }} />
+        </div>
+      </div>
+    );
+  }
 
   // Landing page at root — always shown
   if (currentPath === '/') {

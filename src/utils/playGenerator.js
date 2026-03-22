@@ -101,3 +101,38 @@ export function generatePlays() {
   }
   return plays;
 }
+
+// ── Real Data Loader (nflverse PBP) ─────────────────────────────────────────
+
+let _currentSeason = null;
+let _allSeasons = null;
+
+/**
+ * Load current season play data (~327KB gzip, fast).
+ * Falls back to synthetic data if fetch fails (dev mode, offline).
+ */
+export async function loadCurrentSeason() {
+  if (_currentSeason) return _currentSeason;
+  const resp = await fetch('/data/plays-2025.json');
+  if (!resp.ok) throw new Error(`Failed to load plays: ${resp.status}`);
+  _currentSeason = await resp.json();
+  return _currentSeason;
+}
+
+/**
+ * Load all 3 seasons (~1MB gzip total). Call after initial render
+ * to backfill historical data for season filters.
+ */
+export async function loadAllSeasons() {
+  if (_allSeasons) return _allSeasons;
+  const [p25, p24, p23] = await Promise.all([
+    _currentSeason
+      ? Promise.resolve(_currentSeason)
+      : fetch('/data/plays-2025.json').then(r => r.json()),
+    fetch('/data/plays-2024.json').then(r => r.json()),
+    fetch('/data/plays-2023.json').then(r => r.json()),
+  ]);
+  _currentSeason = p25;
+  _allSeasons = [...p23, ...p24, ...p25];
+  return _allSeasons;
+}
