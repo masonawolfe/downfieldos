@@ -82,7 +82,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   return (
     <div>
       <h2 style={{ fontSize: 28, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -.5 }}>Matchup Preview</h2>
-      <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>A scouting report, not a stat sheet. Filters apply to underlying data.</p>
+      <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>A scouting report, not a stat sheet. Big picture down to player-level matchups — WR1 vs CB1, blindside pressure, and every battle that decides the game.</p>
       <div style={{ display: "flex", gap: 16, marginBottom: 24, alignItems: "flex-end", flexWrap: "wrap" }}>
         <TeamSelect value={offTm} onChange={setOffTm} label="Offense" />
         <div style={{ fontSize: 24, color: "#94a3b8", fontWeight: 800, paddingBottom: 8 }}>vs</div>

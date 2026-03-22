@@ -8,7 +8,7 @@ import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
 const MODULE_CARDS = [
   {
     icon: Swords, title: "Matchup Intelligence",
-    desc: "9 intelligence signals per matchup — scheme familiarity, coaching trees, revenge games, film study asymmetry, and more. Not a stat sheet. A scouting report.",
+    desc: "9 intelligence signals per matchup — from scheme familiarity down to WR1 vs CB1 battles. Drill into player-level matchups, coaching trees, revenge games, and film study.",
     path: "/matchup-preview", color: "#f97316",
   },
   {

@@ -339,7 +339,8 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {/* -- DRAFT NEEDS VIEW -- */}
       {viewMode === "needs" && (
         <div>
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 12 }}>2026 Draft Priorities</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>2026 Draft Priorities</h3>
+          <p style={{ fontSize: 12, color: "#94a3b8", margin: "0 0 12px" }}>Draft: April 23-25, 2026 in Pittsburgh. Prospect cards coming soon.</p>
 
           <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
             {needs.map((pos, i) => (
