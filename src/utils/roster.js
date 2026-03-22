@@ -13,31 +13,27 @@ function renumberPositions(players) {
 
   // Collect all players in each numberable position group
   const groups = {};
-  const nonNumberable = [];
+  const result = [];
   players.forEach(p => {
     const basePos = p.pos.replace(/[0-9]/g, "");
     if (numberable.has(basePos)) {
       if (!groups[basePos]) groups[basePos] = [];
       groups[basePos].push(p);
     } else {
-      nonNumberable.push(p);
+      result.push({ ...p });
     }
   });
 
   // Sort each group by rating (highest = WR1, next = WR2, etc.)
-  Object.values(groups).forEach(g => g.sort((a, b) => (b.rating || 0) - (a.rating || 0)));
-
-  // Rebuild in original position order but with sorted players within each group
-  const counts = {};
-  return players.map(p => {
-    const basePos = p.pos.replace(/[0-9]/g, "");
-    if (numberable.has(basePos) && groups[basePos]?.length) {
-      counts[basePos] = (counts[basePos] || 0) + 1;
-      const next = groups[basePos].shift();
-      return { ...next, pos: `${basePos}${counts[basePos]}` };
-    }
-    return { ...p };
+  // Then assign numbered positions purely from sorted order
+  Object.entries(groups).forEach(([basePos, g]) => {
+    g.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    g.forEach((p, i) => {
+      result.push({ ...p, pos: `${basePos}${i + 1}` });
+    });
   });
+
+  return result;
 }
 
 // Special positions that don't get numbered
