@@ -13,7 +13,7 @@ const MODULE_CARDS = [
   },
   {
     icon: Flame, title: "Fantasy Intel",
-    desc: "Matchup-based opportunity scores with boom/bust probability by position. Data-driven start/sit decisions backed by 57,810 plays.",
+    desc: "Matchup-based opportunity scores with boom/bust probability by position. Data-driven start/sit decisions backed by 100,000+ plays.",
     path: "/fantasy-intel", color: "#dc2626",
   },
   {
@@ -56,7 +56,7 @@ export function LandingPage({ onSelectTeam, navigate }) {
           Football, understood.
         </h1>
         <p style={{ fontSize: isMobile ? 16 : 20, color: "#8B949E", maxWidth: 600, margin: "0 auto 40px", lineHeight: 1.6 }}>
-          The intelligence operating system for football. 57,810 plays transformed into narrative, publishable, decision-ready intelligence.
+          The intelligence operating system for football. 100,000+ plays transformed into narrative, publishable, decision-ready intelligence.
         </p>
 
         {/* CTA Row */}

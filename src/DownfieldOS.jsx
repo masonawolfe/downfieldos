@@ -60,11 +60,11 @@ const MODULES = MODULE_GROUPS.flatMap(g => g.items);
 const PAGE_META = {
   "/": {
     title: "DownfieldOS — Football Intelligence Operating System",
-    description: "Football, understood. The intelligence operating system for football. 57,810 plays transformed into narrative, publishable, decision-ready intelligence.",
+    description: "Football, understood. The intelligence operating system for football. 100,000+ plays transformed into narrative, publishable, decision-ready intelligence.",
   },
   "/dashboard": {
     title: "Dashboard | DownfieldOS",
-    description: "Your personalized football intelligence dashboard. Matchup previews, fantasy intel, and decision-ready insights from 57,810 plays.",
+    description: "Your personalized football intelligence dashboard. Matchup previews, fantasy intel, and decision-ready insights from 100,000+ plays.",
   },
   "/2026-preview": {
     title: "2026 Season Preview | DownfieldOS",
@@ -76,7 +76,7 @@ const PAGE_META = {
   },
   "/so-what": {
     title: "What You Need to Know | DownfieldOS",
-    description: "Plain-English NFL insights distilled from 57,810 plays. The signal, not the noise.",
+    description: "Plain-English NFL insights distilled from 100,000+ plays. The signal, not the noise.",
   },
   "/matchup-preview": {
     title: "Matchup Preview | DownfieldOS",
@@ -101,7 +101,7 @@ const PAGE_META = {
 };
 
 function updateMeta(path) {
-  const meta = PAGE_META[path] || { title: "DownfieldOS — Football Intelligence Operating System", description: "Football, understood. 57,810 plays of NFL data transformed into narrative, publishable, decision-ready intelligence." };
+  const meta = PAGE_META[path] || { title: "DownfieldOS — Football Intelligence Operating System", description: "Football, understood. 100,000+ plays of NFL data transformed into narrative, publishable, decision-ready intelligence." };
   document.title = meta.title;
 
   // Helper to set or create a meta tag
