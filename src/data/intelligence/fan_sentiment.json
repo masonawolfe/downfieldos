@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-17",
+  "date": "2026-03-21",
   "season_context": "offseason_free_agency",
   "league_context": "Record $301.2M salary cap creates aggressive spending environment across league",
   "teams": [
@@ -36,8 +36,8 @@
       "excitement": 7,
       "delusion": 4,
       "misery_index": 3.3,
-      "one_liner": "Kenneth Walker III addition energizes fanbase after 9-game collapse, but edge rush still weak",
-      "top_topics": ["Kenneth Walker III signing", "Most important offseason for Veach", "Edge rusher concerns remain"]
+      "one_liner": "Kenneth Walker III and Justin Fields (from NYJ) give Mahomes support as he recovers from ACL; edge rush still weak",
+      "top_topics": ["Kenneth Walker III signing", "Justin Fields trade from Jets", "Mahomes ACL recovery", "Edge rusher concerns", "Kelce re-signed"]
     },
     {
       "team": "BUF",
@@ -132,8 +132,8 @@
       "excitement": 3,
       "delusion": 5,
       "misery_index": 7.7,
-      "one_liner": "Fans disgusted by QB direction (Wentz, Brissett, Smith over elite prospects), but rebuild roster shows competence",
-      "top_topics": ["QB choice controversy", "Geno Smith vs Wentz debate", "Minkah Fitzpatrick acquisition", "Desperation moves"]
+      "one_liner": "Traded Fields to KC for a 6th, brought back Geno Smith instead; fans furious at QB direction but defense improving",
+      "top_topics": ["Justin Fields traded to Chiefs", "Geno Smith return", "QB direction anger", "Minkah Fitzpatrick acquisition", "Defensive rebuild"]
     },
     {
       "team": "BAL",
@@ -156,8 +156,8 @@
       "excitement": 3,
       "delusion": 7,
       "misery_index": 8.0,
-      "one_liner": "Full rebuild under new regime, Malik Willis gamble over Tua, Waddle trade to Broncos signals 'tanking' narrative",
-      "top_topics": ["Tua benching", "Malik Willis signing", "Waddle trade", "Dead cap eating", "Rebuild skepticism"]
+      "one_liner": "Full rebuild after trading Tua to Atlanta; Malik Willis gamble at QB, Waddle shipped to Broncos signals total teardown",
+      "top_topics": ["Tua traded to Falcons", "Malik Willis QB gamble", "Waddle trade to Broncos", "Total rebuild mode", "Tanking narrative"]
     },
     {
       "team": "CIN",
@@ -300,8 +300,8 @@
       "excitement": 2,
       "delusion": 5,
       "misery_index": 8.3,
-      "one_liner": "Defending AFC South champs ghosted free agency; Travis Etienne and Devin Lloyd departed, rivals aggressively closed gap",
-      "top_topics": ["Travis Etienne departure", "Devin Lloyd loss", "Passive approach", "Draft gold strategy risky", "Pass rush untouched"]
+      "one_liner": "Travis Hunter anchors defense but FA ghosting after losing Etienne and Devin Lloyd has fans furious; rivals closed the gap hard",
+      "top_topics": ["Travis Hunter franchise cornerstone", "Travis Etienne departure", "Devin Lloyd loss", "Passive FA approach", "Rivals strengthened"]
     },
     {
       "team": "IND",
@@ -336,8 +336,8 @@
       "excitement": 5,
       "delusion": 4,
       "misery_index": 4.3,
-      "one_liner": "Tua Tagovailoa addition encouraging but WR whiff on Jahan Dotson (D+ grade) underwhelms fans; conservative Cunningham approach",
-      "top_topics": ["Tua Tagovailoa signing", "Jahan Dotson disappointment", "WR needs unmet", "Conservative approach", "No NFC South splashes"]
+      "one_liner": "Tua Tagovailoa acquired from Miami gives Falcons a legit QB answer, but WR whiff on Jahan Dotson underwhelms; cautious approach",
+      "top_topics": ["Tua Tagovailoa trade from Dolphins", "Jahan Dotson disappointment", "WR needs unmet", "Conservative approach", "QB upgrade excitement"]
     },
     {
       "team": "LV",
@@ -359,14 +359,14 @@
         "team": "JAX",
         "name": "Jacksonville Jaguars",
         "misery_index": 8.3,
-        "reason": "Defending AFC South champs lost star RB and LB to free agency while rivals strengthened"
+        "reason": "Travis Hunter anchors D but FA ghosting after losing Etienne and Devin Lloyd; rivals closed gap"
       },
       {
         "rank": 2,
         "team": "MIA",
         "name": "Miami Dolphins",
         "misery_index": 8.0,
-        "reason": "Full rebuild with Tua benching, Malik Willis gamble, Waddle trade creating 'tanking' narrative"
+        "reason": "Full rebuild after trading Tua to ATL, Malik Willis gamble, Waddle to Broncos — total teardown"
       },
       {
         "rank": 3,
@@ -380,7 +380,7 @@
         "team": "NYJ",
         "name": "New York Jets",
         "misery_index": 7.7,
-        "reason": "Fans disgusted by QB direction despite adding defensive pieces; 3-14 season wounds fresh"
+        "reason": "Traded Fields to KC for a 6th, brought back Geno Smith; fans furious at QB direction"
       },
       {
         "rank": 5,
@@ -478,9 +478,9 @@
     ],
     "biggest_storylines": [
       "Russell Wilson cap era finally over—teams able to spend freely",
-      "Malik Willis QB gamble with Dolphins signals offensive reset",
+      "Tua to Falcons, Fields to Chiefs, Geno back to Jets — QB carousel reshapes the league",
       "Defensive scheme coordination (Saleh with Titans, Flores with Commanders)",
-      "Veteran QBs dominate (Willis, Tagovailoa, Jones) over draft prospects",
+      "DJ Moore to Bills, Waddle to Broncos — WR market explodes",
       "Pass rush remains undersupplied across league despite needs"
     ]
   },
