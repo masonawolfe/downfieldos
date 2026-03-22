@@ -69,7 +69,7 @@ export const COACHING_TREES = {
     ARI: { hc: 'Jonathan Gannon', oc: 'Drew Petzing', dc: 'Nick Rallis', trees: ['SIRIANNI'], style: 'Spread passing' },
     ATL: { hc: 'Raheem Morris', oc: 'Zac Robinson', dc: 'Jimmy Lake', trees: ['MCVAY'], style: 'Motion-heavy offense' },
     BAL: { hc: 'John Harbaugh', oc: 'Todd Monken', dc: 'Zach Orr', trees: ['HARBAUGH'], style: 'Run-first RPO' },
-    BUF: { hc: 'Sean McDermott', oc: 'Joe Brady', dc: 'Bobby Babich', trees: ['BELICHICK', 'REID'], style: 'Josh Allen system' },
+    BUF: { hc: 'Joe Brady', oc: 'Pete Carmichael', dc: 'Jim Leonhard', trees: ['BELICHICK', 'REID'], style: 'Josh Allen system' },
     CAR: { hc: 'Dave Canales', oc: 'Brad Idzik', dc: 'Ejiro Evero', trees: ['MCVAY', 'PAYTON'], style: 'Developing QB' },
     CHI: { hc: 'Ben Johnson', oc: 'Declan Doyle', dc: 'Dennis Allen', trees: ['CAMPBELL', 'PAYTON'], style: 'Run-game creativity' },
     CIN: { hc: 'Zac Taylor', oc: 'Dan Pitcher', dc: 'Lou Anarumo', trees: ['MCVAY'], style: 'Downfield passing' },
