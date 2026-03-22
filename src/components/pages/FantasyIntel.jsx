@@ -18,10 +18,11 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
   const bl = useMemo(() => lgbl(plays), [plays]);
+  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : 2025, [plays]);
 
   // Generate fantasy matchup board
   const matchupBoard = useMemo(() => {
-    const weekPlays = plays.filter(p => p.season === 2025 && p.week === selectedWeek);
+    const weekPlays = plays.filter(p => p.season === latestSeason && p.week === selectedWeek);
     const gameMap = {};
     weekPlays.forEach(p => {
       if (!gameMap[p.gameId]) gameMap[p.gameId] = { teams: new Set() };

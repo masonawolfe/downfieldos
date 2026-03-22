@@ -6,10 +6,12 @@ import {
 } from "lucide-react";
 import { useIsMobile } from './hooks/useIsMobile';
 import { T } from './data/teams';
+import { DNA } from './data/dna';
 import { DEFAULT_FILTERS, applyFilters } from './utils/filters';
 import { generatePlays, loadCurrentSeason, loadAllSeasons } from './utils/playGenerator';
 import { genRoster2026 } from './utils/roster';
-import { lgbl } from './utils/aggregation';
+import { agg, lgbl } from './utils/aggregation';
+import { buildDynamicDNA } from './utils/teamIdentity';
 import { sr } from './utils/rng';
 import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect, ErrorBoundary } from './components/ui';
 import { CommandPalette } from './components/ui/CommandPalette';
@@ -212,6 +214,15 @@ export default function DownfieldOS() {
       loadAllSeasons().then(setAllPlays);
     }
   }, [dataLoading]);
+
+  // Override static DNA with dynamic identity labels computed from real stats
+  useMemo(() => {
+    if (!allPlays || allPlays.length === 0) return;
+    const dynamicDNA = buildDynamicDNA(allPlays, agg, lgbl, T);
+    Object.keys(dynamicDNA).forEach(team => {
+      DNA[team] = { ...DNA[team], ...dynamicDNA[team] };
+    });
+  }, [allPlays]);
 
   const filteredPlays = useMemo(() => allPlays ? applyFilters(allPlays, filters) : [], [allPlays, filters]);
   const isFiltered = JSON.stringify(filters) !== JSON.stringify(DEFAULT_FILTERS);
