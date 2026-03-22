@@ -2,8 +2,9 @@
 /**
  * fetch-nflverse-roster-base.js
  *
- * Fetches real NFL roster data from nflverse and generates rosters2025.js
- * with the app's roster format: { pos, name, grade, rating, trait }
+ * Generates rosters2025.js from nflverse depth charts + snap counts.
+ * Uses depth_charts_2025.csv (pos_rank=1 = starter) validated against
+ * snap_counts_2025.csv (actual playing time).
  *
  * Output: src/data/rosters2025.js
  * Usage: node scripts/fetch-nflverse-roster-base.js
@@ -16,6 +17,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const DEPTH_CHART_URL = 'https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv';
+const SNAP_COUNT_URL = 'https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2025.csv';
 const ROSTER_URL = 'https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2025.csv';
 const OUT_PATH = path.join(__dirname, '../src/data/rosters2025.js');
 
@@ -28,21 +31,22 @@ const ALL_TEAMS = [
   'NYJ','PHI','PIT','SEA','SF','TB','TEN','WAS',
 ];
 
-// Position mapping: nflverse depth_chart_position → app position group
-const OFF_POSITIONS = {
-  QB: 'QB', RB: 'RB', FB: 'RB', WR: 'WR', TE: 'TE',
-  T: 'OL', G: 'OL', C: 'OL', OT: 'OL', OG: 'OL',
-  LT: 'OL', LG: 'OL', RT: 'OL', RG: 'OL',
+// Depth chart pos_abb → app position group
+const OFFENSE_MAP = {
+  QB: 'QB', RB: 'RB', FB: 'RB',
+  WR: 'WR', LWR: 'WR', RWR: 'WR', SWR: 'WR',
+  TE: 'TE',
+  LT: 'LT', LG: 'LG', C: 'C', RG: 'RG', RT: 'RT',
 };
-const DEF_POSITIONS = {
-  DE: 'EDGE', OLB: 'EDGE', EDGE: 'EDGE',
-  DT: 'DT', NT: 'DT', DL: 'DT',
-  MLB: 'LB', ILB: 'LB', LB: 'LB',
-  CB: 'CB', DB: 'CB',
+const DEFENSE_MAP = {
+  LDE: 'EDGE', RDE: 'EDGE', LOLB: 'EDGE', ROLB: 'EDGE', EDGE: 'EDGE',
+  LDT: 'DT', RDT: 'DT', NT: 'DT', DT: 'DT',
+  MLB: 'LB', LILB: 'LB', RILB: 'LB', WLB: 'LB', SLB: 'LB', ILB: 'LB',
+  LCB: 'CB', RCB: 'CB', CB: 'CB',
+  NB: 'SCB',
   FS: 'FS', SS: 'SS', S: 'S',
 };
 
-// Trait assignment based on position and attributes
 const TRAITS = {
   QB: ['Dual-Threat', 'Pocket Passer', 'Game Manager', 'Gunslinger'],
   RB: ['Between-the-Tackles', 'Pass-Catching', 'Home Run Hitter', 'Power Back'],
@@ -52,7 +56,8 @@ const TRAITS = {
   EDGE: ['Speed Rusher', 'Power Rusher', 'Versatile'],
   DT: ['Interior Pressure', 'Run Stuffer', 'Versatile'],
   LB: ['Sideline-to-Sideline', 'Coverage LB', 'Run Stopper', 'Versatile'],
-  CB: ['Press-Man', 'Zone Corner', 'Slot Corner', 'Ball Hawk'],
+  CB: ['Press-Man', 'Zone Corner', 'Ball Hawk'],
+  SCB: ['Slot Corner'],
   S: ['Enforcer', 'Ball Hawk', 'Coverage Safety', 'Versatile'],
 };
 
@@ -76,25 +81,19 @@ function parseCSVLine(line) {
   return result;
 }
 
-function calcRating(player) {
-  const exp = parseInt(player.years_exp) || 0;
-  const pos = player.depth_chart_position || player.position;
-
-  // Base rating from experience curve (peaks years 4-8)
-  let base;
-  if (exp <= 0) base = 68;
-  else if (exp === 1) base = 72;
-  else if (exp === 2) base = 75;
-  else if (exp <= 4) base = 78;
-  else if (exp <= 8) base = 80;
-  else if (exp <= 12) base = 78;
-  else base = 74;
-
-  // QB/WR/EDGE/CB get slight bump (premium positions)
-  if (['QB', 'WR', 'DE', 'OLB', 'EDGE', 'CB'].includes(pos)) base += 2;
-
-  // Clamp to 65-92 range (Elite players get manual overrides in faMoves)
-  return Math.max(65, Math.min(92, base));
+function parseCSV(text) {
+  const lines = text.split('\n');
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const vals = parseCSVLine(line);
+    const row = {};
+    headers.forEach((h, idx) => { row[h] = vals[idx] || ''; });
+    rows.push(row);
+  }
+  return rows;
 }
 
 function gradeFromRating(r) {
@@ -106,169 +105,234 @@ function gradeFromRating(r) {
 
 function assignTrait(posGroup, seed) {
   const options = TRAITS[posGroup] || TRAITS.OL;
-  return options[seed % options.length];
+  return options[Math.abs(seed) % options.length];
+}
+
+async function fetchCSV(url, label) {
+  console.log(`  Fetching ${label}...`);
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error(`Failed to fetch ${label}: ${resp.status}`);
+  const text = await resp.text();
+  console.log(`  Downloaded ${(text.length / 1024 / 1024).toFixed(1)}MB`);
+  return parseCSV(text);
 }
 
 async function main() {
-  console.log('Fetching 2025 nflverse roster data...');
-  const resp = await fetch(ROSTER_URL);
-  if (!resp.ok) throw new Error(`Failed: ${resp.status}`);
-  const text = await resp.text();
+  console.log('DownfieldOS — nflverse Roster Generation');
+  console.log('========================================\n');
 
-  const lines = text.split('\n');
-  const headers = parseCSVLine(lines[0]);
-  const players = [];
+  // Fetch all three data sources
+  const depthRows = await fetchCSV(DEPTH_CHART_URL, 'depth charts');
+  const snapRows = await fetchCSV(SNAP_COUNT_URL, 'snap counts');
+  const rosterRows = await fetchCSV(ROSTER_URL, 'roster metadata');
 
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (!line) continue;
-    const vals = parseCSVLine(line);
-    const row = {};
-    headers.forEach((h, idx) => { row[h] = vals[idx] || ''; });
+  // Build years_exp lookup from roster data
+  const expMap = {};
+  rosterRows.forEach(r => {
+    const key = `${norm(r.team)}_${r.full_name}`;
+    expMap[key] = parseInt(r.years_exp) || 0;
+  });
 
-    // Only active players on the 53-man roster
-    if (row.status !== 'ACT') continue;
-    const team = norm(row.team);
-    if (!ALL_TEAMS.includes(team)) continue;
+  // Aggregate snap counts per player per team (full season)
+  const snapMap = {};
+  snapRows.forEach(r => {
+    if (r.game_type !== 'REG') return;
+    const team = norm(r.team);
+    const key = `${team}_${r.player}`;
+    if (!snapMap[key]) snapMap[key] = { name: r.player, team, pos: r.position, offSnaps: 0, defSnaps: 0, games: 0 };
+    snapMap[key].offSnaps += parseInt(r.offense_snaps) || 0;
+    snapMap[key].defSnaps += parseInt(r.defense_snaps) || 0;
+    snapMap[key].games++;
+  });
 
-    // Skip special teams
-    const pos = row.position;
-    if (['K', 'P', 'LS'].includes(pos)) continue;
+  // Get latest depth chart date per team (use most recent week)
+  const latestDate = {};
+  depthRows.forEach(r => {
+    const team = norm(r.team);
+    if (!latestDate[team] || r.dt > latestDate[team]) latestDate[team] = r.dt;
+  });
 
-    players.push({ ...row, team });
-  }
+  // Get starters from latest depth chart
+  const starters = {};
+  depthRows.forEach(r => {
+    const team = norm(r.team);
+    if (r.dt !== latestDate[team]) return; // only latest week
+    if (r.pos_rank !== '1') return; // only starters
 
-  console.log(`Parsed ${players.length} active players across ${ALL_TEAMS.length} teams`);
+    const posAbb = r.pos_abb;
+    if (!starters[team]) starters[team] = [];
+    starters[team].push({ name: r.player_name, posAbb, gsis_id: r.gsis_id });
+  });
 
-  // Build rosters per team
+  // Build rosters
   const rosters = {};
 
   ALL_TEAMS.forEach(team => {
-    const teamPlayers = players.filter(p => p.team === team);
+    const teamStarters = starters[team] || [];
     const offense = [];
     const defense = [];
 
-    // Group by position type
-    const offPlayers = teamPlayers.filter(p => OFF_POSITIONS[p.depth_chart_position] || OFF_POSITIONS[p.position]);
-    const defPlayers = teamPlayers.filter(p => DEF_POSITIONS[p.depth_chart_position] || DEF_POSITIONS[p.position]);
-
-    // === OFFENSE ===
-    // QB — prefer mid-career starters (2-6 yrs) over journeyman backups (7+) and raw rookies (0)
-    const qbs = offPlayers.filter(p => (p.depth_chart_position || p.position) === 'QB').sort((a, b) => {
-      const ea = parseInt(a.years_exp) || 0, eb = parseInt(b.years_exp) || 0;
-      // Score: 2-6 years = best (starter window), 1 = good (drafted starter), 7+ = likely backup, 0 = UDFA
-      const scoreA = ea >= 2 && ea <= 6 ? 100 : ea === 1 ? 90 : ea >= 7 ? 50 - ea : 40;
-      const scoreB = eb >= 2 && eb <= 6 ? 100 : eb === 1 ? 90 : eb >= 7 ? 50 - eb : 40;
-      return scoreB - scoreA;
-    });
-    if (qbs[0]) {
-      const r = calcRating(qbs[0]);
-      offense.push({ pos: 'QB', name: qbs[0].full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('QB', qbs[0].full_name.length) });
+    // Helper: get snap count for rating
+    function getSnaps(name) {
+      const key = `${team}_${name}`;
+      return snapMap[key] || null;
     }
 
-    // RBs
-    const rbs = offPlayers.filter(p => ['RB', 'FB'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    rbs.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p);
-      offense.push({ pos: `RB${i + 1}`, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('RB', p.full_name.length + i) });
+    function calcRating(name, posGroup) {
+      const snaps = getSnaps(name);
+      const exp = expMap[`${team}_${name}`] || 0;
+
+      // Base from snap share
+      let base;
+      if (!snaps || snaps.games === 0) {
+        base = 72; // no snap data = depth chart only
+      } else {
+        const isOff = ['QB', 'RB', 'WR', 'TE', 'LT', 'LG', 'C', 'RG', 'RT'].includes(posGroup);
+        const totalSnaps = isOff ? snaps.offSnaps : snaps.defSnaps;
+        const avgPerGame = totalSnaps / snaps.games;
+        // ~65 snaps/game is full-time starter
+        const snapShare = Math.min(1, avgPerGame / 65);
+
+        if (snapShare >= 0.9) base = 85;
+        else if (snapShare >= 0.7) base = 80;
+        else if (snapShare >= 0.5) base = 76;
+        else if (snapShare >= 0.3) base = 72;
+        else base = 68;
+      }
+
+      // Experience modifier
+      if (exp >= 4 && exp <= 8) base += 2;
+      else if (exp >= 2 && exp <= 3) base += 1;
+      else if (exp >= 9) base -= 1;
+      else if (exp <= 1) base -= 1;
+
+      return Math.max(65, Math.min(92, base));
+    }
+
+    // === OFFENSE ===
+    // QB
+    const qb = teamStarters.find(s => s.posAbb === 'QB');
+    if (qb) {
+      const r = calcRating(qb.name, 'QB');
+      offense.push({ pos: 'QB', name: qb.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('QB', qb.name.length) });
+    }
+
+    // RBs — from depth chart, sorted by snap count
+    const rbStarters = teamStarters.filter(s => ['RB', 'FB'].includes(s.posAbb));
+    const rbsSorted = rbStarters.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
+    rbsSorted.slice(0, 2).forEach((p, i) => {
+      const r = calcRating(p.name, 'RB');
+      offense.push({ pos: `RB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('RB', p.name.length + i) });
     });
 
-    // WRs
-    const wrs = offPlayers.filter(p => (p.depth_chart_position || p.position) === 'WR').sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    wrs.slice(0, 3).forEach((p, i) => {
-      const r = calcRating(p);
-      offense.push({ pos: `WR${i + 1}`, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('WR', p.full_name.length + i) });
+    // WRs — sorted by snap count for WR1/WR2/WR3
+    const wrStarters = teamStarters.filter(s => ['WR', 'LWR', 'RWR', 'SWR'].includes(s.posAbb));
+    // Deduplicate by name (same player can appear at LWR and WR)
+    const wrUnique = [...new Map(wrStarters.map(w => [w.name, w])).values()];
+    const wrsSorted = wrUnique.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
+    wrsSorted.slice(0, 3).forEach((p, i) => {
+      const r = calcRating(p.name, 'WR');
+      offense.push({ pos: `WR${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('WR', p.name.length + i) });
     });
 
     // TE
-    const tes = offPlayers.filter(p => (p.depth_chart_position || p.position) === 'TE').sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    if (tes[0]) {
-      const r = calcRating(tes[0]);
-      offense.push({ pos: 'TE', name: tes[0].full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('TE', tes[0].full_name.length) });
+    const te = teamStarters.find(s => s.posAbb === 'TE');
+    if (te) {
+      const r = calcRating(te.name, 'TE');
+      offense.push({ pos: 'TE', name: te.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('TE', te.name.length) });
     }
 
-    // OL — map to LT, LG, C, RG, RT
-    const olPositions = ['LT', 'LG', 'C', 'RG', 'RT'];
-    const olPlayers = offPlayers.filter(p => {
-      const dcp = p.depth_chart_position || '';
-      const pos = p.position || '';
-      return ['T', 'G', 'C', 'OT', 'OG', 'LT', 'LG', 'RT', 'RG'].includes(dcp) || pos === 'OL';
-    }).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-
-    olPositions.forEach((olPos, i) => {
-      const p = olPlayers[i];
-      if (p) {
-        const r = calcRating(p);
-        offense.push({ pos: olPos, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('OL', p.full_name.length + i) });
+    // OL — direct position mapping
+    ['LT', 'LG', 'C', 'RG', 'RT'].forEach(olPos => {
+      const ol = teamStarters.find(s => s.posAbb === olPos);
+      if (ol) {
+        const r = calcRating(ol.name, olPos);
+        offense.push({ pos: olPos, name: ol.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('OL', ol.name.length) });
       }
     });
 
     // === DEFENSE ===
-    // EDGE
-    const edges = defPlayers.filter(p => ['DE', 'OLB', 'EDGE'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    edges.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p);
-      defense.push({ pos: `EDGE${i + 1}`, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('EDGE', p.full_name.length + i) });
+    // EDGE — LDE, RDE, LOLB, ROLB sorted by snap count
+    const edgeStarters = teamStarters.filter(s => ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'].includes(s.posAbb));
+    const edgeUnique = [...new Map(edgeStarters.map(e => [e.name, e])).values()];
+    const edgesSorted = edgeUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
+    edgesSorted.slice(0, 2).forEach((p, i) => {
+      const r = calcRating(p.name, 'EDGE');
+      defense.push({ pos: `EDGE${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('EDGE', p.name.length + i) });
     });
 
-    // DT
-    const dts = defPlayers.filter(p => ['DT', 'NT', 'DL'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    if (dts[0]) {
-      const r = calcRating(dts[0]);
-      defense.push({ pos: 'DT', name: dts[0].full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('DT', dts[0].full_name.length) });
+    // DT — LDT, RDT, NT, DT
+    const dtStarters = teamStarters.filter(s => ['LDT', 'RDT', 'NT', 'DT'].includes(s.posAbb));
+    const dtUnique = [...new Map(dtStarters.map(d => [d.name, d])).values()];
+    const dtSorted = dtUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
+    if (dtSorted[0]) {
+      const r = calcRating(dtSorted[0].name, 'DT');
+      defense.push({ pos: 'DT', name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, trait: assignTrait('DT', dtSorted[0].name.length) });
     }
 
-    // LB
-    const lbs = defPlayers.filter(p => ['MLB', 'ILB', 'LB'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    lbs.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p);
-      defense.push({ pos: `LB${i + 1}`, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('LB', p.full_name.length + i) });
+    // LB — MLB, LILB, RILB, WLB, SLB
+    const lbStarters = teamStarters.filter(s => ['MLB', 'LILB', 'RILB', 'WLB', 'SLB', 'ILB'].includes(s.posAbb));
+    const lbUnique = [...new Map(lbStarters.map(l => [l.name, l])).values()];
+    const lbsSorted = lbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
+    lbsSorted.slice(0, 2).forEach((p, i) => {
+      const r = calcRating(p.name, 'LB');
+      defense.push({ pos: `LB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('LB', p.name.length + i) });
     });
 
-    // CB
-    const cbs = defPlayers.filter(p => ['CB', 'DB'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    cbs.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p);
-      defense.push({ pos: `CB${i + 1}`, name: p.full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('CB', p.full_name.length + i) });
+    // CB — LCB, RCB
+    const cbStarters = teamStarters.filter(s => ['LCB', 'RCB', 'CB'].includes(s.posAbb));
+    const cbUnique = [...new Map(cbStarters.map(c => [c.name, c])).values()];
+    const cbsSorted = cbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
+    cbsSorted.slice(0, 2).forEach((p, i) => {
+      const r = calcRating(p.name, 'CB');
+      defense.push({ pos: `CB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('CB', p.name.length + i) });
     });
-    // SCB (slot corner) — 3rd CB
-    if (cbs[2]) {
-      const r = calcRating(cbs[2]);
-      defense.push({ pos: 'SCB', name: cbs[2].full_name, grade: gradeFromRating(r), rating: r, trait: 'Slot Corner' });
+
+    // SCB (nickel)
+    const scb = teamStarters.find(s => s.posAbb === 'NB');
+    if (scb) {
+      const r = calcRating(scb.name, 'CB');
+      defense.push({ pos: 'SCB', name: scb.name, grade: gradeFromRating(r), rating: r, trait: 'Slot Corner' });
     }
 
-    // Safeties
-    const safeties = defPlayers.filter(p => ['FS', 'SS', 'S'].includes(p.depth_chart_position || p.position)).sort((a, b) => (parseInt(b.years_exp) || 0) - (parseInt(a.years_exp) || 0));
-    if (safeties[0]) {
-      const r = calcRating(safeties[0]);
-      defense.push({ pos: 'FS', name: safeties[0].full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', safeties[0].full_name.length) });
+    // FS
+    const fs = teamStarters.find(s => s.posAbb === 'FS');
+    if (fs) {
+      const r = calcRating(fs.name, 'S');
+      defense.push({ pos: 'FS', name: fs.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', fs.name.length) });
     }
-    if (safeties[1]) {
-      const r = calcRating(safeties[1]);
-      defense.push({ pos: 'SS', name: safeties[1].full_name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', safeties[1].full_name.length + 1) });
+
+    // SS
+    const ss = teamStarters.find(s => s.posAbb === 'SS');
+    if (ss) {
+      const r = calcRating(ss.name, 'S');
+      defense.push({ pos: 'SS', name: ss.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', ss.name.length + 1) });
     }
 
     rosters[team] = { offense, defense };
   });
 
   // Write output
-  const output = `// Auto-generated from nflverse 2025 roster data
+  const output = `// Auto-generated from nflverse depth charts + snap counts (2025 season)
 // Generated: ${new Date().toISOString()}
-// Source: ${ROSTER_URL}
+// Sources: depth_charts_2025.csv, snap_counts_2025.csv, roster_2025.csv
 // Do not edit manually — re-run: node scripts/fetch-nflverse-roster-base.js
 
 export const ROSTERS_2025 = ${JSON.stringify(rosters, null, 2)};
 `;
 
   fs.writeFileSync(OUT_PATH, output);
-  console.log(`\nWrote ${OUT_PATH}`);
 
   // Summary
+  console.log('\nResults:');
   ALL_TEAMS.forEach(t => {
     const r = rosters[t];
     const qb = r.offense.find(p => p.pos === 'QB');
-    console.log(`  ${t}: ${r.offense.length}O + ${r.defense.length}D — QB: ${qb?.name || 'MISSING'}`);
+    const wr1 = r.offense.find(p => p.pos === 'WR1');
+    console.log(`  ${t}: ${r.offense.length}O + ${r.defense.length}D | QB: ${qb?.name || 'MISSING'} | WR1: ${wr1?.name || 'MISSING'}`);
   });
+
+  console.log(`\nWrote ${OUT_PATH}`);
 }
 
 main().catch(err => { console.error('Fatal:', err); process.exit(1); });

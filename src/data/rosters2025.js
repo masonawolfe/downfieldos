@@ -1,27 +1,23 @@
-// Auto-generated from nflverse 2025 roster data
-// Generated: 2026-03-21T14:18:30.290Z
+// Auto-generated from nflverse depth charts + snap counts (2025 season)
+// Generated: 2026-03-22T19:37:57.621Z
+// Sources: depth_charts_2025.csv, snap_counts_2025.csv, roster_2025.csv
+// Do not edit manually — re-run: node scripts/fetch-nflverse-roster-base.js
+
 export const ROSTERS_2025 = {
   "ARI": {
     "offense": [
       {
         "pos": "QB",
-        "name": "Kyler Murray",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Game Manager"
+        "name": "Jacoby Brissett",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Gunslinger"
       },
       {
         "pos": "RB1",
-        "name": "Michael Carter",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
         "name": "James Conner",
         "grade": "Average",
-        "rating": 69,
+        "rating": 74,
         "trait": "Between-the-Tackles"
       },
       {
@@ -32,139 +28,118 @@ export const ROSTERS_2025 = {
         "trait": "Contested Catch"
       },
       {
-        "pos": "WR2",
-        "name": "Zay Jones",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR3",
-        "name": "Michael Wilson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Contested Catch"
-      },
-      {
         "pos": "TE",
-        "name": "Josiah Deguara",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Move TE"
+        "name": "Trey McBride",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Receiving TE"
       },
       {
         "pos": "LT",
-        "name": "Jonah Williams",
-        "grade": "Above Avg",
-        "rating": 82,
+        "name": "Paris Johnson Jr.",
+        "grade": "Average",
+        "rating": 73,
         "trait": "Versatile"
       },
       {
         "pos": "LG",
-        "name": "Will Hernandez",
+        "name": "Isaac Seumalo",
         "grade": "Average",
-        "rating": 75,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
         "name": "Hjalte Froholdt",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Zone Blocker"
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RG",
         "name": "Isaiah Adams",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
+        "rating": 75,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RT",
-        "name": "Paris Johnson Jr.",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
+        "name": "Elijah Wilkinson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Zaven Collins",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
+        "name": "Josh Sweat",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Power Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "L.J. Collier",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Dalvin Tomlinson",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT2",
         "name": "Darius Robinson",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Run Stuffer"
+        "rating": 75,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Roy Lopez",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Interior Pressure"
       },
       {
         "pos": "LB1",
-        "name": "Akeem Davis-Gaither",
+        "name": "Cody Simon",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "rating": 75,
+        "trait": "Run Stopper"
       },
       {
         "pos": "LB2",
-        "name": "Channing Tindall",
+        "name": "Zaven Collins",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
+        "rating": 74,
+        "trait": "Run Stopper"
       },
       {
         "pos": "CB1",
-        "name": "Sean Murphy-Bunting",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Ball Hawk"
+        "name": "Will Johnson",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Press-Man"
       },
       {
         "pos": "CB2",
-        "name": "Will Johnson",
+        "name": "Denzel Burke",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Ball Hawk"
+        "rating": 75,
+        "trait": "Zone Corner"
       },
       {
         "pos": "SCB",
-        "name": "Max Melton",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Ball Hawk"
+        "name": "Garrett Williams",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Slot Corner"
       },
       {
         "pos": "FS",
-        "name": "Jalen Thompson",
-        "grade": "Average",
-        "rating": 74,
+        "name": "Budda Baker",
+        "grade": "Above Avg",
+        "rating": 87,
         "trait": "Versatile"
       },
       {
         "pos": "SS",
-        "name": "Budda Baker",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Ball Hawk"
+        "name": "Dadrion Taylor-Demerson",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Enforcer"
       }
     ]
   },
@@ -173,23 +148,16 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Michael Penix Jr.",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Gunslinger"
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pocket Passer"
       },
       {
         "pos": "RB1",
         "name": "Bijan Robinson",
-        "grade": "Elite",
-        "rating": 92,
+        "grade": "Above Avg",
+        "rating": 81,
         "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Tyler Allgeier",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Pass-Catching"
       },
       {
         "pos": "WR1",
@@ -199,139 +167,118 @@ export const ROSTERS_2025 = {
         "trait": "Route Technician"
       },
       {
-        "pos": "WR2",
-        "name": "Darnell Mooney",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "David Sills",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Deep Threat"
-      },
-      {
         "pos": "TE",
-        "name": "Kyle Pitts",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Receiving TE"
+        "name": "Kyle Pitts Sr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
       },
       {
         "pos": "LT",
         "name": "Jake Matthews",
         "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
+        "rating": 84,
+        "trait": "Road Grader"
       },
       {
         "pos": "LG",
-        "name": "Chris Lindstrom",
+        "name": "Matthew Bergeron",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
-        "name": "Jake Hanson",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Zone Blocker"
+        "name": "Ryan Neuzil",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
       },
       {
         "pos": "RG",
-        "name": "Matthew Bergeron",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Chris Lindstrom",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RT",
         "name": "Kaleb McGary",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Pass Pro"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Leonard Floyd",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Jalon Walker",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Ruke Orhorhoro",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "David Onyemata",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Divine Deablo",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Ronnie Harrison",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "C.J. Henderson",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "A.J. Terrell",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "Mike Hughes",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Xavier Watts",
+        "name": "Brandon Dorlus",
         "grade": "Average",
         "rating": 71,
         "trait": "Versatile"
       },
       {
-        "pos": "SS",
-        "name": "Jessie Bates",
-        "grade": "Above Avg",
-        "rating": 79,
+        "pos": "EDGE2",
+        "name": "Samson Ebukam",
+        "grade": "Average",
+        "rating": 71,
         "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Da'Shawn Hand",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Divine Deablo",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Jalon Walker",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "CB1",
+        "name": "Mike Hughes",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "A.J. Terrell Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Billy Bowman Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Xavier Watts",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Enforcer"
+      },
+      {
+        "pos": "SS",
+        "name": "Jessie Bates III",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Ball Hawk"
       }
     ]
   },
@@ -340,165 +287,144 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Lamar Jackson",
-        "grade": "Elite",
-        "rating": 95,
-        "trait": "Dual-Threat"
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Pocket Passer"
       },
       {
         "pos": "RB1",
         "name": "Derrick Henry",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Between-the-Tackles"
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Pass-Catching"
       },
       {
         "pos": "RB2",
-        "name": "Justice Hill",
+        "name": "Lucas Scott",
         "grade": "Average",
-        "rating": 70,
+        "rating": 71,
         "trait": "Between-the-Tackles"
       },
       {
         "pos": "WR1",
-        "name": "Rashod Bateman",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR2",
-        "name": "DeAndre Hopkins",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
         "name": "Zay Flowers",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Contested Catch"
+        "rating": 81,
+        "trait": "Possession"
       },
       {
         "pos": "TE",
         "name": "Mark Andrews",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Move TE"
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Receiving TE"
       },
       {
         "pos": "LT",
         "name": "Ronnie Stanley",
-        "grade": "Elite",
-        "rating": 88,
+        "grade": "Above Avg",
+        "rating": 79,
         "trait": "Versatile"
       },
       {
         "pos": "LG",
-        "name": "Kenyon Green",
-        "grade": "Average",
-        "rating": 77,
+        "name": "Andrew Vorhees",
+        "grade": "Above Avg",
+        "rating": 81,
         "trait": "Versatile"
       },
       {
         "pos": "C",
-        "name": "Tyler Linderbaum",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Zone Blocker"
+        "name": "Corey Bullock",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Road Grader"
       },
       {
         "pos": "RG",
-        "name": "Laken Tomlinson",
+        "name": "John Simpson",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RT",
-        "name": "Joe Noteboom",
-        "grade": "Average",
-        "rating": 75,
+        "name": "Roger Rosengarten",
+        "grade": "Above Avg",
+        "rating": 84,
         "trait": "Versatile"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Kyle Van Noy",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Travis Jones",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Dre'Mont Jones",
-        "grade": "Average",
-        "rating": 77,
+        "name": "Nnamdi Madubuike",
+        "grade": "Above Avg",
+        "rating": 82,
         "trait": "Versatile"
       },
       {
-        "pos": "DT1",
-        "name": "Taven Bryan",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
+        "pos": "DT",
         "name": "John Jenkins",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Interior Pressure"
       },
       {
         "pos": "LB1",
         "name": "Roquan Smith",
-        "grade": "Elite",
-        "rating": 91,
+        "grade": "Above Avg",
+        "rating": 87,
         "trait": "Sideline-to-Sideline"
       },
       {
         "pos": "LB2",
-        "name": "Trenton Simpson",
+        "name": "Mike Green",
         "grade": "Average",
-        "rating": 74,
+        "rating": 75,
         "trait": "Versatile"
       },
       {
         "pos": "CB1",
-        "name": "Marlon Humphrey",
+        "name": "Nate Wiggins",
         "grade": "Above Avg",
-        "rating": 85,
+        "rating": 84,
         "trait": "Press-Man"
       },
       {
         "pos": "CB2",
         "name": "Chidobe Awuzie",
         "grade": "Above Avg",
-        "rating": 79,
+        "rating": 78,
         "trait": "Press-Man"
       },
       {
         "pos": "SCB",
-        "name": "Nate Wiggins",
-        "grade": "Average",
-        "rating": 77,
+        "name": "Marlon Humphrey",
+        "grade": "Above Avg",
+        "rating": 87,
         "trait": "Slot Corner"
       },
       {
         "pos": "FS",
         "name": "Malaki Starks",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "SS",
         "name": "Kyle Hamilton",
         "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
+        "rating": 86,
+        "trait": "Coverage Safety"
       }
     ]
   },
@@ -507,165 +433,137 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Josh Allen",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Gunslinger"
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Game Manager"
       },
       {
         "pos": "RB1",
-        "name": "James Cook",
+        "name": "James Cook III",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "name": "Darrynton Evans",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Between-the-Tackles"
+        "rating": 71,
+        "trait": "Home Run Hitter"
       },
       {
         "pos": "WR1",
-        "name": "Brandin Cooks",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Mecole Hardman",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Curtis Samuel",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Contested Catch"
+        "name": "DJ Moore",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "YAC Monster"
       },
       {
         "pos": "TE",
         "name": "Dalton Kincaid",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Blocking TE"
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Versatile"
       },
       {
         "pos": "LT",
         "name": "Dion Dawkins",
         "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
+        "rating": 87,
+        "trait": "Pass Pro"
       },
       {
         "pos": "LG",
-        "name": "O'Cyrus Torrence",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Alec Anderson",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
         "name": "Connor McGovern",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Anchor"
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RG",
-        "name": "David Edwards",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "name": "O'Cyrus Torrence",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
       },
       {
         "pos": "RT",
         "name": "Spencer Brown",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Joey Bosa",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Versatile"
+        "name": "T.J. Sanders",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Greg Rousseau",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
         "name": "Ed Oliver",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Run Stuffer"
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Power Rusher"
       },
       {
-        "pos": "DT2",
-        "name": "Larry Ogunjobi",
+        "pos": "DT",
+        "name": "Deone Walker",
         "grade": "Average",
-        "rating": 76,
-        "trait": "Nose Tackle"
+        "rating": 71,
+        "trait": "Interior Pressure"
       },
       {
         "pos": "LB1",
         "name": "Terrel Bernard",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Run Stopper"
       },
       {
         "pos": "LB2",
-        "name": "Baylon Spector",
-        "grade": "Average",
-        "rating": 69,
+        "name": "Joe Andreessen",
+        "grade": "Below Avg",
+        "rating": 67,
         "trait": "Versatile"
       },
       {
         "pos": "CB1",
-        "name": "Tre'Davious White",
+        "name": "Christian Benford",
         "grade": "Above Avg",
-        "rating": 82,
+        "rating": 81,
         "trait": "Ball Hawk"
       },
       {
         "pos": "CB2",
-        "name": "Maxwell Hairston",
+        "name": "Dorian Strong",
         "grade": "Average",
-        "rating": 76,
-        "trait": "Slot Corner"
+        "rating": 71,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "SCB",
-        "name": "Darius Slay",
+        "name": "Dee Alford",
         "grade": "Average",
-        "rating": 73,
-        "trait": "Press-Man"
+        "rating": 71,
+        "trait": "Slot Corner"
       },
       {
         "pos": "FS",
-        "name": "Darnell Savage",
+        "name": "Cole Bishop",
         "grade": "Above Avg",
-        "rating": 83,
+        "rating": 79,
         "trait": "Versatile"
       },
       {
         "pos": "SS",
-        "name": "Cole Bishop",
+        "name": "C.J. Gardner-Johnson",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Ball Hawk"
       }
     ]
   },
@@ -674,51 +572,30 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Bryce Young",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Game Manager"
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Gunslinger"
       },
       {
         "pos": "RB1",
         "name": "Chuba Hubbard",
         "grade": "Average",
         "rating": 74,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Rico Dowdle",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Home Run Hitter"
+        "trait": "Pass-Catching"
       },
       {
         "pos": "WR1",
         "name": "Tetairoa McMillan",
         "grade": "Above Avg",
-        "rating": 83,
+        "rating": 79,
         "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Xavier Legette",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Hunter Renfrow",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Slot"
       },
       {
         "pos": "TE",
-        "name": "Tommy Tremble",
+        "name": "Ja'Tavion Sanders",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Hybrid"
+        "rating": 71,
+        "trait": "Versatile"
       },
       {
         "pos": "LT",
@@ -729,110 +606,103 @@ export const ROSTERS_2025 = {
       },
       {
         "pos": "LG",
-        "name": "Robert Hunt",
+        "name": "Damien Lewis",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
+        "rating": 87,
+        "trait": "Pass Pro"
       },
       {
         "pos": "C",
-        "name": "Austin Corbett",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Anchor"
+        "name": "Luke Fortner",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RG",
-        "name": "Damien Lewis",
-        "grade": "Average",
-        "rating": 77,
+        "name": "Robert Hunt",
+        "grade": "Above Avg",
+        "rating": 87,
         "trait": "Versatile"
       },
       {
         "pos": "RT",
         "name": "Taylor Moton",
         "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
+        "rating": 82,
+        "trait": "Pass Pro"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
         "name": "Derrick Brown",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "A'Shawn Robinson",
+        "name": "Tershawn Wharton",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Bobby Brown III",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Nic Scourton",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "LB2",
+        "name": "Trevin Wallace",
         "grade": "Above Avg",
         "rating": 79,
         "trait": "Versatile"
       },
       {
-        "pos": "DT1",
-        "name": "Bobby Brown III",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Tershawn Wharton",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Isaiah Simmons",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Christian Rozeboom",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
-      },
-      {
         "pos": "CB1",
         "name": "Jaycee Horn",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Press-Man"
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "CB2",
         "name": "Mike Jackson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "trait": "Zone Corner"
       },
       {
         "pos": "SCB",
-        "name": "Robert Rochell",
+        "name": "Chau Smith-Wade",
         "grade": "Average",
-        "rating": 74,
+        "rating": 75,
         "trait": "Slot Corner"
       },
       {
         "pos": "FS",
-        "name": "Nick Scott",
+        "name": "Lathan Ransom",
         "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "SS",
         "name": "Tre'von Moehrig",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
+        "rating": 87,
+        "trait": "Enforcer"
       }
     ]
   },
@@ -842,84 +712,63 @@ export const ROSTERS_2025 = {
         "pos": "QB",
         "name": "Caleb Williams",
         "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Dual-Threat"
+        "rating": 84,
+        "trait": "Game Manager"
       },
       {
         "pos": "RB1",
         "name": "D'Andre Swift",
         "grade": "Above Avg",
-        "rating": 80,
+        "rating": 78,
         "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "name": "Travis Homer",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Home Run Hitter"
       },
       {
         "pos": "WR1",
         "name": "Rome Odunze",
         "grade": "Above Avg",
-        "rating": 83,
+        "rating": 84,
         "trait": "Possession"
-      },
-      {
-        "pos": "WR2",
-        "name": "DJ Moore",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR3",
-        "name": "Devin Duvernay",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Route Technician"
       },
       {
         "pos": "TE",
         "name": "Colston Loveland",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Move TE"
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Blocking TE"
       },
       {
         "pos": "LT",
-        "name": "Darnell Wright",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
+        "name": "Braxton Jones",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Road Grader"
       },
       {
         "pos": "LG",
-        "name": "Jonah Jackson",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Joe Thuney",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
-        "name": "Drew Dalman",
+        "name": "Garrett Bradbury",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Anchor"
+        "rating": 71,
+        "trait": "Road Grader"
       },
       {
         "pos": "RG",
-        "name": "Joe Thuney",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
+        "name": "Jonah Jackson",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
       },
       {
         "pos": "RT",
-        "name": "Braxton Jones",
-        "grade": "Average",
-        "rating": 70,
+        "name": "Darnell Wright",
+        "grade": "Above Avg",
+        "rating": 86,
         "trait": "Versatile"
       }
     ],
@@ -928,3574 +777,56 @@ export const ROSTERS_2025 = {
         "pos": "EDGE1",
         "name": "Montez Sweat",
         "grade": "Above Avg",
-        "rating": 86,
+        "rating": 82,
         "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Joe Tryon-Shoyinka",
+        "name": "Dayo Odeyingbo",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "trait": "Speed Rusher"
       },
       {
-        "pos": "DT1",
-        "name": "Gervon Dexter Sr.",
+        "pos": "DT",
+        "name": "Grady Jarrett",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Andrew Billings",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Nose Tackle"
+        "rating": 75,
+        "trait": "Run Stuffer"
       },
       {
         "pos": "LB1",
-        "name": "Tremaine Edmunds",
+        "name": "T.J. Edwards",
         "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
+        "rating": 82,
+        "trait": "Sideline-to-Sideline"
       },
       {
         "pos": "LB2",
-        "name": "Amen Ogbongbemiga",
+        "name": "Noah Sewell",
         "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
+        "rating": 73,
+        "trait": "Sideline-to-Sideline"
       },
       {
         "pos": "CB1",
-        "name": "Jaylon Johnson",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Nahshon Wright",
+        "name": "Tyrique Stevenson",
         "grade": "Average",
         "rating": 77,
         "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Jaylon Johnson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Press-Man"
       },
       {
         "pos": "SCB",
         "name": "Kyler Gordon",
         "grade": "Average",
         "rating": 77,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "FS",
-        "name": "Kevin Byard",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jaquan Brisker",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "CIN": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Joe Burrow",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Samaje Perine",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Chase Brown",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "WR1",
-        "name": "Ja'Marr Chase",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Tee Higgins",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
-        "name": "Charlie Jones",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Slot"
-      },
-      {
-        "pos": "TE",
-        "name": "Noah Fant",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Cody Ford",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Dalton Risner",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Ted Karras",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Dylan Fairchild",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Amarius Mims",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Myles Murphy",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Shemar Stewart",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "B.J. Hill",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "McTelvin Agim",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "LB1",
-        "name": "Brian Asamoah II",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Barrett Carter",
-        "grade": "Average",
-        "rating": 68,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Daxton Hill",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "CB2",
-        "name": "DJ Turner II",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "Cam Taylor-Britt",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Geno Stone",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jordan Battle",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "CLE": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Deshaun Watson",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Trayveon Williams",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Quinshon Judkins",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Jerry Jeudy",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR2",
-        "name": "Diontae Johnson",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR3",
-        "name": "Cedric Tillman",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "TE",
-        "name": "David Njoku",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Jack Conklin",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Teven Jenkins",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Kendrick Green",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Joel Bitonio",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Cam Robinson",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Myles Garrett",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Speed Rusher"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Jerome Baker",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Mason Graham",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Mike Hall Jr.",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Devin Bush",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Jordan Hicks",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Denzel Ward",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "CB2",
-        "name": "Tyson Campbell",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "D'Angelo Ross",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Ronnie Hickman Jr.",
-        "grade": "Below Avg",
-        "rating": 67,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Grant Delpit",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "DAL": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Dak Prescott",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Miles Sanders",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "RB2",
-        "name": "Javonte Williams",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "WR1",
-        "name": "CeeDee Lamb",
-        "grade": "Elite",
-        "rating": 94,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "George Pickens",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR3",
-        "name": "Jonathan Mingo",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Luke Schoonmaker",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Tyron Smith",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Tyler Smith",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Cooper Beebe",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Zone Blocker"
-      },
-      {
-        "pos": "RG",
-        "name": "Tyler Booker",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Hakeem Adeniji",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Jadeveon Clowney",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Dante Fowler Jr.",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Quinnen Williams",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Solomon Thomas",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Kenneth Murray, Jr.",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Logan Wilson",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Michael Ojemudia",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Andrew Booth",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Corey Ballentine",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Donovan Wilson",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Malik Hooker",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "DEN": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Bo Nix",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Dual-Threat"
-      },
-      {
-        "pos": "RB1",
-        "name": "J.K. Dobbins",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "name": "RJ Harvey",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Elijah Moore",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Courtland Sutton",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR3",
-        "name": "Marvin Mims Jr.",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Evan Engram",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Hybrid"
-      },
-      {
-        "pos": "LT",
-        "name": "Mike McGlinchey",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Quinn Meinerz",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Michael Deiter",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Ben Powers",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Garett Bolles",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Zach Allen",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Nik Bonitto",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "D.J. Jones",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Malcolm Roach",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Dre Greenlaw",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Justin Strnad",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Pat Surtain II",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Jahdae Barron",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "Riley Moss",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "FS",
-        "name": "Brandon Jones",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Talanoa Hufanga",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "DET": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Jared Goff",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Game Manager"
-      },
-      {
-        "pos": "RB1",
-        "name": "Jahmyr Gibbs",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "David Montgomery",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "WR1",
-        "name": "Amon-Ra St. Brown",
-        "grade": "Elite",
-        "rating": 91,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jameson Williams",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR3",
-        "name": "Isaac TeSlaa",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "TE",
-        "name": "Sam LaPorta",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Penei Sewell",
-        "grade": "Elite",
-        "rating": 94,
-        "trait": "Pass Pro"
-      },
-      {
-        "pos": "LG",
-        "name": "Tate Ratledge",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Frank Ragnow",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Jamarco Jones",
-        "grade": "Average",
-        "rating": 69,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Taylor Decker",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Aidan Hutchinson",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Marcus Davenport",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Tyleik Williams",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Alim McNeill",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Jack Campbell",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Monty Rice",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Rock Ya-Sin",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Amik Robertson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "D.J. Reed",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Avonte Maddox",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Daniel Thomas",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "GB": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Jordan Love",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Dual-Threat"
-      },
-      {
-        "pos": "RB1",
-        "name": "Josh Jacobs",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Tyrion Davis-Price",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "WR1",
-        "name": "Christian Watson",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jayden Reed",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Matthew Golden",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Slot"
-      },
-      {
-        "pos": "TE",
-        "name": "Luke Musgrave",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Anthony Belton",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Aaron Banks",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Elgton Jenkins",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Jordan Morgan",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Darian Kinnard",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Micah Parsons",
-        "grade": "Elite",
-        "rating": 95,
-        "trait": "Speed Rusher"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Rashan Gary",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Devonte Wyatt",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Quinton Bohanna",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Edgerrin Cooper",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Nick Niemann",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Trevon Diggs",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "CB2",
-        "name": "Keisean Nixon",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "Nate Hobbs",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "FS",
-        "name": "Evan Williams",
-        "grade": "Average",
-        "rating": 68,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Xavier McKinney",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "HOU": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "C.J. Stroud",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Dual-Threat"
-      },
-      {
-        "pos": "RB1",
-        "name": "Nick Chubb",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "name": "Joe Mixon",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Christian Kirk",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR2",
-        "name": "Nico Collins",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "Jayden Higgins",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "TE",
-        "name": "Irv Smith",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Tytus Howard",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Ed Ingram",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Jake Andrews",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Juice Scruggs",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Blake Fisher",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Will Anderson Jr.",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Derek Barnett",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Sheldon Rankins",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Marlon Davidson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "LB1",
-        "name": "E.J. Speed",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Azeez Al-Shaair",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Derek Stingley Jr.",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "CB2",
-        "name": "Damon Arnette",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "Ronald Darby",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Jalen Pitre",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jaylen Reed",
-        "grade": "Below Avg",
-        "rating": 66,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "IND": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Philip Rivers",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Jonathan Taylor",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "RB2",
-        "name": "Ameer Abdullah",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Laquon Treadwell",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR2",
-        "name": "Michael Pittman",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR3",
-        "name": "Alec Pierce",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Slot"
-      },
-      {
-        "pos": "TE",
-        "name": "Tyler Warren",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Braden Smith",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Quenton Nelson",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Danny Pinter",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Matt Goncalves",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Bernhard Raimann",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Kwity Paye",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Laiatu Latu",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "DeForest Buckner",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Neville Gallimore",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Buddy Johnson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Jacob Phillips",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Sauce Gardner",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "CB2",
-        "name": "Xavien Howard",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Duke Shelley",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Camryn Bynum",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Nick Cross",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "JAX": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Trevor Lawrence",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Travis Etienne",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "RB2",
-        "name": "DeeJay Dallas",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Travis Hunter",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Two-Way Star"
-      },
-      {
-        "pos": "WR2",
-        "name": "Brian Thomas Jr.",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "Dyami Brown",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "TE",
-        "name": "Brenton Strange",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Walker Little",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Ezra Cleveland",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Robert Hainsey",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Tremayne Anchrum",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Anton Harrison",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Travon Walker",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Josh Hines-Allen",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Arik Armstead",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Austin Johnson",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Devin Lloyd",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Ventrell Miller",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Greg Newsome II",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Keith Taylor",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Jourdan Lewis",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Juan Thornhill",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Eric Murray",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "KC": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Patrick Mahomes",
-        "grade": "Elite",
-        "rating": 97,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Clyde Edwards-Helaire",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Kareem Hunt",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Marquise Brown",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR2",
-        "name": "JuJu Smith-Schuster",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Xavier Worthy",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "TE",
-        "name": "Travis Kelce",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Jawaan Taylor",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Kingsley Suamataia",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Creed Humphrey",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Trey Smith",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Jaylon Moore",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "George Karlaftis",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Felix Anudike-Uzomah",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Chris Jones",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Jerry Tillery",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Nick Bolton",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Cole Christiansen",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Kristian Fulton",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Trent McDuffie",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Joshua Williams",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "FS",
-        "name": "Mike Edwards",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Chamarri Conner",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "LAC": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Trey Lance",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Najee Harris",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Omarion Hampton",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Mike Williams",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jalen Reagor",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
-        "name": "Quentin Johnston",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Will Dissly",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Rashawn Slater",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Mekhi Becton",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Bradley Bozeman",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Trevor Penning",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Joe Alt",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Khalil Mack",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Odafe Oweh",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Otito Ogbonnia",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Jamaree Caldwell",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "LB1",
-        "name": "Denzel Perryman",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Troy Dye",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Donte Jackson",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "CB2",
-        "name": "Benjamin St-Juste",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Harrison Hand",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Elijah Molden",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Derwin James",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "LAR": {
-    "offense": [],
-    "defense": []
-  },
-  "LV": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Kenny Pickett",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Ashton Jeanty",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Zamir White",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Amari Cooper",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Phillip Dorsett",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "Tyler Lockett",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Michael Mayer",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Hybrid"
-      },
-      {
-        "pos": "LT",
-        "name": "Kolton Miller",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Alex Cappa",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Jordan Meredith",
-        "grade": "Below Avg",
-        "rating": 66,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Dylan Parham",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Stone Forsythe",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Maxx Crosby",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Speed Rusher"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Devin White",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Brodric Martin",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Thomas Booker",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Jaylon Smith",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Elandon Roberts",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Eric Stokes",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Darnay Holmes",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Darien Porter",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Terrell Edmunds",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jeremy Chinn",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "MIA": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Tua Tagovailoa",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Accuracy King"
-      },
-      {
-        "pos": "RB1",
-        "name": "De'Von Achane",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Alexander Mattison",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Tyreek Hill",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jaylen Waddle",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR3",
-        "name": "Dee Eskridge",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "TE",
-        "name": "Greg Dulcich",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Austin Jackson",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Cole Strange",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Aaron Brewer",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Germain Ifedi",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Jackson Carman",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Bradley Chubb",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Chop Robinson",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Kenneth Grant",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Zach Sieler",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Jordyn Brooks",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Willie Gay Jr.",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Artie Burns",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Rasul Douglas",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "Cameron Dantzler",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Minkah Fitzpatrick",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Ashtyn Davis",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "MIN": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Sam Darnold",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Game Manager"
-      },
-      {
-        "pos": "RB1",
-        "name": "Ty Chandler",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "RB2",
-        "name": "Aaron Jones",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Justin Jefferson",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jordan Addison",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "Rondale Moore",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "TE",
-        "name": "T.J. Hockenson",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Brian O'Neill",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Donovan Jackson",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Ryan Kelly",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Blake Brandel",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Christian Darrisaw",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Jonathan Allen",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Dallas Turner",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Javon Hargrave",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Travis Bell",
-        "grade": "Average",
-        "rating": 68,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "LB1",
-        "name": "Blake Cashman",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Eric Wilson",
-        "grade": "Average",
-        "rating": 69,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Jeff Okudah",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "CB2",
-        "name": "Byron Murphy",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Fabian Moreau",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Harrison Smith",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jay Ward",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "NE": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Drake Maye",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Dual-Threat"
-      },
-      {
-        "pos": "RB1",
-        "name": "Rhamondre Stevenson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "TreVeyon Henderson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "Mack Hollins",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Stefon Diggs",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Kyle Williams",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Hunter Henry",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Hybrid"
-      },
-      {
-        "pos": "LT",
-        "name": "Will Campbell",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Mike Onwenu",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Garrett Bradbury",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Jared Wilson",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Morgan Moses",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "K'Lavon Chaisson",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Harold Landry III",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Christian Barmore",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Milton Williams",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Jahlani Tavai",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Chad Muma",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Christian Gonzalez",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Carlton Davis III",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "Marcus Jones",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Jaylinn Hawkins",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Richie Grant",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "NO": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Derek Carr",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Alvin Kamara",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "name": "Nyheim Hines",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Chris Olave",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR2",
-        "name": "Dante Pettis",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Ja'Lynn Polk",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "TE",
-        "name": "Foster Moreau",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Kelvin Banks Jr.",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Cesar Ruiz",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Erik McCoy",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Dillon Radunz",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Ryan Ramczyk",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Chase Young",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Cameron Jordan",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Bryan Bresee",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Nathan Shepherd",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Pete Werner",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Demario Davis",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Alontae Taylor",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Isaac Yiadom",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "Kool-Aid McKinstry",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Terrell Burgess",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Justin Reid",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "NYG": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Jameis Winston",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Game Manager"
-      },
-      {
-        "pos": "RB1",
-        "name": "Devin Singletary",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Eric Gray",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "Malik Nabers",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR2",
-        "name": "Darius Slayton",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
-        "name": "Wan'Dale Robinson",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "TE",
-        "name": "Daniel Bellinger",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Receiving TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Andrew Thomas",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Evan Neal",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "John Michael Schmitz",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Jon Runyan",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "James Hudson",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Abdul Carter",
-        "grade": "Above Avg",
-        "rating": 87,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Brian Burns",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Dexter Lawrence",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT2",
-        "name": "Darius Alexander",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "LB1",
-        "name": "Bobby Okereke",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Demetrius Flannigan-Fowles",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Deonte Banks",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "CB2",
-        "name": "Paulson Adebo",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "Andru Phillips",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Jevon Holland",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Dane Belton",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "NYJ": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Justin Fields",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Breece Hall",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Kene Nwangwu",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "WR1",
-        "name": "Garrett Wilson",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "John Metchie III",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR3",
-        "name": "Adonai Mitchell",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "TE",
-        "name": "Jelani Woods",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Armand Membou",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Alijah Vera-Tucker",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Josh Myers",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Joe Tippmann",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Olumuyiwa Fashanu",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Jermaine Johnson II",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Will McDonald IV",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Mazi Smith",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
-        "name": "Khalen Saunders",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "LB1",
-        "name": "Mykal Walker",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Jamien Sherwood",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Tre Brown",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Brandon Stephens",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "SCB",
-        "name": "JT Woods",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "FS",
-        "name": "Isaiah Oliver",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Malachi Moore",
-        "grade": "Average",
-        "rating": 68,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "PHI": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Jalen Hurts",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Dual-Threat"
-      },
-      {
-        "pos": "RB1",
-        "name": "Saquon Barkley",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "AJ Dillon",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "WR1",
-        "name": "DeVonta Smith",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Jahan Dotson",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR3",
-        "name": "A.J. Brown",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Possession"
-      },
-      {
-        "pos": "TE",
-        "name": "Dallas Goedert",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Lane Johnson",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Landon Dickerson",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Cam Jurgens",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Tyler Steen",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Matt Pryor",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Jaelan Phillips",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Brandon Graham",
-        "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Jalen Carter",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Run Stuffer"
-      },
-      {
-        "pos": "DT2",
-        "name": "Jordan Davis",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Zack Baun",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Jihaad Campbell",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Adoree' Jackson",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Jaire Alexander",
-        "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Quinyon Mitchell",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Lewis Cine",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Sydney Brown",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "PIT": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Aaron Rodgers",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Gunslinger"
-      },
-      {
-        "pos": "RB1",
-        "name": "Kenneth Gainwell",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Trey Sermon",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "WR1",
-        "name": "DK Metcalf",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Contested Catch"
-      },
-      {
-        "pos": "WR2",
-        "name": "Robert Woods",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Slot"
-      },
-      {
-        "pos": "WR3",
-        "name": "Marquez Valdes-Scantling",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "TE",
-        "name": "Pat Freiermuth",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Hybrid"
-      },
-      {
-        "pos": "LT",
-        "name": "Troy Fautanu",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Andrus Peat",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Zach Frazier",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Anchor"
-      },
-      {
-        "pos": "RG",
-        "name": "Isaac Seumalo",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Broderick Jones",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "T.J. Watt",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Alex Highsmith",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Cameron Heyward",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Keeanu Benton",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "LB1",
-        "name": "Patrick Queen",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Malik Harrison",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Jalen Ramsey",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "CB2",
-        "name": "Asante Samuel Jr.",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Ball Hawk"
-      },
-      {
-        "pos": "SCB",
-        "name": "Joey Porter Jr.",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Press-Man"
-      },
-      {
-        "pos": "FS",
-        "name": "Miles Killebrew",
-        "grade": "Average",
-        "rating": 69,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "SS",
-        "name": "Jabrill Peppers",
-        "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Versatile"
-      }
-    ]
-  },
-  "SEA": {
-    "offense": [
-      {
-        "pos": "QB",
-        "name": "Geno Smith",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Pocket Passer"
-      },
-      {
-        "pos": "RB1",
-        "name": "Cam Akers",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Kenneth Walker III",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "WR1",
-        "name": "Jaxon Smith-Njigba",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Cooper Kupp",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
-        "name": "Dareke Young",
-        "grade": "Average",
-        "rating": 69,
-        "trait": "Slot"
-      },
-      {
-        "pos": "TE",
-        "name": "Elijah Arroyo",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Move TE"
-      },
-      {
-        "pos": "LT",
-        "name": "Charles Cross",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Grey Zabel",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Olu Oluwatimi",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Zone Blocker"
-      },
-      {
-        "pos": "RG",
-        "name": "Anthony Bradford",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Josh Jones",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Leonard Williams",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Uchenna Nwosu",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Byron Murphy II",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "Jarran Reed",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB1",
-        "name": "Chazz Surratt",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Ernest Jones",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Devon Witherspoon",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "CB2",
-        "name": "Riq Woolen",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Zone Corner"
-      },
-      {
-        "pos": "SCB",
-        "name": "Shaquill Griffin",
-        "grade": "Average",
-        "rating": 70,
         "trait": "Slot Corner"
       },
       {
@@ -4507,10 +838,3124 @@ export const ROSTERS_2025 = {
       },
       {
         "pos": "SS",
-        "name": "Julian Love",
+        "name": "Cam Lewis",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Coverage Safety"
+      }
+    ]
+  },
+  "CIN": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Joe Burrow",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "Chase Brown",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Ja'Marr Chase",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "YAC Monster"
+      },
+      {
+        "pos": "TE",
+        "name": "Mike Gesicki",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Orlando Brown Jr.",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Dylan Fairchild",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Ted Karras",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Dalton Risner",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Amarius Mims",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Myles Murphy",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Boye Mafe",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "B.J. Hill",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Barrett Carter",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "LB2",
+        "name": "Oren Burks",
         "grade": "Average",
         "rating": 74,
         "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Dax Hill",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "DJ Turner II",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jalen Davis",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Bryan Cook",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Coverage Safety"
+      },
+      {
+        "pos": "SS",
+        "name": "Jordan Battle",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Coverage Safety"
+      }
+    ]
+  },
+  "CLE": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Shedeur Sanders",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Quinshon Judkins",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "WR1",
+        "name": "Jerry Jeudy",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Harold Fannin Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Dawand Jones",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "LG",
+        "name": "Zion Johnson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Elgton Jenkins",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RG",
+        "name": "Teven Jenkins",
+        "grade": "Average",
+        "rating": 70,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Tytus Howard",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Myles Garrett",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Alex Wright",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Mason Graham",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Carson Schwesinger",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "LB2",
+        "name": "Jeremiah Owusu-Koramoah",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Denzel Ward",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Tyson Campbell",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Myles Harden",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Ronnie Hickman",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Coverage Safety"
+      },
+      {
+        "pos": "SS",
+        "name": "Grant Delpit",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "DAL": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Dak Prescott",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "Javonte Williams",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "RB2",
+        "name": "Hunter Luepke",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "CeeDee Lamb",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Jake Ferguson",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Blocking TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Tyler Smith",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "T.J. Bass",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Cooper Beebe",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Tyler Booker",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Terence Steele",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Quinnen Williams",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Otito Ogbonnia",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Kenny Clark",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Donovan Ezeiruaku",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Shemar James",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "CB1",
+        "name": "DaRon Bland",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Shavon Revel Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Reddy Steward",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Malik Hooker",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Enforcer"
+      },
+      {
+        "pos": "SS",
+        "name": "Jalen Thompson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      }
+    ]
+  },
+  "DEN": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Bo Nix",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "J.K. Dobbins",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "RB2",
+        "name": "Adam Prentice",
+        "grade": "Average",
+        "rating": 70,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "Courtland Sutton",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Evan Engram",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Garett Bolles",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Ben Powers",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Luke Wattenberg",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Quinn Meinerz",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Mike McGlinchey",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Zach Allen",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Malcolm Roach",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "D.J. Jones",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Alex Singleton",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "LB2",
+        "name": "Nik Bonitto",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Riley Moss",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Pat Surtain II",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Ja'Quan McMillian",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Brandon Jones",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SS",
+        "name": "Talanoa Hufanga",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "DET": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Jared Goff",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "Jahmyr Gibbs",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "WR1",
+        "name": "Amon-Ra St. Brown",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Route Technician"
+      },
+      {
+        "pos": "TE",
+        "name": "Sam LaPorta",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Larry Borom",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Christian Mahogany",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Cade Mays",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Tate Ratledge",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Penei Sewell",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Aidan Hutchinson",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Tyler Lacy",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Alim McNeill",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Jack Campbell",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Derrick Barnes",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "D.J. Reed",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Terrion Arnold",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Ennis Rakestraw Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Kerby Joseph",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Enforcer"
+      },
+      {
+        "pos": "SS",
+        "name": "Brian Branch",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "GB": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Jordan Love",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Josh Jacobs",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Christian Watson",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Tucker Kraft",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Jordan Morgan",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Aaron Banks",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Sean Rhyan",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Anthony Belton",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Zach Tom",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Karl Brooks",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Javon Hargrave",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Devonte Wyatt",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Edgerrin Cooper",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Micah Parsons",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Keisean Nixon",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Carrington Valentine",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Javon Bullard",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Xavier McKinney",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Evan Williams",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Coverage Safety"
+      }
+    ]
+  },
+  "HOU": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "C.J. Stroud",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "David Montgomery",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "WR1",
+        "name": "Nico Collins",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Route Technician"
+      },
+      {
+        "pos": "TE",
+        "name": "Dalton Schultz",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Aireontae Ersery",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Jarrett Patterson",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Jake Andrews",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Ed Ingram",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Braden Smith",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Danielle Hunter",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Will Anderson Jr.",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Sheldon Rankins",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Azeez Al-Shaair",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Henry To'oTo'o",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Kamari Lassiter",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Derek Stingley Jr.",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jalen Pitre",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Jaylen Reed",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Reed Blankenship",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "IND": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Daniel Jones",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "Jonathan Taylor",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Alec Pierce",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Tyler Warren",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Bernhard Raimann",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Quenton Nelson",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Tanor Bortolini",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Matt Goncalves",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Jalen Travis",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Laiatu Latu",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "JT Tuimoloau",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Grover Stewart",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Austin Ajiake",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Jaylon Carlies",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Charvarius Ward",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Sauce Gardner",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Kenny Moore II",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Cam Bynum",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SS",
+        "name": "Daniel Scott",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "JAX": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Trevor Lawrence",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Bhayshul Tuten",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "Brian Thomas Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Brenton Strange",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Cole Van Lanen",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Ezra Cleveland",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Robert Hainsey",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RG",
+        "name": "Patrick Mekari",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Anton Harrison",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Josh Hines-Allen",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Travon Walker",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Arik Armstead",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Foyesade Oluokun",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "LB2",
+        "name": "Dennis Gardeck",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Travis Hunter",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Christian Braswell",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jourdan Lewis",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Antonio Johnson",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Eric Murray",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "KC": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Patrick Mahomes",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Kenneth Walker III",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "Rashee Rice",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Travis Kelce",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Josh Simmons",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "LG",
+        "name": "Kingsley Suamataia",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Creed Humphrey",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RG",
+        "name": "Trey Smith",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Jaylon Moore",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "George Karlaftis",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Felix Anudike-Uzomah",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Chris Jones",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Nick Bolton",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Drue Tranquill",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Kristian Fulton",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Kader Kohou",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Chris Roland-Wallace",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Alohi Gilman",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Enforcer"
+      },
+      {
+        "pos": "SS",
+        "name": "Chamarri Conner",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "LAC": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Justin Herbert",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "Omarion Hampton",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "RB2",
+        "name": "Alec Ingold",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "WR1",
+        "name": "Ladd McConkey",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "YAC Monster"
+      },
+      {
+        "pos": "TE",
+        "name": "Oronde Gadsden",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Rashawn Slater",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Trevor Penning",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Tyler Biadasz",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Cole Strange",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Joe Alt",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Road Grader"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Justin Eboigbe",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Scott Matlock",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Teair Tart",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Daiyan Henley",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Tuli Tuipulotu",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Cam Hart",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Donte Jackson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Tarheeb Still",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Elijah Molden",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SS",
+        "name": "Derwin James Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "LAR": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Matthew Stafford",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "Kyren Williams",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "Puka Nacua",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Deep Threat"
+      },
+      {
+        "pos": "TE",
+        "name": "Colby Parkinson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Alaric Jackson",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Steve Avila",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "C",
+        "name": "Coleman Shelton",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Kevin Dotson",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Warren McClendon Jr.",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Kobie Turner",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Braden Fiske",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Poona Ford",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Jared Verse",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Byron Young",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Trent McDuffie",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Jaylen Watson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Quentin Lake",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Kamren Kinchens",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Kam Curl",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "LV": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Aidan O'Connell",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Ashton Jeanty",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Pass-Catching"
+      },
+      {
+        "pos": "RB2",
+        "name": "Connor Heyward",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Tre Tucker",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Deep Threat"
+      },
+      {
+        "pos": "TE",
+        "name": "Brock Bowers",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Kolton Miller",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Jordan Meredith",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Tyler Linderbaum",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Jackson Powers-Johnson",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "DJ Glaze",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Jonah Laulu",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Thomas Booker IV",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Adam Butler",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Maxx Crosby",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Malcolm Koonce",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "CB1",
+        "name": "Eric Stokes",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Darien Porter",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Taron Johnson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Isaiah Pola-Mao",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Jeremy Chinn",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "MIA": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Malik Willis",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "De'Von Achane",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Pass-Catching"
+      },
+      {
+        "pos": "WR1",
+        "name": "Jaylen Waddle",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "YAC Monster"
+      },
+      {
+        "pos": "TE",
+        "name": "Greg Dulcich",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Patrick Paul",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "LG",
+        "name": "Jonah Savaiinaea",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Aaron Brewer",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Jamaree Salyer",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Austin Jackson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Chop Robinson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Cameron Goode",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Zach Sieler",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Jordyn Brooks",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Tyrel Dodson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "CB1",
+        "name": "JuJu Brents",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Jason Marshall Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Lonnie Johnson Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Zayne Anderson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Coverage Safety"
+      },
+      {
+        "pos": "SS",
+        "name": "Dante Trader Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "MIN": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Kyler Murray",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "Aaron Jones Sr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Justin Jefferson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "T.J. Hockenson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Christian Darrisaw",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "LG",
+        "name": "Donovan Jackson",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Michael Jurgens",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Will Fries",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Brian O'Neill",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Levi Drake Rodriguez",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Tyrion Ingram-Dawkins",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Jalen Redmond",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Eric Wilson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Blake Cashman",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Isaiah Rodgers",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Byron Murphy Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Theo Jackson",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Jay Ward",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Enforcer"
+      },
+      {
+        "pos": "SS",
+        "name": "Joshua Metellus",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "NE": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Drake Maye",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "Rhamondre Stevenson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "RB2",
+        "name": "Reggie Gilliam",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Romeo Doubs",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Hunter Henry",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Will Campbell",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Alijah Vera-Tucker",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Jared Wilson",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Mike Onwenu",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Morgan Moses",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Christian Barmore",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Milton Williams",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Eric Gregory",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Robert Spillane",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Christian Elliss",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "CB1",
+        "name": "Christian Gonzalez",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Carlton Davis III",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Marcus Jones",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Kevin Byard III",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Craig Woodson",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Coverage Safety"
+      }
+    ]
+  },
+  "NO": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Tyler Shough",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Dual-Threat"
+      },
+      {
+        "pos": "RB1",
+        "name": "Travis Etienne Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "Chris Olave",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Possession"
+      },
+      {
+        "pos": "TE",
+        "name": "Juwan Johnson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Blocking TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Kelvin Banks Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "David Edwards",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Erik McCoy",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Cesar Ruiz",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Taliese Fuaga",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Bryan Bresee",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Vernon Broughton",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Davon Godchaux",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Carl Granderson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Pete Werner",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Kool-Aid McKinstry",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Quincy Riley",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jordan Howden",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Julian Blackmon",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Justin Reid",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "NYG": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Jaxson Dart",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Cam Skattebo",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "RB2",
+        "name": "Patrick Ricard",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "WR1",
+        "name": "Malik Nabers",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Route Technician"
+      },
+      {
+        "pos": "TE",
+        "name": "Isaiah Likely",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Blocking TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Andrew Thomas",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Jon Runyan",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "John Michael Schmitz Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Jake Kubas",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Jermaine Eluemunor",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Roy Robertson-Harris",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Darius Alexander",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Dexter Lawrence II",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Brian Burns",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Kayvon Thibodeaux",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Paulson Adebo",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Greg Newsome II",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "SCB",
+        "name": "Dru Phillips",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Jevon Holland",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SS",
+        "name": "Tyler Nubin",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "NYJ": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Geno Smith",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Game Manager"
+      },
+      {
+        "pos": "RB1",
+        "name": "Breece Hall",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "RB2",
+        "name": "Andrew Beck",
+        "grade": "Average",
+        "rating": 70,
+        "trait": "Between-the-Tackles"
+      },
+      {
+        "pos": "WR1",
+        "name": "Garrett Wilson",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Contested Catch"
+      },
+      {
+        "pos": "TE",
+        "name": "Mason Taylor",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Olu Fashanu",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Dylan Parham",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "C",
+        "name": "Josh Myers",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Joe Tippmann",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Armand Membou",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Will McDonald IV",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Joseph Ossai",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Harrison Phillips",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB1",
+        "name": "Kiko Mauigoa",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "LB2",
+        "name": "Demario Davis",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Brandon Stephens",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Azareye'h Thomas",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jarvis Brownlee Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Minkah Fitzpatrick",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Coverage Safety"
+      },
+      {
+        "pos": "SS",
+        "name": "Andre Cisco",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Enforcer"
+      }
+    ]
+  },
+  "PHI": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Jalen Hurts",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Saquon Barkley",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Home Run Hitter"
+      },
+      {
+        "pos": "WR1",
+        "name": "A.J. Brown",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Deep Threat"
+      },
+      {
+        "pos": "TE",
+        "name": "Grant Calcaterra",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Blocking TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Jordan Mailata",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LG",
+        "name": "Landon Dickerson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Cam Jurgens",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RG",
+        "name": "Tyler Steen",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "RT",
+        "name": "Lane Johnson",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Moro Ojomo",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Jalen Carter",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Zack Baun",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "Jihaad Campbell",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Quinyon Mitchell",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Zone Corner"
+      },
+      {
+        "pos": "CB2",
+        "name": "Riq Woolen",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Cooper DeJean",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Andrew Mukuba",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SS",
+        "name": "Sydney Brown",
+        "grade": "Below Avg",
+        "rating": 69,
+        "trait": "Ball Hawk"
+      }
+    ]
+  },
+  "PIT": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Mason Rudolph",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Pocket Passer"
+      },
+      {
+        "pos": "RB1",
+        "name": "Jaylen Warren",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Pass-Catching"
+      },
+      {
+        "pos": "WR1",
+        "name": "DK Metcalf",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Deep Threat"
+      },
+      {
+        "pos": "TE",
+        "name": "Pat Freiermuth",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LT",
+        "name": "Broderick Jones",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "LG",
+        "name": "Spencer Anderson",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Zach Frazier",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RG",
+        "name": "Mason McCormick",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      },
+      {
+        "pos": "RT",
+        "name": "Troy Fautanu",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Cameron Heyward",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Derrick Harmon",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Keeanu Benton",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Run Stuffer"
+      },
+      {
+        "pos": "LB1",
+        "name": "Patrick Queen",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Coverage LB"
+      },
+      {
+        "pos": "LB2",
+        "name": "T.J. Watt",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Joey Porter Jr.",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Jamel Dean",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "SCB",
+        "name": "Jalen Ramsey",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "DeShon Elliott",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Coverage Safety"
+      },
+      {
+        "pos": "SS",
+        "name": "Jaquan Brisker",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      }
+    ]
+  },
+  "SEA": {
+    "offense": [
+      {
+        "pos": "QB",
+        "name": "Sam Darnold",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Gunslinger"
+      },
+      {
+        "pos": "RB1",
+        "name": "Zach Charbonnet",
+        "grade": "Average",
+        "rating": 73,
+        "trait": "Power Back"
+      },
+      {
+        "pos": "RB2",
+        "name": "Robbie Ouzts",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Pass-Catching"
+      },
+      {
+        "pos": "WR1",
+        "name": "Jaxon Smith-Njigba",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "YAC Monster"
+      },
+      {
+        "pos": "TE",
+        "name": "AJ Barner",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Receiving TE"
+      },
+      {
+        "pos": "LT",
+        "name": "Charles Cross",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "LG",
+        "name": "Grey Zabel",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "C",
+        "name": "Jalen Sundell",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RG",
+        "name": "Anthony Bradford",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
+      },
+      {
+        "pos": "RT",
+        "name": "Abraham Lucas",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Leonard Williams",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "Jarran Reed",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Speed Rusher"
+      },
+      {
+        "pos": "DT",
+        "name": "Byron Murphy II",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Drake Thomas",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "LB2",
+        "name": "DeMarcus Lawrence",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Run Stopper"
+      },
+      {
+        "pos": "CB1",
+        "name": "Josh Jobe",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "CB2",
+        "name": "Devon Witherspoon",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Nick Emmanwori",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Julian Love",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "SS",
+        "name": "Ty Okada",
+        "grade": "Average",
+        "rating": 77,
+        "trait": "Ball Hawk"
       }
     ]
   },
@@ -4519,165 +3964,144 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Brock Purdy",
-        "grade": "Elite",
-        "rating": 90,
-        "trait": "Game Manager"
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Gunslinger"
       },
       {
         "pos": "RB1",
         "name": "Christian McCaffrey",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Home Run Hitter"
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Power Back"
       },
       {
         "pos": "RB2",
-        "name": "Ke'Shawn Vaughn",
+        "name": "Kyle Juszczyk",
         "grade": "Average",
-        "rating": 76,
+        "rating": 71,
         "trait": "Home Run Hitter"
       },
       {
         "pos": "WR1",
-        "name": "Brandon Aiyuk",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR2",
-        "name": "Skyy Moore",
+        "name": "Mike Evans",
         "grade": "Average",
-        "rating": 77,
+        "rating": 71,
         "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR3",
-        "name": "Ricky Pearsall",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "YAC Monster"
       },
       {
         "pos": "TE",
         "name": "George Kittle",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Receiving TE"
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Blocking TE"
       },
       {
         "pos": "LT",
         "name": "Trent Williams",
-        "grade": "Elite",
-        "rating": 96,
-        "trait": "Pass Pro"
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Versatile"
       },
       {
         "pos": "LG",
-        "name": "Dominick Puni",
+        "name": "Brett Toth",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
-        "name": "Matt Hennessy",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Anchor"
+        "name": "Jake Brendel",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RG",
-        "name": "Ben Bartch",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Versatile"
+        "name": "Dominick Puni",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
       },
       {
         "pos": "RT",
-        "name": "Andre Dillard",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Colton McKivitz",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Pass Pro"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Nick Bosa",
-        "grade": "Elite",
-        "rating": 94,
+        "name": "C.J. West",
+        "grade": "Average",
+        "rating": 71,
         "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Clelin Ferrell",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT1",
-        "name": "Jordan Elliott",
+        "name": "Osa Odighizuwa",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Interior Pressure"
+        "rating": 71,
+        "trait": "Speed Rusher"
       },
       {
-        "pos": "DT2",
+        "pos": "DT",
         "name": "Alfred Collins",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Interior Pressure"
+        "rating": 71,
+        "trait": "Versatile"
       },
       {
         "pos": "LB1",
-        "name": "Fred Warner",
-        "grade": "Elite",
-        "rating": 92,
-        "trait": "Coverage LB"
+        "name": "Mykel Williams",
+        "grade": "Average",
+        "rating": 75,
+        "trait": "Run Stopper"
       },
       {
         "pos": "LB2",
-        "name": "Eric Kendricks",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "name": "Fred Warner",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Sideline-to-Sideline"
       },
       {
         "pos": "CB1",
-        "name": "Eli Apple",
+        "name": "Deommodore Lenoir",
         "grade": "Above Avg",
-        "rating": 82,
-        "trait": "Slot Corner"
+        "rating": 87,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "CB2",
-        "name": "Deommodore Lenoir",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Press-Man"
+        "name": "Renardo Green",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Ball Hawk"
       },
       {
         "pos": "SCB",
-        "name": "Renardo Green",
+        "name": "Upton Stout",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Press-Man"
+        "rating": 75,
+        "trait": "Slot Corner"
       },
       {
         "pos": "FS",
-        "name": "Jason Pinnock",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "name": "Malik Mustapha",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Coverage Safety"
       },
       {
         "pos": "SS",
         "name": "Ji'Ayir Brown",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Coverage Safety"
       }
     ]
   },
@@ -4686,165 +4110,137 @@ export const ROSTERS_2025 = {
       {
         "pos": "QB",
         "name": "Baker Mayfield",
-        "grade": "Elite",
-        "rating": 92,
+        "grade": "Above Avg",
+        "rating": 87,
         "trait": "Game Manager"
       },
       {
         "pos": "RB1",
-        "name": "Rachaad White",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
         "name": "Bucky Irving",
         "grade": "Average",
-        "rating": 68,
+        "rating": 75,
         "trait": "Between-the-Tackles"
       },
       {
         "pos": "WR1",
-        "name": "Mike Evans",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR2",
-        "name": "Emeka Egbuka",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "YAC Monster"
-      },
-      {
-        "pos": "WR3",
-        "name": "Sterling Shepard",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Contested Catch"
+        "name": "Chris Godwin Jr.",
+        "grade": "Average",
+        "rating": 74,
+        "trait": "Possession"
       },
       {
         "pos": "TE",
         "name": "Cade Otton",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Move TE"
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Blocking TE"
       },
       {
         "pos": "LT",
         "name": "Tristan Wirfs",
         "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Versatile"
+        "rating": 87,
+        "trait": "Road Grader"
       },
       {
         "pos": "LG",
-        "name": "Mike Jordan",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
+        "name": "Ben Bredeson",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Pass Pro"
       },
       {
         "pos": "C",
         "name": "Graham Barton",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Road Grader"
       },
       {
         "pos": "RG",
         "name": "Cody Mauch",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Road Grader"
       },
       {
         "pos": "RT",
         "name": "Luke Goedeke",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Pass Pro"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Haason Reddick",
-        "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
+        "name": "Al-Quadin Muhammad",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Calijah Kancey",
-        "grade": "Above Avg",
-        "rating": 83,
+        "name": "A'Shawn Robinson",
+        "grade": "Average",
+        "rating": 71,
         "trait": "Versatile"
       },
       {
-        "pos": "DT1",
+        "pos": "DT",
         "name": "Vita Vea",
         "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "DT2",
-        "name": "Greg Gaines",
-        "grade": "Average",
-        "rating": 74,
+        "rating": 78,
         "trait": "Versatile"
       },
       {
         "pos": "LB1",
-        "name": "Deion Jones",
+        "name": "SirVocea Dennis",
         "grade": "Above Avg",
-        "rating": 79,
+        "rating": 81,
         "trait": "Versatile"
       },
       {
         "pos": "LB2",
-        "name": "Lavonte David",
+        "name": "Anthony Nelson",
         "grade": "Average",
-        "rating": 75,
+        "rating": 74,
         "trait": "Versatile"
       },
       {
         "pos": "CB1",
-        "name": "Jamel Dean",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Slot Corner"
+        "name": "Zyon McCollum",
+        "grade": "Above Avg",
+        "rating": 86,
+        "trait": "Zone Corner"
       },
       {
         "pos": "CB2",
-        "name": "Kindle Vildor",
+        "name": "Benjamin Morrison",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Ball Hawk"
+        "rating": 75,
+        "trait": "Press-Man"
       },
       {
         "pos": "SCB",
-        "name": "Benjamin Morrison",
+        "name": "Jacob Parrish",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Zone Corner"
+        "rating": 75,
+        "trait": "Slot Corner"
       },
       {
         "pos": "FS",
         "name": "Antoine Winfield Jr.",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Versatile"
+        "rating": 87,
+        "trait": "Enforcer"
       },
       {
         "pos": "SS",
         "name": "Tykee Smith",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Enforcer"
       }
     ]
   },
@@ -4854,21 +4250,14 @@ export const ROSTERS_2025 = {
         "pos": "QB",
         "name": "Cam Ward",
         "grade": "Above Avg",
-        "rating": 87,
-        "trait": "Game Manager"
+        "rating": 84,
+        "trait": "Dual-Threat"
       },
       {
         "pos": "RB1",
         "name": "Tony Pollard",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Home Run Hitter"
-      },
-      {
-        "pos": "RB2",
-        "name": "Tyjae Spears",
-        "grade": "Average",
-        "rating": 74,
+        "grade": "Above Avg",
+        "rating": 78,
         "trait": "Between-the-Tackles"
       },
       {
@@ -4876,142 +4265,121 @@ export const ROSTERS_2025 = {
         "name": "Calvin Ridley",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Route Technician"
-      },
-      {
-        "pos": "WR2",
-        "name": "Van Jefferson",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Possession"
-      },
-      {
-        "pos": "WR3",
-        "name": "James Proche",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Possession"
+        "trait": "YAC Monster"
       },
       {
         "pos": "TE",
-        "name": "Cole Turner",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Blocking TE"
-      },
-      {
-        "pos": "LT",
-        "name": "JC Latham",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LG",
-        "name": "Peter Skoronski",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "C",
-        "name": "Lloyd Cushenberry III",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RG",
-        "name": "Kevin Zeitler",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "RT",
-        "name": "Dan Moore Jr.",
-        "grade": "Average",
-        "rating": 74,
-        "trait": "Versatile"
-      }
-    ],
-    "defense": [
-      {
-        "pos": "EDGE1",
-        "name": "Jihad Ward",
-        "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "EDGE2",
-        "name": "Lorenzo Carter",
+        "name": "Gunnar Helm",
         "grade": "Average",
         "rating": 75,
         "trait": "Versatile"
       },
       {
-        "pos": "DT1",
-        "name": "Jeffery Simmons",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Interior Pressure"
-      },
-      {
-        "pos": "DT2",
-        "name": "T'Vondre Sweat",
+        "pos": "LT",
+        "name": "Dan Moore Jr.",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "trait": "Road Grader"
       },
       {
-        "pos": "LB1",
-        "name": "Cody Barton",
-        "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "LB2",
-        "name": "Cedric Gray",
-        "grade": "Average",
-        "rating": 68,
-        "trait": "Versatile"
-      },
-      {
-        "pos": "CB1",
-        "name": "Kaiir Elam",
+        "pos": "LG",
+        "name": "Peter Skoronski",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Ball Hawk"
+        "rating": 86,
+        "trait": "Pass Pro"
       },
       {
-        "pos": "CB2",
-        "name": "Kemon Hall",
+        "pos": "C",
+        "name": "Austin Schlottmann",
         "grade": "Average",
-        "rating": 70,
-        "trait": "Press-Man"
+        "rating": 71,
+        "trait": "Pass Pro"
       },
       {
-        "pos": "SCB",
-        "name": "L'Jarius Sneed",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Slot Corner"
-      },
-      {
-        "pos": "FS",
-        "name": "Joshuah Bledsoe",
+        "pos": "RG",
+        "name": "Garrett Dellinger",
         "grade": "Average",
         "rating": 71,
         "trait": "Versatile"
       },
       {
+        "pos": "RT",
+        "name": "JC Latham",
+        "grade": "Above Avg",
+        "rating": 84,
+        "trait": "Pass Pro"
+      }
+    ],
+    "defense": [
+      {
+        "pos": "EDGE1",
+        "name": "Jermaine Johnson",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Power Rusher"
+      },
+      {
+        "pos": "EDGE2",
+        "name": "John Franklin-Myers",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "DT",
+        "name": "Jeffery Simmons",
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Interior Pressure"
+      },
+      {
+        "pos": "LB1",
+        "name": "Cody Barton",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Versatile"
+      },
+      {
+        "pos": "LB2",
+        "name": "Cedric Gray",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Sideline-to-Sideline"
+      },
+      {
+        "pos": "CB1",
+        "name": "Micah Robinson",
+        "grade": "Below Avg",
+        "rating": 67,
+        "trait": "Ball Hawk"
+      },
+      {
+        "pos": "CB2",
+        "name": "Cor'Dale Flott",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Press-Man"
+      },
+      {
+        "pos": "SCB",
+        "name": "Alontae Taylor",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Slot Corner"
+      },
+      {
+        "pos": "FS",
+        "name": "Kevin Winston Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "trait": "Ball Hawk"
+      },
+      {
         "pos": "SS",
         "name": "Amani Hooker",
-        "grade": "Average",
-        "rating": 73,
-        "trait": "Versatile"
+        "grade": "Above Avg",
+        "rating": 82,
+        "trait": "Ball Hawk"
       }
     ]
   },
@@ -5019,165 +4387,137 @@ export const ROSTERS_2025 = {
     "offense": [
       {
         "pos": "QB",
-        "name": "Marcus Mariota",
-        "grade": "Elite",
-        "rating": 89,
-        "trait": "Dual-Threat"
+        "name": "Jayden Daniels",
+        "grade": "Above Avg",
+        "rating": 79,
+        "trait": "Game Manager"
       },
       {
         "pos": "RB1",
-        "name": "Jeremy McNichols",
+        "name": "Jacory Croskey-Merritt",
         "grade": "Average",
-        "rating": 73,
-        "trait": "Change-of-Pace"
-      },
-      {
-        "pos": "RB2",
-        "name": "Chase Edmonds",
-        "grade": "Average",
-        "rating": 72,
-        "trait": "Change-of-Pace"
+        "rating": 71,
+        "trait": "Home Run Hitter"
       },
       {
         "pos": "WR1",
-        "name": "Treylon Burks",
-        "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR2",
-        "name": "Deebo Samuel Sr.",
-        "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Deep Threat"
-      },
-      {
-        "pos": "WR3",
         "name": "Terry McLaurin",
-        "grade": "Average",
-        "rating": 77,
+        "grade": "Above Avg",
+        "rating": 78,
         "trait": "Contested Catch"
       },
       {
         "pos": "TE",
-        "name": "John Bates",
+        "name": "Chig Okonkwo",
         "grade": "Average",
-        "rating": 74,
+        "rating": 71,
         "trait": "Receiving TE"
       },
       {
         "pos": "LT",
         "name": "Laremy Tunsil",
         "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Versatile"
+        "rating": 79,
+        "trait": "Road Grader"
       },
       {
         "pos": "LG",
-        "name": "Sam Cosmi",
-        "grade": "Average",
-        "rating": 76,
-        "trait": "Versatile"
+        "name": "Chris Paul",
+        "grade": "Above Avg",
+        "rating": 81,
+        "trait": "Road Grader"
       },
       {
         "pos": "C",
-        "name": "Nick Harris",
+        "name": "Nick Allegretti",
         "grade": "Average",
-        "rating": 73,
-        "trait": "Zone Blocker"
+        "rating": 70,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RG",
-        "name": "Nick Allegretti",
+        "name": "Sam Cosmi",
         "grade": "Average",
-        "rating": 72,
-        "trait": "Versatile"
+        "rating": 74,
+        "trait": "Pass Pro"
       },
       {
         "pos": "RT",
         "name": "Josh Conerly Jr.",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Road Grader"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "name": "Von Miller",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Versatile"
+        "name": "Javon Kinlaw",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Speed Rusher"
       },
       {
         "pos": "EDGE2",
-        "name": "Preston Smith",
+        "name": "Tim Settle Jr.",
         "grade": "Average",
-        "rating": 77,
-        "trait": "Versatile"
+        "rating": 71,
+        "trait": "Speed Rusher"
       },
       {
-        "pos": "DT1",
-        "name": "Javon Kinlaw",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Nose Tackle"
-      },
-      {
-        "pos": "DT2",
+        "pos": "DT",
         "name": "Daron Payne",
         "grade": "Above Avg",
-        "rating": 85,
-        "trait": "Interior Pressure"
+        "rating": 78,
+        "trait": "Versatile"
       },
       {
         "pos": "LB1",
-        "name": "Bobby Wagner",
-        "grade": "Average",
-        "rating": 75,
-        "trait": "Versatile"
+        "name": "Frankie Luvu",
+        "grade": "Above Avg",
+        "rating": 87,
+        "trait": "Sideline-to-Sideline"
       },
       {
         "pos": "LB2",
-        "name": "Duke Riley",
+        "name": "Odafe Oweh",
         "grade": "Average",
-        "rating": 75,
+        "rating": 71,
         "trait": "Versatile"
       },
       {
         "pos": "CB1",
-        "name": "Noah Igbinoghene",
+        "name": "Mike Sainristil",
         "grade": "Above Avg",
-        "rating": 83,
-        "trait": "Slot Corner"
+        "rating": 84,
+        "trait": "Press-Man"
       },
       {
         "pos": "CB2",
-        "name": "Marshon Lattimore",
+        "name": "Trey Amos",
         "grade": "Above Avg",
-        "rating": 81,
-        "trait": "Ball Hawk"
+        "rating": 79,
+        "trait": "Zone Corner"
       },
       {
         "pos": "SCB",
-        "name": "Mike Sainristil",
+        "name": "Amik Robertson",
         "grade": "Average",
-        "rating": 74,
+        "rating": 71,
         "trait": "Slot Corner"
       },
       {
         "pos": "FS",
         "name": "Quan Martin",
-        "grade": "Average",
-        "rating": 77,
+        "grade": "Above Avg",
+        "rating": 81,
         "trait": "Versatile"
       },
       {
         "pos": "SS",
-        "name": "Will Harris",
+        "name": "Nick Cross",
         "grade": "Average",
-        "rating": 77,
+        "rating": 71,
         "trait": "Versatile"
       }
     ]
