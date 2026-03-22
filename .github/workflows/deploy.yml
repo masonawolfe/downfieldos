@@ -25,7 +25,9 @@ jobs:
         with:
           node-version: 22
       - name: Install dependencies
-        run: npm install
+        run: npm instal
+      - name: Fetch real NFL play data
+        run: npm run data:pbp
       - name: Build
         run: npm run build
       - name: Setup Pages
