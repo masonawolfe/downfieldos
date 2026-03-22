@@ -7,6 +7,7 @@ import {
 import { useIsMobile } from './hooks/useIsMobile';
 import { T } from './data/teams';
 import { DNA } from './data/dna';
+import { DNA_2026 } from './data/dna2026';
 import { DEFAULT_FILTERS, applyFilters } from './utils/filters';
 import { generatePlays, loadCurrentSeason, loadAllSeasons } from './utils/playGenerator';
 import { genRoster2026 } from './utils/roster';
@@ -215,12 +216,13 @@ export default function DownfieldOS() {
     }
   }, [dataLoading]);
 
-  // Override static DNA with dynamic identity labels computed from real stats
+  // Override ALL static DNA objects with dynamic identity labels from real stats
   useMemo(() => {
     if (!allPlays || allPlays.length === 0) return;
     const dynamicDNA = buildDynamicDNA(allPlays, agg, lgbl, T);
     Object.keys(dynamicDNA).forEach(team => {
       DNA[team] = { ...DNA[team], ...dynamicDNA[team] };
+      if (DNA_2026[team]) DNA_2026[team] = { ...DNA_2026[team], ...dynamicDNA[team] };
     });
   }, [allPlays]);
 
