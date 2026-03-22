@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Trophy, ChevronUp, ChevronDown, ChevronRight, Flame, Eye, Calendar, Download } from "lucide-react";
 import { agg, lgbl } from '../../utils/aggregation';
+import { CURRENT_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { DNA } from '../../data/dna';
@@ -12,7 +13,7 @@ import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
-  const [selectedSeason, setSelectedSeason] = useState(2025);
+  const [selectedSeason, setSelectedSeason] = useState(CURRENT_SEASON);
   const [expandedGame, setExpandedGame] = useState(null);
 
   // Build the week's matchups from play data

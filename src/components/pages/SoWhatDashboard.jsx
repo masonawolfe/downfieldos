@@ -4,7 +4,7 @@ import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
-import { pct, tn } from '../../utils/formatters';
+import { pct, tn, tnp } from '../../utils/formatters';
 import { InsightCard } from '../ui/InsightCard';
 import { FanSentimentCard } from '../ui/FanSentimentCard';
 import { getTopDramaMatchups } from '../../utils/dramaScore';
@@ -33,11 +33,11 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
         const tone = myRank <= 8 ? "positive" : myRank <= 16 ? "neutral" : myRank <= 24 ? "warning" : "negative";
         return <InsightCard tone={tone} icon={Target} stat={`#${myRank}`} headline={`Your ${tn(primaryTeam)}: ranked #${myRank} of 32`} body={`${DNA[primaryTeam].s}. Success rate ${pct(my.s.sr)} (avg: ${pct(bl.sr)}), explosive rate ${pct(my.s.xr)}, pass rate ${pct(my.s.pr)}. ${myRank <= 10 ? "Top-third offense." : myRank <= 20 ? "Middle of the pack." : "Below average — needs to improve efficiency."}`} />;
       })()}
-      <InsightCard tone="elite" icon={Star} stat={`#1`} headline={`${tn(best.a)} has the best offense in football`} body={`#1 in our composite. ${DNA[best.a].s}. Success rate ${pct(best.s.sr)} (avg: ${pct(bl.sr)}), explosive rate ${pct(best.s.xr)}. They move the ball consistently AND can hurt you deep.`} />
-      <InsightCard tone="positive" icon={Zap} stat={pct(mostExplosive.s.xr)} headline={`${tn(mostExplosive.a)} is the most dangerous per-play`} body={`${pct(mostExplosive.s.xr)} of plays go for a big gain (avg: ${pct(bl.xr)}). Roughly 1 in ${Math.round(1 / mostExplosive.s.xr)} plays is a chunk play. You cannot play conservative defense against them.`} />
+      <InsightCard tone="elite" icon={Star} stat={`#1`} headline={`${tn(best.a)} have the best offense in football`} body={`#1 in our composite. ${DNA[best.a].s}. Success rate ${pct(best.s.sr)} (avg: ${pct(bl.sr)}), explosive rate ${pct(best.s.xr)}. They move the ball consistently AND can hurt you deep.`} />
+      <InsightCard tone="positive" icon={Zap} stat={pct(mostExplosive.s.xr)} headline={`${tn(mostExplosive.a)} are the most dangerous per-play`} body={`${pct(mostExplosive.s.xr)} of plays go for a big gain (avg: ${pct(bl.xr)}). Roughly 1 in ${Math.round(1 / mostExplosive.s.xr)} plays is a chunk play. You cannot play conservative defense against them.`} />
       <InsightCard tone="negative" icon={AlertTriangle} stat={pct(leastEfficient.s.sr)} headline={`${tn(leastEfficient.a)} can't stay on schedule`} body={`Dead last at ${pct(leastEfficient.s.sr)} success rate. They constantly face 3rd-and-long, where defenses pin their ears back. Vicious cycle.`} />
-      <InsightCard tone="warning" icon={Eye} stat={pct(worstDef.s.dsr)} headline={`${tn(worstDef.a)}'s defense is getting shredded`} body={`Allowing ${pct(worstDef.s.dsr)} success rate — worst in the league. Opposing offenses gain positive yardage on ${(worstDef.s.dsr * 100).toFixed(0)}%+ of plays.`} />
-      <InsightCard tone="neutral" icon={Activity} stat={pct(mostRunHeavy.s.pr)} headline={`${tn(mostRunHeavy.a)} runs more than anyone`} body={`Only ${pct(mostRunHeavy.s.pr)} pass rate — lowest in the NFL. Stop the run and you stop this team.`} />
+      <InsightCard tone="warning" icon={Eye} stat={pct(worstDef.s.dsr)} headline={`${tnp(worstDef.a)} defense is getting shredded`} body={`Allowing ${pct(worstDef.s.dsr)} success rate — worst in the league. Opposing offenses gain positive yardage on ${(worstDef.s.dsr * 100).toFixed(0)}%+ of plays.`} />
+      <InsightCard tone="neutral" icon={Activity} stat={pct(mostRunHeavy.s.pr)} headline={`${tn(mostRunHeavy.a)} run more than anyone`} body={`Only ${pct(mostRunHeavy.s.pr)} pass rate — lowest in the NFL. Stop the run and you stop this team.`} />
       {/* Team Identity Cards */}
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", overflow: "hidden", marginTop: 12, marginBottom: 12 }}>
         <button onClick={() => setShowCards(!showCards)} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "20px 24px", background: "none", border: "none", cursor: "pointer", borderBottom: showCards ? "1px solid #e2e8f0" : "none" }}>

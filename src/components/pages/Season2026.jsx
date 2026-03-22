@@ -6,6 +6,7 @@ import { DNA } from '../../data/dna';
 import { DNA_2026 } from '../../data/dna2026';
 import { OPPONENTS_2026 } from '../../data/opponents2026';
 import { FA_MOVES_2026 } from '../../data/faMoves2026';
+import { CURRENT_SEASON, GAMES_PER_SEASON } from '../../config';
 import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
 import { RECORDS_2025 } from '../../data/records2025';
 import { agg, lgbl } from '../../utils/aggregation';
@@ -80,9 +81,9 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
             <div style={{ fontSize: 16, fontWeight: 700, color: "#f97316", marginTop: 6 }}>{dna26.s}</div>
           </div>
           <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 12, color: "#94a3b8" }}>2025 Record</div>
+            <div style={{ fontSize: 12, color: "#94a3b8" }}>{CURRENT_SEASON} Record</div>
             <div style={{ fontSize: 22, fontWeight: 900, fontFamily: "monospace" }}>{recordStr(myTeam)}</div>
-            <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>17 games confirmed</div>
+            <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>{GAMES_PER_SEASON} games confirmed</div>
           </div>
         </div>
         <div style={{ display: "flex", gap: isMobile ? 12 : 24, marginTop: 16, flexWrap: "wrap" }}>
@@ -100,7 +101,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
             <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents</h3>
             <ExportButton onClick={() => {
-              const headers = ["Opponent", "Location", "Division", "2025 Record", "Identity", "Matchup Grade"];
+              const headers = ["Opponent", "Location", "Division", `${CURRENT_SEASON} Record`, "Identity", "Matchup Grade"];
               const rows = allOpponents.map(oItem => {
                 const oppDna = DNA_2026[oItem.team] || DNA[oItem.team];
                 const oppStats = agg(plays, oItem.team);

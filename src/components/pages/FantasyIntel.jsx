@@ -3,6 +3,7 @@ import { Flame, AlertTriangle } from "lucide-react";
 import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
+import { CURRENT_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { downloadCSV } from '../../utils/csvExport';
@@ -18,7 +19,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
   const bl = useMemo(() => lgbl(plays), [plays]);
-  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : 2025, [plays]);
+  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : CURRENT_SEASON, [plays]);
 
   // Generate fantasy matchup board
   const matchupBoard = useMemo(() => {

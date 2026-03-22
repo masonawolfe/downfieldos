@@ -3015,10 +3015,10 @@ export const ROSTERS_2025 = {
     "offense": [
       {
         "pos": "QB",
-        "name": "Zach Wilson",
-        "grade": "Elite",
-        "rating": 93,
-        "trait": "Dual-Threat"
+        "name": "Tua Tagovailoa",
+        "grade": "Above Avg",
+        "rating": 85,
+        "trait": "Accuracy King"
       },
       {
         "pos": "RB1",
@@ -3182,10 +3182,10 @@ export const ROSTERS_2025 = {
     "offense": [
       {
         "pos": "QB",
-        "name": "Carson Wentz",
-        "grade": "Elite",
-        "rating": 88,
-        "trait": "Dual-Threat"
+        "name": "Sam Darnold",
+        "grade": "Above Avg",
+        "rating": 78,
+        "trait": "Game Manager"
       },
       {
         "pos": "RB1",
@@ -4351,10 +4351,10 @@ export const ROSTERS_2025 = {
     "offense": [
       {
         "pos": "QB",
-        "name": "Drew Lock",
+        "name": "Geno Smith",
         "grade": "Above Avg",
-        "rating": 80,
-        "trait": "Dual-Threat"
+        "rating": 79,
+        "trait": "Pocket Passer"
       },
       {
         "pos": "RB1",
@@ -4518,10 +4518,10 @@ export const ROSTERS_2025 = {
     "offense": [
       {
         "pos": "QB",
-        "name": "Mac Jones",
-        "grade": "Above Avg",
-        "rating": 86,
-        "trait": "Pocket Passer"
+        "name": "Brock Purdy",
+        "grade": "Elite",
+        "rating": 90,
+        "trait": "Game Manager"
       },
       {
         "pos": "RB1",

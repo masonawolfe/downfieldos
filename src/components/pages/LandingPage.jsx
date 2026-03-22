@@ -113,7 +113,7 @@ export function LandingPage({ onSelectTeam, navigate }) {
 
       {/* Module Cards */}
       <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "0 20px 48px" : "0 32px 80px" }}>
-        <h2 style={{ fontSize: 13, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, color: "#8B949E", marginBottom: 24, textAlign: "center" }}>7 Modules of Intelligence</h2>
+        <h2 style={{ fontSize: 13, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, color: "#8B949E", marginBottom: 24, textAlign: "center" }}>8 Modules of Intelligence</h2>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 16 }}>
           {MODULE_CARDS.map(card => {
             const Icon = card.icon;

@@ -1,6 +1,7 @@
 import { T } from '../data/teams';
 import { DNA } from '../data/dna';
 import { sr } from './rng';
+import { SEASONS } from '../config';
 
 // New fields: scoreDiff, driveId, complete (pass), personnel, timeLeft
 export function generatePlays() {
@@ -19,7 +20,7 @@ export function generatePlays() {
     return "11";
   }
 
-  for (const season of [2023, 2024, 2025]) {
+  for (const season of SEASONS) {
     for (let w = 1; w <= 18; w++) {
       const sh = [...T].sort(() => r() - 0.5);
       for (let g = 0; g < 16; g++) {

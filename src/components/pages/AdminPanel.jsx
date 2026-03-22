@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Zap } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
+import { CURRENT_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { tn } from '../../utils/formatters';
 import { MatchupGrade } from '../ui/MatchupGrade';
@@ -13,7 +14,7 @@ export function AdminPanel({ plays, rosters }) {
   const [generatedPosts, setGeneratedPosts] = useState([]);
   const [previewPost, setPreviewPost] = useState(null);
   const bl = useMemo(() => lgbl(plays), [plays]);
-  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : 2025, [plays]);
+  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : CURRENT_SEASON, [plays]);
 
   const weekGames = useMemo(() => {
     const weekPlays = plays.filter(p => p.season === latestSeason && p.week === selectedWeek);

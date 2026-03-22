@@ -1,14 +1,14 @@
 import { DNA } from '../data/dna';
-import { tn } from './formatters';
+import { tn, tnp } from './formatters';
 
 export function teamSoWhat(tm, stats, bl) {
   const lines = [];
   const pg = stats.pr - bl.pr, sg = stats.sr - bl.sr, eg = stats.xr - bl.xr;
-  if (pg > .10) lines.push(`${tn(tm)} is one of the most pass-happy teams in football. They throw it on nearly two-thirds of their plays — everyone in the building knows it's coming, and they dare you to stop it.`);
-  else if (pg > .05) lines.push(`${tn(tm)} leans on the pass a bit more than most teams, but not to an extreme degree. They're willing to throw to set up the run.`);
-  else if (pg < -.10) lines.push(`${tn(tm)} wants to run the football. Period. They'll line up in heavy sets and try to impose their will physically. If you can't stop the run, you're not beating this team.`);
-  else if (pg < -.05) lines.push(`${tn(tm)} tilts run-heavy compared to the league. They trust their ground game and use play-action off it.`);
-  else lines.push(`${tn(tm)} is balanced — they'll run or throw based on the situation, which makes them harder to prepare for.`);
+  if (pg > .10) lines.push(`${tn(tm)} are one of the most pass-happy teams in football. They throw it on nearly two-thirds of their plays — everyone in the building knows it's coming, and they dare you to stop it.`);
+  else if (pg > .05) lines.push(`${tn(tm)} lean on the pass a bit more than most teams, but not to an extreme degree. They're willing to throw to set up the run.`);
+  else if (pg < -.10) lines.push(`${tn(tm)} want to run the football. Period. They'll line up in heavy sets and try to impose their will physically. If you can't stop the run, you're not beating this team.`);
+  else if (pg < -.05) lines.push(`${tn(tm)} tilt run-heavy compared to the league. They trust their ground game and use play-action off it.`);
+  else lines.push(`${tn(tm)} are balanced — they'll run or throw based on the situation, which makes them harder to prepare for.`);
   if (sg > .06) lines.push(`They're also really efficient. They consistently gain positive yardage, stay ahead of the chains, and rarely put themselves in 3rd-and-long. That's the hallmark of a well-coached offense.`);
   else if (sg > .03) lines.push(`Their efficiency is solid — above average — meaning they generally stay on schedule and avoid obvious passing situations.`);
   else if (sg < -.06) lines.push(`The problem? They're not efficient. They fall behind the sticks constantly, which puts them in predictable 3rd-and-long situations where defenses can pin their ears back and rush.`);
@@ -24,9 +24,9 @@ export function teamSoWhat(tm, stats, bl) {
 export function matchupPreview(offTm, defTm, oStats, dStats, bl) {
   const lines = [];
   lines.push(`## The Big Picture`);
-  if (oStats.pr > .58 && dStats.dsr > bl.sr + .02) lines.push(`This is a mismatch that favors ${tn(offTm)}. Their offense wants to throw, and ${tn(defTm)}'s defense has been getting carved up. Expect ${tn(offTm)} to attack early and often through the air.`);
-  else if (oStats.pr > .58 && dStats.dsr < bl.sr - .02) lines.push(`Fascinating chess match. ${tn(offTm)} wants to live in the air, but ${tn(defTm)}'s defense is one of the stingiest. Something has to give.`);
-  else if (oStats.pr < .48 && dStats.dxr < bl.xr - .02) lines.push(`${tn(offTm)} wants to run and ${tn(defTm)} doesn't give up big plays. This projects as a low-scoring grind where field position and turnovers decide it.`);
+  if (oStats.pr > .58 && dStats.dsr > bl.sr + .02) lines.push(`This is a mismatch that favors ${tn(offTm)}. Their offense wants to throw, and ${tnp(defTm)} defense has been getting carved up. Expect ${tn(offTm)} to attack early and often through the air.`);
+  else if (oStats.pr > .58 && dStats.dsr < bl.sr - .02) lines.push(`Fascinating chess match. ${tn(offTm)} want to live in the air, but ${tnp(defTm)} defense is one of the stingiest. Something has to give.`);
+  else if (oStats.pr < .48 && dStats.dxr < bl.xr - .02) lines.push(`${tn(offTm)} want to run and ${tn(defTm)} don't give up big plays. This projects as a low-scoring grind where field position and turnovers decide it.`);
   else lines.push(`Neither team has a dramatic schematic edge. This comes down to execution and individual matchup battles.`);
   if (oStats.xr > bl.xr + .02 && dStats.dxr > bl.xr + .02) lines.push(`\n## The Explosive Angle\n${tn(defTm)} has been giving up big plays at an alarming rate, and ${tn(offTm)} generates them. Expect at least 2-3 plays of 20+ yards.`);
   else if (oStats.xr > bl.xr + .02 && dStats.dxr < bl.xr - .01) lines.push(`\n## The Explosive Angle\n${tn(offTm)} lives on the big play, but ${tn(defTm)} almost never allows them. This is THE matchup to watch.`);
@@ -35,7 +35,7 @@ export function matchupPreview(offTm, defTm, oStats, dStats, bl) {
 
 export function scriptedPlaysPreview(tm, stats, roster) {
   const d = DNA[tm]; const lines = [];
-  lines.push(`### ${tn(tm)}'s Opening Script`);
+  lines.push(`### ${tnp(tm)} Opening Script`);
   if (d.p > .58) {
     lines.push(`Expect 9-10 passes and 5-6 runs in the first 15. Quick-game concepts to get ${roster.offense.find(p => p.pos === "QB")?.name} in rhythm, 1-2 shot plays to ${roster.offense.find(p => p.pos === "WR1")?.name}, play-action on early downs.`);
   } else if (d.p < .48) {
@@ -80,7 +80,7 @@ export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
 }
 
 export function gmVoice(tm, stats, bl, needs) {
-  const lines = [`*If I'm sitting in ${tn(tm)}'s war room right now:*`];
+  const lines = [`*If I'm sitting in ${tnp(tm)} war room right now:*`];
   needs.forEach(n => {
     if (n.severity === "High") lines.push(`\n**"We have to fix ${n.weakness.toLowerCase()}."** Not optional. I'm looking at ${n.need.toLowerCase()} in the first two rounds — a ${n.archetype.toLowerCase()}.`);
     else if (n.severity === "Medium") lines.push(`\n**"${n.weakness} needs attention."** If the right ${n.need.toLowerCase()} falls on Day 2, we jump.`);
