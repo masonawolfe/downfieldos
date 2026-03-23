@@ -3,6 +3,7 @@ import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { teamSoWhat } from '../../utils/narratives';
+import { PlayerLink } from '../ui/PlayerLink';
 import { downloadCSV } from '../../utils/csvExport';
 import { TeamSelect } from '../ui/TeamSelect';
 import { ExportButton } from '../ui/ExportButton';
@@ -57,7 +58,7 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
                   <span style={{ fontSize: 11, fontWeight: 700, color: "#f97316", fontFamily: "monospace" }}>{p.pos}</span>
                   <span style={{ fontSize: 11, fontWeight: 700, color: p.grade === "Elite" ? "#2563eb" : p.grade === "Above Avg" ? "#16a34a" : "#64748b" }}>{p.grade} ({p.rating})</span>
                 </div>
-                <div style={{ fontSize: 14, fontWeight: 600, color: "#0f172a" }}>{p.name}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: "#0f172a" }}><PlayerLink player={p} team={team}>{p.name}</PlayerLink></div>
                 <div style={{ fontSize: 12, color: "#94a3b8" }}>{p.trait}</div>
               </div>
             ))}

@@ -10,6 +10,7 @@ import { downloadCSV } from '../../utils/csvExport';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { RatingBar } from '../ui/RatingBar';
 import { MethodologyTip } from '../ui/MethodologyTip';
+import { PlayerLink } from '../ui/PlayerLink';
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { InsightCard } from '../ui/InsightCard';
 import { ExportButton } from '../ui/ExportButton';
@@ -109,7 +110,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}>{pos.player.name}</span>
+            <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}><PlayerLink player={pos.player} team={item.off}>{pos.player.name}</PlayerLink></span>
             {isContractYear && <span style={{ fontSize: 9, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "1px 6px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>Contract Yr</span>}
           </div>
           <div style={{ fontSize: 12, color: "#64748b" }}>{tn(item.off)} {posFilter} vs {tn(item.def)}</div>

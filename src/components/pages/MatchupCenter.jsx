@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from "react";
 import { Swords, ChevronDown, ChevronRight, Twitter, Copy, Check, Mic, FileText, Download, PenLine, Flame, Shield, GitBranch, ArrowRightLeft } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
+import { PlayerLink } from '../ui/PlayerLink';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { calcMatchupGrade } from '../../utils/grading';
@@ -139,13 +140,13 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 10 }}>
                   <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.off.name}</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.off} team={offTm}>{m.off.name}</PlayerLink></div>
                     <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade} | {m.off.trait}</div>
                     <RatingBar value={m.off.rating} color="#16a34a" />
                   </div>
                   <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{m.def.name}</div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.def} team={defTm}>{m.def.name}</PlayerLink></div>
                     <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.def.pos} | {m.def.grade} | {m.def.trait}</div>
                     <RatingBar value={m.def.rating} color="#dc2626" />
                   </div>
