@@ -1,0 +1,335 @@
+{
+  "metadata": {
+    "season": 2025,
+    "lastUpdated": "2026-03-17",
+    "status": "offseason_update",
+    "source": "nflpenalties.com, sharpfootballanalysis.com, footballzebras.com",
+    "notes": "Full-season detailed per-game stats unavailable via automated fetch (nflpenalties.com blocked). Profiles built from partial data (Week 3 totals, season-end narrative reports, Super Bowl crew data). Will be enriched when season resumes."
+  },
+  "leagueAverages2025": {
+    "penaltiesPerGame": null,
+    "playoffPenaltiesPerGame": 7.5,
+    "playoffPenaltyYardsPerGame": 62.5,
+    "autoFirstDownPenaltyRate": 0.283
+  },
+  "crews": [
+    {
+      "referee": "Ron Torbert",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "high",
+        "penaltiesWeek3": 54,
+        "penaltyYardsWeek3": 480,
+        "totalFlagsWeek3": 69,
+        "estimatedPenaltiesPerGame": "18.0 (Week 3 pace)",
+        "notes": "Led all crews in penalties through Week 3. High-volume flag crew — expect more stoppages and longer games."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["disciplined offensive lines", "quick-release quarterbacks"],
+        "hurtsTeamsWith": ["penalty-prone defensive secondaries", "aggressive edge rushers"],
+        "overUnderLean": "over"
+      }
+    },
+    {
+      "referee": "Scott Novak",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "high",
+        "penaltiesWeek3": 53,
+        "penaltyYardsWeek3": 387,
+        "totalFlagsWeek3": 66,
+        "estimatedPenaltiesPerGame": "17.7 (Week 3 pace)",
+        "notes": "Second-highest flag volume through Week 3. Lower yardage than Torbert suggests more procedural/pre-snap calls."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["disciplined pre-snap operations", "teams that avoid false starts"],
+        "hurtsTeamsWith": ["teams with high false start rates", "road teams in loud environments"],
+        "overUnderLean": "slight over"
+      }
+    },
+    {
+      "referee": "Bill Vinovich",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "high",
+        "penaltiesWeek3": 48,
+        "penaltyYardsWeek3": 444,
+        "totalFlagsWeek3": 63,
+        "estimatedPenaltiesPerGame": "16.0 (Week 3 pace)",
+        "notes": "High yardage relative to penalty count — calls big-yardage penalties (DPI, personal fouls). Game-changing flags."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["aggressive deep passing attacks", "teams that draw DPI"],
+        "hurtsTeamsWith": ["physical defensive secondaries", "man-coverage-heavy defenses"],
+        "overUnderLean": "over"
+      }
+    },
+    {
+      "referee": "Adrian Hill",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "moderate-high",
+        "penaltiesWeek3": 48,
+        "penaltyYardsWeek3": 370,
+        "totalFlagsWeek3": 57,
+        "estimatedPenaltiesPerGame": "16.0 (Week 3 pace)",
+        "notes": "Lower total flags vs penalties — fewer offsetting/declined situations. Straightforward calling style."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["teams that play clean football"],
+        "hurtsTeamsWith": ["undisciplined teams"],
+        "overUnderLean": "slight over"
+      }
+    },
+    {
+      "referee": "Alex Kemp",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "moderate-high",
+        "penaltiesWeek3": 47,
+        "penaltyYardsWeek3": 405,
+        "totalFlagsWeek3": 58,
+        "estimatedPenaltiesPerGame": "15.7 (Week 3 pace)",
+        "notes": "Balanced penalty profile — moderate volume with moderate yardage per call."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["balanced offensive schemes"],
+        "hurtsTeamsWith": ["teams relying on physical play at the line"],
+        "overUnderLean": "neutral"
+      }
+    },
+    {
+      "referee": "Alex Moore",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "high",
+        "notes": "Ranked 1st in automatic first downs via penalty in 2025 regular season. High-impact crew for game flow."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null,
+        "autoFirstDownRate": "above_average"
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["offenses that manufacture contact downfield", "teams good on 2nd-and-long"],
+        "hurtsTeamsWith": ["defenses that play tight coverage", "zone-blitz heavy teams"],
+        "overUnderLean": "over"
+      }
+    },
+    {
+      "referee": "Shawn Hochuli",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "high",
+        "notes": "Ranked 2nd in automatic first downs via penalty in 2025 regular season."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": null,
+        "roughingThePasser": null,
+        "unnecessaryRoughness": null,
+        "autoFirstDownRate": "above_average"
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["aggressive passing offenses", "teams that attack downfield"],
+        "hurtsTeamsWith": ["physical man-coverage defenses"],
+        "overUnderLean": "over"
+      }
+    },
+    {
+      "referee": "Shawn Smith",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "moderate-high",
+        "notes": "Ranked 3rd in automatic first downs via penalty in 2025. League-leading 35% of penalties resulted in auto first downs (vs 28.3% avg). Below-average false start/holding rate (32.5%). High unnecessary roughness rate — ranked top 4 since 2022. Super Bowl LX crew chief."
+      },
+      "keyPenaltyRates": {
+        "defensivePassInterference": null,
+        "offensiveHolding": "below_average",
+        "roughingThePasser": null,
+        "unnecessaryRoughness": "above_average",
+        "autoFirstDownRate": 0.35,
+        "falseStartAndHoldingRate": 0.325
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": ["aggressive passing offenses", "offensive lines that hold on the edge"],
+        "hurtsTeamsWith": ["physical defenses with high personal foul risk", "teams with hot-headed players"],
+        "overUnderLean": "over"
+      }
+    },
+    {
+      "referee": "Brad Allen",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Brad Rogers",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Carl Cheffers",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Clay Martin",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Clete Blakeman",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Craig Wrolstad",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "John Hussey",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Land Clark",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    },
+    {
+      "referee": "Alan Eck",
+      "crewNumber": null,
+      "active": true,
+      "tendencies": {
+        "flagVolume": "unknown_full_season",
+        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      },
+      "keyPenaltyRates": {},
+      "matchupImpact": {}
+    }
+  ],
+  "retirements2025": [
+    {
+      "name": "Terry Brown",
+      "position": "Field Judge",
+      "yearsOfService": null,
+      "notes": "Retired after 2025 season."
+    },
+    {
+      "name": "Tom Stephan",
+      "position": "Down Judge",
+      "yearsOfService": null,
+      "notes": "Retired after 2025 season. Member of the 30-season club."
+    },
+    {
+      "name": "Rick Patterson",
+      "position": "Field Judge",
+      "yearsOfService": null,
+      "notes": "Retired after 2025 season. Member of the 30-season club."
+    },
+    {
+      "name": "Boris Cheek",
+      "position": "Field Judge",
+      "yearsOfService": null,
+      "notes": "Retired after 2025 season."
+    }
+  ],
+  "offseasonNotes": {
+    "cbaExpiration": "2026-05-31",
+    "cbaStickingPoints": ["Job performance standards", "Grievance process for terminated officials", "Roster makeup authority"],
+    "memoOneDate": "2026-05-15",
+    "hallOfFameGame": "2026-08-06",
+    "superBowlLXCrew": "Shawn Smith",
+    "newRefereeOpenings": "None expected at crew chief level as of March 2026, but position-level openings likely due to 4 retirements",
+    "potentialRuleChanges": ["Instant replay for ejections on cheap shots without flags"]
+  }
+}

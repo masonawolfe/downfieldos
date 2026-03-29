@@ -183,10 +183,13 @@ export default function DownfieldOS() {
   }, []);
   useEffect(() => { if (!isMobile) setMobileSidebarOpen(false); }, [isMobile]);
 
-  // Dynamic page title + meta tags
+  // Dynamic page title + meta tags + focus management on module switch
   useEffect(() => {
     const basePath = location.pathname.replace(/\/+$/, '') || '/';
     updateMeta(basePath);
+    // Move focus to main content so screen readers announce the context change
+    const main = document.getElementById('main-content');
+    if (main) { main.focus({ preventScroll: true }); }
   }, [location.pathname]);
 
   const navigateToMatchup = useCallback((off, def) => {
@@ -329,7 +332,7 @@ export default function DownfieldOS() {
 
       {isMobile && mobileSidebarOpen && <div onClick={() => setMobileSidebarOpen(false)} aria-hidden="true" style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1400 }} />}
       {/* Main */}
-      <main id="main-content" style={{ flex: 1, background: "#f8fafc", overflow: "auto" }}>
+      <main id="main-content" tabIndex={-1} style={{ flex: 1, background: "#f8fafc", overflow: "auto", outline: "none" }}>
         <div style={{ padding: isMobile ? 16 : 32, maxWidth: 1000, margin: "0 auto", overflowX: "hidden" }}>
           {isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>

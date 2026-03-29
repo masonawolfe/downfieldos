@@ -22,24 +22,24 @@ export function FilterPanel({ filters, setFilters, playCount, totalCount }) {
       )}
 
       <div style={secStyle}>
-        <div style={lblStyle}>Season</div>
-        <select value={filters.season} onChange={e => update("season", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-season" style={lblStyle}>Season</label>
+        <select id="filter-season" value={filters.season} onChange={e => update("season", e.target.value)} style={selStyle}>
           <option value="all">All Seasons</option>
           <option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option>
         </select>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Weeks {filters.weekMin}–{filters.weekMax}</div>
+        <label style={lblStyle}>Weeks {filters.weekMin}–{filters.weekMax}</label>
         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-          <input type="range" min={1} max={18} value={filters.weekMin} onChange={e => update("weekMin", Math.min(Number(e.target.value), filters.weekMax))} style={{ flex: 1, accentColor: "#f97316" }} />
-          <input type="range" min={1} max={18} value={filters.weekMax} onChange={e => update("weekMax", Math.max(Number(e.target.value), filters.weekMin))} style={{ flex: 1, accentColor: "#f97316" }} />
+          <input type="range" min={1} max={18} value={filters.weekMin} onChange={e => update("weekMin", Math.min(Number(e.target.value), filters.weekMax))} style={{ flex: 1, accentColor: "#f97316" }} aria-label={`Minimum week: ${filters.weekMin}`} />
+          <input type="range" min={1} max={18} value={filters.weekMax} onChange={e => update("weekMax", Math.max(Number(e.target.value), filters.weekMin))} style={{ flex: 1, accentColor: "#f97316" }} aria-label={`Maximum week: ${filters.weekMax}`} />
         </div>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Down</div>
-        <select value={filters.down} onChange={e => update("down", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-down" style={lblStyle}>Down</label>
+        <select id="filter-down" value={filters.down} onChange={e => update("down", e.target.value)} style={selStyle}>
           <option value="all">All Downs</option>
           <option value="1">1st Down</option><option value="2">2nd Down</option>
           <option value="3">3rd Down</option><option value="4">4th Down</option>
@@ -47,32 +47,32 @@ export function FilterPanel({ filters, setFilters, playCount, totalCount }) {
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Distance</div>
-        <select value={filters.distBucket} onChange={e => update("distBucket", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-distance" style={lblStyle}>Distance</label>
+        <select id="filter-distance" value={filters.distBucket} onChange={e => update("distBucket", e.target.value)} style={selStyle}>
           <option value="all">All</option>
           <option value="short">Short (1-3)</option><option value="medium">Medium (4-7)</option><option value="long">Long (8+)</option>
         </select>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Field Position</div>
-        <select value={filters.fpZone} onChange={e => update("fpZone", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-fp" style={lblStyle}>Field Position</label>
+        <select id="filter-fp" value={filters.fpZone} onChange={e => update("fpZone", e.target.value)} style={selStyle}>
           <option value="all">All</option>
           <option value="own">Own Territory (1-50)</option><option value="mid">Midfield (51-79)</option><option value="rz">Red Zone (80+)</option>
         </select>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Quarter</div>
-        <select value={filters.quarter} onChange={e => update("quarter", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-quarter" style={lblStyle}>Quarter</label>
+        <select id="filter-quarter" value={filters.quarter} onChange={e => update("quarter", e.target.value)} style={selStyle}>
           <option value="all">All</option>
           <option value="1">Q1</option><option value="2">Q2</option><option value="3">Q3</option><option value="4">Q4</option>
         </select>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Game Context</div>
-        <select value={filters.scoreDiff} onChange={e => update("scoreDiff", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-context" style={lblStyle}>Game Context</label>
+        <select id="filter-context" value={filters.scoreDiff} onChange={e => update("scoreDiff", e.target.value)} style={selStyle}>
           <option value="all">All Situations</option>
           <option value="winning">Winning</option><option value="losing">Losing</option>
           <option value="close">Close Game (within 7)</option><option value="blowout">Blowout (14+)</option>
@@ -80,15 +80,15 @@ export function FilterPanel({ filters, setFilters, playCount, totalCount }) {
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Home / Away</div>
-        <select value={filters.homeAway} onChange={e => update("homeAway", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-homeaway" style={lblStyle}>Home / Away</label>
+        <select id="filter-homeaway" value={filters.homeAway} onChange={e => update("homeAway", e.target.value)} style={selStyle}>
           <option value="all">All</option><option value="Home">Home</option><option value="Away">Away</option>
         </select>
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Weather</div>
-        <select value={filters.env} onChange={e => update("env", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-weather" style={lblStyle}>Weather</label>
+        <select id="filter-weather" value={filters.env} onChange={e => update("env", e.target.value)} style={selStyle}>
           <option value="all">All</option>
           <option value="Dome">Dome</option><option value="Clear">Clear</option>
           <option value="Rain">Rain</option><option value="Snow">Snow</option><option value="Wind">Wind</option>
@@ -96,8 +96,8 @@ export function FilterPanel({ filters, setFilters, playCount, totalCount }) {
       </div>
 
       <div style={secStyle}>
-        <div style={lblStyle}>Personnel</div>
-        <select value={filters.pers} onChange={e => update("pers", e.target.value)} style={selStyle}>
+        <label htmlFor="filter-personnel" style={lblStyle}>Personnel</label>
+        <select id="filter-personnel" value={filters.pers} onChange={e => update("pers", e.target.value)} style={selStyle}>
           <option value="all">All</option>
           <option value="11">11 (3WR/1TE/1RB)</option><option value="12">12 (2TE/1RB)</option>
           <option value="21">21 (1WR/1TE/2RB)</option><option value="13">13 (3TE/1RB)</option>
