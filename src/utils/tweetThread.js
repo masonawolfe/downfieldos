@@ -37,7 +37,7 @@ export function generateTweetThread(offTm, defTm, oStats, dStats, bl, grade) {
 
   // Tweet 5: Bottom line + CTA
   const proj = oStats.sr > dStats.dsr + 0.03 ? `${off} should move the ball.` : dStats.dsr < oStats.sr - 0.03 ? `${def}'s defense should hold.` : `Coin flip. Watch the trenches.`;
-  const t5 = `Bottom line: ${proj}\n\nFull breakdown with fantasy scores, player matchups, and scouting report:\ndownfieldos.com\n\n#NFL #DownfieldOS\n\n(5/5)`;
+  const t5 = `Bottom line: ${proj}\n\nFull breakdown + weekly newsletter:\ndownfieldos.com\n\nSubscribe to The Audible → the-audible.beehiiv.com\n\n(5/5)`;
 
   return [t1, t2, t3, t4, t5];
 }

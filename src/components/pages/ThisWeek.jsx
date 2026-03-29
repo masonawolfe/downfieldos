@@ -10,6 +10,7 @@ import { MatchupGrade } from '../ui/MatchupGrade';
 import { InsightCard } from '../ui/InsightCard';
 import { RatingBar } from '../ui/RatingBar';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
@@ -212,6 +213,7 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
           return bHas - aHas;
         }).map(g => <GameCard key={g.gameId} game={g} />)
       )}
+      <NewsletterCTA />
     </div>
   );
 }

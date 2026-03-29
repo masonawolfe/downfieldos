@@ -5,6 +5,7 @@ import { teamSoWhat, gmVoice, genNeeds } from '../../utils/narratives';
 import { tn } from '../../utils/formatters';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 
 export function WarRoom({ plays, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "CAR");
@@ -39,6 +40,7 @@ export function WarRoom({ plays, primaryTeam }) {
           <div style={{ fontSize: 13, color: "#64748b" }}>Archetype: {n.archetype}</div>
         </div>
       ))}
+      <NewsletterCTA />
     </div>
   );
 }

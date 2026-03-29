@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect, useCallback } from "react";
-import { Routes, Route, useNavigate, useLocation, Navigate, useParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Navigate, useParams, Link } from "react-router-dom";
 import {
   Target, TrendingUp, Calendar, Star, Swords,
-  Flame, Eye, Shield, Filter, Menu, Home
+  Flame, Eye, Shield, Filter, Menu, Home, Mail
 } from "lucide-react";
 import { useIsMobile } from './hooks/useIsMobile';
 import { T } from './data/teams';
@@ -271,10 +271,10 @@ export default function DownfieldOS() {
         {/* Nav */}
         <nav style={{ width: 220, padding: "20px 12px", display: "flex", flexDirection: "column", flexShrink: 0 }} aria-label="Main navigation">
           <div style={{ padding: "0 4px", marginBottom: 32 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Link to="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
               <Logo size={36} />
               <div style={{ fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -.5 }}>DownfieldOS</div>
-            </div>
+            </Link>
             <div style={{ fontSize: 11, color: "#8B949E", letterSpacing: 1.5, marginTop: 6, paddingLeft: 46 }}>Football, understood.</div>
           </div>
           <div style={{ padding: "0 4px", marginBottom: 16 }}>
@@ -300,6 +300,10 @@ export default function DownfieldOS() {
             ))}
             <div style={{ height: 1, background: "#1e293b", margin: "8px 0" }} />
             <NavItem icon={Filter} label="Filters" active={showFilters} onClick={() => setShowFilters(!showFilters)} badge={isFiltered ? "ON" : null} />
+            <a href="https://the-audible.beehiiv.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", fontSize: 12, color: "#8B949E", textDecoration: "none", borderRadius: 8, marginTop: 4, transition: "color 0.15s" }} onMouseEnter={e => e.currentTarget.style.color = "#f97316"} onMouseLeave={e => e.currentTarget.style.color = "#8B949E"}>
+              <Mail size={14} />
+              <span>Subscribe to The Audible</span>
+            </a>
           </div>
           <div style={{ padding: "12px 16px", background: "#1e293b15", borderRadius: 10, marginTop: 16 }} aria-label="System status">
             <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace", marginBottom: 4 }}>System Status</div>
@@ -332,10 +336,10 @@ export default function DownfieldOS() {
               <button onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)} style={{ background: "#0d1117", border: "none", borderRadius: 8, width: 40, height: 40, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
                 <Menu size={20} color="#fff" />
               </button>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <Link to="/" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
                 <Logo size={28} />
                 <span style={{ fontWeight: 800, fontSize: 15, color: "#0d1117" }}>DownfieldOS</span>
-              </div>
+              </Link>
             </div>
           )}
           <Routes>

@@ -12,6 +12,7 @@ import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
 import { calcEnvironmentFactors } from '../../utils/environmentFactors';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 
 const QUICK_LINKS = [
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
@@ -166,6 +167,7 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
           })}
         </div>
       </div>
+      <NewsletterCTA />
     </div>
   );
 }

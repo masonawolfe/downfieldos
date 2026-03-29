@@ -13,6 +13,7 @@ import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { recordStr, projectAll32 } from '../../utils/projections';
 import { genRoster2026 } from '../../utils/roster';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { gmVoice, genNeeds } from '../../utils/narratives';
 import { calcMatchupGrade } from '../../utils/grading';
 import { downloadCSV } from '../../utils/csvExport';
@@ -385,6 +386,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
           </div>
         </div>
       )}
+      <NewsletterCTA />
     </div>
   );
 }

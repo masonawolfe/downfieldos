@@ -13,6 +13,7 @@ import { MethodologyTip } from '../ui/MethodologyTip';
 import { PlayerLink } from '../ui/PlayerLink';
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { InsightCard } from '../ui/InsightCard';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 
@@ -199,6 +200,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
       <div style={{ marginTop: 20 }}>
         <ContractYearCard />
       </div>
+      <NewsletterCTA />
     </div>
   );
 }

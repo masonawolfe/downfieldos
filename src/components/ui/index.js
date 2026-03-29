@@ -13,3 +13,6 @@ export { ExportButton } from './ExportButton';
 export { FanSentimentCard } from './FanSentimentCard';
 export { ContractYearCard } from './ContractYearCard';
 export { RefereeProfileCard } from './RefereeProfileCard';
+export { NewsletterCTA } from './NewsletterCTA';
+export { PlayerCard } from './PlayerCard';
+export { PlayerLink } from './PlayerLink';

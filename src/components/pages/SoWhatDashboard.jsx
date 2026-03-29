@@ -8,6 +8,7 @@ import { pct, tn, tnp } from '../../utils/formatters';
 import { InsightCard } from '../ui/InsightCard';
 import { FanSentimentCard } from '../ui/FanSentimentCard';
 import { getTopDramaMatchups } from '../../utils/dramaScore';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 
 export function SoWhatDashboard({ plays, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -113,6 +114,7 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
       })()}
 
       <InsightCard tone="neutral" icon={BookOpen} headline="How to use this app" body={`Every metric compares against a league baseline. Use the Filter Panel (funnel icon, sidebar) to slice data by down, distance, score, weather, personnel, and more. All pages update instantly.`} />
+      <NewsletterCTA />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { getRevengeGameSummary } from '../../utils/revengeGames';
 import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcCoachingTreeOverlap } from '../../utils/coachingTree';
@@ -469,6 +470,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
           </div>
         )}
       </div>
+      <NewsletterCTA />
     </div>
   );
 }
