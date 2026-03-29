@@ -10,6 +10,7 @@
     "data:fetch": "node scripts/fetch-nflverse-rosters.js",
     "data:pbp": "node scripts/fetch-nflverse-pbp.js",
     "data:rosters": "node scripts/fetch-nflverse-roster-base.js",
+    "data:stats": "node scripts/build-player-stats.js",
     "test": "node scripts/test-rosters.js"
   },
   "dependencies": {
