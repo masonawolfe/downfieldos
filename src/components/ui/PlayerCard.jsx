@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
-import { X, TrendingUp, Star, Flame, Shield, BarChart3 } from "lucide-react";
+import { Link } from "react-router-dom";
+import { X, TrendingUp, Star, Flame, Shield, BarChart3, ExternalLink } from "lucide-react";
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
 
@@ -136,6 +137,15 @@ export function PlayerCard({ player, team, onClose }) {
             {player.grade === 'Below Avg' && `${player.name} is a liability. Opponents will target this spot.`}
             {player.grade === 'TBD' && `${player.name} is ungraded — limited data available. Watch the preseason.`}
           </div>
+
+          {/* Full profile link */}
+          <Link
+            to={`/player/${player.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '')}`}
+            onClick={onClose}
+            style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: "#f97316", fontWeight: 600, textDecoration: "none", marginTop: 12 }}
+          >
+            View full profile <ExternalLink size={11} />
+          </Link>
         </div>
       </div>
     </>

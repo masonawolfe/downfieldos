@@ -20,3 +20,4 @@ export { generateMatchupIntelSummary } from './matchupIntelSummary';
 export { calcFilmStudy } from './filmStudy';
 export { calcDramaScore, getTopDramaMatchups } from './dramaScore';
 export { calcRosterFragility, calcAllFragility, getFragilityRankings } from './rosterFragility';
+export { analyzeDraftPick, getTeamProspects } from './draftAnalysis';

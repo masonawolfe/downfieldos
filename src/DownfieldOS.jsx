@@ -28,6 +28,8 @@ import { AdminPanel } from './components/pages/AdminPanel';
 import { LandingPage } from './components/pages/LandingPage';
 import { HomeDashboard } from './components/pages/HomeDashboard';
 import { GamePrep } from './components/pages/GamePrep';
+import { PlayerPage } from './components/pages/PlayerPage';
+import { EmbedMatchup } from './components/pages/EmbedMatchup';
 
 /**
  * Route config — maps URL paths to module metadata.
@@ -265,6 +267,15 @@ export default function DownfieldOS() {
     );
   }
 
+  // Embeddable widget — no sidebar, minimal chrome
+  if (currentPath.startsWith('/embed/')) {
+    return (
+      <Routes>
+        <Route path="/embed/matchup/:matchup" element={<EmbedMatchup plays={filteredPlays} />} />
+      </Routes>
+    );
+  }
+
   return (
     <div style={{ display: "flex", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" }}>
       {/* Skip to content — accessibility */}
@@ -359,6 +370,7 @@ export default function DownfieldOS() {
             {/* Team-specific routes */}
             <Route path="/team/:teamCode" element={<ErrorBoundary label="Team Intel"><TeamRouteWrapper plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/matchup/:matchup" element={<ErrorBoundary label="Matchup Preview"><MatchupRouteWrapper plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} /></ErrorBoundary>} />
+            <Route path="/player/:playerId" element={<ErrorBoundary label="Player"><PlayerPage /></ErrorBoundary>} />
             {/* Catch-all — redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

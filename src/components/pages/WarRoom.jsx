@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { Shield, Star, GraduationCap, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 import { agg, lgbl } from '../../utils/aggregation';
 import { teamSoWhat, gmVoice, genNeeds } from '../../utils/narratives';
 import { tn } from '../../utils/formatters';
@@ -95,7 +96,7 @@ function ProspectBoard({ team }) {
           <div key={p.id} onClick={() => setExpanded(expanded === p.id ? null : p.id)} style={{ background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", padding: 16, cursor: "pointer", transition: "all 0.15s", borderLeft: `4px solid ${p.fitType === 'targeted' ? '#f97316' : '#3b82f6'}` }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
               <div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a" }}>{p.name}</div>
+                <Link to={`/player/${p.id}`} onClick={e => e.stopPropagation()} style={{ fontSize: 15, fontWeight: 700, color: "#0f172a", textDecoration: "none", borderBottom: "1px dashed #f9731640" }}>{p.name}</Link>
                 <div style={{ fontSize: 12, color: "#64748b" }}>{p.position} — {p.school}</div>
               </div>
               <div style={{ textAlign: "right" }}>
