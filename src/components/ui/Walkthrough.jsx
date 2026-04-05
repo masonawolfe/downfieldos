@@ -42,7 +42,7 @@ export function Walkthrough({ onDismiss }) {
   return (
     <>
       {/* Backdrop */}
-      <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 8000, backdropFilter: "blur(2px)" }} />
+      <div onClick={onDismiss} style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 8000, backdropFilter: "blur(2px)", cursor: "pointer" }} />
       {/* Card */}
       <div style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "min(420px, 90vw)", background: "#161b22", border: "1px solid #30363d", borderRadius: 16, zIndex: 8001, padding: 28, boxShadow: "0 24px 48px rgba(0,0,0,0.5)" }}>
         {/* Progress dots */}
@@ -53,8 +53,8 @@ export function Walkthrough({ onDismiss }) {
         </div>
 
         {/* Close */}
-        <button onClick={onDismiss} style={{ position: "absolute", top: 12, right: 12, background: "none", border: "none", cursor: "pointer", padding: 4 }}>
-          <X size={16} color="#64748b" />
+        <button onClick={onDismiss} style={{ position: "absolute", top: 12, right: 12, background: "none", border: "none", cursor: "pointer", padding: 8, borderRadius: 6, zIndex: 8002 }} aria-label="Close walkthrough">
+          <X size={18} color="#8B949E" />
         </button>
 
         {/* Content */}
@@ -65,6 +65,9 @@ export function Walkthrough({ onDismiss }) {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontSize: 12, color: "#484f58" }}>{step + 1} of {STEPS.length}</span>
           <div style={{ display: "flex", gap: 8 }}>
+            <button onClick={onDismiss} style={{ background: "none", border: "none", padding: "8px 16px", color: "#484f58", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
+              Skip
+            </button>
             {step > 0 && (
               <button onClick={() => setStep(step - 1)} style={{ background: "#21262d", border: "none", borderRadius: 8, padding: "8px 16px", color: "#e2e8f0", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>
                 Back

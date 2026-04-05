@@ -10,6 +10,7 @@ import { InstaPostCard } from '../ui/InstaPostCard';
 
 export function AdminPanel({ plays, rosters }) {
   const isMobile = useIsMobile();
+  const [authed, setAuthed] = useState(() => localStorage.getItem('dfos-admin') === 'true');
   const [selectedWeek, setSelectedWeek] = useState(18);
   const [generatedPosts, setGeneratedPosts] = useState([]);
   const [previewPost, setPreviewPost] = useState(null);
@@ -44,6 +45,19 @@ export function AdminPanel({ plays, rosters }) {
     }));
     setGeneratedPosts(posts);
   };
+
+  if (!authed) {
+    return (
+      <div style={{ maxWidth: 400, margin: "80px auto", textAlign: "center" }}>
+        <h2 style={{ fontSize: 24, fontWeight: 900, color: "#0f172a", marginBottom: 8 }}>Admin Access Required</h2>
+        <p style={{ fontSize: 14, color: "#64748b", marginBottom: 20 }}>This panel is for DownfieldOS team members only.</p>
+        <form onSubmit={e => { e.preventDefault(); const pw = e.target.elements.pw.value; if (pw === 'downfield2026') { localStorage.setItem('dfos-admin', 'true'); setAuthed(true); } else { alert('Incorrect password'); } }}>
+          <input name="pw" type="password" placeholder="Enter admin password" style={{ width: "100%", padding: "10px 14px", borderRadius: 10, border: "1px solid #e2e8f0", fontSize: 14, marginBottom: 12 }} />
+          <button type="submit" style={{ width: "100%", padding: "10px 14px", borderRadius: 10, background: "#f97316", color: "#fff", border: "none", fontSize: 14, fontWeight: 700, cursor: "pointer" }}>Sign In</button>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div>

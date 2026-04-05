@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { Shield, Star, GraduationCap, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import { agg, lgbl } from '../../utils/aggregation';
-import { teamSoWhat, gmVoice, genNeeds } from '../../utils/narratives';
+import { frontOfficeAssessment, gmVoice, genNeeds } from '../../utils/narratives';
 import { tn } from '../../utils/formatters';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
@@ -17,7 +17,7 @@ export function WarRoom({ plays, primaryTeam }) {
   const bl = useMemo(() => lgbl(plays), [plays]);
   const needs = useMemo(() => genNeeds(team, stats, bl), [team, stats, bl]);
   const gm = useMemo(() => gmVoice(team, stats, bl, needs), [team, stats, bl, needs]);
-  const overview = useMemo(() => teamSoWhat(team, stats, bl), [team, stats, bl]);
+  const overview = useMemo(() => frontOfficeAssessment(team, stats, bl), [team, stats, bl]);
 
   return (
     <div>

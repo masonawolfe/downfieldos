@@ -16,3 +16,4 @@ export { RefereeProfileCard } from './RefereeProfileCard';
 export { NewsletterCTA } from './NewsletterCTA';
 export { PlayerCard } from './PlayerCard';
 export { PlayerLink } from './PlayerLink';
+export { Tooltip, STAT_TIPS } from './Tooltip';

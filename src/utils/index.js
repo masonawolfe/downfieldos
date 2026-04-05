@@ -6,7 +6,7 @@ export { calcMatchupGrade } from './grading';
 export { genRoster, genRoster2026 } from './roster';
 export { recordStr, teamPower, gameWinProb, projectSeason, projectAll32 } from './projections';
 export { generatePlays } from './playGenerator';
-export { teamSoWhat, matchupPreview, scriptedPlaysPreview, playerMatchupSummary, gmVoice, genNeeds } from './narratives';
+export { teamSoWhat, matchupPreview, scriptedPlaysPreview, playerMatchupSummary, gmVoice, genNeeds, frontOfficeAssessment } from './narratives';
 export { downloadCSV } from './csvExport';
 export { generateTweetThread } from './tweetThread';
 export { generatePrepSheet, generateNewsletterDraft, generateArticle } from './prepSheet';

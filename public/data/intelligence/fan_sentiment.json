@@ -31,13 +31,13 @@
       "team": "KC",
       "name": "Kansas City Chiefs",
       "subreddit": "r/KansasCityChiefs",
-      "hope": 7,
+      "hope": 6,
       "anger": 4,
-      "excitement": 7,
+      "excitement": 6,
       "delusion": 4,
-      "misery_index": 3.3,
-      "one_liner": "Kenneth Walker III and Justin Fields (from NYJ) give Mahomes support as he recovers from ACL; edge rush still weak",
-      "top_topics": ["Kenneth Walker III signing", "Justin Fields trade from Jets", "Mahomes ACL recovery", "Edge rusher concerns", "Kelce re-signed"]
+      "misery_index": 4.0,
+      "one_liner": "Mahomes ACL derailed dynasty (6-11) but fans cautiously hopeful — Walker III, Fields bridge QB, and Kelce's return give 2026 a chance",
+      "top_topics": ["Mahomes ACL rehab timeline", "Kenneth Walker III signing", "Justin Fields bridge QB", "6-11 aftermath", "Kelce re-signed"]
     },
     {
       "team": "BUF",
@@ -175,13 +175,13 @@
       "team": "DEN",
       "name": "Denver Broncos",
       "subreddit": "r/DenverBroncos",
-      "hope": 5,
-      "anger": 7,
-      "excitement": 3,
-      "delusion": 4,
-      "misery_index": 7.3,
-      "one_liner": "Only team with zero outside signings despite freed cap space—fans calling approach 'bizarre' and 'weird,' prefer run-it-back",
-      "top_topics": ["Lack of external signings", "Cap constraints", "Running it back approach", "Fan frustration mounting"]
+      "hope": 8,
+      "anger": 2,
+      "excitement": 7,
+      "delusion": 2,
+      "misery_index": 1.7,
+      "one_liner": "Coming off 14-3 season behind Bo Nix's breakout — quiet FA but fans trust the run-it-back approach after proving doubters wrong",
+      "top_topics": ["Bo Nix franchise QB confidence", "14-win validation", "Waddle trade adds weapons", "Run-it-back philosophy", "Draft capital preserved"]
     },
     {
       "team": "ARI",
@@ -199,13 +199,13 @@
       "team": "NE",
       "name": "New England Patriots",
       "subreddit": "r/Patriots",
-      "hope": 7,
-      "anger": 2,
-      "excitement": 7,
+      "hope": 9,
+      "anger": 1,
+      "excitement": 9,
       "delusion": 2,
-      "misery_index": 1.7,
-      "one_liner": "74% of fans see roster improvement; Kevin Byard, Dre'Mont Jones, Romeo Doubs fill holes, some edge rusher skepticism remains",
-      "top_topics": ["Kevin Byard acquisition", "Edge rusher need persists", "Dre'Mont Jones signing", "WR upgrades"]
+      "misery_index": 0.7,
+      "one_liner": "Super Bowl hangover? Not here. Drake Maye's 14-3 Cinderella run has Foxborough believing again — adding Doubs and Byard to run it back",
+      "top_topics": ["Drake Maye franchise QB", "Super Bowl run momentum", "Romeo Doubs WR upgrade", "Kevin Byard veteran safety", "Championship window wide open"]
     },
     {
       "team": "SEA",
@@ -295,13 +295,13 @@
       "team": "JAX",
       "name": "Jacksonville Jaguars",
       "subreddit": "r/Jaguars",
-      "hope": 3,
-      "anger": 7,
-      "excitement": 2,
-      "delusion": 5,
-      "misery_index": 8.3,
-      "one_liner": "Travis Hunter anchors defense but FA ghosting after losing Etienne and Devin Lloyd has fans furious; rivals closed the gap hard",
-      "top_topics": ["Travis Hunter franchise cornerstone", "Travis Etienne departure", "Devin Lloyd loss", "Passive FA approach", "Rivals strengthened"]
+      "hope": 5,
+      "anger": 6,
+      "excitement": 4,
+      "delusion": 3,
+      "misery_index": 5.7,
+      "one_liner": "Went 13-4 but watching Etienne and Devin Lloyd leave in FA has fans terrified the window is closing — quiet offseason after dominant season",
+      "top_topics": ["13-4 core losing key FAs", "Travis Hunter franchise cornerstone", "Travis Etienne departure", "Devin Lloyd loss", "Window closing fears"]
     },
     {
       "team": "IND",
@@ -356,75 +356,75 @@
     "most_miserable": [
       {
         "rank": 1,
-        "team": "JAX",
-        "name": "Jacksonville Jaguars",
-        "misery_index": 8.3,
-        "reason": "Travis Hunter anchors D but FA ghosting after losing Etienne and Devin Lloyd; rivals closed gap"
-      },
-      {
-        "rank": 2,
         "team": "MIA",
         "name": "Miami Dolphins",
         "misery_index": 8.0,
         "reason": "Full rebuild after trading Tua to ATL, Malik Willis gamble, Waddle to Broncos — total teardown"
       },
       {
-        "rank": 3,
-        "team": "DEN",
-        "name": "Denver Broncos",
-        "misery_index": 7.3,
-        "reason": "Only team with zero outside signings; cap freed but no aggression causing frustration"
-      },
-      {
-        "rank": 4,
+        "rank": 2,
         "team": "NYJ",
         "name": "New York Jets",
         "misery_index": 7.7,
-        "reason": "Traded Fields to KC for a 6th, brought back Geno Smith; fans furious at QB direction"
+        "reason": "3-14 disaster, Rodgers retired, traded Fields to KC for a 6th, brought back Geno Smith — fans furious"
       },
       {
-        "rank": 5,
+        "rank": 3,
         "team": "ARI",
         "name": "Arizona Cardinals",
         "misery_index": 7.0,
-        "reason": "Defense completely ignored, QB execution a whiff, Ossenfort's job security questionable"
+        "reason": "3-14, defense completely ignored, QB execution a whiff, Ossenfort's job security questionable"
+      },
+      {
+        "rank": 4,
+        "team": "DET",
+        "name": "Detroit Lions",
+        "misery_index": 6.3,
+        "reason": "NFC title window cracking — lost key pieces in FA (Anzalone, Decker, Montgomery), quiet offseason"
+      },
+      {
+        "rank": 5,
+        "team": "JAX",
+        "name": "Jacksonville Jaguars",
+        "misery_index": 5.7,
+        "reason": "Went 13-4 but watching core leave in FA — window closing fears despite Lawrence's breakout"
       }
     ],
     "most_hopeful": [
       {
         "rank": 1,
-        "team": "SEA",
-        "name": "Seattle Seahawks",
-        "hope_score": 8,
-        "reason": "Super Bowl champs retaining core; Schneider's way proving successful again"
+        "team": "NE",
+        "name": "New England Patriots",
+        "hope_score": 9,
+        "reason": "Drake Maye's 14-3 Super Bowl run has Foxborough believing in a new dynasty — adding weapons to run it back"
       },
       {
         "rank": 2,
+        "team": "SEA",
+        "name": "Seattle Seahawks",
+        "hope_score": 8,
+        "reason": "Defending Super Bowl LX champions retaining core — repeat run mentality"
+      },
+      {
+        "rank": 3,
+        "team": "DEN",
+        "name": "Denver Broncos",
+        "hope_score": 8,
+        "reason": "14-3 behind Bo Nix's breakout — Waddle trade adds firepower, fans trust the process"
+      },
+      {
+        "rank": 4,
         "team": "TEN",
         "name": "Tennessee Titans",
         "hope_score": 8,
         "reason": "Robert Saleh aggressive spending ($270M+) with coaching tree synergy excites Nashville"
       },
       {
-        "rank": 3,
+        "rank": 5,
         "team": "PHI",
         "name": "Philadelphia Eagles",
         "hope_score": 8,
         "reason": "Roster has all talent to compete for another Super Bowl despite safety depth concerns"
-      },
-      {
-        "rank": 4,
-        "team": "BUF",
-        "name": "Buffalo Bills",
-        "hope_score": 7,
-        "reason": "D.J. Moore and Bradley Chubb address long-awaited needs; Super Bowl contender status"
-      },
-      {
-        "rank": 5,
-        "team": "KC",
-        "name": "Kansas City Chiefs",
-        "hope_score": 7,
-        "reason": "Kenneth Walker III energizes after 9-game collapse; 'most important offseason' energy"
       }
     ],
     "most_delusional": [
@@ -472,9 +472,9 @@
       {"team": "LAR", "name": "Los Angeles Rams", "spending": "$200M+ (secondary focus)", "approach": "Championship window"}
     ],
     "quietest_teams": [
-      {"team": "DEN", "name": "Denver Broncos", "signings": "0 outside free agents", "sentiment": "Frustrated"},
-      {"team": "JAX", "name": "Jacksonville Jaguars", "signings": "Minimal", "sentiment": "Disappointed"},
-      {"team": "GB", "name": "Green Bay Packers", "signings": "Anticlimactic", "sentiment": "Mixed"}
+      {"team": "JAX", "name": "Jacksonville Jaguars", "signings": "Minimal after 13-4", "sentiment": "Anxious"},
+      {"team": "GB", "name": "Green Bay Packers", "signings": "Anticlimactic", "sentiment": "Mixed"},
+      {"team": "CLE", "name": "Cleveland Browns", "signings": "OL focus only", "sentiment": "Resigned"}
     ],
     "biggest_storylines": [
       "Russell Wilson cap era finally over—teams able to spend freely",

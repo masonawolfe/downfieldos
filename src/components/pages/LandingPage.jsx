@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Swords, Flame, Calendar, Star, TrendingUp, Eye, Shield, ArrowRight, ExternalLink } from "lucide-react";
+import { Swords, Flame, Calendar, Star, TrendingUp, Eye, Shield, ArrowRight, ExternalLink, Users, Mic, BarChart3, Zap } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { Logo } from '../ui/Logo';
 import { T } from '../../data/teams';
@@ -156,6 +156,89 @@ export function LandingPage({ onSelectTeam, navigate }) {
             );
           })}
         </div>
+      </div>
+
+      {/* Sample Intelligence Output */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "0 20px 48px" : "0 32px 64px" }}>
+        <h2 style={{ fontSize: 13, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, color: "#8B949E", marginBottom: 24, textAlign: "center" }}>Sample Intelligence</h2>
+        <div style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 16, padding: isMobile ? 20 : 28 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+            <Zap size={16} color="#f97316" />
+            <span style={{ fontSize: 14, fontWeight: 800, color: "#f97316" }}>SO WHAT? INSIGHT</span>
+          </div>
+          <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>Seattle's Super Bowl hangover risk is real — and their schedule knows it</h3>
+          <p style={{ fontSize: 14, color: "#8B949E", lineHeight: 1.7, margin: "0 0 16px" }}>
+            The Seahawks won Super Bowl LX behind Jaxon Smith-Njigba's breakout, but defending champions face a brutal early schedule with 4 of their first 6 on the road. Their 14-3 record masked a defense that ranked 19th in explosive rate allowed. History says 60% of Super Bowl winners regress by 3+ wins the following season.
+          </p>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <div style={{ background: "#0d1117", borderRadius: 8, padding: "8px 14px" }}>
+              <div style={{ fontSize: 10, color: "#484f58", textTransform: "uppercase", letterSpacing: 1 }}>2025 Record</div>
+              <div style={{ fontSize: 18, fontWeight: 900, color: "#22c55e", fontFamily: "monospace" }}>14-3</div>
+            </div>
+            <div style={{ background: "#0d1117", borderRadius: 8, padding: "8px 14px" }}>
+              <div style={{ fontSize: 10, color: "#484f58", textTransform: "uppercase", letterSpacing: 1 }}>Def Explosive Rate</div>
+              <div style={{ fontSize: 18, fontWeight: 900, color: "#dc2626", fontFamily: "monospace" }}>19th</div>
+            </div>
+            <div style={{ background: "#0d1117", borderRadius: 8, padding: "8px 14px" }}>
+              <div style={{ fontSize: 10, color: "#484f58", textTransform: "uppercase", letterSpacing: 1 }}>SB Champ Regression</div>
+              <div style={{ fontSize: 18, fontWeight: 900, color: "#eab308", fontFamily: "monospace" }}>60%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Who This Is For */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "0 20px 48px" : "0 32px 64px" }}>
+        <h2 style={{ fontSize: 13, fontWeight: 800, textTransform: "uppercase", letterSpacing: 2, color: "#8B949E", marginBottom: 24, textAlign: "center" }}>Built For</h2>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 16 }}>
+          {[
+            { icon: BarChart3, title: "Fantasy Players", desc: "Matchup-based opportunity scores, boom/bust probabilities, and start/sit signals backed by real data — not gut takes.", color: "#22c55e" },
+            { icon: Mic, title: "Content Creators", desc: "One-click tweet threads, podcast prep sheets, and Instagram-ready matchup cards. Your content pipeline, automated.", color: "#f97316" },
+            { icon: Users, title: "Analysts & Bettors", desc: "9 intelligence signals per matchup, scheme familiarity scores, and player-level scouting reports. The edge no one else has.", color: "#2563eb" },
+          ].map(item => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 16, padding: 24, textAlign: "center" }}>
+                <div style={{ width: 48, height: 48, borderRadius: 12, background: item.color + "15", display: "inline-flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
+                  <Icon size={24} color={item.color} />
+                </div>
+                <h3 style={{ fontSize: 16, fontWeight: 800, color: "#fff", margin: "0 0 8px" }}>{item.title}</h3>
+                <p style={{ fontSize: 13, color: "#8B949E", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Social Proof / Stats */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "0 20px 48px" : "0 32px 64px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "1fr 1fr 1fr 1fr", gap: 16, textAlign: "center" }}>
+          {[
+            { num: "100K+", label: "Plays Analyzed" },
+            { num: "32", label: "Teams Covered" },
+            { num: "9", label: "Intel Signals" },
+            { num: "8", label: "Modules" },
+          ].map(s => (
+            <div key={s.label} style={{ padding: 16 }}>
+              <div style={{ fontSize: 28, fontWeight: 900, color: "#f97316", fontFamily: "monospace" }}>{s.num}</div>
+              <div style={{ fontSize: 12, color: "#484f58", marginTop: 4 }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: isMobile ? "0 20px 48px" : "0 32px 64px", textAlign: "center" }}>
+        <h2 style={{ fontSize: isMobile ? 24 : 32, fontWeight: 900, color: "#fff", margin: "0 0 12px", letterSpacing: -1 }}>Ready to see your team?</h2>
+        <p style={{ fontSize: 15, color: "#8B949E", margin: "0 0 24px" }}>Pick a team and get instant access to every module. Free. No signup required.</p>
+        <select
+          onChange={e => { if (e.target.value) handleExplore(e.target.value); }}
+          defaultValue=""
+          style={{ background: "#f97316", color: "#fff", border: "none", borderRadius: 10, padding: "14px 24px", fontSize: 16, fontWeight: 700, cursor: "pointer", minWidth: 220 }}
+        >
+          <option value="" disabled>Pick Your Team</option>
+          {T.map(t => <option key={t.a} value={t.a}>{t.a} — {t.n}</option>)}
+        </select>
       </div>
 
       {/* Footer */}

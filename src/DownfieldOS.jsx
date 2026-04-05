@@ -277,11 +277,11 @@ export default function DownfieldOS() {
   }
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" }}>
+    <div style={{ display: "flex", minHeight: "100vh", height: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif", background: "#0d1117" }}>
       {/* Skip to content — accessibility */}
       <a href="#main-content" style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: "1px", overflow: "hidden", zIndex: 9999 }} onFocus={e => { e.target.style.position = "fixed"; e.target.style.left = "8px"; e.target.style.top = "8px"; e.target.style.width = "auto"; e.target.style.height = "auto"; e.target.style.padding = "8px 16px"; e.target.style.background = "#f97316"; e.target.style.color = "#fff"; e.target.style.borderRadius = "8px"; e.target.style.fontWeight = "700"; e.target.style.fontSize = "14px"; e.target.style.textDecoration = "none"; }} onBlur={e => { e.target.style.position = "absolute"; e.target.style.left = "-9999px"; e.target.style.width = "1px"; e.target.style.height = "1px"; }}>Skip to content</a>
       {/* Sidebar */}
-      <aside aria-label="Navigation" style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
+      <aside aria-label="Navigation" style={{ width: showFilters ? 440 : 220, background: "#0d1117", borderRight: "1px solid #1e293b", flexShrink: 0, display: isMobile && !mobileSidebarOpen ? "none" : "flex", transition: "width .2s", overflowY: "auto", ...(isMobile ? { position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 1500 } : {}) }}>
         {/* Nav */}
         <nav style={{ width: 220, padding: "20px 12px", display: "flex", flexDirection: "column", flexShrink: 0 }} aria-label="Main navigation">
           <div style={{ padding: "0 4px", marginBottom: 32 }}>
@@ -343,7 +343,7 @@ export default function DownfieldOS() {
 
       {isMobile && mobileSidebarOpen && <div onClick={() => setMobileSidebarOpen(false)} aria-hidden="true" style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 1400 }} />}
       {/* Main */}
-      <main id="main-content" tabIndex={-1} style={{ flex: 1, background: "#f8fafc", overflow: "auto", outline: "none" }}>
+      <main id="main-content" tabIndex={-1} style={{ flex: 1, background: "#f8fafc", overflowY: "auto", outline: "none", minHeight: 0 }}>
         <div style={{ padding: isMobile ? 16 : 32, maxWidth: 1000, margin: "0 auto", overflowX: "hidden" }}>
           {isMobile && (
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>

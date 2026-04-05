@@ -10,6 +10,7 @@ import { MatchupGrade } from '../ui/MatchupGrade';
 import { InsightCard } from '../ui/InsightCard';
 import { RatingBar } from '../ui/RatingBar';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
+import { Tooltip } from '../ui/Tooltip';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
@@ -126,8 +127,8 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
                     <div><span style={{ color: "#94a3b8" }}>Success:</span> <strong>{pct(s.sr)}</strong></div>
                     <div><span style={{ color: "#94a3b8" }}>Explosive:</span> <strong>{pct(s.xr)}</strong></div>
                     <div><span style={{ color: "#94a3b8" }}>Completion:</span> <strong>{pct(s.compRate)}</strong></div>
-                    <div><span style={{ color: "#94a3b8" }}>Def SR:</span> <strong style={{ color: s.dsr > bl.sr + .02 ? "#dc2626" : s.dsr < bl.sr - .02 ? "#16a34a" : "#0f172a" }}>{pct(s.dsr)}</strong></div>
-                    <div><span style={{ color: "#94a3b8" }}>Def Exp:</span> <strong style={{ color: s.dxr > bl.xr + .01 ? "#dc2626" : "#0f172a" }}>{pct(s.dxr)}</strong></div>
+                    <div><Tooltip text="Defensive Success Rate — % of opponent plays held to negative expected yards"><span style={{ color: "#94a3b8" }}>Def SR:</span></Tooltip> <strong style={{ color: s.dsr > bl.sr + .02 ? "#dc2626" : s.dsr < bl.sr - .02 ? "#16a34a" : "#0f172a" }}>{pct(s.dsr)}</strong></div>
+                    <div><Tooltip text="Defensive Explosive Rate — % of opponent plays going 15+ yards"><span style={{ color: "#94a3b8" }}>Def Exp:</span></Tooltip> <strong style={{ color: s.dxr > bl.xr + .01 ? "#dc2626" : "#0f172a" }}>{pct(s.dxr)}</strong></div>
                   </div>
                 </div>
               ))}

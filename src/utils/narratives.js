@@ -1,4 +1,6 @@
 import { DNA } from '../data/dna';
+import { DNA_2026 } from '../data/dna2026';
+import { RECORDS_2025 } from '../data/records2025';
 import { tn, tnp } from './formatters';
 
 export function teamSoWhat(tm, stats, bl) {
@@ -77,6 +79,33 @@ export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
   matchups.push({ off: te, def: ss, label: "TE vs Safety", verdict: te.trait === "Receiving TE" && te.rating > ss.rating ? `${te.name} is a weapon. Matchup to exploit.` : `Handled. TE is more blocker than threat.` });
 
   return matchups;
+}
+
+export function frontOfficeAssessment(tm, stats, bl) {
+  const rec = RECORDS_2025[tm] || { w: 0, l: 0 };
+  const dna = DNA_2026[tm] || {};
+  const wins = rec.w, losses = rec.l;
+  const lines = [];
+
+  // Record context
+  if (wins >= 12) lines.push(`This front office is working from a position of strength. ${tn(tm)} finished ${wins}-${losses} — a legitimate contender. The offseason question isn't "how do we get better?" — it's "how do we stay on top without overpaying?"`);
+  else if (wins >= 9) lines.push(`${tn(tm)} were competitive at ${wins}-${losses}, but not dominant. This is the trickiest spot in football — good enough to see the path, not good enough to assume it's there. Every move has to be targeted.`);
+  else if (wins >= 6) lines.push(`At ${wins}-${losses}, ${tn(tm)} are in no-man's land. Not bad enough for a top draft pick, not good enough to feel good about the direction. This offseason is about finding an identity.`);
+  else lines.push(`A ${wins}-${losses} season demands honest self-assessment. ${tn(tm)} are in rebuild territory whether they admit it or not. The priority is accumulating young talent and draft capital, not chasing free agents.`);
+
+  // Archetype / identity direction
+  if (dna.s) lines.push(`\nThe 2026 identity: "${dna.s}." That's the front office's bet — everything they did in free agency and the draft points this direction.`);
+
+  // Roster efficiency lens
+  const sg = stats.sr - bl.sr;
+  if (sg > .04) lines.push(`\nThe roster IS producing. Offensive efficiency is well above league average, which means the scheme and personnel are aligned. Don't blow this up — surgical additions only.`);
+  else if (sg < -.04) lines.push(`\nThe hard truth: this roster underperformed schematically. Offensive efficiency was below the floor. Either the talent doesn't fit the scheme, or the scheme doesn't fit the talent. Something structural has to change.`);
+
+  // Cap/draft positioning
+  if (wins <= 5) lines.push(`\nWith a top-10 pick, the draft board matters more than free agency. This is a year to build the foundation, not paper over cracks.`);
+  else if (wins >= 12) lines.push(`\nPicking late means the draft is about depth and development, not difference-makers. Free agency and trades are how you upgrade from here.`);
+
+  return lines.join("\n");
 }
 
 export function gmVoice(tm, stats, bl, needs) {
