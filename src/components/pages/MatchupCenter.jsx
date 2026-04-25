@@ -7,7 +7,7 @@ import { pct, tn } from '../../utils/formatters';
 import { calcMatchupGrade } from '../../utils/grading';
 import { generateTweetThread } from '../../utils/tweetThread';
 import { generatePrepSheet, generateNewsletterDraft, generateArticle } from '../../utils/prepSheet';
-import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary } from '../../utils/narratives';
+import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary, verdictForMatchup } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
@@ -32,8 +32,10 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   useEffect(() => { if (initialOff) setOffTm(initialOff); }, [initialOff]);
   useEffect(() => { if (initialDef) setDefTm(initialDef); }, [initialDef]);
   useEffect(() => { if (primaryTeam && !initialOff) setOffTm(primaryTeam); }, [primaryTeam]);
+  useEffect(() => { setPivotIdx({}); }, [offTm, defTm, playerSide]); // reset pivots when context changes
   const [showPlayers, setShowPlayers] = useState(true);
   const [playerSide, setPlayerSide] = useState("off"); // "off" = offTm's offense, "def" = defTm's offense
+  const [pivotIdx, setPivotIdx] = useState({}); // { matchupKey: alternateIndex }
   const [showThread, setShowThread] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [gameWeek, setGameWeek] = useState(1);
@@ -129,30 +131,62 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
         </div>
         <div style={{ padding: 24 }}>
           {playerMatchups.map((m, i) => {
-            const edge = m.off.rating - m.def.rating;
-            const edgeColor = edge > 5 ? "#16a34a" : edge < -5 ? "#dc2626" : "#eab308";
-            const edgeLabel = edge > 5 ? "OFF +" + edge : edge < -5 ? "DEF +" + Math.abs(edge) : "EVEN";
+            const altIdx = pivotIdx[m.key] || 0;
+            const alt = m.alternates[altIdx] || m.alternates[0];
+            const def = alt?.def;
+            const scenario = alt?.scenario || "";
+            const edge = def ? m.off.rating - def.rating : 0;
+            // Tighter threshold: > 3 = clear, > 6 = strong, < -3 / -6 = same the other way.
+            const edgeColor = edge > 3 ? "#16a34a" : edge < -3 ? "#dc2626" : "#eab308";
+            const edgeLabel = edge > 3 ? "OFF +" + edge : edge < -3 ? "DEF +" + Math.abs(edge) : "EVEN";
+            const verdict = def ? verdictForMatchup(m.off, def, scenario, playerOffLabel, playerDefLabel) : "";
+            const teamForOff = playerSide === "off" ? offTm : defTm;
+            const teamForDef = playerSide === "off" ? defTm : offTm;
             return (
               <div key={i} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: i < playerMatchups.length - 1 ? "1px solid #f1f5f9" : "none" }}>
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#f97316" }}>{m.label}</div>
                   <span style={{ fontSize: 11, fontWeight: 800, color: edgeColor, background: edgeColor + "15", padding: "3px 10px", borderRadius: 8, fontFamily: "monospace" }}>{edgeLabel}</span>
                 </div>
+                {/* Defender pivot pills */}
+                {m.alternates.length > 1 && (
+                  <div style={{ display: "flex", gap: 6, marginBottom: 12, flexWrap: "wrap" }}>
+                    {m.alternates.map((a, ai) => {
+                      const active = ai === altIdx;
+                      return (
+                        <button
+                          key={ai}
+                          onClick={() => setPivotIdx(p => ({ ...p, [m.key]: ai }))}
+                          style={{
+                            fontSize: 11, fontWeight: 700, padding: "5px 10px", borderRadius: 999,
+                            border: active ? "1px solid #f97316" : "1px solid #e2e8f0",
+                            background: active ? "#fff7ed" : "#fff",
+                            color: active ? "#f97316" : "#64748b",
+                            cursor: "pointer", whiteSpace: "nowrap",
+                          }}
+                          aria-label={`Compare ${m.off.name} vs ${a.def.name}`}
+                        >
+                          {a.def.name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 10 }}>
                   <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.off} team={offTm}>{m.off.name}</PlayerLink></div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.off} team={teamForOff}>{m.off.name}</PlayerLink></div>
                     <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade} | {m.off.trait}</div>
                     <RatingBar value={m.off.rating} color="#16a34a" />
                   </div>
                   <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.def} team={defTm}>{m.def.name}</PlayerLink></div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.def.pos} | {m.def.grade} | {m.def.trait}</div>
-                    <RatingBar value={m.def.rating} color="#dc2626" />
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{def ? <PlayerLink player={def} team={teamForDef}>{def.name}</PlayerLink> : "—"}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{def?.pos} | {def?.grade} | {def?.trait}</div>
+                    {def && <RatingBar value={def.rating} color="#dc2626" />}
                   </div>
                 </div>
-                <div style={{ fontSize: 14, color: "#334155", lineHeight: 1.6 }}>{m.verdict}</div>
+                <div style={{ fontSize: 14, color: "#334155", lineHeight: 1.6 }}>{verdict}</div>
               </div>
             );
           })}

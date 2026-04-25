@@ -127,13 +127,13 @@
       "team": "NYJ",
       "name": "New York Jets",
       "subreddit": "r/nyjets",
-      "hope": 4,
-      "anger": 7,
-      "excitement": 3,
-      "delusion": 5,
-      "misery_index": 7.7,
-      "one_liner": "Traded Fields to KC for a 6th, brought back Geno Smith instead; fans furious at QB direction but defense improving",
-      "top_topics": ["Justin Fields traded to Chiefs", "Geno Smith return", "QB direction anger", "Minkah Fitzpatrick acquisition", "Defensive rebuild"]
+      "hope": 2,
+      "anger": 8,
+      "excitement": 2,
+      "delusion": 6,
+      "misery_index": 8.7,
+      "one_liner": "3-14 disaster, traded Fields to KC for a 6th-round pick, then dragged Geno Smith out after SEA dumped him post-Super Bowl. Pure QB whiplash, no plan.",
+      "top_topics": ["3-14 collapse", "Justin Fields traded to Chiefs for a 6th", "Geno Smith reunion (after SEA SB run)", "QB direction anger", "Aaron Glenn hot seat", "Defensive rebuild"]
     },
     {
       "team": "BAL",
@@ -151,13 +151,13 @@
       "team": "MIA",
       "name": "Miami Dolphins",
       "subreddit": "r/miamidolphins",
-      "hope": 3,
-      "anger": 6,
+      "hope": 4,
+      "anger": 5,
       "excitement": 3,
-      "delusion": 7,
-      "misery_index": 8.0,
-      "one_liner": "Full rebuild after trading Tua to Atlanta; Malik Willis gamble at QB, Waddle shipped to Broncos signals total teardown",
-      "top_topics": ["Tua traded to Falcons", "Malik Willis QB gamble", "Waddle trade to Broncos", "Total rebuild mode", "Tanking narrative"]
+      "delusion": 4,
+      "misery_index": 5.7,
+      "one_liner": "Went 7-10, then sold the core: Tua to ATL, Waddle to DEN, Malik Willis as bridge QB. Teardown has direction, but fans are still grieving the Tua era.",
+      "top_topics": ["7-10 disappointment", "Tua traded to Falcons (dead cap eaten)", "Waddle trade to Broncos", "Malik Willis bridge QB", "Tanking for 2027 QB class", "Tyreek Hill's future"]
     },
     {
       "team": "CIN",
@@ -356,31 +356,31 @@
     "most_miserable": [
       {
         "rank": 1,
-        "team": "MIA",
-        "name": "Miami Dolphins",
-        "misery_index": 8.0,
-        "reason": "Full rebuild after trading Tua to ATL, Malik Willis gamble, Waddle to Broncos — total teardown"
+        "team": "NYJ",
+        "name": "New York Jets",
+        "misery_index": 8.7,
+        "reason": "3-14 disaster, traded Fields to KC for a 6th, then dragged Geno Smith out of post-Super Bowl exile. Pure chaos with no plan."
       },
       {
         "rank": 2,
-        "team": "NYJ",
-        "name": "New York Jets",
-        "misery_index": 7.7,
-        "reason": "3-14 disaster, Rodgers retired, traded Fields to KC for a 6th, brought back Geno Smith — fans furious"
-      },
-      {
-        "rank": 3,
         "team": "ARI",
         "name": "Arizona Cardinals",
         "misery_index": 7.0,
         "reason": "3-14, defense completely ignored, QB execution a whiff, Ossenfort's job security questionable"
       },
       {
-        "rank": 4,
+        "rank": 3,
         "team": "DET",
         "name": "Detroit Lions",
         "misery_index": 6.3,
-        "reason": "NFC title window cracking — lost key pieces in FA (Anzalone, Decker, Montgomery), quiet offseason"
+        "reason": "NFC title window cracking — lost Anzalone, Decker, Montgomery in FA, quiet offseason while contenders reload"
+      },
+      {
+        "rank": 4,
+        "team": "MIA",
+        "name": "Miami Dolphins",
+        "misery_index": 5.7,
+        "reason": "7-10 + full teardown — Tua to ATL, Waddle to DEN. Direction is clear but fans are still grieving."
       },
       {
         "rank": 5,
@@ -430,10 +430,10 @@
     "most_delusional": [
       {
         "rank": 1,
-        "team": "MIA",
-        "name": "Miami Dolphins",
-        "delusion_score": 7,
-        "reason": "Believing Malik Willis solves QB position; tanking narrative undermines credibility"
+        "team": "NYJ",
+        "name": "New York Jets",
+        "delusion_score": 6,
+        "reason": "Believing Geno Smith — the QB SEA dumped after winning the Super Bowl — solves their QB problem. After trading Fields for a 6th."
       },
       {
         "rank": 2,

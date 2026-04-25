@@ -10,6 +10,7 @@ import { TeamSelect } from '../ui/TeamSelect';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
+import { TeamNewsCard } from '../ui/TeamNewsCard';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -47,6 +48,7 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>Comp: {pct(stats.compRate)} | Sack: {pct(stats.sackRate)} | {stats.n.toLocaleString()} plays</div>
         </div>
       </div>
+      <TeamNewsCard team={team} />
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>The Scouting Report</h3>
         <div style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", whiteSpace: "pre-wrap" }}>{overview}</div>

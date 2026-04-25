@@ -1,0 +1,175 @@
+{
+  "date": "2026-04-22",
+  "season_context": "post_free_agency_pre_draft",
+  "note": "Hand-curated 2026 offseason narrative — to be replaced by Cloudflare intel-scraper Worker output. Each item is publishable as a tweet draft.",
+  "teams": {
+    "ARI": [
+      {"headline": "Cardinals went 3-14 and basically ignored their defense in free agency. Ossenfort on the hot seat.", "kind": "narrative", "date": "2026-04-15"},
+      {"headline": "Isaac Seumalo signing fortifies the interior O-line, but it's a band-aid on a bigger problem.", "kind": "signing", "date": "2026-03-12"},
+      {"headline": "Kyler Murray's future in Arizona feels conditional on this draft going right.", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "ATL": [
+      {"headline": "Falcons land Tua Tagovailoa from Miami — a real franchise QB answer for $1.3M (MIA eats the dead cap).", "kind": "trade", "date": "2026-03-08"},
+      {"headline": "Jahan Dotson signing has WR room shrugging — needs over and above stick to be a real WR2.", "kind": "signing", "date": "2026-03-19"},
+      {"headline": "Bijan Robinson contract talks heating up — ATL knows they have to pay him.", "kind": "narrative", "date": "2026-04-10"}
+    ],
+    "BAL": [
+      {"headline": "Trey Hendrickson signing electrified Baltimore after Maxx Crosby trade fell through.", "kind": "signing", "date": "2026-03-14"},
+      {"headline": "Tyler Linderbaum departure for LV stings — interior O-line now a need.", "kind": "departure", "date": "2026-03-18"},
+      {"headline": "Lamar Jackson camp reportedly wants a CB1 in this draft — secondary remains the soft spot.", "kind": "narrative", "date": "2026-04-12"}
+    ],
+    "BUF": [
+      {"headline": "Bills land DJ Moore from Chicago — Allen finally has a true WR1.", "kind": "trade", "date": "2026-03-05"},
+      {"headline": "Bradley Chubb signing addresses the pass rush after Joey Bosa departure.", "kind": "signing", "date": "2026-03-11"},
+      {"headline": "Sean McDermott out, Joe Brady promoted — coaching transition adds variance to a contender.", "kind": "coaching", "date": "2026-02-28"},
+      {"headline": "New Highmark Stadium opens this season. The team has to live up to it.", "kind": "narrative", "date": "2026-04-18"}
+    ],
+    "CAR": [
+      {"headline": "Panthers went 8-9 and quietly might be the most improved team in the NFC South.", "kind": "narrative", "date": "2026-04-16"},
+      {"headline": "Bryce Young's Year 3 leap is the entire 2026 season for Carolina.", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "CHI": [
+      {"headline": "Caleb Williams went 11-6 in Year 2, won a playoff game. Bears finally have a QB.", "kind": "narrative", "date": "2026-01-15"},
+      {"headline": "DJ Moore traded to Buffalo — opens a target share for the new WR2 to grow into.", "kind": "trade", "date": "2026-03-05"},
+      {"headline": "Kalif Raymond and Garrett Bradbury signings get a B-grade from PFF — measured offseason.", "kind": "signing", "date": "2026-03-15"},
+      {"headline": "Braxton Jones contract situation lingering — LT future a Day 2 draft priority.", "kind": "narrative", "date": "2026-04-19"}
+    ],
+    "CIN": [
+      {"headline": "Bengals attacked the defense after a 6-11 disaster: Bryan Cook, Boye Mafe, Jonathan Allen all in.", "kind": "signing", "date": "2026-03-10"},
+      {"headline": "Joe Burrow healthy and the championship window is wide open again.", "kind": "narrative", "date": "2026-04-14"},
+      {"headline": "Pass rush remains the swing factor — Mafe needs to be a real EDGE1.", "kind": "narrative", "date": "2026-04-21"}
+    ],
+    "CLE": [
+      {"headline": "Browns finished 5-12 and offseason was almost entirely O-line focused.", "kind": "narrative", "date": "2026-04-12"},
+      {"headline": "Deshaun Watson contract continues to be the league's biggest cap albatross.", "kind": "narrative", "date": "2026-04-18"},
+      {"headline": "Myles Garrett trade rumors swirling but Cleveland keeps insisting he's not available.", "kind": "narrative", "date": "2026-04-22"}
+    ],
+    "DAL": [
+      {"headline": "Cowboys finally opened the cap toolbox after years of dormancy — defensive upgrades headline FA.", "kind": "narrative", "date": "2026-03-20"},
+      {"headline": "Rashan Gary trade lands a real EDGE1 — biggest defensive splash in years.", "kind": "trade", "date": "2026-03-08"},
+      {"headline": "Otito Ogbonnia signing is the kind of value play Dallas hasn't made under Jerry.", "kind": "signing", "date": "2026-03-16"}
+    ],
+    "DEN": [
+      {"headline": "Broncos went 14-3 behind Bo Nix's breakout — Sean Payton vindicated.", "kind": "narrative", "date": "2026-01-12"},
+      {"headline": "Jaylen Waddle trade from Miami gives Nix another weapon — WR room stacked.", "kind": "trade", "date": "2026-03-22"},
+      {"headline": "Run-it-back philosophy in FA — quiet but confident offseason.", "kind": "narrative", "date": "2026-04-10"}
+    ],
+    "DET": [
+      {"headline": "Lions lost Anzalone, Decker, Montgomery in FA. NFC title window cracking?", "kind": "departure", "date": "2026-03-15"},
+      {"headline": "Cade Mays signing is fine but doesn't replace what walked out the door.", "kind": "signing", "date": "2026-03-18"},
+      {"headline": "Edge rusher void after Hutchinson injury history — Day 1 draft priority.", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "GB": [
+      {"headline": "Packers finished anticlimactic offseason after Jordan Love's rough year.", "kind": "narrative", "date": "2026-03-25"},
+      {"headline": "Rashan Gary trade to Dallas was the only major splash — and it was a trade out.", "kind": "trade", "date": "2026-03-08"},
+      {"headline": "Offensive line locked up long-term — at least the foundation is set.", "kind": "narrative", "date": "2026-04-12"}
+    ],
+    "HOU": [
+      {"headline": "Texans target O-line: Braden Smith and Ed Ingram both signed to protect Stroud.", "kind": "signing", "date": "2026-03-14"},
+      {"headline": "Reed Blankenship signing fortifies an already elite defense.", "kind": "signing", "date": "2026-03-19"},
+      {"headline": "DeMeco Ryans has a clear plan — Houston is built to last.", "kind": "narrative", "date": "2026-04-15"}
+    ],
+    "IND": [
+      {"headline": "Daniel Jones re-signed for $88M — Colts doubling down on a polarizing QB call.", "kind": "signing", "date": "2026-03-09"},
+      {"headline": "Alec Pierce extended at $116M — surprise commitment to a developing receiver.", "kind": "signing", "date": "2026-03-11"},
+      {"headline": "Lost Kwity Paye, Nick Cross, Zaire Franklin — defense gutted in FA.", "kind": "departure", "date": "2026-03-18"}
+    ],
+    "JAX": [
+      {"headline": "Jaguars went 13-4 with Lawrence's breakout — but Etienne and Devin Lloyd both left in FA.", "kind": "narrative", "date": "2026-03-22"},
+      {"headline": "Travis Hunter cemented as franchise cornerstone — two-way usage continuing.", "kind": "narrative", "date": "2026-04-10"},
+      {"headline": "Window-closing fears mounting despite quietest offseason of any 13-win team.", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "KC": [
+      {"headline": "Mahomes torn ACL in Week 8 derailed the dynasty. KC went 6-11.", "kind": "injury", "date": "2025-10-26"},
+      {"headline": "Kenneth Walker III signed to anchor the run game while Mahomes rehabs.", "kind": "signing", "date": "2026-03-12"},
+      {"headline": "Justin Fields acquired from NYJ for a 6th-round pick to bridge at QB.", "kind": "trade", "date": "2026-03-09"},
+      {"headline": "Travis Kelce re-signed for one more run — sentimental but strategic.", "kind": "signing", "date": "2026-02-25"}
+    ],
+    "LAC": [
+      {"headline": "Odafe Oweh leaving for Washington stings — pass rush takes a hit.", "kind": "departure", "date": "2026-03-16"},
+      {"headline": "Charlie Kolar quiet TE signing could be a sneaky-good value move.", "kind": "signing", "date": "2026-03-19"},
+      {"headline": "Herbert protection still the unresolved question — interior O-line untouched.", "kind": "narrative", "date": "2026-04-18"}
+    ],
+    "LAR": [
+      {"headline": "Rams spent over $200M on the secondary — Trent McDuffie trade headlines the rebuild.", "kind": "trade", "date": "2026-03-07"},
+      {"headline": "Jaylen Watson signing pairs with McDuffie — instant elite CB room.", "kind": "signing", "date": "2026-03-15"},
+      {"headline": "Stafford healthy, Kupp back, secondary loaded — championship window cracked open.", "kind": "narrative", "date": "2026-04-14"}
+    ],
+    "LV": [
+      {"headline": "Raiders led the league in spending at $281M+ — completely different roster.", "kind": "narrative", "date": "2026-03-30"},
+      {"headline": "Tyler Linderbaum from Baltimore is the kind of center signing that changes a franchise.", "kind": "signing", "date": "2026-03-18"},
+      {"headline": "Nakobe Dean and Quay Walker tap into the Georgia connection — defense reloaded.", "kind": "signing", "date": "2026-03-20"},
+      {"headline": "Going 3-14 hurts. Going 3-14 with this offseason cap commitment is a different kind of pressure.", "kind": "narrative", "date": "2026-04-19"}
+    ],
+    "MIA": [
+      {"headline": "Dolphins traded Tua to Atlanta — Miami eats the dead cap, ATL pays $1.3M.", "kind": "trade", "date": "2026-03-08"},
+      {"headline": "Jaylen Waddle shipped to Denver — full teardown signal after a 7-10 season.", "kind": "trade", "date": "2026-03-22"},
+      {"headline": "Malik Willis signed as the bridge QB — clearly tanking for the 2027 QB class.", "kind": "signing", "date": "2026-03-15"},
+      {"headline": "Tyreek Hill's future the next domino — almost certainly available at the right price.", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "MIN": [
+      {"headline": "Vikings entered the offseason without a permanent GM — conservative approach.", "kind": "narrative", "date": "2026-03-15"},
+      {"headline": "Derek Murray QB competition signals McCarthy may be coaching for his job.", "kind": "narrative", "date": "2026-04-10"},
+      {"headline": "Cap-constrained and quiet — supplementing rather than rebuilding.", "kind": "narrative", "date": "2026-04-18"}
+    ],
+    "NE": [
+      {"headline": "Drake Maye's 14-3 Cinderella run took the Patriots to Super Bowl LX. Foxborough believing again.", "kind": "narrative", "date": "2026-02-09"},
+      {"headline": "Romeo Doubs signing gives Maye a real WR2 — running it back with weapons.", "kind": "signing", "date": "2026-03-14"},
+      {"headline": "Kevin Byard veteran safety addition — defensive leadership for a young roster.", "kind": "signing", "date": "2026-03-18"}
+    ],
+    "NO": [
+      {"headline": "Saints finally out of cap hell — first real spending in years.", "kind": "narrative", "date": "2026-03-20"},
+      {"headline": "Travis Etienne signing from Jacksonville is the splash move of NO's offseason.", "kind": "signing", "date": "2026-03-15"},
+      {"headline": "Kaden Elliss returning fortifies LB room — David Edwards adds interior O-line muscle.", "kind": "signing", "date": "2026-03-18"},
+      {"headline": "QB plan still unclear — biggest unresolved question of this draft.", "kind": "narrative", "date": "2026-04-19"}
+    ],
+    "NYG": [
+      {"headline": "Giants finished 4-13 — full QB reset incoming via the draft.", "kind": "narrative", "date": "2026-04-15"},
+      {"headline": "Schoen and Daboll on the hottest seats in football. Draft has to land.", "kind": "narrative", "date": "2026-04-22"}
+    ],
+    "NYJ": [
+      {"headline": "Jets went 3-14 and brought back Geno Smith after SEA dumped him post-Super Bowl.", "kind": "signing", "date": "2026-03-19"},
+      {"headline": "Justin Fields traded to Kansas City for a 6th-round pick — fans furious.", "kind": "trade", "date": "2026-03-09"},
+      {"headline": "Minkah Fitzpatrick acquired — defense improving, but offense feels like nobody's plan.", "kind": "trade", "date": "2026-03-15"},
+      {"headline": "Aaron Glenn's seat is hot. Without Saleh's defensive design, the rebuild stalls.", "kind": "narrative", "date": "2026-04-21"}
+    ],
+    "PHI": [
+      {"headline": "Eagles roster has all the talent to compete for another Super Bowl.", "kind": "narrative", "date": "2026-04-15"},
+      {"headline": "Adoree Jackson retention quietly important — secondary stays elite.", "kind": "signing", "date": "2026-03-12"},
+      {"headline": "Reed Blankenship departure to Houston creates the only real depth concern (safety).", "kind": "departure", "date": "2026-03-19"}
+    ],
+    "PIT": [
+      {"headline": "Steelers electrified by Michael Pittman Jr. trade and Rico Dowdle signing.", "kind": "trade", "date": "2026-03-10"},
+      {"headline": "Mike McCarthy era off to an aggressive start — Omar Khan delivering.", "kind": "narrative", "date": "2026-03-25"},
+      {"headline": "QB room still the unresolved variable — Wilson legacy decisions looming.", "kind": "narrative", "date": "2026-04-18"}
+    ],
+    "SEA": [
+      {"headline": "Seahawks won Super Bowl LX, beating New England 31-24. Jaxon Smith-Njigba SB MVP.", "kind": "narrative", "date": "2026-02-08"},
+      {"headline": "Dumped Geno Smith despite the title — letting the championship QB walk to NYJ.", "kind": "departure", "date": "2026-03-19"},
+      {"headline": "Rashid Shaheed retention keeps the WR room intact — running it back.", "kind": "signing", "date": "2026-03-14"},
+      {"headline": "Kenneth Walker departure to KC clears a path for the run game refresh.", "kind": "departure", "date": "2026-03-12"}
+    ],
+    "SF": [
+      {"headline": "Mike Evans signed at age 33 — 49ers gambling on short-term WR fix.", "kind": "signing", "date": "2026-03-14"},
+      {"headline": "Trent Williams contract standoff continues to cloud the offseason.", "kind": "narrative", "date": "2026-04-12"},
+      {"headline": "Brock Purdy contract talks heating up — pay him or move on?", "kind": "narrative", "date": "2026-04-20"}
+    ],
+    "TB": [
+      {"headline": "Mike Evans departure for SF ends an era in Tampa.", "kind": "departure", "date": "2026-03-14"},
+      {"headline": "Alex Anzalone signing brings elite coverage LB — Bowles' defense gets a missing piece.", "kind": "signing", "date": "2026-03-16"},
+      {"headline": "Cade Otton retention preserves the only reliable target alongside Godwin.", "kind": "signing", "date": "2026-03-18"},
+      {"headline": "Edge rusher remains the biggest hole — draft Day 1 priority.", "kind": "narrative", "date": "2026-04-21"}
+    ],
+    "TEN": [
+      {"headline": "Robert Saleh's hire and $270M+ FA spree is the offseason story of 2026.", "kind": "narrative", "date": "2026-03-20"},
+      {"headline": "11 of 14 signings have direct ties to Saleh's coaching tree — schematic familiarity unprecedented.", "kind": "narrative", "date": "2026-04-05"},
+      {"headline": "Wandale Robinson and John Franklin-Myers headline a stunning roster makeover.", "kind": "signing", "date": "2026-03-15"},
+      {"headline": "Cam Ward's rookie year now has scheme support most rookie QBs never get.", "kind": "narrative", "date": "2026-04-18"}
+    ],
+    "WAS": [
+      {"headline": "Adam Peters orchestrating a complete defensive overhaul under Vic Fangio.", "kind": "narrative", "date": "2026-03-22"},
+      {"headline": "Seven defensive signings in two weeks — Flores scheme imported wholesale.", "kind": "signing", "date": "2026-03-18"},
+      {"headline": "Jayden Daniels' Year 3 with a real defense behind him — NFC East could shift.", "kind": "narrative", "date": "2026-04-15"}
+    ]
+  }
+}

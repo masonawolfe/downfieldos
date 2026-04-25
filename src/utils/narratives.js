@@ -50,35 +50,150 @@ export function scriptedPlaysPreview(tm, stats, roster) {
   return lines.join("\n");
 }
 
+// Build verdict text given offensive player, defender, scenario, and team codes.
+// Tighter thresholds: > 6 = clear advantage, 3-6 = edge, -3 to 3 = even.
+function verdictFor(off, def, scenario, offTm, defTm) {
+  const edge = off.rating - def.rating;
+  if (edge > 8) return `${scenario}: big advantage ${offTm}. ${off.name} should win this rep most of the time.`;
+  if (edge > 3) return `${scenario}: ${off.name} has the edge. Expect targets/touches when this matchup is on the field.`;
+  if (edge < -8) return `${scenario}: clear advantage ${defTm}. ${def.name} can erase ${off.name} on islands.`;
+  if (edge < -3) return `${scenario}: ${def.name} has the edge. Forces ${offTm} to scheme ${off.name} open.`;
+  return `${scenario}: even matchup. Comes down to leverage, technique, and play call.`;
+}
+
 export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
-  const matchups = [];
   const unknown = { name: "TBD", grade: "TBD", rating: 65, trait: "Unknown", pos: "?" };
   const findOff = pos => offRoster.offense.find(p => p.pos === pos) || unknown;
   const findDef = pos => defRoster.defense.find(p => p.pos === pos) || unknown;
+  const isReal = p => p && p !== unknown && p.name !== "TBD";
 
-  const wr1 = findOff("WR1"), cb1 = findDef("CB1");
-  const e1 = wr1.rating - cb1.rating;
-  matchups.push({ off: wr1, def: cb1, label: "WR1 vs CB1", verdict: e1 > 10 ? `Big advantage ${offTm}. ${wr1.name} should feast.` : e1 < -10 ? `Advantage ${defTm}. ${cb1.name} can lock this down.` : `Coin-flip. Individual execution decides it.` });
+  // Resolve all defenders we might need
+  const cb1 = findDef("CB1"), cb2 = findDef("CB2"), cb3 = findDef("CB3");
+  const scb = findDef("SCB");
+  const ss = findDef("SS"), fs = findDef("FS");
+  const lb1 = findDef("LB1"), lb2 = findDef("LB2"), lb3 = findDef("LB3");
+  const edge1 = findDef("EDGE1"), edge2 = findDef("EDGE2"), edge3 = findDef("EDGE3");
+  const dt1 = findDef("DT1"), dt2 = findDef("DT2");
 
-  const wr2 = findOff("WR2"), cb2 = findDef("CB2");
-  matchups.push({ off: wr2, def: cb2, label: "WR2 vs CB2", verdict: wr2.rating - cb2.rating > 8 ? `Exploitable matchup for the offense.` : `Relatively even.` });
+  // Helper: build alternates list, filtering to real players
+  const alts = (arr) => arr.filter(a => isReal(a.def));
 
-  const wr3 = findOff("WR3"), scb = findDef("SCB");
-  matchups.push({ off: wr3, def: scb, label: "Slot Battle", verdict: wr3.rating > scb.rating + 5 ? `Slot is where this offense creates separation.` : `Slot is locked down.` });
+  const matchups = [];
 
-  const rb = findOff("RB1"), lb = findDef("LB1");
-  matchups.push({ off: rb, def: lb, label: "RB vs LB", verdict: rb.rating > lb.rating + 5 ? `${rb.name} has the edge in the run game and checkdowns.` : `${lb.name} can match up. Run game won't come easy.` });
+  // --- WR1: outside, but can shift inside / draw safety help ---
+  const wr1 = findOff("WR1");
+  if (isReal(wr1)) matchups.push({
+    key: "wr1",
+    label: `WR1`,
+    off: wr1,
+    alternates: alts([
+      { def: cb1, scenario: `vs CB1 (outside) — base man coverage` },
+      { def: cb2, scenario: `vs CB2 (outside) — when sides flip` },
+      { def: scb, scenario: `vs Slot CB — when motioned inside` },
+      { def: fs, scenario: `vs FS — over-the-top help on go routes` },
+      { def: ss, scenario: `vs SS — bracket coverage / red zone` },
+    ]),
+  });
 
-  const lt = findOff("LT"), edge1 = findDef("EDGE1");
-  matchups.push({ off: lt, def: edge1, label: "LT vs EDGE1", verdict: lt.rating >= edge1.rating ? `QB should have time.` : `${edge1.name} is going to be a problem. Expect quick passes.` });
+  // --- WR2 ---
+  const wr2 = findOff("WR2");
+  if (isReal(wr2)) matchups.push({
+    key: "wr2",
+    label: `WR2`,
+    off: wr2,
+    alternates: alts([
+      { def: cb2, scenario: `vs CB2 — base outside matchup` },
+      { def: cb1, scenario: `vs CB1 — when defense shadows WR1 elsewhere` },
+      { def: scb, scenario: `vs Slot CB — on motion or stack releases` },
+      { def: fs, scenario: `vs FS — deep zone responsibility` },
+    ]),
+  });
 
-  const rt = findOff("RT"), edge2 = findDef("EDGE2");
-  matchups.push({ off: rt, def: edge2, label: "RT vs EDGE2", verdict: rt.rating >= edge2.rating ? `Solid protection.` : `Another pressure point.` });
+  // --- WR3 / Slot ---
+  const wr3 = findOff("WR3");
+  if (isReal(wr3)) matchups.push({
+    key: "wr3",
+    label: `Slot WR (WR3)`,
+    off: wr3,
+    alternates: alts([
+      { def: scb, scenario: `vs Slot CB — primary slot matchup` },
+      { def: cb2, scenario: `vs CB2 — bumped outside on 3WR sets` },
+      { def: lb2, scenario: `vs LB — option route in zone` },
+      { def: ss, scenario: `vs SS — seam routes / Big nickel` },
+    ]),
+  });
 
-  const te = findOff("TE"), ss = findDef("SS");
-  matchups.push({ off: te, def: ss, label: "TE vs Safety", verdict: te.trait === "Receiving TE" && te.rating > ss.rating ? `${te.name} is a weapon. Matchup to exploit.` : `Handled. TE is more blocker than threat.` });
+  // --- TE ---
+  const te = findOff("TE");
+  if (isReal(te)) matchups.push({
+    key: "te",
+    label: `TE`,
+    off: te,
+    alternates: alts([
+      { def: ss, scenario: `vs SS — base TE coverage` },
+      { def: lb1, scenario: `vs MIKE LB — short/intermediate seams` },
+      { def: lb2, scenario: `vs WILL LB — checkdowns and flat routes` },
+      { def: fs, scenario: `vs FS — deep crossers and posts` },
+      { def: scb, scenario: `vs Slot CB — when split out wide` },
+    ]),
+  });
 
-  return matchups;
+  // --- RB1: faces LBs in run game, slot CBs/safeties in space ---
+  const rb = findOff("RB1");
+  if (isReal(rb)) matchups.push({
+    key: "rb",
+    label: `RB1`,
+    off: rb,
+    alternates: alts([
+      { def: lb1, scenario: `vs MIKE LB — run-game fits and checkdowns` },
+      { def: lb2, scenario: `vs WILL LB — outside zone pursuit` },
+      { def: ss, scenario: `vs SS — wheel routes and screens` },
+      { def: scb, scenario: `vs Slot CB — angle routes from the backfield` },
+      { def: edge1, scenario: `vs EDGE — pass protection assignment` },
+    ]),
+  });
+
+  // --- LT ---
+  const lt = findOff("LT");
+  if (isReal(lt)) matchups.push({
+    key: "lt",
+    label: `LT`,
+    off: lt,
+    alternates: alts([
+      { def: edge1, scenario: `vs EDGE1 — primary blindside protection` },
+      { def: edge2, scenario: `vs EDGE2 — when EDGE1 lines up away` },
+      { def: dt1, scenario: `vs DT — interior stunts and games` },
+    ]),
+  });
+
+  // --- RT ---
+  const rt = findOff("RT");
+  if (isReal(rt)) matchups.push({
+    key: "rt",
+    label: `RT`,
+    off: rt,
+    alternates: alts([
+      { def: edge2, scenario: `vs EDGE2 — base right-side protection` },
+      { def: edge1, scenario: `vs EDGE1 — when defense flips alignment` },
+      { def: dt2, scenario: `vs DT — interior stunts` },
+    ]),
+  });
+
+  // Backfill verdicts for the default (first alternate) so legacy callers keep working
+  return matchups.map(m => {
+    const first = m.alternates[0];
+    return {
+      ...m,
+      // legacy shape expected by prepSheet.js etc.
+      def: first ? first.def : unknown,
+      verdict: first ? verdictFor(m.off, first.def, first.scenario, offTm, defTm) : "",
+    };
+  });
+}
+
+// Compute the verdict for a specific selected alternate. Used by the UI on pivot.
+export function verdictForMatchup(off, def, scenario, offTm, defTm) {
+  return verdictFor(off, def, scenario, offTm, defTm);
 }
 
 export function frontOfficeAssessment(tm, stats, bl) {
