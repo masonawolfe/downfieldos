@@ -2,12 +2,18 @@
 /**
  * fetch-nflverse-roster-base.js
  *
- * Generates rosters2025.js from nflverse depth charts + snap counts.
- * Uses depth_charts_2025.csv (pos_rank=1 = starter) validated against
- * snap_counts_2025.csv (actual playing time).
+ * Generates rosters${SEASON}.js from nflverse depth charts + snap counts.
+ * Uses depth_charts_${SEASON}.csv (pos_rank=1 = starter) validated against
+ * snap_counts (actual playing time — falls back to prior season when the
+ * current season hasn't produced regular-season snap data yet).
  *
- * Output: src/data/rosters2025.js
- * Usage: node scripts/fetch-nflverse-roster-base.js
+ * Usage:
+ *   node scripts/fetch-nflverse-roster-base.js               # defaults to SEASON=2026
+ *   SEASON=2025 node scripts/fetch-nflverse-roster-base.js   # or pass via env
+ *   node scripts/fetch-nflverse-roster-base.js 2025          # or as first arg
+ *
+ * Snap-count season falls back to SEASON-1 automatically when the current
+ * season's file is unavailable (preseason case). Override with SNAP_SEASON.
  */
 
 import fs from 'fs';
@@ -17,10 +23,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DEPTH_CHART_URL = 'https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2025.csv';
-const SNAP_COUNT_URL = 'https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2025.csv';
-const ROSTER_URL = 'https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2025.csv';
-const OUT_PATH = path.join(__dirname, '../src/data/rosters2025.js');
+const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
+const SNAP_SEASON_OVERRIDE = process.env.SNAP_SEASON ? parseInt(process.env.SNAP_SEASON, 10) : null;
+
+const DEPTH_CHART_URL = `https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_${SEASON}.csv`;
+const ROSTER_URL = `https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_${SEASON}.csv`;
+const SNAP_URL = (yr) => `https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_${yr}.csv`;
+const OUT_PATH = path.join(__dirname, `../src/data/rosters${SEASON}.js`);
 
 const TEAM_MAP = { OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', LA: 'LAR' };
 function norm(t) { return TEAM_MAP[t?.trim()?.toUpperCase()] || t?.trim()?.toUpperCase() || ''; }
@@ -117,14 +126,30 @@ async function fetchCSV(url, label) {
   return parseCSV(text);
 }
 
+async function fetchSnapsWithFallback() {
+  const primary = SNAP_SEASON_OVERRIDE ?? SEASON;
+  try {
+    const rows = await fetchCSV(SNAP_URL(primary), `snap counts (${primary})`);
+    return { rows, season: primary };
+  } catch (err) {
+    if (SNAP_SEASON_OVERRIDE != null) throw err; // user asked for a specific season — don't second-guess
+    const fallback = SEASON - 1;
+    console.log(`  ⚠ ${primary} snap counts unavailable (${err.message}); falling back to ${fallback}`);
+    const rows = await fetchCSV(SNAP_URL(fallback), `snap counts (${fallback})`);
+    return { rows, season: fallback };
+  }
+}
+
 async function main() {
-  console.log('DownfieldOS — nflverse Roster Generation');
+  console.log(`DownfieldOS — nflverse Roster Generation (${SEASON})`);
   console.log('========================================\n');
 
   // Fetch all three data sources
-  const depthRows = await fetchCSV(DEPTH_CHART_URL, 'depth charts');
-  const snapRows = await fetchCSV(SNAP_COUNT_URL, 'snap counts');
-  const rosterRows = await fetchCSV(ROSTER_URL, 'roster metadata');
+  const depthRows = await fetchCSV(DEPTH_CHART_URL, `depth charts (${SEASON})`);
+  const snapResult = await fetchSnapsWithFallback();
+  const snapRows = snapResult.rows;
+  const snapSeasonUsed = snapResult.season;
+  const rosterRows = await fetchCSV(ROSTER_URL, `roster metadata (${SEASON})`);
 
   // Build years_exp lookup from roster data
   const expMap = {};
@@ -313,12 +338,12 @@ async function main() {
   });
 
   // Write output
-  const output = `// Auto-generated from nflverse depth charts + snap counts (2025 season)
+  const output = `// Auto-generated from nflverse depth charts + snap counts (${SEASON} season)
 // Generated: ${new Date().toISOString()}
-// Sources: depth_charts_2025.csv, snap_counts_2025.csv, roster_2025.csv
-// Do not edit manually — re-run: node scripts/fetch-nflverse-roster-base.js
+// Sources: depth_charts_${SEASON}.csv, snap_counts_${snapSeasonUsed}.csv, roster_${SEASON}.csv
+// Do not edit manually — re-run: SEASON=${SEASON} node scripts/fetch-nflverse-roster-base.js
 
-export const ROSTERS_2025 = ${JSON.stringify(rosters, null, 2)};
+export const ROSTERS_${SEASON} = ${JSON.stringify(rosters, null, 2)};
 `;
 
   fs.writeFileSync(OUT_PATH, output);
