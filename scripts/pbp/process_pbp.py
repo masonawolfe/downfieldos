@@ -1,0 +1,552 @@
+#!/usr/bin/env python3
+"""
+DownfieldOS PBP Data Processor
+===============================
+Processes nflverse play-by-play CSV data into derived metrics for DownfieldOS.
+
+Usage:
+    # Download data first (if not already present):
+    # wget https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2025.csv.gz -O raw/play_by_play_2025.csv.gz
+    # wget https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_weekly_2025.csv -O raw/roster_weekly_2025.csv
+    #
+    # Then run:
+    python3 process_pbp.py [--year 2025]
+
+Outputs (saved to current directory):
+    - team_scheme_profiles.json
+    - scheme_similarity_matrix.json
+    - player_usage_data.json
+    - situational_splits.json
+    - pbp_sync_metadata.json
+
+Idempotent — safe to re-run. Overwrites previous outputs.
+"""
+
+import json
+import os
+import sys
+import gzip
+from datetime import datetime
+from pathlib import Path
+from math import sqrt
+
+try:
+    import pandas as pd
+except ImportError:
+    print("pandas required. Install: pip install pandas --break-system-packages")
+    sys.exit(1)
+
+# ---------------------------------------------------------------------------
+# Config
+# ---------------------------------------------------------------------------
+YEAR = int(os.environ.get("PBP_YEAR", "2025"))
+# BASE_DIR = where outputs land. RAW_DIR = where the nflverse CSVs live.
+# Both are overridable via env vars so the same script serves both local runs
+# and .github/workflows/data-pbp-derived.yml, which points them at repo paths.
+BASE_DIR = Path(os.environ.get("PBP_OUT_DIR", Path(__file__).parent))
+RAW_DIR = Path(os.environ.get("PBP_RAW_DIR", BASE_DIR / "raw"))
+PBP_GZ = RAW_DIR / f"play_by_play_{YEAR}.csv.gz"
+PBP_CSV = RAW_DIR / f"play_by_play_{YEAR}.csv"
+ROSTER_CSV = RAW_DIR / f"roster_weekly_{YEAR}.csv"
+
+NFL_TEAMS = [
+    "ARI", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE",
+    "DAL", "DEN", "DET", "GB", "HOU", "IND", "JAX", "KC",
+    "LA", "LAC", "LV", "MIA", "MIN", "NE", "NO", "NYG",
+    "NYJ", "PHI", "PIT", "SEA", "SF", "TB", "TEN", "WAS"
+]
+
+
+def parse_args():
+    """Simple arg parsing."""
+    year = YEAR
+    for i, arg in enumerate(sys.argv):
+        if arg == "--year" and i + 1 < len(sys.argv):
+            year = int(sys.argv[i + 1])
+    return year
+
+
+def load_pbp(year: int) -> pd.DataFrame:
+    """Load play-by-play data from raw directory."""
+    gz_path = RAW_DIR / f"play_by_play_{year}.csv.gz"
+    csv_path = RAW_DIR / f"play_by_play_{year}.csv"
+
+    if gz_path.exists():
+        print(f"Loading {gz_path}...")
+        df = pd.read_csv(gz_path, compression="gzip", low_memory=False)
+    elif csv_path.exists():
+        print(f"Loading {csv_path}...")
+        df = pd.read_csv(csv_path, low_memory=False)
+    else:
+        print(f"ERROR: No PBP file found. Expected one of:")
+        print(f"  {gz_path}")
+        print(f"  {csv_path}")
+        print(f"\nDownload with:")
+        print(f"  wget https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_{year}.csv.gz -O {gz_path}")
+        sys.exit(1)
+
+    print(f"Loaded {len(df):,} plays, {len(df.columns)} columns")
+    return df
+
+
+def load_rosters(year: int) -> pd.DataFrame | None:
+    """Load roster data if available."""
+    path = RAW_DIR / f"roster_weekly_{year}.csv"
+    if path.exists():
+        print(f"Loading rosters from {path}...")
+        return pd.read_csv(path, low_memory=False)
+    print(f"No roster file found at {path} — skipping roster-based metrics.")
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Team Scheme Profiles
+# ---------------------------------------------------------------------------
+def compute_scheme_profiles(df: pd.DataFrame) -> dict:
+    """Compute per-team offensive and defensive scheme profiles."""
+    profiles = {}
+
+    # Filter to actual plays (exclude timeouts, penalties-only, etc.)
+    plays = df[df["play_type"].isin(["pass", "run"])].copy()
+
+    for team in NFL_TEAMS:
+        off = plays[plays["posteam"] == team]
+        deff = plays[plays["defteam"] == team]
+
+        if len(off) == 0 and len(deff) == 0:
+            continue
+
+        profile = {"team": team, "offense": {}, "defense": {}}
+
+        # --- Offensive scheme ---
+        if len(off) > 0:
+            total_off = len(off)
+            pass_plays = off[off["play_type"] == "pass"]
+            run_plays = off[off["play_type"] == "run"]
+
+            profile["offense"]["pass_rate"] = round(len(pass_plays) / total_off, 3)
+            profile["offense"]["run_rate"] = round(len(run_plays) / total_off, 3)
+            profile["offense"]["total_plays"] = total_off
+
+            # Pass rate by down
+            for down in [1, 2, 3, 4]:
+                down_plays = off[off["down"] == down]
+                if len(down_plays) > 0:
+                    profile["offense"][f"pass_rate_down_{down}"] = round(
+                        len(down_plays[down_plays["play_type"] == "pass"]) / len(down_plays), 3
+                    )
+
+            # Play action rate (if column exists)
+            if "is_play_action" in off.columns:
+                pa = off["is_play_action"].sum()
+                profile["offense"]["play_action_rate"] = round(pa / total_off, 3)
+            elif "play_action" in off.columns:
+                pa = off["play_action"].fillna(0).sum()
+                profile["offense"]["play_action_rate"] = round(pa / total_off, 3)
+
+            # No-huddle rate
+            if "no_huddle" in off.columns:
+                nh = off["no_huddle"].fillna(0).sum()
+                profile["offense"]["no_huddle_rate"] = round(nh / total_off, 3)
+
+            # RPO frequency (if available)
+            if "is_rpo" in off.columns:
+                rpo = off["is_rpo"].fillna(0).sum()
+                profile["offense"]["rpo_rate"] = round(rpo / total_off, 3)
+
+            # Personnel groupings (if available)
+            if "offense_personnel" in off.columns:
+                personnel = off["offense_personnel"].dropna().value_counts(normalize=True).head(6)
+                profile["offense"]["personnel_usage"] = {
+                    k: round(v, 3) for k, v in personnel.items()
+                }
+
+            # Run direction tendencies
+            if "run_location" in run_plays.columns and len(run_plays) > 0:
+                run_dir = run_plays["run_location"].dropna().value_counts(normalize=True)
+                profile["offense"]["run_direction"] = {
+                    k: round(v, 3) for k, v in run_dir.items()
+                }
+
+        # --- Defensive scheme ---
+        if len(deff) > 0:
+            total_def = len(deff)
+            profile["defense"]["total_plays_faced"] = total_def
+
+            # Opponent pass/run rate against this defense
+            profile["defense"]["opp_pass_rate"] = round(
+                len(deff[deff["play_type"] == "pass"]) / total_def, 3
+            )
+
+            # Blitz rate by down (if available)
+            if "blitz" in deff.columns:
+                blitz_rate = deff["blitz"].fillna(0).mean()
+                profile["defense"]["blitz_rate"] = round(blitz_rate, 3)
+                for down in [1, 2, 3]:
+                    dd = deff[deff["down"] == down]
+                    if len(dd) > 0 and "blitz" in dd.columns:
+                        profile["defense"][f"blitz_rate_down_{down}"] = round(
+                            dd["blitz"].fillna(0).mean(), 3
+                        )
+
+            # Coverage distribution (if available)
+            coverage_cols = [c for c in deff.columns if "coverage" in c.lower()]
+            if "defense_coverage_type" in deff.columns:
+                cov = deff["defense_coverage_type"].dropna().value_counts(normalize=True).head(8)
+                profile["defense"]["coverage_distribution"] = {
+                    k: round(v, 3) for k, v in cov.items()
+                }
+            elif coverage_cols:
+                # Try first coverage-related column
+                cov_col = coverage_cols[0]
+                cov = deff[cov_col].dropna().value_counts(normalize=True).head(8)
+                profile["defense"]["coverage_distribution"] = {
+                    str(k): round(v, 3) for k, v in cov.items()
+                }
+
+            # Pass rate allowed by down
+            for down in [1, 2, 3, 4]:
+                dd = deff[deff["down"] == down]
+                if len(dd) > 0:
+                    profile["defense"][f"opp_pass_rate_down_{down}"] = round(
+                        len(dd[dd["play_type"] == "pass"]) / len(dd), 3
+                    )
+
+        profiles[team] = profile
+
+    return profiles
+
+
+# ---------------------------------------------------------------------------
+# Situational Splits
+# ---------------------------------------------------------------------------
+def compute_situational_splits(df: pd.DataFrame) -> dict:
+    """Compute per-team situational tendency data."""
+    plays = df[df["play_type"].isin(["pass", "run"])].copy()
+    splits = {}
+
+    for team in NFL_TEAMS:
+        off = plays[plays["posteam"] == team]
+        if len(off) == 0:
+            continue
+
+        team_splits = {"team": team}
+
+        # Red zone (inside 20)
+        rz = off[off["yardline_100"] <= 20]
+        if len(rz) > 10:
+            team_splits["red_zone"] = {
+                "plays": len(rz),
+                "pass_rate": round(len(rz[rz["play_type"] == "pass"]) / len(rz), 3),
+                "run_rate": round(len(rz[rz["play_type"] == "run"]) / len(rz), 3),
+            }
+
+        # Goal line (inside 5)
+        gl = off[off["yardline_100"] <= 5]
+        if len(gl) > 5:
+            team_splits["goal_line"] = {
+                "plays": len(gl),
+                "pass_rate": round(len(gl[gl["play_type"] == "pass"]) / len(gl), 3),
+                "run_rate": round(len(gl[gl["play_type"] == "run"]) / len(gl), 3),
+            }
+
+        # 3rd down
+        third = off[off["down"] == 3]
+        if len(third) > 10:
+            converted = third[third["first_down"] == 1] if "first_down" in third.columns else pd.DataFrame()
+            team_splits["third_down"] = {
+                "plays": len(third),
+                "pass_rate": round(len(third[third["play_type"] == "pass"]) / len(third), 3),
+                "conversion_rate": round(len(converted) / len(third), 3) if len(converted) > 0 else None,
+            }
+
+        # 4th down decisions
+        fourth = df[(df["posteam"] == team) & (df["down"] == 4)]
+        if len(fourth) > 0:
+            go_for_it = fourth[fourth["play_type"].isin(["pass", "run"])]
+            punt = fourth[fourth["play_type"] == "punt"] if "punt" in fourth["play_type"].values else pd.DataFrame()
+            fg = fourth[fourth["play_type"] == "field_goal"] if "field_goal" in fourth["play_type"].values else pd.DataFrame()
+            team_splits["fourth_down"] = {
+                "total": len(fourth),
+                "go_for_it": len(go_for_it),
+                "punt": len(punt),
+                "field_goal": len(fg),
+                "go_rate": round(len(go_for_it) / len(fourth), 3) if len(fourth) > 0 else 0,
+            }
+
+        # 2-minute drill (last 2 min of each half, trailing or tied)
+        if "half_seconds_remaining" in off.columns:
+            two_min = off[
+                (off["half_seconds_remaining"] <= 120)
+            ]
+            if len(two_min) > 5:
+                team_splits["two_minute_drill"] = {
+                    "plays": len(two_min),
+                    "pass_rate": round(len(two_min[two_min["play_type"] == "pass"]) / len(two_min), 3),
+                }
+
+        splits[team] = team_splits
+
+    return splits
+
+
+# ---------------------------------------------------------------------------
+# Player Usage Data
+# ---------------------------------------------------------------------------
+def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict:
+    """Compute per-player snap counts, target shares, and usage metrics."""
+    usage = {}
+    plays = df[df["play_type"].isin(["pass", "run"])].copy()
+
+    # --- Receiver targets & usage ---
+    if "receiver_player_name" in plays.columns:
+        pass_plays = plays[plays["play_type"] == "pass"].copy()
+
+        for team in NFL_TEAMS:
+            team_passes = pass_plays[pass_plays["posteam"] == team]
+            if len(team_passes) == 0:
+                continue
+
+            total_targets = len(team_passes[team_passes["receiver_player_name"].notna()])
+            receivers = team_passes.groupby("receiver_player_name").agg(
+                targets=("receiver_player_name", "count"),
+                receptions=("complete_pass", "sum") if "complete_pass" in team_passes.columns else ("receiver_player_name", "count"),
+                yards=("yards_gained", "sum") if "yards_gained" in team_passes.columns else ("receiver_player_name", "count"),
+            ).reset_index()
+
+            if total_targets > 0:
+                receivers["target_share"] = (receivers["targets"] / total_targets).round(3)
+
+            receivers = receivers.sort_values("targets", ascending=False).head(15)
+
+            for _, row in receivers.iterrows():
+                player_name = row["receiver_player_name"]
+                if pd.isna(player_name):
+                    continue
+                key = f"{team}_{player_name}"
+                usage[key] = {
+                    "player": player_name,
+                    "team": team,
+                    "targets": int(row["targets"]),
+                    "target_share": float(row.get("target_share", 0)),
+                    "receptions": int(row.get("receptions", 0)),
+                    "receiving_yards": int(row.get("yards", 0)),
+                }
+
+    # --- Rusher usage ---
+    if "rusher_player_name" in plays.columns:
+        run_plays = plays[plays["play_type"] == "run"].copy()
+
+        for team in NFL_TEAMS:
+            team_runs = run_plays[run_plays["posteam"] == team]
+            if len(team_runs) == 0:
+                continue
+
+            total_carries = len(team_runs[team_runs["rusher_player_name"].notna()])
+            rushers = team_runs.groupby("rusher_player_name").agg(
+                carries=("rusher_player_name", "count"),
+                yards=("yards_gained", "sum") if "yards_gained" in team_runs.columns else ("rusher_player_name", "count"),
+            ).reset_index()
+
+            if total_carries > 0:
+                rushers["carry_share"] = (rushers["carries"] / total_carries).round(3)
+
+            rushers = rushers.sort_values("carries", ascending=False).head(8)
+
+            for _, row in rushers.iterrows():
+                player_name = row["rusher_player_name"]
+                if pd.isna(player_name):
+                    continue
+                key = f"{team}_{player_name}"
+                if key in usage:
+                    usage[key]["carries"] = int(row["carries"])
+                    usage[key]["carry_share"] = float(row.get("carry_share", 0))
+                    usage[key]["rushing_yards"] = int(row.get("yards", 0))
+                else:
+                    usage[key] = {
+                        "player": player_name,
+                        "team": team,
+                        "carries": int(row["carries"]),
+                        "carry_share": float(row.get("carry_share", 0)),
+                        "rushing_yards": int(row.get("yards", 0)),
+                    }
+
+    # --- Weekly snap trends (if game_id available) ---
+    if "game_id" in plays.columns and "passer_player_name" in plays.columns:
+        for team in NFL_TEAMS:
+            team_plays = plays[plays["posteam"] == team]
+            games = team_plays["game_id"].unique()
+            qb_key = None
+            for game in games:
+                gp = team_plays[team_plays["game_id"] == game]
+                pass_plays_g = gp[gp["play_type"] == "pass"]
+                if len(pass_plays_g) > 0:
+                    qb = pass_plays_g["passer_player_name"].mode()
+                    if len(qb) > 0:
+                        qb_name = qb.iloc[0]
+                        qb_key = f"{team}_{qb_name}"
+                        if qb_key not in usage:
+                            usage[qb_key] = {"player": qb_name, "team": team}
+                        usage[qb_key]["role"] = "QB"
+
+    return usage
+
+
+# ---------------------------------------------------------------------------
+# Scheme Similarity Matrix
+# ---------------------------------------------------------------------------
+def compute_scheme_similarity(profiles: dict) -> dict:
+    """
+    Compute pairwise scheme similarity between all 32 teams' defenses.
+    Uses cosine similarity on defensive tendency vectors.
+    """
+    # Build feature vectors for each team's defense
+    feature_keys = [
+        "opp_pass_rate", "blitz_rate",
+        "opp_pass_rate_down_1", "opp_pass_rate_down_2", "opp_pass_rate_down_3"
+    ]
+
+    vectors = {}
+    for team, profile in profiles.items():
+        defense = profile.get("defense", {})
+        vec = []
+        for key in feature_keys:
+            val = defense.get(key, 0.5)  # default to league average
+            vec.append(val if val is not None else 0.5)
+        vectors[team] = vec
+
+    # Cosine similarity
+    def cosine_sim(a, b):
+        dot = sum(x * y for x, y in zip(a, b))
+        mag_a = sqrt(sum(x ** 2 for x in a))
+        mag_b = sqrt(sum(x ** 2 for x in b))
+        if mag_a == 0 or mag_b == 0:
+            return 0.0
+        return round(dot / (mag_a * mag_b), 4)
+
+    matrix = {}
+    teams = sorted(vectors.keys())
+    for t1 in teams:
+        matrix[t1] = {}
+        for t2 in teams:
+            matrix[t1][t2] = cosine_sim(vectors[t1], vectors[t2])
+
+    return matrix
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+def main():
+    year = parse_args()
+    print(f"=" * 60)
+    print(f"DownfieldOS PBP Processor — {year} Season")
+    print(f"=" * 60)
+
+    # Load data
+    df = load_pbp(year)
+    rosters = load_rosters(year)
+
+    # Validate expected columns
+    required_cols = ["play_id", "game_id", "posteam", "defteam", "play_type"]
+    missing = [c for c in required_cols if c not in df.columns]
+    if missing:
+        print(f"WARNING: Missing expected columns: {missing}")
+
+    print(f"\nAvailable columns ({len(df.columns)}): {', '.join(sorted(df.columns)[:20])}...")
+
+    # Filter to regular season + playoffs
+    if "season_type" in df.columns:
+        valid_types = df["season_type"].value_counts()
+        print(f"\nSeason types: {dict(valid_types)}")
+
+    # --- Compute all derived metrics ---
+    print("\n[1/4] Computing team scheme profiles...")
+    profiles = compute_scheme_profiles(df)
+    print(f"  → {len(profiles)} teams profiled")
+
+    print("[2/4] Computing situational splits...")
+    splits = compute_situational_splits(df)
+    print(f"  → {len(splits)} teams with situational data")
+
+    print("[3/4] Computing player usage data...")
+    usage = compute_player_usage(df, rosters)
+    print(f"  → {len(usage)} player records")
+
+    print("[4/4] Computing scheme similarity matrix...")
+    similarity = compute_scheme_similarity(profiles)
+    print(f"  → {len(similarity)}x{len(similarity)} similarity matrix")
+
+    # --- Save outputs ---
+    print(f"\nSaving outputs to {BASE_DIR}/...")
+
+    with open(BASE_DIR / "team_scheme_profiles.json", "w") as f:
+        json.dump(profiles, f, indent=2)
+    print("  ✓ team_scheme_profiles.json")
+
+    with open(BASE_DIR / "scheme_similarity_matrix.json", "w") as f:
+        json.dump(similarity, f, indent=2)
+    print("  ✓ scheme_similarity_matrix.json")
+
+    with open(BASE_DIR / "player_usage_data.json", "w") as f:
+        json.dump(usage, f, indent=2)
+    print("  ✓ player_usage_data.json")
+
+    with open(BASE_DIR / "situational_splits.json", "w") as f:
+        json.dump(splits, f, indent=2)
+    print("  ✓ situational_splits.json")
+
+    # --- Metadata ---
+    metadata = {
+        "last_sync": datetime.utcnow().isoformat() + "Z",
+        "season": year,
+        "total_plays": len(df),
+        "actual_plays": len(df[df["play_type"].isin(["pass", "run"])]),
+        "teams_profiled": len(profiles),
+        "player_records": len(usage),
+        "data_source": f"nflverse play_by_play_{year}",
+        "columns_available": len(df.columns),
+        "games": int(df["game_id"].nunique()) if "game_id" in df.columns else None,
+        "data_quality": {
+            "has_coverage_data": "defense_coverage_type" in df.columns,
+            "has_blitz_data": "blitz" in df.columns,
+            "has_personnel_data": "offense_personnel" in df.columns,
+            "has_play_action_data": any(c in df.columns for c in ["is_play_action", "play_action"]),
+            "has_rpo_data": "is_rpo" in df.columns,
+        }
+    }
+
+    with open(BASE_DIR / "pbp_sync_metadata.json", "w") as f:
+        json.dump(metadata, f, indent=2)
+    print("  ✓ pbp_sync_metadata.json")
+
+    # --- Validation spot checks ---
+    print(f"\n{'=' * 60}")
+    print("VALIDATION SPOT CHECKS")
+    print(f"{'=' * 60}")
+
+    # Check that high-profile teams have data
+    for check_team in ["KC", "PHI", "SF"]:
+        if check_team in profiles:
+            p = profiles[check_team]
+            off = p.get("offense", {})
+            print(f"\n{check_team} offense: {off.get('total_plays', 0)} plays, "
+                  f"pass rate={off.get('pass_rate', 'N/A')}, "
+                  f"play_action={off.get('play_action_rate', 'N/A')}")
+            defense = p.get("defense", {})
+            print(f"{check_team} defense: {defense.get('total_plays_faced', 0)} plays faced, "
+                  f"blitz rate={defense.get('blitz_rate', 'N/A')}")
+
+    # Verify similarity matrix is symmetric
+    asym_count = 0
+    teams = sorted(similarity.keys())
+    for i, t1 in enumerate(teams):
+        for t2 in teams[i + 1:]:
+            if abs(similarity[t1][t2] - similarity[t2][t1]) > 0.001:
+                asym_count += 1
+    print(f"\nSimilarity matrix symmetry check: {'PASS' if asym_count == 0 else f'FAIL ({asym_count} asymmetric pairs)'}")
+    print(f"\nDone. All outputs saved to {BASE_DIR}/")
+
+
+if __name__ == "__main__":
+    main()

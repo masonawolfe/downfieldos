@@ -12,6 +12,11 @@
     "data:rosters": "node scripts/fetch-nflverse-roster-base.js",
     "data:schedule": "node scripts/fetch-schedule.js",
     "data:stats": "node scripts/build-player-stats.js",
+    "data:injuries": "node scripts/fetch-injuries.js",
+    "data:trades": "node scripts/fetch-trades.js",
+    "data:referees": "node scripts/fetch-referees.js",
+    "data:contracts": "node scripts/fetch-contracts.js",
+    "data:news": "node scripts/fetch-team-news.js",
     "test": "node scripts/test-rosters.js"
   },
   "dependencies": {
