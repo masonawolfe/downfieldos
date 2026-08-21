@@ -25,9 +25,14 @@ const __dirname = path.dirname(__filename);
 
 // ── Config ───────────────────────────────────────────────────────────────────
 
-// Seasons to fetch (recent history for former-teammate detection)
-const SEASONS = [2020, 2021, 2022, 2023, 2024];
-const CURRENT_SEASON = 2025;
+// Current season = the season we're building the graph FOR (players' most-recent
+// team is treated as their current team). History spans SEASONS for co-teammate
+// detection. Both are overridable via env vars for scheduled use.
+const CURRENT_SEASON = parseInt(process.env.CURRENT_SEASON || process.argv[2] || '2026', 10);
+const HISTORY_YEARS = parseInt(process.env.HISTORY_YEARS || '5', 10);
+const SEASONS = process.env.SEASONS
+  ? process.env.SEASONS.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !Number.isNaN(n))
+  : Array.from({ length: HISTORY_YEARS }, (_, i) => CURRENT_SEASON - HISTORY_YEARS + i);
 
 // nflverse roster URL pattern — season-level roster files
 const ROSTER_URL = (year) =>

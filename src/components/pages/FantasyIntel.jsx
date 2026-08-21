@@ -16,6 +16,7 @@ import { InsightCard } from '../ui/InsightCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
+import { byeWeekFor, teamsOnByeInWeek, opponentInWeek } from '../../utils/schedule';
 
 export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
@@ -158,6 +159,28 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
           </select>
         </div>
       </div>
+
+      {/* Bye-week context — real 2026 schedule */}
+      {(() => {
+        const byeTeams = teamsOnByeInWeek(selectedWeek);
+        const primaryBye = primaryTeam ? byeWeekFor(primaryTeam) : null;
+        const primaryOnBye = primaryTeam && primaryBye === selectedWeek;
+        if (!byeTeams.length && !primaryBye) return null;
+        return (
+          <div style={{ background: "#fff7ed", border: "1px solid #fed7aa", borderRadius: 10, padding: "10px 14px", marginBottom: 16, display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center", fontSize: 13, color: "#7c2d12" }}>
+            {byeTeams.length > 0 && (
+              <span>
+                <strong>{byeTeams.length}</strong> {byeTeams.length === 1 ? "team" : "teams"} on bye Week {selectedWeek}: {byeTeams.map(t => tn(t)).join(", ")}
+              </span>
+            )}
+            {primaryTeam && primaryBye != null && (
+              <span style={{ marginLeft: byeTeams.length ? 0 : 0, fontWeight: primaryOnBye ? 700 : 500 }}>
+                {tn(primaryTeam)} bye: Week {primaryBye}{primaryOnBye ? " — that's this week." : ""}
+              </span>
+            )}
+          </div>
+        );
+      })()}
 
       {/* Top insight */}
       {bestEnv && bestEnv[posFilter] && (

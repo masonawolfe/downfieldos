@@ -24,7 +24,14 @@ const __dirname = path.dirname(__filename);
 
 // ── Config ──────────────────────────────────────────────────────────────────
 
-const SEASONS = [2023, 2024, 2025];
+// SEASONS is comma-separated via env, or defaults to the trailing 3 completed
+// seasons. Override with SEASONS=2023,2024,2025 or LATEST_SEASON=2025.
+// (2026 PBP is not published until games start playing.)
+const LATEST_SEASON = parseInt(process.env.LATEST_SEASON || '2025', 10);
+const SEASONS = process.env.SEASONS
+  ? process.env.SEASONS.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !Number.isNaN(n))
+  : [LATEST_SEASON - 2, LATEST_SEASON - 1, LATEST_SEASON];
+
 const PBP_URL = (year) =>
   `https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${year}.csv`;
 
