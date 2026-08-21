@@ -11,6 +11,7 @@ import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { TeamNewsCard } from '../ui/TeamNewsCard';
+import { latestTeamHeadlines } from '../../utils/teamNews';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -49,6 +50,26 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
         </div>
       </div>
       <TeamNewsCard team={team} />
+      {(() => {
+        const wire = latestTeamHeadlines(team, 5);
+        if (!wire.length) return null;
+        return (
+          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+              <span style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b" }}>ESPN Wire</span>
+              <span style={{ fontSize: 10, color: "#94a3b8" }}>· {tn(team)} · last {wire.length} headlines</span>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {wire.map((n, i) => (
+                <a key={i} href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ display: "flex", alignItems: "flex-start", gap: 10, textDecoration: "none" }}>
+                  <span style={{ fontSize: 10, color: "#94a3b8", fontFamily: "monospace", minWidth: 76, marginTop: 3 }}>{(n.published || "").slice(0, 10)}</span>
+                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{n.headline}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>The Scouting Report</h3>
         <div style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", whiteSpace: "pre-wrap" }}>{overview}</div>

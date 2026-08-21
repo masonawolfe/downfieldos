@@ -13,6 +13,7 @@ import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
 import { calcEnvironmentFactors } from '../../utils/environmentFactors';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
+import { latestLeagueHeadlines } from '../../utils/teamNews';
 
 const QUICK_LINKS = [
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
@@ -134,13 +135,21 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
       </div>
 
       {/* League Headlines */}
-      {headlines.length > 0 && (
+      {(headlines.length > 0 || latestLeagueHeadlines(1).length > 0) && (
         <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 16, padding: 20, marginBottom: 20 }}>
           <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", marginBottom: 12, fontWeight: 800 }}>Around the League</div>
           {headlines.map((h, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: i < headlines.length - 1 ? 10 : 0 }}>
+            <div key={`s-${i}`} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 10 }}>
               <span style={{ fontSize: 16, marginTop: -2 }}>{i === 0 ? "😤" : "🔥"}</span>
               <span style={{ fontSize: 14, color: "#334155", lineHeight: 1.5 }}>{h}</span>
+            </div>
+          ))}
+          {latestLeagueHeadlines(5).map((n, i) => (
+            <div key={`n-${i}`} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginTop: i === 0 && headlines.length > 0 ? 14 : 0, marginBottom: 8, paddingTop: i === 0 && headlines.length > 0 ? 12 : 0, borderTop: i === 0 && headlines.length > 0 ? "1px solid #f1f5f9" : "none" }}>
+              <span style={{ fontSize: 10, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "2px 6px", borderRadius: 4, letterSpacing: 0.5, minWidth: 34, textAlign: "center", marginTop: 2 }}>{n.team}</span>
+              <a href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, textDecoration: "none" }}>
+                {n.headline}
+              </a>
             </div>
           ))}
           <button onClick={() => navigate("/so-what")} style={{ display: "flex", alignItems: "center", gap: 6, background: "none", border: "none", color: "#f97316", fontSize: 13, fontWeight: 700, cursor: "pointer", marginTop: 12, padding: 0 }}>

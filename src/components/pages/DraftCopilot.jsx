@@ -1,0 +1,203 @@
+import { useMemo, useState } from 'react';
+import { Zap, AlertCircle } from 'lucide-react';
+import { ROSTERS_2026 } from '../../data/rosters2026';
+import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
+import { survivalProbabilities, slotForPick, picksForSlot } from '../../utils/survival';
+import { PERSONAS, evaluate } from '../../utils/valuation';
+import { NewsletterCTA } from '../ui/NewsletterCTA';
+
+// Compose a rough "universe" from ROSTERS_2026 — every listed starter across
+// all 32 teams, ordered by our rating. Not real ADP, but the shape of the
+// output holds. Real integration would swap this for a projections / ADP feed.
+function buildUniverse() {
+  const players = [];
+  for (const [team, roster] of Object.entries(ROSTERS_2026)) {
+    for (const p of roster.offense || []) {
+      const pos = String(p.pos).replace(/\d/g, ''); // WR1 -> WR
+      if (!['QB', 'RB', 'WR', 'TE'].includes(pos)) continue;
+      players.push({ name: p.name, position: pos, team, rating: p.rating || 75, trait: p.trait });
+    }
+  }
+  return players.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+}
+
+// One-per-line "1. Bijan Robinson RB ATL" → array of pick records. Loose but
+// sufficient for a demo — anything the parser can't figure out is skipped.
+function parsePicksText(text) {
+  const picks = [];
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  for (const line of lines) {
+    // "1. Name Name POS TEAM" — POS is 2-3 upper letters, TEAM is 2-3 upper letters
+    const m = line.match(/^(?:(\d+)[\.\)]\s+)?(.+?)\s+(QB|RB|WR|TE|K|DEF)\s+([A-Z]{2,4})\s*$/i);
+    if (!m) continue;
+    picks.push({
+      pickNumber: parseInt(m[1] || String(picks.length + 1), 10),
+      name: m[2].trim(),
+      position: m[3].toUpperCase(),
+      team: m[4].toUpperCase(),
+    });
+  }
+  return picks;
+}
+
+const EXAMPLE_PICKS = `1. Ja'Marr Chase WR CIN
+2. Bijan Robinson RB ATL
+3. Justin Jefferson WR MIN
+4. CeeDee Lamb WR DAL
+5. Amon-Ra St. Brown WR DET
+6. Jahmyr Gibbs RB DET
+7. Puka Nacua WR LAR
+8. Saquon Barkley RB PHI
+9. Malik Nabers WR NYG
+10. Christian McCaffrey RB SF
+11. Derrick Henry RB BAL
+12. Nico Collins WR HOU`;
+
+export function DraftCopilot() {
+  const [teamCount, setTeamCount] = useState(12);
+  const [userSlot, setUserSlot] = useState(6);
+  const [personaKey, setPersonaKey] = useState('MASON');
+  const [picksText, setPicksText] = useState(EXAMPLE_PICKS);
+
+  const persona = useMemo(() => PERSONAS.find(p => p.key === personaKey) || PERSONAS[0], [personaKey]);
+  const universe = useMemo(buildUniverse, []);
+  const picks = useMemo(() => parsePicksText(picksText), [picksText]);
+
+  const userPicks = useMemo(() => picksForSlot(userSlot, teamCount, 16), [userSlot, teamCount]);
+  const nextPickNumber = picks.length + 1;
+
+  const result = useMemo(() => {
+    if (!universe.length) return null;
+    return survivalProbabilities({
+      picks,
+      userSlot,
+      teamCount,
+      currentPickNumber: nextPickNumber,
+      universe,
+    });
+  }, [picks, userSlot, teamCount, universe, nextPickNumber]);
+
+  const rankedUndrafted = useMemo(() => {
+    if (!result) return [];
+    return result.candidates
+      .filter(c => c.survival != null)
+      .map(c => ({
+        ...c,
+        valuation: evaluate(
+          { name: c.name, position: c.position, rating: c.rating, contract_year: false },
+          persona
+        ),
+      }))
+      .slice(0, 40);
+  }, [result, persona]);
+
+  const survivalColor = (s) => s > 0.75 ? '#16a34a' : s > 0.4 ? '#eab308' : '#dc2626';
+
+  return (
+    <div>
+      <h2 style={{ fontSize: 28, fontWeight: 900, color: '#0f172a', margin: '0 0 4px', letterSpacing: -1 }}>Draft Copilot</h2>
+      <p style={{ fontSize: 14, color: '#64748b', margin: '0 0 20px' }}>
+        Live survival probability + persona-weighted valuation over the pool. Paste your league's pick log below — the copilot computes each player's odds of surviving to your next pick.
+      </p>
+
+      {/* Controls */}
+      <div style={{ display: 'flex', gap: 16, marginBottom: 20, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#64748b', fontFamily: 'monospace' }}>Team count</label>
+          <select value={teamCount} onChange={e => setTeamCount(Number(e.target.value))} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 10, padding: '10px 14px', fontSize: 14, fontWeight: 600 }}>
+            {[8, 10, 12, 14, 16].map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#64748b', fontFamily: 'monospace' }}>Your slot</label>
+          <select value={userSlot} onChange={e => setUserSlot(Number(e.target.value))} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 10, padding: '10px 14px', fontSize: 14, fontWeight: 600 }}>
+            {Array.from({ length: teamCount }, (_, i) => i + 1).map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#64748b', fontFamily: 'monospace' }}>Mode</label>
+          <div style={{ display: 'flex', gap: 4 }}>
+            {PERSONAS.map(p => (
+              <button key={p.key} onClick={() => setPersonaKey(p.key)} title={p.description} style={{ padding: '10px 14px', borderRadius: 8, border: '1px solid', borderColor: personaKey === p.key ? '#f97316' : '#e2e8f0', background: personaKey === p.key ? '#f97316' : '#fff', color: personaKey === p.key ? '#fff' : '#0f172a', fontWeight: 700, fontSize: 12, cursor: 'pointer' }}>{p.label}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Next pick banner */}
+      {result && (
+        <div style={{ background: '#0d1117', color: '#fff', borderRadius: 12, padding: '14px 18px', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <Zap size={16} color="#f97316" />
+          <span style={{ fontWeight: 700 }}>Pick {nextPickNumber} on the clock</span>
+          <span style={{ color: '#94a3b8' }}>· Your next pick: <strong style={{ color: '#f97316' }}>#{result.meta.nextUserPick}</strong></span>
+          <span style={{ color: '#94a3b8' }}>· {result.meta.interveningPickCount} picks between now and yours</span>
+          {result.meta.run && (
+            <span style={{ background: '#dc2626', color: '#fff', padding: '2px 8px', borderRadius: 6, fontSize: 11, fontWeight: 700 }}>
+              {result.meta.run.position} run: {result.meta.run.count} of last {result.meta.run.windowSize}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Pick log */}
+      <div style={{ marginBottom: 20 }}>
+        <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#64748b', fontFamily: 'monospace', display: 'block', marginBottom: 6 }}>Pick log — one per line: "1. Player Name POS TEAM"</label>
+        <textarea
+          value={picksText}
+          onChange={e => setPicksText(e.target.value)}
+          rows={10}
+          style={{ width: '100%', fontFamily: 'monospace', fontSize: 13, padding: 12, border: '1px solid #e2e8f0', borderRadius: 10, background: '#f8fafc' }}
+        />
+        <div style={{ fontSize: 12, color: '#94a3b8', marginTop: 4 }}>
+          Parsed {picks.length} picks. Format is loose — {picks.length !== picksText.split(/\r?\n/).filter(l => l.trim()).length && <span style={{ color: '#dc2626' }}> some lines were skipped.</span>}
+        </div>
+      </div>
+
+      {/* Survival table */}
+      {rankedUndrafted.length > 0 && (
+        <div style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 16, overflow: 'hidden' }}>
+          <div style={{ padding: '16px 18px', borderBottom: '1px solid #f1f5f9', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <div style={{ fontSize: 15, fontWeight: 800, color: '#0f172a' }}>Top {rankedUndrafted.length} undrafted — survival to pick #{result.meta.nextUserPick}</div>
+              <div style={{ fontSize: 11, color: '#94a3b8' }}>Ordered by ADP. Green = likely to fall to you; red = act now.</div>
+            </div>
+            <div style={{ fontSize: 11, color: '#64748b' }}>
+              <strong>{persona.label}</strong> mode
+            </div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '30px 1fr 60px 100px 90px 120px', gap: 0, background: '#fff' }}>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>#</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Player</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Pos</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Survival</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Value</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Note</div>
+            {rankedUndrafted.map((c, i) => (
+              <div key={c.name + i} style={{ display: 'contents' }}>
+                <div style={{ padding: '10px 12px', fontSize: 12, color: '#64748b', fontFamily: 'monospace', borderTop: '1px solid #f1f5f9' }}>{i + 1}</div>
+                <div style={{ padding: '10px 12px', borderTop: '1px solid #f1f5f9' }}>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: '#0f172a' }}>{c.name}</div>
+                  <div style={{ fontSize: 11, color: '#94a3b8' }}>{c.team} · rating {c.rating}</div>
+                </div>
+                <div style={{ padding: '10px 12px', fontSize: 12, fontWeight: 700, color: '#334155', borderTop: '1px solid #f1f5f9' }}>{c.position}</div>
+                <div style={{ padding: '10px 12px', borderTop: '1px solid #f1f5f9' }}>
+                  <span style={{ fontSize: 15, fontWeight: 800, color: survivalColor(c.survival), fontFamily: 'monospace' }}>{(c.survival * 100).toFixed(0)}%</span>
+                </div>
+                <div style={{ padding: '10px 12px', fontSize: 13, fontWeight: 700, color: '#0f172a', borderTop: '1px solid #f1f5f9' }}>{c.valuation.value}</div>
+                <div style={{ padding: '10px 12px', fontSize: 11, color: '#64748b', borderTop: '1px solid #f1f5f9' }}>{c.valuation.note || '—'}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div style={{ marginTop: 24, padding: 16, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 10, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+        <AlertCircle size={16} color="#b45309" style={{ marginTop: 2 }} />
+        <div style={{ fontSize: 12, color: '#78350f', lineHeight: 1.5 }}>
+          <strong>Preview build.</strong> The universe is currently drawn from DFOS roster ratings (top ~130 starters). Real ADP integration and per-league override roster templates are still to come. Survival is computed for the pool shown — it's directionally correct but not a replacement for platform-specific projections yet.
+        </div>
+      </div>
+      <NewsletterCTA />
+    </div>
+  );
+}

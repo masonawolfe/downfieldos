@@ -100,8 +100,18 @@ async function main() {
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(payload));
 
+  // Compact — same referee list without the per-game history. Small enough
+  // to bundle for the tiny "N career games" badges on RefereeProfileCard.
+  const compact = {
+    meta: payload.meta,
+    referees: refereeList.map(({ games, ...rest }) => rest),
+  };
+  const compactOut = OUT.replace(/\.json$/, '_compact.json');
+  fs.writeFileSync(compactOut, JSON.stringify(compact));
+
   console.log(`  ${refereeList.length} active referees across ${games.size} games`);
-  console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB)`);
+  console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB — full)`);
+  console.log(`Wrote ${compactOut} (${(fs.statSync(compactOut).size / 1024).toFixed(0)} KB — compact)`);
 }
 
 main().catch(err => { console.error('Fatal:', err); process.exit(1); });

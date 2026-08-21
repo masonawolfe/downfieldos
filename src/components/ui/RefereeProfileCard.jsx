@@ -1,6 +1,20 @@
 import { useMemo, useState } from 'react';
 import { Flag, AlertTriangle, TrendingUp, TrendingDown } from 'lucide-react';
 import refereeData from '../../data/intelligence/referee_profiles.json';
+import appearanceData from '../../data/intelligence/referee_appearances_compact.json';
+
+// Merge appearance counts from the nflverse `officials` feed onto every ref
+// name. Keyed by name (canonicalized to lowercase, no dots).
+const appearanceByName = new Map(
+  (appearanceData.referees || []).map(r => [
+    (r.name || '').toLowerCase().replace(/\./g, '').trim(),
+    r,
+  ])
+);
+function appearancesFor(name) {
+  if (!name) return null;
+  return appearanceByName.get(name.toLowerCase().replace(/\./g, '').trim()) || null;
+}
 
 /**
  * RefereeProfileCard — referee crew tendencies and matchup impact.
@@ -81,6 +95,7 @@ export function RefereeProfileCard({ compact = false }) {
             const vol = volColor(c.tendencies?.flagVolume);
             const ou = ouColor(c.matchupImpact?.overUnderLean);
             const isSelected = selectedRef === c.referee;
+            const app = appearancesFor(c.referee);
             return (
               <button
                 key={c.referee}
@@ -88,9 +103,12 @@ export function RefereeProfileCard({ compact = false }) {
                 style={{ padding: '12px 14px', background: isSelected ? '#0f172a' : vol.bg, borderRadius: 12, border: isSelected ? '2px solid #f97316' : '1px solid #f1f5f9', cursor: 'pointer', textAlign: 'left', transition: 'all .15s' }}
               >
                 <div style={{ fontSize: 13, fontWeight: 800, color: isSelected ? '#fff' : '#0f172a', marginBottom: 4 }}>{c.referee}</div>
-                <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexWrap: 'wrap' }}>
                   <span style={{ fontSize: 10, fontWeight: 800, color: isSelected ? '#f97316' : vol.color, background: isSelected ? '#1e293b' : vol.color + '15', padding: '1px 6px', borderRadius: 4 }}>{vol.label}</span>
                   {ou && <span style={{ fontSize: 10, fontWeight: 700, color: isSelected ? '#94a3b8' : ou.color }}>{ou.label}</span>}
+                  {app && (
+                    <span title={`Since ${app.first_season}`} style={{ fontSize: 10, fontWeight: 700, color: isSelected ? '#94a3b8' : '#64748b' }}>{app.game_count} games</span>
+                  )}
                 </div>
               </button>
             );

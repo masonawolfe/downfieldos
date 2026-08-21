@@ -76,25 +76,45 @@ async function main() {
   const currentlyOut = players.filter(p => p.latest?.report_status === 'Out').length;
   const currentlyQ = players.filter(p => p.latest?.report_status === 'Questionable').length;
 
-  const payload = {
-    meta: {
-      season: SEASON,
-      source: 'nflverse (injuries release)',
-      generated: new Date().toISOString(),
-      total_reports: rows.length,
-      unique_players: players.length,
-      currently_out: currentlyOut,
-      currently_questionable: currentlyQ,
-    },
-    byTeam,
-    players,
+  const meta = {
+    season: SEASON,
+    source: 'nflverse (injuries release)',
+    generated: new Date().toISOString(),
+    total_reports: rows.length,
+    unique_players: players.length,
+    currently_out: currentlyOut,
+    currently_questionable: currentlyQ,
   };
 
+  // Compact "current status" file — only the latest status per player, no weekly
+  // history. This is what UI code imports (kept small enough to bundle).
+  const compact = players
+    .filter(p => p.latest?.report_status || p.latest?.practice_status)
+    .map(p => ({
+      team: p.team,
+      name: p.name,
+      position: p.position,
+      status: p.latest.report_status || null,          // Out / Doubtful / Questionable
+      injury: p.latest.report_primary_injury || p.latest.practice_primary_injury || null,
+      week: p.latest.week,
+      updated: p.latest.date_modified,
+    }));
+  const byTeamCompact = {};
+  for (const p of compact) {
+    if (!byTeamCompact[p.team]) byTeamCompact[p.team] = [];
+    byTeamCompact[p.team].push(p);
+  }
+
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify(payload));
+  // Full (weeks history) — reserved for deep-history analysis.
+  fs.writeFileSync(OUT, JSON.stringify({ meta, byTeam, players }));
+  // Compact (latest only) — the file consumed by UI code.
+  const compactOut = OUT.replace(/\.json$/, '_current.json');
+  fs.writeFileSync(compactOut, JSON.stringify({ meta, byTeam: byTeamCompact, players: compact }));
 
   console.log(`  ${players.length} unique players, ${currentlyOut} currently Out, ${currentlyQ} Questionable`);
-  console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB)`);
+  console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB — full)`);
+  console.log(`Wrote ${compactOut} (${(fs.statSync(compactOut).size / 1024).toFixed(0)} KB — current-status only)`);
 }
 
 main().catch(err => { console.error('Fatal:', err); process.exit(1); });

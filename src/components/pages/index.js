@@ -7,3 +7,4 @@ export { WarRoom } from './WarRoom';
 export { AdminPanel } from './AdminPanel';
 export { Season2026 } from './Season2026';
 export { PlayerPage } from './PlayerPage';
+export { DraftCopilot } from './DraftCopilot';

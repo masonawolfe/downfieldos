@@ -1,10 +1,14 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { X, TrendingUp, Star, Flame, Shield, BarChart3, ExternalLink } from "lucide-react";
+import { X, TrendingUp, Star, Flame, Shield, BarChart3, ExternalLink, AlertCircle } from "lucide-react";
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
+import { injuryFor } from '../../utils/injuries';
 
 const contractPlayers = contractYearData?.contract_year_players || [];
+
+const INJURY_COLOR = { Out: '#dc2626', Doubtful: '#ea580c', Questionable: '#eab308' };
+const INJURY_BG = { Out: '#fef2f2', Doubtful: '#fff7ed', Questionable: '#fefce8' };
 
 export function PlayerCard({ player, team, onClose }) {
   if (!player) return null;
@@ -13,6 +17,9 @@ export function PlayerCard({ player, team, onClose }) {
   const contractInfo = contractPlayers.find(p =>
     p.player === player.name && p.team === team
   );
+
+  // Check active injury designation
+  const injury = injuryFor(player.name, team);
 
   // Find player stats — match by last name abbreviation pattern (nflverse uses "J.Allen")
   const playerStats = useMemo(() => {
@@ -58,6 +65,19 @@ export function PlayerCard({ player, team, onClose }) {
 
         {/* Body */}
         <div style={{ padding: "16px 24px 20px" }}>
+
+          {/* Injury badge — highest severity comes first */}
+          {injury && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", background: INJURY_BG[injury.status] || '#f8fafc', borderRadius: 8, marginBottom: 12 }}>
+              <AlertCircle size={14} color={INJURY_COLOR[injury.status] || '#64748b'} />
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: INJURY_COLOR[injury.status] || '#64748b' }}>{injury.status || 'Injury reported'}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>
+                  {injury.injury || 'undisclosed'}{injury.week ? ` — Week ${injury.week}` : ''}{injury.updated ? ` · ${injury.updated}` : ''}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* FA badge */}
           {player.isNew && (

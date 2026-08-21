@@ -17,10 +17,20 @@ import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 import { byeWeekFor, teamsOnByeInWeek, opponentInWeek } from '../../utils/schedule';
+import { injuryFor } from '../../utils/injuries';
+import { PERSONAS, evaluate } from '../../utils/valuation';
+
+const INJ_BADGE = {
+  Out:          { color: '#dc2626', bg: '#dc262615', label: 'OUT' },
+  Doubtful:     { color: '#ea580c', bg: '#ea580c15', label: 'D' },
+  Questionable: { color: '#eab308', bg: '#eab30815', label: 'Q' },
+};
 
 export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
+  const [personaKey, setPersonaKey] = useState('MASON');
+  const persona = useMemo(() => PERSONAS.find(p => p.key === personaKey) || PERSONAS[0], [personaKey]);
   const bl = useMemo(() => lgbl(plays), [plays]);
   const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : CURRENT_SEASON, [plays]);
 
@@ -84,10 +94,31 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
     });
   }, [plays, rosters, selectedWeek, bl]);
 
-  const sorted = useMemo(() =>
-    [...matchupBoard].sort((a, b) => (b[posFilter]?.score || 0) - (a[posFilter]?.score || 0)),
-    [matchupBoard, posFilter]
-  );
+  // Persona-adjusted ranking: keep the raw opportunity score in tact, but sort
+  // by opportunity × persona value delta so a Ceiling-first (Howie) drafter
+  // gets high-upside players surfaced ahead of same-opportunity floor plays.
+  const sorted = useMemo(() => {
+    return [...matchupBoard]
+      .map(item => {
+        const pos = item[posFilter];
+        if (!pos || !pos.player) return { item, adj: -Infinity };
+        const v = evaluate(
+          {
+            name: pos.player.name,
+            position: posFilter,
+            rating: pos.player.rating,
+            contract_year: contractYearNames.has(pos.player.name),
+            injury_status: injuryFor(pos.player.name, item.off)?.status,
+          },
+          persona
+        );
+        // Persona value is 5-40; multiply into opportunity so we keep the
+        // matchup shape but let persona break ties + reorder tiers.
+        return { item, adj: (pos.score || 0) * (0.5 + v.value / 40), personaValue: v.value, personaNote: v.note };
+      })
+      .sort((a, b) => b.adj - a.adj)
+      .map(x => x.item);
+  }, [matchupBoard, posFilter, persona, contractYearNames]);
 
   const contractYearNames = useMemo(() => {
     const players = contractYearData?.contract_year_players || [];
@@ -103,6 +134,8 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
     const bustPct = Math.round(pos.bust * 100);
     const isMyTeam = primaryTeam && item.off === primaryTeam;
     const isContractYear = contractYearNames.has(pos.player.name);
+    const injury = injuryFor(pos.player.name, item.off);
+    const injBadge = injury ? INJ_BADGE[injury.status] : null;
 
     return (
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderBottom: "1px solid #f1f5f9", background: isMyTeam ? "#fff7ed" : "transparent", borderLeft: isMyTeam ? "3px solid #f97316" : "3px solid transparent" }}>
@@ -113,6 +146,9 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ fontSize: 14, fontWeight: 700, color: "#0f172a" }}><PlayerLink player={pos.player} team={item.off}>{pos.player.name}</PlayerLink></span>
+            {injBadge && (
+              <span title={`${injury.status}${injury.injury ? ' — ' + injury.injury : ''}`} style={{ fontSize: 9, fontWeight: 800, color: injBadge.color, background: injBadge.bg, padding: "1px 6px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>{injBadge.label}</span>
+            )}
             {isContractYear && <span style={{ fontSize: 9, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "1px 6px", borderRadius: 4, textTransform: "uppercase", letterSpacing: 0.5 }}>Contract Yr</span>}
           </div>
           <div style={{ fontSize: 12, color: "#64748b" }}>{tn(item.off)} {posFilter} vs {tn(item.def)}</div>
@@ -158,6 +194,17 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
             {Array.from({ length: 18 }, (_, i) => <option key={i + 1} value={i + 1}>Week {i + 1}</option>)}
           </select>
         </div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+          <label title="Format + horizon + risk bundled into a named GM persona (P1-1)" style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Mode</label>
+          <div style={{ display: "flex", gap: 4 }}>
+            {PERSONAS.map(p => (
+              <button key={p.key} onClick={() => setPersonaKey(p.key)} title={p.description} style={{ padding: "8px 14px", borderRadius: 8, border: "1px solid", borderColor: personaKey === p.key ? "#f97316" : "#e2e8f0", background: personaKey === p.key ? "#f97316" : "#fff", color: personaKey === p.key ? "#fff" : "#0f172a", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>{p.label}</button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div style={{ fontSize: 12, color: "#64748b", marginBottom: 16, marginTop: -8 }}>
+        <strong>{persona.label}</strong> — {persona.description}
       </div>
 
       {/* Bye-week context — real 2026 schedule */}

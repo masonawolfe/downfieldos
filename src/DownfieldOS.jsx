@@ -2,7 +2,7 @@ import { useState, useMemo, useEffect, useCallback } from "react";
 import { Routes, Route, useNavigate, useLocation, Navigate, useParams, Link } from "react-router-dom";
 import {
   Target, TrendingUp, Calendar, Star, Swords,
-  Flame, Eye, Shield, Filter, Menu, Home, Mail
+  Flame, Eye, Shield, Filter, Menu, Home, Mail, Zap
 } from "lucide-react";
 import { useIsMobile } from './hooks/useIsMobile';
 import { T } from './data/teams';
@@ -28,6 +28,7 @@ import { AdminPanel } from './components/pages/AdminPanel';
 import { LandingPage } from './components/pages/LandingPage';
 import { HomeDashboard } from './components/pages/HomeDashboard';
 import { GamePrep } from './components/pages/GamePrep';
+import { DraftCopilot } from './components/pages/DraftCopilot';
 import { PlayerPage } from './components/pages/PlayerPage';
 import { EmbedMatchup } from './components/pages/EmbedMatchup';
 
@@ -51,6 +52,7 @@ const MODULE_GROUPS = [
   ]},
   { label: "CONTENT", items: [
     { id: "fantasy", path: "/fantasy-intel", label: "Fantasy Intel", icon: Flame },
+    { id: "draftcopilot", path: "/draft-copilot", label: "Draft Copilot", icon: Zap },
     { id: "admin", path: "/admin", label: "Admin", icon: Target },
   ]},
 ];
@@ -367,6 +369,7 @@ export default function DownfieldOS() {
             <Route path="/war-room" element={<ErrorBoundary label="War Room"><WarRoom plays={filteredPlays} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/admin" element={<ErrorBoundary label="Admin"><AdminPanel plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/game-prep" element={<ErrorBoundary label="Game Prep"><GamePrep plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} navigate={navigate} /></ErrorBoundary>} />
+            <Route path="/draft-copilot" element={<ErrorBoundary label="Draft Copilot"><DraftCopilot /></ErrorBoundary>} />
             {/* Team-specific routes */}
             <Route path="/team/:teamCode" element={<ErrorBoundary label="Team Intel"><TeamRouteWrapper plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/matchup/:matchup" element={<ErrorBoundary label="Matchup Preview"><MatchupRouteWrapper plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} /></ErrorBoundary>} />
