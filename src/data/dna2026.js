@@ -1,5 +1,5 @@
 export const DNA_2026 = {
-  ARI:{p:.55,e:.40,x:.06,s:"Rebuilding — Minshew Bridge Year"},
+  ARI:{p:.55,e:.40,x:.06,s:"Rebuilding — Brissett Bridges, Beck Taking Reps"},
   ATL:{p:.56,e:.46,x:.08,s:"Tua Arrives — Penix Competition"},
   BAL:{p:.44,e:.56,x:.13,s:"Lamar + Hendrickson Pass Rush"},
   BUF:{p:.60,e:.54,x:.12,s:"Allen + DJ Moore Under Joe Brady"},
@@ -14,7 +14,7 @@ export const DNA_2026 = {
   HOU:{p:.57,e:.50,x:.10,s:"Stroud's Upgraded Backfield"},
   IND:{p:.55,e:.48,x:.08,s:"Daniel Jones Replaces Richardson"},
   JAX:{p:.57,e:.42,x:.07,s:"Lawrence's 13-Win Core — Lost Key FAs"},
-  KC:{p:.57,e:.49,x:.09,s:"Mahomes ACL Rehab — Walker + Fields Bridge"},
+  KC:{p:.57,e:.49,x:.09,s:"Mahomes Returns from ACL — Rehab Watch, Reset Year"},
   LAC:{p:.53,e:.49,x:.08,s:"Herbert's Steady Playoff Ship"},
   LAR:{p:.59,e:.48,x:.09,s:"McDuffie Locks Down Secondary"},
   LV:{p:.53,e:.38,x:.05,s:"Linderbaum Anchors, Need Draft QB"},
