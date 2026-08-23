@@ -19,6 +19,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { appendRefreshLogEntry } from './_lib/refresh_log.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -358,6 +359,30 @@ export const ROSTERS_${SEASON} = ${JSON.stringify(rosters, null, 2)};
   });
 
   console.log(`\nWrote ${OUT_PATH}`);
+
+  // Task 3 — required refresh-log entry. If this throws the run fails so
+  // downstream consumers know NOT to trust the data written above.
+  const totalRows = ALL_TEAMS.reduce((s, t) => s + rosters[t].offense.length + rosters[t].defense.length, 0);
+  const withGsis = ALL_TEAMS.reduce((s, t) => s + [...rosters[t].offense, ...rosters[t].defense].filter(p => p.gsis_id).length, 0);
+  const sizeKB = (fs.statSync(OUT_PATH).size / 1024).toFixed(0);
+  const spotCheck = ALL_TEAMS.slice(0, 15).map(t => {
+    const qb = rosters[t].offense.find(p => p.pos === 'QB');
+    return qb ? `${t} QB ${qb.name} (gsis ${qb.gsis_id || 'none'}) — rating ${qb.rating}` : `${t} QB — missing`;
+  });
+  appendRefreshLogEntry({
+    script: 'fetch-nflverse-roster-base.js',
+    season: SEASON,
+    sources: [
+      { name: `depth_charts_${SEASON}.csv`, url: DEPTH_CHART_URL, updated: 'nflverse release' },
+      { name: `snap_counts_${snapSeasonUsed}.csv`, url: SNAP_URL(snapSeasonUsed), updated: 'nflverse release' },
+      { name: `roster_${SEASON}.csv`, url: ROSTER_URL, updated: 'nflverse release' },
+    ],
+    outputs: [
+      { name: path.basename(OUT_PATH), rows: totalRows, sizeKB: Number(sizeKB), extra: `gsis_id present on ${withGsis}/${totalRows} (${(withGsis/totalRows*100).toFixed(1)}%)` },
+    ],
+    spotCheck,
+    notes: `Snap season used: ${snapSeasonUsed}${snapSeasonUsed !== SEASON ? ' (fallback)' : ''}. Missing gsis_id count: ${totalRows - withGsis}.`,
+  });
 }
 
 main().catch(err => { console.error('Fatal:', err); process.exit(1); });

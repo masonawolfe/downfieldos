@@ -1,5 +1,5 @@
 // Auto-generated from nflverse depth charts + snap counts (2026 season)
-// Generated: 2026-08-23T22:37:47.799Z
+// Generated: 2026-08-23T22:55:56.043Z
 // Sources: depth_charts_2026.csv, snap_counts_2025.csv, roster_2026.csv
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
 
