@@ -463,10 +463,17 @@ def main():
 
     print(f"\nAvailable columns ({len(df.columns)}): {', '.join(sorted(df.columns)[:20])}...")
 
-    # Filter to regular season + playoffs
+    # Task 2 (EM/PO Directive 2026-08-22): drop postseason so that a
+    # `season: 2025` label never carries REG+POST bleed. Companion script
+    # (data/intelligence/pbp/process_pbp.py) has the same filter and an
+    # assert_single_season_aggregation() check on games_played; this script
+    # doesn't emit games_played so the runtime assert isn't applicable, but
+    # the filter still applies to keep the four output JSONs consistent.
     if "season_type" in df.columns:
-        valid_types = df["season_type"].value_counts()
-        print(f"\nSeason types: {dict(valid_types)}")
+        pre = len(df)
+        df = df[df["season_type"] == "REG"].copy()
+        dropped = pre - len(df)
+        print(f"\nDropped {dropped:,} non-REG plays; keeping {len(df):,} REG plays")
 
     # --- Compute all derived metrics ---
     print("\n[1/4] Computing team scheme profiles...")
