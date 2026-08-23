@@ -239,7 +239,7 @@ async function main() {
     const qb = teamStarters.find(s => s.posAbb === 'QB');
     if (qb) {
       const r = calcRating(qb.name, 'QB');
-      offense.push({ pos: 'QB', name: qb.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('QB', qb.name.length) });
+      offense.push({ pos: 'QB', gsis_id: qb.gsis_id ?? null, name: qb.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('QB', qb.name.length) });
     }
 
     // RBs — from depth chart, sorted by snap count
@@ -247,7 +247,7 @@ async function main() {
     const rbsSorted = rbStarters.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
     rbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'RB');
-      offense.push({ pos: `RB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('RB', p.name.length + i) });
+      offense.push({ pos: `RB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('RB', p.name.length + i) });
     });
 
     // WRs — sorted by snap count for WR1/WR2/WR3
@@ -257,14 +257,14 @@ async function main() {
     const wrsSorted = wrUnique.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
     wrsSorted.slice(0, 3).forEach((p, i) => {
       const r = calcRating(p.name, 'WR');
-      offense.push({ pos: `WR${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('WR', p.name.length + i) });
+      offense.push({ pos: `WR${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('WR', p.name.length + i) });
     });
 
     // TE
     const te = teamStarters.find(s => s.posAbb === 'TE');
     if (te) {
       const r = calcRating(te.name, 'TE');
-      offense.push({ pos: 'TE', name: te.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('TE', te.name.length) });
+      offense.push({ pos: 'TE', gsis_id: te.gsis_id ?? null, name: te.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('TE', te.name.length) });
     }
 
     // OL — direct position mapping
@@ -272,7 +272,7 @@ async function main() {
       const ol = teamStarters.find(s => s.posAbb === olPos);
       if (ol) {
         const r = calcRating(ol.name, olPos);
-        offense.push({ pos: olPos, name: ol.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('OL', ol.name.length) });
+        offense.push({ pos: olPos, gsis_id: ol.gsis_id ?? null, name: ol.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('OL', ol.name.length) });
       }
     });
 
@@ -283,7 +283,7 @@ async function main() {
     const edgesSorted = edgeUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     edgesSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'EDGE');
-      defense.push({ pos: `EDGE${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('EDGE', p.name.length + i) });
+      defense.push({ pos: `EDGE${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('EDGE', p.name.length + i) });
     });
 
     // DT — LDT, RDT, NT, DT
@@ -292,7 +292,7 @@ async function main() {
     const dtSorted = dtUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     if (dtSorted[0]) {
       const r = calcRating(dtSorted[0].name, 'DT');
-      defense.push({ pos: 'DT', name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, trait: assignTrait('DT', dtSorted[0].name.length) });
+      defense.push({ pos: 'DT', gsis_id: dtSorted[0].gsis_id ?? null, name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, trait: assignTrait('DT', dtSorted[0].name.length) });
     }
 
     // LB — MLB, LILB, RILB, WLB, SLB
@@ -301,7 +301,7 @@ async function main() {
     const lbsSorted = lbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     lbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'LB');
-      defense.push({ pos: `LB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('LB', p.name.length + i) });
+      defense.push({ pos: `LB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('LB', p.name.length + i) });
     });
 
     // CB — LCB, RCB
@@ -310,28 +310,28 @@ async function main() {
     const cbsSorted = cbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     cbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'CB');
-      defense.push({ pos: `CB${i + 1}`, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('CB', p.name.length + i) });
+      defense.push({ pos: `CB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('CB', p.name.length + i) });
     });
 
     // SCB (nickel)
     const scb = teamStarters.find(s => s.posAbb === 'NB');
     if (scb) {
       const r = calcRating(scb.name, 'CB');
-      defense.push({ pos: 'SCB', name: scb.name, grade: gradeFromRating(r), rating: r, trait: 'Slot Corner' });
+      defense.push({ pos: 'SCB', gsis_id: scb.gsis_id ?? null, name: scb.name, grade: gradeFromRating(r), rating: r, trait: 'Slot Corner' });
     }
 
     // FS
     const fs = teamStarters.find(s => s.posAbb === 'FS');
     if (fs) {
       const r = calcRating(fs.name, 'S');
-      defense.push({ pos: 'FS', name: fs.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', fs.name.length) });
+      defense.push({ pos: 'FS', gsis_id: fs.gsis_id ?? null, name: fs.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', fs.name.length) });
     }
 
     // SS
     const ss = teamStarters.find(s => s.posAbb === 'SS');
     if (ss) {
       const r = calcRating(ss.name, 'S');
-      defense.push({ pos: 'SS', name: ss.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', ss.name.length + 1) });
+      defense.push({ pos: 'SS', gsis_id: ss.gsis_id ?? null, name: ss.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', ss.name.length + 1) });
     }
 
     rosters[team] = { offense, defense };

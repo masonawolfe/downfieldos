@@ -112,8 +112,12 @@ async function main() {
 
       const key = `${name}_${team}`;
 
+      // gsis_id is the canonical join key across all layers. Nflverse ships it as
+      // `player_id` in stats_player and as `gsis_id` in rosters/depth charts.
+      const gsis_id = r.player_id || r.gsis_id || null;
       if (pos === 'QB') {
         stats[key] = {
+          gsis_id,
           name, team, pos,
           games: int(r.games) || int(r.g),
           completions: int(r.completions),
@@ -129,6 +133,7 @@ async function main() {
         };
       } else if (pos === 'WR' || pos === 'TE') {
         stats[key] = {
+          gsis_id,
           name, team, pos,
           games: int(r.games) || int(r.g),
           targets: int(r.targets),
@@ -139,6 +144,7 @@ async function main() {
         };
       } else if (pos === 'RB') {
         stats[key] = {
+          gsis_id,
           name, team, pos,
           games: int(r.games) || int(r.g),
           carries: int(r.carries) || int(r.rushing_attempts),
@@ -178,7 +184,8 @@ async function main() {
       if (playType === 'pass') {
         const qb = r.passer_player_name || '';
         if (qb) {
-          if (!qbs[qb]) qbs[qb] = { name: qb, team: off, att: 0, comp: 0, yds: 0, td: 0, int: 0, sacks: 0, epa: 0, plays: 0 };
+          if (!qbs[qb]) qbs[qb] = { gsis_id: r.passer_player_id || null, name: qb, team: off, att: 0, comp: 0, yds: 0, td: 0, int: 0, sacks: 0, epa: 0, plays: 0 };
+          if (!qbs[qb].gsis_id && r.passer_player_id) qbs[qb].gsis_id = r.passer_player_id;
           qbs[qb].att++;
           qbs[qb].plays++;
           if (r.complete_pass === '1') { qbs[qb].comp++; qbs[qb].yds += int(r.yards_gained); }
@@ -190,7 +197,8 @@ async function main() {
 
         const rec = r.receiver_player_name || '';
         if (rec) {
-          if (!receivers[rec]) receivers[rec] = { name: rec, team: off, tgt: 0, rec: 0, yds: 0, td: 0 };
+          if (!receivers[rec]) receivers[rec] = { gsis_id: r.receiver_player_id || null, name: rec, team: off, tgt: 0, rec: 0, yds: 0, td: 0 };
+          if (!receivers[rec].gsis_id && r.receiver_player_id) receivers[rec].gsis_id = r.receiver_player_id;
           receivers[rec].tgt++;
           if (r.complete_pass === '1') { receivers[rec].rec++; receivers[rec].yds += int(r.yards_gained); }
           if (r.pass_touchdown === '1') receivers[rec].td++;
@@ -200,7 +208,8 @@ async function main() {
       if (playType === 'run') {
         const rb = r.rusher_player_name || '';
         if (rb) {
-          if (!rushers[rb]) rushers[rb] = { name: rb, team: off, car: 0, yds: 0, td: 0 };
+          if (!rushers[rb]) rushers[rb] = { gsis_id: r.rusher_player_id || null, name: rb, team: off, car: 0, yds: 0, td: 0 };
+          if (!rushers[rb].gsis_id && r.rusher_player_id) rushers[rb].gsis_id = r.rusher_player_id;
           rushers[rb].car++;
           rushers[rb].yds += int(r.yards_gained);
           if (r.rush_touchdown === '1') rushers[rb].td++;
@@ -217,6 +226,7 @@ async function main() {
       const key = `${q.name}_${q.team}`;
       const rush = rushers[q.name] || {};
       stats[key] = {
+        gsis_id: q.gsis_id || null,
         name: q.name, team: q.team, pos: 'QB',
         completions: q.comp, attempts: q.att,
         passing_yards: q.yds, passing_tds: q.td,
@@ -231,6 +241,7 @@ async function main() {
       if (r.tgt < 5) continue; // skip players with negligible targets
       const key = `${r.name}_${r.team}`;
       stats[key] = {
+        gsis_id: r.gsis_id || null,
         name: r.name, team: r.team, pos: 'WR',
         targets: r.tgt, receptions: r.rec,
         receiving_yards: r.yds, receiving_tds: r.td,
@@ -243,6 +254,7 @@ async function main() {
       const key = `${r.name}_${r.team}`;
       if (stats[key]) continue; // skip if already added as WR (dual-role)
       stats[key] = {
+        gsis_id: r.gsis_id || null,
         name: r.name, team: r.team, pos: 'RB',
         carries: r.car, rushing_yards: r.yds, rushing_tds: r.td,
         ypc: r.car > 0 ? Math.round(r.yds / r.car * 10) / 10 : 0,

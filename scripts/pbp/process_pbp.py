@@ -294,12 +294,18 @@ def compute_situational_splits(df: pd.DataFrame) -> dict:
 # Player Usage Data
 # ---------------------------------------------------------------------------
 def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict:
-    """Compute per-player snap counts, target shares, and usage metrics."""
+    """Compute per-player snap counts, target shares, and usage metrics.
+
+    Keyed by gsis_id (nflverse `receiver_player_id` / `rusher_player_id` /
+    `passer_player_id`) — never by name. Name-only keying silently collided
+    Bijan Robinson (00-0038542) with Brian Robinson Jr. (00-0037746) during
+    the Aug 22 audit. Names remain as display labels inside each record.
+    """
     usage = {}
     plays = df[df["play_type"].isin(["pass", "run"])].copy()
 
     # --- Receiver targets & usage ---
-    if "receiver_player_name" in plays.columns:
+    if "receiver_player_name" in plays.columns and "receiver_player_id" in plays.columns:
         pass_plays = plays[plays["play_type"] == "pass"].copy()
 
         for team in NFL_TEAMS:
@@ -307,11 +313,13 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
             if len(team_passes) == 0:
                 continue
 
-            total_targets = len(team_passes[team_passes["receiver_player_name"].notna()])
-            receivers = team_passes.groupby("receiver_player_name").agg(
-                targets=("receiver_player_name", "count"),
-                receptions=("complete_pass", "sum") if "complete_pass" in team_passes.columns else ("receiver_player_name", "count"),
-                yards=("yards_gained", "sum") if "yards_gained" in team_passes.columns else ("receiver_player_name", "count"),
+            id_col = team_passes["receiver_player_id"]
+            total_targets = int(id_col.notna().sum())
+            receivers = team_passes.groupby("receiver_player_id").agg(
+                player_name=("receiver_player_name", "first"),
+                targets=("receiver_player_id", "count"),
+                receptions=("complete_pass", "sum") if "complete_pass" in team_passes.columns else ("receiver_player_id", "count"),
+                yards=("yards_gained", "sum") if "yards_gained" in team_passes.columns else ("receiver_player_id", "count"),
             ).reset_index()
 
             if total_targets > 0:
@@ -320,12 +328,12 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
             receivers = receivers.sort_values("targets", ascending=False).head(15)
 
             for _, row in receivers.iterrows():
-                player_name = row["receiver_player_name"]
-                if pd.isna(player_name):
+                pid = row["receiver_player_id"]
+                if pd.isna(pid) or not pid:
                     continue
-                key = f"{team}_{player_name}"
-                usage[key] = {
-                    "player": player_name,
+                usage[pid] = {
+                    "gsis_id": pid,
+                    "name": row.get("player_name"),
                     "team": team,
                     "targets": int(row["targets"]),
                     "target_share": float(row.get("target_share", 0)),
@@ -334,7 +342,7 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
                 }
 
     # --- Rusher usage ---
-    if "rusher_player_name" in plays.columns:
+    if "rusher_player_name" in plays.columns and "rusher_player_id" in plays.columns:
         run_plays = plays[plays["play_type"] == "run"].copy()
 
         for team in NFL_TEAMS:
@@ -342,10 +350,11 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
             if len(team_runs) == 0:
                 continue
 
-            total_carries = len(team_runs[team_runs["rusher_player_name"].notna()])
-            rushers = team_runs.groupby("rusher_player_name").agg(
-                carries=("rusher_player_name", "count"),
-                yards=("yards_gained", "sum") if "yards_gained" in team_runs.columns else ("rusher_player_name", "count"),
+            total_carries = int(team_runs["rusher_player_id"].notna().sum())
+            rushers = team_runs.groupby("rusher_player_id").agg(
+                player_name=("rusher_player_name", "first"),
+                carries=("rusher_player_id", "count"),
+                yards=("yards_gained", "sum") if "yards_gained" in team_runs.columns else ("rusher_player_id", "count"),
             ).reset_index()
 
             if total_carries > 0:
@@ -354,40 +363,39 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
             rushers = rushers.sort_values("carries", ascending=False).head(8)
 
             for _, row in rushers.iterrows():
-                player_name = row["rusher_player_name"]
-                if pd.isna(player_name):
+                pid = row["rusher_player_id"]
+                if pd.isna(pid) or not pid:
                     continue
-                key = f"{team}_{player_name}"
-                if key in usage:
-                    usage[key]["carries"] = int(row["carries"])
-                    usage[key]["carry_share"] = float(row.get("carry_share", 0))
-                    usage[key]["rushing_yards"] = int(row.get("yards", 0))
+                if pid in usage:
+                    usage[pid]["carries"] = int(row["carries"])
+                    usage[pid]["carry_share"] = float(row.get("carry_share", 0))
+                    usage[pid]["rushing_yards"] = int(row.get("yards", 0))
                 else:
-                    usage[key] = {
-                        "player": player_name,
+                    usage[pid] = {
+                        "gsis_id": pid,
+                        "name": row.get("player_name"),
                         "team": team,
                         "carries": int(row["carries"]),
                         "carry_share": float(row.get("carry_share", 0)),
                         "rushing_yards": int(row.get("yards", 0)),
                     }
 
-    # --- Weekly snap trends (if game_id available) ---
-    if "game_id" in plays.columns and "passer_player_name" in plays.columns:
+    # --- QB role tag (by primary passer per team) ---
+    if "game_id" in plays.columns and "passer_player_id" in plays.columns:
         for team in NFL_TEAMS:
             team_plays = plays[plays["posteam"] == team]
-            games = team_plays["game_id"].unique()
-            qb_key = None
-            for game in games:
-                gp = team_plays[team_plays["game_id"] == game]
-                pass_plays_g = gp[gp["play_type"] == "pass"]
-                if len(pass_plays_g) > 0:
-                    qb = pass_plays_g["passer_player_name"].mode()
-                    if len(qb) > 0:
-                        qb_name = qb.iloc[0]
-                        qb_key = f"{team}_{qb_name}"
-                        if qb_key not in usage:
-                            usage[qb_key] = {"player": qb_name, "team": team}
-                        usage[qb_key]["role"] = "QB"
+            pass_plays_t = team_plays[team_plays["play_type"] == "pass"]
+            if len(pass_plays_t) == 0:
+                continue
+            qb_id_mode = pass_plays_t["passer_player_id"].mode()
+            if len(qb_id_mode) == 0 or pd.isna(qb_id_mode.iloc[0]):
+                continue
+            qb_id = qb_id_mode.iloc[0]
+            qb_name_mode = pass_plays_t.loc[pass_plays_t["passer_player_id"] == qb_id, "passer_player_name"].mode()
+            qb_name = qb_name_mode.iloc[0] if len(qb_name_mode) else None
+            if qb_id not in usage:
+                usage[qb_id] = {"gsis_id": qb_id, "name": qb_name, "team": team}
+            usage[qb_id]["role"] = "QB"
 
     return usage
 
