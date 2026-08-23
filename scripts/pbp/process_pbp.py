@@ -293,16 +293,31 @@ def compute_situational_splits(df: pd.DataFrame) -> dict:
 # ---------------------------------------------------------------------------
 # Player Usage Data
 # ---------------------------------------------------------------------------
-def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict:
+def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None, snap_shares: dict | None = None) -> dict:
     """Compute per-player snap counts, target shares, and usage metrics.
 
     Keyed by gsis_id (nflverse `receiver_player_id` / `rusher_player_id` /
     `passer_player_id`) — never by name. Name-only keying silently collided
     Bijan Robinson (00-0038542) with Brian Robinson Jr. (00-0037746) during
     the Aug 22 audit. Names remain as display labels inside each record.
+
+    Task 2b — adds `snap_share` (from nflverse snap_counts joined via pfr→gsis
+    map when caller provides it), plus nullable `route_participation` and
+    `yoy_usage_delta` placeholders documented in the file's metadata.
     """
     usage = {}
     plays = df[df["play_type"].isin(["pass", "run"])].copy()
+    snap_shares = snap_shares or {}
+
+    def new_record(pid, name, team):
+        return {
+            "gsis_id": pid,
+            "name": name,
+            "team": team,
+            "snap_share": snap_shares.get(pid),
+            "route_participation": None,   # placeholder — no free source (PFF paid; pbp_participation only 2016-2023)
+            "yoy_usage_delta": None,       # populated by main() when prior-year snapshot exists
+        }
 
     # --- Receiver targets & usage ---
     if "receiver_player_name" in plays.columns and "receiver_player_id" in plays.columns:
@@ -331,15 +346,14 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
                 pid = row["receiver_player_id"]
                 if pd.isna(pid) or not pid:
                     continue
-                usage[pid] = {
-                    "gsis_id": pid,
-                    "name": row.get("player_name"),
-                    "team": team,
+                rec = new_record(pid, row.get("player_name"), team)
+                rec.update({
                     "targets": int(row["targets"]),
                     "target_share": float(row.get("target_share", 0)),
                     "receptions": int(row.get("receptions", 0)),
                     "receiving_yards": int(row.get("yards", 0)),
-                }
+                })
+                usage[pid] = rec
 
     # --- Rusher usage ---
     if "rusher_player_name" in plays.columns and "rusher_player_id" in plays.columns:
@@ -371,14 +385,13 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
                     usage[pid]["carry_share"] = float(row.get("carry_share", 0))
                     usage[pid]["rushing_yards"] = int(row.get("yards", 0))
                 else:
-                    usage[pid] = {
-                        "gsis_id": pid,
-                        "name": row.get("player_name"),
-                        "team": team,
+                    rec = new_record(pid, row.get("player_name"), team)
+                    rec.update({
                         "carries": int(row["carries"]),
                         "carry_share": float(row.get("carry_share", 0)),
                         "rushing_yards": int(row.get("yards", 0)),
-                    }
+                    })
+                    usage[pid] = rec
 
     # --- QB role tag (by primary passer per team) ---
     if "game_id" in plays.columns and "passer_player_id" in plays.columns:
@@ -394,7 +407,7 @@ def compute_player_usage(df: pd.DataFrame, rosters: pd.DataFrame | None) -> dict
             qb_name_mode = pass_plays_t.loc[pass_plays_t["passer_player_id"] == qb_id, "passer_player_name"].mode()
             qb_name = qb_name_mode.iloc[0] if len(qb_name_mode) else None
             if qb_id not in usage:
-                usage[qb_id] = {"gsis_id": qb_id, "name": qb_name, "team": team}
+                usage[qb_id] = new_record(qb_id, qb_name, team)
             usage[qb_id]["role"] = "QB"
 
     return usage
