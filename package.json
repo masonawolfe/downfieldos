@@ -17,7 +17,8 @@
     "data:referees": "node scripts/fetch-referees.js",
     "data:contracts": "node scripts/fetch-contracts.js",
     "data:news": "node scripts/fetch-team-news.js",
-    "test": "node scripts/test-rosters.js"
+    "test": "node scripts/test-rosters.js",
+    "data:availability": "node scripts/fetch-availability.js"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",
