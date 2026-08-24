@@ -29,6 +29,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -1,
     "rushing_tds": 0,
     "epa_per_play": -11.1955355672433,
+    "team_2025": "IND",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.97
@@ -49,6 +52,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 61,
     "rushing_tds": 1,
     "epa_per_play": 28.3245858144168,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.033,
     "snap_share": 0.957
@@ -64,6 +70,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DEN",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -84,6 +93,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 35,
     "rushing_tds": 1,
     "epa_per_play": -40.872125217425,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.032,
     "snap_share": 0.778
@@ -104,6 +116,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 55,
     "rushing_tds": 1,
     "epa_per_play": 3.8190098875594,
+    "team_2025": "WAS",
+    "team_2026": "CIN",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.023,
     "snap_share": 0.492
@@ -124,6 +139,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 1,
     "rushing_tds": 0,
     "epa_per_play": 150.454307482114,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.027,
     "snap_share": 0.985
@@ -144,6 +162,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -2,
     "rushing_tds": 0,
     "epa_per_play": -5.66167037785717,
+    "team_2025": "CAR",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.004,
     "snap_share": 0.38
@@ -164,6 +185,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 143,
     "rushing_tds": 1,
     "epa_per_play": -13.3149107754829,
+    "team_2025": "NYJ",
+    "team_2026": "GB",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.055,
     "snap_share": 0.67
@@ -184,6 +208,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 106,
     "rushing_tds": 0,
     "epa_per_play": -15.6662619395907,
+    "team_2025": "NYG",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.036,
     "snap_share": 0.543
@@ -204,6 +231,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 7,
     "rushing_tds": 1,
     "epa_per_play": -0.930798277762301,
+    "team_2025": "ATL",
+    "team_2026": "LV",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.017,
     "snap_share": 0.861
@@ -219,6 +249,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 186,
     "receiving_tds": 0,
     "ypr": 9.8,
+    "team_2025": "PIT",
+    "team_2026": "MIN",
+    "team_changed": true,
     "target_share": 0.069,
     "carry_share": 0,
     "snap_share": 0.394
@@ -234,6 +267,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 504,
     "receiving_tds": 4,
     "ypr": 10.1,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.167,
     "carry_share": 0,
     "snap_share": 0.665
@@ -249,6 +285,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 777,
     "receiving_tds": 4,
     "ypr": 9.6,
+    "team_2025": "LAC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.224,
     "carry_share": 0,
     "snap_share": 0.555
@@ -264,6 +303,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 851,
     "receiving_tds": 5,
     "ypr": 11.2,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.197,
     "carry_share": 0.002,
     "snap_share": 0.819
@@ -279,6 +321,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 330,
     "receiving_tds": 2,
     "ypr": 15,
+    "team_2025": "BAL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.095,
     "carry_share": 0,
     "snap_share": 0.33
@@ -299,6 +344,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 109,
     "rushing_tds": 0,
     "epa_per_play": -72.9214060488586,
+    "team_2025": "LV",
+    "team_2026": "NYJ",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.096,
     "snap_share": 0.965
@@ -314,6 +362,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 279,
     "receiving_tds": 0,
     "ypr": 11.6,
+    "team_2025": "BUF",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.074,
     "carry_share": 0,
     "snap_share": 0.545
@@ -334,6 +385,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 4,
     "rushing_tds": 0,
     "epa_per_play": -12.4985269496683,
+    "team_2025": "TB",
+    "team_2026": "DET",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.122
@@ -354,6 +408,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -10,
     "rushing_tds": 0,
     "epa_per_play": 0,
+    "team_2025": "LAR",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -369,6 +426,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 789,
     "receiving_tds": 14,
     "ypr": 13.2,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.196,
     "carry_share": 0,
     "snap_share": 0.714
@@ -384,6 +444,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 368,
     "receiving_tds": 3,
     "ypr": 12.3,
+    "team_2025": "TB",
+    "team_2026": "SF",
+    "team_changed": true,
     "target_share": 0.114,
     "carry_share": 0,
     "snap_share": 0.656
@@ -399,6 +462,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 7,
     "receiving_tds": 0,
     "ypr": 7,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -419,6 +485,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 23,
     "rushing_tds": 1,
     "epa_per_play": 15.3917009882326,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.01,
     "snap_share": 0.677
@@ -434,6 +503,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1013,
     "receiving_tds": 4,
     "ypr": 11.9,
+    "team_2025": "NE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.211,
     "carry_share": 0,
     "snap_share": 0.538
@@ -449,6 +521,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 283,
     "receiving_tds": 6,
     "ypr": 11.8,
+    "team_2025": "MIA",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.075,
     "carry_share": 0.002,
     "snap_share": 0.45
@@ -467,6 +542,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 12,
     "receiving_yards": 70,
     "receiving_tds": 0,
+    "team_2025": "LV",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.024,
     "carry_share": 0.06,
     "snap_share": 0.2
@@ -482,6 +560,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "CLE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -500,6 +581,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 16,
     "receiving_yards": 99,
     "receiving_tds": 0,
+    "team_2025": "IND",
+    "team_2026": "JAX",
+    "team_changed": true,
     "target_share": 0.032,
     "carry_share": 0.032,
     "snap_share": 0.105
@@ -515,6 +599,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 291,
     "receiving_tds": 1,
     "ypr": 9.1,
+    "team_2025": "LV",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.113,
     "carry_share": 0,
     "snap_share": 0.5
@@ -535,6 +622,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 297,
     "rushing_tds": 1,
     "epa_per_play": -3.89857204396698,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.093,
     "snap_share": 0.745
@@ -550,6 +640,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 371,
     "receiving_tds": 1,
     "ypr": 9.5,
+    "team_2025": "TB",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.099,
     "carry_share": 0.009,
     "snap_share": 0.562
@@ -565,6 +658,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 263,
     "receiving_tds": 2,
     "ypr": 12.5,
+    "team_2025": "NE",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0.054,
     "carry_share": 0,
     "snap_share": 0.5
@@ -580,6 +676,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 207,
     "receiving_tds": 1,
     "ypr": 18.8,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.053,
     "carry_share": 0.002,
     "snap_share": 0.486
@@ -600,6 +699,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 0,
     "rushing_tds": 0,
     "epa_per_play": -24.0283908552294,
+    "team_2025": "TEN",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0,
     "snap_share": 0.91
@@ -615,6 +717,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 289,
     "receiving_tds": 1,
     "ypr": 12,
+    "team_2025": "DET",
+    "team_2026": "CHI",
+    "team_changed": true,
     "target_share": 0.055,
     "carry_share": 0.005,
     "snap_share": 0.366
@@ -630,6 +735,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 53,
     "receiving_tds": 0,
     "ypr": 10.6,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.021,
     "carry_share": 0,
     "snap_share": 0.377
@@ -648,6 +756,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 15,
     "receiving_yards": 150,
     "receiving_tds": 0,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.051,
     "carry_share": 0.627,
     "snap_share": 0.545
@@ -663,6 +774,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 276,
     "receiving_tds": 1,
     "ypr": 12.5,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.065,
     "carry_share": 0.002,
     "snap_share": 0.468
@@ -683,6 +797,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 57,
     "rushing_tds": 0,
     "epa_per_play": 6.30060296515278,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.028,
     "snap_share": 0.932
@@ -698,6 +815,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -713,6 +833,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 265,
     "receiving_tds": 1,
     "ypr": 12.6,
+    "team_2025": "MIA",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.062,
     "carry_share": 0,
     "snap_share": 0.685
@@ -733,6 +856,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 177,
     "rushing_tds": 2,
     "epa_per_play": 114.349433204959,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.082,
     "snap_share": 0.951
@@ -748,6 +874,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 768,
     "receiving_tds": 7,
     "ypr": 12.8,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.18,
     "carry_share": 0,
     "snap_share": 0.794
@@ -768,6 +897,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 45,
     "rushing_tds": 0,
     "epa_per_play": 106.460151239643,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.025,
     "snap_share": 0.985
@@ -783,6 +915,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 281,
     "receiving_tds": 3,
     "ypr": 11.2,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.062,
     "carry_share": 0,
     "snap_share": 0.555
@@ -803,6 +938,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 168,
     "rushing_tds": 1,
     "epa_per_play": -3.21543134285545,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.099,
     "snap_share": 0.857
@@ -818,6 +956,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 117,
     "receiving_tds": 1,
     "ypr": 9,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.391
@@ -833,6 +974,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 111,
     "receiving_tds": 0,
     "ypr": 12.3,
+    "team_2025": "JAX",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.035,
     "carry_share": 0,
     "snap_share": 0.358
@@ -851,6 +995,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 102,
     "receiving_yards": 924,
     "receiving_tds": 7,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.233,
     "carry_share": 0.673,
     "snap_share": 0.831
@@ -866,6 +1013,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 81,
     "receiving_tds": 1,
     "ypr": 11.6,
+    "team_2025": "BUF",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.018,
     "carry_share": 0,
     "snap_share": 0.398
@@ -881,6 +1031,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 628,
     "receiving_tds": 7,
     "ypr": 11,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.125,
     "carry_share": 0.002,
     "snap_share": 0.812
@@ -899,6 +1052,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 28,
     "receiving_yards": 199,
     "receiving_tds": 1,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.087,
     "carry_share": 0.333,
     "snap_share": 0.551
@@ -914,6 +1070,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 551,
     "receiving_tds": 0,
     "ypr": 14.9,
+    "team_2025": "SF",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.096,
     "carry_share": 0,
     "snap_share": 0.567
@@ -934,6 +1093,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -8,
     "rushing_tds": 0,
     "epa_per_play": 2.8997661510421,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -949,6 +1111,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 91,
     "receiving_tds": 0,
     "ypr": 8.3,
+    "team_2025": "NO",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.028,
     "carry_share": 0.121,
     "snap_share": 0.246
@@ -964,6 +1129,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 187,
     "receiving_tds": 3,
     "ypr": 12.5,
+    "team_2025": "JAX",
+    "team_2026": "NYJ",
+    "team_changed": true,
     "target_share": 0.044,
     "carry_share": 0,
     "snap_share": 0.318
@@ -982,6 +1150,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 8,
     "receiving_tds": 0,
+    "team_2025": "BAL",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -997,6 +1168,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1,
     "receiving_tds": 0,
     "ypr": 0.5,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1012,6 +1186,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 53,
     "receiving_tds": 0,
     "ypr": 6.6,
+    "team_2025": "DET",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.018,
     "carry_share": 0,
     "snap_share": 0.397
@@ -1030,6 +1207,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 17,
     "receiving_yards": 87,
     "receiving_tds": 0,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.034,
     "carry_share": 0.226,
     "snap_share": 0.351
@@ -1048,6 +1228,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 38,
     "receiving_tds": 1,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.015,
     "carry_share": 0.088,
     "snap_share": 0.5
@@ -1063,6 +1246,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 550,
     "receiving_tds": 2,
     "ypr": 12,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.135,
     "carry_share": 0.002,
     "snap_share": 0.677
@@ -1078,6 +1264,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ATL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1093,6 +1282,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 31,
     "receiving_tds": 0,
     "ypr": 7.8,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.018,
     "carry_share": 0,
     "snap_share": 0.395
@@ -1108,6 +1300,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 5,
     "receiving_tds": 0,
     "ypr": 5,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1123,6 +1318,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 83,
     "receiving_tds": 0,
     "ypr": 16.6,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.023,
     "carry_share": 0,
     "snap_share": 0.41
@@ -1143,6 +1341,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -4,
     "rushing_tds": 0,
     "epa_per_play": -18.8471721773384,
+    "team_2025": "BAL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.505
@@ -1161,6 +1362,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 5,
     "receiving_yards": 38,
     "receiving_tds": 0,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.016,
     "carry_share": 0.029,
     "snap_share": 0.495
@@ -1176,6 +1380,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1,
     "receiving_tds": 0,
     "ypr": 1,
+    "team_2025": "KC",
+    "team_2026": "PIT",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1194,6 +1401,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 10,
     "receiving_yards": 76,
     "receiving_tds": 0,
+    "team_2025": "HOU",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.023,
     "carry_share": 0.024,
     "snap_share": 0.112
@@ -1209,6 +1419,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 345,
     "receiving_tds": 1,
     "ypr": 10.5,
+    "team_2025": "KC",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.082,
     "carry_share": 0,
     "snap_share": 0.572
@@ -1224,6 +1437,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 222,
     "receiving_tds": 2,
     "ypr": 5.8,
+    "team_2025": "PIT",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.105,
     "carry_share": 0.023,
     "snap_share": 0.527
@@ -1244,6 +1460,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 6,
     "rushing_tds": 0,
     "epa_per_play": 25.734475121659,
+    "team_2025": "BUF",
+    "team_2026": "TEN",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.004,
     "snap_share": 0.333
@@ -1264,6 +1483,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 422,
     "rushing_tds": 5,
     "epa_per_play": 68.2469407761718,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.134,
     "snap_share": 0.974
@@ -1279,6 +1501,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 461,
     "receiving_tds": 1,
     "ypr": 9.2,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.131,
     "carry_share": 0.002,
     "snap_share": 0.421
@@ -1294,6 +1519,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 293,
     "receiving_tds": 4,
     "ypr": 8.9,
+    "team_2025": "CLE",
+    "team_2026": "LAC",
+    "team_changed": true,
     "target_share": 0.092,
     "carry_share": 0,
     "snap_share": 0.639
@@ -1309,6 +1537,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 183,
     "receiving_tds": 0,
     "ypr": 15.3,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.029,
     "carry_share": 0,
     "snap_share": 0.496
@@ -1327,6 +1558,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 33,
     "receiving_yards": 186,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.069,
     "carry_share": 0.305,
     "snap_share": 0.637
@@ -1342,6 +1576,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 593,
     "receiving_tds": 2,
     "ypr": 12.6,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.155,
     "carry_share": 0,
     "snap_share": 0.756
@@ -1357,6 +1594,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 360,
     "receiving_tds": 2,
     "ypr": 10.9,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0,
     "snap_share": 0.709
@@ -1375,6 +1615,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 18,
     "receiving_yards": 143,
     "receiving_tds": 1,
+    "team_2025": "KC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.045,
     "carry_share": 0.391,
     "snap_share": 0.471
@@ -1390,6 +1633,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 101,
     "receiving_tds": 0,
     "ypr": 9.2,
+    "team_2025": "NYJ",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.046,
     "carry_share": 0,
     "snap_share": 0.842
@@ -1410,6 +1656,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -5,
     "rushing_tds": 0,
     "epa_per_play": -0.0719429492467123,
+    "team_2025": "NE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.18
@@ -1428,6 +1677,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 25,
     "receiving_yards": 196,
     "receiving_tds": 0,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.073,
     "carry_share": 0.095,
     "snap_share": 0.319
@@ -1443,6 +1695,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1458,6 +1713,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 7,
     "receiving_tds": 0,
     "ypr": 3.5,
+    "team_2025": "DET",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.009,
     "carry_share": 0,
     "snap_share": 0.173
@@ -1473,6 +1731,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 97,
     "receiving_tds": 0,
     "ypr": 8.8,
+    "team_2025": "LAC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.029,
     "carry_share": 0,
     "snap_share": 0.319
@@ -1488,6 +1749,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 101,
     "receiving_tds": 0,
     "ypr": 14.4,
+    "team_2025": "LAC",
+    "team_2026": "DET",
+    "team_changed": true,
     "target_share": 0.018,
     "carry_share": 0.002,
     "snap_share": 0.192
@@ -1503,6 +1767,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 120,
     "receiving_tds": 1,
     "ypr": 8.6,
+    "team_2025": "PIT",
+    "team_2026": "DAL",
+    "team_changed": true,
     "target_share": 0.055,
     "carry_share": 0,
     "snap_share": 0.48
@@ -1518,6 +1785,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1017,
     "receiving_tds": 7,
     "ypr": 13.7,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.212,
     "carry_share": 0,
     "snap_share": 0.854
@@ -1533,6 +1803,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 591,
     "receiving_tds": 11,
     "ypr": 9.9,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.176,
     "carry_share": 0,
     "snap_share": 0.846
@@ -1548,6 +1821,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 114,
     "receiving_tds": 0,
     "ypr": 8.8,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.026,
     "carry_share": 0,
     "snap_share": 0.359
@@ -1566,6 +1842,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1581,6 +1860,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 777,
     "receiving_tds": 3,
     "ypr": 9.5,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.192,
     "carry_share": 0,
     "snap_share": 0.711
@@ -1596,6 +1878,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 30,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.007,
     "carry_share": 0,
     "snap_share": 0.387
@@ -1611,6 +1896,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 69,
     "receiving_tds": 0,
     "ypr": 9.9,
+    "team_2025": "NYG",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.03,
     "carry_share": 0,
     "snap_share": 0.53
@@ -1626,6 +1914,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 44,
     "receiving_tds": 0,
     "ypr": 8.8,
+    "team_2025": "MIA",
+    "team_2026": "DET",
+    "team_changed": true,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.355
@@ -1641,6 +1932,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 37,
     "receiving_tds": 0,
     "ypr": 6.2,
+    "team_2025": "HOU",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.014,
     "carry_share": 0,
     "snap_share": 0.193
@@ -1656,6 +1950,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 21,
     "receiving_tds": 0,
     "ypr": 7,
+    "team_2025": "ARI",
+    "team_2026": "BUF",
+    "team_changed": true,
     "target_share": 0.008,
     "carry_share": 0,
     "snap_share": 0.237
@@ -1671,6 +1968,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 70,
     "receiving_tds": 1,
     "ypr": 7,
+    "team_2025": "NYJ",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.038,
     "carry_share": 0,
     "snap_share": 0.39
@@ -1691,6 +1991,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -3,
     "rushing_tds": 0,
     "epa_per_play": -1.35526536774439,
+    "team_2025": "DET",
+    "team_2026": "BUF",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1706,6 +2009,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 168,
     "receiving_tds": 2,
     "ypr": 8.8,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.039,
     "carry_share": 0,
     "snap_share": 0.147
@@ -1724,6 +2030,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1739,6 +2048,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 422,
     "receiving_tds": 5,
     "ypr": 8.8,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.171,
     "carry_share": 0.02,
     "snap_share": 0.617
@@ -1759,6 +2071,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 6,
     "rushing_tds": 0,
     "epa_per_play": 2.50336368704777,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.008,
     "snap_share": 0.338
@@ -1774,6 +2089,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 239,
     "receiving_tds": 1,
     "ypr": 8.5,
+    "team_2025": "HOU",
+    "team_2026": "SF",
+    "team_changed": true,
     "target_share": 0.095,
     "carry_share": 0,
     "snap_share": 0.486
@@ -1792,6 +2110,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 13,
     "receiving_yards": 67,
     "receiving_tds": 0,
+    "team_2025": "HOU",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.036,
     "carry_share": 0.263,
     "snap_share": 0.322
@@ -1812,6 +2133,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 349,
     "rushing_tds": 2,
     "epa_per_play": 18.1570221709542,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.118,
     "snap_share": 0.922
@@ -1827,6 +2151,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 25,
     "receiving_tds": 0,
     "ypr": 6.3,
+    "team_2025": "CHI",
+    "team_2026": "BAL",
+    "team_changed": true,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.254
@@ -1842,6 +2169,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 682,
     "receiving_tds": 6,
     "ypr": 13.6,
+    "team_2025": "CHI",
+    "team_2026": "BUF",
+    "team_changed": true,
     "target_share": 0.159,
     "carry_share": 0.03,
     "snap_share": 0.848
@@ -1857,6 +2187,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 307,
     "receiving_tds": 2,
     "ypr": 11,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.07,
     "carry_share": 0,
     "snap_share": 0.385
@@ -1872,6 +2205,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 303,
     "receiving_tds": 0,
     "ypr": 17.8,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.068,
     "carry_share": 0,
     "snap_share": 0.571
@@ -1890,6 +2226,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 37,
     "receiving_yards": 273,
     "receiving_tds": 2,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.109,
     "carry_share": 0.607,
     "snap_share": 0.783
@@ -1905,6 +2244,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 31,
     "receiving_tds": 0,
     "ypr": 10.3,
+    "team_2025": "ATL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.106
@@ -1925,6 +2267,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 382,
     "rushing_tds": 1,
     "epa_per_play": 0.677550827275322,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.101,
     "snap_share": 0.971
@@ -1945,6 +2290,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 579,
     "rushing_tds": 14,
     "epa_per_play": 71.3263364575351,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.18,
     "snap_share": 0.922
@@ -1960,6 +2308,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 127,
     "receiving_tds": 0,
     "ypr": 14.1,
+    "team_2025": "NO",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.223
@@ -1975,6 +2326,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -1995,6 +2349,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 95,
     "rushing_tds": 0,
     "epa_per_play": 74.5774671271899,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.045,
     "snap_share": 0.962
@@ -2010,6 +2367,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2030,6 +2390,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 0,
     "rushing_tds": 0,
     "epa_per_play": -1.23787799407728,
+    "team_2025": "CIN",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2045,6 +2408,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 835,
     "receiving_tds": 3,
     "ypr": 11.1,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.2,
     "carry_share": 0.011,
     "snap_share": 0.85
@@ -2063,6 +2429,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 21,
     "receiving_yards": 169,
     "receiving_tds": 1,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.066,
     "carry_share": 0.037,
     "snap_share": 0.371
@@ -2078,6 +2447,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 59,
     "receiving_tds": 0,
     "ypr": 8.4,
+    "team_2025": "NO",
+    "team_2026": "HOU",
+    "team_changed": true,
     "target_share": 0.018,
     "carry_share": 0,
     "snap_share": 0.357
@@ -2093,6 +2465,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 89,
     "receiving_tds": 2,
     "ypr": 5.9,
+    "team_2025": "CAR",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.054,
     "carry_share": 0,
     "snap_share": 0.492
@@ -2108,6 +2483,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 106,
     "receiving_tds": 0,
     "ypr": 21.2,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.019,
     "carry_share": 0.007,
     "snap_share": 0.213
@@ -2128,6 +2506,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 39,
     "rushing_tds": 1,
     "epa_per_play": -38.3870388511597,
+    "team_2025": "CIN",
+    "team_2026": "TB",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.022,
     "snap_share": 0.734
@@ -2143,6 +2524,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2158,6 +2542,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 313,
     "receiving_tds": 2,
     "ypr": 8,
+    "team_2025": "CHI",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0.123,
     "carry_share": 0.008,
     "snap_share": 0.536
@@ -2178,6 +2565,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 173,
     "rushing_tds": 1,
     "epa_per_play": 5.72059112573841,
+    "team_2025": "ARI",
+    "team_2026": "MIN",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.077,
     "snap_share": 0.988
@@ -2193,6 +2583,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 438,
     "receiving_tds": 3,
     "ypr": 8.6,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.14,
     "carry_share": 0.003,
     "snap_share": 0.779
@@ -2211,6 +2604,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 30,
     "receiving_tds": 0,
+    "team_2025": "DAL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.013,
     "carry_share": 0.045,
     "snap_share": 0.215
@@ -2226,6 +2622,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 160,
     "receiving_tds": 4,
     "ypr": 10.7,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.042,
     "carry_share": 0,
     "snap_share": 0.458
@@ -2244,6 +2643,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 18,
     "receiving_yards": 151,
     "receiving_tds": 0,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.038,
     "carry_share": 0.237,
     "snap_share": 0.276
@@ -2262,6 +2664,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 33,
     "receiving_yards": 206,
     "receiving_tds": 0,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.077,
     "carry_share": 0.651,
     "snap_share": 0.625
@@ -2282,6 +2687,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -1,
     "rushing_tds": 0,
     "epa_per_play": 0,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2302,6 +2710,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 2,
     "rushing_tds": 0,
     "epa_per_play": -6.41468302690191,
+    "team_2025": "KC",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.168
@@ -2320,6 +2731,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 55,
     "receiving_tds": 0,
+    "team_2025": "CLE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.017,
     "carry_share": 0.024,
     "snap_share": 0.207
@@ -2335,6 +2749,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 62,
     "receiving_tds": 0,
     "ypr": 6.9,
+    "team_2025": "PIT",
+    "team_2026": "CHI",
+    "team_changed": true,
     "target_share": 0.027,
     "carry_share": 0,
     "snap_share": 0.193
@@ -2353,6 +2770,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2368,6 +2788,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 191,
     "receiving_tds": 2,
     "ypr": 10.6,
+    "team_2025": "ATL",
+    "team_2026": "TB",
+    "team_changed": true,
     "target_share": 0.069,
     "carry_share": 0,
     "snap_share": 0.524
@@ -2383,6 +2806,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 156,
     "receiving_tds": 1,
     "ypr": 12,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.042,
     "carry_share": 0,
     "snap_share": 0.484
@@ -2398,6 +2824,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 206,
     "receiving_tds": 3,
     "ypr": 7.1,
+    "team_2025": "ARI",
+    "team_2026": "DET",
+    "team_changed": true,
     "target_share": 0.053,
     "carry_share": 0.019,
     "snap_share": 0.336
@@ -2413,6 +2842,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 538,
     "receiving_tds": 1,
     "ypr": 14.5,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.128,
     "carry_share": 0,
     "snap_share": 0.813
@@ -2431,6 +2863,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 24,
     "receiving_yards": 263,
     "receiving_tds": 2,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.068,
     "carry_share": 0.096,
     "snap_share": 0.296
@@ -2446,6 +2881,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 36,
     "receiving_tds": 0,
     "ypr": 9,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2464,6 +2902,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "DET",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2482,6 +2923,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "CHI",
+    "team_2026": "PIT",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2497,6 +2941,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 12,
     "receiving_tds": 0,
     "ypr": 6,
+    "team_2025": "LV",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2515,6 +2962,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "NE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.03,
     "snap_share": 0.085
@@ -2530,6 +2980,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 106,
     "receiving_tds": 1,
     "ypr": 7.1,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.033,
     "carry_share": 0.003,
     "snap_share": 0.536
@@ -2545,6 +2998,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2560,6 +3016,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 850,
     "receiving_tds": 6,
     "ypr": 14.4,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.189,
     "carry_share": 0.005,
     "snap_share": 0.873
@@ -2575,6 +3034,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 288,
     "receiving_tds": 3,
     "ypr": 8.5,
+    "team_2025": "CIN",
+    "team_2026": "NO",
+    "team_changed": true,
     "target_share": 0.067,
     "carry_share": 0,
     "snap_share": 0.379
@@ -2590,6 +3052,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 145,
     "receiving_tds": 1,
     "ypr": 14.5,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.026,
     "carry_share": 0,
     "snap_share": 0.102
@@ -2605,6 +3070,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 582,
     "receiving_tds": 3,
     "ypr": 15.3,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.138,
     "carry_share": 0,
     "snap_share": 0.704
@@ -2620,6 +3088,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 587,
     "receiving_tds": 5,
     "ypr": 12,
+    "team_2025": "KC",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.134,
     "carry_share": 0,
     "snap_share": 0.535
@@ -2635,6 +3106,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1003,
     "receiving_tds": 7,
     "ypr": 12.9,
+    "team_2025": "PHI",
+    "team_2026": "NE",
+    "team_changed": true,
     "target_share": 0.26,
     "carry_share": 0,
     "snap_share": 0.907
@@ -2653,6 +3127,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 24,
     "receiving_yards": 192,
     "receiving_tds": 0,
+    "team_2025": "DET",
+    "team_2026": "HOU",
+    "team_changed": true,
     "target_share": 0.053,
     "carry_share": 0.368,
     "snap_share": 0.371
@@ -2668,6 +3145,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 417,
     "receiving_tds": 4,
     "ypr": 11.6,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.102,
     "carry_share": 0,
     "snap_share": 0.583
@@ -2686,6 +3166,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 36,
     "receiving_yards": 282,
     "receiving_tds": 1,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.494,
     "snap_share": 0.591
@@ -2706,6 +3189,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -5,
     "rushing_tds": 0,
     "epa_per_play": -0.892722808755934,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.004,
     "snap_share": 0.13
@@ -2726,6 +3212,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 164,
     "rushing_tds": 5,
     "epa_per_play": 65.2555149975867,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.088,
     "snap_share": 0.915
@@ -2741,6 +3230,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 727,
     "receiving_tds": 5,
     "ypr": 10.1,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.229,
     "carry_share": 0.036,
     "snap_share": 0.722
@@ -2759,6 +3251,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "HOU",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2774,6 +3269,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 8,
     "receiving_tds": 0,
     "ypr": 4,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2789,6 +3287,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 90,
     "receiving_tds": 1,
     "ypr": 30,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2804,6 +3305,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DET",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2824,6 +3328,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 151,
     "rushing_tds": 0,
     "epa_per_play": 5.65948320099755,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.039,
     "snap_share": 0.594
@@ -2839,6 +3346,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 889,
     "receiving_tds": 3,
     "ypr": 11.5,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.18,
     "carry_share": 0,
     "snap_share": 0.75
@@ -2854,6 +3364,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 65,
     "receiving_tds": 0,
     "ypr": 10.8,
+    "team_2025": "TEN",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.023,
     "carry_share": 0,
     "snap_share": 0.299
@@ -2872,6 +3385,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 39,
     "receiving_yards": 297,
     "receiving_tds": 1,
+    "team_2025": "CAR",
+    "team_2026": "PIT",
+    "team_changed": true,
     "target_share": 0.104,
     "carry_share": 0.533,
     "snap_share": 0.561
@@ -2890,6 +3406,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 11,
     "receiving_yards": 37,
     "receiving_tds": 0,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.024,
     "carry_share": 0.349,
     "snap_share": 0.511
@@ -2905,6 +3424,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 115,
     "receiving_tds": 1,
     "ypr": 11.5,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.038,
     "carry_share": 0,
     "snap_share": 0.763
@@ -2920,6 +3442,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 48,
     "receiving_tds": 0,
     "ypr": 24,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -2935,6 +3460,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 89,
     "receiving_tds": 0,
     "ypr": 8.1,
+    "team_2025": "MIA",
+    "team_2026": "IND",
+    "team_changed": true,
     "target_share": 0.043,
     "carry_share": 0,
     "snap_share": 0.442
@@ -2953,6 +3481,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 24,
     "receiving_tds": 0,
+    "team_2025": "BUF",
+    "team_2026": "NE",
+    "team_changed": true,
     "target_share": 0.006,
     "carry_share": 0.004,
     "snap_share": 0.212
@@ -2968,6 +3499,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 129,
     "receiving_tds": 1,
     "ypr": 10.8,
+    "team_2025": "BUF",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.572
@@ -2988,6 +3522,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 43,
     "rushing_tds": 0,
     "epa_per_play": 14.3950634196548,
+    "team_2025": "MIA",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.038,
     "snap_share": 0.954
@@ -3006,6 +3543,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 46,
     "receiving_yards": 378,
     "receiving_tds": 2,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.104,
     "carry_share": 0.752,
     "snap_share": 0.826
@@ -3021,6 +3561,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 7,
     "receiving_tds": 0,
     "ypr": 3.5,
+    "team_2025": "HOU",
+    "team_2026": "SEA",
+    "team_changed": true,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.212
@@ -3036,6 +3579,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 408,
     "receiving_tds": 8,
     "ypr": 9.5,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.096,
     "carry_share": 0,
     "snap_share": 0.604
@@ -3051,6 +3597,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 784,
     "receiving_tds": 7,
     "ypr": 9.8,
+    "team_2025": "IND",
+    "team_2026": "PIT",
+    "team_changed": true,
     "target_share": 0.213,
     "carry_share": 0,
     "snap_share": 0.855
@@ -3066,6 +3615,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 643,
     "receiving_tds": 9,
     "ypr": 11.7,
+    "team_2025": "SF",
+    "team_2026": "MIN",
+    "team_changed": true,
     "target_share": 0.168,
     "carry_share": 0,
     "snap_share": 0.821
@@ -3086,6 +3638,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 199,
     "rushing_tds": 0,
     "epa_per_play": 110.611287832903,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.072,
     "snap_share": 0.943
@@ -3104,6 +3659,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 21,
     "receiving_tds": 0,
+    "team_2025": "PHI",
+    "team_2026": "CAR",
+    "team_changed": true,
     "target_share": 0.006,
     "carry_share": 0.026,
     "snap_share": 0.119
@@ -3122,6 +3680,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 34,
     "receiving_yards": 299,
     "receiving_tds": 1,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.09,
     "carry_share": 0.45,
     "snap_share": 0.579
@@ -3137,6 +3698,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 347,
     "receiving_tds": 2,
     "ypr": 11.6,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.091,
     "carry_share": 0,
     "snap_share": 0.714
@@ -3152,6 +3716,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 443,
     "receiving_tds": 1,
     "ypr": 13.8,
+    "team_2025": "ATL",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.138,
     "carry_share": 0,
     "snap_share": 0.819
@@ -3167,6 +3734,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1048,
     "receiving_tds": 2,
     "ypr": 12.5,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.301,
     "carry_share": 0.005,
     "snap_share": 0.942
@@ -3185,6 +3755,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 6,
     "receiving_tds": 0,
+    "team_2025": "NE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.006,
     "carry_share": 0.054,
     "snap_share": 0.166
@@ -3200,6 +3773,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 26,
     "receiving_tds": 0,
     "ypr": 13,
+    "team_2025": "CHI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.009,
     "carry_share": 0,
     "snap_share": 0.035
@@ -3215,6 +3791,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 21,
     "receiving_tds": 1,
     "ypr": 7,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.008,
     "carry_share": 0,
     "snap_share": 0.104
@@ -3235,6 +3814,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 498,
     "rushing_tds": 2,
     "epa_per_play": 16.1146135014785,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.163,
     "snap_share": 0.968
@@ -3250,6 +3832,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1077,
     "receiving_tds": 3,
     "ypr": 14.4,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.192,
     "carry_share": 0.002,
     "snap_share": 0.729
@@ -3268,6 +3853,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 9,
     "receiving_tds": 0,
+    "team_2025": "KC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.004,
     "carry_share": 0.017,
     "snap_share": 0.105
@@ -3288,6 +3876,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 421,
     "rushing_tds": 8,
     "epa_per_play": 34.3144432765787,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.203,
     "snap_share": 0.976
@@ -3303,6 +3894,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 602,
     "receiving_tds": 2,
     "ypr": 12,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.202,
     "carry_share": 0.002,
     "snap_share": 0.845
@@ -3318,6 +3912,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 846,
     "receiving_tds": 11,
     "ypr": 14.3,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.162,
     "carry_share": 0,
     "snap_share": 0.809
@@ -3336,6 +3933,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.002,
     "carry_share": 0.013,
     "snap_share": 0.025
@@ -3351,6 +3951,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 350,
     "receiving_tds": 1,
     "ypr": 12.1,
+    "team_2025": "TEN",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.098,
     "carry_share": 0,
     "snap_share": 0.586
@@ -3366,6 +3969,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 195,
     "receiving_tds": 1,
     "ypr": 9.8,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.039,
     "carry_share": 0,
     "snap_share": 0.573
@@ -3381,6 +3987,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 36,
     "receiving_tds": 0,
     "ypr": 7.2,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.012,
     "carry_share": 0,
     "snap_share": 0.46
@@ -3399,6 +4008,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.006,
     "snap_share": 0.062
@@ -3414,6 +4026,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 197,
     "receiving_tds": 1,
     "ypr": 16.4,
+    "team_2025": "NYJ",
+    "team_2026": "DAL",
+    "team_changed": true,
     "target_share": 0.038,
     "carry_share": 0,
     "snap_share": 0.41
@@ -3429,6 +4044,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 48,
     "receiving_tds": 0,
     "ypr": 6,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.017,
     "carry_share": 0,
     "snap_share": 0.508
@@ -3449,6 +4067,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 41,
     "rushing_tds": 0,
     "epa_per_play": 36.6070933425231,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.035,
     "snap_share": 0.878
@@ -3464,6 +4085,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3479,6 +4103,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 15,
     "receiving_tds": 0,
     "ypr": 15,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3494,6 +4121,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "LV",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3509,6 +4139,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 20,
     "receiving_tds": 0,
     "ypr": 6.7,
+    "team_2025": "DET",
+    "team_2026": "BUF",
+    "team_changed": true,
     "target_share": 0.009,
     "carry_share": 0,
     "snap_share": 0.4
@@ -3524,6 +4157,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 224,
     "receiving_tds": 2,
     "ypr": 11.8,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0,
     "snap_share": 0.693
@@ -3539,6 +4175,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1117,
     "receiving_tds": 6,
     "ypr": 15.7,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.217,
     "carry_share": 0.004,
     "snap_share": 0.772
@@ -3557,6 +4196,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 30,
     "receiving_yards": 223,
     "receiving_tds": 3,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.081,
     "carry_share": 0.303,
     "snap_share": 0.458
@@ -3575,6 +4217,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "KC",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3593,6 +4238,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3608,6 +4256,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 55,
     "receiving_tds": 1,
     "ypr": 9.2,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.016,
     "carry_share": 0,
     "snap_share": 0.233
@@ -3623,6 +4274,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 910,
     "receiving_tds": 6,
     "ypr": 14.2,
+    "team_2025": "MIA",
+    "team_2026": "DEN",
+    "team_changed": true,
     "target_share": 0.215,
     "carry_share": 0.005,
     "snap_share": 0.776
@@ -3638,6 +4292,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 62,
     "receiving_tds": 0,
     "ypr": 15.5,
+    "team_2025": "MIA",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.015,
     "carry_share": 0,
     "snap_share": 0.118
@@ -3653,6 +4310,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 227,
     "receiving_tds": 1,
     "ypr": 11.4,
+    "team_2025": "JAX",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.067,
     "carry_share": 0.013,
     "snap_share": 0.366
@@ -3668,6 +4328,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 103,
     "receiving_tds": 1,
     "ypr": 9.4,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.514
@@ -3683,6 +4346,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 45,
     "receiving_tds": 1,
     "ypr": 11.3,
+    "team_2025": "BAL",
+    "team_2026": "CLE",
+    "team_changed": true,
     "target_share": 0.02,
     "carry_share": 0,
     "snap_share": 0.231
@@ -3698,6 +4364,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 178,
     "receiving_tds": 0,
     "ypr": 8.5,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.069,
     "carry_share": 0,
     "snap_share": 0.521
@@ -3713,6 +4382,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3733,6 +4405,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 4,
     "rushing_tds": 0,
     "epa_per_play": -6.8254729354437,
+    "team_2025": "KC",
+    "team_2026": "BUF",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.45
@@ -3748,6 +4423,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 46,
     "receiving_tds": 1,
     "ypr": 7.7,
+    "team_2025": "NO",
+    "team_2026": "CLE",
+    "team_changed": true,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.209
@@ -3763,6 +4441,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 108,
     "receiving_tds": 2,
     "ypr": 7.7,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.04,
     "carry_share": 0,
     "snap_share": 0.576
@@ -3781,6 +4462,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 8,
     "receiving_tds": 0,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.007,
     "carry_share": 0.09,
     "snap_share": 0.28
@@ -3796,6 +4480,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ATL",
+    "team_2026": "CAR",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -3811,6 +4498,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 46,
     "receiving_tds": 0,
     "ypr": 15.3,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.018,
     "carry_share": 0,
     "snap_share": 0.227
@@ -3829,6 +4519,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.029,
     "snap_share": 0.044
@@ -3844,6 +4537,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 192,
     "receiving_tds": 1,
     "ypr": 32,
+    "team_2025": "LAR",
+    "team_2026": "MIA",
+    "team_changed": true,
     "target_share": 0.026,
     "carry_share": 0,
     "snap_share": 0.279
@@ -3859,6 +4555,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 69,
     "receiving_tds": 1,
     "ypr": 17.3,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.154
@@ -3877,6 +4576,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 32,
     "receiving_yards": 345,
     "receiving_tds": 2,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.079,
     "carry_share": 0.281,
     "snap_share": 0.594
@@ -3892,6 +4594,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 40,
     "receiving_tds": 0,
     "ypr": 5.7,
+    "team_2025": "PHI",
+    "team_2026": "TEN",
+    "team_changed": true,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.234
@@ -3907,6 +4612,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 85,
     "receiving_tds": 2,
     "ypr": 7.7,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.025,
     "carry_share": 0,
     "snap_share": 0.347
@@ -3925,6 +4633,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 25,
     "receiving_tds": 0,
+    "team_2025": "LAC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.006,
     "carry_share": 0.033,
     "snap_share": 0.217
@@ -3940,6 +4651,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 486,
     "receiving_tds": 4,
     "ypr": 11.9,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.103,
     "carry_share": 0,
     "snap_share": 0.504
@@ -3960,6 +4674,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 60,
     "rushing_tds": 1,
     "epa_per_play": -16.7552503912622,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.024,
     "snap_share": 0.705
@@ -3975,6 +4692,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1412,
     "receiving_tds": 8,
     "ypr": 11.3,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.303,
     "carry_share": 0.008,
     "snap_share": 0.944
@@ -3993,6 +4713,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 4,
     "receiving_tds": 0,
+    "team_2025": "NYJ",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.008,
     "carry_share": 0.035,
     "snap_share": 0.136
@@ -4008,6 +4731,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1008,
     "receiving_tds": 4,
     "ypr": 13.1,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.245,
     "carry_share": 0,
     "snap_share": 0.844
@@ -4026,6 +4752,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 73,
     "receiving_yards": 486,
     "receiving_tds": 3,
+    "team_2025": "PIT",
+    "team_2026": "TB",
+    "team_changed": true,
     "target_share": 0.162,
     "carry_share": 0.289,
     "snap_share": 0.496
@@ -4044,6 +4773,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 33,
     "receiving_yards": 267,
     "receiving_tds": 0,
+    "team_2025": "ARI",
+    "team_2026": "TEN",
+    "team_changed": true,
     "target_share": 0.073,
     "carry_share": 0.253,
     "snap_share": 0.452
@@ -4064,6 +4796,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 383,
     "rushing_tds": 4,
     "epa_per_play": -22.4516230250076,
+    "team_2025": "NYJ",
+    "team_2026": "KC",
+    "team_changed": true,
     "target_share": 0.002,
     "carry_share": 0.152,
     "snap_share": 0.898
@@ -4082,6 +4817,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "NYJ",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4097,6 +4835,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 50,
     "receiving_tds": 1,
     "ypr": 12.5,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4112,6 +4853,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1401,
     "receiving_tds": 11,
     "ypr": 12,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.313,
     "carry_share": 0.007,
     "snap_share": 0.852
@@ -4127,6 +4871,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 928,
     "receiving_tds": 5,
     "ypr": 10.5,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.228,
     "carry_share": 0,
     "snap_share": 0.88
@@ -4147,6 +4894,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 359,
     "rushing_tds": 9,
     "epa_per_play": 38.4097214363881,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.159,
     "snap_share": 0.967
@@ -4167,6 +4917,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 60,
     "rushing_tds": 0,
     "epa_per_play": 44.6851207404805,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.048,
     "snap_share": 0.744
@@ -4185,6 +4938,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 36,
     "receiving_yards": 292,
     "receiving_tds": 6,
+    "team_2025": "JAX",
+    "team_2026": "NO",
+    "team_changed": true,
     "target_share": 0.095,
     "carry_share": 0.552,
     "snap_share": 0.601
@@ -4200,6 +4956,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 112,
     "receiving_tds": 0,
     "ypr": 12.4,
+    "team_2025": "BUF",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.035,
     "carry_share": 0.011,
     "snap_share": 0.314
@@ -4218,6 +4977,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "PIT",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4233,6 +4995,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 303,
     "receiving_tds": 0,
     "ypr": 13.8,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.076,
     "carry_share": 0,
     "snap_share": 0.483
@@ -4251,6 +5016,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 35,
     "receiving_yards": 137,
     "receiving_tds": 2,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.084,
     "carry_share": 0.561,
     "snap_share": 0.69
@@ -4266,6 +5034,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 85,
     "receiving_tds": 2,
     "ypr": 7.1,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.031,
     "carry_share": 0,
     "snap_share": 0.399
@@ -4281,6 +5052,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 249,
     "receiving_tds": 2,
     "ypr": 9.2,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.077,
     "carry_share": 0,
     "snap_share": 0.601
@@ -4301,6 +5075,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 85,
     "rushing_tds": 0,
     "epa_per_play": -39.4666925595923,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.033,
     "snap_share": 0.378
@@ -4321,6 +5098,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 1,
     "rushing_tds": 0,
     "epa_per_play": -6.62134442542447,
+    "team_2025": "MIA",
+    "team_2026": "NO",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.002,
     "snap_share": 0.113
@@ -4336,6 +5116,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 11,
     "receiving_tds": 0,
     "ypr": 5.5,
+    "team_2025": "CLE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.01,
     "carry_share": 0,
     "snap_share": 0.28
@@ -4351,6 +5134,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4369,6 +5155,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 19,
     "receiving_yards": 141,
     "receiving_tds": 0,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.053,
     "carry_share": 0.018,
     "snap_share": 0.175
@@ -4384,6 +5173,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 76,
     "receiving_tds": 1,
     "ypr": 8.4,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.028,
     "carry_share": 0,
     "snap_share": 0.403
@@ -4399,6 +5191,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 107,
     "receiving_tds": 1,
     "ypr": 26.8,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.028,
     "carry_share": 0.011,
     "snap_share": 0.104
@@ -4414,6 +5209,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 48,
     "receiving_tds": 0,
     "ypr": 24,
+    "team_2025": "SEA",
+    "team_2026": "LV",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4429,6 +5227,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 3,
     "receiving_tds": 0,
     "ypr": 3,
+    "team_2025": "NO",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4444,6 +5245,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 293,
     "receiving_tds": 5,
     "ypr": 8.6,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.083,
     "carry_share": 0,
     "snap_share": 0.332
@@ -4462,6 +5266,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 8,
     "receiving_tds": 0,
+    "team_2025": "IND",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0.006,
     "carry_share": 0.021,
     "snap_share": 0.05
@@ -4477,6 +5284,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 20,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4495,6 +5305,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 22,
     "receiving_yards": 160,
     "receiving_tds": 1,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.05,
     "carry_share": 0.228,
     "snap_share": 0.331
@@ -4513,6 +5326,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 19,
     "receiving_yards": 101,
     "receiving_tds": 1,
+    "team_2025": "KC",
+    "team_2026": "DET",
+    "team_changed": true,
     "target_share": 0.047,
     "carry_share": 0.283,
     "snap_share": 0.517
@@ -4531,6 +5347,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 40,
     "receiving_yards": 333,
     "receiving_tds": 2,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.086,
     "carry_share": 0.534,
     "snap_share": 0.508
@@ -4546,6 +5365,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 140,
     "receiving_tds": 1,
     "ypr": 10.8,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.041,
     "carry_share": 0,
     "snap_share": 0.443
@@ -4561,6 +5383,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 919,
     "receiving_tds": 7,
     "ypr": 13.5,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.216,
     "carry_share": 0,
     "snap_share": 0.907
@@ -4576,6 +5401,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1163,
     "receiving_tds": 9,
     "ypr": 11.6,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.276,
     "carry_share": 0.002,
     "snap_share": 0.843
@@ -4591,6 +5419,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1117,
     "receiving_tds": 7,
     "ypr": 17.2,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.185,
     "carry_share": 0.014,
     "snap_share": 0.902
@@ -4606,6 +5437,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1429,
     "receiving_tds": 9,
     "ypr": 15.4,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.226,
     "carry_share": 0,
     "snap_share": 0.811
@@ -4624,6 +5458,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 33,
     "receiving_yards": 291,
     "receiving_tds": 2,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.082,
     "carry_share": 0.592,
     "snap_share": 0.572
@@ -4639,6 +5476,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 335,
     "receiving_tds": 1,
     "ypr": 12.9,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.073,
     "carry_share": 0.002,
     "snap_share": 0.422
@@ -4657,6 +5497,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 40,
     "receiving_yards": 218,
     "receiving_tds": 0,
+    "team_2025": "TB",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.083,
     "carry_share": 0.287,
     "snap_share": 0.511
@@ -4675,6 +5518,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "KC",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.002,
     "carry_share": 0.034,
     "snap_share": 0.084
@@ -4690,6 +5536,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 719,
     "receiving_tds": 4,
     "ypr": 10,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.199,
     "carry_share": 0.002,
     "snap_share": 0.598
@@ -4708,6 +5557,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 14,
     "receiving_yards": 96,
     "receiving_tds": 0,
+    "team_2025": "ATL",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.031,
     "carry_share": 0.308,
     "snap_share": 0.302
@@ -4726,6 +5578,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 26,
     "receiving_yards": 103,
     "receiving_tds": 0,
+    "team_2025": "CLE",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.061,
     "carry_share": 0.057,
     "snap_share": 0.305
@@ -4744,6 +5599,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 11,
     "receiving_tds": 0,
+    "team_2025": "MIN",
+    "team_2026": "NO",
+    "team_changed": true,
     "target_share": 0.008,
     "carry_share": 0.043,
     "snap_share": 0.223
@@ -4759,6 +5617,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ATL",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4774,6 +5635,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 28,
     "receiving_tds": 0,
     "ypr": 9.3,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4789,6 +5653,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 444,
     "receiving_tds": 4,
     "ypr": 15.3,
+    "team_2025": "MIN",
+    "team_2026": "LV",
+    "team_changed": true,
     "target_share": 0.114,
     "carry_share": 0.005,
     "snap_share": 0.654
@@ -4804,6 +5671,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 27,
     "receiving_tds": 1,
     "ypr": 6.8,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.237
@@ -4819,6 +5689,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 72,
     "receiving_tds": 1,
     "ypr": 6,
+    "team_2025": "GB",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.032,
     "carry_share": 0,
     "snap_share": 0.361
@@ -4834,6 +5707,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4854,6 +5730,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 18,
     "rushing_tds": 0,
     "epa_per_play": -30.1231291323971,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.012,
     "snap_share": 0.747
@@ -4872,6 +5751,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.01,
     "snap_share": 0.067
@@ -4887,6 +5769,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 17,
     "receiving_tds": 0,
     "ypr": 8.5,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4902,6 +5787,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 91,
     "receiving_tds": 0,
     "ypr": 10.1,
+    "team_2025": "MIA",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.032,
     "carry_share": 0,
     "snap_share": 0.343
@@ -4917,6 +5805,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "CLE",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4932,6 +5823,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 52,
     "receiving_tds": 0,
     "ypr": 7.4,
+    "team_2025": "NYJ",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.099
@@ -4947,6 +5841,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 27,
     "receiving_tds": 0,
     "ypr": 9,
+    "team_2025": "ATL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4962,6 +5859,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 23,
     "receiving_tds": 0,
     "ypr": 11.5,
+    "team_2025": "WAS",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -4980,6 +5880,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 14,
     "receiving_yards": 51,
     "receiving_tds": 0,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.034,
     "carry_share": 0.402,
     "snap_share": 0.428
@@ -4995,6 +5898,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 15,
     "receiving_tds": 0,
     "ypr": 7.5,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.007,
     "carry_share": 0,
     "snap_share": 0.29
@@ -5010,6 +5916,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 687,
     "receiving_tds": 2,
     "ypr": 11.6,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.201,
     "carry_share": 0.018,
     "snap_share": 0.609
@@ -5028,6 +5937,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.021,
     "snap_share": 0.025
@@ -5046,6 +5958,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 16,
     "receiving_tds": 0,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.008,
     "carry_share": 0.116,
     "snap_share": 0.207
@@ -5064,6 +5979,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.03,
     "snap_share": 0.039
@@ -5079,6 +5997,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 274,
     "receiving_tds": 2,
     "ypr": 8.3,
+    "team_2025": "NYJ",
+    "team_2026": "CAR",
+    "team_changed": true,
     "target_share": 0.101,
     "carry_share": 0.007,
     "snap_share": 0.461
@@ -5097,6 +6018,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 4,
     "receiving_yards": 13,
     "receiving_tds": 0,
+    "team_2025": "LAC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.007,
     "carry_share": 0.037,
     "snap_share": 0.1
@@ -5112,6 +6036,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 19,
     "receiving_tds": 0,
     "ypr": 9.5,
+    "team_2025": "LAC",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.007,
     "carry_share": 0,
     "snap_share": 0.337
@@ -5127,6 +6054,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1003,
     "receiving_tds": 6,
     "ypr": 21.3,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.157,
     "carry_share": 0,
     "snap_share": 0.859
@@ -5142,6 +6072,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 203,
     "receiving_tds": 1,
     "ypr": 11.3,
+    "team_2025": "DAL",
+    "team_2026": "MIA",
+    "team_changed": true,
     "target_share": 0.057,
     "carry_share": 0,
     "snap_share": 0.513
@@ -5157,6 +6090,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 395,
     "receiving_tds": 4,
     "ypr": 11,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.126,
     "carry_share": 0,
     "snap_share": 0.87
@@ -5172,6 +6108,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 262,
     "receiving_tds": 1,
     "ypr": 14.6,
+    "team_2025": "PHI",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0.077,
     "carry_share": 0,
     "snap_share": 0.569
@@ -5187,6 +6126,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 130,
     "receiving_tds": 1,
     "ypr": 13,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.05,
     "carry_share": 0,
     "snap_share": 0.601
@@ -5202,6 +6144,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1239,
     "receiving_tds": 11,
     "ypr": 9.8,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.274,
     "carry_share": 0,
     "snap_share": 0.914
@@ -5217,6 +6162,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5235,6 +6183,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 25,
     "receiving_tds": 0,
+    "team_2025": "SF",
+    "team_2026": "ATL",
+    "team_changed": true,
     "target_share": 0.022,
     "carry_share": 0.199,
     "snap_share": 0.167
@@ -5250,6 +6201,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 4,
     "receiving_tds": 0,
     "ypr": 4,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5265,6 +6219,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 396,
     "receiving_tds": 2,
     "ypr": 15.2,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.062,
     "carry_share": 0.038,
     "snap_share": 0.355
@@ -5280,6 +6237,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 179,
     "receiving_tds": 1,
     "ypr": 7.8,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.061,
     "carry_share": 0,
     "snap_share": 0.472
@@ -5295,6 +6255,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 560,
     "receiving_tds": 2,
     "ypr": 10,
+    "team_2025": "TEN",
+    "team_2026": "WAS",
+    "team_changed": true,
     "target_share": 0.149,
     "carry_share": 0,
     "snap_share": 0.637
@@ -5310,6 +6273,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 724,
     "receiving_tds": 6,
     "ypr": 13.2,
+    "team_2025": "GB",
+    "team_2026": "NE",
+    "team_changed": true,
     "target_share": 0.186,
     "carry_share": 0,
     "snap_share": 0.776
@@ -5330,6 +6296,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 147,
     "rushing_tds": 3,
     "epa_per_play": 63.1299391168206,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.063,
     "snap_share": 0.978
@@ -5345,6 +6314,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 372,
     "receiving_tds": 3,
     "ypr": 12,
+    "team_2025": "PIT",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.105,
     "carry_share": 0,
     "snap_share": 0.535
@@ -5360,6 +6332,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 307,
     "receiving_tds": 1,
     "ypr": 11.4,
+    "team_2025": "BAL",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.088,
     "carry_share": 0,
     "snap_share": 0.559
@@ -5378,6 +6353,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 36,
     "receiving_yards": 281,
     "receiving_tds": 3,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.086,
     "carry_share": 0.59,
     "snap_share": 0.683
@@ -5396,6 +6374,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 4,
     "receiving_yards": 24,
     "receiving_tds": 0,
+    "team_2025": "LV",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.012,
     "carry_share": 0.033,
     "snap_share": 0.158
@@ -5411,6 +6392,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 600,
     "receiving_tds": 8,
     "ypr": 7.3,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.169,
     "carry_share": 0.002,
     "snap_share": 0.667
@@ -5426,6 +6410,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 142,
     "receiving_tds": 2,
     "ypr": 14.2,
+    "team_2025": "BAL",
+    "team_2026": "LAC",
+    "team_changed": true,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.404
@@ -5441,6 +6428,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 87,
     "receiving_tds": 0,
     "ypr": 17.4,
+    "team_2025": "SF",
+    "team_2026": "GB",
+    "team_changed": true,
     "target_share": 0.013,
     "carry_share": 0.004,
     "snap_share": 0.101
@@ -5461,6 +6451,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 22,
     "rushing_tds": 0,
     "epa_per_play": -28.7876919492745,
+    "team_2025": "LV",
+    "team_2026": "CAR",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.014,
     "snap_share": 0.285
@@ -5476,6 +6469,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 438,
     "receiving_tds": 3,
     "ypr": 23.1,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.067,
     "carry_share": 0,
     "snap_share": 0.39
@@ -5491,6 +6487,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 286,
     "receiving_tds": 2,
     "ypr": 15.1,
+    "team_2025": "NYG",
+    "team_2026": "TEN",
+    "team_changed": true,
     "target_share": 0.051,
     "carry_share": 0,
     "snap_share": 0.499
@@ -5506,6 +6505,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1014,
     "receiving_tds": 4,
     "ypr": 11,
+    "team_2025": "NYG",
+    "team_2026": "TEN",
+    "team_changed": true,
     "target_share": 0.279,
     "carry_share": 0.006,
     "snap_share": 0.908
@@ -5524,6 +6526,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 36,
     "receiving_yards": 350,
     "receiving_tds": 1,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.101,
     "carry_share": 0.536,
     "snap_share": 0.644
@@ -5539,6 +6544,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 611,
     "receiving_tds": 6,
     "ypr": 17.5,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.119,
     "carry_share": 0.002,
     "snap_share": 0.677
@@ -5559,6 +6567,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 123,
     "rushing_tds": 2,
     "epa_per_play": 28.0844250857353,
+    "team_2025": "GB",
+    "team_2026": "MIA",
+    "team_changed": true,
     "target_share": 0,
     "carry_share": 0.038,
     "snap_share": 0.422
@@ -5574,6 +6585,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 572,
     "receiving_tds": 1,
     "ypr": 9.7,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.15,
     "carry_share": 0,
     "snap_share": 0.935
@@ -5592,6 +6606,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 31,
     "receiving_yards": 282,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "KC",
+    "team_changed": true,
     "target_share": 0.079,
     "carry_share": 0.45,
     "snap_share": 0.469
@@ -5607,6 +6624,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 303,
     "receiving_tds": 0,
     "ypr": 16.8,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.041,
     "carry_share": 0,
     "snap_share": 0.214
@@ -5622,6 +6642,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 332,
     "receiving_tds": 2,
     "ypr": 11.1,
+    "team_2025": "GB",
+    "team_2026": "PHI",
+    "team_changed": true,
     "target_share": 0.1,
     "carry_share": 0.002,
     "snap_share": 0.446
@@ -5637,6 +6660,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 16,
     "receiving_tds": 0,
     "ypr": 16,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5655,6 +6681,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5673,6 +6702,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 6,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": "HOU",
+    "team_changed": true,
     "target_share": 0.002,
     "carry_share": 0.044,
     "snap_share": 0.192
@@ -5693,6 +6725,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 8,
     "rushing_tds": 0,
     "epa_per_play": -2.46193814455862,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.006,
     "snap_share": 0.345
@@ -5711,6 +6746,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5731,6 +6769,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 7,
     "rushing_tds": 0,
     "epa_per_play": 2.30508261354407,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.004,
     "snap_share": 0.067
@@ -5749,6 +6790,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 14,
     "receiving_yards": 98,
     "receiving_tds": 1,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.034,
     "carry_share": 0.081,
     "snap_share": 0.102
@@ -5767,6 +6811,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 9,
     "receiving_yards": 63,
     "receiving_tds": 0,
+    "team_2025": "BAL",
+    "team_2026": "LAC",
+    "team_changed": true,
     "target_share": 0.029,
     "carry_share": 0.12,
     "snap_share": 0.175
@@ -5782,6 +6829,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "ARI",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5800,6 +6850,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "TB",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5815,6 +6868,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 86,
     "receiving_tds": 0,
     "ypr": 14.3,
+    "team_2025": "GB",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0.015,
     "carry_share": 0,
     "snap_share": 0.302
@@ -5833,6 +6889,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5848,6 +6907,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5863,6 +6925,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 6,
     "receiving_tds": 0,
     "ypr": 3,
+    "team_2025": "PHI",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5878,6 +6943,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5893,6 +6961,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 21,
     "receiving_tds": 0,
     "ypr": 21,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -5911,6 +6982,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 79,
     "receiving_yards": 820,
     "receiving_tds": 4,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.197,
     "carry_share": 0.619,
     "snap_share": 0.782
@@ -5926,6 +7000,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1793,
     "receiving_tds": 10,
     "ypr": 15.1,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.357,
     "carry_share": 0.014,
     "snap_share": 0.774
@@ -5941,6 +7018,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 735,
     "receiving_tds": 8,
     "ypr": 14.4,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.154,
     "carry_share": 0.004,
     "snap_share": 0.769
@@ -5956,6 +7036,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 132,
     "receiving_tds": 0,
     "ypr": 9.4,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.038,
     "carry_share": 0,
     "snap_share": 0.329
@@ -5974,6 +7057,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 5,
     "receiving_yards": 30,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.009,
     "carry_share": 0.11,
     "snap_share": 0.243
@@ -5992,6 +7078,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 32,
     "receiving_tds": 0,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.009,
     "carry_share": 0.136,
     "snap_share": 0.126
@@ -6007,6 +7096,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 364,
     "receiving_tds": 1,
     "ypr": 11.7,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.084,
     "carry_share": 0,
     "snap_share": 0.573
@@ -6022,6 +7114,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1006,
     "receiving_tds": 7,
     "ypr": 12.9,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.205,
     "carry_share": 0,
     "snap_share": 0.814
@@ -6037,6 +7132,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 696,
     "receiving_tds": 5,
     "ypr": 12.2,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.185,
     "carry_share": 0.03,
     "snap_share": 0.948
@@ -6052,6 +7150,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6067,6 +7168,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 10,
     "receiving_tds": 0,
     "ypr": 5,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.006,
     "carry_share": 0.004,
     "snap_share": 0.111
@@ -6082,6 +7186,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6102,6 +7209,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 7,
     "rushing_tds": 0,
     "epa_per_play": -5.86369217034538,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.003,
     "snap_share": 0.82
@@ -6122,6 +7232,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 23,
     "rushing_tds": 0,
     "epa_per_play": -19.8993445220985,
+    "team_2025": "GB",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": 0,
     "carry_share": 0.008,
     "snap_share": 0.585
@@ -6137,6 +7250,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 36,
     "receiving_tds": 1,
     "ypr": 7.2,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.013,
     "carry_share": 0,
     "snap_share": 0.399
@@ -6152,6 +7268,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6170,6 +7289,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 69,
     "receiving_yards": 437,
     "receiving_tds": 5,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.146,
     "carry_share": 0.626,
     "snap_share": 0.666
@@ -6185,6 +7307,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 847,
     "receiving_tds": 5,
     "ypr": 14.6,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.177,
     "carry_share": 0.015,
     "snap_share": 0.614
@@ -6200,6 +7325,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 551,
     "receiving_tds": 6,
     "ypr": 16.7,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0,
     "snap_share": 0.675
@@ -6218,6 +7346,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 30,
     "receiving_tds": 0,
+    "team_2025": "WAS",
+    "team_2026": "JAX",
+    "team_changed": true,
     "target_share": 0.009,
     "carry_share": 0.236,
     "snap_share": 0.312
@@ -6233,6 +7364,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 428,
     "receiving_tds": 3,
     "ypr": 12.2,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.102,
     "carry_share": 0.006,
     "snap_share": 0.575
@@ -6248,6 +7382,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 435,
     "receiving_tds": 2,
     "ypr": 13.2,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.008,
     "snap_share": 0.762
@@ -6263,6 +7400,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 447,
     "receiving_tds": 3,
     "ypr": 14.4,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.015,
     "snap_share": 0.259
@@ -6278,6 +7418,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 51,
     "receiving_tds": 0,
     "ypr": 17,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.01,
     "carry_share": 0,
     "snap_share": 0.3
@@ -6293,6 +7436,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6308,6 +7454,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 23,
     "receiving_tds": 1,
     "ypr": 11.5,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6328,6 +7477,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -1,
     "rushing_tds": 0,
     "epa_per_play": 0,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6346,6 +7498,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "TEN",
+    "team_2026": "SF",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6361,6 +7516,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 245,
     "receiving_tds": 1,
     "ypr": 16.3,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.047,
     "carry_share": 0,
     "snap_share": 0.396
@@ -6379,6 +7537,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 13,
     "receiving_yards": 91,
     "receiving_tds": 0,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.037,
     "carry_share": 0.057,
     "snap_share": 0.201
@@ -6397,6 +7558,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 13,
     "receiving_yards": 101,
     "receiving_tds": 1,
+    "team_2025": "ARI",
+    "team_2026": "KC",
+    "team_changed": true,
     "target_share": 0.032,
     "carry_share": 0.121,
     "snap_share": 0.232
@@ -6412,6 +7576,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 4,
     "receiving_tds": 0,
     "ypr": 2,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.237
@@ -6427,6 +7594,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 140,
     "receiving_tds": 0,
     "ypr": 9.3,
+    "team_2025": "MIA",
+    "team_2026": "NE",
+    "team_changed": true,
     "target_share": 0.045,
     "carry_share": 0,
     "snap_share": 0.55
@@ -6442,6 +7612,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 20,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6457,6 +7630,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6475,6 +7651,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 13,
     "receiving_yards": 109,
     "receiving_tds": 1,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.025,
     "carry_share": 0.036,
     "snap_share": 0.211
@@ -6490,6 +7669,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DAL",
+    "team_2026": null,
+    "team_changed": null,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6505,6 +7687,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 20,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6520,6 +7705,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 48,
     "receiving_tds": 1,
     "ypr": 8,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.328
@@ -6538,6 +7726,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 4,
     "receiving_yards": 27,
     "receiving_tds": 0,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.01,
     "carry_share": 0.084,
     "snap_share": 0.16
@@ -6556,6 +7747,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 15,
     "receiving_yards": 99,
     "receiving_tds": 0,
+    "team_2025": "GB",
+    "team_2026": "SEA",
+    "team_changed": true,
     "target_share": 0.039,
     "carry_share": 0.264,
     "snap_share": 0.311
@@ -6571,6 +7765,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 30,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "MIN",
+    "team_2026": "MIA",
+    "team_changed": true,
     "target_share": 0.013,
     "carry_share": 0,
     "snap_share": 0.125
@@ -6586,6 +7783,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 34,
     "receiving_tds": 1,
     "ypr": 17,
+    "team_2025": "TB",
+    "team_2026": "NYG",
+    "team_changed": true,
     "target_share": 0.007,
     "carry_share": 0,
     "snap_share": 0.145
@@ -6601,6 +7801,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 116,
     "receiving_tds": 2,
     "ypr": 14.5,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.039,
     "carry_share": 0,
     "snap_share": 0.246
@@ -6616,6 +7819,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 160,
     "receiving_tds": 0,
     "ypr": 11.4,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.253
@@ -6631,6 +7837,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 56,
     "receiving_tds": 1,
     "ypr": 14,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.01,
     "carry_share": 0.003,
     "snap_share": 0.09
@@ -6649,6 +7858,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6664,6 +7876,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6679,6 +7894,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 571,
     "receiving_tds": 5,
     "ypr": 14.6,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.102,
     "carry_share": 0,
     "snap_share": 0.374
@@ -6694,6 +7912,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 540,
     "receiving_tds": 3,
     "ypr": 11.7,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.109,
     "carry_share": 0,
     "snap_share": 0.748
@@ -6709,6 +7930,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 35,
     "receiving_tds": 0,
     "ypr": 7,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.028,
     "carry_share": 0,
     "snap_share": 0.294
@@ -6727,6 +7951,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 34,
     "receiving_tds": 1,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.02,
     "carry_share": 0.185,
     "snap_share": 0.158
@@ -6742,6 +7969,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 42,
     "receiving_tds": 0,
     "ypr": 6,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.023,
     "carry_share": 0,
     "snap_share": 0.211
@@ -6757,6 +7987,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 322,
     "receiving_tds": 1,
     "ypr": 8.7,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.087,
     "carry_share": 0.027,
     "snap_share": 0.369
@@ -6772,6 +8005,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 270,
     "receiving_tds": 2,
     "ypr": 12.9,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.074,
     "carry_share": 0,
     "snap_share": 0.618
@@ -6787,6 +8023,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 610,
     "receiving_tds": 3,
     "ypr": 14.5,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0.167,
     "carry_share": 0.005,
     "snap_share": 0.851
@@ -6802,6 +8041,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 489,
     "receiving_tds": 6,
     "ypr": 15.3,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.002,
     "snap_share": 0.86
@@ -6817,6 +8059,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 566,
     "receiving_tds": 4,
     "ypr": 9.8,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.164,
     "carry_share": 0.005,
     "snap_share": 0.587
@@ -6835,6 +8080,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -6853,6 +8101,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 45,
     "receiving_yards": 264,
     "receiving_tds": 0,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.094,
     "carry_share": 0.194,
     "snap_share": 0.459
@@ -6871,6 +8122,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 67,
     "receiving_yards": 488,
     "receiving_tds": 4,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.183,
     "carry_share": 0.561,
     "snap_share": 0.754
@@ -6886,6 +8140,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 301,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.06,
     "carry_share": 0,
     "snap_share": 0.425
@@ -6901,6 +8158,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 11,
     "receiving_tds": 0,
     "ypr": 11,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.007,
     "carry_share": 0,
     "snap_share": 0.318
@@ -6916,6 +8176,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 25,
     "receiving_tds": 0,
     "ypr": 25,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.008,
     "carry_share": 0,
     "snap_share": 0.207
@@ -6931,6 +8194,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1211,
     "receiving_tds": 5,
     "ypr": 14.1,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.291,
     "carry_share": 0.02,
     "snap_share": 0.865
@@ -6946,6 +8212,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 489,
     "receiving_tds": 3,
     "ypr": 12.2,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.089,
     "carry_share": 0,
     "snap_share": 0.907
@@ -6961,6 +8230,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 328,
     "receiving_tds": 1,
     "ypr": 9.4,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.101,
     "carry_share": 0,
     "snap_share": 0.618
@@ -6976,6 +8248,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 571,
     "receiving_tds": 5,
     "ypr": 10.8,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.143,
     "carry_share": 0.012,
     "snap_share": 0.749
@@ -6991,6 +8266,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 208,
     "receiving_tds": 3,
     "ypr": 8.7,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.057,
     "carry_share": 0,
     "snap_share": 0.503
@@ -7006,6 +8284,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1715,
     "receiving_tds": 10,
     "ypr": 13.3,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.286,
     "carry_share": 0.023,
     "snap_share": 0.682
@@ -7024,6 +8305,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 77,
     "receiving_yards": 616,
     "receiving_tds": 5,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.171,
     "carry_share": 0.562,
     "snap_share": 0.67
@@ -7039,6 +8323,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 252,
     "receiving_tds": 0,
     "ypr": 10.5,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.067,
     "carry_share": 0,
     "snap_share": 0.401
@@ -7054,6 +8341,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 207,
     "receiving_tds": 1,
     "ypr": 10.9,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.048,
     "carry_share": 0.006,
     "snap_share": 0.411
@@ -7074,6 +8364,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 216,
     "rushing_tds": 2,
     "epa_per_play": -21.9729164071974,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.088,
     "snap_share": 0.968
@@ -7094,6 +8387,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 209,
     "rushing_tds": 1,
     "epa_per_play": 47.6611981935781,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.082,
     "snap_share": 0.912
@@ -7114,6 +8410,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": -1,
     "rushing_tds": 0,
     "epa_per_play": -1.21161995315924,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.002,
     "snap_share": 0.115
@@ -7132,6 +8431,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 20,
     "receiving_yards": 144,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.053,
     "carry_share": 0.377,
     "snap_share": 0.484
@@ -7150,6 +8452,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7168,6 +8473,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 15,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.045,
     "snap_share": 0.055
@@ -7183,6 +8491,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7198,6 +8509,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 271,
     "receiving_tds": 2,
     "ypr": 15.1,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.069,
     "carry_share": 0,
     "snap_share": 0.795
@@ -7213,6 +8527,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 680,
     "receiving_tds": 7,
     "ypr": 10.6,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.175,
     "carry_share": 0.005,
     "snap_share": 0.859
@@ -7228,6 +8545,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 363,
     "receiving_tds": 3,
     "ypr": 10.4,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.133,
     "carry_share": 0.002,
     "snap_share": 0.679
@@ -7243,6 +8563,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 203,
     "receiving_tds": 3,
     "ypr": 18.5,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.037,
     "carry_share": 0,
     "snap_share": 0.317
@@ -7258,6 +8581,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 190,
     "receiving_tds": 1,
     "ypr": 6.6,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.071,
     "carry_share": 0,
     "snap_share": 0.483
@@ -7273,6 +8599,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 76,
     "receiving_tds": 0,
     "ypr": 6.3,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.029,
     "carry_share": 0.009,
     "snap_share": 0.44
@@ -7291,6 +8620,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 30,
     "receiving_yards": 277,
     "receiving_tds": 3,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.064,
     "carry_share": 0.373,
     "snap_share": 0.616
@@ -7309,6 +8641,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7327,6 +8662,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7345,6 +8683,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 12,
     "receiving_yards": 103,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.023,
     "carry_share": 0.107,
     "snap_share": 0.393
@@ -7365,6 +8706,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 167,
     "rushing_tds": 0,
     "epa_per_play": -21.4979480179361,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.072,
     "snap_share": 0.817
@@ -7380,6 +8724,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 107,
     "receiving_tds": 0,
     "ypr": 10.7,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.029,
     "carry_share": 0,
     "snap_share": 0.351
@@ -7398,6 +8745,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 36,
     "receiving_yards": 288,
     "receiving_tds": 2,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.35,
     "snap_share": 0.545
@@ -7416,6 +8766,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 16,
     "receiving_yards": 136,
     "receiving_tds": 1,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.04,
     "carry_share": 0.341,
     "snap_share": 0.545
@@ -7431,6 +8784,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 94,
     "receiving_tds": 0,
     "ypr": 15.7,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0.027,
     "carry_share": 0,
     "snap_share": 0.37
@@ -7451,6 +8807,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 50,
     "rushing_tds": 0,
     "epa_per_play": 0.63703236022298,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.011,
     "snap_share": 0.21
@@ -7469,6 +8828,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 7,
     "receiving_yards": 34,
     "receiving_tds": 0,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.013,
     "carry_share": 0.093,
     "snap_share": 0.3
@@ -7487,6 +8849,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 18,
     "receiving_tds": 0,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.008,
     "carry_share": 0.019,
     "snap_share": 0.029
@@ -7502,6 +8867,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 475,
     "receiving_tds": 4,
     "ypr": 11.9,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.092,
     "carry_share": 0.009,
     "snap_share": 0.448
@@ -7517,6 +8885,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 293,
     "receiving_tds": 2,
     "ypr": 11.7,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.071,
     "carry_share": 0,
     "snap_share": 0.502
@@ -7532,6 +8903,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 193,
     "receiving_tds": 0,
     "ypr": 7.4,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.075,
     "carry_share": 0.007,
     "snap_share": 0.361
@@ -7547,6 +8921,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 48,
     "receiving_tds": 0,
     "ypr": 12,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.01,
     "carry_share": 0,
     "snap_share": 0.27
@@ -7562,6 +8939,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "MIA",
+    "team_2026": "SF",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7577,6 +8957,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 394,
     "receiving_tds": 3,
     "ypr": 11.9,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.093,
     "carry_share": 0,
     "snap_share": 0.694
@@ -7592,6 +8975,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 67,
     "receiving_tds": 0,
     "ypr": 9.6,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.021,
     "carry_share": 0,
     "snap_share": 0.41
@@ -7607,6 +8993,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 90,
     "receiving_tds": 1,
     "ypr": 10,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.021,
     "carry_share": 0,
     "snap_share": 0.249
@@ -7627,6 +9016,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 0,
     "rushing_tds": 0,
     "epa_per_play": -2.14663142594509,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7642,6 +9034,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 64,
     "receiving_tds": 1,
     "ypr": 16,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.013,
     "carry_share": 0.004,
     "snap_share": 0.097
@@ -7660,6 +9055,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.037,
     "snap_share": 0.067
@@ -7675,6 +9073,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 76,
     "receiving_tds": 0,
     "ypr": 6.9,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.03,
     "carry_share": 0.009,
     "snap_share": 0.302
@@ -7690,6 +9091,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 7,
     "receiving_tds": 0,
     "ypr": 3.5,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7705,6 +9109,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 30,
     "receiving_tds": 1,
     "ypr": 7.5,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.127
@@ -7720,6 +9127,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 8,
     "receiving_tds": 0,
     "ypr": 8,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7735,6 +9145,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 18,
     "receiving_tds": 0,
     "ypr": 9,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7750,6 +9163,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7770,6 +9186,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 356,
     "rushing_tds": 5,
     "epa_per_play": 63.3227576069413,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.15,
     "snap_share": 0.996
@@ -7785,6 +9204,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 18,
     "receiving_tds": 0,
     "ypr": 6,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.008,
     "carry_share": 0,
     "snap_share": 0.37
@@ -7803,6 +9225,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 8,
     "receiving_yards": 36,
     "receiving_tds": 0,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.024,
     "carry_share": 0.33,
     "snap_share": 0.291
@@ -7818,6 +9243,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 166,
     "receiving_tds": 2,
     "ypr": 13.8,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.04,
     "carry_share": 0,
     "snap_share": 0.331
@@ -7836,6 +9264,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 9,
     "receiving_yards": 56,
     "receiving_tds": 0,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.026,
     "carry_share": 0.03,
     "snap_share": 0.125
@@ -7851,6 +9282,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 171,
     "receiving_tds": 0,
     "ypr": 9.5,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.043,
     "carry_share": 0.007,
     "snap_share": 0.408
@@ -7866,6 +9300,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 6,
     "receiving_tds": 1,
     "ypr": 6,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7884,6 +9321,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 9,
     "receiving_tds": 0,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.049,
     "snap_share": 0.083
@@ -7899,6 +9339,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 136,
     "receiving_tds": 3,
     "ypr": 22.7,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.02,
     "carry_share": 0,
     "snap_share": 0.247
@@ -7914,6 +9357,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 519,
     "receiving_tds": 6,
     "ypr": 10,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.149,
     "carry_share": 0.02,
     "snap_share": 0.773
@@ -7932,6 +9378,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 17,
     "receiving_tds": 0,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.006,
     "carry_share": 0.042,
     "snap_share": 0.233
@@ -7950,6 +9399,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 9,
     "receiving_yards": 68,
     "receiving_tds": 1,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": 0.027,
     "carry_share": 0.014,
     "snap_share": 0.13
@@ -7968,6 +9420,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 21,
     "receiving_yards": 186,
     "receiving_tds": 0,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.061,
     "carry_share": 0.095,
     "snap_share": 0.28
@@ -7983,6 +9438,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 6,
     "receiving_tds": 0,
     "ypr": 3,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -7998,6 +9456,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 4,
     "receiving_tds": 0,
     "ypr": 4,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8013,6 +9474,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 528,
     "receiving_tds": 5,
     "ypr": 11.7,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.146,
     "carry_share": 0,
     "snap_share": 0.867
@@ -8028,6 +9492,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 608,
     "receiving_tds": 4,
     "ypr": 14.8,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.119,
     "carry_share": 0,
     "snap_share": 0.713
@@ -8048,6 +9515,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 450,
     "rushing_tds": 4,
     "epa_per_play": 166.214541956108,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.178,
     "snap_share": 0.958
@@ -8063,6 +9533,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 178,
     "receiving_tds": 0,
     "ypr": 14.8,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.028,
     "carry_share": 0.002,
     "snap_share": 0.515
@@ -8078,6 +9551,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 709,
     "receiving_tds": 6,
     "ypr": 10.9,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.182,
     "carry_share": 0.011,
     "snap_share": 0.596
@@ -8096,6 +9572,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 5,
     "receiving_yards": 44,
     "receiving_tds": 0,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.019,
     "carry_share": 0.165,
     "snap_share": 0.215
@@ -8114,6 +9593,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 10,
     "receiving_yards": 86,
     "receiving_tds": 2,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.029,
     "carry_share": 0.111,
     "snap_share": 0.143
@@ -8129,6 +9611,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 317,
     "receiving_tds": 3,
     "ypr": 6.9,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.14,
     "carry_share": 0.04,
     "snap_share": 0.57
@@ -8144,6 +9629,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 37,
     "receiving_tds": 0,
     "ypr": 12.3,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.011,
     "carry_share": 0,
     "snap_share": 0.113
@@ -8159,6 +9647,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 453,
     "receiving_tds": 2,
     "ypr": 13.7,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.155,
     "carry_share": 0.002,
     "snap_share": 0.506
@@ -8174,6 +9665,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 707,
     "receiving_tds": 2,
     "ypr": 14.7,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.166,
     "carry_share": 0.006,
     "snap_share": 0.776
@@ -8189,6 +9683,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 532,
     "receiving_tds": 1,
     "ypr": 12.7,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.132,
     "carry_share": 0.026,
     "snap_share": 0.706
@@ -8204,6 +9701,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 404,
     "receiving_tds": 4,
     "ypr": 10.6,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.127,
     "carry_share": 0,
     "snap_share": 0.652
@@ -8224,6 +9724,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 278,
     "rushing_tds": 2,
     "epa_per_play": -4.77699602182444,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.114,
     "snap_share": 0.903
@@ -8239,6 +9742,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 114,
     "receiving_tds": 1,
     "ypr": 10.4,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.03,
     "carry_share": 0,
     "snap_share": 0.361
@@ -8254,6 +9760,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 789,
     "receiving_tds": 6,
     "ypr": 12,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.195,
     "carry_share": 0,
     "snap_share": 0.775
@@ -8269,6 +9778,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 528,
     "receiving_tds": 0,
     "ypr": 14.7,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": 0.096,
     "carry_share": 0.004,
     "snap_share": 0.781
@@ -8289,6 +9801,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 70,
     "rushing_tds": 1,
     "epa_per_play": 5.13989467485696,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.03,
     "snap_share": 0.932
@@ -8309,6 +9824,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 388,
     "rushing_tds": 3,
     "epa_per_play": 42.2173957579903,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.133,
     "snap_share": 0.991
@@ -8324,6 +9842,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 661,
     "receiving_tds": 6,
     "ypr": 15,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.17,
     "carry_share": 0,
     "snap_share": 0.881
@@ -8339,6 +9860,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 79,
     "receiving_tds": 0,
     "ypr": 7.2,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.027,
     "carry_share": 0.031,
     "snap_share": 0.249
@@ -8357,6 +9881,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 13,
     "receiving_yards": 64,
     "receiving_tds": 0,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.026,
     "carry_share": 0.08,
     "snap_share": 0.482
@@ -8377,6 +9904,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 181,
     "rushing_tds": 4,
     "epa_per_play": -54.1059147833337,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.071,
     "snap_share": 0.916
@@ -8392,6 +9922,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 78,
     "receiving_tds": 1,
     "ypr": 7.8,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.022,
     "carry_share": 0.023,
     "snap_share": 0.115
@@ -8410,6 +9943,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 11,
     "receiving_tds": 0,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.003,
     "carry_share": 0.011,
     "snap_share": 0.18
@@ -8425,6 +9961,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 92,
     "receiving_tds": 0,
     "ypr": 10.2,
+    "team_2025": "PHI",
+    "team_2026": "PHI",
+    "team_changed": false,
     "target_share": 0.024,
     "carry_share": 0,
     "snap_share": 0.258
@@ -8443,6 +9982,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8458,6 +10000,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8476,6 +10021,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.01,
     "snap_share": 0.09
@@ -8491,6 +10039,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "BAL",
+    "team_2026": "BAL",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8509,6 +10060,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 25,
     "receiving_yards": 172,
     "receiving_tds": 1,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": 0.063,
     "carry_share": 0.106,
     "snap_share": 0.167
@@ -8527,6 +10081,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 55,
     "receiving_yards": 346,
     "receiving_tds": 5,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.147,
     "carry_share": 0.734,
     "snap_share": 0.779
@@ -8542,6 +10099,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 1014,
     "receiving_tds": 7,
     "ypr": 14.5,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.253,
     "carry_share": 0,
     "snap_share": 0.872
@@ -8557,6 +10117,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 713,
     "receiving_tds": 6,
     "ypr": 12.3,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.155,
     "carry_share": 0.002,
     "snap_share": 0.645
@@ -8572,6 +10135,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 817,
     "receiving_tds": 4,
     "ypr": 10.8,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.213,
     "carry_share": 0.014,
     "snap_share": 0.838
@@ -8587,6 +10153,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 938,
     "receiving_tds": 6,
     "ypr": 14.9,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.235,
     "carry_share": 0.006,
     "snap_share": 0.776
@@ -8602,6 +10171,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 525,
     "receiving_tds": 6,
     "ypr": 12.8,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.124,
     "carry_share": 0,
     "snap_share": 0.572
@@ -8617,6 +10189,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 209,
     "receiving_tds": 3,
     "ypr": 20.9,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.043,
     "carry_share": 0.004,
     "snap_share": 0.308
@@ -8632,6 +10207,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 378,
     "receiving_tds": 1,
     "ypr": 12.2,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.083,
     "carry_share": 0,
     "snap_share": 0.477
@@ -8647,6 +10225,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 292,
     "receiving_tds": 2,
     "ypr": 11.2,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.063,
     "carry_share": 0.013,
     "snap_share": 0.26
@@ -8665,6 +10246,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 9,
     "receiving_tds": 0,
+    "team_2025": "PIT",
+    "team_2026": "PIT",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.071,
     "snap_share": 0.091
@@ -8680,6 +10264,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 25,
     "receiving_tds": 0,
     "ypr": 8.3,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8698,6 +10285,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 33,
     "receiving_yards": 271,
     "receiving_tds": 2,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.076,
     "carry_share": 0.155,
     "snap_share": 0.265
@@ -8713,6 +10303,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 225,
     "receiving_tds": 0,
     "ypr": 14.1,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.073,
     "carry_share": 0.002,
     "snap_share": 0.362
@@ -8728,6 +10321,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 515,
     "receiving_tds": 4,
     "ypr": 12.6,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.168,
     "carry_share": 0,
     "snap_share": 0.806
@@ -8743,6 +10339,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 26,
     "receiving_tds": 0,
     "ypr": 13,
+    "team_2025": "SF",
+    "team_2026": "SF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8761,6 +10360,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0.004,
     "carry_share": 0.06,
     "snap_share": 0.12
@@ -8776,6 +10378,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 51,
     "receiving_tds": 1,
     "ypr": 10.2,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.022,
     "carry_share": 0,
     "snap_share": 0.188
@@ -8791,6 +10396,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 171,
     "receiving_tds": 2,
     "ypr": 9,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.052,
     "carry_share": 0.002,
     "snap_share": 0.374
@@ -8806,6 +10414,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 664,
     "receiving_tds": 3,
     "ypr": 13.6,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.127,
     "carry_share": 0,
     "snap_share": 0.626
@@ -8821,6 +10432,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 187,
     "receiving_tds": 3,
     "ypr": 11.7,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": 0.039,
     "carry_share": 0,
     "snap_share": 0.439
@@ -8839,6 +10453,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 7,
     "receiving_yards": 32,
     "receiving_tds": 1,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.019,
     "carry_share": 0.165,
     "snap_share": 0.224
@@ -8857,6 +10474,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 17,
     "receiving_yards": 104,
     "receiving_tds": 0,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0.034,
     "carry_share": 0.133,
     "snap_share": 0.4
@@ -8875,6 +10495,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8895,6 +10518,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 27,
     "rushing_tds": 2,
     "epa_per_play": -8.22614850232665,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.012,
     "snap_share": 0.394
@@ -8913,6 +10539,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 9,
     "receiving_tds": 0,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": 0.003,
     "carry_share": 0.043,
     "snap_share": 0.045
@@ -8928,6 +10557,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 108,
     "receiving_tds": 0,
     "ypr": 9.8,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.031,
     "carry_share": 0.018,
     "snap_share": 0.192
@@ -8943,6 +10575,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -8963,6 +10598,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 19,
     "rushing_tds": 0,
     "epa_per_play": -2.25152220038008,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.014,
     "snap_share": 0.79
@@ -8981,6 +10619,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 18,
     "receiving_yards": 164,
     "receiving_tds": 0,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.056,
     "carry_share": 0.345,
     "snap_share": 0.409
@@ -8996,6 +10637,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 322,
     "receiving_tds": 5,
     "ypr": 11.5,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": 0.081,
     "carry_share": 0.015,
     "snap_share": 0.471
@@ -9014,6 +10658,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 10,
     "receiving_yards": 54,
     "receiving_tds": 0,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.02,
     "carry_share": 0.049,
     "snap_share": 0.226
@@ -9029,6 +10676,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9047,6 +10697,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 9,
     "receiving_yards": 68,
     "receiving_tds": 0,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": 0.03,
     "carry_share": 0.371,
     "snap_share": 0.395
@@ -9062,6 +10715,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 10,
     "receiving_tds": 0,
     "ypr": 5,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9077,6 +10733,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 71,
     "receiving_tds": 0,
     "ypr": 10.1,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.029,
     "carry_share": 0.002,
     "snap_share": 0.236
@@ -9092,6 +10751,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 87,
     "receiving_tds": 2,
     "ypr": 14.5,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.019,
     "carry_share": 0,
     "snap_share": 0.151
@@ -9107,6 +10769,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 139,
     "receiving_tds": 1,
     "ypr": 23.2,
+    "team_2025": "MIA",
+    "team_2026": "MIA",
+    "team_changed": false,
     "target_share": 0.022,
     "carry_share": 0,
     "snap_share": 0.323
@@ -9122,6 +10787,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 25,
     "receiving_tds": 0,
     "ypr": 25,
+    "team_2025": "WAS",
+    "team_2026": "WAS",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9137,6 +10805,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9152,6 +10823,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 35,
     "receiving_tds": 0,
     "ypr": 8.8,
+    "team_2025": "BUF",
+    "team_2026": "BUF",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9167,6 +10841,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 15,
     "receiving_tds": 0,
     "ypr": 7.5,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9187,6 +10864,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 49,
     "rushing_tds": 0,
     "epa_per_play": -68.3438606620258,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.029,
     "snap_share": 0.98
@@ -9202,6 +10882,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 10,
     "receiving_tds": 0,
     "ypr": 10,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9220,6 +10903,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "TB",
+    "team_2026": "TB",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9235,6 +10921,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9250,6 +10939,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 25,
     "receiving_tds": 0,
     "ypr": 12.5,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.012,
     "carry_share": 0,
     "snap_share": 0.138
@@ -9268,6 +10960,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 21,
     "receiving_tds": 0,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.008,
     "carry_share": 0.064,
     "snap_share": 0.258
@@ -9286,6 +10981,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "IND",
+    "team_2026": "IND",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9301,6 +10999,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 3,
     "receiving_tds": 0,
     "ypr": 3,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9321,6 +11022,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 11,
     "rushing_tds": 0,
     "epa_per_play": -56.5242600064143,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.005,
     "snap_share": 0.454
@@ -9336,6 +11040,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9351,6 +11058,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 14,
     "receiving_tds": 0,
     "ypr": 7,
+    "team_2025": "MIN",
+    "team_2026": "MIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9366,6 +11076,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 41,
     "receiving_tds": 0,
     "ypr": 13.7,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.013,
     "carry_share": 0,
     "snap_share": 0.22
@@ -9381,6 +11094,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 5,
     "receiving_tds": 0,
     "ypr": 5,
+    "team_2025": "CIN",
+    "team_2026": "CIN",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9399,6 +11115,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "ATL",
+    "team_2026": "ATL",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.019,
     "snap_share": null
@@ -9417,6 +11136,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 2,
     "receiving_yards": 15,
     "receiving_tds": 0,
+    "team_2025": "ARI",
+    "team_2026": "AZ",
+    "team_changed": true,
     "target_share": 0.005,
     "carry_share": 0.033,
     "snap_share": 0.133
@@ -9432,6 +11154,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 75,
     "receiving_tds": 1,
     "ypr": 25,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9447,6 +11172,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 135,
     "receiving_tds": 0,
     "ypr": 13.5,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.06,
     "carry_share": 0,
     "snap_share": 0.453
@@ -9462,6 +11190,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 52,
     "receiving_tds": 0,
     "ypr": 7.4,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.034,
     "carry_share": 0.009,
     "snap_share": 0.383
@@ -9480,6 +11211,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 24,
     "receiving_yards": 208,
     "receiving_tds": 3,
+    "team_2025": "HOU",
+    "team_2026": "HOU",
+    "team_changed": false,
     "target_share": 0.065,
     "carry_share": 0.423,
     "snap_share": 0.515
@@ -9495,6 +11229,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 357,
     "receiving_tds": 2,
     "ypr": 8.1,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.104,
     "carry_share": 0,
     "snap_share": 0.526
@@ -9513,6 +11250,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 1,
     "receiving_yards": 5,
     "receiving_tds": 0,
+    "team_2025": "DAL",
+    "team_2026": "DAL",
+    "team_changed": false,
     "target_share": 0.002,
     "carry_share": 0.085,
     "snap_share": 0.256
@@ -9528,6 +11268,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 92,
     "receiving_tds": 1,
     "ypr": 9.2,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.04,
     "carry_share": 0,
     "snap_share": 0.322
@@ -9543,6 +11286,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 3,
     "receiving_tds": 0,
     "ypr": 3,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9558,6 +11304,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 0,
     "receiving_tds": 0,
     "ypr": 0,
+    "team_2025": "CAR",
+    "team_2026": "LAC",
+    "team_changed": true,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9576,6 +11325,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 3,
     "receiving_yards": 13,
     "receiving_tds": 0,
+    "team_2025": "CAR",
+    "team_2026": "CAR",
+    "team_changed": false,
     "target_share": 0.006,
     "carry_share": 0.045,
     "snap_share": 0.056
@@ -9591,6 +11343,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 4,
     "receiving_tds": 0,
     "ypr": 2,
+    "team_2025": "KC",
+    "team_2026": "KC",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9606,6 +11361,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 161,
     "receiving_tds": 5,
     "ypr": 12.4,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.048,
     "carry_share": 0,
     "snap_share": 0.481
@@ -9624,6 +11382,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 0,
     "receiving_yards": 0,
     "receiving_tds": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9639,6 +11400,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 731,
     "receiving_tds": 6,
     "ypr": 10.2,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.206,
     "carry_share": 0.017,
     "snap_share": 0.759
@@ -9657,6 +11421,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 32,
     "receiving_yards": 192,
     "receiving_tds": 1,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.064,
     "carry_share": 0.273,
     "snap_share": 0.634
@@ -9672,6 +11439,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 361,
     "receiving_tds": 0,
     "ypr": 12.4,
+    "team_2025": "GB",
+    "team_2026": "GB",
+    "team_changed": false,
     "target_share": 0.095,
     "carry_share": 0.021,
     "snap_share": 0.532
@@ -9692,6 +11462,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 169,
     "rushing_tds": 1,
     "epa_per_play": -59.3000744447282,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.048,
     "snap_share": 0.916
@@ -9707,6 +11480,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 239,
     "receiving_tds": 6,
     "ypr": 14.9,
+    "team_2025": "DET",
+    "team_2026": "DET",
+    "team_changed": false,
     "target_share": 0.049,
     "carry_share": 0,
     "snap_share": 0.396
@@ -9727,6 +11503,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 4,
     "rushing_tds": 0,
     "epa_per_play": 0,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": null,
     "carry_share": null,
     "snap_share": null
@@ -9747,6 +11526,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 159,
     "rushing_tds": 2,
     "epa_per_play": -109.093751088605,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.089,
     "snap_share": 0.946
@@ -9767,6 +11549,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 487,
     "rushing_tds": 9,
     "epa_per_play": 3.41943225378957,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.157,
     "snap_share": 0.836
@@ -9787,6 +11572,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 86,
     "rushing_tds": 0,
     "epa_per_play": -44.8978418359568,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.031,
     "snap_share": 0.562
@@ -9802,6 +11590,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 423,
     "receiving_tds": 4,
     "ypr": 8.8,
+    "team_2025": "TEN",
+    "team_2026": "TEN",
+    "team_changed": false,
     "target_share": 0.14,
     "carry_share": 0.03,
     "snap_share": 0.593
@@ -9820,6 +11611,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 24,
     "receiving_yards": 207,
     "receiving_tds": 2,
+    "team_2025": "NYG",
+    "team_2026": "NYG",
+    "team_changed": false,
     "target_share": 0.063,
     "carry_share": 0.203,
     "snap_share": 0.523
@@ -9838,6 +11632,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 10,
     "receiving_yards": 79,
     "receiving_tds": 2,
+    "team_2025": "JAX",
+    "team_2026": "JAX",
+    "team_changed": false,
     "target_share": 0.026,
     "carry_share": 0.178,
     "snap_share": 0.211
@@ -9853,6 +11650,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 324,
     "receiving_tds": 1,
     "ypr": 10.8,
+    "team_2025": "LAC",
+    "team_2026": "LAC",
+    "team_changed": false,
     "target_share": 0.079,
     "carry_share": 0.004,
     "snap_share": 0.485
@@ -9868,6 +11668,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 224,
     "receiving_tds": 0,
     "ypr": 11.2,
+    "team_2025": "LV",
+    "team_2026": "LV",
+    "team_changed": false,
     "target_share": 0.058,
     "carry_share": 0,
     "snap_share": 0.398
@@ -9886,6 +11689,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 47,
     "receiving_yards": 356,
     "receiving_tds": 5,
+    "team_2025": "DEN",
+    "team_2026": "DEN",
+    "team_changed": false,
     "target_share": 0.098,
     "carry_share": 0.335,
     "snap_share": 0.421
@@ -9904,6 +11710,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 35,
     "receiving_yards": 221,
     "receiving_tds": 1,
+    "team_2025": "NE",
+    "team_2026": "NE",
+    "team_changed": false,
     "target_share": 0.087,
     "carry_share": 0.386,
     "snap_share": 0.459
@@ -9919,6 +11728,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 652,
     "receiving_tds": 2,
     "ypr": 13.9,
+    "team_2025": "CHI",
+    "team_2026": "CHI",
+    "team_changed": false,
     "target_share": 0.112,
     "carry_share": 0.012,
     "snap_share": 0.397
@@ -9934,6 +11746,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 369,
     "receiving_tds": 1,
     "ypr": 8.4,
+    "team_2025": "NYJ",
+    "team_2026": "NYJ",
+    "team_changed": false,
     "target_share": 0.138,
     "carry_share": 0,
     "snap_share": 0.811
@@ -9949,6 +11764,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 231,
     "receiving_tds": 3,
     "ypr": 21,
+    "team_2025": "LAR",
+    "team_2026": "LAR",
+    "team_changed": false,
     "target_share": 0.043,
     "carry_share": 0.002,
     "snap_share": 0.367
@@ -9964,6 +11782,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 179,
     "receiving_tds": 1,
     "ypr": 11.9,
+    "team_2025": "SEA",
+    "team_2026": "SEA",
+    "team_changed": false,
     "target_share": 0.057,
     "carry_share": 0,
     "snap_share": 0.395
@@ -9984,6 +11805,9 @@ export const PLAYER_STATS_2025 = [
     "rushing_yards": 186,
     "rushing_tds": 3,
     "epa_per_play": 2.05993894432119,
+    "team_2025": "NO",
+    "team_2026": "NO",
+    "team_changed": false,
     "target_share": 0,
     "carry_share": 0.091,
     "snap_share": 0.835
@@ -9999,6 +11823,9 @@ export const PLAYER_STATS_2025 = [
     "receiving_yards": 338,
     "receiving_tds": 0,
     "ypr": 18.8,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.084,
     "carry_share": 0.012,
     "snap_share": 0.481
@@ -10017,6 +11844,9 @@ export const PLAYER_STATS_2025 = [
     "receptions": 26,
     "receiving_yards": 171,
     "receiving_tds": 0,
+    "team_2025": "CLE",
+    "team_2026": "CLE",
+    "team_changed": false,
     "target_share": 0.069,
     "carry_share": 0.551,
     "snap_share": 0.505

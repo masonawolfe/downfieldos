@@ -262,6 +262,43 @@ async function main() {
     }
   }
 
+  // EM/PO Directive v2 Task 3 — flag team changes 2025 → 2026.
+  // Load roster_weekly_2026 by gsis_id; every row gets team_2026 (may be null
+  // if the player isn't on a 2026 roster) and team_changed (boolean, only true
+  // when both sides are known). LA→LAR normalization matches the rest of the
+  // pipeline (nflverse uses "LA" for the Rams; DFOS uses "LAR").
+  const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS' };
+  function norm(t) { const u = (t || '').toUpperCase().trim(); return NORM_TEAM[u] || u; }
+  const ROSTER_WEEKLY_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
+  const rosterWeeklyByGsis = new Map();
+  try {
+    const zlib = await import('zlib');
+    const gzText = fs.readFileSync(ROSTER_WEEKLY_PATH);
+    const csvText = zlib.gunzipSync(gzText).toString('utf8');
+    const rows = parseCSVToRows(csvText);
+    // De-dupe by gsis_id — most recent week wins
+    const byGsis = new Map();
+    for (const r of rows) {
+      if (!r.gsis_id) continue;
+      const wk = parseInt(r.week || '0', 10);
+      const prev = byGsis.get(r.gsis_id);
+      if (!prev || wk >= parseInt(prev.week || '0', 10)) byGsis.set(r.gsis_id, r);
+    }
+    for (const [id, r] of byGsis) rosterWeeklyByGsis.set(id, { team: norm(r.team), position: r.position, sleeper_id: r.sleeper_id || null, yahoo_id: r.yahoo_id || null, espn_id: r.espn_id || null });
+    console.log(`\nLoaded roster_weekly_2026: ${rosterWeeklyByGsis.size} unique gsis_ids`);
+  } catch (err) {
+    console.log(`\n⚠ roster_weekly_2026 unavailable (${err.message}) — team_2026/team_changed will be null on every row`);
+  }
+  let teamChangedCount = 0;
+  for (const s of Object.values(stats)) {
+    const rw = s.gsis_id ? rosterWeeklyByGsis.get(s.gsis_id) : null;
+    s.team_2025 = norm(s.team);
+    s.team_2026 = rw ? rw.team : null;
+    s.team_changed = (s.team_2026 && s.team_2025) ? (s.team_2025 !== s.team_2026) : null;
+    if (s.team_changed === true) teamChangedCount++;
+  }
+  console.log(`Team-change flags: ${teamChangedCount}/${Object.keys(stats).length} players changed teams 2025→2026`);
+
   // EM/PO Directive v2 Task 2 — enrich with usage shares from
   // data/intelligence/pbp/player_usage_data.json. gsis_id is the join key.
   // Missing usage file is not fatal — the stats rows still emit, with the
