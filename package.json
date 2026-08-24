@@ -18,7 +18,9 @@
     "data:contracts": "node scripts/fetch-contracts.js",
     "data:news": "node scripts/fetch-team-news.js",
     "test": "node scripts/test-rosters.js",
-    "data:availability": "node scripts/fetch-availability.js"
+    "data:availability": "node scripts/fetch-availability.js",
+    "data:board": "node scripts/build-player-board.js",
+    "data:board:verify": "node scripts/verify-player-board.mjs"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",
