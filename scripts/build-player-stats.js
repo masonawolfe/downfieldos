@@ -262,12 +262,24 @@ async function main() {
     }
   }
 
+  // EM/PO Directive v2 Task 4 — join QB production + team offense to WR/TE/RB rows.
+  // Rationale: a 27.9% target share on last year's worst offense is worth
+  // materially less than a 20% share on a healthy offense. Every WR/TE/RB
+  // row needs a QB attached so consumers don't compare shares in a vacuum.
+  //
+  // Primary QB per team = highest-passing-attempts row in playerStats2025 for
+  // that team. Team offense EPA + pass rate come from team_scheme_profiles.
+  // QB attribution is by team_2026 when known (that's the QB the player will
+  // work with going forward), team_2025 when team_2026 is unknown.
+  //
+  // Computed lazily below AFTER team_2025/team_2026 are populated.
+
   // EM/PO Directive v2 Task 3 — flag team changes 2025 → 2026.
   // Load roster_weekly_2026 by gsis_id; every row gets team_2026 (may be null
   // if the player isn't on a 2026 roster) and team_changed (boolean, only true
   // when both sides are known). LA→LAR normalization matches the rest of the
   // pipeline (nflverse uses "LA" for the Rams; DFOS uses "LAR").
-  const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS' };
+  const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', AZ: 'ARI' };
   function norm(t) { const u = (t || '').toUpperCase().trim(); return NORM_TEAM[u] || u; }
   const ROSTER_WEEKLY_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
   const rosterWeeklyByGsis = new Map();
@@ -298,6 +310,47 @@ async function main() {
     if (s.team_changed === true) teamChangedCount++;
   }
   console.log(`Team-change flags: ${teamChangedCount}/${Object.keys(stats).length} players changed teams 2025→2026`);
+
+  // ── Task 4 continuation — compute per-team QB + team offense now that
+  // team_2025 / team_2026 are populated. ──
+  const TEAM_SCHEME_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json');
+  let teamOff = {};
+  try {
+    const doc = JSON.parse(fs.readFileSync(TEAM_SCHEME_PATH, 'utf8'));
+    // File shape: { metadata: {...}, teams: { KC: { offense: {...}, defense: {...} }, … } }
+    teamOff = doc.teams || doc;
+    console.log(`Loaded team_scheme_profiles: ${Object.keys(teamOff).length} teams`);
+  } catch (err) {
+    console.log(`⚠ team_scheme_profiles unavailable (${err.message}) — team_off_epa will be null`);
+  }
+  // Primary QB per team from playerStats2025
+  const qbByTeam = {};
+  for (const s of Object.values(stats)) {
+    if (s.pos !== 'QB') continue;
+    const t = s.team_2025;
+    if (!t) continue;
+    const prev = qbByTeam[t];
+    if (!prev || (s.attempts || 0) > (prev.attempts || 0)) qbByTeam[t] = s;
+  }
+  console.log(`Primary QBs identified for ${Object.keys(qbByTeam).length} teams`);
+  let qbJoinedCount = 0;
+  for (const s of Object.values(stats)) {
+    if (s.pos === 'QB' || s.pos === 'DEF' || s.pos === 'K') continue;
+    const t = s.team_2026 || s.team_2025;
+    const qb = t ? qbByTeam[t] : null;
+    const off = t ? (teamOff[t]?.offense || null) : null;
+    s.qb_name = qb ? qb.name : null;
+    s.qb_gsis_id = qb ? qb.gsis_id : null;
+    s.qb_pass_td = qb ? (qb.passing_tds ?? null) : null;
+    s.qb_attempts = qb ? (qb.attempts ?? null) : null;
+    s.qb_epa_per_play = qb ? (qb.epa_per_play ?? null) : null;
+    s.team_off_epa_per_play = off ? (off.epa_per_play ?? null) : null;
+    s.team_pass_rate = off ? (off.pass_rate ?? null) : null;
+    s.team_rz_pass_rate = off ? (off.red_zone_pass_rate ?? null) : null;
+    if (qb) qbJoinedCount++;
+  }
+  const nonQbCount = Object.values(stats).filter(s => s.pos !== 'QB' && s.pos !== 'DEF' && s.pos !== 'K').length;
+  console.log(`QB-production join: ${qbJoinedCount}/${nonQbCount} skill rows have qb_name populated (${(qbJoinedCount/nonQbCount*100).toFixed(1)}%)`);
 
   // EM/PO Directive v2 Task 2 — enrich with usage shares from
   // data/intelligence/pbp/player_usage_data.json. gsis_id is the join key.
