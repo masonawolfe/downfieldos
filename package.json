@@ -21,7 +21,8 @@
     "data:availability": "node scripts/fetch-availability.js",
     "data:board": "node scripts/build-player-board.js",
     "data:board:verify": "node scripts/verify-player-board.mjs",
-    "data:referee-tendencies": "node scripts/build-referee-tendencies.js"
+    "data:referee-tendencies": "node scripts/build-referee-tendencies.js",
+    "data:transactions-weekly": "node scripts/build-weekly-transactions.js"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",
