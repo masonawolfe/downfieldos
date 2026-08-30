@@ -1,0 +1,43 @@
+name: Data — Player Board Verify
+
+# Standalone acceptance gate that runs the same 6 checks the board build
+# runs inline. This one exists to catch drift between builds — e.g.,
+# availability rebuilds but the board isn't recomputed, so
+# `availability_last_verified_utc < 24h` drifts past its threshold and no
+# one notices.
+#
+# Runs twice-daily and after every data-board run. Never commits, never
+# deploys. Its only job is to fail loudly (red X) when the board has gone
+# stale so the failure shows up in the Actions log.
+
+on:
+  schedule:
+    # 06:00 and 18:00 UTC — brackets the daily availability + board chain
+    # so any acceptance regression surfaces within ~12h.
+    - cron: '0 6,18 * * *'
+  workflow_run:
+    workflows: ["Data — Player Board"]
+    types: [completed]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: data-board-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: ${{ github.event.workflow_run == null || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Verify the player board (6 acceptance checks)
+        # Exits non-zero if any check fails. That's the whole point — a
+        # failing run here means the board should not be trusted.
+        run: npm run data:board:verify
