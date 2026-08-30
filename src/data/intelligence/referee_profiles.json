@@ -1,335 +1,2402 @@
 {
   "metadata": {
     "season": 2025,
-    "lastUpdated": "2026-03-17",
-    "status": "offseason_update",
-    "source": "nflpenalties.com, sharpfootballanalysis.com, footballzebras.com",
-    "notes": "Full-season detailed per-game stats unavailable via automated fetch (nflpenalties.com blocked). Profiles built from partial data (Week 3 totals, season-end narrative reports, Super Bowl crew data). Will be enriched when season resumes."
+    "lastUpdated": "2026-08-21",
+    "status": "preseason_major_update_2026_crews_confirmed",
+    "source": "footballzebras.com (2026 crew rosters, preseason assignments), nflpenalties.com, sharpfootballanalysis.com, nfl.com/operations, cbssports.com, yahoo sports",
+    "notes": "2026-08-21 PRESEASON UPDATE \u2014 FIRST SUBSTANTIVE CHANGE SINCE 2026-06-16. Football Zebras published the full 2026 crew-by-crew rosters on 2026-08-01, resolving the item this tracker had been waiting on since April. WHAT CHANGED: (1) All 17 crews now have confirmed 2026 on-field and replay personnel, attached per-crew under crew2026. (2) Swing officials identified: Greg Meyer (BJ, 25 yrs) and Tab Slaughter (U, 7 yrs). (3) A crew-continuity score was computed for every crew \u2014 how many of the 6 non-referee on-field positions returned \u2014 which determines how much 2025 tendency data should be trusted in 2026. Two crews are fully intact (Rogers, Moore); three have half or more of the crew replaced (Clark, Hussey, Vinovich). (4) Zero crew-chief changes; all 17 white hats return. (5) Seven rookie officials placed: Ray (Clark/LJ), Dimpfel (Eck/FJ), Fucik (Hill/SJ), Larrew (Hochuli/SJ), DeLeon (Hussey/FJ), Braun (Wrolstad/DJ), plus rehire Parham (Smith/SJ). (6) 2026 rule changes logged with penalty-impact assessments. (7) Nine officials taking referee reps; crew-of-6 drills in preseason. Tendency metrics themselves are unchanged 2025 aggregates and remain the best available baseline. NEXT SUBSTANTIVE UPDATE: Week 1 regular-season crew assignments, expected Tuesday 2026-09-08 (opener estimated 2026-09-10), when weekly polling resumes.",
+    "tendencyDataSeason": 2025,
+    "personnelSeason": 2026
   },
   "leagueAverages2025": {
-    "penaltiesPerGame": null,
+    "totalGames": 285,
+    "totalPenalties": 3565,
+    "totalYards": 28672,
+    "penaltiesPerGame": 12.51,
+    "penaltyYardsPerGame": 100.6,
+    "dismissedFlags": 682,
     "playoffPenaltiesPerGame": 7.5,
     "playoffPenaltyYardsPerGame": 62.5,
-    "autoFirstDownPenaltyRate": 0.283
+    "autoFirstDownPenaltyRate": 0.283,
+    "offensiveHoldingPerGame": 2.4,
+    "dpiPerGame": 1.01
   },
   "crews": [
     {
-      "referee": "Ron Torbert",
-      "crewNumber": null,
-      "active": true,
-      "tendencies": {
-        "flagVolume": "high",
-        "penaltiesWeek3": 54,
-        "penaltyYardsWeek3": 480,
-        "totalFlagsWeek3": 69,
-        "estimatedPenaltiesPerGame": "18.0 (Week 3 pace)",
-        "notes": "Led all crews in penalties through Week 3. High-volume flag crew — expect more stoppages and longer games."
-      },
-      "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null
-      },
-      "matchupImpact": {
-        "benefitsTeamsWith": ["disciplined offensive lines", "quick-release quarterbacks"],
-        "hurtsTeamsWith": ["penalty-prone defensive secondaries", "aggressive edge rushers"],
-        "overUnderLean": "over"
-      }
-    },
-    {
-      "referee": "Scott Novak",
-      "crewNumber": null,
-      "active": true,
-      "tendencies": {
-        "flagVolume": "high",
-        "penaltiesWeek3": 53,
-        "penaltyYardsWeek3": 387,
-        "totalFlagsWeek3": 66,
-        "estimatedPenaltiesPerGame": "17.7 (Week 3 pace)",
-        "notes": "Second-highest flag volume through Week 3. Lower yardage than Torbert suggests more procedural/pre-snap calls."
-      },
-      "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null
-      },
-      "matchupImpact": {
-        "benefitsTeamsWith": ["disciplined pre-snap operations", "teams that avoid false starts"],
-        "hurtsTeamsWith": ["teams with high false start rates", "road teams in loud environments"],
-        "overUnderLean": "slight over"
-      }
-    },
-    {
-      "referee": "Bill Vinovich",
-      "crewNumber": null,
-      "active": true,
-      "tendencies": {
-        "flagVolume": "high",
-        "penaltiesWeek3": 48,
-        "penaltyYardsWeek3": 444,
-        "totalFlagsWeek3": 63,
-        "estimatedPenaltiesPerGame": "16.0 (Week 3 pace)",
-        "notes": "High yardage relative to penalty count — calls big-yardage penalties (DPI, personal fouls). Game-changing flags."
-      },
-      "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null
-      },
-      "matchupImpact": {
-        "benefitsTeamsWith": ["aggressive deep passing attacks", "teams that draw DPI"],
-        "hurtsTeamsWith": ["physical defensive secondaries", "man-coverage-heavy defenses"],
-        "overUnderLean": "over"
-      }
-    },
-    {
       "referee": "Adrian Hill",
-      "crewNumber": null,
+      "crewNumber": 29,
       "active": true,
+      "season2025Stats": {
+        "games": 15,
+        "totalPenalties": 214,
+        "totalYards": 1801,
+        "penaltiesPerGame": 14.27,
+        "yardsPerGame": 120.07,
+        "dismissedFlags": 47
+      },
       "tendencies": {
-        "flagVolume": "moderate-high",
-        "penaltiesWeek3": 48,
-        "penaltyYardsWeek3": 370,
-        "totalFlagsWeek3": 57,
-        "estimatedPenaltiesPerGame": "16.0 (Week 3 pace)",
-        "notes": "Lower total flags vs penalties — fewer offsetting/declined situations. Straightforward calling style."
+        "flagVolume": "high",
+        "penaltiesPerGame": 14.27,
+        "yardsPerGame": 120.07,
+        "vsLeagueAvgPenalties": "+1.76",
+        "notes": "Highest per-game penalty and yardage rates of any crew in 2025 (14.27 penalties/game, 120.07 yards/game). Big-yardage crew \u2014 calls DPI and personal fouls at elite rates. Games officiated by Hill are measurably longer and more disrupted."
       },
       "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null
+        "offensiveHolding": {
+          "total": 48,
+          "perGame": 3.2,
+          "vsLeagueAvg": "+0.80"
+        },
+        "defensivePassInterference": {
+          "total": 21,
+          "perGame": 1.4,
+          "vsLeagueAvg": "+0.39"
+        }
       },
       "matchupImpact": {
-        "benefitsTeamsWith": ["teams that play clean football"],
-        "hurtsTeamsWith": ["undisciplined teams"],
-        "overUnderLean": "slight over"
+        "benefitsTeamsWith": [
+          "aggressive deep passing attacks",
+          "disciplined offensive lines",
+          "teams that draw DPI"
+        ],
+        "hurtsTeamsWith": [
+          "penalty-prone defensive secondaries",
+          "aggressive edge rushers",
+          "physical man coverage defenses"
+        ],
+        "overUnderLean": "strong over"
+      },
+      "yearsAsReferee2026": 8,
+      "yearsNFL2026": 17,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 81,
+            "name": "Roy Ellison",
+            "yearsNFL": 24,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 74,
+            "name": "Derick Bowers",
+            "yearsNFL": 24,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 10,
+            "name": "Julian Mapp",
+            "yearsNFL": 18,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 23,
+            "name": "Tra Boger",
+            "yearsNFL": 5,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 15,
+            "name": "Glen Fucik",
+            "yearsNFL": 1,
+            "status": "ROOKIE (SEC)"
+          },
+          {
+            "position": "BJ",
+            "number": 12,
+            "name": "Greg Steed",
+            "yearsNFL": 24,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Bob Hubbell",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Durwood Manley",
+            "yearsNFL": 8,
+            "status": "same"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [
+            "Glen Fucik (SJ)"
+          ],
+          "newToCrew": [
+            "Glen Fucik (SJ, ROOKIE (SEC))"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
+    },
+    {
+      "referee": "Alan Eck",
+      "crewNumber": 76,
+      "active": true,
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 183,
+        "totalYards": 1497,
+        "penaltiesPerGame": 10.76,
+        "yardsPerGame": 88.06,
+        "dismissedFlags": 40
+      },
+      "tendencies": {
+        "flagVolume": "low",
+        "penaltiesPerGame": 10.76,
+        "yardsPerGame": 88.06,
+        "vsLeagueAvgPenalties": "-1.75",
+        "notes": "One of the lowest-volume crews in 2025. Let-them-play philosophy. Below-average holding and DPI rates. Good crew for physical, grind-it-out teams."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 34,
+          "perGame": 2.0,
+          "vsLeagueAvg": "-0.40"
+        },
+        "defensivePassInterference": {
+          "total": 15,
+          "perGame": 0.88,
+          "vsLeagueAvg": "-0.13"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "physical run-first offenses",
+          "aggressive man-coverage defenses",
+          "teams that play on the edge"
+        ],
+        "hurtsTeamsWith": [
+          "pass-heavy offenses that rely on DPI-drawing routes",
+          "teams that benefit from free yards via penalties"
+        ],
+        "overUnderLean": "under"
+      },
+      "yearsAsReferee2026": 4,
+      "yearsNFL2026": 11,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 121,
+            "name": "Paul King",
+            "yearsNFL": 18,
+            "status": "from swing"
+          },
+          {
+            "position": "DJ",
+            "number": 24,
+            "name": "David Oliver",
+            "yearsNFL": 10,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 98,
+            "name": "Greg Bradley",
+            "yearsNFL": 18,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 43,
+            "name": "Fred Dimpfel",
+            "yearsNFL": 1,
+            "status": "ROOKIE (ACC)"
+          },
+          {
+            "position": "SJ",
+            "number": 104,
+            "name": "Dale Shaw",
+            "yearsNFL": 14,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 27,
+            "name": "Grantis Bell",
+            "yearsNFL": 7,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Joe Wollan",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Ken Hall",
+            "yearsNFL": 6,
+            "status": "from Wrolstad"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 4,
+          "outOf": 6,
+          "continuityPct": 67,
+          "label": "moderate turnover",
+          "rookieOfficials": [
+            "Fred Dimpfel (FJ)"
+          ],
+          "newToCrew": [
+            "Paul King (U, from swing)",
+            "Fred Dimpfel (FJ, ROOKIE (ACC))"
+          ],
+          "tendencyCarryoverConfidence": "medium",
+          "note": "2025 crew-level tendency data carries over with medium confidence: 4 of 6 on-field positions besides the referee return from the same crew."
+        }
       }
     },
     {
       "referee": "Alex Kemp",
-      "crewNumber": null,
+      "crewNumber": 55,
       "active": true,
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 210,
+        "totalYards": 1851,
+        "penaltiesPerGame": 12.35,
+        "yardsPerGame": 108.88,
+        "dismissedFlags": 30
+      },
       "tendencies": {
-        "flagVolume": "moderate-high",
-        "penaltiesWeek3": 47,
-        "penaltyYardsWeek3": 405,
-        "totalFlagsWeek3": 58,
-        "estimatedPenaltiesPerGame": "15.7 (Week 3 pace)",
-        "notes": "Balanced penalty profile — moderate volume with moderate yardage per call."
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 12.35,
+        "yardsPerGame": 108.88,
+        "vsLeagueAvgPenalties": "-0.16",
+        "notes": "Nearly league-average penalty count but above-average yardage \u2014 calls bigger penalties when he does throw the flag. Fewest dismissed flags (30) of any crew, suggesting high conviction on calls."
       },
       "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null
+        "offensiveHolding": {
+          "total": 44,
+          "perGame": 2.59,
+          "vsLeagueAvg": "+0.19"
+        },
+        "defensivePassInterference": {
+          "total": 17,
+          "perGame": 1.0,
+          "vsLeagueAvg": "-0.01"
+        }
       },
       "matchupImpact": {
-        "benefitsTeamsWith": ["balanced offensive schemes"],
-        "hurtsTeamsWith": ["teams relying on physical play at the line"],
-        "overUnderLean": "neutral"
+        "benefitsTeamsWith": [
+          "balanced offensive schemes",
+          "teams that avoid big penalties"
+        ],
+        "hurtsTeamsWith": [
+          "teams relying on physical play at the line of scrimmage"
+        ],
+        "overUnderLean": "slight over"
+      },
+      "yearsAsReferee2026": 9,
+      "yearsNFL2026": 13,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 128,
+            "name": "Brandon Ellison",
+            "yearsNFL": 2,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 63,
+            "name": "Mike Carr",
+            "yearsNFL": 10,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 59,
+            "name": "Rusty Baynes",
+            "yearsNFL": 17,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 28,
+            "name": "Sean Petty",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 5,
+            "name": "Jim Quirk",
+            "yearsNFL": 16,
+            "status": "from Hochuli"
+          },
+          {
+            "position": "BJ",
+            "number": 93,
+            "name": "Scott Helverson",
+            "yearsNFL": 24,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Julie Johnson",
+            "yearsNFL": 4,
+            "status": "replay assistant -> replay official"
+          },
+          {
+            "position": "RA",
+            "name": "Kris Raper",
+            "yearsNFL": 2,
+            "status": "from Clark"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Jim Quirk (SJ, from Hochuli)"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
       }
     },
     {
       "referee": "Alex Moore",
-      "crewNumber": null,
+      "crewNumber": 49,
       "active": true,
+      "season2025Stats": {
+        "games": 16,
+        "totalPenalties": 258,
+        "totalYards": 2034,
+        "penaltiesPerGame": 16.13,
+        "yardsPerGame": 127.13,
+        "dismissedFlags": 53
+      },
       "tendencies": {
-        "flagVolume": "high",
-        "notes": "Ranked 1st in automatic first downs via penalty in 2025 regular season. High-impact crew for game flow."
+        "flagVolume": "very high",
+        "penaltiesPerGame": 16.13,
+        "yardsPerGame": 127.13,
+        "vsLeagueAvgPenalties": "+3.62",
+        "notes": "THE flag-heaviest crew in 2025 by total penalties (258). Ranked 1st in automatic first downs via penalty. Highest offensive holding rate (3.13/game). Games with Moore are penalty fests \u2014 expect long games and disrupted drives."
       },
       "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null,
-        "autoFirstDownRate": "above_average"
+        "offensiveHolding": {
+          "total": 50,
+          "perGame": 3.13,
+          "vsLeagueAvg": "+0.73"
+        },
+        "defensivePassInterference": {
+          "total": 12,
+          "perGame": 0.75,
+          "vsLeagueAvg": "-0.26"
+        },
+        "autoFirstDownRate": "league-leading"
       },
       "matchupImpact": {
-        "benefitsTeamsWith": ["offenses that manufacture contact downfield", "teams good on 2nd-and-long"],
-        "hurtsTeamsWith": ["defenses that play tight coverage", "zone-blitz heavy teams"],
-        "overUnderLean": "over"
+        "benefitsTeamsWith": [
+          "offenses that manufacture contact downfield",
+          "teams good on 2nd-and-long",
+          "disciplined offensive lines"
+        ],
+        "hurtsTeamsWith": [
+          "offensive lines that hold",
+          "defenses that play tight coverage",
+          "zone-blitz heavy teams"
+        ],
+        "overUnderLean": "strong over"
+      },
+      "yearsAsReferee2026": 2,
+      "yearsNFL2026": 5,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 77,
+            "name": "Terry Killens",
+            "yearsNFL": 8,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 8,
+            "name": "Dana McKenzie",
+            "yearsNFL": 19,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 87,
+            "name": "Tom Eaton",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 31,
+            "name": "Mearl Robinson",
+            "yearsNFL": 10,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 36,
+            "name": "Anthony Jeffries",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 111,
+            "name": "Terrence Miles",
+            "yearsNFL": 19,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Jamie Nicholson",
+            "yearsNFL": 9,
+            "status": "from Hochuli"
+          },
+          {
+            "position": "RA",
+            "name": "Seth Niesen",
+            "yearsNFL": 1,
+            "status": "ROOKIE (Big Sky)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 6,
+          "outOf": 6,
+          "continuityPct": 100,
+          "label": "intact",
+          "rookieOfficials": [],
+          "newToCrew": [],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 6 of 6 on-field positions besides the referee return from the same crew."
+        }
       }
     },
     {
-      "referee": "Shawn Hochuli",
-      "crewNumber": null,
+      "referee": "Bill Vinovich",
+      "crewNumber": 52,
       "active": true,
-      "tendencies": {
-        "flagVolume": "high",
-        "notes": "Ranked 2nd in automatic first downs via penalty in 2025 regular season."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 230,
+        "totalYards": 1899,
+        "penaltiesPerGame": 13.53,
+        "yardsPerGame": 111.71,
+        "dismissedFlags": 45
       },
-      "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": null,
-        "roughingThePasser": null,
-        "unnecessaryRoughness": null,
-        "autoFirstDownRate": "above_average"
-      },
-      "matchupImpact": {
-        "benefitsTeamsWith": ["aggressive passing offenses", "teams that attack downfield"],
-        "hurtsTeamsWith": ["physical man-coverage defenses"],
-        "overUnderLean": "over"
-      }
-    },
-    {
-      "referee": "Shawn Smith",
-      "crewNumber": null,
-      "active": true,
       "tendencies": {
         "flagVolume": "moderate-high",
-        "notes": "Ranked 3rd in automatic first downs via penalty in 2025. League-leading 35% of penalties resulted in auto first downs (vs 28.3% avg). Below-average false start/holding rate (32.5%). High unnecessary roughness rate — ranked top 4 since 2022. Super Bowl LX crew chief."
+        "penaltiesPerGame": 13.53,
+        "yardsPerGame": 111.71,
+        "vsLeagueAvgPenalties": "+1.02",
+        "notes": "Above-average volume with high yardage per call. Calls big-yardage penalties \u2014 DPI and personal fouls at above-average rates. Game-changing flag crew."
       },
       "keyPenaltyRates": {
-        "defensivePassInterference": null,
-        "offensiveHolding": "below_average",
-        "roughingThePasser": null,
-        "unnecessaryRoughness": "above_average",
-        "autoFirstDownRate": 0.35,
-        "falseStartAndHoldingRate": 0.325
+        "offensiveHolding": {
+          "total": 41,
+          "perGame": 2.41,
+          "vsLeagueAvg": "+0.01"
+        },
+        "defensivePassInterference": {
+          "total": 19,
+          "perGame": 1.12,
+          "vsLeagueAvg": "+0.11"
+        }
       },
       "matchupImpact": {
-        "benefitsTeamsWith": ["aggressive passing offenses", "offensive lines that hold on the edge"],
-        "hurtsTeamsWith": ["physical defenses with high personal foul risk", "teams with hot-headed players"],
+        "benefitsTeamsWith": [
+          "aggressive deep passing attacks",
+          "teams that draw DPI"
+        ],
+        "hurtsTeamsWith": [
+          "physical defensive secondaries",
+          "man-coverage-heavy defenses"
+        ],
         "overUnderLean": "over"
+      },
+      "yearsAsReferee2026": 18,
+      "yearsNFL2026": 21,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 127,
+            "name": "Scott Campbell",
+            "yearsNFL": 4,
+            "status": "from Blakeman"
+          },
+          {
+            "position": "DJ",
+            "number": 44,
+            "name": "Frank LeBlanc",
+            "yearsNFL": 7,
+            "status": "from Torbert"
+          },
+          {
+            "position": "LJ",
+            "number": 40,
+            "name": "Brian Bolinger",
+            "yearsNFL": 10,
+            "status": "from Torbert"
+          },
+          {
+            "position": "FJ",
+            "number": 50,
+            "name": "Aaron Santi",
+            "yearsNFL": 12,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 86,
+            "name": "Jimmy Buchanan",
+            "yearsNFL": 18,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 30,
+            "name": "Todd Prukop",
+            "yearsNFL": 18,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Chad Wakefield",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Patrick Kepp",
+            "yearsNFL": 1,
+            "status": "ROOKIE (CIP)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 3,
+          "outOf": 6,
+          "continuityPct": 50,
+          "label": "high turnover",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Scott Campbell (U, from Blakeman)",
+            "Frank LeBlanc (DJ, from Torbert)",
+            "Brian Bolinger (LJ, from Torbert)"
+          ],
+          "tendencyCarryoverConfidence": "low",
+          "note": "2025 crew-level tendency data carries over with low confidence: 3 of 6 on-field positions besides the referee return from the same crew."
+        }
       }
     },
     {
       "referee": "Brad Allen",
-      "crewNumber": null,
+      "crewNumber": 122,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 16,
+        "totalPenalties": 162,
+        "totalYards": 1275,
+        "penaltiesPerGame": 10.13,
+        "yardsPerGame": 79.69,
+        "dismissedFlags": 40
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "very low",
+        "penaltiesPerGame": 10.13,
+        "yardsPerGame": 79.69,
+        "vsLeagueAvgPenalties": "-2.38",
+        "notes": "THE most lenient crew in 2025 \u2014 fewest penalties per game (10.13) and fewest yards per game (79.69). Also the lowest DPI and holding rates. True let-them-play crew. Games fly by."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 28,
+          "perGame": 1.75,
+          "vsLeagueAvg": "-0.65"
+        },
+        "defensivePassInterference": {
+          "total": 11,
+          "perGame": 0.69,
+          "vsLeagueAvg": "-0.32"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "physical run-first offenses",
+          "aggressive man-coverage defenses",
+          "teams that thrive in low-whistle environments"
+        ],
+        "hurtsTeamsWith": [
+          "pass-heavy offenses relying on penalty yardage",
+          "smaller receivers in physical matchups"
+        ],
+        "overUnderLean": "strong under"
+      },
+      "yearsAsReferee2026": 13,
+      "yearsNFL2026": 13,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 71,
+            "name": "Marcus Woods",
+            "yearsNFL": 2,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 53,
+            "name": "Sarah Thomas",
+            "yearsNFL": 12,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 32,
+            "name": "Walter Flowers",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 90,
+            "name": "Anthony Flemming",
+            "yearsNFL": 7,
+            "status": "from Hussey"
+          },
+          {
+            "position": "SJ",
+            "number": 125,
+            "name": "Chad Hill",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 2,
+            "name": "Tyree Walton",
+            "yearsNFL": 4,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Jim Van Geffen",
+            "yearsNFL": 4,
+            "status": "from Vinovich; replay assistant -> replay official"
+          },
+          {
+            "position": "RA",
+            "name": "Randy Roseberry",
+            "yearsNFL": 2,
+            "status": "same"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Anthony Flemming (FJ, from Hussey)"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Brad Rogers",
-      "crewNumber": null,
+      "crewNumber": 126,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 16,
+        "totalPenalties": 213,
+        "totalYards": 1637,
+        "penaltiesPerGame": 13.31,
+        "yardsPerGame": 102.31,
+        "dismissedFlags": 33
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 13.31,
+        "yardsPerGame": 102.31,
+        "vsLeagueAvgPenalties": "+0.80",
+        "notes": "Slightly above average volume. Low DPI rate (0.81) but above-average holding. Procedural-penalty focused crew."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 39,
+          "perGame": 2.44,
+          "vsLeagueAvg": "+0.04"
+        },
+        "defensivePassInterference": {
+          "total": 13,
+          "perGame": 0.81,
+          "vsLeagueAvg": "-0.20"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "aggressive passing offenses",
+          "teams with clean snap operations"
+        ],
+        "hurtsTeamsWith": [
+          "offensive lines that hold frequently",
+          "teams with high pre-snap penalty rates"
+        ],
+        "overUnderLean": "neutral"
+      },
+      "yearsAsReferee2026": 8,
+      "yearsNFL2026": 10,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 92,
+            "name": "Bryan Neale",
+            "yearsNFL": 13,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 13,
+            "name": "Patrick Turner",
+            "yearsNFL": 13,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 16,
+            "name": "Kevin Codey",
+            "yearsNFL": 12,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 57,
+            "name": "Joe Blubaugh",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 118,
+            "name": "David Meslow",
+            "yearsNFL": 16,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 38,
+            "name": "Greg Yette",
+            "yearsNFL": 17,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Denise Crudup",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Brian Smith",
+            "yearsNFL": 2,
+            "status": "same"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 6,
+          "outOf": 6,
+          "continuityPct": 100,
+          "label": "intact",
+          "rookieOfficials": [],
+          "newToCrew": [],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 6 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Carl Cheffers",
-      "crewNumber": null,
+      "crewNumber": 51,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 242,
+        "totalYards": 1858,
+        "penaltiesPerGame": 14.24,
+        "yardsPerGame": 109.29,
+        "dismissedFlags": 44
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "high",
+        "penaltiesPerGame": 14.24,
+        "yardsPerGame": 109.29,
+        "vsLeagueAvgPenalties": "+1.73",
+        "notes": "Veteran high-volume crew. Among the highest DPI rates (1.24/game) and holding rates (2.59/game). Calls it tight on both sides of the ball. Consistently one of the most active referees year over year."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 44,
+          "perGame": 2.59,
+          "vsLeagueAvg": "+0.19"
+        },
+        "defensivePassInterference": {
+          "total": 21,
+          "perGame": 1.24,
+          "vsLeagueAvg": "+0.23"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "disciplined teams on both sides",
+          "aggressive deep passing attacks"
+        ],
+        "hurtsTeamsWith": [
+          "penalty-prone teams",
+          "physical secondary play",
+          "OL-dependent rushing attacks"
+        ],
+        "overUnderLean": "over"
+      },
+      "yearsAsReferee2026": 19,
+      "yearsNFL2026": 27,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 66,
+            "name": "Derek Anderson",
+            "yearsNFL": 3,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 85,
+            "name": "Daniel Gallagher",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 65,
+            "name": "Quentin Givens",
+            "yearsNFL": 2,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 33,
+            "name": "Nate Jones",
+            "yearsNFL": 8,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 114,
+            "name": "Dominique Pender",
+            "yearsNFL": 7,
+            "status": "from Clark"
+          },
+          {
+            "position": "BJ",
+            "number": 133,
+            "name": "Martin Hankins",
+            "yearsNFL": 4,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Marty Abezetian",
+            "yearsNFL": 2,
+            "status": "from Torbert; replay assistant -> replay official"
+          },
+          {
+            "position": "RA",
+            "name": "Brian Davies",
+            "yearsNFL": 4,
+            "status": "from Novak"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Dominique Pender (SJ, from Clark)"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Clay Martin",
-      "crewNumber": null,
+      "crewNumber": 19,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 205,
+        "totalYards": 1599,
+        "penaltiesPerGame": 12.06,
+        "yardsPerGame": 94.06,
+        "dismissedFlags": 36
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 12.06,
+        "yardsPerGame": 94.06,
+        "vsLeagueAvgPenalties": "-0.45",
+        "notes": "Slightly below-average overall volume but has the HIGHEST offensive holding rate tied with Moore (2.94/game). Zeroes in on offensive line play while letting secondaries play physical. Interesting split."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 50,
+          "perGame": 2.94,
+          "vsLeagueAvg": "+0.54"
+        },
+        "defensivePassInterference": {
+          "total": 14,
+          "perGame": 0.82,
+          "vsLeagueAvg": "-0.19"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "physical secondary play",
+          "man-coverage defenses",
+          "teams with clean OL technique"
+        ],
+        "hurtsTeamsWith": [
+          "teams with holding-prone offensive lines",
+          "teams relying on edge-blocking schemes"
+        ],
+        "overUnderLean": "slight under"
+      },
+      "yearsAsReferee2026": 9,
+      "yearsNFL2026": 12,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 54,
+            "name": "Steve Woods",
+            "yearsNFL": 10,
+            "status": "from Wrolstad"
+          },
+          {
+            "position": "DJ",
+            "number": 6,
+            "name": "Jerod Phillips",
+            "yearsNFL": 11,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 97,
+            "name": "Brian Perry",
+            "yearsNFL": 3,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 80,
+            "name": "Alonzo Ramsey",
+            "yearsNFL": 5,
+            "status": "same; SJ -> FJ"
+          },
+          {
+            "position": "SJ",
+            "number": 103,
+            "name": "Eugene Hall",
+            "yearsNFL": 13,
+            "status": "from Cheffers"
+          },
+          {
+            "position": "BJ",
+            "number": 119,
+            "name": "Greg Wilson",
+            "yearsNFL": 19,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Bryant Thompson",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Desiree Abrams",
+            "yearsNFL": 7,
+            "status": "from Moore"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 4,
+          "outOf": 6,
+          "continuityPct": 67,
+          "label": "moderate turnover",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Steve Woods (U, from Wrolstad)",
+            "Eugene Hall (SJ, from Cheffers)"
+          ],
+          "tendencyCarryoverConfidence": "medium",
+          "note": "2025 crew-level tendency data carries over with medium confidence: 4 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Clete Blakeman",
-      "crewNumber": null,
+      "crewNumber": 34,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 218,
+        "totalYards": 1720,
+        "penaltiesPerGame": 12.82,
+        "yardsPerGame": 101.18,
+        "dismissedFlags": 26
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 12.82,
+        "yardsPerGame": 101.18,
+        "vsLeagueAvgPenalties": "+0.31",
+        "notes": "Near league-average in both metrics. THE lowest dismissed flag count (26) \u2014 when Blakeman's crew throws a flag, they mean it. Extremely high conviction rate. DPI exactly at league average (1.00/game)."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 40,
+          "perGame": 2.35,
+          "vsLeagueAvg": "-0.05"
+        },
+        "defensivePassInterference": {
+          "total": 17,
+          "perGame": 1.0,
+          "vsLeagueAvg": "-0.01"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "teams with clean technique",
+          "balanced offensive schemes"
+        ],
+        "hurtsTeamsWith": [
+          "teams that benefit from picked-up flags and offsetting penalties"
+        ],
+        "overUnderLean": "neutral"
+      },
+      "yearsAsReferee2026": 17,
+      "yearsNFL2026": 19,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 11,
+            "name": "Scott Walker",
+            "yearsNFL": 3,
+            "status": "from Vinovich"
+          },
+          {
+            "position": "DJ",
+            "number": 64,
+            "name": "Andy Warner",
+            "yearsNFL": 2,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 79,
+            "name": "Kent Payne",
+            "yearsNFL": 23,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 91,
+            "name": "Karina Tovar",
+            "yearsNFL": 3,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 95,
+            "name": "James Coleman",
+            "yearsNFL": 22,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 120,
+            "name": "Jonah Monroe",
+            "yearsNFL": 12,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Chad Adams",
+            "yearsNFL": 8,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Adam Choate",
+            "yearsNFL": 3,
+            "status": "from Hochuli"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Scott Walker (U, from Vinovich)"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Craig Wrolstad",
-      "crewNumber": null,
+      "crewNumber": 4,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 18,
+        "totalPenalties": 209,
+        "totalYards": 1657,
+        "penaltiesPerGame": 11.61,
+        "yardsPerGame": 92.06,
+        "dismissedFlags": 43
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "low-moderate",
+        "penaltiesPerGame": 11.61,
+        "yardsPerGame": 92.06,
+        "vsLeagueAvgPenalties": "-0.90",
+        "notes": "Below-average volume but above-average DPI rate (1.17/game). Interesting profile \u2014 lets OL play go but watches the secondary closely. 18 games worked (most of any crew) including postseason."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 37,
+          "perGame": 2.06,
+          "vsLeagueAvg": "-0.34"
+        },
+        "defensivePassInterference": {
+          "total": 21,
+          "perGame": 1.17,
+          "vsLeagueAvg": "+0.16"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "aggressive deep passing attacks",
+          "offensive lines that play on the edge"
+        ],
+        "hurtsTeamsWith": [
+          "physical man-coverage defenses",
+          "secondaries that grab"
+        ],
+        "overUnderLean": "slight under"
+      },
+      "yearsAsReferee2026": 13,
+      "yearsNFL2026": 24,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 22,
+            "name": "Brandon Cruse",
+            "yearsNFL": 5,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 18,
+            "name": "John Braun",
+            "yearsNFL": 1,
+            "status": "ROOKIE (Big 12)"
+          },
+          {
+            "position": "LJ",
+            "number": 21,
+            "name": "Max Causey",
+            "yearsNFL": 5,
+            "status": "from Hussey; DJ -> LJ"
+          },
+          {
+            "position": "FJ",
+            "number": 60,
+            "name": "Jeff Shears",
+            "yearsNFL": 5,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 132,
+            "name": "Frank Steratore",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 39,
+            "name": "Rich Martinez",
+            "yearsNFL": 13,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Tim England",
+            "yearsNFL": 5,
+            "status": "from Kemp"
+          },
+          {
+            "position": "RA",
+            "name": "Monty Montgomery",
+            "yearsNFL": 1,
+            "status": "ROOKIE (Big Ten)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 4,
+          "outOf": 6,
+          "continuityPct": 67,
+          "label": "moderate turnover",
+          "rookieOfficials": [
+            "John Braun (DJ)"
+          ],
+          "newToCrew": [
+            "John Braun (DJ, ROOKIE (Big 12))",
+            "Max Causey (LJ, from Hussey; DJ -> LJ)"
+          ],
+          "tendencyCarryoverConfidence": "medium",
+          "note": "2025 crew-level tendency data carries over with medium confidence: 4 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "John Hussey",
-      "crewNumber": null,
+      "crewNumber": 35,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 190,
+        "totalYards": 1567,
+        "penaltiesPerGame": 11.18,
+        "yardsPerGame": 92.18,
+        "dismissedFlags": 34
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "low-moderate",
+        "penaltiesPerGame": 11.18,
+        "yardsPerGame": 92.18,
+        "vsLeagueAvgPenalties": "-1.33",
+        "notes": "Below-average overall volume BUT leads all crews in DPI (1.47/game \u2014 45% above league avg). Most DPI-favorable crew for passing offenses. Low holding calls. Huge secondary-focused crew."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 32,
+          "perGame": 1.88,
+          "vsLeagueAvg": "-0.52"
+        },
+        "defensivePassInterference": {
+          "total": 25,
+          "perGame": 1.47,
+          "vsLeagueAvg": "+0.46"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "aggressive deep passing attacks",
+          "offenses that attack outside the numbers",
+          "WR-driven offenses"
+        ],
+        "hurtsTeamsWith": [
+          "physical man-coverage defenses",
+          "secondaries that play press",
+          "teams relying on defensive backs to be handsy"
+        ],
+        "overUnderLean": "slight under overall, but passing game totals lean over"
+      },
+      "yearsAsReferee2026": 12,
+      "yearsNFL2026": 25,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 42,
+            "name": "Duane Heydt",
+            "yearsNFL": 5,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 17,
+            "name": "Brett Bergman",
+            "yearsNFL": 4,
+            "status": "from Wrolstad; LJ -> DJ"
+          },
+          {
+            "position": "LJ",
+            "number": 47,
+            "name": "Tim Podraza",
+            "yearsNFL": 19,
+            "status": "from Hochuli"
+          },
+          {
+            "position": "FJ",
+            "number": 123,
+            "name": "Gabe DeLeon",
+            "yearsNFL": 1,
+            "status": "ROOKIE (Big 12)"
+          },
+          {
+            "position": "SJ",
+            "number": 56,
+            "name": "Allen Baynes",
+            "yearsNFL": 19,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 96,
+            "name": "Matt Edwards",
+            "yearsNFL": 9,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Andrew Lambert",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Amber Cipriani",
+            "yearsNFL": 3,
+            "status": "from Blakeman"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 3,
+          "outOf": 6,
+          "continuityPct": 50,
+          "label": "high turnover",
+          "rookieOfficials": [
+            "Gabe DeLeon (FJ)"
+          ],
+          "newToCrew": [
+            "Brett Bergman (DJ, from Wrolstad; LJ -> DJ)",
+            "Tim Podraza (LJ, from Hochuli)",
+            "Gabe DeLeon (FJ, ROOKIE (Big 12))"
+          ],
+          "tendencyCarryoverConfidence": "low",
+          "note": "2025 crew-level tendency data carries over with low confidence: 3 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
       "referee": "Land Clark",
-      "crewNumber": null,
+      "crewNumber": 130,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 16,
+        "totalPenalties": 175,
+        "totalYards": 1374,
+        "penaltiesPerGame": 10.94,
+        "yardsPerGame": 85.88,
+        "dismissedFlags": 41
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "low",
+        "penaltiesPerGame": 10.94,
+        "yardsPerGame": 85.88,
+        "vsLeagueAvgPenalties": "-1.57",
+        "notes": "Second-most lenient crew behind Brad Allen. Low across the board \u2014 holding, DPI, total volume. Tied for lowest DPI rate (0.69/game). True let-them-play crew."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 33,
+          "perGame": 2.06,
+          "vsLeagueAvg": "-0.34"
+        },
+        "defensivePassInterference": {
+          "total": 11,
+          "perGame": 0.69,
+          "vsLeagueAvg": "-0.32"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "physical run-first offenses",
+          "aggressive man-coverage defenses",
+          "teams that win at the line of scrimmage"
+        ],
+        "hurtsTeamsWith": [
+          "pass-heavy offenses that need penalty yardage",
+          "smaller receivers in physical matchups"
+        ],
+        "overUnderLean": "under"
+      },
+      "yearsAsReferee2026": 7,
+      "yearsNFL2026": 9,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 131,
+            "name": "Mark Pellis",
+            "yearsNFL": 13,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 9,
+            "name": "Dale Keller",
+            "yearsNFL": 4,
+            "status": "from Vinovich"
+          },
+          {
+            "position": "LJ",
+            "number": 99,
+            "name": "Stephen Ray",
+            "yearsNFL": 1,
+            "status": "ROOKIE (SEC)"
+          },
+          {
+            "position": "FJ",
+            "number": 26,
+            "name": "Jabir Walker",
+            "yearsNFL": 12,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 107,
+            "name": "Dave Hawkshaw",
+            "yearsNFL": 8,
+            "status": "from Martin; FJ -> SJ"
+          },
+          {
+            "position": "BJ",
+            "number": 88,
+            "name": "Brad Freeman",
+            "yearsNFL": 13,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Gavin Anderson",
+            "yearsNFL": 8,
+            "status": "from Wrolstad"
+          },
+          {
+            "position": "RA",
+            "name": "Mark Evans",
+            "yearsNFL": 1,
+            "status": "ROOKIE (Mtn West)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 3,
+          "outOf": 6,
+          "continuityPct": 50,
+          "label": "high turnover",
+          "rookieOfficials": [
+            "Stephen Ray (LJ)"
+          ],
+          "newToCrew": [
+            "Dale Keller (DJ, from Vinovich)",
+            "Stephen Ray (LJ, ROOKIE (SEC))",
+            "Dave Hawkshaw (SJ, from Martin; FJ -> SJ)"
+          ],
+          "tendencyCarryoverConfidence": "low",
+          "note": "2025 crew-level tendency data carries over with low confidence: 3 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     },
     {
-      "referee": "Alan Eck",
-      "crewNumber": null,
+      "referee": "Ron Torbert",
+      "crewNumber": 62,
       "active": true,
-      "tendencies": {
-        "flagVolume": "unknown_full_season",
-        "notes": "Active crew chief for 2025. Full-season detailed stats not yet captured."
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 211,
+        "totalYards": 1622,
+        "penaltiesPerGame": 12.41,
+        "yardsPerGame": 95.41,
+        "dismissedFlags": 51
       },
-      "keyPenaltyRates": {},
-      "matchupImpact": {}
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 12.41,
+        "yardsPerGame": 95.41,
+        "vsLeagueAvgPenalties": "-0.10",
+        "notes": "IDENTITY SHIFT ALERT: Torbert was historically an 'Under' ref but has transformed. In 2024, his games went 10-7 to the Over. Highest dismissed flag count (51) \u2014 throws a lot of flags that get picked up. LOWEST DPI rate in the league (0.59/game). Market hasn't fully caught up to his new profile."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 43,
+          "perGame": 2.53,
+          "vsLeagueAvg": "+0.13"
+        },
+        "defensivePassInterference": {
+          "total": 10,
+          "perGame": 0.59,
+          "vsLeagueAvg": "-0.42"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "physical secondary play",
+          "press-man defenses",
+          "teams with handsy corners"
+        ],
+        "hurtsTeamsWith": [
+          "offenses relying on DPI to move chains",
+          "teams with holding-prone OLs"
+        ],
+        "overUnderLean": "shifting \u2014 historically under, recently over"
+      },
+      "yearsAsReferee2026": 13,
+      "yearsNFL2026": 17,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 20,
+            "name": "Barry Anderson",
+            "yearsNFL": 20,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 113,
+            "name": "Danny Short",
+            "yearsNFL": 10,
+            "status": "from Wrolstad"
+          },
+          {
+            "position": "LJ",
+            "number": 37,
+            "name": "Tripp Sutter",
+            "yearsNFL": 8,
+            "status": "from Vinovich"
+          },
+          {
+            "position": "FJ",
+            "number": 25,
+            "name": "Ryan Dickson",
+            "yearsNFL": 10,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 7,
+            "name": "Keith Washington",
+            "yearsNFL": 19,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 48,
+            "name": "Courtney Brown",
+            "yearsNFL": 2,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Kevin Stine",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Jonathan Schwanbeck",
+            "yearsNFL": 1,
+            "status": "ROOKIE (American)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 4,
+          "outOf": 6,
+          "continuityPct": 67,
+          "label": "moderate turnover",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Danny Short (DJ, from Wrolstad)",
+            "Tripp Sutter (LJ, from Vinovich)"
+          ],
+          "tendencyCarryoverConfidence": "medium",
+          "note": "2025 crew-level tendency data carries over with medium confidence: 4 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
+    },
+    {
+      "referee": "Scott Novak",
+      "crewNumber": 1,
+      "active": true,
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 201,
+        "totalYards": 1626,
+        "penaltiesPerGame": 11.82,
+        "yardsPerGame": 95.65,
+        "dismissedFlags": 29
+      },
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 11.82,
+        "yardsPerGame": 95.65,
+        "vsLeagueAvgPenalties": "-0.69",
+        "notes": "Slightly below average overall. High offensive holding focus (2.82/game) with below-average DPI. OL-watcher. Low dismissed flags (29) \u2014 second only to Blakeman for conviction."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 48,
+          "perGame": 2.82,
+          "vsLeagueAvg": "+0.42"
+        },
+        "defensivePassInterference": {
+          "total": 16,
+          "perGame": 0.94,
+          "vsLeagueAvg": "-0.07"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "clean-blocking offensive lines",
+          "physical secondary play"
+        ],
+        "hurtsTeamsWith": [
+          "teams with holding-prone offensive lines",
+          "teams running lots of zone-blocking"
+        ],
+        "overUnderLean": "slight under"
+      },
+      "yearsAsReferee2026": 8,
+      "yearsNFL2026": 13,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 89,
+            "name": "Mike Morton",
+            "yearsNFL": 5,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 112,
+            "name": "Brian Sakowski",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 75,
+            "name": "Mark Stewart",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 117,
+            "name": "John Jenkins",
+            "yearsNFL": 13,
+            "status": "from Eck"
+          },
+          {
+            "position": "SJ",
+            "number": 58,
+            "name": "Don Willard",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "BJ",
+            "number": 67,
+            "name": "Tony Josselyn",
+            "yearsNFL": 9,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Matt Sumstine",
+            "yearsNFL": 9,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Jamie Williams",
+            "yearsNFL": 1,
+            "status": "ROOKIE (SEC)"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "John Jenkins (FJ, from Eck)"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
+    },
+    {
+      "referee": "Shawn Hochuli",
+      "crewNumber": 83,
+      "active": true,
+      "season2025Stats": {
+        "games": 17,
+        "totalPenalties": 236,
+        "totalYards": 2022,
+        "penaltiesPerGame": 13.88,
+        "yardsPerGame": 118.94,
+        "dismissedFlags": 54
+      },
+      "tendencies": {
+        "flagVolume": "high",
+        "penaltiesPerGame": 13.88,
+        "yardsPerGame": 118.94,
+        "vsLeagueAvgPenalties": "+1.37",
+        "notes": "Ranked 2nd in automatic first downs via penalty. Second-highest total yardage (2,022) and second-highest dismissed flags (54). High-impact, high-volume crew. Calls DPI aggressively (1.35/game). Son of legendary referee Ed Hochuli."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 42,
+          "perGame": 2.47,
+          "vsLeagueAvg": "+0.07"
+        },
+        "defensivePassInterference": {
+          "total": 23,
+          "perGame": 1.35,
+          "vsLeagueAvg": "+0.34"
+        }
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "aggressive passing offenses",
+          "teams that attack downfield",
+          "offenses that draw fouls"
+        ],
+        "hurtsTeamsWith": [
+          "physical man-coverage defenses",
+          "aggressive edge rushers",
+          "undisciplined secondaries"
+        ],
+        "overUnderLean": "over"
+      },
+      "yearsAsReferee2026": 9,
+      "yearsNFL2026": 13,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 102,
+            "name": "Larry Smith",
+            "yearsNFL": 2,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 106,
+            "name": "Patrick Holt",
+            "yearsNFL": 8,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 101,
+            "name": "Carl Johnson",
+            "yearsNFL": 23,
+            "status": "from Hussey"
+          },
+          {
+            "position": "FJ",
+            "number": 72,
+            "name": "Jason Ledet",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 73,
+            "name": "Justin Larrew",
+            "yearsNFL": 1,
+            "status": "ROOKIE (SEC)"
+          },
+          {
+            "position": "BJ",
+            "number": 82,
+            "name": "Jimmy Russell",
+            "yearsNFL": 8,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Tyler Cerimeli",
+            "yearsNFL": 9,
+            "status": "from Moore"
+          },
+          {
+            "position": "RA",
+            "name": "Daniel Bouldrick",
+            "yearsNFL": 2,
+            "status": "from Cheffers"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 4,
+          "outOf": 6,
+          "continuityPct": 67,
+          "label": "moderate turnover",
+          "rookieOfficials": [
+            "Justin Larrew (SJ)"
+          ],
+          "newToCrew": [
+            "Carl Johnson (LJ, from Hussey)",
+            "Justin Larrew (SJ, ROOKIE (SEC))"
+          ],
+          "tendencyCarryoverConfidence": "medium",
+          "note": "2025 crew-level tendency data carries over with medium confidence: 4 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
+    },
+    {
+      "referee": "Shawn Smith",
+      "crewNumber": 14,
+      "active": true,
+      "season2025Stats": {
+        "games": 18,
+        "totalPenalties": 208,
+        "totalYards": 1633,
+        "penaltiesPerGame": 11.56,
+        "yardsPerGame": 90.72,
+        "dismissedFlags": 36
+      },
+      "tendencies": {
+        "flagVolume": "moderate",
+        "penaltiesPerGame": 11.56,
+        "yardsPerGame": 90.72,
+        "vsLeagueAvgPenalties": "-0.95",
+        "notes": "SUPER BOWL LX CREW CHIEF (SEA vs NE). Ranked 3rd in automatic first downs via penalty despite below-average total volume \u2014 meaning a higher percentage of his calls are game-changers. League-leading 35% auto first down rate (vs 28.3% avg). Below-average holding/false start rate (32.5%). Above-average unnecessary roughness. Home teams perform worse under Smith \u2014 statistically the 'cooler' for home-field advantage."
+      },
+      "keyPenaltyRates": {
+        "offensiveHolding": {
+          "total": 31,
+          "perGame": 1.72,
+          "vsLeagueAvg": "-0.68"
+        },
+        "defensivePassInterference": {
+          "total": 23,
+          "perGame": 1.28,
+          "vsLeagueAvg": "+0.27"
+        },
+        "autoFirstDownRate": 0.35,
+        "falseStartAndHoldingRate": 0.325,
+        "unnecessaryRoughness": "above_average"
+      },
+      "matchupImpact": {
+        "benefitsTeamsWith": [
+          "aggressive passing offenses",
+          "offensive lines that play on the edge",
+          "road teams"
+        ],
+        "hurtsTeamsWith": [
+          "physical defenses with high personal foul risk",
+          "home teams",
+          "teams with hot-headed players"
+        ],
+        "overUnderLean": "slight over on passing, under on total scoring"
+      },
+      "yearsAsReferee2026": 9,
+      "yearsNFL2026": 12,
+      "crew2026": {
+        "confirmed": true,
+        "source": "Football Zebras, 2026-08-01 (rosters obtained from NFL)",
+        "onFieldMembers": [
+          {
+            "position": "U",
+            "number": 3,
+            "name": "Tra Blake",
+            "yearsNFL": 7,
+            "status": "same"
+          },
+          {
+            "position": "DJ",
+            "number": 84,
+            "name": "Jay Bilbo",
+            "yearsNFL": 4,
+            "status": "same"
+          },
+          {
+            "position": "LJ",
+            "number": 45,
+            "name": "Jeff Seeman",
+            "yearsNFL": 25,
+            "status": "same"
+          },
+          {
+            "position": "FJ",
+            "number": 109,
+            "name": "Dyrol Prioleau",
+            "yearsNFL": 20,
+            "status": "same"
+          },
+          {
+            "position": "SJ",
+            "number": 41,
+            "name": "Keith Parham",
+            "yearsNFL": 4,
+            "status": "REHIRE (NFL SJ 2011-13, from SEC)"
+          },
+          {
+            "position": "BJ",
+            "number": 105,
+            "name": "Dino Paganelli",
+            "yearsNFL": 21,
+            "status": "same"
+          }
+        ],
+        "replay": [
+          {
+            "position": "RO",
+            "name": "Mike Wimmer",
+            "yearsNFL": 24,
+            "status": "same"
+          },
+          {
+            "position": "RA",
+            "name": "Artenzia Young-Seigler",
+            "yearsNFL": 7,
+            "status": "from Martin"
+          }
+        ],
+        "continuity": {
+          "returningOnFieldOfficials": 5,
+          "outOf": 6,
+          "continuityPct": 83,
+          "label": "near-intact",
+          "rookieOfficials": [],
+          "newToCrew": [
+            "Keith Parham (SJ, REHIRE (NFL SJ 2011-13, from SEC))"
+          ],
+          "tendencyCarryoverConfidence": "high",
+          "note": "2025 crew-level tendency data carries over with high confidence: 5 of 6 on-field positions besides the referee return from the same crew."
+        }
+      }
     }
   ],
   "retirements2025": [
     {
       "name": "Terry Brown",
       "position": "Field Judge",
-      "yearsOfService": null,
+      "yearsOfService": 20,
       "notes": "Retired after 2025 season."
     },
     {
       "name": "Tom Stephan",
       "position": "Down Judge",
-      "yearsOfService": null,
-      "notes": "Retired after 2025 season. Member of the 30-season club."
+      "number": 68,
+      "yearsOfService": 27,
+      "notes": "Retired after 2025 season. 27-year career."
     },
     {
       "name": "Rick Patterson",
       "position": "Field Judge",
-      "yearsOfService": null,
-      "notes": "Retired after 2025 season. Member of the 30-season club."
+      "yearsOfService": 30,
+      "notes": "Retired after 2025 season. Member of the exclusive 30-season club."
     },
     {
       "name": "Boris Cheek",
       "position": "Field Judge",
-      "yearsOfService": null,
-      "notes": "Retired after 2025 season."
+      "yearsOfService": 30,
+      "notes": "Retired after 2025 season. Holds all-time NFL record for most games officiated (481). Member of the 30-season club."
     }
   ],
+  "relegations2025": [
+    {
+      "name": "Lo van Pham",
+      "position": "Side Judge",
+      "destination": "Atlantic Coast Conference (college football)",
+      "notes": "Relegated to college by VP Ramon George (announced April 2026). Soft-landing option vs outright termination. Per Football Zebras, door is open for return if performance improves at college level \u2014 see Keith Parham precedent."
+    }
+  ],
+  "newHires2026": [
+    {
+      "name": "John Braun",
+      "likelyPosition": "Down Judge / Line Judge (head linesman)",
+      "priorConference": "Big 12",
+      "priorSeasons": 2,
+      "priorBowls": "CFP First-Round, National Championship",
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    },
+    {
+      "name": "Fred Dimpfel",
+      "likelyPosition": "Deep / Back Judge",
+      "priorConference": "Conference USA",
+      "priorSeasons": 2,
+      "priorBowls": null,
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    },
+    {
+      "name": "Gabe DeLeon",
+      "likelyPosition": "Field Judge / Side Judge",
+      "priorConference": "Big 12",
+      "priorSeasons": 3,
+      "priorBowls": "Big 12 Championship, CFP First-Round",
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    },
+    {
+      "name": "Glen Fucik",
+      "likelyPosition": "Field Judge / Side Judge",
+      "priorConference": "SEC",
+      "priorSeasons": 6,
+      "priorBowls": null,
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    },
+    {
+      "name": "Justin Larrew",
+      "likelyPosition": "Field Judge / Side Judge",
+      "priorConference": "SEC",
+      "priorSeasons": 6,
+      "priorBowls": "CFP First-Round",
+      "familialTie": "Son of former NFL official Joe Larrew (retired after 2021 season)",
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    },
+    {
+      "name": "Keith Parham",
+      "likelyPosition": "Deep / Back Judge",
+      "priorConference": "SEC (prior: ACC)",
+      "priorSeasons": 0,
+      "priorBowls": "CFP First-Round",
+      "notes": "Returning to NFL after 12-year absence. Prior NFL tenure as side judge 2011-2013 (released after three seasons with no playoff assignments; involved in a high-profile playoff-deciding missed call at end of 2013). Worked 2024 National Championship Game (Ohio State vs Notre Dame) at college level. Announced 2026-04-14."
+    },
+    {
+      "name": "Stephen Ray",
+      "likelyPosition": "Down Judge / Line Judge (head linesman)",
+      "priorConference": "SEC",
+      "priorSeasons": 3,
+      "priorBowls": null,
+      "notes": "Hired by VP Ramon George, announced 2026-04-14."
+    }
+  ],
+  "swingOfficials2026": {
+    "count": 2,
+    "confirmed": true,
+    "officials": [
+      {
+        "position": "BJ",
+        "number": 78,
+        "name": "Greg Meyer",
+        "yearsNFL": 25,
+        "prior2025": "same (swing)"
+      },
+      {
+        "position": "U",
+        "number": 110,
+        "name": "Tab Slaughter",
+        "yearsNFL": 7,
+        "prior2025": "Eck crew"
+      }
+    ],
+    "matchupImpactNote": "Swing officials rotate between crews week to week. Any game where Meyer (BJ) or Slaughter (U) substitutes carries elevated variance against that crew's baseline tendencies \u2014 Meyer at back judge affects deep-pass and DPI calls; Slaughter at umpire affects offensive holding, the single highest-volume penalty category. Weekly assignment data should flag substitutions, which Football Zebras notes occur regularly."
+  },
   "offseasonNotes": {
-    "cbaExpiration": "2026-05-31",
-    "cbaStickingPoints": ["Job performance standards", "Grievance process for terminated officials", "Roster makeup authority"],
-    "memoOneDate": "2026-05-15",
-    "hallOfFameGame": "2026-08-06",
+    "priorCbaExpiration": "2026-05-31",
+    "newCbaEffective": "2026-06-01",
+    "daysSinceNewCbaEffective": 8,
+    "cbaStatus": "RESOLVED AND IN EFFECT. The new 7-year CBA (ratified 2026-05-08 by a 116-4 NFLRA vote) took effect 2026-06-01, succeeding the prior agreement with no gap. There is no lockout and no replacement officials for 2026. The April-2026 stalemate narrative \u2014 owners including Jerry Jones at the table, sides 'far apart' on compensation, league 'preparing for a lockout,' replacement-official training scheduled for 2026-05-01 \u2014 is fully superseded and retained only as historical context in the cba2026 block below.",
+    "cbaStickingPoints": [
+      "Salary: NFL offers 6.45\u20136.7% annual growth; NFLRA demands 10\u201310.3% + $2.5M marketing fees (league calls the marketing fees 'worthless')",
+      "Probationary period: NFL wants 5 years (up from 3); NFLRA opposes",
+      "Postseason assignments: NFL wants performance-based over seniority-based",
+      "Performance standards: NFLRA has been resistant to engage on performance-improvement mechanisms during talks, per league sources",
+      "Centralized officiating: NFL approved command-center monitoring in event of lockout"
+    ],
+    "replacementOfficials": {
+      "status": "MOOT \u2014 CBA ratified 2026-05-08. Replacement-official program is being wound down. Replacement officials will NOT work any 2026 games. Training that began 2026-05-01 lasted ~one week before the deal was finalized.",
+      "trainingStart": "2026-05-01",
+      "trainingEnd": "2026-05-08 (effectively, upon CBA ratification)",
+      "earliestDeployment": "N/A \u2014 not deploying",
+      "compensationNote": "Replacement officials hired during the lockout-prep period are being paid out per terms of their conditional contracts; the league has not publicly disclosed final figures.",
+      "nflpaPosition": "Resolved \u2014 NFLPA supported NFLRA throughout; no further public friction.",
+      "historicalComparison": "First serious replacement-ref threat since 2012; resolved without games being affected.",
+      "leagueOfficeBackstop": "The 2026-only safeguard rule allowing the NY Officiating Department to call penalties remotely was tied to replacement-official use and is now functionally dormant \u2014 though the rule itself remains on the books for 2026 as adopted at the Annual League Meeting."
+    },
+    "cba2026": {
+      "status": "IN_EFFECT",
+      "ratifiedDate": "2026-05-08",
+      "ratificationVote": "116-4 (NFLRA membership)",
+      "effectiveDate": "2026-06-01",
+      "termYears": 7,
+      "expires": "After 2032 season",
+      "summary": "NFL and NFLRA reached a 7-year deal averting a lockout, ratified by a 116-4 NFLRA vote on 2026-05-08 and effective 2026-06-01. Sides negotiated for 2+ years and were publicly far apart (NFL 6.45\u20136.7% vs NFLRA 10\u201310.3% + $2.5M marketing fees) as recently as late April before recruiting of college replacement officials began in early March.",
+      "leagueGains": [
+        "Increased access to officials in the offseason for a formal training program",
+        "Development of a 'bench' of officials (the swing-official model is now structural, not just a 2026 patch)",
+        "Greater latitude to use performance metrics for postseason assignments rather than seniority (previously a major NFLRA red line)"
+      ],
+      "nflraGains": [
+        "Compensation increases (specific percentages not publicly disclosed; final number is between the two opening positions)",
+        "Avoided performance-based probationary periods that the NFL had pushed for",
+        "Job security through 2032"
+      ],
+      "implicationsForTendencyProfiles": "All 17 historical crew-chief profiles remain valid for 2026. The new performance-metric postseason-assignment rule could shift WHICH crews work playoff games in January 2027, but does NOT change in-season regular-game assignments or in-game tendencies."
+    },
+    "ruleChanges2026": [
+      "FORMALLY ADOPTED at Annual League Meeting (March 2026): five rule changes total \u2014 focused on kickoff adjustments and officiating-aid mechanisms.",
+      "FORMALLY ADOPTED: Replay can now consult with on-field officials on disqualifications for both flagrant football acts AND non-football acts \u2014 and can drop a flag when one is not thrown. Cited precedent: DK Metcalf vs. Detroit heckling-fan incident in 2025, where on-field officials did not see the swipe and replay could not act.",
+      "FORMALLY ADOPTED (1-year only, 2026 season): NFL Officiating Department empowered to correct 'clear and obvious' on-field misses that significantly affect the game in the event of a work stoppage involving NFLRA officials. Replay center in NY can call penalties remotely \u2014 a power the league has historically declined to use.",
+      "Centralized officiating command center for potential replacement-ref games (operational backstop to the rule change above)."
+    ],
     "superBowlLXCrew": "Shawn Smith",
-    "newRefereeOpenings": "None expected at crew chief level as of March 2026, but position-level openings likely due to 4 retirements",
-    "potentialRuleChanges": ["Instant replay for ejections on cheap shots without flags"]
-  }
+    "personnelChanges2026": {
+      "retirements": 4,
+      "retiredOfficials": [
+        {
+          "name": "Rick Patterson",
+          "position": "Field Judge",
+          "seasons": 30,
+          "notes": "Joined the '30 Club' in 2025 alongside Boris Cheek."
+        },
+        {
+          "name": "Boris Cheek",
+          "position": "Field Judge",
+          "seasons": 30,
+          "notes": "Holds the all-time NFL record for games officiated at 481."
+        },
+        {
+          "name": "Terry Brown",
+          "position": "Field Judge / Side Judge",
+          "seasons": 20,
+          "notes": "Spent entire career at FJ/SJ."
+        },
+        {
+          "name": "Tom Stephan",
+          "position": "Down Judge / Line Judge",
+          "seasons": 27,
+          "notes": "Career-long DJ/LJ."
+        }
+      ],
+      "relegations": 1,
+      "relegatedOfficials": [
+        {
+          "name": "Lo van Pham",
+          "position": "Side Judge",
+          "destination": "ACC (college)"
+        }
+      ],
+      "newHires": 7,
+      "newHireOfficials": [
+        {
+          "name": "John Braun",
+          "background": "SEC/Big 12"
+        },
+        {
+          "name": "Fred Dimpfel",
+          "background": "SEC/Big 12"
+        },
+        {
+          "name": "Gabe DeLeon",
+          "background": "SEC/Big 12"
+        },
+        {
+          "name": "Glen Fucik",
+          "background": "SEC/Big 12"
+        },
+        {
+          "name": "Stephen Ray",
+          "background": "SEC/Big 12"
+        },
+        {
+          "name": "Keith Parham",
+          "position": "Side Judge",
+          "background": "Rehire \u2014 NFL 2003-2013, then ACC/SEC including CFP assignments. Notable: previously released after 2013 over a playoff-deciding missed call."
+        },
+        {
+          "name": "Justin Larrew",
+          "background": "Legacy hire \u2014 son of former NFL official Joe Larrew (retired after 2021)."
+        }
+      ],
+      "netOpenings": 5,
+      "swingOfficials": 2,
+      "swingOfficialsNote": "7 hires filling 5 vacancies = 2 swing officials who rotate between crews throughout 2026 rather than being assigned to a single crew. New CBA formalizes this 'bench' model going forward.",
+      "crewChiefChanges": 0,
+      "summary": "Zero crew chief (referee / white hat) changes for 2026. All 17 white hats from 2025 return. All historical crew-chief tendency profiles remain VALID for 2026. Personnel turnover is entirely at the deep-official positions (FJ, SJ, DJ, LJ) where individual flag tendencies are absorbed into crew-level averages."
+    },
+    "hallOfFameGame": "2026-08-06",
+    "crewCompositionRisk": "LOW \u2014 CBA ratified 2026-05-08. All 17 crew chiefs return. Deep-official turnover (4 retirements, 1 relegation, 7 new hires) is normal year-over-year churn and within historical bounds for crew-level tendency stability.",
+    "firstFullMeeting": "May 2026 \u2014 first scheduled meeting of all NFL officials (including 7 new hires) \u2014 proceeding as planned now that CBA is ratified."
+  },
+  "crews2026Confirmed": {
+    "publishedDate": "2026-08-01",
+    "source": "https://www.footballzebras.com/2026/08/officiating-crews-for-the-2026-season/",
+    "totalOfficials": 121,
+    "crewCount": 17,
+    "swingOfficialCount": 2,
+    "crewChiefChanges": 0,
+    "note": "Full 2026 crew-by-crew rosters are now public \u2014 this is the substantive update the offseason tracker had been waiting on since April. 121 officials across 17 crews plus 2 swing officials. All 17 crew chiefs (white hats) from 2025 return. Roster math validates: 17 referees + 102 non-referee on-field positions + 2 swing = 121."
+  },
+  "replayStaff2026": {
+    "newReplayAssistants": 6,
+    "promotedToReplayOfficial": 3,
+    "promotedNames": [
+      "Jim Van Geffen (Allen crew)",
+      "Marty Abezetian (Cheffers crew)",
+      "Julie Johnson (Kemp crew)"
+    ],
+    "notRetained": 3
+  },
+  "backupRefereeProgram2026": {
+    "note": "Nine officials are taking referee reps in 2026 for an undisclosed number of snaps. The league is also running crew-of-6 drills in preseason. Football Zebras confirms backup referees are working live preseason games (Larry Smith on the Hochuli crew, Bryan Neale on the Smith crew in preseason week 2). Watch for in-game referee swaps in the regular season, which would break the assumption that one white hat governs a full game's tendencies.",
+    "observedPreseasonBackupReferees": [
+      "Larry Smith (U, Hochuli crew)",
+      "Bryan Neale (U, Rogers crew)",
+      "Roy Ellison (U, Hill crew, 2nd half)",
+      "Scott Helverson (BJ, Kemp crew, 2nd half)",
+      "Jerod Phillips (DJ, Martin crew, 2nd half)"
+    ]
+  },
+  "ruleChanges2026": {
+    "source": "NFL Annual League Meeting, approved April 2026",
+    "changes": [
+      {
+        "change": "Onside kick and kickoff adjustments",
+        "penaltyImpact": "low-moderate",
+        "detail": "Touchback from a 50-yard-line kickoff now spots at the receiving team's 20 rather than 25. Minimum receiving-team players with front foot on the setup line drops 6 -> 5; maximum off the line rises 3 -> 4.",
+        "modelNote": "More kickoff variety means more setup-zone and formation infractions. Expect a modest uptick in kickoff-formation and illegal-touch flags early in the season while crews calibrate."
+      },
+      {
+        "change": "League personnel may consult on-field officials on disqualifications",
+        "penaltyImpact": "low",
+        "detail": "Officiating department can advise on flagrant football and non-football acts without being called onto the field.",
+        "modelNote": "Slightly raises the ceiling on ejections for personal fouls; does not change flag volume."
+      },
+      {
+        "change": "League office authority to correct clear-and-obvious misses (2026 only)",
+        "penaltyImpact": "none",
+        "detail": "Conditional on a work stoppage involving NFLRA-represented officials.",
+        "modelNote": "MOOT. The 7-year CBA ratified 2026-05-08 took effect 2026-06-01. No work stoppage, no replacement officials. This provision should not be modeled."
+      }
+    ]
+  },
+  "dataQualityFlags2026": [
+    {
+      "flag": "retirement count discrepancy",
+      "severity": "low",
+      "detail": "Football Zebras' 2026 crew article states 7 officials 'retired or were otherwise not retained' after 2025. This tracker has 4 confirmed retirements (Patterson, Cheek, Brown, Stephan) plus 1 relegation (Lo van Pham) = 5. Roughly 2 non-retentions were never individually announced. Immaterial to crew-level tendency modeling; the 2026 rosters are confirmed complete."
+    },
+    {
+      "flag": "tendency data vintage",
+      "severity": "medium",
+      "detail": "All tendency metrics in this file are 2025 regular-season crew-level aggregates. Crew composition changed for 15 of 17 crews. Use the per-crew crew2026.continuity.tendencyCarryoverConfidence field to weight how much of the 2025 signal should be trusted in 2026."
+    },
+    {
+      "flag": "repo copy is stale",
+      "severity": "high",
+      "detail": "repo/src/data/intelligence/referee_profiles.json (which RefereeProfileCard.jsx imports) was last updated 2026-03-17 and contains Week-3-pace estimates rather than full-season 2025 stats. The canonical file at data/intelligence/referees/referee_profiles.json is five months ahead. Synced by this run."
+    },
+    {
+      "flag": "UI follow-up required in RefereeProfileCard.jsx",
+      "severity": "high",
+      "detail": "Two known mismatches after syncing the fresh data into the repo. (1) volColor() and the compact 'Flag-Happy Crews' filter only recognize flagVolume values 'high' | 'moderate-high' | 'moderate' | 'low'. The current data also uses 'very high', 'very low', and 'low-moderate'. Consequence: Alex Moore \u2014 the league's flag-heaviest crew at 16.13/gm \u2014 is filtered OUT of the Flag-Happy Crews card because his value is 'very high', not 'high'. One-line fix: include 'very high' in the filter and add it to volOrder/volColor. (2) The detail panel reads tendencies.estimatedPenaltiesPerGame and tendencies.penaltyYardsWeek3, which were Week-3-pace fields from the March data and no longer exist. Point them at season2025Stats.penaltiesPerGame and season2025Stats.yardsPerGame instead \u2014 those two stat tiles currently render empty. (3) Optional upside: crew2026.continuity is now available per crew and is the most decision-relevant new field in the dataset \u2014 worth surfacing as a confidence badge on each crew."
+    }
+  ]
 }

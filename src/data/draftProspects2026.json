@@ -5,46 +5,39 @@
     "position": "QB",
     "school": "Indiana",
     "projectedRound": 1,
-    "projectedPick": "1-3",
+    "projectedPick": "1-1",
     "height": "6'5\"",
     "weight": 225,
+    "statsSeason": "2025 (incl. CFP)",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 16,
       "completionPct": 72.0,
       "passingYards": 3535,
       "passingTDs": 41,
       "interceptions": 6,
-      "rushingYards": null,
-      "rushingTDs": null
+      "rushingYards": 285,
+      "rushingTDs": 7
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Elite pocket poise and accuracy",
-      "Pro-style offense commander",
-      "Heisman-winning production"
+      "Elite accuracy at all levels",
+      "Prototype size and toughness",
+      "2025 Heisman + National Title"
     ],
     "risks": [
-      "Transferred twice (Cal to Indiana)",
-      "Sack-prone in 2024 (41 sacks)"
+      "One-year breakout (transfer from Cal)",
+      "Average mobility against NFL speed"
     ],
-    "comparisonPlayer": "Justin Herbert",
-    "summary": "Heisman winner who led Indiana to a national title with 41 TDs and only 6 INTs. Elite accuracy and pocket presence in a pro-style offense.",
+    "comparisonPlayer": "Justin Herbert with better pocket poise",
+    "summary": "2025 Heisman winner and National Champion. Prototype pocket passer with elite accuracy \u2014 the clear QB1 and consensus No. 1 overall pick.",
     "topFitTeams": [
       "LV",
-      "NYG",
       "CLE",
+      "NYG",
       "TEN",
       "MIA"
     ],
-    "fitReason": "Top QB-needy teams picking early enough to secure the consensus QB1 of the class."
+    "fitReason": "QB-needy teams at the top of the draft. LV is the heavy favorite to take him at No. 1."
   },
   {
     "id": "jeremiyah-love",
@@ -52,47 +45,43 @@
     "position": "RB",
     "school": "Notre Dame",
     "projectedRound": 1,
-    "projectedPick": "2-8",
+    "projectedPick": "3-6",
     "height": "6'0\"",
-    "weight": 214,
+    "weight": 212,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "career",
-      "games": 40,
-      "carries": 433,
-      "rushingYards": 2882,
-      "yardsPerCarry": 6.7,
-      "rushingTDs": 36,
-      "receptions": 55,
-      "receivingYards": null,
-      "receivingTDs": 6
+      "games": 14,
+      "carries": 199,
+      "rushingYards": 1372,
+      "rushingTDs": 18,
+      "receptions": 27,
+      "receivingYards": 280,
+      "receivingTDs": 3
     },
     "combineMeasurables": {
       "fortyYard": 4.36,
-      "benchPress": null,
       "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
+      "broadJump": null
     },
     "strengths": [
-      "Elite sprinter speed (10.54 100m)",
-      "Vision and contact balance",
-      "Three-down pass-catching ability"
+      "Elite breakaway speed",
+      "Receiving upside out of the backfield",
+      "Doak Walker winner, unanimous AA"
     ],
     "risks": [
-      "RB positional value debate",
-      "Durability at 214 lbs"
+      "RB positional value at top of draft",
+      "Workload from ND offense"
     ],
-    "comparisonPlayer": "Saquon Barkley",
-    "summary": "Consensus RB1 with sprinter speed, elite vision, and three-down ability. Rushed for 1,372 yards and 18 TDs in 2025 at Notre Dame.",
+    "comparisonPlayer": "Bijan Robinson with more long speed",
+    "summary": "Dynamic three-down back who broke Notre Dame's single-season TD record (21). Blue-chip talent \u2014 the rare RB worth a top-10 pick.",
     "topFitTeams": [
       "NO",
       "SEA",
-      "ATL",
       "LAR",
+      "CIN",
       "DAL"
     ],
-    "fitReason": "Teams with RB as a top need or who value a dynamic three-down weapon in their offensive scheme."
+    "fitReason": "Run-game-dependent offenses with aging or departing backs. NO and SEA both have RB listed as a top need."
   },
   {
     "id": "sonny-styles",
@@ -100,46 +89,38 @@
     "position": "LB",
     "school": "Ohio State",
     "projectedRound": 1,
-    "projectedPick": "3-10",
-    "height": "6'5\"",
-    "weight": 244,
+    "projectedPick": "5-9",
+    "height": "6'4\"",
+    "weight": 232,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 14,
-      "tackles": 77,
-      "tacklesForLoss": 7,
-      "sacks": 1,
-      "interceptions": 1,
-      "passesDefensed": 3,
-      "forcedFumbles": 1
+      "tackles": 95,
+      "sacks": 6.5,
+      "tacklesForLoss": 12,
+      "interceptions": 2,
+      "passDefensed": 5
     },
-    "combineMeasurables": {
-      "fortyYard": 4.46,
-      "benchPress": null,
-      "verticalJump": 43.5,
-      "broadJump": 134,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Freakish athleticism at 6'5\" 244",
-      "Former safety with elite range",
-      "Explosive combine performance"
+      "Elite coverage range for LB",
+      "Safety-to-LB convert with elite size/speed",
+      "Sideline-to-sideline playmaker"
     ],
     "risks": [
-      "Still developing as a pure linebacker",
-      "Run defense consistency"
+      "Still learning LB instincts vs run",
+      "Positional tweener"
     ],
-    "comparisonPlayer": "Kyle Hamilton",
-    "summary": "Former safety turned linebacker with generational size-speed combination. 43.5-inch vertical and 4.46 speed at 244 pounds make him a scheme-versatile defensive weapon.",
+    "comparisonPlayer": "Isaiah Simmons with better processing",
+    "summary": "Hybrid LB/S with rare athletic profile. Modern NFL defenses will covet his ability to cover TEs and blitz.",
     "topFitTeams": [
+      "DAL",
       "PHI",
-      "LAC",
-      "CHI",
-      "CIN",
-      "WAS"
+      "GB",
+      "WAS",
+      "LAC"
     ],
-    "fitReason": "Teams needing a versatile LB who can cover, blitz, and spy mobile QBs with elite athleticism."
+    "fitReason": "Teams that play sub packages heavily and value coverage linebackers. PHI and LAC both list LB as a top-2 need."
   },
   {
     "id": "david-bailey",
@@ -147,93 +128,75 @@
     "position": "EDGE",
     "school": "Texas Tech",
     "projectedRound": 1,
-    "projectedPick": "3-10",
-    "height": "6'4\"",
-    "weight": 251,
+    "projectedPick": "2-3",
+    "height": "6'3\"",
+    "weight": 257,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": 76,
-      "tacklesForLoss": 23,
-      "sacks": 14.5,
-      "pressures": 71,
-      "forcedFumbles": 3,
-      "passesDefensed": 4
+      "games": 13,
+      "tackles": 55,
+      "sacks": 13,
+      "tacklesForLoss": 20,
+      "forcedFumbles": 3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Elite pass-rush production (14.5 sacks)",
-      "Versatile hand usage",
-      "High-motor relentless effort"
+      "Explosive first step",
+      "High motor + production",
+      "Bend around the edge"
     ],
     "risks": [
-      "Competition level at Texas Tech",
-      "Needs to add mass for NFL edge"
+      "Average length",
+      "Run defense inconsistent"
     ],
-    "comparisonPlayer": "Myles Garrett-lite",
-    "summary": "Dominant pass rusher with 14.5 sacks and 23 TFLs in 2025. Combines power, speed, and relentless motor to terrorize offensive tackles.",
+    "comparisonPlayer": "Haason Reddick",
+    "summary": "Ultra-productive speed rusher who transferred from Stanford and dominated the Big 12. Day-one rotational pass-rusher with Pro Bowl upside.",
     "topFitTeams": [
+      "CLE",
+      "NYG",
       "CHI",
-      "MIN",
       "TB",
-      "SF",
       "DET"
     ],
-    "fitReason": "Teams with EDGE as a top draft need who want an immediate impact pass rusher."
+    "fitReason": "Teams that need a bendy, twitchy EDGE to pair with a power rusher. CLE and NYG both list EDGE as a top-3 need."
   },
   {
     "id": "arvell-reese",
     "name": "Arvell Reese",
-    "position": "LB",
+    "position": "EDGE",
     "school": "Ohio State",
     "projectedRound": 1,
-    "projectedPick": "3-12",
+    "projectedPick": "2-5",
     "height": "6'4\"",
-    "weight": 243,
+    "weight": 252,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 14,
-      "tackles": 56,
-      "tacklesForLoss": 10,
-      "sacks": 8,
-      "stops": 31,
-      "interceptions": null,
-      "passesDefensed": null
+      "tackles": 48,
+      "sacks": 9.5,
+      "tacklesForLoss": 15,
+      "forcedFumbles": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Hybrid LB/EDGE versatility",
-      "Closing burst and sideline-to-sideline range",
-      "Film study and play recognition"
+      "Elite fluidity and bend",
+      "Length + speed combo",
+      "Scheme-versatile (can play standup LB)"
     ],
     "risks": [
-      "Part-time edge role \u2014 limited snaps",
-      "Positional ambiguity at next level"
+      "Still developing pass-rush plan",
+      "Needs to add functional strength"
     ],
-    "comparisonPlayer": "Micah Parsons",
-    "summary": "Versatile hybrid defender with linebacker instincts and edge-rusher closing speed. Micah Parsons comp due to his ability to play multiple positions at an elite level.",
+    "comparisonPlayer": "Will Anderson Jr.",
+    "summary": "High-upside edge with rare athleticism. OSU pass-rush pedigree and ideal frame \u2014 will win off length and bend at the next level.",
     "topFitTeams": [
-      "PHI",
       "CHI",
-      "LAC",
-      "WAS",
-      "GB"
+      "DET",
+      "TB",
+      "GB",
+      "MIN"
     ],
-    "fitReason": "Teams that deploy versatile defensive pieces and need a chess piece who can rush the passer and drop into coverage."
+    "fitReason": "Teams with a power-rusher already in place who need a speed-bend complement. CHI and DET both need EDGE high."
   },
   {
     "id": "carnell-tate",
@@ -241,135 +204,75 @@
     "position": "WR",
     "school": "Ohio State",
     "projectedRound": 1,
-    "projectedPick": "6-15",
-    "height": "6'2\"",
+    "projectedPick": "6-10",
+    "height": "6'3\"",
     "weight": 195,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 11,
-      "receptions": 51,
-      "receivingYards": 875,
-      "receivingTDs": 9,
-      "yardsPerCatch": 17.2
+      "games": 14,
+      "receptions": 82,
+      "receivingYards": 1205,
+      "receivingTDs": 11,
+      "yardsPerCatch": 14.7
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Precise route running",
-      "Outstanding body control and hands",
-      "Big-play ability (17.2 YPC)"
+      "Technical route-runner",
+      "Contested-catch specialist",
+      "Ball-tracker downfield"
     ],
     "risks": [
-      "Overshadowed by Jeremiah Smith at Ohio State",
-      "Limited sample size (11 games)"
+      "Average separation speed",
+      "Limited YAC profile"
     ],
-    "comparisonPlayer": "Chris Olave",
-    "summary": "Smooth route runner with great hands and body control who averaged 17.2 yards per catch at Ohio State. Produced big plays consistently despite sharing targets.",
+    "comparisonPlayer": "Drake London",
+    "summary": "Expected first WR off the board. Refined X-receiver who wins with size, hands, and footwork. Plug-and-play WR1 at the next level.",
     "topFitTeams": [
-      "BAL",
-      "HOU",
+      "CLE",
+      "LV",
+      "TEN",
       "NE",
-      "IND",
-      "DEN"
+      "BAL"
     ],
-    "fitReason": "Teams needing a polished WR1 who can win at all three levels of the field and produce immediately."
+    "fitReason": "Teams pairing a young QB with a legit X-receiver. CLE, LV, and TEN all list WR as a top-3 need."
   },
   {
-    "id": "rueben-bain",
+    "id": "rueben-bain-jr",
     "name": "Rueben Bain Jr.",
     "position": "EDGE",
     "school": "Miami",
     "projectedRound": 1,
-    "projectedPick": "5-15",
-    "height": "6'2\"",
-    "weight": 250,
+    "projectedPick": "7-12",
+    "height": "6'3\"",
+    "weight": 275,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "passRushWinRate": 23.5
+      "games": 13,
+      "tackles": 47,
+      "sacks": 8.5,
+      "tacklesForLoss": 13,
+      "forcedFumbles": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Elite pass-rush win rate (23.5%)",
-      "Versatility to kick inside",
-      "Explosive first step"
+      "Violent hands",
+      "Run-defense anchor",
+      "Power + length combo"
     ],
     "risks": [
-      "Undersized for every-down EDGE at 250 lbs",
-      "Run defense questions"
+      "Average top-end speed",
+      "Some tweener traits"
     ],
-    "comparisonPlayer": "Haason Reddick",
-    "summary": "Dynamic pass rusher with an elite 23.5% pass-rush win rate. Versatile enough to rush from the edge and kick inside on passing downs.",
+    "comparisonPlayer": "Brian Burns with more power",
+    "summary": "Junkyard-dog pass rusher with a pro-ready body and motor. Will contribute immediately against both run and pass.",
     "topFitTeams": [
       "CHI",
-      "MIN",
-      "DET",
       "TB",
-      "KC"
+      "NO",
+      "DET",
+      "SF"
     ],
-    "fitReason": "Teams that need an immediate pass-rush upgrade and value scheme versatility on the defensive line."
-  },
-  {
-    "id": "caleb-downs",
-    "name": "Caleb Downs",
-    "position": "S",
-    "school": "Ohio State",
-    "projectedRound": 1,
-    "projectedPick": "5-15",
-    "height": "6'0\"",
-    "weight": 200,
-    "collegeStats": {
-      "statsSeason": "career",
-      "games": 28,
-      "tackles": 107,
-      "tacklesForLoss": 3.5,
-      "interceptions": 2,
-      "passesDefensed": 3,
-      "forcedFumbles": 1
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Elite pre-snap instincts and diagnosis",
-      "Reliable open-field tackler",
-      "Versatile coverage ability"
-    ],
-    "risks": [
-      "Average straight-line speed for position",
-      "Limited interception production"
-    ],
-    "comparisonPlayer": "Derwin James",
-    "summary": "Instinctive safety who plays faster than his timed speed thanks to elite football IQ. Freshman sensation at Alabama who transferred to Ohio State and continued dominating.",
-    "topFitTeams": [
-      "DAL",
-      "ATL",
-      "PHI",
-      "WAS",
-      "NYJ"
-    ],
-    "fitReason": "Teams needing a safety who can be the quarterback of the secondary and impact both run and pass defense."
+    "fitReason": "3-4 and hybrid fronts that want a strong-side EDGE who can set the edge and rush. TB lists EDGE as a top-2 need."
   },
   {
     "id": "mansoor-delane",
@@ -377,45 +280,81 @@
     "position": "CB",
     "school": "LSU",
     "projectedRound": 1,
-    "projectedPick": "8-18",
-    "height": "6'1\"",
+    "projectedPick": "10-16",
+    "height": "6'0\"",
     "weight": 190,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null,
-      "completionPctAllowed": 40.0,
-      "pffCoverageGrade": 90.7
+      "tackles": 51,
+      "interceptions": 4,
+      "passDefensed": 14,
+      "forcedFumbles": 1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Fluid hips in man coverage",
+      "90.7 PFF coverage grade in 2025",
+      "Ball skills"
+    ],
+    "risks": [
+      "Average physicality in run support",
+      "Frame maxed out"
+    ],
+    "comparisonPlayer": "Christian Gonzalez",
+    "summary": "Top cornerback in the class all cycle. Shutdown man-coverage corner who will slot in as a CB1 immediately.",
+    "topFitTeams": [
+      "JAX",
+      "NYG",
+      "CAR",
+      "KC",
+      "DEN"
+    ],
+    "fitReason": "Man-heavy defenses that need a true CB1. JAX, KC, and DEN all list CB as a top-2 need."
+  },
+  {
+    "id": "caleb-downs",
+    "name": "Caleb Downs",
+    "position": "S",
+    "school": "Ohio State",
+    "projectedRound": 1,
+    "projectedPick": "4-7",
+    "height": "6'0\"",
+    "weight": 205,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 14,
+      "tackles": 68,
+      "sacks": 1,
+      "tacklesForLoss": 5,
+      "interceptions": 2,
+      "passDefensed": 2,
+      "forcedFumbles": 2
     },
     "combineMeasurables": {
       "fortyYard": null,
-      "benchPress": null,
       "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
+      "note": "Did not run 40 at combine"
     },
     "strengths": [
-      "Elite coverage grade (90.7 PFF)",
-      "Only 40% completion rate allowed",
-      "Ideal size at 6'1\""
+      "Elite instincts and processing",
+      "Best defensive back in CFB",
+      "Big Ten DPOY 2025"
     ],
     "risks": [
-      "Limited playmaking production (INTs, PDs)",
-      "One-year starter"
+      "Did not run 40 at combine",
+      "Safety positional value"
     ],
-    "comparisonPlayer": "Sauce Gardner",
-    "summary": "Lockdown corner with an elite 90.7 PFF coverage grade who allowed completions on just 40% of targets. Combines ideal size with shutdown ability.",
+    "comparisonPlayer": "Minkah Fitzpatrick",
+    "summary": "Generational safety prospect. Plug-and-play single-high and box defender from Day 1, with rare processing speed.",
     "topFitTeams": [
-      "CHI",
-      "KC",
+      "WAS",
+      "ATL",
       "DAL",
-      "CLE",
-      "JAX"
+      "PHI",
+      "LAC"
     ],
-    "fitReason": "Teams with CB as a top need who want a true lockdown corner to anchor the secondary."
+    "fitReason": "Two-high defenses that want a rangy center-fielder who can also play in the box. WAS and LAC both list S as a top-4 need."
   },
   {
     "id": "francis-mauigoa",
@@ -423,87 +362,34 @@
     "position": "OT",
     "school": "Miami",
     "projectedRound": 1,
-    "projectedPick": "7-15",
+    "projectedPick": "9-14",
     "height": "6'6\"",
-    "weight": 329,
+    "weight": 320,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "gamesStarted": 14,
-      "position": "RT"
+      "gamesStarted": 13,
+      "sacksAllowed": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Dominant run blocker",
-      "All-Pro right tackle potential",
-      "Massive frame with good feet"
+      "Anchor in pass pro",
+      "Powerful drive blocker",
+      "3-year starter at RT"
     ],
     "risks": [
-      "May be limited to right tackle",
-      "Pass protection refinement needed"
+      "Heavy-footed vs speed rushers",
+      "Projects as RT only"
     ],
-    "comparisonPlayer": "Penei Sewell",
-    "summary": "Massive and powerful right tackle prospect who projects as an immediate starter with All-Pro upside. Dominant in the run game with the potential to play left tackle eventually.",
+    "comparisonPlayer": "Lane Johnson",
+    "summary": "Mauled SEC defenders as Miami's RT. Plug-and-play right tackle with All-Pro ceiling.",
     "topFitTeams": [
       "JAX",
-      "CAR",
       "NYJ",
-      "PIT",
-      "BUF"
+      "MIN",
+      "MIA",
+      "NYG"
     ],
-    "fitReason": "Teams with OL as a top need who want a day-one starter at tackle to anchor the offensive line."
-  },
-  {
-    "id": "makai-lemon",
-    "name": "Makai Lemon",
-    "position": "WR",
-    "school": "USC",
-    "projectedRound": 1,
-    "projectedPick": "10-20",
-    "height": "5'11\"",
-    "weight": 192,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "receptions": 79,
-      "receivingYards": 1156,
-      "receivingTDs": 11,
-      "yardsPerCatch": 14.6
-    },
-    "combineMeasurables": {
-      "fortyYard": 4.52,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Biletnikoff Award finalist production",
-      "Reliable hands and route precision",
-      "Big Ten leader in receptions"
-    ],
-    "risks": [
-      "Undersized at 5'11\" 192",
-      "Average long speed (4.52 40)"
-    ],
-    "comparisonPlayer": "Keenan Allen",
-    "summary": "Biletnikoff Award finalist who led the Big Ten with 79 receptions for 1,156 yards and 11 TDs. Reliable slot/outside weapon with elite route running.",
-    "topFitTeams": [
-      "BAL",
-      "NE",
-      "GB",
-      "IND",
-      "DEN"
-    ],
-    "fitReason": "Teams needing a high-volume pass catcher who can win from the slot and outside with route craft rather than pure speed."
+    "fitReason": "Teams with an established LT who need a dominant RT. JAX, NYJ, and MIN all list OL as their top need."
   },
   {
     "id": "olaivavega-ioane",
@@ -511,42 +397,107 @@
     "position": "IOL",
     "school": "Penn State",
     "projectedRound": 1,
-    "projectedPick": "10-22",
+    "projectedPick": "20-30",
     "height": "6'4\"",
-    "weight": 320,
+    "weight": 330,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "gamesStarted": 14,
-      "position": "OG"
+      "gamesStarted": 13,
+      "sacksAllowed": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Most pro-ready interior lineman in class",
-      "Wide base and powerful drive blocking",
-      "Excellent initial quickness"
+      "Dominant drive blocker",
+      "Elite functional strength",
+      "Plug-and-play LG"
     ],
     "risks": [
-      "Limited to guard \u2014 may not have tackle versatility",
-      "Not an elite athlete"
+      "Limited positional versatility",
+      "Guard-only ceiling"
     ],
-    "comparisonPlayer": "Quenton Nelson",
-    "summary": "The most NFL-ready interior lineman in the draft. Wide base, strong legs, and excellent drive blocking make him a plug-and-play starter at guard.",
+    "comparisonPlayer": "Quenton Nelson-lite",
+    "summary": "Best interior OL in the class. Will start Day 1 at left guard and be a 10-year starter.",
     "topFitTeams": [
-      "MIN",
       "JAX",
-      "BUF",
       "NYJ",
-      "CAR"
+      "CHI",
+      "PIT",
+      "MIA"
     ],
-    "fitReason": "Teams with OL as a top need who want an immediate starter at guard to solidify the interior."
+    "fitReason": "Teams with interior OL holes. NYJ and JAX list OL as their top need; CHI and MIA both need help inside."
+  },
+  {
+    "id": "makai-lemon",
+    "name": "Makai Lemon",
+    "position": "WR",
+    "school": "USC",
+    "projectedRound": 1,
+    "projectedPick": "12-20",
+    "height": "5'11\"",
+    "weight": 205,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "receptions": 88,
+      "receivingYards": 1180,
+      "receivingTDs": 10,
+      "yardsPerCatch": 13.4
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "YAC monster",
+      "Elite competitive toughness",
+      "Slot/outside versatility"
+    ],
+    "risks": [
+      "Size concerns for X alignment",
+      "Separation against press"
+    ],
+    "comparisonPlayer": "Deebo Samuel",
+    "summary": "RB-built wideout who breaks tackles and creates after the catch. Gadget-plus upside as a primary slot.",
+    "topFitTeams": [
+      "BAL",
+      "GB",
+      "HOU",
+      "MIN",
+      "NE"
+    ],
+    "fitReason": "Offenses needing a YAC slot to pair with an X. BAL and GB list WR as top-2 needs."
+  },
+  {
+    "id": "spencer-fano",
+    "name": "Spencer Fano",
+    "position": "IOL",
+    "school": "Utah",
+    "projectedRound": 1,
+    "projectedPick": "13-22",
+    "height": "6'5\"",
+    "weight": 315,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "gamesStarted": 13,
+      "sacksAllowed": 2
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Five-position versatility (C/G/T)",
+      "Elite athlete for interior",
+      "Scheme-diverse"
+    ],
+    "risks": [
+      "Best fit may be guard despite T experience",
+      "Length short for tackle"
+    ],
+    "comparisonPlayer": "Creed Humphrey",
+    "summary": "Swiss-army-knife OL who could start at any of five spots. Probably best at G or C in the pros.",
+    "topFitTeams": [
+      "CIN",
+      "DAL",
+      "JAX",
+      "PIT",
+      "NYJ"
+    ],
+    "fitReason": "Teams valuing interior versatility. DAL lists OL as top need; CIN's interior was the problem in 2025."
   },
   {
     "id": "kenyon-sadiq",
@@ -554,86 +505,83 @@
     "position": "TE",
     "school": "Oregon",
     "projectedRound": 1,
-    "projectedPick": "10-20",
+    "projectedPick": "14-24",
     "height": "6'3\"",
-    "weight": 241,
+    "weight": 245,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "games": 13,
+      "receptions": 58,
+      "receivingYards": 720,
+      "receivingTDs": 7
     },
     "combineMeasurables": {
       "fortyYard": 4.39,
-      "benchPress": null,
       "verticalJump": 43.5,
       "broadJump": 133,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
+      "note": "9.52 RAS (95th percentile)"
     },
     "strengths": [
-      "Historic combine athleticism (4.39 40, 43.5\" vert)",
-      "Above-average blocker for size",
-      "Explosive after the catch"
+      "Elite combine testing (4.39 forty)",
+      "Move-TE flex upside",
+      "Mismatch vs LBs and Ss"
     ],
     "risks": [
-      "Limited target share at Oregon",
-      "Raw route tree"
+      "Below-ideal size for in-line",
+      "Blocking still developing"
     ],
-    "comparisonPlayer": "Kyle Pitts",
-    "summary": "Athletic freak who ran the fastest 40 by a tight end in combine history (4.39) with a 43.5-inch vertical. Limited college production but elite physical tools project massive NFL upside.",
+    "comparisonPlayer": "Evan Engram with better YAC",
+    "summary": "Best combine of any TE in the class. Will be a weekly mismatch as a move-Y or big-slot in a creative offense.",
     "topFitTeams": [
-      "BAL",
       "GB",
       "NE",
-      "CIN",
-      "IND"
+      "LAC",
+      "HOU",
+      "NO"
     ],
-    "fitReason": "Teams that can develop a raw but physically dominant TE into a matchup nightmare in their passing game."
+    "fitReason": "Offenses that flex their TE out wide. Pairs well with mobile QBs and vertical passing games."
   },
   {
-    "id": "spencer-fano",
-    "name": "Spencer Fano",
-    "position": "OT",
-    "school": "Utah",
-    "projectedRound": 1,
-    "projectedPick": "12-22",
-    "height": "6'6\"",
-    "weight": 311,
+    "id": "eli-stowers",
+    "name": "Eli Stowers",
+    "position": "TE",
+    "school": "Vanderbilt",
+    "projectedRound": 2,
+    "projectedPick": "45-75",
+    "height": "6'4\"",
+    "weight": 235,
+    "statsSeason": "Career (2021-25)",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "gamesStarted": 13,
-      "position": "OT"
+      "games": 45,
+      "receptions": 146,
+      "receivingYards": 1773,
+      "receivingTDs": 11
     },
     "combineMeasurables": {
-      "fortyYard": 4.91,
-      "benchPress": null,
-      "verticalJump": null,
+      "fortyYard": 4.55,
+      "verticalJump": 45.5,
       "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
+      "note": "45.5-inch vertical \u2014 elite athletic profile for TE"
     },
     "strengths": [
-      "Technically sound with good punch",
-      "Athletic for size (4.91 40)",
-      "Versatile \u2014 can play tackle or guard"
+      "2025 Mackey Award winner (best TE)",
+      "Natural hands + elite body control",
+      "Former QB \u2014 elite processing/awareness"
     ],
     "risks": [
-      "Short arms (32 1/8 inches) may force move inside",
-      "May not be a true left tackle"
+      "Minimal in-line blocking ability",
+      "Projects as big slot/move-TE only"
     ],
-    "comparisonPlayer": "Chris Lindstrom",
-    "summary": "Technically polished offensive lineman who ran a 4.91 40 at 311 pounds. Arm length concerns may push him inside, but his technique and athleticism make him a safe first-round pick.",
+    "comparisonPlayer": "Kyle Pitts-lite (receiving-focused)",
+    "summary": "Converted QB with the best receiving-TE r\u00e9sum\u00e9 in the class. Won 2025 Mackey Award. Offensive coordinators will scheme him like a big WR.",
     "topFitTeams": [
-      "JAX",
-      "PIT",
-      "CAR",
-      "NYJ",
-      "TB"
+      "GB",
+      "NE",
+      "LAC",
+      "HOU",
+      "NO"
     ],
-    "fitReason": "Teams needing OL help who value a technically sound, versatile lineman who can start day one at tackle or guard."
+    "fitReason": "Pass-first offenses wanting a weaponized move-TE. GB and LAC both could use a receiving TE behind their current starter."
   },
   {
     "id": "jermod-mccoy",
@@ -641,43 +589,37 @@
     "position": "CB",
     "school": "Tennessee",
     "projectedRound": 1,
-    "projectedPick": "10-20",
-    "height": "6'1\"",
-    "weight": 195,
+    "projectedPick": "22-32",
+    "height": "6'0\"",
+    "weight": 193,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2024 (missed 2025 \u2014 ACL)",
       "games": 12,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null
+      "tackles": 43,
+      "interceptions": 3,
+      "passDefensed": 12,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "High ceiling athletic tools",
-      "Ideal size for outside corner",
-      "Pre-injury considered CB1"
+      "Press-man technician",
+      "Ball skills at the catch point",
+      "SEC-tested"
     ],
     "risks": [
-      "Missed entire 2025 season with ACL tear",
-      "High-ceiling but high-floor variance"
+      "Coming off ACL late in 2024",
+      "Speed traits average"
     ],
-    "comparisonPlayer": "Marshon Lattimore",
-    "summary": "Was considered the top corner prospect before tearing his ACL in January 2025. High-ceiling talent with ideal size and athleticism if the knee checks out medically.",
+    "comparisonPlayer": "Jaire Alexander",
+    "summary": "Physical press corner who wins at the line. If medicals check out, a top-20 pick.",
     "topFitTeams": [
-      "DAL",
-      "CHI",
-      "KC",
       "DEN",
-      "GB"
+      "KC",
+      "CAR",
+      "JAX",
+      "MIN"
     ],
-    "fitReason": "Teams willing to bet on elite CB talent at a potential discount due to ACL recovery timeline."
+    "fitReason": "Press-man defenses needing a boundary corner. DEN and KC list CB as a top-2 need."
   },
   {
     "id": "emmanuel-mcneil-warren",
@@ -685,43 +627,37 @@
     "position": "S",
     "school": "Toledo",
     "projectedRound": 1,
-    "projectedPick": "12-25",
-    "height": "6'0\"",
-    "weight": 200,
+    "projectedPick": "18-28",
+    "height": "6'3\"",
+    "weight": 210,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null
+      "tackles": 82,
+      "interceptions": 6,
+      "passDefensed": 9,
+      "forcedFumbles": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Small-school riser with elite tools",
-      "Range and ball skills",
-      "Ascending prospect"
+      "Rare height for the position",
+      "Ball production",
+      "MAC Defensive POY"
     ],
     "risks": [
-      "Small-school competition level",
-      "Needs to prove against NFL-caliber athletes"
+      "Level of competition",
+      "Tight hips at his height"
     ],
-    "comparisonPlayer": "Jessie Bates",
-    "summary": "Small-school safety who has risen up draft boards with elite athleticism and instinctive play. A top-5 safety prospect in the class.",
+    "comparisonPlayer": "Kyle Hamilton (long and rangy)",
+    "summary": "6'3\" center-fielder with elite production. Will go higher than typical Group-of-5 safeties due to length.",
     "topFitTeams": [
-      "DAL",
-      "ATL",
       "WAS",
+      "ATL",
+      "DAL",
       "PHI",
       "CAR"
     ],
-    "fitReason": "Teams needing a safety who can range deep and make plays on the ball with versatile coverage skills."
+    "fitReason": "Two-high defenses that like long rangy safeties. WAS lists S as a top-4 need."
   },
   {
     "id": "dillon-thieneman",
@@ -729,43 +665,37 @@
     "position": "S",
     "school": "Oregon",
     "projectedRound": 1,
-    "projectedPick": "15-28",
+    "projectedPick": "17-26",
     "height": "6'0\"",
-    "weight": 201,
+    "weight": 207,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null
+      "games": 13,
+      "tackles": 89,
+      "interceptions": 4,
+      "passDefensed": 8,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": 4.35,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Blazing 4.35 speed",
-      "Ball-hawking playmaker",
-      "Smart processor"
+      "Elite closing speed",
+      "3-year starter production",
+      "Versatile box/deep"
     ],
     "risks": [
-      "Slight frame at 201 lbs",
-      "Can be challenged in run support"
+      "Lacks elite recovery burst",
+      "Average physicality in box"
     ],
-    "comparisonPlayer": "Minkah Fitzpatrick",
-    "summary": "Rangy safety with elite 4.35 speed who has risen to first-round territory after a dominant combine. Smart, instinctive player with ball-hawking ability.",
+    "comparisonPlayer": "Jessie Bates III",
+    "summary": "Three-year starter who produced at Purdue and Oregon. Rangy, instinctive, ready to start.",
     "topFitTeams": [
-      "DAL",
-      "ATL",
-      "PHI",
       "WAS",
-      "BUF"
+      "ATL",
+      "DAL",
+      "PHI",
+      "LAC"
     ],
-    "fitReason": "Teams needing a deep safety with range and playmaking ability to anchor the back end of the defense."
+    "fitReason": "Teams needing a rangy FS. WAS and LAC both have S in their top-4 needs."
   },
   {
     "id": "omar-cooper-jr",
@@ -773,43 +703,37 @@
     "position": "WR",
     "school": "Indiana",
     "projectedRound": 1,
-    "projectedPick": "15-28",
-    "height": "6'0\"",
-    "weight": 199,
+    "projectedPick": "15-24",
+    "height": "6'2\"",
+    "weight": 210,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 16,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "games": 14,
+      "receptions": 71,
+      "receivingYards": 1090,
+      "receivingTDs": 11,
+      "yardsPerCatch": 15.4
     },
-    "combineMeasurables": {
-      "fortyYard": 4.42,
-      "benchPress": null,
-      "verticalJump": 37,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Second-team All-American production",
-      "4.42 speed with good vertical",
-      "Mendoza's top target at Indiana"
+      "Contested-catch machine",
+      "Red zone threat",
+      "Hands-catcher"
     ],
     "risks": [
-      "One standout season at Indiana",
-      "Competition level concerns"
+      "Average separation quickness",
+      "Tied to Mendoza's excellence"
     ],
-    "comparisonPlayer": "Terry McLaurin",
-    "summary": "Mendoza's top target who earned second-team All-American honors. Impressive combine (4.42 40, 37\" vert) has solidified his first-round stock.",
+    "comparisonPlayer": "Mike Williams",
+    "summary": "Reliable possession X with red-zone juice. Benefited from Mendoza but has real traits.",
     "topFitTeams": [
-      "HOU",
-      "NE",
-      "IND",
+      "BAL",
       "GB",
-      "CLE"
+      "HOU",
+      "MIN",
+      "LAC"
     ],
-    "fitReason": "Teams needing a speedy, productive WR who proved he can produce at a high level in a title-winning offense."
+    "fitReason": "Offenses wanting a big-body red-zone target. BAL and GB list WR as a top-2 need."
   },
   {
     "id": "blake-miller",
@@ -817,85 +741,69 @@
     "position": "OT",
     "school": "Clemson",
     "projectedRound": 1,
-    "projectedPick": "15-28",
-    "height": "6'6\"",
+    "projectedPick": "21-32",
+    "height": "6'7\"",
     "weight": 315,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
       "gamesStarted": 14,
-      "position": "OT"
+      "sacksAllowed": 3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Most pro-ready OT in the class",
-      "Consistent pass protector",
-      "Ideal size and length"
+      "Ideal RT frame and length",
+      "4-year starter",
+      "Pass-pro anchor"
     ],
     "risks": [
-      "Not the most athletic tackle",
-      "Ceiling may be limited to solid starter"
+      "Foot speed against elite speed rush",
+      "Projects to RT only"
     ],
-    "comparisonPlayer": "Taylor Moton",
-    "summary": "The most pro-ready offensive tackle after Fano and Mauigoa. Consistent, technically sound pass protector who projects as a safe day-one starter.",
+    "comparisonPlayer": "Ryan Ramczyk",
+    "summary": "Quietly one of the most consistent tackles in CFB. Plug-and-play RT for a decade.",
     "topFitTeams": [
       "JAX",
-      "PIT",
       "NYJ",
-      "TB",
-      "MIN"
+      "MIN",
+      "DAL",
+      "PIT"
     ],
-    "fitReason": "Teams that want a plug-and-play tackle who won't lose them games and provides a stable foundation."
+    "fitReason": "Teams with RT needs. JAX, NYJ, MIN all list OL as top need."
   },
   {
-    "id": "monroe-feeling",
-    "name": "Monroe Feeling",
+    "id": "monroe-freeling",
+    "name": "Monroe Freeling",
     "position": "OT",
     "school": "Georgia",
     "projectedRound": 1,
-    "projectedPick": "18-32",
-    "height": "6'5\"",
+    "projectedPick": "16-26",
+    "height": "6'7\"",
     "weight": 310,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "gamesStarted": 14,
-      "position": "OT"
+      "gamesStarted": 13,
+      "sacksAllowed": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Georgia-developed OL pedigree",
-      "Good feet and athleticism",
-      "Balanced pass and run blocker"
+      "LT-caliber feet",
+      "SEC-tested",
+      "Scheme-versatile"
     ],
     "risks": [
-      "May lack ideal length",
-      "Not as powerful as Mauigoa"
+      "Needs to add play strength",
+      "Hand usage inconsistent"
     ],
-    "comparisonPlayer": "Andrew Thomas",
-    "summary": "Georgia-developed offensive tackle with good feet and balance. Benefits from the Bulldogs' elite offensive line tradition and coaching.",
+    "comparisonPlayer": "Joe Alt",
+    "summary": "Best LT prospect in the class. Pro-ready pass protector with upside as a run blocker.",
     "topFitTeams": [
-      "CIN",
-      "CAR",
-      "LV",
-      "BUF",
-      "SF"
+      "JAX",
+      "NYJ",
+      "MIN",
+      "NYG",
+      "PIT"
     ],
-    "fitReason": "Teams needing OL help in the late first round who value Georgia's proven OL development pipeline."
+    "fitReason": "Teams needing an actual LT. JAX and NYJ's OL remain their top needs."
   },
   {
     "id": "jordyn-tyson",
@@ -903,89 +811,37 @@
     "position": "WR",
     "school": "Arizona State",
     "projectedRound": 1,
-    "projectedPick": "15-28",
-    "height": "6'2\"",
-    "weight": 203,
+    "projectedPick": "8-14",
+    "height": "6'1\"",
+    "weight": 197,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "receptions": 96,
+      "receivingYards": 1450,
+      "receivingTDs": 13,
+      "yardsPerCatch": 15.1
     },
-    "combineMeasurables": {
-      "fortyYard": 4.42,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Essentially uncoverable in the red zone",
-      "Open even when blanketed",
-      "Good size-speed combo at 6'2\" 4.42"
+      "Explosive release + route running",
+      "Deep-ball tracker",
+      "Elite 2025 production"
     ],
     "risks": [
-      "Smaller-school program pedigree",
-      "Contested catch consistency"
+      "Injury history",
+      "Tested traits unconfirmed"
     ],
-    "comparisonPlayer": "Mike Evans-lite",
-    "summary": "Dominant red-zone threat with the rare ability to win contested catches even when fully blanketed. Ideal size-speed combination for an X receiver.",
+    "comparisonPlayer": "Chris Olave with more physicality",
+    "summary": "Explosive, smooth route-runner. Could go as high as top-10 to a WR-needy team like KC.",
     "topFitTeams": [
+      "KC",
       "BAL",
-      "NE",
-      "CLE",
-      "HOU",
-      "LV"
+      "GB",
+      "LV",
+      "IND"
     ],
-    "fitReason": "Teams needing a big-bodied WR who can win in contested situations and dominate the red zone."
-  },
-  {
-    "id": "akheem-mesidor",
-    "name": "Akheem Mesidor",
-    "position": "EDGE",
-    "school": "Miami",
-    "projectedRound": 1,
-    "projectedPick": "15-30",
-    "height": "6'3\"",
-    "weight": 265,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": 56,
-      "tacklesForLoss": 15.5,
-      "sacks": 10.5,
-      "forcedFumbles": 4,
-      "passesDefensed": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Quickness and athleticism off the edge",
-      "Excellent hand usage",
-      "Double-digit sack production"
-    ],
-    "risks": [
-      "Run defense needs improvement",
-      "Consistency game-to-game"
-    ],
-    "comparisonPlayer": "Harold Landry",
-    "summary": "Quick and athletic pass rusher with 10.5 sacks and 4 forced fumbles in 2025. Uses hand technique and burst to consistently beat offensive tackles.",
-    "topFitTeams": [
-      "CHI",
-      "MIN",
-      "SF",
-      "DET",
-      "GB"
-    ],
-    "fitReason": "Teams needing an EDGE rusher with proven college production and the quickness to generate pressure."
+    "fitReason": "KC has been projected to take him at 9 in multiple mocks; WR-needy contenders all fit."
   },
   {
     "id": "kadyn-proctor",
@@ -993,174 +849,72 @@
     "position": "OT",
     "school": "Alabama",
     "projectedRound": 1,
-    "projectedPick": "18-32",
-    "height": "6'7\"",
-    "weight": 352,
+    "projectedPick": "11-18",
+    "height": "6'8\"",
+    "weight": 360,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
       "gamesStarted": 13,
-      "position": "OT"
+      "sacksAllowed": 3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "tenYardSplit": 1.84,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Massive frame at 6'7\" 352",
-      "Mauler in the run game",
-      "Left tackle experience"
+      "Rare size + feet combo",
+      "Highest upside OT in class",
+      "Powerful drive blocker"
     ],
     "risks": [
-      "Heavy and may struggle with speed rushers",
-      "Conditioning concerns at 352 lbs"
+      "Weight management",
+      "Inconsistent leverage"
     ],
-    "comparisonPlayer": "Orlando Brown Jr.",
-    "summary": "Massive left tackle prospect at 6'7\" 352 who dominates in the run game. Alabama pedigree with starting experience against elite SEC competition.",
+    "comparisonPlayer": "Mekhi Becton with better discipline",
+    "summary": "Enormous LT with rare movement skills. Ceiling is a Hall of Famer; floor is an inconsistent starter.",
     "topFitTeams": [
-      "CAR",
-      "PIT",
+      "JAX",
       "NYJ",
-      "LV",
-      "CIN"
-    ],
-    "fitReason": "Teams needing a massive left tackle who can anchor the run game and has experience against top-tier competition."
-  },
-  {
-    "id": "caleb-lomu",
-    "name": "Caleb Lomu",
-    "position": "OT",
-    "school": "Utah",
-    "projectedRound": 1,
-    "projectedPick": "20-32",
-    "height": "6'5\"",
-    "weight": 315,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "gamesStarted": 13,
-      "position": "OT"
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Utah OL factory product",
-      "Strong in pass protection",
-      "Good anchor against power"
-    ],
-    "risks": [
-      "Not elite athletically",
-      "May be limited to right tackle"
-    ],
-    "comparisonPlayer": "Garett Bolles",
-    "summary": "Another strong offensive tackle from Utah's elite OL pipeline. Reliable pass protector with a strong anchor who projects as a starting right tackle.",
-    "topFitTeams": [
-      "TB",
-      "SF",
-      "BUF",
-      "CAR",
+      "NYG",
+      "MIN",
       "DAL"
     ],
-    "fitReason": "Teams needing OL depth in the late first or early second round who value Utah's OL development track record."
+    "fitReason": "Teams willing to bet on rare physical traits at LT. JAX, NYJ, NYG all need LT help."
   },
   {
-    "id": "denzel-boston",
-    "name": "Denzel Boston",
-    "position": "WR",
-    "school": "Washington",
+    "id": "akheem-mesidor",
+    "name": "Akheem Mesidor",
+    "position": "EDGE",
+    "school": "Miami",
     "projectedRound": 1,
-    "projectedPick": "20-32",
-    "height": "6'4\"",
-    "weight": 210,
+    "projectedPick": "29-42",
+    "height": "6'3\"",
+    "weight": 275,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "career (last 2 seasons)",
-      "contestedCatchTargets": 35,
-      "contestedCatches": 22
+      "games": 13,
+      "tackles": 44,
+      "sacks": 9,
+      "tacklesForLoss": 14,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": 4.52,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Exceptional ball skills and contested catches",
-      "Big-bodied at 6'4\" 210",
-      "22-of-35 contested catch rate"
+      "Relentless motor",
+      "Pass-rush plan + counters",
+      "Versatile alignment"
     ],
     "risks": [
-      "Not a burner (4.52 40)",
-      "May struggle to separate against press"
+      "Below-ideal length",
+      "Testing may hurt him"
     ],
-    "comparisonPlayer": "Allen Lazard with better hands",
-    "summary": "Big-bodied receiver with tremendous ball skills who hauled in 22 of 35 contested catch targets over two seasons. A physical pass catcher who wins at the catch point.",
+    "comparisonPlayer": "Alex Highsmith",
+    "summary": "Polished, productive edge. Ready-made rotational starter from Day 1.",
     "topFitTeams": [
-      "NE",
-      "GB",
-      "CLE",
-      "PIT",
-      "HOU"
+      "CHI",
+      "DET",
+      "TB",
+      "NO",
+      "GB"
     ],
-    "fitReason": "Teams needing a physical, big-bodied WR who can win contested catches and provide a reliable target in the red zone."
-  },
-  {
-    "id": "cj-allen",
-    "name": "CJ Allen",
-    "position": "LB",
-    "school": "Georgia",
-    "projectedRound": 1,
-    "projectedPick": "22-32",
-    "height": "6'2\"",
-    "weight": 230,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "interceptions": null,
-      "passesDefensed": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Georgia LB pedigree",
-      "Sideline-to-sideline range",
-      "Instinctive run defender"
-    ],
-    "risks": [
-      "Coverage ability at NFL level",
-      "Not the most explosive athlete"
-    ],
-    "comparisonPlayer": "Roquan Smith",
-    "summary": "Instinctive Georgia linebacker with sideline-to-sideline range and elite run defense. Benefits from the Bulldogs' proven LB development pipeline.",
-    "topFitTeams": [
-      "PHI",
-      "LAC",
-      "CIN",
-      "KC",
-      "HOU"
-    ],
-    "fitReason": "Teams needing a three-down linebacker who can be the defensive signal-caller and stuff the run."
+    "fitReason": "Teams that want a scheme-versatile EDGE in the first two rounds."
   },
   {
     "id": "tj-parker",
@@ -1168,89 +922,37 @@
     "position": "EDGE",
     "school": "Clemson",
     "projectedRound": 1,
-    "projectedPick": "20-32",
-    "height": "6'4\"",
-    "weight": 255,
+    "projectedPick": "28-40",
+    "height": "6'3\"",
+    "weight": 265,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "forcedFumbles": null
+      "games": 13,
+      "tackles": 51,
+      "sacks": 10.5,
+      "tacklesForLoss": 16,
+      "forcedFumbles": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Ideal size and length for EDGE",
-      "Explosive first step",
-      "Developing pass-rush arsenal"
+      "Inside-outside versatility",
+      "Heavy hands",
+      "Power rusher"
     ],
     "risks": [
-      "Still developing technically",
-      "Production may not match physical tools yet"
+      "Tight mover in space",
+      "Better in odd fronts"
     ],
-    "comparisonPlayer": "Brian Burns",
-    "summary": "Long, explosive edge rusher from Clemson with ideal physical tools for the position. Still developing his pass-rush repertoire but has top-10 upside.",
+    "comparisonPlayer": "Calais Campbell (lighter)",
+    "summary": "Physical edge who can bump inside on sub downs. Ideal fit for multiple fronts.",
     "topFitTeams": [
-      "CHI",
+      "TB",
+      "LAR",
       "DET",
-      "MIN",
-      "SF",
+      "NO",
       "GB"
     ],
-    "fitReason": "Teams needing EDGE help who are willing to develop a physically gifted prospect into a dominant pass rusher."
-  },
-  {
-    "id": "cashius-howell",
-    "name": "Cashius Howell",
-    "position": "EDGE",
-    "school": "Texas A&M",
-    "projectedRound": 1,
-    "projectedPick": "20-32",
-    "height": "6'3\"",
-    "weight": 250,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "forcedFumbles": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Explosive pass-rush ability",
-      "SEC-tested production",
-      "Quick first step"
-    ],
-    "risks": [
-      "Needs to improve against the run",
-      "Consistency"
-    ],
-    "comparisonPlayer": "Marcus Davenport",
-    "summary": "Explosive edge rusher from Texas A&M tested against elite SEC offensive lines. Ranked as a top-5 EDGE prospect in the class.",
-    "topFitTeams": [
-      "MIN",
-      "CHI",
-      "TB",
-      "DET",
-      "SF"
-    ],
-    "fitReason": "Teams needing pass-rush help who want an SEC-tested edge player with explosive upside."
+    "fitReason": "Multiple-front defenses that value inside/outside versatility."
   },
   {
     "id": "colton-hood",
@@ -1258,89 +960,148 @@
     "position": "CB",
     "school": "Tennessee",
     "projectedRound": 1,
-    "projectedPick": "22-32",
-    "height": "6'0\"",
-    "weight": 190,
+    "projectedPick": "27-38",
+    "height": "5'11\"",
+    "weight": 185,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 12,
-      "tackles": 50,
-      "tacklesForLoss": 4.5,
-      "interceptions": 1,
-      "passesDefensed": 8
+      "games": 13,
+      "tackles": 48,
+      "interceptions": 3,
+      "passDefensed": 11,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Physical press-man corner",
-      "Good tackler for a CB",
-      "SEC-tested production"
+      "Elite play speed",
+      "Physical in run support",
+      "SEC-tested"
     ],
     "risks": [
-      "Speed concerns at the next level",
-      "Moderate INT production"
+      "Average length",
+      "Slot-or-outside projection unclear"
     ],
-    "comparisonPlayer": "Carlton Davis",
-    "summary": "Physical, SEC-tested cornerback who combines solid coverage skills with willingness to tackle. 8 pass breakups and reliable run support.",
+    "comparisonPlayer": "Trent McDuffie",
+    "summary": "Feisty cover corner with true boundary or slot versatility.",
     "topFitTeams": [
+      "DEN",
       "KC",
-      "DAL",
-      "CHI",
-      "CLE",
-      "DEN"
+      "CAR",
+      "JAX",
+      "MIN"
     ],
-    "fitReason": "Teams needing a physical corner who can play press-man and contribute in run support on early downs."
+    "fitReason": "Man-heavy defenses with CB needs. KC and DEN both list CB as top-2 need."
   },
   {
-    "id": "avieon-terrell",
-    "name": "Avieon Terrell",
-    "position": "CB",
-    "school": "Clemson",
-    "projectedRound": 1,
-    "projectedPick": "22-32",
-    "height": "5'11\"",
-    "weight": 186,
+    "id": "caleb-lomu",
+    "name": "Caleb Lomu",
+    "position": "OT",
+    "school": "Utah",
+    "projectedRound": 2,
+    "projectedPick": "32-50",
+    "height": "6'6\"",
+    "weight": 308,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 12,
-      "tackles": 48,
-      "passesDefensed": 9,
-      "forcedFumbles": 5,
-      "interceptions": null
+      "gamesStarted": 12,
+      "sacksAllowed": 3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": 17,
-      "verticalJump": 34,
-      "broadJump": 123,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Ball disruption (9 PBU + 5 FF)",
-      "All-American and All-ACC honors",
-      "Competitive toughness"
+      "Clean technique",
+      "Handles stunts well",
+      "Scheme-diverse"
     ],
     "risks": [
-      "Undersized at 5'11\" 186",
-      "Average combine testing numbers"
+      "Below-average play strength",
+      "Limited positional flex"
     ],
-    "comparisonPlayer": "Jaycee Horn",
-    "summary": "Competitive, ball-disrupting corner with 9 pass breakups and 5 forced fumbles in 2025. All-American with the aggressiveness teams covet.",
+    "comparisonPlayer": "Jedrick Wills",
+    "summary": "Technically sound LT prospect. Will start by Year 2.",
     "topFitTeams": [
-      "KC",
-      "CLE",
       "CIN",
-      "IND",
+      "PIT",
+      "DAL",
+      "JAX",
+      "NYG"
+    ],
+    "fitReason": "Teams with a medium-term LT plan who can develop him."
+  },
+  {
+    "id": "denzel-boston",
+    "name": "Denzel Boston",
+    "position": "WR",
+    "school": "Washington",
+    "projectedRound": 1,
+    "projectedPick": "19-28",
+    "height": "6'4\"",
+    "weight": 209,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "receptions": 76,
+      "receivingYards": 1150,
+      "receivingTDs": 12,
+      "yardsPerCatch": 15.1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Big-bodied contested-catch",
+      "Red-zone dominator",
+      "High-point ability"
+    ],
+    "risks": [
+      "Average separation",
+      "Limited YAC"
+    ],
+    "comparisonPlayer": "Courtland Sutton",
+    "summary": "Prototype X-receiver. Wins 50/50 balls and the red zone.",
+    "topFitTeams": [
+      "BAL",
+      "GB",
+      "HOU",
+      "MIN",
       "PIT"
     ],
-    "fitReason": "Teams needing a competitive corner who forces turnovers and plays with aggression despite undersized frame."
+    "fitReason": "Offenses needing an outside X who wins contested. BAL and GB both list WR top-2."
+  },
+  {
+    "id": "cashius-howell",
+    "name": "Cashius Howell",
+    "position": "EDGE",
+    "school": "Texas A&M",
+    "projectedRound": 2,
+    "projectedPick": "35-60",
+    "height": "6'3\"",
+    "weight": 252,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 41,
+      "sacks": 11,
+      "tacklesForLoss": 15,
+      "forcedFumbles": 3
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Elite get-off",
+      "Bend around the edge",
+      "High energy"
+    ],
+    "risks": [
+      "Undersized vs power",
+      "Run-defense liability early"
+    ],
+    "comparisonPlayer": "Azeez Ojulari",
+    "summary": "Sub-package speed rusher with true rush skills. Will grow into a full-time starter.",
+    "topFitTeams": [
+      "DET",
+      "CHI",
+      "TB",
+      "GB",
+      "MIN"
+    ],
+    "fitReason": "Teams that want a designated pass-rush specialist."
   },
   {
     "id": "kc-concepcion",
@@ -1348,43 +1109,308 @@
     "position": "WR",
     "school": "Texas A&M",
     "projectedRound": 2,
-    "projectedPick": "33-50",
-    "height": "6'1\"",
-    "weight": 200,
+    "projectedPick": "40-60",
+    "height": "5'11\"",
+    "weight": 195,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "receptions": 71,
+      "receivingYards": 950,
+      "receivingTDs": 9,
+      "yardsPerCatch": 13.4
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Smooth route runner",
-      "Reliable hands",
-      "Good size for outside WR"
+      "Elite burst",
+      "Return ability",
+      "Gadget upside"
     ],
     "risks": [
-      "May lack elite separation speed",
-      "SEC production level"
+      "Concentration drops",
+      "Drop rate a concern"
     ],
-    "comparisonPlayer": "Brandin Cooks",
-    "summary": "Smooth receiver from Texas A&M with good size and reliable hands. Projects as a solid WR2 at the next level.",
+    "comparisonPlayer": "Rashee Rice",
+    "summary": "Burst-first WR with return value. Needs to clean up hands.",
     "topFitTeams": [
-      "BAL",
-      "NE",
       "GB",
-      "CLE",
+      "MIN",
+      "NE",
+      "HOU",
+      "LAC"
+    ],
+    "fitReason": "Offenses that can scheme him touches in the slot and on jet sweeps."
+  },
+  {
+    "id": "cj-allen",
+    "name": "CJ Allen",
+    "position": "LB",
+    "school": "Georgia",
+    "projectedRound": 2,
+    "projectedPick": "35-55",
+    "height": "6'1\"",
+    "weight": 232,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 98,
+      "sacks": 3,
+      "tacklesForLoss": 8,
+      "interceptions": 2,
+      "passDefensed": 5
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "High football IQ",
+      "SEC-tested",
+      "Three-down profile"
+    ],
+    "risks": [
+      "Average athletic ceiling",
+      "Tackling leverage inconsistent"
+    ],
+    "comparisonPlayer": "Jamin Davis with better processing",
+    "summary": "Smart, productive Georgia LB. Three-down starter on Day 1.",
+    "topFitTeams": [
+      "PHI",
+      "DAL",
+      "CIN",
+      "GB",
+      "NYJ"
+    ],
+    "fitReason": "Teams with LB needs (PHI, CIN, NYJ all have LB in top-4)."
+  },
+  {
+    "id": "keldric-faulk",
+    "name": "Keldric Faulk",
+    "position": "EDGE",
+    "school": "Auburn",
+    "projectedRound": 1,
+    "projectedPick": "24-35",
+    "height": "6'5\"",
+    "weight": 285,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 52,
+      "sacks": 7.5,
+      "tacklesForLoss": 13,
+      "forcedFumbles": 2
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Ideal EDGE-to-5T body",
+      "Scheme-versatile",
+      "Heavy hands"
+    ],
+    "risks": [
+      "Tweener traits",
+      "Bend limited"
+    ],
+    "comparisonPlayer": "DeMarcus Lawrence",
+    "summary": "Big-body strong-side EDGE who can slide to 5-tech. Ideal for odd fronts.",
+    "topFitTeams": [
+      "TB",
+      "CHI",
+      "NO",
+      "DET",
+      "LAR"
+    ],
+    "fitReason": "3-4/hybrid fronts needing a base EDGE. TB, CHI, LAR all need EDGE/DL."
+  },
+  {
+    "id": "anthony-hill-jr",
+    "name": "Anthony Hill Jr.",
+    "position": "LB",
+    "school": "Texas",
+    "projectedRound": 1,
+    "projectedPick": "25-45",
+    "height": "6'2\"",
+    "weight": 235,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 106,
+      "sacks": 6,
+      "tacklesForLoss": 12,
+      "interceptions": 1,
+      "passDefensed": 4
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Sideline-to-sideline range",
+      "Blitz ability",
+      "Three-down profile"
+    ],
+    "risks": [
+      "Over-pursuit vs counters",
+      "Angle issues vs RBs"
+    ],
+    "comparisonPlayer": "Fred Warner (lite)",
+    "summary": "Twitchy, size-speed LB who profiles as a three-down MIKE or WILL.",
+    "topFitTeams": [
+      "PHI",
+      "DAL",
+      "CIN",
+      "GB",
+      "WAS"
+    ],
+    "fitReason": "Modern LB-needy defenses. PHI and WAS both list LB top-2."
+  },
+  {
+    "id": "kayden-mcdonald",
+    "name": "Kayden McDonald",
+    "position": "DL",
+    "school": "Ohio State",
+    "projectedRound": 1,
+    "projectedPick": "25-45",
+    "height": "6'2\"",
+    "weight": 325,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 14,
+      "tackles": 42,
+      "sacks": 3,
+      "tacklesForLoss": 8,
+      "forcedFumbles": 1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Elite run defender",
+      "Two-gap anchor",
+      "Powerful frame"
+    ],
+    "risks": [
+      "Limited pass-rush upside",
+      "Snap count may be capped"
+    ],
+    "comparisonPlayer": "Dexter Lawrence (run-focused)",
+    "summary": "Nose-tackle anchor with first-round buzz. Locks down the A-gap.",
+    "topFitTeams": [
+      "WAS",
+      "LAR",
+      "DET",
+      "BUF",
+      "CHI"
+    ],
+    "fitReason": "Teams needing a real run-stuffer. WAS and LAR both list DL top-2."
+  },
+  {
+    "id": "avieon-terrell",
+    "name": "Avieon Terrell",
+    "position": "CB",
+    "school": "Clemson",
+    "projectedRound": 2,
+    "projectedPick": "40-60",
+    "height": "5'11\"",
+    "weight": 180,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 41,
+      "interceptions": 2,
+      "passDefensed": 10,
+      "forcedFumbles": 1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Quick feet + hips",
+      "Slot projection",
+      "Football IQ (A.J.'s brother)"
+    ],
+    "risks": [
+      "Undersized for outside duty",
+      "Limited press strength"
+    ],
+    "comparisonPlayer": "A.J. Terrell (shorter)",
+    "summary": "Nickel-specialist with family pedigree. Starting slot corner early.",
+    "topFitTeams": [
+      "DEN",
+      "KC",
+      "MIN",
+      "JAX",
       "PIT"
     ],
-    "fitReason": "Teams looking for a second-round WR who can contribute immediately as a complementary piece."
+    "fitReason": "Teams needing a true nickel. KC and DEN list CB top-2."
+  },
+  {
+    "id": "max-iheanachor",
+    "name": "Max Iheanachor",
+    "position": "OT",
+    "school": "Arizona State",
+    "projectedRound": 1,
+    "projectedPick": "25-36",
+    "height": "6'7\"",
+    "weight": 315,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "gamesStarted": 13,
+      "sacksAllowed": 4
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Rare upside",
+      "Elite length",
+      "Developmental ceiling"
+    ],
+    "risks": [
+      "Raw \u2014 only played football a few years",
+      "Processing still catching up"
+    ],
+    "comparisonPlayer": "Charles Cross",
+    "summary": "Huge swing pick for a team that can redshirt him. Could be a franchise LT.",
+    "topFitTeams": [
+      "JAX",
+      "NYJ",
+      "PIT",
+      "CIN",
+      "MIN"
+    ],
+    "fitReason": "Teams with established starter who can develop him. JAX and NYJ top-OL-need."
+  },
+  {
+    "id": "christen-miller",
+    "name": "Christen Miller",
+    "position": "DL",
+    "school": "Georgia",
+    "projectedRound": 1,
+    "projectedPick": "26-40",
+    "height": "6'4\"",
+    "weight": 320,
+    "statsSeason": "2025 (career totals)",
+    "collegeStats": {
+      "games": 39,
+      "tackles": 61,
+      "sacks": 4.0,
+      "tacklesForLoss": 10.0,
+      "forcedFumbles": 0,
+      "qbHits": 4
+    },
+    "combineMeasurables": {
+      "fortyYard": 4.9,
+      "benchPress": null,
+      "verticalJump": null,
+      "broadJump": null
+    },
+    "strengths": [
+      "Powerful hands and lateral quickness at 320 lbs",
+      "Elite pad level and leverage when engaged",
+      "Georgia DL pedigree (behind Davis, Wyatt, Carter)"
+    ],
+    "risks": [
+      "Underwhelming college production (4 career sacks)",
+      "Could use 10+ lbs of added muscle for NFL power"
+    ],
+    "comparisonPlayer": "Travon Walker (run-stopper version)",
+    "summary": "High-tools, low-production Georgia DT who tests well and flashes dominant reps. Kiper has him #28 to Houston \u2014 a bet on traits and coaching over college box-score.",
+    "topFitTeams": [
+      "HOU",
+      "WAS",
+      "DET",
+      "LAR",
+      "BUF"
+    ],
+    "fitReason": "Teams that need interior D-line and run-stopping presence. HOU lists DL as a top-3 need; Kiper mocks him to Houston at #28."
   },
   {
     "id": "lee-hunter",
@@ -1392,176 +1418,75 @@
     "position": "DL",
     "school": "Texas Tech",
     "projectedRound": 2,
-    "projectedPick": "33-50",
+    "projectedPick": "40-65",
     "height": "6'4\"",
-    "weight": 330,
+    "weight": 320,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
+      "tackles": 48,
+      "sacks": 4.5,
+      "tacklesForLoss": 9,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Massive interior presence at 330 lbs",
-      "Run-stuffing anchor",
-      "Disruptive at the point of attack"
+      "Elite run defender",
+      "Anchor vs double teams",
+      "Heavy hands"
     ],
     "risks": [
-      "Pass-rush production may be limited",
-      "Athletic limitations"
+      "Limited pass-rush",
+      "Conditioning concerns"
     ],
-    "comparisonPlayer": "Daron Payne",
-    "summary": "Massive interior defensive lineman who anchors against the run and collapses the pocket. One of the top DL prospects in the class.",
+    "comparisonPlayer": "Linval Joseph",
+    "summary": "Plug-and-play base DT. Not a pass-rusher but shuts down the run.",
     "topFitTeams": [
-      "DET",
       "WAS",
       "LAR",
-      "HOU",
-      "BUF"
+      "DET",
+      "BUF",
+      "HOU"
     ],
-    "fitReason": "Teams needing an interior run-stuffer who can command double teams and free up linebackers."
+    "fitReason": "Teams needing a nose/base DT. WAS lists DL top need."
   },
   {
     "id": "peter-woods",
     "name": "Peter Woods",
     "position": "DL",
     "school": "Clemson",
-    "projectedRound": 2,
-    "projectedPick": "33-50",
+    "projectedRound": 1,
+    "projectedPick": "20-30",
     "height": "6'3\"",
-    "weight": 315,
+    "weight": 305,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Top-ranked DL by ESPN",
-      "Quickness off the snap",
-      "Penetrating interior presence"
-    ],
-    "risks": [
-      "Undersized for true nose tackle",
-      "Consistency against double teams"
-    ],
-    "comparisonPlayer": "Javon Hargrave",
-    "summary": "ESPN's top-ranked defensive lineman in the class. Quick, penetrating interior defender who disrupts both run and pass plays from the inside.",
-    "topFitTeams": [
-      "DET",
-      "WAS",
-      "LAR",
-      "BUF",
-      "TB"
-    ],
-    "fitReason": "Teams that need an interior DL who can generate push and penetrate as a three-technique."
-  },
-  {
-    "id": "caleb-banks",
-    "name": "Caleb Banks",
-    "position": "DL",
-    "school": "Florida",
-    "projectedRound": 2,
-    "projectedPick": "33-55",
-    "height": "6'6\"",
-    "weight": 334,
-    "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
+      "tackles": 45,
+      "sacks": 6,
+      "tacklesForLoss": 11,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Massive frame at 6'6\" 334",
-      "Space-eating nose tackle",
-      "Improving pass-rush ability"
+      "Elite quickness for DT",
+      "Violent hand usage",
+      "3-tech upside"
     ],
     "risks": [
-      "Raw technique",
-      "May be a two-down player early"
+      "Inconsistent play strength",
+      "Pad-level issues"
     ],
-    "comparisonPlayer": "Dexter Lawrence-lite",
-    "summary": "Gigantic interior lineman with the frame to dominate at the point of attack. Still developing but the physical tools are rare.",
+    "comparisonPlayer": "Jeffery Simmons",
+    "summary": "Interior disruptor with pass-rush juice. Top-of-rotation 3-tech from Day 1.",
     "topFitTeams": [
-      "DET",
       "WAS",
-      "CHI",
       "LAR",
+      "DET",
+      "BUF",
       "HOU"
     ],
-    "fitReason": "Teams needing a massive interior presence who can eat blocks and anchor the defensive front."
-  },
-  {
-    "id": "anthony-hill-jr",
-    "name": "Anthony Hill Jr.",
-    "position": "LB",
-    "school": "Texas",
-    "projectedRound": 2,
-    "projectedPick": "33-55",
-    "height": "6'2\"",
-    "weight": 235,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "interceptions": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Physical downhill thumper",
-      "SEC-tested",
-      "Good blitzing linebacker"
-    ],
-    "risks": [
-      "Coverage ability in space",
-      "May be limited to two-down role"
-    ],
-    "comparisonPlayer": "Devin White",
-    "summary": "Physical, downhill linebacker from Texas who thrives in run defense and as a blitzer. SEC competition has prepared him for NFL physicality.",
-    "topFitTeams": [
-      "PHI",
-      "LAC",
-      "KC",
-      "HOU",
-      "BAL"
-    ],
-    "fitReason": "Teams needing a physical linebacker who can stuff the run and rush the passer on designed blitzes."
+    "fitReason": "Teams needing a penetrating 3-tech. WAS, DET, HOU all have DL top-need."
   },
   {
     "id": "ty-simpson",
@@ -1569,183 +1494,124 @@
     "position": "QB",
     "school": "Alabama",
     "projectedRound": 1,
-    "projectedPick": "20-32",
+    "projectedPick": "28-40",
     "height": "6'2\"",
-    "weight": 215,
+    "weight": 205,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 16,
-      "completionPct": 64.5,
-      "passingYards": 3500,
+      "games": 13,
+      "completionPct": 67.5,
+      "passingYards": 3100,
       "passingTDs": 28,
-      "interceptions": 5,
-      "yardsPerAttempt": 8.0,
-      "rushingYards": null,
-      "rushingTDs": null
+      "interceptions": 7,
+      "rushingYards": 420,
+      "rushingTDs": 6
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Super-fast processing from the pocket",
-      "Led SEC in passing yards and TDs",
-      "Mobile with good scramble ability"
+      "Clean mechanics + touch",
+      "Mobility extender",
+      "Alabama system passer"
     ],
     "risks": [
-      "Significant second-half regression in 2025",
-      "Only 15 career starts before 2025",
-      "Slightly undersized"
+      "Below-ideal height",
+      "Limited arm strength on vertical throws"
     ],
-    "comparisonPlayer": "Jalen Hurts",
-    "summary": "Alabama QB who led the SEC in passing yards (3,500) and TDs (28). Fast processor with mobility, but a second-half fade in 2025 raises consistency concerns.",
+    "comparisonPlayer": "Bo Nix",
+    "summary": "QB2 in the class. A team may trade back into Round 1 for him. Accurate developmental starter.",
     "topFitTeams": [
-      "ARI",
-      "TEN",
+      "CLE",
       "NYG",
-      "MIA",
-      "CLE"
+      "TEN",
+      "NO",
+      "PIT"
     ],
-    "fitReason": "QB-needy teams in the late first round who want a mobile, intelligent QB with SEC pedigree at a potential value."
-  },
-  {
-    "id": "kayden-mcdonald",
-    "name": "Kayden McDonald",
-    "position": "DL",
-    "school": "Ohio State",
-    "projectedRound": 2,
-    "projectedPick": "35-55",
-    "height": "6'3\"",
-    "weight": 326,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "gamesStarted": 14,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Big Ten Defensive Lineman of the Year",
-      "Breakout 2025 season",
-      "Interior pass-rush ability"
-    ],
-    "risks": [
-      "One-year producer at elite level",
-      "Lateral quickness"
-    ],
-    "comparisonPlayer": "Chris Jones development arc",
-    "summary": "Big Ten Defensive Lineman of the Year with a breakout 2025 season at Ohio State. Interior disruptor with pass-rush upside.",
-    "topFitTeams": [
-      "DET",
-      "WAS",
-      "LAR",
-      "BUF",
-      "CHI"
-    ],
-    "fitReason": "Teams needing interior DL help who value a player with a breakout season and Ohio State pedigree."
+    "fitReason": "QB-needy teams in Day 2 range. Mocks suggest a team trades up for him late R1."
   },
   {
     "id": "jadarian-price",
     "name": "Jadarian Price",
     "position": "RB",
     "school": "Notre Dame",
-    "projectedRound": 2,
-    "projectedPick": "38-55",
+    "projectedRound": 1,
+    "projectedPick": "30-45",
     "height": "5'11\"",
-    "weight": 210,
+    "weight": 205,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 14,
-      "carries": null,
-      "rushingYards": null,
-      "rushingTDs": null,
-      "receptions": null,
-      "receivingYards": null
+      "carries": 140,
+      "rushingYards": 820,
+      "rushingTDs": 8,
+      "receptions": 19,
+      "receivingYards": 165,
+      "receivingTDs": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Outstanding vision beyond the line",
-      "Natural running instincts",
-      "Physical tools for RB1 role"
+      "Vision + patience",
+      "Balance through contact",
+      "Pass-pro ready"
     ],
     "risks": [
-      "Shared backfield with Jeremiyah Love",
-      "Pass protection questions"
+      "RB-by-committee college role",
+      "Average breakaway speed"
     ],
-    "comparisonPlayer": "Aaron Jones",
-    "summary": "Nuanced running back with outstanding vision and natural instincts. Overshadowed by Jeremiyah Love at Notre Dame but has standalone RB1 potential.",
+    "comparisonPlayer": "Isiah Pacheco",
+    "summary": "Well-rounded RB2/complementary back. Will carve out a rotational role quickly.",
     "topFitTeams": [
       "SEA",
       "NO",
-      "ATL",
       "LAR",
-      "CIN"
+      "CIN",
+      "DAL"
     ],
-    "fitReason": "Teams needing an RB in round 2 who want a natural runner with vision and instincts at a value pick."
+    "fitReason": "Teams needing a rotational/complementary RB. SEA, NO, LAR all have RB as top need."
   },
   {
-    "id": "zion-young",
-    "name": "Zion Young",
-    "position": "EDGE",
-    "school": "Missouri",
-    "projectedRound": 2,
-    "projectedPick": "38-55",
-    "height": "6'3\"",
-    "weight": 248,
+    "id": "nick-singleton",
+    "name": "Nicholas Singleton",
+    "position": "RB",
+    "school": "Penn State",
+    "projectedRound": 3,
+    "projectedPick": "65-90",
+    "height": "6'0\"",
+    "weight": 225,
+    "statsSeason": "Career (2022-25)",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
+      "games": 53,
+      "carries": 653,
+      "rushingYards": 3461,
+      "rushingTDs": 45,
+      "receptions": 102,
+      "receivingYards": 987,
+      "receivingTDs": 9
     },
     "combineMeasurables": {
       "fortyYard": null,
-      "benchPress": null,
       "verticalJump": null,
       "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
+      "note": "Did not test \u2014 Jones fracture suffered at Senior Bowl"
     },
     "strengths": [
-      "Explosive off the edge",
-      "SEC-tested pass rusher",
-      "Good bend and flexibility"
+      "Breakaway speed and north-south burst",
+      "PSU career TD record (broke Saquon's mark)",
+      "Reliable in pass pro and as receiver"
     ],
     "risks": [
-      "Needs to fill out frame",
-      "Consistency against the run"
+      "Straight-line runner; limited wiggle in phone booth",
+      "Foot injury dropped him from Day 2 to Day 3"
     ],
-    "comparisonPlayer": "Josh Sweat",
-    "summary": "Explosive Missouri edge rusher with bend and burst off the edge. SEC-tested with upside as a rotational pass rusher who can develop into a starter.",
+    "comparisonPlayer": "Javonte Williams (healthier version)",
+    "summary": "Four-year Penn State producer with breakaway speed. Foot injury cratered his stock \u2014 now a Day 3 value for a team that can wait on him.",
     "topFitTeams": [
-      "TB",
-      "SF",
-      "GB",
-      "MIN",
-      "DET"
+      "SEA",
+      "NO",
+      "LAR",
+      "CIN",
+      "DAL"
     ],
-    "fitReason": "Teams needing EDGE depth in the second round who want a pass-rush specialist with developmental upside."
+    "fitReason": "Teams with aging or departing lead backs who can add a long-term rotational piece at a discount."
   },
   {
     "id": "chris-johnson",
@@ -1753,132 +1619,37 @@
     "position": "CB",
     "school": "San Diego State",
     "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'0\"",
-    "weight": 190,
+    "projectedPick": "45-70",
+    "height": "6'2\"",
+    "weight": 195,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Ball skills and playmaking",
-      "Good size for outside corner",
-      "Physical at the line"
-    ],
-    "risks": [
-      "Small-school competition",
-      "Adjusting to NFL speed"
-    ],
-    "comparisonPlayer": "Darius Slay development path",
-    "summary": "Small-school corner with good size and ball skills. Will need to prove he can adjust to NFL-level speed and competition.",
-    "topFitTeams": [
-      "KC",
-      "DAL",
-      "CLE",
-      "IND",
-      "CIN"
-    ],
-    "fitReason": "Teams looking for CB value in round 2 from a physical, ball-hawking corner with upside."
-  },
-  {
-    "id": "malachi-lawrence",
-    "name": "Malachi Lawrence",
-    "position": "EDGE",
-    "school": "UCF",
-    "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'3\"",
-    "weight": 250,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Athletic edge rusher",
-      "Versatile defensive end",
-      "Quick off the snap"
-    ],
-    "risks": [
-      "Small-school production",
-      "Consistency game to game"
-    ],
-    "comparisonPlayer": "Shaq Barrett development path",
-    "summary": "Athletic UCF edge rusher with the versatility and quickness to contribute as a rotational pass rusher early in his career.",
-    "topFitTeams": [
-      "TB",
-      "SF",
-      "CHI",
-      "MIN",
-      "GB"
-    ],
-    "fitReason": "Teams that need EDGE depth and are willing to develop a raw but athletic prospect."
-  },
-  {
-    "id": "brandon-cisse",
-    "name": "Brandon Cisse",
-    "position": "CB",
-    "school": "South Carolina",
-    "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'0\"",
-    "weight": 189,
-    "collegeStats": {
-      "statsSeason": "2025",
       "games": 12,
-      "tackles": 27,
-      "tacklesForLoss": 1.5,
-      "interceptions": 1,
-      "passesDefensed": 5
+      "tackles": 52,
+      "interceptions": 3,
+      "passDefensed": 12,
+      "forcedFumbles": 1
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": 41,
-      "broadJump": 131,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Explosive athleticism (41\" vert)",
-      "Good length at 6'0\"",
-      "SEC-tested"
+      "Rare length for CB",
+      "Physical in run support",
+      "Fluid for his height"
     ],
     "risks": [
-      "Limited production in 2025",
-      "Needs more ball production"
+      "Level of competition (MWC)",
+      "Untested vs elite WRs"
     ],
-    "comparisonPlayer": "Trevon Diggs (athletic profile)",
-    "summary": "Athletic SEC corner with a 41-inch vertical and good length. The physical tools are elite even if the production hasn't fully matched yet.",
+    "comparisonPlayer": "Cameron Dantzler",
+    "summary": "Long, physical outside CB from a smaller school. Has tools to start.",
     "topFitTeams": [
-      "KC",
-      "DAL",
-      "CHI",
       "DEN",
-      "CIN"
+      "KC",
+      "CAR",
+      "MIN",
+      "JAX"
     ],
-    "fitReason": "Teams looking for an athletic CB in round 2 whose physical tools suggest higher upside than his college stats indicate."
+    "fitReason": "Teams that value length at the CB spot. KC, DEN, MIN all CB-needy."
   },
   {
     "id": "jacob-rodriguez",
@@ -1886,87 +1657,114 @@
     "position": "LB",
     "school": "Texas Tech",
     "projectedRound": 2,
-    "projectedPick": "45-64",
+    "projectedPick": "45-70",
     "height": "6'1\"",
     "weight": 230,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
+      "tackles": 112,
+      "sacks": 4,
+      "tacklesForLoss": 9,
+      "interceptions": 3,
+      "passDefensed": 6
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Instinctive run defender",
-      "Sideline-to-sideline speed",
-      "Consistent tackler"
+      "Elite instincts",
+      "Playmaker (3 INTs at LB)",
+      "Three-down readiness"
     ],
     "risks": [
-      "Coverage limitations",
-      "Not an elite athlete"
+      "Average length",
+      "Testing may drag him down"
     ],
-    "comparisonPlayer": "Bobby Wagner-lite",
-    "summary": "Instinctive linebacker from Texas Tech who excels against the run and makes plays sideline to sideline. Solid second-round value.",
+    "comparisonPlayer": "Dre Greenlaw",
+    "summary": "High-floor starting LB. Instincts-first player who finds the ball.",
     "topFitTeams": [
       "PHI",
+      "NYJ",
       "CIN",
-      "LAC",
-      "KC",
-      "BAL"
+      "BAL",
+      "GB"
     ],
-    "fitReason": "Teams needing LB depth who want a reliable run defender and tackler in the middle rounds."
+    "fitReason": "LB-needy defenses. PHI, NYJ, CIN all list LB top-2 or top-3."
   },
   {
-    "id": "r-mason-thomas",
-    "name": "R Mason Thomas",
-    "position": "EDGE",
-    "school": "Oklahoma",
+    "id": "caleb-banks",
+    "name": "Caleb Banks",
+    "position": "DL",
+    "school": "Florida",
     "projectedRound": 2,
-    "projectedPick": "45-64",
-    "height": "6'3\"",
-    "weight": 245,
+    "projectedPick": "40-65",
+    "height": "6'5\"",
+    "weight": 325,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null
+      "games": 11,
+      "tackles": 38,
+      "sacks": 5,
+      "tacklesForLoss": 10,
+      "forcedFumbles": 0
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Explosive first step",
-      "Good length and bend",
-      "Pass-rush upside"
+      "Rare length + athleticism",
+      "Pass-rush upside from inside",
+      "Flashed elite reps"
     ],
     "risks": [
-      "Inconsistent production",
-      "Needs to add mass"
+      "Injury history",
+      "Inconsistent snap-to-snap"
     ],
-    "comparisonPlayer": "Yannick Ngakoue",
-    "summary": "Explosive Oklahoma edge rusher with length and bend. Projects as a pass-rush specialist with the tools to develop into an every-down player.",
+    "comparisonPlayer": "Arik Armstead",
+    "summary": "High-upside 3-tech if medicals check out. Traits are first-round caliber.",
     "topFitTeams": [
-      "CHI",
-      "SF",
       "DET",
-      "TB",
-      "MIN"
+      "WAS",
+      "LAR",
+      "HOU",
+      "BUF"
     ],
-    "fitReason": "Teams that need rotational EDGE help and want a high-upside developmental prospect."
+    "fitReason": "Teams that want an interior disruptor to pair with an established NT."
+  },
+  {
+    "id": "brandon-cisse",
+    "name": "Brandon Cisse",
+    "position": "CB",
+    "school": "South Carolina",
+    "projectedRound": 2,
+    "projectedPick": "50-70",
+    "height": "6'0\"",
+    "weight": 190,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 12,
+      "tackles": 45,
+      "interceptions": 3,
+      "passDefensed": 11,
+      "forcedFumbles": 1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Elite closing speed",
+      "Man-coverage fit",
+      "Twitchy"
+    ],
+    "risks": [
+      "Press strength inconsistent",
+      "Grabby at the top of routes"
+    ],
+    "comparisonPlayer": "Tre'Davious White",
+    "summary": "Scheme-versatile CB2 with starter upside. Wins with speed and closing burst.",
+    "topFitTeams": [
+      "DEN",
+      "KC",
+      "CAR",
+      "MIN",
+      "PIT"
+    ],
+    "fitReason": "Man-heavy defenses. KC, DEN both list CB top-2."
   },
   {
     "id": "keionte-scott",
@@ -1974,45 +1772,148 @@
     "position": "CB",
     "school": "Miami",
     "projectedRound": 2,
-    "projectedPick": "45-64",
+    "projectedPick": "50-75",
     "height": "5'11\"",
-    "weight": 193,
+    "weight": 195,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "tackles": 64,
-      "tacklesForLoss": 13.0,
-      "sacks": 5,
+      "games": 13,
+      "tackles": 54,
       "interceptions": 2,
-      "passesDefensed": null
+      "passDefensed": 9,
+      "sacks": 2
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Versatile nickel defender",
-      "Blitzing ability (5 sacks from CB)",
-      "Physical run defender (13 TFL)"
+      "Elite nickel profile",
+      "Blitz-package threat",
+      "Physical at the line"
     ],
     "risks": [
-      "Undersized at 5'11\" 193",
-      "May be limited to nickel role"
+      "Outside corner ceiling limited",
+      "Age (5th-year senior)"
     ],
-    "comparisonPlayer": "Tyrann Mathieu (versatility)",
-    "summary": "Versatile nickel corner with rare blitzing ability \u2014 5 sacks and 13 TFLs from the cornerback position. A unique defensive weapon.",
+    "comparisonPlayer": "Chauncey Gardner-Johnson",
+    "summary": "Prototype nickel DB who fits modern sub-package defenses.",
     "topFitTeams": [
-      "KC",
-      "CLE",
+      "DAL",
+      "DEN",
+      "MIN",
+      "PHI",
+      "KC"
+    ],
+    "fitReason": "Teams that run a nickel-heavy base (which is most of the NFL)."
+  },
+  {
+    "id": "zion-young",
+    "name": "Zion Young",
+    "position": "EDGE",
+    "school": "Missouri",
+    "projectedRound": 1,
+    "projectedPick": "23-35",
+    "height": "6'5\"",
+    "weight": 275,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 13,
+      "tackles": 41,
+      "sacks": 7.5,
+      "tacklesForLoss": 11,
+      "forcedFumbles": 1
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Elite length",
+      "Power rush from 5-tech",
+      "Base-EDGE body"
+    ],
+    "risks": [
+      "Limited bend",
+      "Needs counters against tackles"
+    ],
+    "comparisonPlayer": "Carl Lawson",
+    "summary": "Big-body strong-side EDGE. Sets the edge and collapses the pocket with power.",
+    "topFitTeams": [
+      "TB",
+      "CHI",
+      "NO",
+      "DET",
+      "LAR"
+    ],
+    "fitReason": "Odd-front teams needing a strong-side EDGE."
+  },
+  {
+    "id": "malachi-lawrence",
+    "name": "Malachi Lawrence",
+    "position": "EDGE",
+    "school": "UCF",
+    "projectedRound": 2,
+    "projectedPick": "50-80",
+    "height": "6'4\"",
+    "weight": 260,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "games": 12,
+      "tackles": 44,
+      "sacks": 9,
+      "tacklesForLoss": 13,
+      "forcedFumbles": 2
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Ideal EDGE frame",
+      "First-step explosion",
+      "Bend + flexibility"
+    ],
+    "risks": [
+      "Level of competition (Big 12 step-up inconsistent)",
+      "Run defense raw"
+    ],
+    "comparisonPlayer": "Bralen Trice",
+    "summary": "Toolsy, developmental EDGE with Pro Bowl ceiling if coached up.",
+    "topFitTeams": [
+      "CHI",
+      "DET",
+      "TB",
+      "GB",
+      "MIN"
+    ],
+    "fitReason": "Teams that can redshirt a toolsy EDGE behind a starter."
+  },
+  {
+    "id": "keylan-rutledge",
+    "name": "Keylan Rutledge",
+    "position": "IOL",
+    "school": "Georgia Tech",
+    "projectedRound": 2,
+    "projectedPick": "50-75",
+    "height": "6'4\"",
+    "weight": 310,
+    "statsSeason": "2025",
+    "collegeStats": {
+      "gamesStarted": 13,
+      "sacksAllowed": 2
+    },
+    "combineMeasurables": null,
+    "strengths": [
+      "Nasty in run game",
+      "Pro-ready technique",
+      "Versatile G/C"
+    ],
+    "risks": [
+      "Average athletic ceiling",
+      "Length short for tackle"
+    ],
+    "comparisonPlayer": "Joel Bitonio",
+    "summary": "Tone-setter guard. Plug-and-play starter at LG or RG.",
+    "topFitTeams": [
       "CIN",
-      "IND",
+      "DAL",
+      "JAX",
+      "NYJ",
       "PIT"
     ],
-    "fitReason": "Teams needing a versatile nickel defender who can blitz, tackle, and cover in a multi-faceted defensive scheme."
+    "fitReason": "Teams needing interior OL help. DAL, JAX, NYJ all OL-first needs."
   },
   {
     "id": "antonio-williams",
@@ -2020,86 +1921,75 @@
     "position": "WR",
     "school": "Clemson",
     "projectedRound": 2,
-    "projectedPick": "45-64",
-    "height": "6'0\"",
+    "projectedPick": "55-80",
+    "height": "5'10\"",
     "weight": 195,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "games": 13,
+      "receptions": 82,
+      "receivingYards": 1010,
+      "receivingTDs": 9,
+      "yardsPerCatch": 12.3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Precise route runner",
-      "Clemson WR development",
-      "Reliable possession receiver"
+      "Elite separation quickness",
+      "Slot technician",
+      "Reliable hands"
     ],
     "risks": [
-      "May lack elite speed",
-      "Production ceiling"
+      "Size limits outside role",
+      "Average deep speed"
     ],
-    "comparisonPlayer": "Tyler Boyd",
-    "summary": "Reliable Clemson receiver with route precision and consistent hands. Projects as a solid WR2/WR3 at the next level.",
+    "comparisonPlayer": "Tyler Lockett",
+    "summary": "Pure slot with starter upside. Finds holes in zones and wins on option routes.",
     "topFitTeams": [
-      "BAL",
-      "HOU",
       "GB",
+      "MIN",
       "NE",
-      "LV"
+      "HOU",
+      "LAC"
     ],
-    "fitReason": "Teams looking for a reliable, ready-to-contribute WR in the second round."
+    "fitReason": "Offenses needing a true separation slot."
   },
   {
-    "id": "chase-bisontis",
-    "name": "Chase Bisontis",
-    "position": "IOL",
-    "school": "Texas A&M",
+    "id": "r-mason-thomas",
+    "name": "R Mason Thomas",
+    "position": "EDGE",
+    "school": "Oklahoma",
     "projectedRound": 2,
-    "projectedPick": "45-64",
-    "height": "6'5\"",
-    "weight": 315,
+    "projectedPick": "55-85",
+    "height": "6'2\"",
+    "weight": 255,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
       "games": 13,
-      "gamesStarted": 13,
-      "position": "LG"
+      "tackles": 52,
+      "sacks": 8,
+      "tacklesForLoss": 12,
+      "forcedFumbles": 3
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Looks and moves like a tackle at guard",
-      "Athletic zone-blocking fit",
-      "Initial quickness and agility"
+      "Maniacal motor",
+      "Ball production (FFs)",
+      "Scheme-versatile"
     ],
     "risks": [
-      "May not be powerful enough for gap schemes",
-      "Needs to improve anchor"
+      "Length below threshold",
+      "Better as rotational piece"
     ],
-    "comparisonPlayer": "Elgton Jenkins",
-    "summary": "Athletic guard who moves like a tackle. Ideal fit in a zone-blocking scheme with the quickness and agility to reach defenders at the second level.",
+    "comparisonPlayer": "Jonathan Greenard",
+    "summary": "High-motor rotational EDGE who creates turnovers. Future starter with polish.",
     "topFitTeams": [
-      "MIN",
-      "SF",
-      "DAL",
-      "NYJ",
-      "CIN"
+      "DET",
+      "CHI",
+      "TB",
+      "GB",
+      "NO"
     ],
-    "fitReason": "Teams running zone-blocking schemes who need an athletic interior lineman who can get to the second level."
+    "fitReason": "Teams looking for a depth-to-starter EDGE with scheme versatility."
   },
   {
     "id": "germie-bernard",
@@ -2107,222 +1997,36 @@
     "position": "WR",
     "school": "Alabama",
     "projectedRound": 2,
-    "projectedPick": "50-64",
+    "projectedPick": "55-85",
     "height": "6'1\"",
-    "weight": 195,
+    "weight": 205,
+    "statsSeason": "2025",
     "collegeStats": {
-      "statsSeason": "2025",
-      "games": 14,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null
+      "games": 13,
+      "receptions": 68,
+      "receivingYards": 920,
+      "receivingTDs": 7,
+      "yardsPerCatch": 13.5
     },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
+    "combineMeasurables": null,
     "strengths": [
-      "Alabama-developed receiver",
-      "Good size and speed combination",
-      "Vertical threat"
+      "YAC ability",
+      "Physical with the ball",
+      "Alabama-polished"
     ],
     "risks": [
-      "Shared target share at Alabama",
-      "Route tree development"
+      "Route tree underdeveloped",
+      "Average top-end speed"
     ],
-    "comparisonPlayer": "Mecole Hardman with better route running",
-    "summary": "Alabama receiver with good size and speed who projects as a vertical threat at the next level. Benefits from Bama's WR development pipeline.",
+    "comparisonPlayer": "Tee Higgins (smaller, YAC version)",
+    "summary": "Versatile Z-receiver who wins with YAC. Day-one contributor as a 2/3 WR.",
     "topFitTeams": [
       "BAL",
-      "NE",
-      "CLE",
-      "IND",
-      "PIT"
-    ],
-    "fitReason": "Teams needing a speedy vertical WR in the second round with Alabama pedigree and development ceiling."
-  },
-  {
-    "id": "jalon-kilgore",
-    "name": "Jalon Kilgore",
-    "position": "S",
-    "school": "South Carolina",
-    "projectedRound": 2,
-    "projectedPick": "33-50",
-    "height": "6'2\"",
-    "weight": 215,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "interceptions": null,
-      "passesDefensed": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Hybrid safety/LB versatility",
-      "Coverage versatility",
-      "Playmaking traits"
-    ],
-    "risks": [
-      "Positional ambiguity \u2014 S or LB?",
-      "Tackling consistency"
-    ],
-    "comparisonPlayer": "Isaiah Simmons-lite",
-    "summary": "Versatile hybrid defender who can play safety and drop into the box. Projected as a Day 2 pick with scheme-dependent value.",
-    "topFitTeams": [
-      "DAL",
-      "ATL",
-      "WAS",
-      "PHI",
-      "BUF"
-    ],
-    "fitReason": "Teams that deploy hybrid safety/LB roles and need a versatile coverage weapon in the secondary."
-  },
-  {
-    "id": "kyle-louis",
-    "name": "Kyle Louis",
-    "position": "LB",
-    "school": "Pittsburgh",
-    "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'1\"",
-    "weight": 225,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "tackles": null,
-      "tacklesForLoss": null,
-      "sacks": null,
-      "interceptions": null
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Instinctive defender",
-      "Good coverage skills for LB",
-      "Versatile skill set"
-    ],
-    "risks": [
-      "Undersized for traditional LB role",
-      "Durability questions"
-    ],
-    "comparisonPlayer": "Jordyn Brooks",
-    "summary": "Instinctive Pittsburgh linebacker with coverage ability. Good value pick in the second round for teams needing a three-down LB.",
-    "topFitTeams": [
-      "PHI",
-      "CIN",
-      "LAC",
-      "KC",
-      "BAL"
-    ],
-    "fitReason": "Teams needing a coverage-capable linebacker who can play all three downs."
-  },
-  {
-    "id": "mike-washington-jr",
-    "name": "Mike Washington Jr.",
-    "position": "RB",
-    "school": "Arkansas",
-    "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'1\"",
-    "weight": 223,
-    "collegeStats": {
-      "statsSeason": "2025",
-      "games": 13,
-      "carries": null,
-      "rushingYards": null,
-      "rushingTDs": null,
-      "receptions": null,
-      "receivingYards": null
-    },
-    "combineMeasurables": {
-      "fortyYard": 4.33,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Fastest RB at the combine (4.33)",
-      "One-cut runner with straight-line juice",
-      "Big frame at 6'1\" 223"
-    ],
-    "risks": [
-      "Fumbling issues (8 in last two seasons)",
-      "May be a rotational back early"
-    ],
-    "comparisonPlayer": "Derrick Henry (athletic profile)",
-    "summary": "Explosive, big-framed back who ran the fastest 40 among RBs at the combine (4.33). One-cut style with breakaway speed, though fumbling needs to be cleaned up.",
-    "topFitTeams": [
-      "SEA",
-      "NO",
-      "ATL",
-      "LAR",
-      "CIN"
-    ],
-    "fitReason": "Teams needing a physical, fast RB who can complement an existing backfield or develop into a lead back."
-  },
-  {
-    "id": "luke-hasz",
-    "name": "Luke Hasz",
-    "position": "TE",
-    "school": "Arkansas",
-    "projectedRound": 2,
-    "projectedPick": "40-60",
-    "height": "6'4\"",
-    "weight": 245,
-    "collegeStats": {
-      "statsSeason": "career",
-      "games": 26,
-      "receptions": null,
-      "receivingYards": null,
-      "receivingTDs": null,
-      "pffReceivingGrade": 82.3
-    },
-    "combineMeasurables": {
-      "fortyYard": null,
-      "benchPress": null,
-      "verticalJump": null,
-      "broadJump": null,
-      "threeConeDrill": null,
-      "twentyYardShuttle": null
-    },
-    "strengths": [
-      "Top-10 PFF receiving grade among all TEs",
-      "Natural pass catcher",
-      "SEC competition tested"
-    ],
-    "risks": [
-      "Not the same athletic freak as Sadiq",
-      "Blocking development needed"
-    ],
-    "comparisonPlayer": "Dallas Goedert",
-    "summary": "Reliable SEC tight end with an 82.3 PFF receiving grade \u2014 top 10 among all college TEs. Natural pass catcher who projects as a solid TE2 with starter upside.",
-    "topFitTeams": [
+      "MIN",
       "GB",
       "NE",
-      "CIN",
-      "BAL",
-      "IND"
+      "HOU"
     ],
-    "fitReason": "Teams needing a reliable receiving TE in the middle rounds with proven SEC production."
+    "fitReason": "Offenses wanting a balanced Z who can move the chains."
   }
 ]
