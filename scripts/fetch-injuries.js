@@ -19,15 +19,45 @@ import { fileURLToPath } from 'url';
 import { fetchCSV, normTeam } from './_lib/nflverse.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2025', 10);
+
+// Current NFL season derivation. The league year rolls over ~March 1 (free
+// agency, new contract year). Before March we're still on the previous
+// season's data; after we're on the current. Prevents the "hardcoded '2025'"
+// rot the CoS audit flagged 2026-08-30 — the workflow will still be pulling
+// the right file next August without a human edit.
+function currentNflSeason() {
+  const now = new Date();
+  const y = now.getUTCFullYear();
+  const m = now.getUTCMonth() + 1;   // 1–12
+  return m >= 3 ? y : y - 1;
+}
+const SEASON = parseInt(process.env.SEASON || process.argv[2] || String(currentNflSeason()), 10);
 const URL = `https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_${SEASON}.csv`;
-const OUT = path.join(__dirname, `../src/data/intelligence/injuries_${SEASON}.json`);
+// OUT is computed in main() using the season that actually returned data —
+// so a fallback run writes injuries_2025.json rather than a phantom
+// injuries_2026.json with 2025 contents.
+
+async function fetchInjuriesWithFallback() {
+  try {
+    const rows = await fetchCSV(URL, `injuries (${SEASON})`);
+    return { rows, seasonUsed: SEASON };
+  } catch (err) {
+    // Before the season starts, nflverse hasn't published the current-year
+    // file yet. Fall back to previous season so downstream isn't broken —
+    // it's stale-but-shaped-right rather than absent.
+    const fallback = SEASON - 1;
+    const fallbackUrl = `https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_${fallback}.csv`;
+    console.log(`  ⚠ ${SEASON} injuries unavailable (${err.message}); falling back to ${fallback}`);
+    const rows = await fetchCSV(fallbackUrl, `injuries (${fallback})`);
+    return { rows, seasonUsed: fallback };
+  }
+}
 
 async function main() {
-  console.log(`DownfieldOS — Injuries ingest (${SEASON})`);
+  console.log(`DownfieldOS — Injuries ingest (target ${SEASON})`);
   console.log('=========================================\n');
 
-  const rows = await fetchCSV(URL, `injuries (${SEASON})`);
+  const { rows, seasonUsed } = await fetchInjuriesWithFallback();
   console.log(`  ${rows.length.toLocaleString()} injury reports\n`);
 
   // Group by (team, player) — keep every week's designation so consumers can
@@ -76,8 +106,11 @@ async function main() {
   const currentlyOut = players.filter(p => p.latest?.report_status === 'Out').length;
   const currentlyQ = players.filter(p => p.latest?.report_status === 'Questionable').length;
 
+  const OUT = path.join(__dirname, `../src/data/intelligence/injuries_${seasonUsed}.json`);
   const meta = {
-    season: SEASON,
+    season: seasonUsed,
+    season_requested: SEASON,
+    season_fallback: seasonUsed !== SEASON,
     source: 'nflverse (injuries release)',
     generated: new Date().toISOString(),
     total_reports: rows.length,
