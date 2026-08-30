@@ -26,8 +26,22 @@ jobs:
           node-version: 22
       - name: Install dependencies
         run: npm install
-      - name: Fetch real NFL play data
+      # Cache the PBP JSON outputs across deploys. Completed-season PBP is
+      # immutable — refetching ~300 MB on every push is pure waste (CoS
+      # finding #9). GitHub caches have a natural 7-day TTL, which matches
+      # the "refresh weekly during the season" cadence for the in-season
+      # year. Bumping the fetch script busts the cache automatically.
+      - name: Cache PBP JSON outputs
+        id: pbp-cache
+        uses: actions/cache@v4
+        with:
+          path: public/data/plays-*.json
+          key: pbp-${{ hashFiles('scripts/fetch-nflverse-pbp.js') }}
+      - name: Fetch real NFL play data (skipped on cache hit)
+        if: steps.pbp-cache.outputs.cache-hit != 'true'
         run: npm run data:pbp
+      - name: Run roster accuracy tests
+        run: npm test
       - name: Build
         run: npm run build
       - name: Setup Pages
@@ -47,3 +61,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  smoke-test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Post-deploy smoke test
+        run: |
+          sleep 30
+          STATUS=$(curl -sI https://downfieldos.com/ -o /dev/null -w "%{http_code}")
+          if [ "$STATUS" != "200" ]; then echo "Root returned $STATUS"; exit 1; fi
+          echo "Root: $STATUS OK"
+          MATCHUP=$(curl -sI https://downfieldos.com/matchup-preview -o /dev/null -w "%{http_code}")
+          if [ "$MATCHUP" != "200" ]; then echo "Matchup route returned $MATCHUP"; exit 1; fi
+          echo "Matchup route: $MATCHUP OK"
+          BODY=$(curl -s https://downfieldos.com/)
+          if echo "$BODY" | grep -q "DownfieldOS"; then echo "Title check: OK"; else echo "Title check: FAILED"; exit 1; fi

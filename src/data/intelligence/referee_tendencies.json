@@ -1,0 +1,226 @@
+{
+  "meta": {
+    "generated": "2026-08-30T22:15:38.512Z",
+    "seasons": [
+      2025
+    ],
+    "source": "nflverse PBP × officials release (crew chief only)",
+    "referee_count": 17,
+    "games_covered": 272,
+    "league_baseline": {
+      "games": 272,
+      "avg_penalties_per_game": 12.72,
+      "avg_penalty_yards_per_game": 102.1,
+      "dpi_per_game": 1.026,
+      "offensive_holding_per_game": 2.471,
+      "first_down_penalty_rate": 0.281
+    },
+    "note": "CoS audit 2026-08-30 finding #6. Tendencies computed from REG-season plays only. Referees with < 20 games officiated should be treated as small-sample."
+  },
+  "referees": [
+    {
+      "referee": "Scott Novak",
+      "games_officiated": 17,
+      "avg_penalties_per_game": 11.76,
+      "avg_penalty_yards_per_game": 94.2,
+      "dpi_per_game": 0.941,
+      "offensive_holding_per_game": 2.824,
+      "first_down_penalty_rate": 0.24,
+      "home_penalty_share": 0.57,
+      "delta_penalties_per_game": -0.96,
+      "delta_dpi_per_game": -0.085
+    },
+    {
+      "referee": "Craig Wrolstad",
+      "games_officiated": 17,
+      "avg_penalties_per_game": 11.71,
+      "avg_penalty_yards_per_game": 93.1,
+      "dpi_per_game": 1.176,
+      "offensive_holding_per_game": 2.118,
+      "first_down_penalty_rate": 0.327,
+      "home_penalty_share": 0.452,
+      "delta_penalties_per_game": -1.01,
+      "delta_dpi_per_game": 0.15
+    },
+    {
+      "referee": "Bill Vinovich",
+      "games_officiated": 17,
+      "avg_penalties_per_game": 13.53,
+      "avg_penalty_yards_per_game": 111.7,
+      "dpi_per_game": 1.118,
+      "offensive_holding_per_game": 2.412,
+      "first_down_penalty_rate": 0.235,
+      "home_penalty_share": 0.448,
+      "delta_penalties_per_game": 0.81,
+      "delta_dpi_per_game": 0.092
+    },
+    {
+      "referee": "John Hussey",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 11.56,
+      "avg_penalty_yards_per_game": 95.4,
+      "dpi_per_game": 1.5,
+      "offensive_holding_per_game": 2,
+      "first_down_penalty_rate": 0.27,
+      "home_penalty_share": 0.546,
+      "delta_penalties_per_game": -1.16,
+      "delta_dpi_per_game": 0.474
+    },
+    {
+      "referee": "Alex Moore",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 16.13,
+      "avg_penalty_yards_per_game": 127.2,
+      "dpi_per_game": 0.75,
+      "offensive_holding_per_game": 3.125,
+      "first_down_penalty_rate": 0.314,
+      "home_penalty_share": 0.477,
+      "delta_penalties_per_game": 3.4,
+      "delta_dpi_per_game": -0.276
+    },
+    {
+      "referee": "Shawn Smith",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 12.13,
+      "avg_penalty_yards_per_game": 93.9,
+      "dpi_per_game": 1.25,
+      "offensive_holding_per_game": 1.813,
+      "first_down_penalty_rate": 0.345,
+      "home_penalty_share": 0.428,
+      "delta_penalties_per_game": -0.6,
+      "delta_dpi_per_game": 0.224
+    },
+    {
+      "referee": "Clete Blakeman",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 12.81,
+      "avg_penalty_yards_per_game": 100.1,
+      "dpi_per_game": 0.938,
+      "offensive_holding_per_game": 2.438,
+      "first_down_penalty_rate": 0.263,
+      "home_penalty_share": 0.463,
+      "delta_penalties_per_game": 0.09,
+      "delta_dpi_per_game": -0.089
+    },
+    {
+      "referee": "Carl Cheffers",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 14.63,
+      "avg_penalty_yards_per_game": 110.6,
+      "dpi_per_game": 1.188,
+      "offensive_holding_per_game": 2.688,
+      "first_down_penalty_rate": 0.265,
+      "home_penalty_share": 0.457,
+      "delta_penalties_per_game": 1.9,
+      "delta_dpi_per_game": 0.161
+    },
+    {
+      "referee": "Ronald Torbert",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 12.75,
+      "avg_penalty_yards_per_game": 97.7,
+      "dpi_per_game": 0.563,
+      "offensive_holding_per_game": 2.688,
+      "first_down_penalty_rate": 0.245,
+      "home_penalty_share": 0.564,
+      "delta_penalties_per_game": 0.03,
+      "delta_dpi_per_game": -0.463
+    },
+    {
+      "referee": "Alan Eck",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 10.94,
+      "avg_penalty_yards_per_game": 89.6,
+      "dpi_per_game": 0.938,
+      "offensive_holding_per_game": 2,
+      "first_down_penalty_rate": 0.314,
+      "home_penalty_share": 0.451,
+      "delta_penalties_per_game": -1.78,
+      "delta_dpi_per_game": -0.089
+    },
+    {
+      "referee": "Clay Martin",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 12.19,
+      "avg_penalty_yards_per_game": 94.9,
+      "dpi_per_game": 0.875,
+      "offensive_holding_per_game": 3,
+      "first_down_penalty_rate": 0.292,
+      "home_penalty_share": 0.482,
+      "delta_penalties_per_game": -0.53,
+      "delta_dpi_per_game": -0.151
+    },
+    {
+      "referee": "Shawn Hochuli",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 14.5,
+      "avg_penalty_yards_per_game": 124.6,
+      "dpi_per_game": 1.438,
+      "offensive_holding_per_game": 2.625,
+      "first_down_penalty_rate": 0.315,
+      "home_penalty_share": 0.552,
+      "delta_penalties_per_game": 1.78,
+      "delta_dpi_per_game": 0.412
+    },
+    {
+      "referee": "Land Clark",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 10.94,
+      "avg_penalty_yards_per_game": 85.9,
+      "dpi_per_game": 0.688,
+      "offensive_holding_per_game": 2.063,
+      "first_down_penalty_rate": 0.269,
+      "home_penalty_share": 0.537,
+      "delta_penalties_per_game": -1.78,
+      "delta_dpi_per_game": -0.338
+    },
+    {
+      "referee": "Alex Kemp",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 12.88,
+      "avg_penalty_yards_per_game": 114.7,
+      "dpi_per_game": 1.063,
+      "offensive_holding_per_game": 2.75,
+      "first_down_penalty_rate": 0.291,
+      "home_penalty_share": 0.539,
+      "delta_penalties_per_game": 0.15,
+      "delta_dpi_per_game": 0.036
+    },
+    {
+      "referee": "Brad Rogers",
+      "games_officiated": 16,
+      "avg_penalties_per_game": 13.31,
+      "avg_penalty_yards_per_game": 102.3,
+      "dpi_per_game": 0.813,
+      "offensive_holding_per_game": 2.438,
+      "first_down_penalty_rate": 0.239,
+      "home_penalty_share": 0.455,
+      "delta_penalties_per_game": 0.59,
+      "delta_dpi_per_game": -0.214
+    },
+    {
+      "referee": "Brad Allen",
+      "games_officiated": 15,
+      "avg_penalties_per_game": 10.13,
+      "avg_penalty_yards_per_game": 79.2,
+      "dpi_per_game": 0.733,
+      "offensive_holding_per_game": 1.8,
+      "first_down_penalty_rate": 0.296,
+      "home_penalty_share": 0.5,
+      "delta_penalties_per_game": -2.59,
+      "delta_dpi_per_game": -0.293
+    },
+    {
+      "referee": "Adrian Hill",
+      "games_officiated": 14,
+      "avg_penalties_per_game": 14.57,
+      "avg_penalty_yards_per_game": 122.4,
+      "dpi_per_game": 1.5,
+      "offensive_holding_per_game": 3.286,
+      "first_down_penalty_rate": 0.265,
+      "home_penalty_share": 0.505,
+      "delta_penalties_per_game": 1.85,
+      "delta_dpi_per_game": 0.474
+    }
+  ]
+}
