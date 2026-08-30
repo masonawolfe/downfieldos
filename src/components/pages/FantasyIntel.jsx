@@ -65,7 +65,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
 
       // QB score: pass volume + efficiency environment + explosive upside
       const qbScore = (passVol / 35) * 30 + (defPassSR / (bl.sr || 0.45)) * 25 + (oStats.xr / (bl.xr || 0.08)) * 25 + (oStats.compRate / (bl.compRate || 0.62)) * 20;
-      const unknown = { name: "TBD", grade: "TBD", rating: 65, trait: "Unknown", pos: "?" };
+      const unknown = { name: "TBD", grade: "TBD", rating: 65, pos: "?" };
       const qb = oR.offense.find(p => p.pos === "QB") || unknown;
 
       // RB score: rush volume + receiving + defense weakness
@@ -78,7 +78,12 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
 
       // TE score
       const te = oR.offense.find(p => p.pos === "TE") || unknown;
-      const teScore = (passVol / 35) * 20 + (te.trait === "Receiving TE" ? 30 : 10) + (defPassSR / (bl.sr || 0.45)) * 20 + (dStats.dxr > bl.xr ? 15 : 5);
+      // teScore: trait-based branch removed 2026-08-30 (CoS finding #2).
+      // Previously `te.trait === "Receiving TE" ? 30 : 10` — the trait was
+      // assigned by name length and carried no information. Using the
+      // baseline (10) keeps the score shape stable until a real receiving-TE
+      // signal (route participation, snap share) is wired in.
+      const teScore = (passVol / 35) * 20 + 10 + (defPassSR / (bl.sr || 0.45)) * 20 + (dStats.dxr > bl.xr ? 15 : 5);
 
       // Boom/bust
       const boomProb = (off2) => Math.min(0.95, Math.max(0.05, (oStats.xr + defExpRate) / 2 * 5 + (oStats.sr > bl.sr + 0.03 ? 0.1 : 0)));

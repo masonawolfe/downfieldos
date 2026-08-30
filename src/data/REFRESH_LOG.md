@@ -154,3 +154,33 @@ directive was issued specifically because of unverified runs like this one.
 
 **Notes**
 Snap season used: 2025 (fallback). Missing gsis_id count: 1.
+
+### 2026-08-30T22:10:54.935Z — fetch-nflverse-roster-base.js (SEASON=2026)
+
+**Sources**
+- depth_charts_2026.csv — https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_2026.csv, updated nflverse release
+- snap_counts_2025.csv — https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_2025.csv, updated nflverse release
+- roster_2026.csv — https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2026.csv, updated nflverse release
+
+**Outputs**
+- rosters2026.js — 621 rows, 122 KB, gsis_id present on 620/621 (99.8%)
+
+**Spot check (15 entries)**
+- ARI QB Jacoby Brissett (gsis 00-0033119) — rating 79
+- ATL QB Tua Tagovailoa (gsis 00-0036212) — rating 74
+- BAL QB Lamar Jackson (gsis 00-0034796) — rating 82
+- BUF QB Josh Allen (gsis 00-0034857) — rating 87
+- CAR QB Bryce Young (gsis 00-0039150) — rating 86
+- CHI QB Caleb Williams (gsis 00-0039918) — rating 86
+- CIN QB Joe Burrow (gsis 00-0036442) — rating 87
+- CLE QB Deshaun Watson (gsis 00-0033537) — rating 71
+- DAL QB Dak Prescott (gsis 00-0033077) — rating 84
+- DEN QB Bo Nix (gsis 00-0039732) — rating 86
+- DET QB Jared Goff (gsis 00-0033106) — rating 84
+- GB QB Jordan Love (gsis 00-0036264) — rating 87
+- HOU QB C.J. Stroud (gsis 00-0039163) — rating 86
+- IND QB Daniel Jones (gsis 00-0035710) — rating 82
+- JAX QB Trevor Lawrence (gsis 00-0036971) — rating 87
+
+**Notes**
+Snap season used: 2025 (fallback). Missing gsis_id count: 1.

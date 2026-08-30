@@ -176,13 +176,13 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
                   <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.off} team={teamForOff}>{m.off.name}</PlayerLink></div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade} | {m.off.trait}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade}</div>
                     <RatingBar value={m.off.rating} color="#16a34a" />
                   </div>
                   <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{def ? <PlayerLink player={def} team={teamForDef}>{def.name}</PlayerLink> : "—"}</div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{def?.pos} | {def?.grade} | {def?.trait}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{def?.pos} | {def?.grade}</div>
                     {def && <RatingBar value={def.rating} color="#dc2626" />}
                   </div>
                 </div>

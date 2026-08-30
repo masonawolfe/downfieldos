@@ -58,7 +58,7 @@ export function PlayerCard({ player, team, onClose }) {
             <span style={{ fontSize: 32, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{player.rating}</span>
             <div>
               <div style={{ fontSize: 13, fontWeight: 700, color: gradeColor }}>{player.grade}</div>
-              <div style={{ fontSize: 12, color: "#8B949E" }}>{player.trait}</div>
+              {player.trait && <div style={{ fontSize: 12, color: "#8B949E" }}>{player.trait}</div>}
             </div>
           </div>
         </div>

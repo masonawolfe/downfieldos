@@ -30,10 +30,10 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>Everything you need to know. Filters apply to all metrics.</p>
         </div>
         <ExportButton label="Export Roster" onClick={() => {
-          const headers = ["Unit", "Position", "Player", "Grade", "Rating", "Trait"];
+          const headers = ["Unit", "Position", "Player", "Grade", "Rating", ];
           const rows = [
-            ...roster.offense.map(p => ["Offense", p.pos, p.name, p.grade, p.rating, p.trait]),
-            ...roster.defense.map(p => ["Defense", p.pos, p.name, p.grade, p.rating, p.trait]),
+            ...roster.offense.map(p => ["Offense", p.pos, p.name, p.grade, p.rating]),
+            ...roster.defense.map(p => ["Defense", p.pos, p.name, p.grade, p.rating]),
           ];
           downloadCSV(`${team}-roster`, headers, rows);
         }} />
@@ -132,7 +132,7 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
                   <span style={{ fontSize: 11, fontWeight: 700, color: p.grade === "Elite" ? "#2563eb" : p.grade === "Above Avg" ? "#16a34a" : "#64748b" }}>{p.grade} ({p.rating})</span>
                 </div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: "#0f172a" }}><PlayerLink player={p} team={team}>{p.name}</PlayerLink></div>
-                <div style={{ fontSize: 12, color: "#94a3b8" }}>{p.trait}</div>
+                {p.trait && <div style={{ fontSize: 12, color: "#94a3b8" }}>{p.trait}</div>}
               </div>
             ))}
           </div>

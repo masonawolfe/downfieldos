@@ -81,7 +81,7 @@ function RosteredPlayerView({ player, team, teamName }) {
           <span style={{ fontSize: 48, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{player.rating}</span>
           <div>
             <div style={{ fontSize: 16, fontWeight: 700, color: gradeColor }}>{player.grade}</div>
-            <div style={{ fontSize: 13, color: "#8B949E" }}>{player.trait}</div>
+            {player.trait && <div style={{ fontSize: 13, color: "#8B949E" }}>{player.trait}</div>}
           </div>
         </div>
         {/* Rating bar */}

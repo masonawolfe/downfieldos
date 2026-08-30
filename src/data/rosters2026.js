@@ -1,5 +1,9 @@
 // Auto-generated from nflverse depth charts + snap counts (2026 season)
-// Generated: 2026-08-23T22:55:56.043Z
+// NOTE: rating is a SNAP-SHARE PROXY (68-85 base by snap share + exp
+// modifier), not a player evaluation. See rating_source on each row. UI
+// should render this under an honest label — "Snap share tier" or similar.
+// CoS audit 2026-08-30 finding #4.
+// Generated: 2026-08-30T22:10:54.932Z
 // Sources: depth_charts_2026.csv, snap_counts_2025.csv, roster_2026.csv
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
 
@@ -12,7 +16,7 @@ export const ROSTERS_2026 = {
         "name": "Jacoby Brissett",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -20,31 +24,31 @@ export const ROSTERS_2026 = {
         "name": "Jeremiyah Love",
         "grade": "Average",
         "rating": 71,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
         "gsis_id": "00-0039849",
         "name": "Marvin Harrison Jr.",
         "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Contested Catch"
+        "rating": 81,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
         "gsis_id": "00-0037744",
         "name": "Trey McBride",
         "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Receiving TE"
+        "rating": 87,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
         "gsis_id": "00-0038540",
         "name": "Paris Johnson Jr.",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
+        "rating": 73,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -52,23 +56,23 @@ export const ROSTERS_2026 = {
         "name": "Isaac Seumalo",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
         "gsis_id": "00-0035258",
         "name": "Hjalte Froholdt",
         "grade": "Above Avg",
-        "rating": 84,
-        "trait": "Pass Pro"
+        "rating": 87,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
         "gsis_id": "00-0039808",
         "name": "Isaiah Adams",
         "grade": "Average",
-        "rating": 75,
-        "trait": "Pass Pro"
+        "rating": 77,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -76,7 +80,7 @@ export const ROSTERS_2026 = {
         "name": "Elijah Wilkinson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -85,24 +89,24 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0034381",
         "name": "Josh Sweat",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Power Rusher"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
         "gsis_id": "00-0039854",
         "name": "Darius Robinson",
         "grade": "Average",
-        "rating": 75,
-        "trait": "Power Rusher"
+        "rating": 77,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
         "gsis_id": "00-0036568",
         "name": "Roy Lopez",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Interior Pressure"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -110,15 +114,15 @@ export const ROSTERS_2026 = {
         "name": "Cody Simon",
         "grade": "Average",
         "rating": 75,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
         "gsis_id": "00-0036933",
         "name": "Zaven Collins",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Run Stopper"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -126,7 +130,7 @@ export const ROSTERS_2026 = {
         "name": "Will Johnson",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -134,23 +138,23 @@ export const ROSTERS_2026 = {
         "name": "Denzel Burke",
         "grade": "Average",
         "rating": 75,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
         "gsis_id": "00-0039007",
         "name": "Garrett Williams",
         "grade": "Above Avg",
-        "rating": 79,
-        "trait": "Slot Corner"
+        "rating": 81,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
         "gsis_id": "00-0035378",
         "name": "Andrew Wingard",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Coverage Safety"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -158,7 +162,7 @@ export const ROSTERS_2026 = {
         "name": "Budda Baker",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -170,7 +174,7 @@ export const ROSTERS_2026 = {
         "name": "Tua Tagovailoa",
         "grade": "Average",
         "rating": 74,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -178,7 +182,7 @@ export const ROSTERS_2026 = {
         "name": "Bijan Robinson",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -186,7 +190,7 @@ export const ROSTERS_2026 = {
         "name": "Drake London",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -194,7 +198,7 @@ export const ROSTERS_2026 = {
         "name": "Kyle Pitts Sr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -202,7 +206,7 @@ export const ROSTERS_2026 = {
         "name": "Jake Matthews",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -210,7 +214,7 @@ export const ROSTERS_2026 = {
         "name": "Matthew Bergeron",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -218,7 +222,7 @@ export const ROSTERS_2026 = {
         "name": "Ryan Neuzil",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -226,7 +230,7 @@ export const ROSTERS_2026 = {
         "name": "Chris Lindstrom",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -234,7 +238,7 @@ export const ROSTERS_2026 = {
         "name": "Jawaan Taylor",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -244,7 +248,7 @@ export const ROSTERS_2026 = {
         "name": "Brandon Dorlus",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -252,7 +256,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Harrison",
         "grade": "Average",
         "rating": 77,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -260,7 +264,7 @@ export const ROSTERS_2026 = {
         "name": "Da'Shawn Hand",
         "grade": "Average",
         "rating": 74,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -268,7 +272,7 @@ export const ROSTERS_2026 = {
         "name": "Divine Deablo",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -276,7 +280,7 @@ export const ROSTERS_2026 = {
         "name": "Za'Darius Smith",
         "grade": "Average",
         "rating": 71,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -284,7 +288,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Hughes",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -292,7 +296,7 @@ export const ROSTERS_2026 = {
         "name": "A.J. Terrell Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -300,7 +304,7 @@ export const ROSTERS_2026 = {
         "name": "Billy Bowman Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -308,7 +312,7 @@ export const ROSTERS_2026 = {
         "name": "Xavier Watts",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -316,7 +320,7 @@ export const ROSTERS_2026 = {
         "name": "Jessie Bates III",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -328,7 +332,7 @@ export const ROSTERS_2026 = {
         "name": "Lamar Jackson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Pocket Passer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -336,15 +340,7 @@ export const ROSTERS_2026 = {
         "name": "Derrick Henry",
         "grade": "Average",
         "rating": 75,
-        "trait": "Pass-Catching"
-      },
-      {
-        "pos": "RB2",
-        "gsis_id": "00-0040637",
-        "name": "Lucas Scott",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -352,7 +348,7 @@ export const ROSTERS_2026 = {
         "name": "Zay Flowers",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -360,7 +356,7 @@ export const ROSTERS_2026 = {
         "name": "Mark Andrews",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -368,7 +364,7 @@ export const ROSTERS_2026 = {
         "name": "Ronnie Stanley",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -376,7 +372,7 @@ export const ROSTERS_2026 = {
         "name": "John Simpson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -384,7 +380,7 @@ export const ROSTERS_2026 = {
         "name": "Ethan Pocic",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -392,7 +388,7 @@ export const ROSTERS_2026 = {
         "name": "Olaivavega Ioane",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -400,7 +396,7 @@ export const ROSTERS_2026 = {
         "name": "Roger Rosengarten",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -410,7 +406,7 @@ export const ROSTERS_2026 = {
         "name": "Nnamdi Madubuike",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -418,7 +414,7 @@ export const ROSTERS_2026 = {
         "name": "Calais Campbell",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -426,7 +422,7 @@ export const ROSTERS_2026 = {
         "name": "Travis Jones",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -434,7 +430,7 @@ export const ROSTERS_2026 = {
         "name": "Roquan Smith",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -442,7 +438,7 @@ export const ROSTERS_2026 = {
         "name": "Teddye Buchanan",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -450,7 +446,7 @@ export const ROSTERS_2026 = {
         "name": "Nate Wiggins",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -458,7 +454,7 @@ export const ROSTERS_2026 = {
         "name": "Marlon Humphrey",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -466,7 +462,7 @@ export const ROSTERS_2026 = {
         "name": "Kyle Hamilton",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -474,7 +470,7 @@ export const ROSTERS_2026 = {
         "name": "Malaki Starks",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -482,7 +478,7 @@ export const ROSTERS_2026 = {
         "name": "Jaylinn Hawkins",
         "grade": "Average",
         "rating": 74,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -494,7 +490,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Allen",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -502,7 +498,7 @@ export const ROSTERS_2026 = {
         "name": "James Cook III",
         "grade": "Average",
         "rating": 71,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -510,7 +506,7 @@ export const ROSTERS_2026 = {
         "name": "Ben VanSumeren",
         "grade": "Average",
         "rating": 73,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -518,7 +514,7 @@ export const ROSTERS_2026 = {
         "name": "DJ Moore",
         "grade": "Average",
         "rating": 74,
-        "trait": "YAC Monster"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -526,7 +522,7 @@ export const ROSTERS_2026 = {
         "name": "Dalton Kincaid",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -534,7 +530,7 @@ export const ROSTERS_2026 = {
         "name": "Dion Dawkins",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -542,7 +538,7 @@ export const ROSTERS_2026 = {
         "name": "Alec Anderson",
         "grade": "Average",
         "rating": 70,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -550,7 +546,7 @@ export const ROSTERS_2026 = {
         "name": "Connor McGovern",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -558,7 +554,7 @@ export const ROSTERS_2026 = {
         "name": "O'Cyrus Torrence",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -566,7 +562,7 @@ export const ROSTERS_2026 = {
         "name": "Spencer Brown",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -576,7 +572,7 @@ export const ROSTERS_2026 = {
         "name": "T.J. Sanders",
         "grade": "Average",
         "rating": 71,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -584,7 +580,7 @@ export const ROSTERS_2026 = {
         "name": "Ed Oliver",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -592,7 +588,7 @@ export const ROSTERS_2026 = {
         "name": "Deone Walker",
         "grade": "Average",
         "rating": 71,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -600,15 +596,15 @@ export const ROSTERS_2026 = {
         "name": "Terrel Bernard",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0038557",
-        "name": "Dorian Williams",
+        "gsis_id": "00-0036914",
+        "name": "Greg Rousseau",
         "grade": "Average",
-        "rating": 73,
-        "trait": "Sideline-to-Sideline"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -616,7 +612,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Benford",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -624,7 +620,7 @@ export const ROSTERS_2026 = {
         "name": "Maxwell Hairston",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -632,7 +628,7 @@ export const ROSTERS_2026 = {
         "name": "C.J. Gardner-Johnson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -640,7 +636,7 @@ export const ROSTERS_2026 = {
         "name": "Geno Stone",
         "grade": "Average",
         "rating": 74,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -648,7 +644,7 @@ export const ROSTERS_2026 = {
         "name": "Cole Bishop",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -660,7 +656,7 @@ export const ROSTERS_2026 = {
         "name": "Bryce Young",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -668,7 +664,7 @@ export const ROSTERS_2026 = {
         "name": "Chuba Hubbard",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -676,7 +672,7 @@ export const ROSTERS_2026 = {
         "name": "Tetairoa McMillan",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -684,7 +680,7 @@ export const ROSTERS_2026 = {
         "name": "Tommy Tremble",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -692,7 +688,7 @@ export const ROSTERS_2026 = {
         "name": "Ikem Ekwonu",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -700,7 +696,7 @@ export const ROSTERS_2026 = {
         "name": "Damien Lewis",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -708,7 +704,7 @@ export const ROSTERS_2026 = {
         "name": "Luke Fortner",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -716,7 +712,7 @@ export const ROSTERS_2026 = {
         "name": "Robert Hunt",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -724,7 +720,7 @@ export const ROSTERS_2026 = {
         "name": "Taylor Moton",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -734,7 +730,7 @@ export const ROSTERS_2026 = {
         "name": "Derrick Brown",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -742,7 +738,7 @@ export const ROSTERS_2026 = {
         "name": "Tershawn Wharton",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -750,7 +746,7 @@ export const ROSTERS_2026 = {
         "name": "Bobby Brown III",
         "grade": "Average",
         "rating": 74,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -758,7 +754,7 @@ export const ROSTERS_2026 = {
         "name": "Trevin Wallace",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -766,7 +762,7 @@ export const ROSTERS_2026 = {
         "name": "Patrick Jones II",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -774,7 +770,7 @@ export const ROSTERS_2026 = {
         "name": "Jaycee Horn",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -782,7 +778,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Jackson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -790,7 +786,7 @@ export const ROSTERS_2026 = {
         "name": "Chau Smith-Wade",
         "grade": "Average",
         "rating": 77,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -798,7 +794,7 @@ export const ROSTERS_2026 = {
         "name": "Nick Scott",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -806,7 +802,7 @@ export const ROSTERS_2026 = {
         "name": "Tre'von Moehrig",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -818,7 +814,7 @@ export const ROSTERS_2026 = {
         "name": "Caleb Williams",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -826,7 +822,7 @@ export const ROSTERS_2026 = {
         "name": "D'Andre Swift",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -834,7 +830,7 @@ export const ROSTERS_2026 = {
         "name": "Rome Odunze",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -842,7 +838,7 @@ export const ROSTERS_2026 = {
         "name": "Colston Loveland",
         "grade": "Average",
         "rating": 75,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -850,7 +846,7 @@ export const ROSTERS_2026 = {
         "name": "Braxton Jones",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -858,7 +854,7 @@ export const ROSTERS_2026 = {
         "name": "Joe Thuney",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -866,7 +862,7 @@ export const ROSTERS_2026 = {
         "name": "Garrett Bradbury",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -874,7 +870,7 @@ export const ROSTERS_2026 = {
         "name": "Jonah Jackson",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -882,7 +878,7 @@ export const ROSTERS_2026 = {
         "name": "Darnell Wright",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -892,7 +888,7 @@ export const ROSTERS_2026 = {
         "name": "Montez Sweat",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -900,7 +896,7 @@ export const ROSTERS_2026 = {
         "name": "Dayo Odeyingbo",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -908,7 +904,7 @@ export const ROSTERS_2026 = {
         "name": "Grady Jarrett",
         "grade": "Average",
         "rating": 75,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -916,7 +912,7 @@ export const ROSTERS_2026 = {
         "name": "T.J. Edwards",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -924,7 +920,7 @@ export const ROSTERS_2026 = {
         "name": "D'Marco Jackson",
         "grade": "Average",
         "rating": 70,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -932,7 +928,7 @@ export const ROSTERS_2026 = {
         "name": "Tyrique Stevenson",
         "grade": "Average",
         "rating": 77,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -940,7 +936,7 @@ export const ROSTERS_2026 = {
         "name": "Jaylon Johnson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -948,7 +944,7 @@ export const ROSTERS_2026 = {
         "name": "Kyler Gordon",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -956,7 +952,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Lewis",
         "grade": "Average",
         "rating": 74,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -964,7 +960,7 @@ export const ROSTERS_2026 = {
         "name": "Dillon Thieneman",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -976,7 +972,7 @@ export const ROSTERS_2026 = {
         "name": "Joe Burrow",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -984,7 +980,7 @@ export const ROSTERS_2026 = {
         "name": "Chase Brown",
         "grade": "Average",
         "rating": 77,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -992,7 +988,7 @@ export const ROSTERS_2026 = {
         "name": "Ja'Marr Chase",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "YAC Monster"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1000,7 +996,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Gesicki",
         "grade": "Average",
         "rating": 74,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1008,7 +1004,7 @@ export const ROSTERS_2026 = {
         "name": "Orlando Brown Jr.",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1016,7 +1012,7 @@ export const ROSTERS_2026 = {
         "name": "Dylan Fairchild",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1024,7 +1020,7 @@ export const ROSTERS_2026 = {
         "name": "Ted Karras",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1032,7 +1028,7 @@ export const ROSTERS_2026 = {
         "name": "Dalton Risner",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1040,7 +1036,7 @@ export const ROSTERS_2026 = {
         "name": "Amarius Mims",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -1050,7 +1046,7 @@ export const ROSTERS_2026 = {
         "name": "Myles Murphy",
         "grade": "Average",
         "rating": 77,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1058,7 +1054,7 @@ export const ROSTERS_2026 = {
         "name": "Boye Mafe",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1066,7 +1062,7 @@ export const ROSTERS_2026 = {
         "name": "Dexter Lawrence II",
         "grade": "Average",
         "rating": 71,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1074,7 +1070,7 @@ export const ROSTERS_2026 = {
         "name": "Barrett Carter",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1082,7 +1078,7 @@ export const ROSTERS_2026 = {
         "name": "Oren Burks",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1090,7 +1086,7 @@ export const ROSTERS_2026 = {
         "name": "Dax Hill",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1098,7 +1094,7 @@ export const ROSTERS_2026 = {
         "name": "DJ Turner II",
         "grade": "Average",
         "rating": 73,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1106,7 +1102,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Davis",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1114,7 +1110,7 @@ export const ROSTERS_2026 = {
         "name": "Bryan Cook",
         "grade": "Average",
         "rating": 74,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1122,7 +1118,7 @@ export const ROSTERS_2026 = {
         "name": "Jordan Battle",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1134,7 +1130,7 @@ export const ROSTERS_2026 = {
         "name": "Deshaun Watson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1142,7 +1138,7 @@ export const ROSTERS_2026 = {
         "name": "Quinshon Judkins",
         "grade": "Average",
         "rating": 71,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -1150,7 +1146,7 @@ export const ROSTERS_2026 = {
         "name": "Michael Burton",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1158,7 +1154,7 @@ export const ROSTERS_2026 = {
         "name": "Jerry Jeudy",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1166,7 +1162,7 @@ export const ROSTERS_2026 = {
         "name": "Harold Fannin Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1174,7 +1170,7 @@ export const ROSTERS_2026 = {
         "name": "Spencer Fano",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1182,7 +1178,7 @@ export const ROSTERS_2026 = {
         "name": "Zion Johnson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1190,7 +1186,7 @@ export const ROSTERS_2026 = {
         "name": "Elgton Jenkins",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1198,7 +1194,7 @@ export const ROSTERS_2026 = {
         "name": "Teven Jenkins",
         "grade": "Average",
         "rating": 70,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1206,17 +1202,17 @@ export const ROSTERS_2026 = {
         "name": "Tytus Howard",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0037251",
-        "name": "Alex Wright",
-        "grade": "Above Avg",
-        "rating": 78,
-        "trait": "Versatile"
+        "gsis_id": "00-0038574",
+        "name": "Isaiah McGuire",
+        "grade": "Average",
+        "rating": 73,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1224,7 +1220,7 @@ export const ROSTERS_2026 = {
         "name": "Jared Verse",
         "grade": "Average",
         "rating": 73,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1232,7 +1228,7 @@ export const ROSTERS_2026 = {
         "name": "Mason Graham",
         "grade": "Average",
         "rating": 75,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1240,7 +1236,7 @@ export const ROSTERS_2026 = {
         "name": "Carson Schwesinger",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1248,7 +1244,7 @@ export const ROSTERS_2026 = {
         "name": "Winston Reid",
         "grade": "Average",
         "rating": 73,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1256,7 +1252,7 @@ export const ROSTERS_2026 = {
         "name": "Denzel Ward",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1264,7 +1260,7 @@ export const ROSTERS_2026 = {
         "name": "Tyson Campbell",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1272,7 +1268,7 @@ export const ROSTERS_2026 = {
         "name": "Myles Harden",
         "grade": "Average",
         "rating": 77,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1280,7 +1276,7 @@ export const ROSTERS_2026 = {
         "name": "Ronnie Hickman",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1288,7 +1284,7 @@ export const ROSTERS_2026 = {
         "name": "Grant Delpit",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1300,7 +1296,7 @@ export const ROSTERS_2026 = {
         "name": "Dak Prescott",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1308,7 +1304,7 @@ export const ROSTERS_2026 = {
         "name": "Javonte Williams",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -1316,7 +1312,7 @@ export const ROSTERS_2026 = {
         "name": "Hunter Luepke",
         "grade": "Below Avg",
         "rating": 69,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1324,7 +1320,7 @@ export const ROSTERS_2026 = {
         "name": "CeeDee Lamb",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1332,7 +1328,7 @@ export const ROSTERS_2026 = {
         "name": "Jake Ferguson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1340,7 +1336,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Guyton",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1348,7 +1344,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Smith",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1356,7 +1352,7 @@ export const ROSTERS_2026 = {
         "name": "Cooper Beebe",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1364,7 +1360,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Booker",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1372,7 +1368,7 @@ export const ROSTERS_2026 = {
         "name": "Terence Steele",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -1382,7 +1378,7 @@ export const ROSTERS_2026 = {
         "name": "Kenny Clark",
         "grade": "Average",
         "rating": 75,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1390,7 +1386,7 @@ export const ROSTERS_2026 = {
         "name": "Quinnen Williams",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1398,7 +1394,7 @@ export const ROSTERS_2026 = {
         "name": "Otito Ogbonnia",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1406,7 +1402,7 @@ export const ROSTERS_2026 = {
         "name": "Donovan Ezeiruaku",
         "grade": "Average",
         "rating": 75,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1414,7 +1410,7 @@ export const ROSTERS_2026 = {
         "name": "DeMarvion Overshown",
         "grade": "Average",
         "rating": 77,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1422,7 +1418,7 @@ export const ROSTERS_2026 = {
         "name": "DaRon Bland",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1430,7 +1426,7 @@ export const ROSTERS_2026 = {
         "name": "Cobie Durant",
         "grade": "Average",
         "rating": 74,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1438,7 +1434,7 @@ export const ROSTERS_2026 = {
         "name": "Caleb Downs",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1446,7 +1442,7 @@ export const ROSTERS_2026 = {
         "name": "Malik Hooker",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1454,7 +1450,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Thompson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1466,7 +1462,7 @@ export const ROSTERS_2026 = {
         "name": "Bo Nix",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1474,15 +1470,7 @@ export const ROSTERS_2026 = {
         "name": "J.K. Dobbins",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Between-the-Tackles"
-      },
-      {
-        "pos": "RB2",
-        "gsis_id": "00-0036727",
-        "name": "Adam Prentice",
-        "grade": "Average",
-        "rating": 70,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1490,7 +1478,7 @@ export const ROSTERS_2026 = {
         "name": "Courtland Sutton",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1498,7 +1486,7 @@ export const ROSTERS_2026 = {
         "name": "Evan Engram",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1506,7 +1494,7 @@ export const ROSTERS_2026 = {
         "name": "Garett Bolles",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1514,7 +1502,7 @@ export const ROSTERS_2026 = {
         "name": "Ben Powers",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1522,7 +1510,7 @@ export const ROSTERS_2026 = {
         "name": "Luke Wattenberg",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1530,7 +1518,7 @@ export const ROSTERS_2026 = {
         "name": "Quinn Meinerz",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1538,7 +1526,7 @@ export const ROSTERS_2026 = {
         "name": "Mike McGlinchey",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -1548,7 +1536,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Allen",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1556,7 +1544,7 @@ export const ROSTERS_2026 = {
         "name": "Malcolm Roach",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1564,7 +1552,7 @@ export const ROSTERS_2026 = {
         "name": "D.J. Jones",
         "grade": "Average",
         "rating": 71,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1572,7 +1560,7 @@ export const ROSTERS_2026 = {
         "name": "Alex Singleton",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1580,7 +1568,7 @@ export const ROSTERS_2026 = {
         "name": "Nik Bonitto",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1588,7 +1576,7 @@ export const ROSTERS_2026 = {
         "name": "Riley Moss",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1596,7 +1584,7 @@ export const ROSTERS_2026 = {
         "name": "Pat Surtain II",
         "grade": "Average",
         "rating": 74,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1604,7 +1592,7 @@ export const ROSTERS_2026 = {
         "name": "Ja'Quan McMillian",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1612,7 +1600,7 @@ export const ROSTERS_2026 = {
         "name": "Brandon Jones",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1620,7 +1608,7 @@ export const ROSTERS_2026 = {
         "name": "Talanoa Hufanga",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1632,7 +1620,7 @@ export const ROSTERS_2026 = {
         "name": "Jared Goff",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1640,7 +1628,7 @@ export const ROSTERS_2026 = {
         "name": "Jahmyr Gibbs",
         "grade": "Average",
         "rating": 77,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1648,7 +1636,7 @@ export const ROSTERS_2026 = {
         "name": "Amon-Ra St. Brown",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1656,7 +1644,7 @@ export const ROSTERS_2026 = {
         "name": "Sam LaPorta",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1664,7 +1652,7 @@ export const ROSTERS_2026 = {
         "name": "Penei Sewell",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1672,7 +1660,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Mahogany",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1680,7 +1668,7 @@ export const ROSTERS_2026 = {
         "name": "Juice Scruggs",
         "grade": "Average",
         "rating": 73,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1688,7 +1676,7 @@ export const ROSTERS_2026 = {
         "name": "Tate Ratledge",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1696,7 +1684,7 @@ export const ROSTERS_2026 = {
         "name": "Blake Miller",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -1706,7 +1694,7 @@ export const ROSTERS_2026 = {
         "name": "Aidan Hutchinson",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1714,7 +1702,7 @@ export const ROSTERS_2026 = {
         "name": "DJ Wonnum",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1722,7 +1710,7 @@ export const ROSTERS_2026 = {
         "name": "Alim McNeill",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1730,7 +1718,7 @@ export const ROSTERS_2026 = {
         "name": "Jack Campbell",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1738,7 +1726,7 @@ export const ROSTERS_2026 = {
         "name": "Derrick Barnes",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1746,7 +1734,7 @@ export const ROSTERS_2026 = {
         "name": "D.J. Reed",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1754,7 +1742,7 @@ export const ROSTERS_2026 = {
         "name": "Keith Abney II",
         "grade": "Average",
         "rating": 71,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1762,7 +1750,7 @@ export const ROSTERS_2026 = {
         "name": "Roger McCreary",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1770,7 +1758,7 @@ export const ROSTERS_2026 = {
         "name": "Kerby Joseph",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1778,7 +1766,7 @@ export const ROSTERS_2026 = {
         "name": "Brian Branch",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1790,7 +1778,7 @@ export const ROSTERS_2026 = {
         "name": "Jordan Love",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1798,7 +1786,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Jacobs",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1806,7 +1794,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Watson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1814,7 +1802,7 @@ export const ROSTERS_2026 = {
         "name": "Tucker Kraft",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1822,7 +1810,7 @@ export const ROSTERS_2026 = {
         "name": "Jordan Morgan",
         "grade": "Average",
         "rating": 77,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1830,7 +1818,7 @@ export const ROSTERS_2026 = {
         "name": "Aaron Banks",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1838,7 +1826,7 @@ export const ROSTERS_2026 = {
         "name": "Sean Rhyan",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -1846,7 +1834,7 @@ export const ROSTERS_2026 = {
         "name": "Jacob Monk",
         "grade": "Below Avg",
         "rating": 69,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -1854,7 +1842,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Bako-Bewele",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -1864,7 +1852,7 @@ export const ROSTERS_2026 = {
         "name": "Karl Brooks",
         "grade": "Average",
         "rating": 77,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -1872,7 +1860,7 @@ export const ROSTERS_2026 = {
         "name": "Devonte Wyatt",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -1880,7 +1868,7 @@ export const ROSTERS_2026 = {
         "name": "Javon Hargrave",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -1888,7 +1876,7 @@ export const ROSTERS_2026 = {
         "name": "Edgerrin Cooper",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -1896,7 +1884,7 @@ export const ROSTERS_2026 = {
         "name": "Micah Parsons",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -1904,7 +1892,7 @@ export const ROSTERS_2026 = {
         "name": "Keisean Nixon",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -1912,7 +1900,7 @@ export const ROSTERS_2026 = {
         "name": "Carrington Valentine",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -1920,7 +1908,7 @@ export const ROSTERS_2026 = {
         "name": "Javon Bullard",
         "grade": "Average",
         "rating": 77,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -1928,7 +1916,7 @@ export const ROSTERS_2026 = {
         "name": "Xavier McKinney",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -1936,7 +1924,7 @@ export const ROSTERS_2026 = {
         "name": "Evan Williams",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -1948,7 +1936,7 @@ export const ROSTERS_2026 = {
         "name": "C.J. Stroud",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -1956,7 +1944,7 @@ export const ROSTERS_2026 = {
         "name": "David Montgomery",
         "grade": "Average",
         "rating": 74,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -1964,7 +1952,7 @@ export const ROSTERS_2026 = {
         "name": "Nico Collins",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -1972,7 +1960,7 @@ export const ROSTERS_2026 = {
         "name": "Dalton Schultz",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -1980,7 +1968,7 @@ export const ROSTERS_2026 = {
         "name": "Aireontae Ersery",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -1988,7 +1976,7 @@ export const ROSTERS_2026 = {
         "name": "Wyatt Teller",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -1996,7 +1984,7 @@ export const ROSTERS_2026 = {
         "name": "Keylan Rutledge",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2004,7 +1992,7 @@ export const ROSTERS_2026 = {
         "name": "Ed Ingram",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2012,7 +2000,7 @@ export const ROSTERS_2026 = {
         "name": "Braden Smith",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2022,7 +2010,7 @@ export const ROSTERS_2026 = {
         "name": "Danielle Hunter",
         "grade": "Average",
         "rating": 75,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2030,7 +2018,7 @@ export const ROSTERS_2026 = {
         "name": "Will Anderson Jr.",
         "grade": "Average",
         "rating": 73,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2038,7 +2026,7 @@ export const ROSTERS_2026 = {
         "name": "Sheldon Rankins",
         "grade": "Average",
         "rating": 75,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2046,7 +2034,7 @@ export const ROSTERS_2026 = {
         "name": "Azeez Al-Shaair",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2054,7 +2042,7 @@ export const ROSTERS_2026 = {
         "name": "Henry To'oTo'o",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2062,7 +2050,7 @@ export const ROSTERS_2026 = {
         "name": "Kamari Lassiter",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2070,7 +2058,7 @@ export const ROSTERS_2026 = {
         "name": "Derek Stingley Jr.",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2078,7 +2066,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Pitre",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2086,7 +2074,7 @@ export const ROSTERS_2026 = {
         "name": "Calen Bullock",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2094,7 +2082,7 @@ export const ROSTERS_2026 = {
         "name": "Reed Blankenship",
         "grade": "Average",
         "rating": 74,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2106,7 +2094,7 @@ export const ROSTERS_2026 = {
         "name": "Daniel Jones",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2114,7 +2102,7 @@ export const ROSTERS_2026 = {
         "name": "Jonathan Taylor",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2122,7 +2110,7 @@ export const ROSTERS_2026 = {
         "name": "Alec Pierce",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -2130,7 +2118,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Warren",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2138,7 +2126,7 @@ export const ROSTERS_2026 = {
         "name": "Bernhard Raimann",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2146,7 +2134,7 @@ export const ROSTERS_2026 = {
         "name": "Quenton Nelson",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -2154,7 +2142,7 @@ export const ROSTERS_2026 = {
         "name": "Tanor Bortolini",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2162,7 +2150,7 @@ export const ROSTERS_2026 = {
         "name": "Matt Goncalves",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2170,7 +2158,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Travis",
         "grade": "Below Avg",
         "rating": 67,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2180,7 +2168,7 @@ export const ROSTERS_2026 = {
         "name": "Laiatu Latu",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2188,7 +2176,7 @@ export const ROSTERS_2026 = {
         "name": "Arden Key",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2196,7 +2184,7 @@ export const ROSTERS_2026 = {
         "name": "Grover Stewart",
         "grade": "Average",
         "rating": 75,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2204,7 +2192,7 @@ export const ROSTERS_2026 = {
         "name": "Akeem Davis-Gaither",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2212,7 +2200,7 @@ export const ROSTERS_2026 = {
         "name": "CJ Allen",
         "grade": "Average",
         "rating": 71,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2220,7 +2208,7 @@ export const ROSTERS_2026 = {
         "name": "Charvarius Ward",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2228,7 +2216,7 @@ export const ROSTERS_2026 = {
         "name": "Sauce Gardner",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2236,7 +2224,7 @@ export const ROSTERS_2026 = {
         "name": "Justin Walley",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2244,7 +2232,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Bynum",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2252,7 +2240,7 @@ export const ROSTERS_2026 = {
         "name": "A.J. Haulcy",
         "grade": "Average",
         "rating": 71,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2264,7 +2252,7 @@ export const ROSTERS_2026 = {
         "name": "Trevor Lawrence",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2272,7 +2260,7 @@ export const ROSTERS_2026 = {
         "name": "Bhayshul Tuten",
         "grade": "Below Avg",
         "rating": 67,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2280,7 +2268,7 @@ export const ROSTERS_2026 = {
         "name": "Brian Thomas Jr.",
         "grade": "Average",
         "rating": 73,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -2288,7 +2276,7 @@ export const ROSTERS_2026 = {
         "name": "Brenton Strange",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2296,7 +2284,7 @@ export const ROSTERS_2026 = {
         "name": "Anton Harrison",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2304,7 +2292,7 @@ export const ROSTERS_2026 = {
         "name": "Emmanuel Pregnon",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -2312,7 +2300,7 @@ export const ROSTERS_2026 = {
         "name": "Robert Hainsey",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2320,7 +2308,7 @@ export const ROSTERS_2026 = {
         "name": "Ezra Cleveland",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2328,7 +2316,7 @@ export const ROSTERS_2026 = {
         "name": "Walker Little",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2338,7 +2326,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Hines-Allen",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2346,7 +2334,7 @@ export const ROSTERS_2026 = {
         "name": "Travon Walker",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2354,7 +2342,7 @@ export const ROSTERS_2026 = {
         "name": "Arik Armstead",
         "grade": "Average",
         "rating": 75,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2362,7 +2350,7 @@ export const ROSTERS_2026 = {
         "name": "Foyesade Oluokun",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2370,7 +2358,7 @@ export const ROSTERS_2026 = {
         "name": "Ventrell Miller",
         "grade": "Below Avg",
         "rating": 69,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2378,7 +2366,7 @@ export const ROSTERS_2026 = {
         "name": "Montaric Brown",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2386,7 +2374,7 @@ export const ROSTERS_2026 = {
         "name": "Travis Hunter",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2394,7 +2382,7 @@ export const ROSTERS_2026 = {
         "name": "Jourdan Lewis",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2402,7 +2390,7 @@ export const ROSTERS_2026 = {
         "name": "Antonio Johnson",
         "grade": "Average",
         "rating": 77,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2410,7 +2398,7 @@ export const ROSTERS_2026 = {
         "name": "Eric Murray",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2422,7 +2410,7 @@ export const ROSTERS_2026 = {
         "name": "Patrick Mahomes",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2430,7 +2418,7 @@ export const ROSTERS_2026 = {
         "name": "Kenneth Walker III",
         "grade": "Average",
         "rating": 74,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2438,7 +2426,7 @@ export const ROSTERS_2026 = {
         "name": "Rashee Rice",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -2446,7 +2434,7 @@ export const ROSTERS_2026 = {
         "name": "Travis Kelce",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2454,7 +2442,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Simmons",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2462,7 +2450,7 @@ export const ROSTERS_2026 = {
         "name": "Kingsley Suamataia",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -2470,7 +2458,7 @@ export const ROSTERS_2026 = {
         "name": "Creed Humphrey",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2478,7 +2466,7 @@ export const ROSTERS_2026 = {
         "name": "Trey Smith",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2486,7 +2474,7 @@ export const ROSTERS_2026 = {
         "name": "Kahlil Benson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2496,7 +2484,7 @@ export const ROSTERS_2026 = {
         "name": "George Karlaftis",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2504,7 +2492,7 @@ export const ROSTERS_2026 = {
         "name": "Felix Anudike-Uzomah",
         "grade": "Average",
         "rating": 73,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2512,7 +2500,7 @@ export const ROSTERS_2026 = {
         "name": "Chris Jones",
         "grade": "Average",
         "rating": 75,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2520,7 +2508,7 @@ export const ROSTERS_2026 = {
         "name": "Nick Bolton",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2528,7 +2516,7 @@ export const ROSTERS_2026 = {
         "name": "Drue Tranquill",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2536,7 +2524,7 @@ export const ROSTERS_2026 = {
         "name": "L'Jarius Sneed",
         "grade": "Average",
         "rating": 74,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2544,7 +2532,7 @@ export const ROSTERS_2026 = {
         "name": "Mansoor Delane",
         "grade": "Average",
         "rating": 71,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2552,7 +2540,7 @@ export const ROSTERS_2026 = {
         "name": "Kader Kohou",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2560,7 +2548,7 @@ export const ROSTERS_2026 = {
         "name": "Alohi Gilman",
         "grade": "Average",
         "rating": 74,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2568,7 +2556,7 @@ export const ROSTERS_2026 = {
         "name": "Chamarri Conner",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2580,7 +2568,7 @@ export const ROSTERS_2026 = {
         "name": "Justin Herbert",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2588,7 +2576,7 @@ export const ROSTERS_2026 = {
         "name": "Omarion Hampton",
         "grade": "Average",
         "rating": 75,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -2596,7 +2584,7 @@ export const ROSTERS_2026 = {
         "name": "Alec Ingold",
         "grade": "Average",
         "rating": 74,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2604,15 +2592,15 @@ export const ROSTERS_2026 = {
         "name": "Ladd McConkey",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "YAC Monster"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0040189",
-        "name": "Oronde Gadsden",
+        "gsis_id": "00-0038046",
+        "name": "Charlie Kolar",
         "grade": "Average",
-        "rating": 71,
-        "trait": "Versatile"
+        "rating": 74,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2620,7 +2608,7 @@ export const ROSTERS_2026 = {
         "name": "Rashawn Slater",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2628,15 +2616,15 @@ export const ROSTERS_2026 = {
         "name": "Kayode Awosika",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
-        "gsis_id": "00-0036376",
-        "name": "Tyler Biadasz",
+        "gsis_id": "00-0041392",
+        "name": "Jake Slaughter",
         "grade": "Average",
-        "rating": 74,
-        "trait": "Road Grader"
+        "rating": 71,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2644,7 +2632,7 @@ export const ROSTERS_2026 = {
         "name": "Cole Strange",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2652,7 +2640,7 @@ export const ROSTERS_2026 = {
         "name": "Joe Alt",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2662,7 +2650,7 @@ export const ROSTERS_2026 = {
         "name": "Teair Tart",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2670,7 +2658,7 @@ export const ROSTERS_2026 = {
         "name": "Jamaree Caldwell",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2678,7 +2666,7 @@ export const ROSTERS_2026 = {
         "name": "Dalvin Tomlinson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2686,7 +2674,7 @@ export const ROSTERS_2026 = {
         "name": "Daiyan Henley",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2694,7 +2682,7 @@ export const ROSTERS_2026 = {
         "name": "Tuli Tuipulotu",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2702,7 +2690,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Hart",
         "grade": "Average",
         "rating": 77,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2710,7 +2698,7 @@ export const ROSTERS_2026 = {
         "name": "Donte Jackson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2718,7 +2706,7 @@ export const ROSTERS_2026 = {
         "name": "Tarheeb Still",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2726,7 +2714,7 @@ export const ROSTERS_2026 = {
         "name": "Elijah Molden",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2734,7 +2722,7 @@ export const ROSTERS_2026 = {
         "name": "Derwin James Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2746,7 +2734,7 @@ export const ROSTERS_2026 = {
         "name": "Matthew Stafford",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2754,7 +2742,7 @@ export const ROSTERS_2026 = {
         "name": "Kyren Williams",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2762,7 +2750,7 @@ export const ROSTERS_2026 = {
         "name": "Puka Nacua",
         "grade": "Average",
         "rating": 77,
-        "trait": "Deep Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -2770,7 +2758,7 @@ export const ROSTERS_2026 = {
         "name": "Colby Parkinson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2778,7 +2766,7 @@ export const ROSTERS_2026 = {
         "name": "Alaric Jackson",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2786,7 +2774,7 @@ export const ROSTERS_2026 = {
         "name": "Steve Avila",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -2794,7 +2782,7 @@ export const ROSTERS_2026 = {
         "name": "Coleman Shelton",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2802,7 +2790,7 @@ export const ROSTERS_2026 = {
         "name": "Kevin Dotson",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2810,7 +2798,7 @@ export const ROSTERS_2026 = {
         "name": "Warren McClendon Jr.",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2820,7 +2808,7 @@ export const ROSTERS_2026 = {
         "name": "Kobie Turner",
         "grade": "Average",
         "rating": 77,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2828,7 +2816,7 @@ export const ROSTERS_2026 = {
         "name": "Braden Fiske",
         "grade": "Average",
         "rating": 73,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -2836,7 +2824,7 @@ export const ROSTERS_2026 = {
         "name": "Poona Ford",
         "grade": "Average",
         "rating": 74,
-        "trait": "Run Stuffer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -2844,7 +2832,7 @@ export const ROSTERS_2026 = {
         "name": "Byron Young",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -2852,7 +2840,7 @@ export const ROSTERS_2026 = {
         "name": "Omar Speights",
         "grade": "Average",
         "rating": 77,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -2860,7 +2848,7 @@ export const ROSTERS_2026 = {
         "name": "Jaylen Watson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -2868,7 +2856,7 @@ export const ROSTERS_2026 = {
         "name": "Trent McDuffie",
         "grade": "Average",
         "rating": 74,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -2876,7 +2864,7 @@ export const ROSTERS_2026 = {
         "name": "Quentin Lake",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -2884,7 +2872,7 @@ export const ROSTERS_2026 = {
         "name": "Kam Curl",
         "grade": "Average",
         "rating": 74,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -2892,7 +2880,7 @@ export const ROSTERS_2026 = {
         "name": "Kamren Kinchens",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -2904,7 +2892,7 @@ export const ROSTERS_2026 = {
         "name": "Kirk Cousins",
         "grade": "Average",
         "rating": 71,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -2912,7 +2900,7 @@ export const ROSTERS_2026 = {
         "name": "Ashton Jeanty",
         "grade": "Average",
         "rating": 75,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -2920,7 +2908,7 @@ export const ROSTERS_2026 = {
         "name": "Connor Heyward",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -2928,7 +2916,7 @@ export const ROSTERS_2026 = {
         "name": "Tre Tucker",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Deep Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -2936,7 +2924,7 @@ export const ROSTERS_2026 = {
         "name": "Brock Bowers",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -2944,7 +2932,7 @@ export const ROSTERS_2026 = {
         "name": "Kolton Miller",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -2952,7 +2940,7 @@ export const ROSTERS_2026 = {
         "name": "Spencer Burford",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -2960,7 +2948,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Linderbaum",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -2968,7 +2956,7 @@ export const ROSTERS_2026 = {
         "name": "Jackson Powers-Johnson",
         "grade": "Average",
         "rating": 77,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -2976,7 +2964,7 @@ export const ROSTERS_2026 = {
         "name": "DJ Glaze",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -2986,7 +2974,7 @@ export const ROSTERS_2026 = {
         "name": "Jonah Laulu",
         "grade": "Average",
         "rating": 77,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -2994,7 +2982,7 @@ export const ROSTERS_2026 = {
         "name": "Thomas Booker IV",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3002,7 +2990,7 @@ export const ROSTERS_2026 = {
         "name": "Adam Butler",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3010,7 +2998,7 @@ export const ROSTERS_2026 = {
         "name": "Maxx Crosby",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3018,7 +3006,7 @@ export const ROSTERS_2026 = {
         "name": "Nakobe Dean",
         "grade": "Average",
         "rating": 74,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3026,7 +3014,7 @@ export const ROSTERS_2026 = {
         "name": "Eric Stokes",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3034,7 +3022,7 @@ export const ROSTERS_2026 = {
         "name": "Darien Porter",
         "grade": "Average",
         "rating": 75,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3042,7 +3030,7 @@ export const ROSTERS_2026 = {
         "name": "Taron Johnson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3050,7 +3038,7 @@ export const ROSTERS_2026 = {
         "name": "Isaiah Pola-Mao",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3058,7 +3046,7 @@ export const ROSTERS_2026 = {
         "name": "Jeremy Chinn",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3070,7 +3058,7 @@ export const ROSTERS_2026 = {
         "name": "Malik Willis",
         "grade": "Average",
         "rating": 74,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3078,7 +3066,7 @@ export const ROSTERS_2026 = {
         "name": "De'Von Achane",
         "grade": "Average",
         "rating": 77,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -3086,7 +3074,7 @@ export const ROSTERS_2026 = {
         "name": "Ben Sims",
         "grade": "Average",
         "rating": 73,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3094,7 +3082,7 @@ export const ROSTERS_2026 = {
         "name": "Malik Washington",
         "grade": "Average",
         "rating": 77,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -3102,7 +3090,7 @@ export const ROSTERS_2026 = {
         "name": "Greg Dulcich",
         "grade": "Average",
         "rating": 74,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3110,7 +3098,7 @@ export const ROSTERS_2026 = {
         "name": "Patrick Paul",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3118,7 +3106,7 @@ export const ROSTERS_2026 = {
         "name": "Kadyn Proctor",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3126,7 +3114,7 @@ export const ROSTERS_2026 = {
         "name": "Aaron Brewer",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3134,7 +3122,7 @@ export const ROSTERS_2026 = {
         "name": "Jonah Savaiinaea",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3142,7 +3130,7 @@ export const ROSTERS_2026 = {
         "name": "Austin Jackson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3152,7 +3140,7 @@ export const ROSTERS_2026 = {
         "name": "Chop Robinson",
         "grade": "Average",
         "rating": 73,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3160,7 +3148,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Uche",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3168,7 +3156,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Sieler",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3176,7 +3164,7 @@ export const ROSTERS_2026 = {
         "name": "Jordyn Brooks",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3184,7 +3172,7 @@ export const ROSTERS_2026 = {
         "name": "Tyrel Dodson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3192,7 +3180,7 @@ export const ROSTERS_2026 = {
         "name": "Jason Marshall Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3200,7 +3188,7 @@ export const ROSTERS_2026 = {
         "name": "JuJu Brents",
         "grade": "Average",
         "rating": 71,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3208,7 +3196,7 @@ export const ROSTERS_2026 = {
         "name": "Chris Johnson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3216,7 +3204,7 @@ export const ROSTERS_2026 = {
         "name": "Zayne Anderson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3224,7 +3212,7 @@ export const ROSTERS_2026 = {
         "name": "Dante Trader Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3236,7 +3224,7 @@ export const ROSTERS_2026 = {
         "name": "Kyler Murray",
         "grade": "Average",
         "rating": 74,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3244,7 +3232,7 @@ export const ROSTERS_2026 = {
         "name": "Aaron Jones Sr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -3252,7 +3240,7 @@ export const ROSTERS_2026 = {
         "name": "Max Bredeson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3260,7 +3248,7 @@ export const ROSTERS_2026 = {
         "name": "Justin Jefferson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -3268,7 +3256,7 @@ export const ROSTERS_2026 = {
         "name": "T.J. Hockenson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3276,7 +3264,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Darrisaw",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3284,7 +3272,7 @@ export const ROSTERS_2026 = {
         "name": "Donovan Jackson",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3292,7 +3280,7 @@ export const ROSTERS_2026 = {
         "name": "Blake Brandel",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3300,7 +3288,7 @@ export const ROSTERS_2026 = {
         "name": "Will Fries",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3308,7 +3296,7 @@ export const ROSTERS_2026 = {
         "name": "Brian O'Neill",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3318,7 +3306,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Redmond",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3326,7 +3314,7 @@ export const ROSTERS_2026 = {
         "name": "Levi Drake Rodriguez",
         "grade": "Average",
         "rating": 73,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3334,7 +3322,7 @@ export const ROSTERS_2026 = {
         "name": "Caleb Banks",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3342,7 +3330,7 @@ export const ROSTERS_2026 = {
         "name": "Eric Wilson",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3350,7 +3338,7 @@ export const ROSTERS_2026 = {
         "name": "Blake Cashman",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3358,7 +3346,7 @@ export const ROSTERS_2026 = {
         "name": "Charles Demmings",
         "grade": "Average",
         "rating": 71,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3366,7 +3354,7 @@ export const ROSTERS_2026 = {
         "name": "James Pierre",
         "grade": "Average",
         "rating": 74,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3374,7 +3362,7 @@ export const ROSTERS_2026 = {
         "name": "Byron Murphy Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3382,7 +3370,7 @@ export const ROSTERS_2026 = {
         "name": "Theo Jackson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3390,7 +3378,7 @@ export const ROSTERS_2026 = {
         "name": "Joshua Metellus",
         "grade": "Average",
         "rating": 71,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3402,7 +3390,7 @@ export const ROSTERS_2026 = {
         "name": "Drake Maye",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3410,7 +3398,7 @@ export const ROSTERS_2026 = {
         "name": "Rhamondre Stevenson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -3418,7 +3406,7 @@ export const ROSTERS_2026 = {
         "name": "Reggie Gilliam",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3426,7 +3414,7 @@ export const ROSTERS_2026 = {
         "name": "A.J. Brown",
         "grade": "Average",
         "rating": 74,
-        "trait": "Deep Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -3434,7 +3422,7 @@ export const ROSTERS_2026 = {
         "name": "Hunter Henry",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3442,7 +3430,7 @@ export const ROSTERS_2026 = {
         "name": "Will Campbell",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3450,7 +3438,7 @@ export const ROSTERS_2026 = {
         "name": "Alijah Vera-Tucker",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3458,7 +3446,7 @@ export const ROSTERS_2026 = {
         "name": "Jared Wilson",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3466,7 +3454,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Onwenu",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3474,7 +3462,7 @@ export const ROSTERS_2026 = {
         "name": "Morgan Moses",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3484,7 +3472,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Barmore",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3492,7 +3480,7 @@ export const ROSTERS_2026 = {
         "name": "Milton Williams",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3500,7 +3488,7 @@ export const ROSTERS_2026 = {
         "name": "Cory Durden",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3508,7 +3496,7 @@ export const ROSTERS_2026 = {
         "name": "Robert Spillane",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3516,7 +3504,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Elliss",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3524,7 +3512,7 @@ export const ROSTERS_2026 = {
         "name": "Christian Gonzalez",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3532,7 +3520,7 @@ export const ROSTERS_2026 = {
         "name": "Carlton Davis III",
         "grade": "Average",
         "rating": 74,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3540,7 +3528,7 @@ export const ROSTERS_2026 = {
         "name": "Marcus Jones",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3548,7 +3536,7 @@ export const ROSTERS_2026 = {
         "name": "Kevin Byard",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3556,7 +3544,7 @@ export const ROSTERS_2026 = {
         "name": "Craig Woodson",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3568,7 +3556,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Shough",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3576,7 +3564,7 @@ export const ROSTERS_2026 = {
         "name": "Travis Etienne Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3584,7 +3572,7 @@ export const ROSTERS_2026 = {
         "name": "Chris Olave",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Possession"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -3592,7 +3580,7 @@ export const ROSTERS_2026 = {
         "name": "Juwan Johnson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3600,7 +3588,7 @@ export const ROSTERS_2026 = {
         "name": "Kelvin Banks Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3608,7 +3596,7 @@ export const ROSTERS_2026 = {
         "name": "David Edwards",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3616,7 +3604,7 @@ export const ROSTERS_2026 = {
         "name": "Erik McCoy",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3624,7 +3612,7 @@ export const ROSTERS_2026 = {
         "name": "Cesar Ruiz",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3632,7 +3620,7 @@ export const ROSTERS_2026 = {
         "name": "Taliese Fuaga",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3642,7 +3630,7 @@ export const ROSTERS_2026 = {
         "name": "Cameron Jordan",
         "grade": "Average",
         "rating": 75,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3650,7 +3638,7 @@ export const ROSTERS_2026 = {
         "name": "John Ridgeway III",
         "grade": "Average",
         "rating": 71,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3658,7 +3646,7 @@ export const ROSTERS_2026 = {
         "name": "Davon Godchaux",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3666,7 +3654,7 @@ export const ROSTERS_2026 = {
         "name": "Carl Granderson",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3674,7 +3662,7 @@ export const ROSTERS_2026 = {
         "name": "Pete Werner",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3682,7 +3670,7 @@ export const ROSTERS_2026 = {
         "name": "Kool-Aid McKinstry",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3690,7 +3678,7 @@ export const ROSTERS_2026 = {
         "name": "Quincy Riley",
         "grade": "Average",
         "rating": 75,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3698,7 +3686,7 @@ export const ROSTERS_2026 = {
         "name": "Jonas Sanker",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3706,7 +3694,7 @@ export const ROSTERS_2026 = {
         "name": "Julian Blackmon",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3714,7 +3702,7 @@ export const ROSTERS_2026 = {
         "name": "Justin Reid",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3726,7 +3714,7 @@ export const ROSTERS_2026 = {
         "name": "Jaxson Dart",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3734,7 +3722,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Skattebo",
         "grade": "Average",
         "rating": 75,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -3742,7 +3730,7 @@ export const ROSTERS_2026 = {
         "name": "Patrick Ricard",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3750,7 +3738,7 @@ export const ROSTERS_2026 = {
         "name": "Malik Nabers",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -3758,7 +3746,7 @@ export const ROSTERS_2026 = {
         "name": "Isaiah Likely",
         "grade": "Average",
         "rating": 74,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3766,7 +3754,7 @@ export const ROSTERS_2026 = {
         "name": "Andrew Thomas",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3774,7 +3762,7 @@ export const ROSTERS_2026 = {
         "name": "Jon Runyan",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3782,7 +3770,7 @@ export const ROSTERS_2026 = {
         "name": "John Michael Schmitz Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3790,7 +3778,7 @@ export const ROSTERS_2026 = {
         "name": "Francis Mauigoa",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3798,7 +3786,7 @@ export const ROSTERS_2026 = {
         "name": "Jermaine Eluemunor",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3808,7 +3796,7 @@ export const ROSTERS_2026 = {
         "name": "Darius Alexander",
         "grade": "Average",
         "rating": 71,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3816,7 +3804,7 @@ export const ROSTERS_2026 = {
         "name": "Shelby Harris",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3824,7 +3812,7 @@ export const ROSTERS_2026 = {
         "name": "DJ Reader",
         "grade": "Average",
         "rating": 71,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3832,7 +3820,7 @@ export const ROSTERS_2026 = {
         "name": "Brian Burns",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -3840,7 +3828,7 @@ export const ROSTERS_2026 = {
         "name": "Abdul Carter",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -3848,7 +3836,7 @@ export const ROSTERS_2026 = {
         "name": "Paulson Adebo",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -3856,7 +3844,7 @@ export const ROSTERS_2026 = {
         "name": "Greg Newsome II",
         "grade": "Average",
         "rating": 74,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -3864,7 +3852,7 @@ export const ROSTERS_2026 = {
         "name": "Dru Phillips",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -3872,7 +3860,7 @@ export const ROSTERS_2026 = {
         "name": "Jevon Holland",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -3880,7 +3868,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Nubin",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -3892,7 +3880,7 @@ export const ROSTERS_2026 = {
         "name": "Geno Smith",
         "grade": "Average",
         "rating": 71,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -3900,7 +3888,7 @@ export const ROSTERS_2026 = {
         "name": "Breece Hall",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -3908,7 +3896,7 @@ export const ROSTERS_2026 = {
         "name": "Andrew Beck",
         "grade": "Average",
         "rating": 70,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -3916,15 +3904,15 @@ export const ROSTERS_2026 = {
         "name": "Garrett Wilson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Contested Catch"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0041032",
-        "name": "Kenyon Sadiq",
-        "grade": "Average",
-        "rating": 71,
-        "trait": "Receiving TE"
+        "gsis_id": "00-0040736",
+        "name": "Mason Taylor",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -3932,7 +3920,7 @@ export const ROSTERS_2026 = {
         "name": "Olu Fashanu",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -3940,7 +3928,7 @@ export const ROSTERS_2026 = {
         "name": "Dylan Parham",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -3948,7 +3936,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Myers",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -3956,7 +3944,7 @@ export const ROSTERS_2026 = {
         "name": "Joe Tippmann",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -3964,7 +3952,7 @@ export const ROSTERS_2026 = {
         "name": "Armand Membou",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -3974,7 +3962,7 @@ export const ROSTERS_2026 = {
         "name": "Kingsley Enagbare",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -3982,7 +3970,7 @@ export const ROSTERS_2026 = {
         "name": "Will McDonald IV",
         "grade": "Average",
         "rating": 73,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -3990,7 +3978,7 @@ export const ROSTERS_2026 = {
         "name": "Harrison Phillips",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -3998,7 +3986,7 @@ export const ROSTERS_2026 = {
         "name": "Jamien Sherwood",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4006,7 +3994,7 @@ export const ROSTERS_2026 = {
         "name": "Demario Davis",
         "grade": "Average",
         "rating": 71,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4014,7 +4002,7 @@ export const ROSTERS_2026 = {
         "name": "Brandon Stephens",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4022,7 +4010,7 @@ export const ROSTERS_2026 = {
         "name": "Nahshon Wright",
         "grade": "Average",
         "rating": 74,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4030,7 +4018,7 @@ export const ROSTERS_2026 = {
         "name": "Jarvis Brownlee Jr.",
         "grade": "Average",
         "rating": 73,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4038,7 +4026,7 @@ export const ROSTERS_2026 = {
         "name": "Minkah Fitzpatrick",
         "grade": "Average",
         "rating": 74,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4046,7 +4034,7 @@ export const ROSTERS_2026 = {
         "name": "Andre Cisco",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4058,7 +4046,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Hurts",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4066,7 +4054,7 @@ export const ROSTERS_2026 = {
         "name": "Saquon Barkley",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4074,7 +4062,7 @@ export const ROSTERS_2026 = {
         "name": "DeVonta Smith",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "YAC Monster"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4082,7 +4070,7 @@ export const ROSTERS_2026 = {
         "name": "Dallas Goedert",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4090,7 +4078,7 @@ export const ROSTERS_2026 = {
         "name": "Jordan Mailata",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4098,7 +4086,7 @@ export const ROSTERS_2026 = {
         "name": "Landon Dickerson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4106,7 +4094,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Jurgens",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4114,7 +4102,7 @@ export const ROSTERS_2026 = {
         "name": "Tyler Steen",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4122,7 +4110,7 @@ export const ROSTERS_2026 = {
         "name": "Lane Johnson",
         "grade": "Average",
         "rating": 75,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4132,7 +4120,7 @@ export const ROSTERS_2026 = {
         "name": "Moro Ojomo",
         "grade": "Average",
         "rating": 77,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4140,7 +4128,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Carter",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4148,7 +4136,7 @@ export const ROSTERS_2026 = {
         "name": "",
         "grade": "Average",
         "rating": 71,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4156,7 +4144,7 @@ export const ROSTERS_2026 = {
         "name": "Zack Baun",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4164,7 +4152,7 @@ export const ROSTERS_2026 = {
         "name": "Jihaad Campbell",
         "grade": "Average",
         "rating": 75,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4172,7 +4160,7 @@ export const ROSTERS_2026 = {
         "name": "Quinyon Mitchell",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4180,7 +4168,7 @@ export const ROSTERS_2026 = {
         "name": "Riq Woolen",
         "grade": "Average",
         "rating": 74,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4188,7 +4176,7 @@ export const ROSTERS_2026 = {
         "name": "Cooper DeJean",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4196,7 +4184,7 @@ export const ROSTERS_2026 = {
         "name": "Andrew Mukuba",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4204,7 +4192,7 @@ export const ROSTERS_2026 = {
         "name": "Marcus Epps",
         "grade": "Average",
         "rating": 74,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4216,7 +4204,7 @@ export const ROSTERS_2026 = {
         "name": "Aaron Rodgers",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Pocket Passer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4224,7 +4212,7 @@ export const ROSTERS_2026 = {
         "name": "Jaylen Warren",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -4232,7 +4220,7 @@ export const ROSTERS_2026 = {
         "name": "Riley Nowakowski",
         "grade": "Average",
         "rating": 71,
-        "trait": "Pass-Catching"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4240,7 +4228,7 @@ export const ROSTERS_2026 = {
         "name": "DK Metcalf",
         "grade": "Average",
         "rating": 74,
-        "trait": "Deep Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4248,7 +4236,7 @@ export const ROSTERS_2026 = {
         "name": "Pat Freiermuth",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4256,7 +4244,7 @@ export const ROSTERS_2026 = {
         "name": "Troy Fautanu",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4264,7 +4252,7 @@ export const ROSTERS_2026 = {
         "name": "Mason McCormick",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4272,7 +4260,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Frazier",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4280,7 +4268,7 @@ export const ROSTERS_2026 = {
         "name": "Spencer Anderson",
         "grade": "Average",
         "rating": 73,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4288,7 +4276,7 @@ export const ROSTERS_2026 = {
         "name": "Dylan Cook",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4298,7 +4286,7 @@ export const ROSTERS_2026 = {
         "name": "Cameron Heyward",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4306,7 +4294,7 @@ export const ROSTERS_2026 = {
         "name": "Derrick Harmon",
         "grade": "Average",
         "rating": 75,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4314,7 +4302,7 @@ export const ROSTERS_2026 = {
         "name": "Yahya Black",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4322,7 +4310,7 @@ export const ROSTERS_2026 = {
         "name": "Patrick Queen",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Coverage LB"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4330,7 +4318,7 @@ export const ROSTERS_2026 = {
         "name": "T.J. Watt",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4338,7 +4326,7 @@ export const ROSTERS_2026 = {
         "name": "Joey Porter Jr.",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4346,7 +4334,7 @@ export const ROSTERS_2026 = {
         "name": "Jamel Dean",
         "grade": "Average",
         "rating": 74,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4354,7 +4342,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Ramsey",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4362,7 +4350,7 @@ export const ROSTERS_2026 = {
         "name": "Jaquan Brisker",
         "grade": "Average",
         "rating": 74,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4370,7 +4358,7 @@ export const ROSTERS_2026 = {
         "name": "DeShon Elliott",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4382,7 +4370,7 @@ export const ROSTERS_2026 = {
         "name": "Sam Darnold",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4390,7 +4378,7 @@ export const ROSTERS_2026 = {
         "name": "Zach Charbonnet",
         "grade": "Average",
         "rating": 73,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -4398,7 +4386,7 @@ export const ROSTERS_2026 = {
         "name": "Brady Russell",
         "grade": "Below Avg",
         "rating": 69,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4406,7 +4394,7 @@ export const ROSTERS_2026 = {
         "name": "Jaxon Smith-Njigba",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "YAC Monster"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4414,7 +4402,7 @@ export const ROSTERS_2026 = {
         "name": "AJ Barner",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4422,7 +4410,7 @@ export const ROSTERS_2026 = {
         "name": "Charles Cross",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4430,7 +4418,7 @@ export const ROSTERS_2026 = {
         "name": "Grey Zabel",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4438,7 +4426,7 @@ export const ROSTERS_2026 = {
         "name": "Jalen Sundell",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4446,7 +4434,7 @@ export const ROSTERS_2026 = {
         "name": "Anthony Bradford",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4454,7 +4442,7 @@ export const ROSTERS_2026 = {
         "name": "Abraham Lucas",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4464,7 +4452,7 @@ export const ROSTERS_2026 = {
         "name": "Leonard Williams",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4472,7 +4460,7 @@ export const ROSTERS_2026 = {
         "name": "Jarran Reed",
         "grade": "Average",
         "rating": 71,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4480,7 +4468,7 @@ export const ROSTERS_2026 = {
         "name": "Byron Murphy II",
         "grade": "Average",
         "rating": 73,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4488,7 +4476,7 @@ export const ROSTERS_2026 = {
         "name": "Drake Thomas",
         "grade": "Average",
         "rating": 77,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4496,7 +4484,7 @@ export const ROSTERS_2026 = {
         "name": "DeMarcus Lawrence",
         "grade": "Average",
         "rating": 75,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4504,7 +4492,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Jobe",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4512,7 +4500,7 @@ export const ROSTERS_2026 = {
         "name": "Devon Witherspoon",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4520,7 +4508,7 @@ export const ROSTERS_2026 = {
         "name": "Nick Emmanwori",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4528,7 +4516,7 @@ export const ROSTERS_2026 = {
         "name": "Julian Love",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4536,7 +4524,7 @@ export const ROSTERS_2026 = {
         "name": "Ty Okada",
         "grade": "Average",
         "rating": 77,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4548,7 +4536,7 @@ export const ROSTERS_2026 = {
         "name": "Brock Purdy",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Gunslinger"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4556,7 +4544,7 @@ export const ROSTERS_2026 = {
         "name": "Christian McCaffrey",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Power Back"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB2",
@@ -4564,7 +4552,7 @@ export const ROSTERS_2026 = {
         "name": "Kyle Juszczyk",
         "grade": "Average",
         "rating": 71,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4572,7 +4560,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Evans",
         "grade": "Average",
         "rating": 71,
-        "trait": "Deep Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4580,7 +4568,7 @@ export const ROSTERS_2026 = {
         "name": "George Kittle",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4588,7 +4576,7 @@ export const ROSTERS_2026 = {
         "name": "Trent Williams",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4596,7 +4584,7 @@ export const ROSTERS_2026 = {
         "name": "Robert Jones",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4604,7 +4592,7 @@ export const ROSTERS_2026 = {
         "name": "Jake Brendel",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4612,7 +4600,7 @@ export const ROSTERS_2026 = {
         "name": "Dominick Puni",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4620,7 +4608,7 @@ export const ROSTERS_2026 = {
         "name": "Colton McKivitz",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4630,7 +4618,7 @@ export const ROSTERS_2026 = {
         "name": "C.J. West",
         "grade": "Average",
         "rating": 71,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4638,7 +4626,7 @@ export const ROSTERS_2026 = {
         "name": "Osa Odighizuwa",
         "grade": "Average",
         "rating": 74,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4646,7 +4634,7 @@ export const ROSTERS_2026 = {
         "name": "Alfred Collins",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4654,7 +4642,7 @@ export const ROSTERS_2026 = {
         "name": "Mykel Williams",
         "grade": "Average",
         "rating": 75,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4662,7 +4650,7 @@ export const ROSTERS_2026 = {
         "name": "Fred Warner",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4670,7 +4658,7 @@ export const ROSTERS_2026 = {
         "name": "Deommodore Lenoir",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4678,7 +4666,7 @@ export const ROSTERS_2026 = {
         "name": "Renardo Green",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4686,7 +4674,7 @@ export const ROSTERS_2026 = {
         "name": "Upton Stout",
         "grade": "Average",
         "rating": 75,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4694,7 +4682,7 @@ export const ROSTERS_2026 = {
         "name": "Malik Mustapha",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4702,7 +4690,7 @@ export const ROSTERS_2026 = {
         "name": "Ji'Ayir Brown",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Coverage Safety"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4714,7 +4702,7 @@ export const ROSTERS_2026 = {
         "name": "Baker Mayfield",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4722,7 +4710,7 @@ export const ROSTERS_2026 = {
         "name": "Bucky Irving",
         "grade": "Average",
         "rating": 77,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4730,7 +4718,7 @@ export const ROSTERS_2026 = {
         "name": "Emeka Egbuka",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4738,7 +4726,7 @@ export const ROSTERS_2026 = {
         "name": "Cade Otton",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Blocking TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4746,7 +4734,7 @@ export const ROSTERS_2026 = {
         "name": "Tristan Wirfs",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4754,7 +4742,7 @@ export const ROSTERS_2026 = {
         "name": "Ben Bredeson",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4762,7 +4750,7 @@ export const ROSTERS_2026 = {
         "name": "Graham Barton",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4770,7 +4758,7 @@ export const ROSTERS_2026 = {
         "name": "Cody Mauch",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4778,7 +4766,7 @@ export const ROSTERS_2026 = {
         "name": "Luke Goedeke",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4788,7 +4776,7 @@ export const ROSTERS_2026 = {
         "name": "Elijah Roberts",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4796,7 +4784,7 @@ export const ROSTERS_2026 = {
         "name": "A'Shawn Robinson",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4804,7 +4792,7 @@ export const ROSTERS_2026 = {
         "name": "Vita Vea",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4812,7 +4800,7 @@ export const ROSTERS_2026 = {
         "name": "Rueben Bain Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4820,7 +4808,7 @@ export const ROSTERS_2026 = {
         "name": "Alex Anzalone",
         "grade": "Average",
         "rating": 71,
-        "trait": "Run Stopper"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4828,7 +4816,7 @@ export const ROSTERS_2026 = {
         "name": "Zyon McCollum",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4836,7 +4824,7 @@ export const ROSTERS_2026 = {
         "name": "Benjamin Morrison",
         "grade": "Average",
         "rating": 75,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -4844,7 +4832,7 @@ export const ROSTERS_2026 = {
         "name": "Jacob Parrish",
         "grade": "Average",
         "rating": 75,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -4852,7 +4840,7 @@ export const ROSTERS_2026 = {
         "name": "Antoine Winfield Jr.",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -4860,7 +4848,7 @@ export const ROSTERS_2026 = {
         "name": "Tykee Smith",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Enforcer"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -4872,7 +4860,7 @@ export const ROSTERS_2026 = {
         "name": "Cam Ward",
         "grade": "Above Avg",
         "rating": 84,
-        "trait": "Dual-Threat"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -4880,7 +4868,7 @@ export const ROSTERS_2026 = {
         "name": "Tony Pollard",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Between-the-Tackles"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -4888,7 +4876,7 @@ export const ROSTERS_2026 = {
         "name": "Carnell Tate",
         "grade": "Average",
         "rating": 71,
-        "trait": "Route Technician"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -4896,7 +4884,7 @@ export const ROSTERS_2026 = {
         "name": "Gunnar Helm",
         "grade": "Average",
         "rating": 75,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -4904,7 +4892,7 @@ export const ROSTERS_2026 = {
         "name": "Dan Moore Jr.",
         "grade": "Average",
         "rating": 74,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -4912,7 +4900,7 @@ export const ROSTERS_2026 = {
         "name": "Peter Skoronski",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -4920,7 +4908,7 @@ export const ROSTERS_2026 = {
         "name": "Austin Schlottmann",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -4928,7 +4916,7 @@ export const ROSTERS_2026 = {
         "name": "Fernando Carmona",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -4936,7 +4924,7 @@ export const ROSTERS_2026 = {
         "name": "JC Latham",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -4946,7 +4934,7 @@ export const ROSTERS_2026 = {
         "name": "John Franklin-Myers",
         "grade": "Average",
         "rating": 74,
-        "trait": "Power Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -4954,7 +4942,7 @@ export const ROSTERS_2026 = {
         "name": "Jermaine Johnson II",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -4962,7 +4950,7 @@ export const ROSTERS_2026 = {
         "name": "Jeffery Simmons",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Interior Pressure"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -4970,7 +4958,7 @@ export const ROSTERS_2026 = {
         "name": "Cody Barton",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -4978,7 +4966,7 @@ export const ROSTERS_2026 = {
         "name": "Cedric Gray",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -4986,7 +4974,7 @@ export const ROSTERS_2026 = {
         "name": "Cor'Dale Flott",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -4994,7 +4982,7 @@ export const ROSTERS_2026 = {
         "name": "Alontae Taylor",
         "grade": "Average",
         "rating": 74,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -5002,7 +4990,7 @@ export const ROSTERS_2026 = {
         "name": "Marcus Harris",
         "grade": "Average",
         "rating": 71,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -5010,7 +4998,7 @@ export const ROSTERS_2026 = {
         "name": "Kevin Winston Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -5018,7 +5006,7 @@ export const ROSTERS_2026 = {
         "name": "Amani Hooker",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       }
     ]
   },
@@ -5030,7 +5018,7 @@ export const ROSTERS_2026 = {
         "name": "Jayden Daniels",
         "grade": "Above Avg",
         "rating": 81,
-        "trait": "Game Manager"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RB1",
@@ -5038,7 +5026,7 @@ export const ROSTERS_2026 = {
         "name": "Jacory Croskey-Merritt",
         "grade": "Average",
         "rating": 71,
-        "trait": "Home Run Hitter"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "WR1",
@@ -5046,7 +5034,7 @@ export const ROSTERS_2026 = {
         "name": "Terry McLaurin",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Contested Catch"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "TE",
@@ -5054,7 +5042,7 @@ export const ROSTERS_2026 = {
         "name": "Chig Okonkwo",
         "grade": "Average",
         "rating": 74,
-        "trait": "Receiving TE"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LT",
@@ -5062,7 +5050,7 @@ export const ROSTERS_2026 = {
         "name": "Brandon Coleman",
         "grade": "Average",
         "rating": 77,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LG",
@@ -5070,7 +5058,7 @@ export const ROSTERS_2026 = {
         "name": "Chris Paul",
         "grade": "Above Avg",
         "rating": 82,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "C",
@@ -5078,7 +5066,7 @@ export const ROSTERS_2026 = {
         "name": "Nick Allegretti",
         "grade": "Average",
         "rating": 70,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RG",
@@ -5086,7 +5074,7 @@ export const ROSTERS_2026 = {
         "name": "Sam Cosmi",
         "grade": "Average",
         "rating": 74,
-        "trait": "Pass Pro"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "RT",
@@ -5094,7 +5082,7 @@ export const ROSTERS_2026 = {
         "name": "Josh Conerly Jr.",
         "grade": "Average",
         "rating": 71,
-        "trait": "Road Grader"
+        "rating_source": "snap_share_v1"
       }
     ],
     "defense": [
@@ -5104,7 +5092,7 @@ export const ROSTERS_2026 = {
         "name": "Javon Kinlaw",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Speed Rusher"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "EDGE2",
@@ -5112,7 +5100,7 @@ export const ROSTERS_2026 = {
         "name": "Tim Settle",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "DT",
@@ -5120,7 +5108,7 @@ export const ROSTERS_2026 = {
         "name": "Daron Payne",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB1",
@@ -5128,7 +5116,7 @@ export const ROSTERS_2026 = {
         "name": "Frankie Luvu",
         "grade": "Above Avg",
         "rating": 87,
-        "trait": "Sideline-to-Sideline"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "LB2",
@@ -5136,7 +5124,7 @@ export const ROSTERS_2026 = {
         "name": "Odafe Oweh",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB1",
@@ -5144,7 +5132,7 @@ export const ROSTERS_2026 = {
         "name": "Mike Sainristil",
         "grade": "Above Avg",
         "rating": 86,
-        "trait": "Press-Man"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "CB2",
@@ -5152,7 +5140,7 @@ export const ROSTERS_2026 = {
         "name": "Trey Amos",
         "grade": "Above Avg",
         "rating": 79,
-        "trait": "Zone Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SCB",
@@ -5160,7 +5148,7 @@ export const ROSTERS_2026 = {
         "name": "Amik Robertson",
         "grade": "Average",
         "rating": 74,
-        "trait": "Slot Corner"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "FS",
@@ -5168,7 +5156,7 @@ export const ROSTERS_2026 = {
         "name": "Jeremy Reaves",
         "grade": "Above Avg",
         "rating": 78,
-        "trait": "Ball Hawk"
+        "rating_source": "snap_share_v1"
       },
       {
         "pos": "SS",
@@ -5176,7 +5164,7 @@ export const ROSTERS_2026 = {
         "name": "Nick Cross",
         "grade": "Average",
         "rating": 74,
-        "trait": "Versatile"
+        "rating_source": "snap_share_v1"
       }
     ]
   }

@@ -57,20 +57,6 @@ const DEFENSE_MAP = {
   FS: 'FS', SS: 'SS', S: 'S',
 };
 
-const TRAITS = {
-  QB: ['Dual-Threat', 'Pocket Passer', 'Game Manager', 'Gunslinger'],
-  RB: ['Between-the-Tackles', 'Pass-Catching', 'Home Run Hitter', 'Power Back'],
-  WR: ['Deep Threat', 'Possession', 'Route Technician', 'YAC Monster', 'Contested Catch'],
-  TE: ['Receiving TE', 'Blocking TE', 'Versatile'],
-  OL: ['Pass Pro', 'Road Grader', 'Versatile'],
-  EDGE: ['Speed Rusher', 'Power Rusher', 'Versatile'],
-  DT: ['Interior Pressure', 'Run Stuffer', 'Versatile'],
-  LB: ['Sideline-to-Sideline', 'Coverage LB', 'Run Stopper', 'Versatile'],
-  CB: ['Press-Man', 'Zone Corner', 'Ball Hawk'],
-  SCB: ['Slot Corner'],
-  S: ['Enforcer', 'Ball Hawk', 'Coverage Safety', 'Versatile'],
-};
-
 function parseCSVLine(line) {
   const result = [];
   let current = '';
@@ -111,11 +97,6 @@ function gradeFromRating(r) {
   if (r >= 78) return 'Above Avg';
   if (r >= 70) return 'Average';
   return 'Below Avg';
-}
-
-function assignTrait(posGroup, seed) {
-  const options = TRAITS[posGroup] || TRAITS.OL;
-  return options[Math.abs(seed) % options.length];
 }
 
 async function fetchCSV(url, label) {
@@ -204,6 +185,14 @@ async function main() {
       return snapMap[key] || null;
     }
 
+    // `rating` in the emitted rows is a SNAP-SHARE PROXY, not a player
+    // evaluation. Base is 68–85 by snap share (fraction of a full-time
+    // starter's ~65 snaps/game), then ±2 by experience. It answers "how much
+    // did this player play last season" — not "how good is he." Consumers
+    // should surface the metric under an honest label ("Snap share tier" or
+    // similar) rather than as "Rating"; the file itself carries a
+    // `rating_source: 'snap_share_v1'` field per row for downstream gating.
+    // CoS audit 2026-08-30 finding #4.
     function calcRating(name, posGroup) {
       const snaps = getSnaps(name);
       const exp = expMap[`${team}_${name}`] || 0;
@@ -240,7 +229,7 @@ async function main() {
     const qb = teamStarters.find(s => s.posAbb === 'QB');
     if (qb) {
       const r = calcRating(qb.name, 'QB');
-      offense.push({ pos: 'QB', gsis_id: qb.gsis_id ?? null, name: qb.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('QB', qb.name.length) });
+      offense.push({ pos: 'QB', gsis_id: qb.gsis_id ?? null, name: qb.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     // RBs — from depth chart, sorted by snap count
@@ -248,7 +237,7 @@ async function main() {
     const rbsSorted = rbStarters.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
     rbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'RB');
-      offense.push({ pos: `RB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('RB', p.name.length + i) });
+      offense.push({ pos: `RB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     });
 
     // WRs — sorted by snap count for WR1/WR2/WR3
@@ -258,14 +247,14 @@ async function main() {
     const wrsSorted = wrUnique.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
     wrsSorted.slice(0, 3).forEach((p, i) => {
       const r = calcRating(p.name, 'WR');
-      offense.push({ pos: `WR${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('WR', p.name.length + i) });
+      offense.push({ pos: `WR${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     });
 
     // TE
     const te = teamStarters.find(s => s.posAbb === 'TE');
     if (te) {
       const r = calcRating(te.name, 'TE');
-      offense.push({ pos: 'TE', gsis_id: te.gsis_id ?? null, name: te.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('TE', te.name.length) });
+      offense.push({ pos: 'TE', gsis_id: te.gsis_id ?? null, name: te.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     // OL — direct position mapping
@@ -273,7 +262,7 @@ async function main() {
       const ol = teamStarters.find(s => s.posAbb === olPos);
       if (ol) {
         const r = calcRating(ol.name, olPos);
-        offense.push({ pos: olPos, gsis_id: ol.gsis_id ?? null, name: ol.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('OL', ol.name.length) });
+        offense.push({ pos: olPos, gsis_id: ol.gsis_id ?? null, name: ol.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
       }
     });
 
@@ -284,7 +273,7 @@ async function main() {
     const edgesSorted = edgeUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     edgesSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'EDGE');
-      defense.push({ pos: `EDGE${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('EDGE', p.name.length + i) });
+      defense.push({ pos: `EDGE${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     });
 
     // DT — LDT, RDT, NT, DT
@@ -293,7 +282,7 @@ async function main() {
     const dtSorted = dtUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     if (dtSorted[0]) {
       const r = calcRating(dtSorted[0].name, 'DT');
-      defense.push({ pos: 'DT', gsis_id: dtSorted[0].gsis_id ?? null, name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, trait: assignTrait('DT', dtSorted[0].name.length) });
+      defense.push({ pos: 'DT', gsis_id: dtSorted[0].gsis_id ?? null, name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     // LB — MLB, LILB, RILB, WLB, SLB
@@ -302,7 +291,7 @@ async function main() {
     const lbsSorted = lbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     lbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'LB');
-      defense.push({ pos: `LB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('LB', p.name.length + i) });
+      defense.push({ pos: `LB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     });
 
     // CB — LCB, RCB
@@ -311,28 +300,28 @@ async function main() {
     const cbsSorted = cbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
     cbsSorted.slice(0, 2).forEach((p, i) => {
       const r = calcRating(p.name, 'CB');
-      defense.push({ pos: `CB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('CB', p.name.length + i) });
+      defense.push({ pos: `CB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     });
 
     // SCB (nickel)
     const scb = teamStarters.find(s => s.posAbb === 'NB');
     if (scb) {
       const r = calcRating(scb.name, 'CB');
-      defense.push({ pos: 'SCB', gsis_id: scb.gsis_id ?? null, name: scb.name, grade: gradeFromRating(r), rating: r, trait: 'Slot Corner' });
+      defense.push({ pos: 'SCB', gsis_id: scb.gsis_id ?? null, name: scb.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     // FS
     const fs = teamStarters.find(s => s.posAbb === 'FS');
     if (fs) {
       const r = calcRating(fs.name, 'S');
-      defense.push({ pos: 'FS', gsis_id: fs.gsis_id ?? null, name: fs.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', fs.name.length) });
+      defense.push({ pos: 'FS', gsis_id: fs.gsis_id ?? null, name: fs.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     // SS
     const ss = teamStarters.find(s => s.posAbb === 'SS');
     if (ss) {
       const r = calcRating(ss.name, 'S');
-      defense.push({ pos: 'SS', gsis_id: ss.gsis_id ?? null, name: ss.name, grade: gradeFromRating(r), rating: r, trait: assignTrait('S', ss.name.length + 1) });
+      defense.push({ pos: 'SS', gsis_id: ss.gsis_id ?? null, name: ss.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
     }
 
     rosters[team] = { offense, defense };
@@ -340,6 +329,10 @@ async function main() {
 
   // Write output
   const output = `// Auto-generated from nflverse depth charts + snap counts (${SEASON} season)
+// NOTE: rating is a SNAP-SHARE PROXY (68-85 base by snap share + exp
+// modifier), not a player evaluation. See rating_source on each row. UI
+// should render this under an honest label — "Snap share tier" or similar.
+// CoS audit 2026-08-30 finding #4.
 // Generated: ${new Date().toISOString()}
 // Sources: depth_charts_${SEASON}.csv, snap_counts_${snapSeasonUsed}.csv, roster_${SEASON}.csv
 // Do not edit manually — re-run: SEASON=${SEASON} node scripts/fetch-nflverse-roster-base.js
