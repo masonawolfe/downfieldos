@@ -13,9 +13,9 @@ on:
   workflow_dispatch:
     inputs:
       year:
-        description: 'PBP season to derive from'
+        description: 'PBP season override (blank = derived: current NFL season since March)'
         required: false
-        default: '2025'
+        default: ''
 
 permissions:
   contents: write
@@ -28,7 +28,7 @@ jobs:
   derive:
     runs-on: ubuntu-latest
     env:
-      PBP_YEAR: ${{ github.event.inputs.year || '2025' }}
+      PBP_YEAR: ${{ github.event.inputs.year }}
       PBP_OUT_DIR: ${{ github.workspace }}/src/data/intelligence/pbp
       PBP_RAW_DIR: ${{ runner.temp }}/pbp-raw
     steps:
@@ -38,16 +38,38 @@ jobs:
           python-version: '3.12'
       - name: Install pandas
         run: pip install --upgrade pandas
-      - name: Download nflverse PBP + roster
+      - name: Derive PBP_YEAR when unset
+        # Empty PBP_YEAR → current NFL season (rolls March 1). Falls back to
+        # SEASON-1 if the current-season files don't exist yet (preseason).
+        # Matches fetch-injuries.js pattern.
+        run: |
+          set -euo pipefail
+          if [ -z "${PBP_YEAR:-}" ]; then
+            m=$(date -u +%m); y=$(date -u +%Y)
+            if [ "$m" -ge 3 ]; then PBP_YEAR="$y"; else PBP_YEAR=$((y-1)); fi
+            echo "Derived PBP_YEAR=$PBP_YEAR"
+          fi
+          echo "PBP_YEAR=$PBP_YEAR" >> "$GITHUB_ENV"
+      - name: Download nflverse PBP + roster (fall back to SEASON-1 on 404)
         run: |
           set -euo pipefail
           mkdir -p "$PBP_RAW_DIR" "$PBP_OUT_DIR"
-          curl -sL --max-time 300 \
-            "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${PBP_YEAR}.csv.gz" \
-            -o "$PBP_RAW_DIR/play_by_play_${PBP_YEAR}.csv.gz"
-          curl -sL --max-time 120 \
-            "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_${PBP_YEAR}.csv" \
-            -o "$PBP_RAW_DIR/roster_weekly_${PBP_YEAR}.csv"
+          try_download() {
+            local year="$1"
+            local pbp="https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${year}.csv.gz"
+            local roster="https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_${year}.csv"
+            local http
+            http=$(curl -sIL --max-time 30 "$pbp" -o /dev/null -w "%{http_code}")
+            [ "$http" = "200" ] || return 1
+            curl -sL --max-time 300 "$pbp" -o "$PBP_RAW_DIR/play_by_play_${year}.csv.gz"
+            curl -sL --max-time 120 "$roster" -o "$PBP_RAW_DIR/roster_weekly_${year}.csv"
+            echo "PBP_YEAR=$year" >> "$GITHUB_ENV"
+          }
+          if ! try_download "$PBP_YEAR"; then
+            fallback=$((PBP_YEAR - 1))
+            echo "⚠ ${PBP_YEAR} PBP unavailable; falling back to ${fallback}"
+            try_download "$fallback"
+          fi
           ls -lh "$PBP_RAW_DIR"
       - name: Derive PBP intelligence
         run: python scripts/pbp/process_pbp.py --year "$PBP_YEAR"

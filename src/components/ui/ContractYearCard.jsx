@@ -11,6 +11,11 @@ export function ContractYearCard({ filterTeam, compact = false }) {
   const [expanded, setExpanded] = useState(false);
   const [posFilter, setPosFilter] = useState('ALL');
   const players = contractData?.contract_year_players || [];
+  // CoS audit 2026-08-30 finding #3: contract data is stale and the UI didn't
+  // say so. Surface the last-updated date + a warning when >60 days old.
+  const dataDate = contractData?.metadata?.generated || null;
+  const staleDays = dataDate ? Math.floor((Date.now() - new Date(dataDate).getTime()) / (1000 * 60 * 60 * 24)) : null;
+  const isStale = staleDays != null && staleDays > 60;
 
   const filtered = useMemo(() => {
     let list = [...players];
@@ -117,9 +122,10 @@ export function ContractYearCard({ filterTeam, compact = false }) {
             })}
           </div>
 
-          {/* Source */}
-          <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 12 }}>
-            Source: {contractData.metadata?.source || 'Spotrac, Over The Cap'} · {contractData.metadata?.generated}
+          {/* Source + freshness (CoS finding #3) */}
+          <div style={{ fontSize: 11, marginTop: 12, color: isStale ? '#b45309' : '#94a3b8', background: isStale ? '#fef3c7' : 'transparent', padding: isStale ? '6px 10px' : 0, borderRadius: 6 }}>
+            {isStale && <strong>⚠ Stale data:</strong>} Source: {contractData.metadata?.source || 'Spotrac, Over The Cap'} · Updated {contractData.metadata?.generated}
+            {staleDays != null && ` (${staleDays} days ago)`}
           </div>
         </div>
       )}

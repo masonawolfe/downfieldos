@@ -12,12 +12,17 @@ Usage:
     # Then run:
     python3 process_pbp.py [--year 2025]
 
-Outputs (saved to current directory):
+Outputs (saved to PBP_OUT_DIR env, or ./ if unset — see BASE_DIR):
     - team_scheme_profiles.json
     - scheme_similarity_matrix.json
     - player_usage_data.json
     - situational_splits.json
     - pbp_sync_metadata.json
+
+  Docstring updated 2026-08-30 to match code — the "saved to current
+  directory" line was stale; env-var support was added and the Actions
+  workflow points PBP_OUT_DIR at repo/src/data/intelligence/pbp/.
+  CoS finding #10.
 
 Idempotent — safe to re-run. Overwrites previous outputs.
 """
@@ -39,7 +44,16 @@ except ImportError:
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-YEAR = int(os.environ.get("PBP_YEAR", "2025"))
+def _current_nfl_season():
+    """NFL league year rolls over ~March 1. Before then we're still on the
+    previous season's data. Prevents the '2025 hardcode' rot the CoS
+    audit caught in data-injuries.yml on 2026-08-30."""
+    from datetime import datetime, timezone
+    now = datetime.now(timezone.utc)
+    return now.year if now.month >= 3 else now.year - 1
+
+_env_year = os.environ.get("PBP_YEAR", "").strip()
+YEAR = int(_env_year) if _env_year else _current_nfl_season()
 # BASE_DIR = where outputs land. RAW_DIR = where the nflverse CSVs live.
 # Both are overridable via env vars so the same script serves both local runs
 # and .github/workflows/data-pbp-derived.yml, which points them at repo paths.
