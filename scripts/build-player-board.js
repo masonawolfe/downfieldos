@@ -67,30 +67,94 @@ function loadRosterWeekly() {
   return byGsis;
 }
 
-// FIX 3 (2026-09-03): fill qb_name for skill rows whose 2025 stat row is null
-// (rookies, no-snap 2025). Picks a 2026 starter per team by preferring the QB
-// with the most 2025 passing yards; falls back to the roster_weekly QB with the
-// most recent week when no stat row exists for any candidate.
-function buildTeamStarterQb(roster, stats) {
-  const candidatesByTeam = new Map();  // team → [{gsis, name, week, passing_yards}]
+// FIX 3 (2026-09-03b): pick the 2026 starter QB per team from Sleeper's
+// depth_chart_order == 1. The passing-yards heuristic that lived here on
+// 2026-09-03a picked the backup on every team whose starter was hurt,
+// benched or a rookie in 2025 — Burrow missed most of 2025, so Flacco
+// out-threw him and the heuristic returned Flacco (and Ja'Marr Chase
+// then carried qb_pass_td 15 / qb_epa -40.87, which were Flacco's).
+// Same failure on WAS/MIA/MIN/CLE. 137 rows misattributed on the
+// 2026-09-03a build.
+//
+// Why depth_chart_order and NOT passing yards:
+//   • Depth chart encodes the team's 2026 starting decision. Prior-year
+//     production is a lagging proxy for that decision, and it's wrong in
+//     exactly the population that matters (starters returning from injury,
+//     high-pick rookies, off-season signings).
+//   • nflverse roster_weekly_2026.csv.gz has NO depth information —
+//     depth_chart_position is literally "QB" for every quarterback on
+//     every team. QA verified: all 4 QBs on all 6 suspected teams.
+//   • Sleeper's payload carries depth_chart_order per player (1 = starter).
+//     Already fetched + cached by loadSleeperData() for ADP; a second walk
+//     is free.
+//
+// Fallback: when a team has no QB with depth_chart_order == 1, fall back
+// to the 2025 passing-yards leader and LOG it. Historically 0 teams have
+// hit this path.
+function buildTeamStarterQb(roster, stats, sleeperData) {
+  // Sleeper is the source of truth for depth_chart_order. Iterate its QBs
+  // to find the depth_chart_order == 1 for each team.
+  const sleeperStarterByTeam = new Map();  // team → sleeper_id
+  for (const [sid, p] of Object.entries(sleeperData)) {
+    if (p.position !== 'QB') continue;
+    if (p.depth_chart_order !== 1) continue;
+    const team = norm(p.team);
+    if (!team) continue;
+    // On rare ties (data drift) keep the first one encountered.
+    if (!sleeperStarterByTeam.has(team)) sleeperStarterByTeam.set(team, sid);
+  }
+
+  // Now walk roster_weekly QBs to attach gsis_id (and name where missing).
+  // roster row → team + sleeper_id + gsis_id + name.
+  const rosterQbBySleeperId = new Map();
+  const rosterQbsByTeam = new Map();  // team → [{gsis, sleeper_id, name, week, passing_yards}]
   for (const [gsis, r] of roster) {
     if ((r.position || '').toUpperCase() !== 'QB') continue;
     const team = norm(r.team);
     if (!team) continue;
     const s = stats.get(gsis);
-    const py = s?.passing_yards ?? 0;
-    if (!candidatesByTeam.has(team)) candidatesByTeam.set(team, []);
-    candidatesByTeam.get(team).push({
-      gsis, name: r.full_name || s?.name || null,
-      week: parseInt(r.week || '0', 10), passing_yards: py,
-    });
+    const rec = {
+      gsis,
+      sleeper_id: r.sleeper_id || null,
+      name: r.full_name || s?.name || null,
+      week: parseInt(r.week || '0', 10),
+      passing_yards: s?.passing_yards ?? 0,
+    };
+    if (rec.sleeper_id) rosterQbBySleeperId.set(rec.sleeper_id, rec);
+    if (!rosterQbsByTeam.has(team)) rosterQbsByTeam.set(team, []);
+    rosterQbsByTeam.get(team).push(rec);
   }
+
   const out = new Map();
-  for (const [team, cands] of candidatesByTeam) {
-    // Sort by 2025 passing_yards desc, then latest week desc as a tiebreak
+  const fallbackTeams = [];
+  const allTeamsToResolve = new Set([...rosterQbsByTeam.keys(), ...sleeperStarterByTeam.keys()]);
+  for (const team of allTeamsToResolve) {
+    const sid = sleeperStarterByTeam.get(team);
+    if (sid) {
+      const viaRoster = rosterQbBySleeperId.get(sid);
+      if (viaRoster) {
+        out.set(team, { qb_name: viaRoster.name, qb_gsis_id: viaRoster.gsis, source: 'sleeper_depth_chart' });
+        continue;
+      }
+      // Sleeper says starter is X but roster_weekly_2026 has no matching QB
+      // (Sleeper knows about a signing/promotion nflverse hasn't yet shown).
+      // Take Sleeper's name; leave gsis_id null so downstream can decide.
+      const p = sleeperData[sid];
+      const name = [p.first_name, p.last_name].filter(Boolean).join(' ') || null;
+      out.set(team, { qb_name: name, qb_gsis_id: null, source: 'sleeper_depth_chart' });
+      continue;
+    }
+    // No Sleeper depth_chart_order == 1 for this team — fall back and LOG.
+    const cands = rosterQbsByTeam.get(team) || [];
     cands.sort((a, b) => (b.passing_yards - a.passing_yards) || (b.week - a.week));
     const winner = cands[0];
-    if (winner) out.set(team, { qb_name: winner.name, qb_gsis_id: winner.gsis });
+    if (winner) {
+      out.set(team, { qb_name: winner.name, qb_gsis_id: winner.gsis, source: 'passing_yards_fallback' });
+      fallbackTeams.push(team);
+    }
+  }
+  if (fallbackTeams.length > 0) {
+    console.log(`  ⚠ QB depth-chart fallback (no Sleeper depth_chart_order == 1) for: ${fallbackTeams.join(', ')}`);
   }
   return out;
 }
@@ -127,20 +191,24 @@ function loadSituationalSplits() {
   }
 }
 
-async function loadSleeperAdp() {
+async function loadSleeperData() {
   // Reuse /tmp cache from Task 5 if available; else fetch fresh.
+  // FIX 3 (2026-09-03b): now returns the raw payload so downstream can also
+  // read depth_chart_order — not just search_rank.
   const cache = '/tmp/sleeper_players.json';
-  let players;
   if (fs.existsSync(cache) && (Date.now() - fs.statSync(cache).mtimeMs) < 6 * 3600 * 1000) {
-    players = JSON.parse(fs.readFileSync(cache, 'utf8'));
-  } else {
-    const res = await fetch('https://api.sleeper.app/v1/players/nfl');
-    players = await res.json();
-    try { fs.writeFileSync(cache, JSON.stringify(players)); } catch { /* ignore */ }
+    return JSON.parse(fs.readFileSync(cache, 'utf8'));
   }
+  const res = await fetch('https://api.sleeper.app/v1/players/nfl');
+  const players = await res.json();
+  try { fs.writeFileSync(cache, JSON.stringify(players)); } catch { /* ignore */ }
+  return players;
+}
+
+function sleeperAdpMap(sleeperData) {
   // sleeper_id → search_rank (proxy for ADP). Sentinel 9999999 → null.
   const bySleeperId = new Map();
-  for (const [sid, p] of Object.entries(players)) {
+  for (const [sid, p] of Object.entries(sleeperData)) {
     const raw = p.search_rank;
     const rank = (typeof raw === 'number' && raw < 9000000) ? raw : null;
     bySleeperId.set(sid, rank);
@@ -159,15 +227,20 @@ async function main() {
   const { meta: availMeta, byGsis: avail } = loadAvailability();
   const schedule = loadSchedule();
   const situationalTeams = loadSituationalSplits();
-  const adpBySleeperId = await loadSleeperAdp();
-  const teamStarterQb = buildTeamStarterQb(roster, stats);   // FIX 3
+  const sleeperData = await loadSleeperData();
+  const adpBySleeperId = sleeperAdpMap(sleeperData);
+  const teamStarterQb = buildTeamStarterQb(roster, stats, sleeperData);   // FIX 3 (2026-09-03b)
   console.log(`  stats:            ${stats.size} rows`);
   console.log(`  roster_weekly:    ${roster.size} rows`);
   console.log(`  availability:     ${avail.size} rows (generated ${availMeta.generated})`);
   console.log(`  schedule teams:   ${Object.keys(schedule.teams || {}).length}`);
   console.log(`  situational tms:  ${Object.keys(situationalTeams).length}`);
+  console.log(`  sleeper players:  ${Object.keys(sleeperData).length}`);
   console.log(`  sleeper ADPs:     ${[...adpBySleeperId.values()].filter(v => v != null).length} non-null`);
-  console.log(`  2026 starter QBs: ${teamStarterQb.size} teams\n`);
+  console.log(`  2026 starter QBs: ${teamStarterQb.size} teams`);
+  const bySource = {};
+  for (const v of teamStarterQb.values()) bySource[v.source] = (bySource[v.source] || 0) + 1;
+  console.log(`    by source: ${JSON.stringify(bySource)}\n`);
 
   const SKILL_POS = new Set(['QB', 'RB', 'WR', 'TE']);
   const rows = [];
@@ -201,27 +274,31 @@ async function main() {
       data_coverage_flag = (hasShares && hasQb) ? 'full' : 'partial';
     }
 
-    // FIX 3 (2026-09-03): a draft-board qb_name must reflect the 2026 QB
-    // who will actually throw to this player, not the 2025 QB whose stats
-    // they earned last year. So: always prefer the 2026 depth-chart starter
-    // for team_2026; fall back to the 2025 stat row's qb_name only when
-    // no 2026 starter is identified for the team.
-    // (CoS text asked for this on missing-stat rows; QA also flagged 18
-    // mismatches on players who moved teams — Mike Evans SF reading Mac
-    // Jones from his 2025 TB stat row is the canonical example. Handling
-    // both cases with the same rule.)
+    // FIX 3 (2026-09-03b): qb_name = the 2026 starter for team_2026, picked
+    // from Sleeper's depth_chart_order == 1 (source of truth for the team's
+    // 2026 starting decision). qb_pass_td / qb_epa also re-attach to that
+    // starter's 2025 stat row so Ja'Marr Chase carries Burrow's numbers,
+    // not Flacco's. See buildTeamStarterQb() header for the root cause on
+    // the prior heuristic.
     const starter = teamStarterQb.get(team_2026);
+    const starterStat = (starter?.qb_gsis_id) ? stats.get(starter.qb_gsis_id) : null;
     let qb_name_final, qb_gsis_final, qb_name_source;
+    let qb_pass_td_final, qb_epa_final;
     if (pos === 'QB') {
       qb_name_final = null; qb_gsis_final = null; qb_name_source = null;
+      qb_pass_td_final = null; qb_epa_final = null;
     } else if (starter?.qb_name) {
       qb_name_final = starter.qb_name;
       qb_gsis_final = starter.qb_gsis_id;
-      qb_name_source = 'roster_weekly_2026_depth';
+      qb_name_source = starter.source;   // 'sleeper_depth_chart' | 'passing_yards_fallback'
+      qb_pass_td_final = starterStat?.passing_tds ?? null;
+      qb_epa_final = starterStat?.qb_epa_per_play ?? starterStat?.epa_per_play ?? null;
     } else {
       qb_name_final = statRow?.qb_name ?? null;
       qb_gsis_final = statRow?.qb_gsis_id ?? null;
       qb_name_source = statRow?.qb_name != null ? 'playerStats2025' : null;
+      qb_pass_td_final = statRow?.qb_pass_td ?? null;
+      qb_epa_final = statRow?.qb_epa_per_play ?? null;
     }
 
     // FIX 1 (2026-09-03): draftable + draft_note derived from availability.
@@ -272,12 +349,13 @@ async function main() {
       touches: statRow ? ((statRow.carries ?? 0) + (statRow.targets ?? 0)) : null,
       total_td: statRow ? ((statRow.receiving_tds ?? 0) + (statRow.rushing_tds ?? 0) + (statRow.passing_tds ?? 0)) : null,
       epa_per_play: statRow?.epa_per_play ?? null,
-      // Team context (QB attached — Task 4; FIX 3 fallback to 2026 depth)
+      // Team context (QB attached — Task 4; FIX 3 2026-09-03b: qb chosen by
+      // Sleeper depth_chart_order == 1, and pass_td/epa re-attach to that QB)
       qb_name: qb_name_final,
       qb_gsis_id: qb_gsis_final,
-      qb_name_source,   // FIX 3: 'playerStats2025' | 'roster_weekly_2026_depth' | null
-      qb_pass_td: statRow?.qb_pass_td ?? null,
-      qb_epa: statRow?.qb_epa_per_play ?? null,
+      qb_name_source,   // 'sleeper_depth_chart' | 'passing_yards_fallback' | 'playerStats2025' | null
+      qb_pass_td: qb_pass_td_final,
+      qb_epa: qb_epa_final,
       team_off_epa: statRow?.team_off_epa_per_play ?? null,
       team_pass_rate: statRow?.team_pass_rate ?? null,
       team_rz_pass_rate: statRow?.team_rz_pass_rate ?? null,
@@ -367,16 +445,22 @@ async function main() {
     rows.filter(r => r.draftable === true).length,
     '/',
     rows.filter(r => r.draftable === false).length);
-  console.log('  qb_name from 2026 depth fallback (FIX 3):',
-    rows.filter(r => r.qb_name_source === 'roster_weekly_2026_depth').length);
+  console.log('  qb_name_source counts:',
+    JSON.stringify({
+      sleeper_depth_chart: rows.filter(r => r.qb_name_source === 'sleeper_depth_chart').length,
+      passing_yards_fallback: rows.filter(r => r.qb_name_source === 'passing_yards_fallback').length,
+      playerStats2025: rows.filter(r => r.qb_name_source === 'playerStats2025').length,
+      null: rows.filter(r => r.qb_name_source == null).length,
+    }));
 
   const draftableCounts = {
     true: rows.filter(r => r.draftable === true).length,
     false: rows.filter(r => r.draftable === false).length,
   };
   const qbSourceCounts = {
+    sleeper_depth_chart: rows.filter(r => r.qb_name_source === 'sleeper_depth_chart').length,
+    passing_yards_fallback: rows.filter(r => r.qb_name_source === 'passing_yards_fallback').length,
     playerStats2025: rows.filter(r => r.qb_name_source === 'playerStats2025').length,
-    roster_weekly_2026_depth: rows.filter(r => r.qb_name_source === 'roster_weekly_2026_depth').length,
     null: rows.filter(r => r.qb_name_source == null).length,
   };
   const output = `/**
@@ -392,8 +476,12 @@ async function main() {
  *   FIX 1  draftable + draft_note fields — consumers that sort by adp_overall
  *          MUST filter by draftable:true. IR/PUP/SUSP/NFI → draftable:false.
  *   FIX 2  availability refreshed by npm run data:availability before build.
- *   FIX 3  qb_name falls back to 2026 depth-chart starter when no 2025 stat row.
- *          qb_name_source: 'playerStats2025' | 'roster_weekly_2026_depth' | null.
+ *   FIX 3  qb_name = Sleeper depth_chart_order == 1 for team_2026, and
+ *          qb_pass_td/qb_epa re-attach to that starter's 2025 stats.
+ *          Rebuilt 2026-09-03b after QA found the 2026-09-03a passing-yards
+ *          heuristic returned backups on CIN/WAS/MIA/MIN/CLE (137 rows wrong).
+ *          qb_name_source: 'sleeper_depth_chart' | 'passing_yards_fallback'
+ *          | 'playerStats2025' | null.
  *   FIX 4  adp_overall is Sleeper search_rank (adp_source: 'sleeper_search_rank'),
  *          NOT true consensus ADP. Integers only, ties permitted, sentinel 999.
  *          Divergence from true ADP is widest on injured stars and hype rookies.
@@ -411,6 +499,8 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
     fixes_2026_09_03: {
       fix_1_draftable: draftableCounts,
       fix_3_qb_name_source: qbSourceCounts,
+      fix_3_qb_selection_rule: 'Sleeper depth_chart_order == 1 for team_2026, joined on sleeper_id. Fallback (LOGged): 2025 passing-yards leader when no Sleeper QB1 exists for a team.',
+      fix_3_qb_stats_reattached: 'qb_pass_td and qb_epa are the depth_chart_order==1 QB\'s 2025 numbers, not the stat-row-attached prior-year QB.',
       fix_4_adp_source_label: 'sleeper_search_rank',
       fix_4_adp_source_note: 'adp_overall is Sleeper search_rank, NOT true consensus ADP. Integers only, ties permitted, sentinel 999.',
     },
