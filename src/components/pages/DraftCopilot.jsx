@@ -38,6 +38,8 @@ function buildUniverse() {
       trait: null,
       // Extended fields the copilot can surface directly.
       vorp,
+      total_score_beta: p.total_score_beta,
+      total_score_beta_rationale: p.total_score_beta_rationale,
       projection_pts: p.projection_pts,
       adp_overall: p.adp_overall,
       adp_source: p.adp_source,
@@ -130,8 +132,38 @@ export function DraftCopilot() {
           persona
         ),
       }))
+      // Show up to 40, sorted by v2 beta desc (falling back to VORP → rating)
+      .sort((a, b) => {
+        const av = a.total_score_beta ?? a.vorp ?? a.rating ?? 0;
+        const bv = b.total_score_beta ?? b.vorp ?? b.rating ?? 0;
+        return bv - av;
+      })
       .slice(0, 40);
   }, [result, persona]);
+
+  // "On the clock" — top pick per v1 (VORP) and v2 (BETA), plus the biggest
+  // disagreement between the two among the currently draftable pool. This is
+  // what a draft agent should read at Mason's turn.
+  const onTheClock = useMemo(() => {
+    if (!rankedUndrafted.length) return null;
+    const byVorp = [...rankedUndrafted].sort((a, b) => (b.vorp ?? -Infinity) - (a.vorp ?? -Infinity));
+    const byBeta = [...rankedUndrafted].sort((a, b) => (b.total_score_beta ?? -Infinity) - (a.total_score_beta ?? -Infinity));
+    const vTop = byVorp[0], bTop = byBeta[0];
+    const agree = vTop && bTop && vTop.name === bTop.name;
+    // Biggest disagreement: player in top-5 by beta whose vorp rank is worst
+    const vorpRank = new Map(byVorp.map((c, i) => [c.name, i + 1]));
+    const top10Beta = byBeta.slice(0, 10);
+    let biggestGap = null;
+    for (const c of top10Beta) {
+      const vR = vorpRank.get(c.name) || 999;
+      const bR = byBeta.findIndex(x => x.name === c.name) + 1;
+      const gap = vR - bR;
+      if (biggestGap == null || Math.abs(gap) > Math.abs(biggestGap.gap)) {
+        biggestGap = { candidate: c, vorpRank: vR, betaRank: bR, gap };
+      }
+    }
+    return { vTop, bTop, agree, biggestGap };
+  }, [rankedUndrafted]);
 
   const survivalColor = (s) => s > 0.75 ? '#16a34a' : s > 0.4 ? '#eab308' : '#dc2626';
 
@@ -181,6 +213,41 @@ export function DraftCopilot() {
         </div>
       )}
 
+      {/* On the clock — v1 vs v2 recommendation with biggest delta */}
+      {onTheClock && (
+        <div style={{ background: '#fff', border: '2px solid #f97316', borderRadius: 12, padding: 16, marginBottom: 20 }}>
+          <div style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#f97316', fontFamily: 'monospace', marginBottom: 10, fontWeight: 700 }}>On the clock — pick recommendation</div>
+          {onTheClock.agree ? (
+            <div style={{ fontSize: 14, color: '#0f172a', lineHeight: 1.5 }}>
+              <strong>Both v1 (VORP) and v2 (β) agree:</strong>{' '}
+              <span style={{ fontSize: 16, fontWeight: 800 }}>{onTheClock.vTop.name}</span>{' '}
+              <span style={{ color: '#64748b', fontSize: 12 }}>({onTheClock.vTop.position}/{onTheClock.vTop.team}, VORP {onTheClock.vTop.vorp?.toFixed(0)} · β {onTheClock.vTop.total_score_beta?.toFixed(0)})</span>
+              {onTheClock.vTop.total_score_beta_rationale && (
+                <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>β says: {onTheClock.vTop.total_score_beta_rationale}</div>
+              )}
+            </div>
+          ) : (
+            <div style={{ fontSize: 14, color: '#0f172a', lineHeight: 1.5 }}>
+              <div><strong>v1 (VORP)</strong> says <strong>{onTheClock.vTop.name}</strong> <span style={{ color: '#64748b', fontSize: 12 }}>({onTheClock.vTop.position}/{onTheClock.vTop.team}, VORP {onTheClock.vTop.vorp?.toFixed(0)})</span></div>
+              <div><strong>v2 (β)</strong> says <strong>{onTheClock.bTop.name}</strong> <span style={{ color: '#64748b', fontSize: 12 }}>({onTheClock.bTop.position}/{onTheClock.bTop.team}, β {onTheClock.bTop.total_score_beta?.toFixed(0)})</span></div>
+              {onTheClock.bTop.total_score_beta_rationale && (
+                <div style={{ fontSize: 12, color: '#64748b', marginTop: 4 }}>β preference driven by: {onTheClock.bTop.total_score_beta_rationale}</div>
+              )}
+            </div>
+          )}
+          {onTheClock.biggestGap && Math.abs(onTheClock.biggestGap.gap) >= 3 && (
+            <div style={{ marginTop: 10, padding: '8px 10px', background: '#fef3c7', borderRadius: 6, fontSize: 12, color: '#78350f' }}>
+              <strong>Biggest v1↔v2 disagreement in the top 10 β:</strong>{' '}
+              {onTheClock.biggestGap.candidate.name} — v1 rank #{onTheClock.biggestGap.vorpRank}, v2 rank #{onTheClock.biggestGap.betaRank}
+              {onTheClock.biggestGap.candidate.total_score_beta_rationale && ` · ${onTheClock.biggestGap.candidate.total_score_beta_rationale}`}
+            </div>
+          )}
+          <div style={{ marginTop: 8, fontSize: 11, color: '#94a3b8', lineHeight: 1.4 }}>
+            v1 is validated; v2 is beta. When they agree, high confidence. When they disagree, read the β rationale — that is what v1 does not see.
+          </div>
+        </div>
+      )}
+
       {/* Pick log */}
       <div style={{ marginBottom: 20 }}>
         <label style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: 1.5, color: '#64748b', fontFamily: 'monospace', display: 'block', marginBottom: 6 }}>Pick log — one per line: "1. Player Name POS TEAM"</label>
@@ -207,28 +274,36 @@ export function DraftCopilot() {
               <strong>{persona.label}</strong> mode
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '30px 1fr 60px 100px 90px 120px', gap: 0, background: '#fff' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '30px 1fr 50px 80px 70px 70px 60px 1.2fr', gap: 0, background: '#fff' }}>
             <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>#</div>
             <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Player</div>
             <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Pos</div>
             <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Survival</div>
-            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Value</div>
-            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Note</div>
-            {rankedUndrafted.map((c, i) => (
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }} title="v1 valuation — projected pts minus positional replacement (default shape standard_12_1qb, full-PPR). Validated against Sleeper on 2026-09-04.">VORP</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#f97316', fontFamily: 'monospace' }} title="v2 beta — VORP plus every context adjustment (QB, team offense, usage, injury designation, playoff schedule). Deltas vs VORP are what to read.">β</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>Δ</div>
+            <div style={{ padding: '10px 12px', fontSize: 10, textTransform: 'uppercase', letterSpacing: 1, color: '#94a3b8', fontFamily: 'monospace' }}>β Rationale</div>
+            {rankedUndrafted.map((c, i) => {
+              const delta = c.total_score_beta != null && c.vorp != null ? c.total_score_beta - c.vorp : null;
+              const deltaColor = delta == null ? '#94a3b8' : delta > 5 ? '#16a34a' : delta < -5 ? '#dc2626' : '#64748b';
+              return (
               <div key={c.name + i} style={{ display: 'contents' }}>
                 <div style={{ padding: '10px 12px', fontSize: 12, color: '#64748b', fontFamily: 'monospace', borderTop: '1px solid #f1f5f9' }}>{i + 1}</div>
                 <div style={{ padding: '10px 12px', borderTop: '1px solid #f1f5f9' }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: '#0f172a' }}>{c.name}</div>
-                  <div style={{ fontSize: 11, color: '#94a3b8' }}>{c.team} · rating {c.rating}</div>
+                  <div style={{ fontSize: 11, color: '#94a3b8' }}>{c.team}{c.bye_week ? ` · bye ${c.bye_week}` : ''}{c.qb_name ? ` · ${c.qb_name}` : ''}</div>
                 </div>
                 <div style={{ padding: '10px 12px', fontSize: 12, fontWeight: 700, color: '#334155', borderTop: '1px solid #f1f5f9' }}>{c.position}</div>
                 <div style={{ padding: '10px 12px', borderTop: '1px solid #f1f5f9' }}>
                   <span style={{ fontSize: 15, fontWeight: 800, color: survivalColor(c.survival), fontFamily: 'monospace' }}>{(c.survival * 100).toFixed(0)}%</span>
                 </div>
-                <div style={{ padding: '10px 12px', fontSize: 13, fontWeight: 700, color: '#0f172a', borderTop: '1px solid #f1f5f9' }}>{c.valuation.value}</div>
-                <div style={{ padding: '10px 12px', fontSize: 11, color: '#64748b', borderTop: '1px solid #f1f5f9' }}>{c.valuation.note || '—'}</div>
+                <div style={{ padding: '10px 12px', fontSize: 13, fontWeight: 700, color: '#0f172a', borderTop: '1px solid #f1f5f9', fontFamily: 'monospace' }}>{c.vorp != null ? c.vorp.toFixed(0) : '—'}</div>
+                <div style={{ padding: '10px 12px', fontSize: 13, fontWeight: 700, color: '#f97316', borderTop: '1px solid #f1f5f9', fontFamily: 'monospace' }}>{c.total_score_beta != null ? c.total_score_beta.toFixed(0) : '—'}</div>
+                <div style={{ padding: '10px 12px', fontSize: 12, fontWeight: 700, color: deltaColor, borderTop: '1px solid #f1f5f9', fontFamily: 'monospace' }}>{delta != null ? (delta > 0 ? '+' : '') + delta.toFixed(0) : '—'}</div>
+                <div style={{ padding: '10px 12px', fontSize: 11, color: '#64748b', borderTop: '1px solid #f1f5f9', lineHeight: 1.4 }}>{c.total_score_beta_rationale || '—'}</div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}

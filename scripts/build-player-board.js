@@ -250,6 +250,95 @@ function computeReplacementLevels(rows, shape) {
   return rep;
 }
 
+// ─── total_score_beta (2026-09-04, v2 side-by-side) ─────────────────────────
+// v1 (vorp above) is the validated baseline. This is a parallel column that
+// bolts on every meaningful board field — QB context, team offense, usage,
+// injury designation, team-change uncertainty, playoff schedule — as small
+// additive adjustments to VORP. Result stored so it can be compared to VORP
+// at the table; deltas are the signal.
+//
+// Deliberate constraints:
+//   * base = vorp; only players with a v1 VORP get a v2 beta (rookies null,
+//     same as v1 — see ROOKIE COMMENT at bottom of file)
+//   * every adjustment ±10 pts max, so no single term dominates VORP
+//   * every component stored under total_score_beta_components so a copilot
+//     or a human can read the "why"
+//   * rationale string surfaces the top-3 signed contributors
+//
+// EPA scale note: qb_epa and team_off_epa on the board are cumulative-EPA
+// numbers (source: playerStats2025), observed range roughly ±100 for skill
+// team-context signals. Divisors chosen accordingly.
+function round2(n) { return n == null ? null : Math.round(n * 100) / 100; }
+
+function computeTotalScoreBeta(r) {
+  const base = r.vorp;
+  if (base == null) return { total_score_beta: null, total_score_beta_components: null, total_score_beta_rationale: null };
+  const comp = { base_vorp: round2(base) };
+  const contributors = [];
+  const record = (key, val, label) => {
+    if (val == null || val === 0) return;
+    const clipped = Math.max(-10, Math.min(10, val));   // ±10 pts cap
+    comp[key] = round2(clipped);
+    contributors.push({ key, label, val: clipped });
+  };
+
+  // QB context — WR/TE only
+  if (r.pos === 'WR' || r.pos === 'TE') {
+    if (r.qb_epa != null) record('qb_epa_adj', r.qb_epa / 8, `QB EPA ${r.qb_name}`);
+    if (r.team_off_epa != null) record('team_off_epa_adj', r.team_off_epa * 40, 'team offense');
+    if (r.team_pass_rate != null) record('team_pass_rate_adj', (r.team_pass_rate - 0.57) * 100, 'team pass rate');
+    if (r.team_rz_pass_rate != null) record('team_rz_pass_rate_adj', (r.team_rz_pass_rate - 0.55) * 50, 'RZ pass rate');
+    if (r.target_share != null && r.target_share > 0.18) record('target_share_adj', (r.target_share - 0.18) * 60, 'target share');
+    if (r.snap_share != null && r.snap_share > 0.70) record('snap_share_adj', (r.snap_share - 0.70) * 15, 'snap share');
+  }
+
+  // RB context
+  if (r.pos === 'RB') {
+    if (r.team_off_epa != null) record('team_off_epa_adj', r.team_off_epa * 30, 'team offense');
+    if (r.team_goal_line_run_rate != null && r.team_goal_line_run_rate > 0.55)
+      record('goal_line_run_adj', (r.team_goal_line_run_rate - 0.55) * 40, 'GL run rate');
+    if (r.team_pass_rate_when_behind != null && r.team_pass_rate_when_behind > 0.75)
+      record('pass_when_behind_adj', -(r.team_pass_rate_when_behind - 0.75) * 30, 'pass-when-behind risk');
+    if (r.carry_share != null && r.carry_share > 0.55)
+      record('carry_share_adj', (r.carry_share - 0.55) * 30, 'workhorse carry share');
+    if (r.snap_share != null && r.snap_share > 0.60)
+      record('snap_share_adj', (r.snap_share - 0.60) * 15, 'snap share');
+  }
+
+  // QB context
+  if (r.pos === 'QB') {
+    if (r.team_off_epa != null) record('team_off_epa_adj', r.team_off_epa * 50, 'team offense');
+    if (r.team_pass_rate != null) record('team_pass_rate_adj', (r.team_pass_rate - 0.57) * 60, 'team pass rate');
+  }
+
+  // Team change uncertainty (all positions with a projection)
+  if (r.team_changed === true) {
+    record('team_changed_adj', -Math.min(base * 0.05, 8), `moved ${r.team_2025}→${r.team_2026}`);
+  }
+
+  // Injury designation — separate from draftable gate (Q/D/O still draftable but risky)
+  if (r.game_designation === 'Q') record('injury_designation_adj', -base * 0.03, 'Questionable');
+  else if (r.game_designation === 'D') record('injury_designation_adj', -base * 0.10, 'Doubtful');
+  else if (r.game_designation === 'O') record('injury_designation_adj', -base * 0.20, 'Out');
+
+  // Playoff schedule — indoor games are (small) positive scoring environment
+  if (r.playoff_indoor_games != null && r.playoff_indoor_games > 0) {
+    record('playoff_indoor_adj', r.playoff_indoor_games * 1.5, `${r.playoff_indoor_games} dome playoff wks`);
+  }
+
+  const totalAdj = contributors.reduce((s, c) => s + c.val, 0);
+  const total = base + totalAdj;
+  comp.total_adjustment = round2(totalAdj);
+  // Rationale = top-3 by absolute value
+  const top3 = [...contributors].sort((a, b) => Math.abs(b.val) - Math.abs(a.val)).slice(0, 3);
+  const rationale = top3.map(c => `${c.label} ${c.val >= 0 ? '+' : ''}${round2(c.val)}`).join(' · ') || null;
+  return {
+    total_score_beta: round2(total),
+    total_score_beta_components: comp,
+    total_score_beta_rationale: rationale,
+  };
+}
+
 function attachValuation(rows) {
   const replacementsByShape = {};
   for (const [key, shape] of Object.entries(LEAGUE_SHAPES)) {
@@ -282,6 +371,13 @@ function attachValuation(rows) {
     r.projection_pts = def.projection_pts;
     r.replacement_pts = def.replacement_pts;
     r.vorp = def.vorp_pts;
+  }
+  // Second pass — total_score_beta reads r.vorp so must run after the loop above.
+  for (const r of rows) {
+    const beta = computeTotalScoreBeta(r);
+    r.total_score_beta = beta.total_score_beta;
+    r.total_score_beta_components = beta.total_score_beta_components;
+    r.total_score_beta_rationale = beta.total_score_beta_rationale;
   }
   return replacementsByShape;
 }
