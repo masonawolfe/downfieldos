@@ -1,24 +1,66 @@
 import { useMemo, useState } from 'react';
 import { Zap, AlertCircle } from 'lucide-react';
-import { ROSTERS_2026 } from '../../data/rosters2026';
-import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
+import { PLAYER_BOARD_2026, PLAYER_BOARD_2026_META } from '../../data/playerBoard2026';
 import { survivalProbabilities, slotForPick, picksForSlot } from '../../utils/survival';
 import { PERSONAS, evaluate } from '../../utils/valuation';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 
-// Compose a rough "universe" from ROSTERS_2026 — every listed starter across
-// all 32 teams, ordered by our rating. Not real ADP, but the shape of the
-// output holds. Real integration would swap this for a projections / ADP feed.
+// Universe = playerBoard2026 filtered to draftable skill players, ordered by
+// VORP (default shape: standard_12_1qb full-PPR — see PLAYER_BOARD_2026_META.
+// valuation_2026_09_04). Players without a projection (rookies, no-2025-data,
+// K/DEF) sort behind everyone with one; among them, adp_overall breaks the tie.
+// Per CoS 2026-09-04-valuation-layer.md — was previously reading ROSTERS_2026
+// (top depth slot per team, ~130 players) sorted by the snap-share proxy that
+// the CoS 2026-08-30 audit flagged as a fake trait.
 function buildUniverse() {
-  const players = [];
-  for (const [team, roster] of Object.entries(ROSTERS_2026)) {
-    for (const p of roster.offense || []) {
-      const pos = String(p.pos).replace(/\d/g, ''); // WR1 -> WR
-      if (!['QB', 'RB', 'WR', 'TE'].includes(pos)) continue;
-      players.push({ name: p.name, position: pos, team, rating: p.rating || 75, trait: p.trait });
+  const rows = PLAYER_BOARD_2026
+    .filter(p => p.draftable && ['QB','RB','WR','TE'].includes(p.pos));
+  // Attach a synthetic rating so downstream (survival, PERSONAS) still has a
+  // number to weight. Prefer VORP (default shape); fall back to a rating that
+  // orders by adp_overall so rookies without a projection still sort.
+  const rated = rows.map(p => {
+    const vorp = p.vorp;
+    // Map VORP roughly onto the 0-100 rating scale the survival engine used
+    // to consume. Anchor: top VORP ~230 → rating 99; VORP 0 → rating 70;
+    // negative → rating 60. Rookies without VORP inherit a mid rating and
+    // fall behind everyone with one, then order by ADP.
+    let rating;
+    if (vorp != null) {
+      rating = Math.round(Math.min(99, Math.max(50, 70 + vorp / 3)));
+    } else {
+      rating = 60;
     }
-  }
-  return players.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    return {
+      name: p.name,
+      position: p.pos,
+      team: p.team_2026,
+      rating,
+      trait: null,
+      // Extended fields the copilot can surface directly.
+      vorp,
+      projection_pts: p.projection_pts,
+      adp_overall: p.adp_overall,
+      adp_source: p.adp_source,
+      draftable: p.draftable,
+      draft_note: p.draft_note,
+      qb_name: p.qb_name,
+      qb_name_source: p.qb_name_source,
+      bye_week: p.bye_week,
+      projection_source: p.projection_source,
+    };
+  });
+  // Primary sort: VORP desc (nulls last); secondary: adp asc (nulls last).
+  rated.sort((a, b) => {
+    const av = a.vorp, bv = b.vorp;
+    if (av == null && bv == null) {
+      const aa = a.adp_overall ?? Infinity, ba = b.adp_overall ?? Infinity;
+      return aa - ba;
+    }
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    return bv - av;
+  });
+  return rated;
 }
 
 // One-per-line "1. Bijan Robinson RB ATL" → array of pick records. Loose but
@@ -194,7 +236,7 @@ export function DraftCopilot() {
       <div style={{ marginTop: 24, padding: 16, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 10, display: 'flex', gap: 10, alignItems: 'flex-start' }}>
         <AlertCircle size={16} color="#b45309" style={{ marginTop: 2 }} />
         <div style={{ fontSize: 12, color: '#78350f', lineHeight: 1.5 }}>
-          <strong>Preview build.</strong> The universe is currently drawn from DFOS roster ratings (top ~130 starters). Real ADP integration and per-league override roster templates are still to come. Survival is computed for the pool shown — it's directionally correct but not a replacement for platform-specific projections yet.
+          <strong>Wired to playerBoard2026 · valuation layer 2026-09-04.</strong> Universe = draftable skill players from the board ({universe.length} ordered by VORP, default shape <code>{PLAYER_BOARD_2026_META.valuation_2026_09_04.default_shape}</code>). Projection = 17-game pace from 2025 actuals; rookies null and fall behind veterans with data. <strong>ADP shown is Sleeper <code>search_rank</code>, not consensus ADP.</strong> The board cannot see league-mate behaviour (the "commish takes Nacua early" pattern) — treat it as complete only for what it can see.
         </div>
       </div>
       <NewsletterCTA />

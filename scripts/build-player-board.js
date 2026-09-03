@@ -158,6 +158,134 @@ function buildTeamStarterQb(roster, stats, sleeperData) {
   }
   return out;
 }
+// ─── Valuation layer (2026-09-04) ───────────────────────────────────────────
+// Per _FROM_COS/2026-09-04-valuation-layer.md. Adds projected points, per-shape
+// replacement level, and VORP so the board has a stored ranking column instead
+// of forcing every consumer (Draft Copilot included) to reconstruct one live.
+//
+// Method (v1, deliberately simple, deliberately stored):
+//   projection_pts = (2025 fantasy pts) / games_2025 × 17     (17-game pace)
+//   Rookies / no-2025-snaps  → null (do not fabricate)
+//   K / DEF                  → null (no method here; defer to platform consensus)
+//   replacement_pts(shape, pos) = the (starters_expected + 1)th projected
+//     point at that position across all draftable players
+//   vorp_pts = projection_pts − replacement_pts(shape, pos)
+//
+// FLEX assumption: 45% RB / 45% WR / 10% TE of FLEX slots. Industry heuristic;
+// wrong-ish at the edges but stable across shapes.
+// SUPERFLEX assumption: 100% of superflex slots go to QBs. That's what
+// actually happens in superflex leagues; it's why QB replacement jumps from
+// ~teams → ~teams × 2.
+//
+// The gap this method does NOT see (record it rather than pretend):
+//   League-mate behaviour. The 2026-09-03 Nacua miss was caught by Mason
+//   noticing "the commish might take him out." Nothing here catches that.
+
+const SCORING_RULES = {
+  full_ppr:            { rec: 1.0, rec_yd: 0.1, rec_td: 6, rush_yd: 0.1, rush_td: 6, pass_yd: 0.04, pass_td: 4, te_rec_bonus: 0 },
+  half_ppr:            { rec: 0.5, rec_yd: 0.1, rec_td: 6, rush_yd: 0.1, rush_td: 6, pass_yd: 0.04, pass_td: 4, te_rec_bonus: 0 },
+  standard:            { rec: 0.0, rec_yd: 0.1, rec_td: 6, rush_yd: 0.1, rush_td: 6, pass_yd: 0.04, pass_td: 4, te_rec_bonus: 0 },
+  te_premium_full_ppr: { rec: 1.0, rec_yd: 0.1, rec_td: 6, rush_yd: 0.1, rush_td: 6, pass_yd: 0.04, pass_td: 4, te_rec_bonus: 0.5 },
+};
+
+const FLEX_SHARE = { RB: 0.45, WR: 0.45, TE: 0.10 };
+
+const LEAGUE_SHAPES = {
+  standard_10_1qb:  { teams: 10, starters: { QB: 1, RB: 2, WR: 2, TE: 1 }, flex: 1, flex_positions: ['RB','WR','TE'], superflex: 0, scoring: 'full_ppr' },
+  standard_12_1qb:  { teams: 12, starters: { QB: 1, RB: 2, WR: 2, TE: 1 }, flex: 1, flex_positions: ['RB','WR','TE'], superflex: 0, scoring: 'full_ppr' },
+  standard_12_half: { teams: 12, starters: { QB: 1, RB: 2, WR: 2, TE: 1 }, flex: 1, flex_positions: ['RB','WR','TE'], superflex: 0, scoring: 'half_ppr' },
+  superflex_12:     { teams: 12, starters: { QB: 1, RB: 2, WR: 2, TE: 1 }, flex: 1, flex_positions: ['RB','WR','TE'], superflex: 1, scoring: 'full_ppr' },
+  te_premium_12:    { teams: 12, starters: { QB: 1, RB: 2, WR: 2, TE: 1 }, flex: 1, flex_positions: ['RB','WR','TE'], superflex: 0, scoring: 'te_premium_full_ppr' },
+};
+
+const DEFAULT_SHAPE = 'standard_12_1qb';
+
+function fantasyPts(r, scoring) {
+  const teBonus = (r.pos === 'TE' ? (scoring.te_rec_bonus || 0) : 0);
+  return (r.receptions ?? 0) * (scoring.rec + teBonus)
+    + (r.rec_yards ?? 0) * scoring.rec_yd
+    + (r.rec_td ?? 0) * scoring.rec_td
+    + (r.rushing_yards ?? 0) * scoring.rush_yd
+    + (r.rushing_tds ?? 0) * scoring.rush_td
+    + (r.passing_yards ?? 0) * scoring.pass_yd
+    + (r.passing_tds ?? 0) * scoring.pass_td;
+}
+
+function projectionFor(r, scoringName) {
+  const s = SCORING_RULES[scoringName];
+  if (r.pos === 'K' || r.pos === 'DEF') return null;
+  if (!r.games_2025 || r.games_2025 === 0) return null;
+  const actual = fantasyPts(r, s);
+  return Math.round((actual / r.games_2025) * 17 * 100) / 100;
+}
+
+function startersExpected(shape, pos) {
+  const fixed = (shape.starters[pos] || 0) * shape.teams;
+  const flex = shape.flex_positions.includes(pos)
+    ? shape.flex * shape.teams * (FLEX_SHARE[pos] || 0)
+    : 0;
+  const sflex = (pos === 'QB') ? shape.superflex * shape.teams : 0;
+  return fixed + flex + sflex;
+}
+
+function replacementRank(shape, pos) {
+  return Math.ceil(startersExpected(shape, pos)) + 1;
+}
+
+function computeReplacementLevels(rows, shape) {
+  const byPos = { QB: [], RB: [], WR: [], TE: [] };
+  for (const r of rows) {
+    if (!r.draftable) continue;
+    if (!byPos[r.pos]) continue;
+    const proj = projectionFor(r, shape.scoring);
+    if (proj == null) continue;
+    byPos[r.pos].push(proj);
+  }
+  const rep = {};
+  for (const pos of Object.keys(byPos)) {
+    byPos[pos].sort((a, b) => b - a);
+    const rank = replacementRank(shape, pos);
+    rep[pos] = byPos[pos][rank - 1] ?? 0;   // 1-indexed
+  }
+  return rep;
+}
+
+function attachValuation(rows) {
+  const replacementsByShape = {};
+  for (const [key, shape] of Object.entries(LEAGUE_SHAPES)) {
+    replacementsByShape[key] = computeReplacementLevels(rows, shape);
+  }
+  for (const r of rows) {
+    // Per-scoring projections at 17-game pace (top-level convenience columns).
+    r.projection_pts_full_ppr = projectionFor(r, 'full_ppr');
+    r.projection_pts_half_ppr = projectionFor(r, 'half_ppr');
+    r.projection_pts_standard = projectionFor(r, 'standard');
+    r.projection_source = (r.pos === 'K' || r.pos === 'DEF')
+      ? 'no_stats_for_position'
+      : (!r.games_2025 || r.games_2025 === 0)
+        ? 'rookie_or_no_2025_data'
+        : 'stats2025_17game_pace';
+
+    // Per-shape replacement + VORP.
+    r.valuation_by_shape = {};
+    for (const [key, shape] of Object.entries(LEAGUE_SHAPES)) {
+      const proj = projectionFor(r, shape.scoring);
+      const rep = replacementsByShape[key][r.pos] ?? 0;
+      r.valuation_by_shape[key] = {
+        projection_pts: proj,
+        replacement_pts: proj == null ? null : Math.round(rep * 100) / 100,
+        vorp_pts: proj == null ? null : Math.round((proj - rep) * 100) / 100,
+      };
+    }
+    // Default (standard 12-team 1-QB full-PPR) hoisted for convenience.
+    const def = r.valuation_by_shape[DEFAULT_SHAPE];
+    r.projection_pts = def.projection_pts;
+    r.replacement_pts = def.replacement_pts;
+    r.vorp = def.vorp_pts;
+  }
+  return replacementsByShape;
+}
+
 function parseLine(line) {
   const out = []; let cur = ''; let inQ = false;
   for (let i = 0; i < line.length; i++) {
@@ -453,6 +581,16 @@ async function main() {
       null: rows.filter(r => r.qb_name_source == null).length,
     }));
 
+  // ── Valuation layer (2026-09-04) ────────────────────────────────────────
+  const replacementByShape = attachValuation(rows);
+  console.log('  valuation attached — default shape:', DEFAULT_SHAPE);
+  for (const [key, rep] of Object.entries(replacementByShape)) {
+    console.log(`    ${key.padEnd(20)} replacement pts →`, JSON.stringify(rep));
+  }
+  const projSources = {};
+  for (const r of rows) projSources[r.projection_source] = (projSources[r.projection_source] || 0) + 1;
+  console.log('  projection_source counts:', JSON.stringify(projSources));
+
   const draftableCounts = {
     true: rows.filter(r => r.draftable === true).length,
     false: rows.filter(r => r.draftable === false).length,
@@ -503,6 +641,26 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
       fix_3_qb_stats_reattached: 'qb_pass_td and qb_epa are the depth_chart_order==1 QB\'s 2025 numbers, not the stat-row-attached prior-year QB.',
       fix_4_adp_source_label: 'sleeper_search_rank',
       fix_4_adp_source_note: 'adp_overall is Sleeper search_rank, NOT true consensus ADP. Integers only, ties permitted, sentinel 999.',
+    },
+    valuation_2026_09_04: {
+      default_shape: DEFAULT_SHAPE,
+      method: 'projection_pts = (2025 fantasy pts / games_2025) × 17. Rookies + no-2025-snaps + K/DEF → null. Do not fabricate a number.',
+      scoring_rules: SCORING_RULES,
+      shapes: LEAGUE_SHAPES,
+      flex_share_assumption: FLEX_SHARE,
+      superflex_assumption: '100% of superflex slots go to QBs (what actually happens in superflex leagues; drives QB replacement from ~teams → ~teams × 2).',
+      replacement_pts_by_shape: (() => {
+        const out = {};
+        for (const [k, shape] of Object.entries(LEAGUE_SHAPES)) {
+          out[k] = { pos_rank_replacement: {}, pts_at_replacement: {} };
+          for (const pos of ['QB','RB','WR','TE']) {
+            out[k].pos_rank_replacement[pos] = replacementRank(shape, pos);
+          }
+        }
+        // pts filled in below at write-time so we can capture actual per-shape values.
+        return out;
+      })(),
+      gap_the_board_cannot_see: 'League-mate behaviour. The 2026-09-03 Nacua miss was caught by Mason noticing "the commish might take him out." No projection, no VORP, no availability flag catches that. Treat this board as complete only for content the board can see.',
     },
   }, null, 2)};
 `;
