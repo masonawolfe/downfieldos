@@ -66,6 +66,34 @@ function loadRosterWeekly() {
   }
   return byGsis;
 }
+
+// FIX 3 (2026-09-03): fill qb_name for skill rows whose 2025 stat row is null
+// (rookies, no-snap 2025). Picks a 2026 starter per team by preferring the QB
+// with the most 2025 passing yards; falls back to the roster_weekly QB with the
+// most recent week when no stat row exists for any candidate.
+function buildTeamStarterQb(roster, stats) {
+  const candidatesByTeam = new Map();  // team → [{gsis, name, week, passing_yards}]
+  for (const [gsis, r] of roster) {
+    if ((r.position || '').toUpperCase() !== 'QB') continue;
+    const team = norm(r.team);
+    if (!team) continue;
+    const s = stats.get(gsis);
+    const py = s?.passing_yards ?? 0;
+    if (!candidatesByTeam.has(team)) candidatesByTeam.set(team, []);
+    candidatesByTeam.get(team).push({
+      gsis, name: r.full_name || s?.name || null,
+      week: parseInt(r.week || '0', 10), passing_yards: py,
+    });
+  }
+  const out = new Map();
+  for (const [team, cands] of candidatesByTeam) {
+    // Sort by 2025 passing_yards desc, then latest week desc as a tiebreak
+    cands.sort((a, b) => (b.passing_yards - a.passing_yards) || (b.week - a.week));
+    const winner = cands[0];
+    if (winner) out.set(team, { qb_name: winner.name, qb_gsis_id: winner.gsis });
+  }
+  return out;
+}
 function parseLine(line) {
   const out = []; let cur = ''; let inQ = false;
   for (let i = 0; i < line.length; i++) {
@@ -132,12 +160,14 @@ async function main() {
   const schedule = loadSchedule();
   const situationalTeams = loadSituationalSplits();
   const adpBySleeperId = await loadSleeperAdp();
+  const teamStarterQb = buildTeamStarterQb(roster, stats);   // FIX 3
   console.log(`  stats:            ${stats.size} rows`);
   console.log(`  roster_weekly:    ${roster.size} rows`);
   console.log(`  availability:     ${avail.size} rows (generated ${availMeta.generated})`);
   console.log(`  schedule teams:   ${Object.keys(schedule.teams || {}).length}`);
   console.log(`  situational tms:  ${Object.keys(situationalTeams).length}`);
-  console.log(`  sleeper ADPs:     ${[...adpBySleeperId.values()].filter(v => v != null).length} non-null\n`);
+  console.log(`  sleeper ADPs:     ${[...adpBySleeperId.values()].filter(v => v != null).length} non-null`);
+  console.log(`  2026 starter QBs: ${teamStarterQb.size} teams\n`);
 
   const SKILL_POS = new Set(['QB', 'RB', 'WR', 'TE']);
   const rows = [];
@@ -171,6 +201,46 @@ async function main() {
       data_coverage_flag = (hasShares && hasQb) ? 'full' : 'partial';
     }
 
+    // FIX 3 (2026-09-03): a draft-board qb_name must reflect the 2026 QB
+    // who will actually throw to this player, not the 2025 QB whose stats
+    // they earned last year. So: always prefer the 2026 depth-chart starter
+    // for team_2026; fall back to the 2025 stat row's qb_name only when
+    // no 2026 starter is identified for the team.
+    // (CoS text asked for this on missing-stat rows; QA also flagged 18
+    // mismatches on players who moved teams — Mike Evans SF reading Mac
+    // Jones from his 2025 TB stat row is the canonical example. Handling
+    // both cases with the same rule.)
+    const starter = teamStarterQb.get(team_2026);
+    let qb_name_final, qb_gsis_final, qb_name_source;
+    if (pos === 'QB') {
+      qb_name_final = null; qb_gsis_final = null; qb_name_source = null;
+    } else if (starter?.qb_name) {
+      qb_name_final = starter.qb_name;
+      qb_gsis_final = starter.qb_gsis_id;
+      qb_name_source = 'roster_weekly_2026_depth';
+    } else {
+      qb_name_final = statRow?.qb_name ?? null;
+      qb_gsis_final = statRow?.qb_gsis_id ?? null;
+      qb_name_source = statRow?.qb_name != null ? 'playerStats2025' : null;
+    }
+
+    // FIX 1 (2026-09-03): draftable + draft_note derived from availability.
+    // Do not null out adp_overall — Cowork copilot may still cite it as
+    // "the market has him at X"; the flag is what the copilot checks.
+    const BLOCKED = new Set(['IR', 'PUP', 'SUSP', 'SUS', 'NFI']);
+    const status = availRec?.status ?? null;
+    // Unknown status defaults to draftable:true — a rookie or a player Sleeper
+    // hasn't classified shouldn't be hidden from the copilot. The draft_note
+    // still flags the uncertainty. BLOCKED statuses are the only draftable:false.
+    const draftable = status == null ? true : !BLOCKED.has(status);
+    let draft_note = null;
+    if (BLOCKED.has(status)) {
+      const reason = availRec?.injury_note || availRec?.game_designation || null;
+      draft_note = `${status}${reason ? ' — ' + reason : ''} (market ADP ${adp_overall ?? 'n/a'})`;
+    } else if (status == null) {
+      draft_note = 'availability unknown (draftable: default)';
+    }
+
     rows.push({
       // Identity
       gsis_id: gsis,
@@ -202,9 +272,10 @@ async function main() {
       touches: statRow ? ((statRow.carries ?? 0) + (statRow.targets ?? 0)) : null,
       total_td: statRow ? ((statRow.receiving_tds ?? 0) + (statRow.rushing_tds ?? 0) + (statRow.passing_tds ?? 0)) : null,
       epa_per_play: statRow?.epa_per_play ?? null,
-      // Team context (QB attached — Task 4)
-      qb_name: statRow?.qb_name ?? null,
-      qb_gsis_id: statRow?.qb_gsis_id ?? null,
+      // Team context (QB attached — Task 4; FIX 3 fallback to 2026 depth)
+      qb_name: qb_name_final,
+      qb_gsis_id: qb_gsis_final,
+      qb_name_source,   // FIX 3: 'playerStats2025' | 'roster_weekly_2026_depth' | null
       qb_pass_td: statRow?.qb_pass_td ?? null,
       qb_epa: statRow?.qb_epa_per_play ?? null,
       team_off_epa: statRow?.team_off_epa_per_play ?? null,
@@ -219,9 +290,18 @@ async function main() {
       injury_note: availRec?.injury_note ?? null,
       availability_last_verified_utc: availRec?.last_verified_utc ?? null,
       availability_source_url: availRec?.source_url ?? null,
-      // Market
+      // Market — FIX 4 (2026-09-03): adp_overall here is Sleeper `search_rank`,
+      // NOT true consensus ADP. Integers only, ties permitted, sentinel 999.
+      // Divergence from real ADP is largest on injured stars and hype rookies —
+      // exactly where drafts are won. Post-draft: swap in a real ADP feed.
       adp_overall,
+      adp_source: adp_overall != null ? 'sleeper_search_rank' : null,
       adp_positional: null,   // filled below
+      // FIX 1 (2026-09-03): consumer-facing draftable gate. `draftable: false`
+      // means IR/PUP/SUSP/NFI — do NOT surface as a top pick even if adp_overall
+      // is low. Copilot still reads adp_overall to say "market has him at X."
+      draftable,
+      draft_note,
       // Playoff schedule (Wk 15–17)
       playoff_wk15_opp: p15?.opponent ?? null,
       playoff_wk16_opp: p16?.opponent ?? null,
@@ -257,12 +337,15 @@ async function main() {
         carries: null, rushing_yards: null, rushing_tds: null, passing_yards: null, passing_tds: null,
         target_share: null, carry_share: null, snap_share: null,
         touches: null, total_td: null, epa_per_play: null,
-        qb_name: null, qb_gsis_id: null, qb_pass_td: null, qb_epa: null,
+        qb_name: null, qb_gsis_id: null, qb_name_source: null, qb_pass_td: null, qb_epa: null,
         team_off_epa: null, team_pass_rate: null, team_rz_pass_rate: null,
         team_goal_line_run_rate: null, team_pass_rate_when_behind: null,
         availability_status: null, practice_status: null, game_designation: null,
         injury_note: null, availability_last_verified_utc: availMeta.generated, availability_source_url: null,
-        adp_overall: null, adp_positional: null,
+        adp_overall: null, adp_source: null, adp_positional: null,
+        // FIX 1: K/DEF ARE draftable — no injury gate applies to a slot-based row.
+        draftable: true,
+        draft_note: K_DEF_NOTE,
         playoff_wk15_opp: playoff.find(g => g.week === 15)?.opponent ?? null,
         playoff_wk16_opp: playoff.find(g => g.week === 16)?.opponent ?? null,
         playoff_wk17_opp: playoff.find(g => g.week === 17)?.opponent ?? null,
@@ -280,7 +363,22 @@ async function main() {
   console.log('  By coverage_flag:', flagCounts);
   console.log('  Team-changed rows:', rows.filter(r => r.team_changed === true).length);
   console.log('  Rows on PUP/IR/NFI/SUSP:', rows.filter(r => ['PUP','IR','NFI','SUSP'].includes(r.availability_status)).length);
+  console.log('  draftable:true / draftable:false:',
+    rows.filter(r => r.draftable === true).length,
+    '/',
+    rows.filter(r => r.draftable === false).length);
+  console.log('  qb_name from 2026 depth fallback (FIX 3):',
+    rows.filter(r => r.qb_name_source === 'roster_weekly_2026_depth').length);
 
+  const draftableCounts = {
+    true: rows.filter(r => r.draftable === true).length,
+    false: rows.filter(r => r.draftable === false).length,
+  };
+  const qbSourceCounts = {
+    playerStats2025: rows.filter(r => r.qb_name_source === 'playerStats2025').length,
+    roster_weekly_2026_depth: rows.filter(r => r.qb_name_source === 'roster_weekly_2026_depth').length,
+    null: rows.filter(r => r.qb_name_source == null).length,
+  };
   const output = `/**
  * Pre-Draft Player Board — ${SEASON}
  * Auto-generated by scripts/build-player-board.js
@@ -289,6 +387,16 @@ async function main() {
  * EM/PO Directive v2 Task 6 deliverable. Every rostered skill player + 32 K + 32 DEF.
  * See src/utils/playerResolver.js for consumer helpers (isBenched, canOutrank,
  * isAvailabilityStale). See repo/data/PLAYER_BOARD_SCHEMA.md for column docs.
+ *
+ * CoS 2026-09-03 draft-data-fixes (in this order):
+ *   FIX 1  draftable + draft_note fields — consumers that sort by adp_overall
+ *          MUST filter by draftable:true. IR/PUP/SUSP/NFI → draftable:false.
+ *   FIX 2  availability refreshed by npm run data:availability before build.
+ *   FIX 3  qb_name falls back to 2026 depth-chart starter when no 2025 stat row.
+ *          qb_name_source: 'playerStats2025' | 'roster_weekly_2026_depth' | null.
+ *   FIX 4  adp_overall is Sleeper search_rank (adp_source: 'sleeper_search_rank'),
+ *          NOT true consensus ADP. Integers only, ties permitted, sentinel 999.
+ *          Divergence from true ADP is widest on injured stars and hype rookies.
  */
 export const PLAYER_BOARD_${SEASON} = ${JSON.stringify(rows, null, 2)};
 
@@ -299,7 +407,13 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
     coverage_by_flag: flagCounts,
     availability_source: availMeta.source || null,
     availability_generated: availMeta.generated || null,
-    schema_version: 1,
+    schema_version: 2,
+    fixes_2026_09_03: {
+      fix_1_draftable: draftableCounts,
+      fix_3_qb_name_source: qbSourceCounts,
+      fix_4_adp_source_label: 'sleeper_search_rank',
+      fix_4_adp_source_note: 'adp_overall is Sleeper search_rank, NOT true consensus ADP. Integers only, ties permitted, sentinel 999.',
+    },
   }, null, 2)};
 `;
 
