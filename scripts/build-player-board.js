@@ -339,6 +339,301 @@ function computeTotalScoreBeta(r) {
   };
 }
 
+// ─── E-002 context join (2026-09-04) ────────────────────────────────────────
+// Joins contract_year_players.json, coachingTrees.js, dna2026.js, stadiums.js,
+// fan_sentiment.json, and defense2026.js to every player row. Every joined
+// field carries a `*_source` label so the copilot can name where each fact
+// came from. No context field folds into projection_pts — it sits alongside.
+
+// Highest-confidence 2026 coordinator changes. Sourced from publicly reported
+// HC turnover 2024→2025→2026 which necessarily brought new coordinators, plus
+// individually-verified OC moves. Everything not in this map is UNRESOLVED —
+// not `false`. Populating with a guess would be exactly the coverage-not-
+// correctness trap the qb_name fix flagged.
+//
+// If curation improves, extend this map. Do NOT default missing teams to
+// `false` — the honest read is "we do not know."
+const COORDINATOR_MOVES_2026 = {
+  // team → { hc_is_new: bool, oc_is_new: bool, dc_is_new: bool, note }
+  CHI: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Ben Johnson replaces Eberflus interim, brings Declan Doyle OC / Dennis Allen DC' },
+  NE: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Mike Vrabel replaces Jerod Mayo; McDaniels back at OC / Terrell Williams DC' },
+  JAX: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Liam Coen replaces Doug Pederson (Coen also OC)' },
+  LV: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Pete Carroll replaces Pierce interim; new full staff' },
+  DAL: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Schottenheimer replaces McCarthy; Klayton Adams OC / Al Harris DC' },
+  DET: { hc_is_new: false, oc_is_new: true, dc_is_new: false, note: 'Ben Johnson left for CHI; John Morton promoted to OC. HC/DC stable.' },
+};
+const COORDINATOR_MOVES_SOURCE = 'curated_2026 (public HC-change reporting + coachingTrees.js diff)';
+
+function loadFile(rel) { return fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8'); }
+
+function loadContractYear() {
+  const doc = JSON.parse(loadFile('src/data/intelligence/contract_year_players.json'));
+  const list = doc.contract_year_players || [];
+  // Key by (normalized name, team) for join. Names are canonical FF names.
+  const byKey = new Map();
+  for (const p of list) {
+    const key = `${(p.player || '').toLowerCase()}|${(p.team || '').toUpperCase()}`;
+    byKey.set(key, p);
+  }
+  return { byKey, meta: doc.metadata || {} };
+}
+
+// Single-quoted-string pattern that survives escaped apostrophes like 'Kevin O\'Connell'
+const SQ = "'((?:[^'\\\\]|\\\\.)*)'";
+// Either single- or double-quoted string. Some rows use "Levi's Stadium" to avoid escape.
+const QQ = "(?:'((?:[^'\\\\]|\\\\.)*)'|\"((?:[^\"\\\\]|\\\\.)*)\")";
+function unesc(s) { return (s || '').replace(/\\'/g, "'").replace(/\\\\/g, '\\'); }
+function pickQ(m, iSingle, iDouble) {
+  return m[iSingle] != null ? unesc(m[iSingle]) : (m[iDouble] != null ? unesc(m[iDouble]) : null);
+}
+
+function loadCoachingTrees() {
+  const src = loadFile('src/data/coachingTrees.js');
+  const teamsBlock = src.slice(src.indexOf('teams: {'));
+  const teams = {};
+  const rowRe = new RegExp(`(\\b[A-Z]{2,4}):\\s*\\{\\s*hc:\\s*${SQ},\\s*oc:\\s*${SQ},\\s*dc:\\s*${SQ},\\s*trees:\\s*\\[([^\\]]*)\\],\\s*style:\\s*${SQ}\\s*\\}`, 'g');
+  let m;
+  while ((m = rowRe.exec(teamsBlock)) !== null) {
+    const treesArr = m[5].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
+    teams[m[1]] = { hc: unesc(m[2]), oc: unesc(m[3]), dc: unesc(m[4]), trees: treesArr, style: unesc(m[6]) };
+  }
+  const treesBlock = src.slice(src.indexOf('trees: {'), src.indexOf('teams: {'));
+  const trees = {};
+  const tRe = new RegExp(`(\\b[A-Z_]+):\\s*\\{\\s*name:\\s*${SQ},\\s*founder:\\s*${SQ},\\s*principles:\\s*\\[([^\\]]*)\\]`, 'g');
+  let tm;
+  while ((tm = tRe.exec(treesBlock)) !== null) {
+    const principles = tm[4].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean).map(unesc);
+    trees[tm[1]] = { name: unesc(tm[2]), founder: unesc(tm[3]), principles };
+  }
+  return { teams, trees };
+}
+
+function loadDna2026() {
+  const src = loadFile('src/data/dna2026.js');
+  const dna = {};
+  const re = /(\b[A-Z]{2,4}):\s*\{\s*p:\s*([\d.]+)\s*,\s*e:\s*([\d.]+)\s*,\s*x:\s*([\d.]+)\s*,\s*s:\s*"([^"]+)"\s*\}/g;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    dna[m[1]] = { pass_rate: parseFloat(m[2]), efficiency: parseFloat(m[3]), explosive_rate: parseFloat(m[4]), state: m[5] };
+  }
+  return dna;
+}
+
+function loadStadiums() {
+  const src = loadFile('src/data/stadiums.js');
+  const stadiums = {};
+  // Accept single or double-quoted values (SF's "Levi's Stadium" uses ").
+  const re = new RegExp(`(\\b[A-Z]{2,4}):\\s*\\{\\s*name:\\s*${QQ},\\s*city:\\s*${QQ},\\s*tz:\\s*${QQ},\\s*surface:\\s*${QQ},\\s*altitude:\\s*(\\d+),\\s*dome:\\s*(true|false),\\s*capacity:\\s*(\\d+)\\s*\\}`, 'g');
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    stadiums[m[1]] = {
+      name: pickQ(m, 2, 3),
+      city: pickQ(m, 4, 5),
+      tz: pickQ(m, 6, 7),
+      surface: pickQ(m, 8, 9),
+      altitude: parseInt(m[10], 10),
+      dome: m[11] === 'true',
+      capacity: parseInt(m[12], 10),
+    };
+  }
+  return stadiums;
+}
+
+function loadFanSentiment() {
+  const doc = JSON.parse(loadFile('src/data/intelligence/fan_sentiment.json'));
+  const byTeam = new Map();
+  for (const t of doc.teams || []) byTeam.set(t.team, t);
+  return byTeam;
+}
+
+function loadHistoryAndDurability() {
+  try {
+    const doc = JSON.parse(loadFile('src/data/intelligence/history_2023_2024.json'));
+    return { byGsis: doc.players || {}, meta: doc.meta || {} };
+  } catch (e) {
+    console.log('  ⚠ history_2023_2024.json not loadable:', e.message);
+    return { byGsis: {}, meta: {} };
+  }
+}
+
+function loadDefense2026() {
+  try {
+    const src = loadFile('src/data/defense2026.js');
+    // Extract only the DEFENSE_2026 export's object body — non-greedy up to
+    // the terminating "};" that closes it, before the META export.
+    const m = src.match(/export const DEFENSE_2026 = ({[\s\S]*?});\s*export const/);
+    if (!m) throw new Error('DEFENSE_2026 block not matched');
+    return JSON.parse(m[1]);
+  } catch (e) {
+    console.log('  ⚠ defense2026.js not loadable:', e.message);
+    return {};
+  }
+}
+
+function attachContextLayer(rows) {
+  const { byKey: contractByKey, meta: contractMeta } = loadContractYear();
+  const coaching = loadCoachingTrees();
+  const dna = loadDna2026();
+  const stadiums = loadStadiums();
+  const sentiment = loadFanSentiment();
+  const defense = loadDefense2026();
+  const { byGsis: historyByGsis, meta: historyMeta } = loadHistoryAndDurability();
+
+  const counters = {
+    contract_year_hits: 0,
+    coaching_hits: 0,
+    dna_hits: 0,
+    stadium_hits: 0,
+    fan_sentiment_hits: 0,
+    fan_sentiment_missing_teams: new Set(),
+    coordinator_moves_hits: 0,
+    defense_hits: 0,
+    history_2024_hits: 0,
+    history_2023_hits: 0,
+    age_hits: 0,
+    durability_hits: 0,
+    rookie_durability_null: 0,
+  };
+
+  for (const r of rows) {
+    const t = r.team_2026;
+    // ── contract_year (name+team join) ────────────────────────────────
+    const cKey = `${(r.name || '').toLowerCase()}|${t}`;
+    const c = contractByKey.get(cKey);
+    if (c) {
+      r.contract_year = true;
+      r.contract_year_detail = c.performance_incentive || null;
+      r.contract_year_relevance = c.fantasy_relevance || null;
+      r.contract_year_confidence = c.confidence || null;
+      r.contract_year_source = 'intelligence/contract_year_players.json (2026-03-18 snapshot)';
+      counters.contract_year_hits++;
+    } else {
+      // Do NOT default to false — the file only tracks 23 high-signal cases,
+      // so `false` would be wrong for hundreds of players who ARE in contract
+      // years but aren't yet in the tracked list. Null with source = "unlisted".
+      r.contract_year = null;
+      r.contract_year_source = 'unlisted (only 23 high-signal entries curated in feed today)';
+    }
+
+    // ── coaching (hc/oc/dc/scheme_principles) ─────────────────────────
+    const staff = coaching.teams[t];
+    if (staff) {
+      r.hc_name = staff.hc;
+      r.oc_name = staff.oc;
+      r.dc_name = staff.dc;
+      r.coaching_trees = staff.trees;
+      r.coaching_style = staff.style;
+      // scheme_principles = union of principles across the team's trees
+      const principles = new Set();
+      for (const treeKey of staff.trees) {
+        for (const p of (coaching.trees[treeKey]?.principles || [])) principles.add(p);
+      }
+      r.scheme_principles = [...principles];
+      r.coaching_source = 'coachingTrees.js (teams block × trees block; 2025-2026 snapshot)';
+      counters.coaching_hits++;
+    }
+
+    // ── coordinator_is_new_2026 (curated) ─────────────────────────────
+    const cm = COORDINATOR_MOVES_2026[t];
+    if (cm) {
+      r.hc_is_new_2026 = cm.hc_is_new;
+      r.oc_is_new_2026 = cm.oc_is_new;
+      r.dc_is_new_2026 = cm.dc_is_new;
+      r.coordinator_is_new_2026 = cm.oc_is_new || cm.dc_is_new;
+      r.coordinator_change_note = cm.note;
+      r.coordinator_source = COORDINATOR_MOVES_SOURCE;
+      counters.coordinator_moves_hits++;
+    } else {
+      r.coordinator_is_new_2026 = null;
+      r.coordinator_source = 'unresolved_needs_2025_snapshot (no 2025 coach map on disk to diff against; curated list only covers publicly-reported HC-driven turnover)';
+    }
+
+    // ── team DNA ──────────────────────────────────────────────────────
+    const dnaRow = dna[t];
+    if (dnaRow) {
+      r.team_pass_rate_dna = dnaRow.pass_rate;
+      r.team_efficiency_dna = dnaRow.efficiency;
+      r.team_explosive_rate_dna = dnaRow.explosive_rate;
+      r.team_state = dnaRow.state;
+      r.dna_source = 'dna2026.js';
+      counters.dna_hits++;
+    }
+
+    // ── stadium ───────────────────────────────────────────────────────
+    const s = stadiums[t];
+    if (s) {
+      r.home_stadium = s.name;
+      r.home_city = s.city;
+      r.home_tz = s.tz;
+      r.home_surface = s.surface;
+      r.home_altitude = s.altitude;
+      r.home_is_dome = s.dome;
+      r.stadium_source = 'stadiums.js';
+      counters.stadium_hits++;
+    }
+
+    // ── fan sentiment ─────────────────────────────────────────────────
+    const fs = sentiment.get(t);
+    if (fs) {
+      r.fan_misery_index = fs.misery_index;
+      r.fan_hope = fs.hope;
+      r.fan_anger = fs.anger;
+      r.fan_one_liner = fs.one_liner;
+      r.fan_sentiment_source = 'intelligence/fan_sentiment.json';
+      counters.fan_sentiment_hits++;
+    } else {
+      // Team not in the feed (currently CAR/CLE/NYG). Label as such so a
+      // downstream consumer can distinguish "not in feed" from "not joined."
+      r.fan_misery_index = null;
+      r.fan_hope = null;
+      r.fan_anger = null;
+      r.fan_one_liner = null;
+      r.fan_sentiment_source = 'not_in_feed (fan_sentiment.json covers 29 of 32 teams)';
+      counters.fan_sentiment_missing_teams.add(t);
+    }
+
+    // ── defense (only for the player's OWN team — not opponent-based;
+    // opponent-defense joins live on the weekly board, E-003) ────────
+    const d = defense[t];
+    if (d) {
+      r.own_team_defense_pass_epa_per_att_allowed = d.pass_epa_per_att_allowed;
+      r.own_team_defense_rush_epa_per_att_allowed = d.rush_epa_per_att_allowed;
+      r.own_team_defense_rank_pass_overall = d.rank_pass_def_overall;
+      r.own_team_defense_rank_rush_overall = d.rank_rush_def_overall;
+      r.own_team_defense_source = 'defense2026.js (from 2025 REG PBP)';
+      counters.defense_hits++;
+    }
+
+    // ── E-005 history + durability (2023 + 2024 + age + games missed) ──
+    // NEVER folded into projection_pts. Placed beside so the copilot can say
+    // "board projects him at 232, missed 12 games across 2023-24" out loud.
+    // Population NOT targeted (rookies): games_missed_last_3_seasons must be
+    // null, not 34 — that was the exact regression shape the qb_name fix
+    // shipped and the durability brief called out.
+    const h = r.gsis_id ? historyByGsis[r.gsis_id] : null;
+    if (h) {
+      r.age_2026_week1 = h.age_2026_week1;
+      r.games_2024 = h.games_2024;
+      r.games_2023 = h.games_2023;
+      r.touches_2024 = h.touches_2024;
+      r.touches_2023 = h.touches_2023;
+      r.total_td_2024 = h.total_td_2024;
+      r.total_td_2023 = h.total_td_2023;
+      r.games_missed_last_3_seasons = h.games_missed_last_3_seasons;
+      r.seasons_in_league_last_3 = h.seasons_in_league_last_3;
+      r.durability_trend = h.durability_trend;
+      r.history_source = h.history_source;
+      if (h.age_2026_week1 != null) counters.age_hits++;
+      if (h.games_2024 != null) counters.history_2024_hits++;
+      if (h.games_2023 != null) counters.history_2023_hits++;
+      if (h.games_missed_last_3_seasons != null) counters.durability_hits++;
+      else counters.rookie_durability_null++;
+    }
+  }
+
+  return { counters, meta: { contract_meta: contractMeta, coordinator_moves: COORDINATOR_MOVES_2026 } };
+}
+
 function attachValuation(rows) {
   const replacementsByShape = {};
   for (const [key, shape] of Object.entries(LEAGUE_SHAPES)) {
@@ -677,6 +972,26 @@ async function main() {
       null: rows.filter(r => r.qb_name_source == null).length,
     }));
 
+  // ── E-002 context layer (2026-09-04) ────────────────────────────────────
+  const contextResult = attachContextLayer(rows);
+  console.log('  context join hits:', JSON.stringify({
+    contract_year: contextResult.counters.contract_year_hits,
+    coaching: contextResult.counters.coaching_hits,
+    coordinator_moves_curated: contextResult.counters.coordinator_moves_hits,
+    dna: contextResult.counters.dna_hits,
+    stadium: contextResult.counters.stadium_hits,
+    fan_sentiment: contextResult.counters.fan_sentiment_hits,
+    own_team_defense: contextResult.counters.defense_hits,
+    age: contextResult.counters.age_hits,
+    history_2024: contextResult.counters.history_2024_hits,
+    history_2023: contextResult.counters.history_2023_hits,
+    durability_signal: contextResult.counters.durability_hits,
+    rookie_durability_null_correct: contextResult.counters.rookie_durability_null,
+  }));
+  if (contextResult.counters.fan_sentiment_missing_teams.size > 0) {
+    console.log('  ⚠ fan_sentiment missing for teams:', [...contextResult.counters.fan_sentiment_missing_teams].sort().join(','));
+  }
+
   // ── Valuation layer (2026-09-04) ────────────────────────────────────────
   const replacementByShape = attachValuation(rows);
   console.log('  valuation attached — default shape:', DEFAULT_SHAPE);
@@ -729,7 +1044,22 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
     coverage_by_flag: flagCounts,
     availability_source: availMeta.source || null,
     availability_generated: availMeta.generated || null,
-    schema_version: 2,
+    schema_version: 3,
+    context_layer_2026_09_04: {
+      joined_sources: [
+        'intelligence/contract_year_players.json (23 high-signal entries)',
+        'coachingTrees.js (teams block + trees block)',
+        'dna2026.js (32 teams — p/e/x/state)',
+        'stadiums.js (name/city/tz/surface/altitude/dome)',
+        'intelligence/fan_sentiment.json (29 of 32 teams; missing CAR CLE NYG)',
+        'defense2026.js (own-team-defense summary; opponent-side joins live on weekly board — E-003)',
+        'intelligence/history_2023_2024.json (E-005 — age + 2023 + 2024 + games_missed_last_3)',
+      ],
+      coordinator_moves_2026_curated: COORDINATOR_MOVES_2026,
+      unresolved_coordinator_map_note: 'coordinator_is_new_2026 is null for every team not in the curated map. No 2025 team-coach snapshot on disk to diff against; populating with a guess would be exactly the coverage-not-correctness trap the qb_name fix flagged. Extend COORDINATOR_MOVES_2026 in build-player-board.js as curation improves.',
+      field_source_labels_on_row: ['contract_year_source', 'coaching_source', 'coordinator_source', 'dna_source', 'stadium_source', 'fan_sentiment_source', 'own_team_defense_source', 'history_source'],
+      e005_durability_design: 'games_missed_last_3_seasons is NOT folded into projection_pts. It sits beside so a human can weigh it. Rookies + 2025-only players → null, not 34 phantom-missed games. seasons_in_league_last_3 is the transparency field for the denominator.',
+    },
     fixes_2026_09_03: {
       fix_1_draftable: draftableCounts,
       fix_3_qb_name_source: qbSourceCounts,
