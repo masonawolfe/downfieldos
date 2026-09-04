@@ -132,7 +132,15 @@ function computeWeeklyValue(row, opp, weekMeta, defense, leagueMedians) {
   const total = base + totalAdj;
   comp.total_adjustment = Math.round(totalAdj * 100) / 100;
   const top3 = [...contribs].sort((a, b) => Math.abs(b.val) - Math.abs(a.val)).slice(0, 3);
-  const rat = top3.map(c => `${c.label} ${c.val >= 0 ? '+' : ''}${c.val.toFixed(2)}`).join(' · ') || null;
+  // Q-005 (2026-09-05): every scored row gets a rationale label, even when no
+  // adjustment fired (opp near league median, home dome game with no travel,
+  // no injury designation). Prior version returned null and QA test 7 flagged
+  // 311 scored-with-null rows. Making the "no adjustment" case explicit means
+  // a consumer can distinguish "we didn't score this" from "we scored it, no
+  // context signals fired."
+  const rat = top3.length > 0
+    ? top3.map(c => `${c.label} ${c.val >= 0 ? '+' : ''}${c.val.toFixed(2)}`).join(' · ')
+    : 'base pace, no context adjustments fired';
   return { weekly_value: Math.round(total * 100) / 100, weekly_value_components: comp, weekly_value_rationale: rat };
 }
 

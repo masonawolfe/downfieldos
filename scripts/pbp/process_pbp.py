@@ -113,6 +113,64 @@ def load_rosters(year: int) -> pd.DataFrame | None:
     return None
 
 
+def load_snap_shares(year: int, rosters: pd.DataFrame | None) -> dict:
+    """Load season-mean offense_pct per gsis_id.
+
+    Q-002 (2026-09-05). compute_player_usage(df, rosters) was being called
+    without a third snap_shares argument, so every player's snap_share was
+    silently None. Downstream (build-player-board.js) reads snap_share to
+    award snap_share_adj; a clean rebuild dropped VORP for 122+ players
+    with nothing raised. Root cause: no upstream loader existed for the
+    argument the function already accepts.
+
+    snap_counts_{year}.csv is keyed by pfr_player_id; roster carries the
+    pfr_id ↔ gsis_id map. Aggregate offense_pct as a season mean per
+    pfr_player_id, then translate to gsis_id via the roster join.
+    """
+    path = RAW_DIR / f"snap_counts_{year}.csv"
+    if not path.exists():
+        # Try the season-level file name too (nflverse also releases
+        # snap_counts.csv without year suffix under some paths).
+        alt = RAW_DIR / "snap_counts.csv"
+        if alt.exists():
+            path = alt
+        else:
+            print(f"No snap_counts file at {path} — snap_share will be None. (Q-002)")
+            return {}
+
+    print(f"Loading snap counts from {path}...")
+    snaps = pd.read_csv(path, low_memory=False)
+    # Season-mean offense_pct per pfr_player_id (only rows with any offense_snaps).
+    off = snaps[snaps["offense_snaps"].fillna(0) > 0][["pfr_player_id", "offense_pct"]].copy()
+    if off.empty:
+        print("  ⚠ snap_counts has no offense_snaps > 0 — snap_share will be None.")
+        return {}
+    mean_by_pfr = off.groupby("pfr_player_id")["offense_pct"].mean()
+    # Values in the raw file are percentages 0-100; convert to 0-1 fraction
+    # to match what build-player-board.js and playerStats2025.js consume.
+    mean_by_pfr = mean_by_pfr / 100.0
+    print(f"  snap-share players (pfr): {len(mean_by_pfr):,}")
+
+    if rosters is None or "pfr_id" not in rosters.columns or "gsis_id" not in rosters.columns:
+        print("  ⚠ roster has no pfr_id↔gsis_id map — snap_share will be None.")
+        return {}
+    # Roster may have multiple weekly rows per player; unique pfr↔gsis pairs is enough.
+    pfr_to_gsis = (
+        rosters[["pfr_id", "gsis_id"]]
+        .dropna()
+        .drop_duplicates()
+        .set_index("pfr_id")["gsis_id"]
+        .to_dict()
+    )
+    shares = {}
+    for pfr, pct in mean_by_pfr.items():
+        gsis = pfr_to_gsis.get(pfr)
+        if gsis:
+            shares[gsis] = round(float(pct), 4)
+    print(f"  snap-share players joined to gsis_id: {len(shares):,}")
+    return shares
+
+
 # ---------------------------------------------------------------------------
 # Team Scheme Profiles
 # ---------------------------------------------------------------------------
@@ -512,8 +570,10 @@ def main():
     print(f"  → {len(splits)} teams with situational data")
 
     print("[3/4] Computing player usage data...")
-    usage = compute_player_usage(df, rosters)
-    print(f"  → {len(usage)} player records")
+    snap_shares = load_snap_shares(year, rosters)   # Q-002: 3rd arg was missing
+    usage = compute_player_usage(df, rosters, snap_shares)
+    with_snap = sum(1 for u in usage.values() if u.get("snap_share") is not None)
+    print(f"  → {len(usage)} player records ({with_snap} with snap_share populated)")
 
     print("[4/4] Computing scheme similarity matrix...")
     similarity = compute_scheme_similarity(profiles)

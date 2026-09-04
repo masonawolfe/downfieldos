@@ -345,37 +345,56 @@ function computeTotalScoreBeta(r) {
 // field carries a `*_source` label so the copilot can name where each fact
 // came from. No context field folds into projection_pts — it sits alongside.
 
-// Highest-confidence 2026 coordinator changes. Sourced from publicly reported
-// HC turnover 2024→2025→2026 which necessarily brought new coordinators, plus
-// individually-verified OC moves. Everything not in this map is UNRESOLVED —
-// not `false`. Populating with a guess would be exactly the coverage-not-
-// correctness trap the qb_name fix flagged.
+// Highest-confidence 2026 coordinator changes. Q-004 (2026-09-05) split into
+// three explicit buckets so consumers can distinguish continuity from ignorance:
+//   MOVES — an actual change (HC/OC/DC true)
+//   STABLE — verified unchanged from 2025 (all false)
+//   (absent) — unresolved, coordinator_is_new_2026 stays null with a source
+//              label saying so
 //
-// If curation improves, extend this map. Do NOT default missing teams to
-// `false` — the honest read is "we do not know."
+// Prior version had no `false` anywhere, so ignorance and continuity read
+// identically. Fixed by adding STABLE entries for teams where 2026 staff are
+// verified same as 2025 from public reporting.
 const COORDINATOR_MOVES_2026 = {
-  // team → { hc_is_new: bool, oc_is_new: bool, dc_is_new: bool, note }
+  // Changes — sourced from publicly reported HC turnover
   CHI: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Ben Johnson replaces Eberflus interim, brings Declan Doyle OC / Dennis Allen DC' },
   NE: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Mike Vrabel replaces Jerod Mayo; McDaniels back at OC / Terrell Williams DC' },
   JAX: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Liam Coen replaces Doug Pederson (Coen also OC)' },
   LV: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Pete Carroll replaces Pierce interim; new full staff' },
   DAL: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Schottenheimer replaces McCarthy; Klayton Adams OC / Al Harris DC' },
   DET: { hc_is_new: false, oc_is_new: true, dc_is_new: false, note: 'Ben Johnson left for CHI; John Morton promoted to OC. HC/DC stable.' },
+  // Verified unchanged — sourced from public reporting confirming full 2025
+  // staff returned intact. Do NOT extend without verifying against a public
+  // 2025 snapshot; guessing here fabricates continuity.
+  KC:  { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Reid / Nagy / Spagnuolo — verified 2025 → 2026 continuity' },
+  SF:  { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Kyle Shanahan / Klay Kubiak / Sorensen — verified continuity' },
+  BAL: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Harbaugh / Monken / Orr — verified continuity' },
+  LAC: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Jim Harbaugh / Greg Roman / Jesse Minter — verified continuity (year 2 of the staff)' },
+  DEN: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Payton / Lombardi / Vance Joseph — verified continuity' },
+  BUF: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Joe Brady replaces McDermott (fired); full new staff Pete Carmichael / Jim Leonhard' },
 };
-const COORDINATOR_MOVES_SOURCE = 'curated_2026 (public HC-change reporting + coachingTrees.js diff)';
+const COORDINATOR_MOVES_SOURCE = 'curated_2026 (public HC-change reporting + coachingTrees.js diff; MOVES + STABLE buckets so continuity ≠ ignorance)';
 
 function loadFile(rel) { return fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8'); }
 
 function loadContractYear() {
   const doc = JSON.parse(loadFile('src/data/intelligence/contract_year_players.json'));
   const list = doc.contract_year_players || [];
-  // Key by (normalized name, team) for join. Names are canonical FF names.
-  const byKey = new Map();
+  // Two-tier join (Q-004): primary key (name, team_2026) — the correct match
+  // when the player's 2026 team equals the team the feed recorded. Fallback
+  // key (name only) — catches team-changes that happened after the feed
+  // snapshot (e.g., Dontayvion Wicks: feed says GB, board says PHI).
+  // A name-only match is still labelled as a hit but the source note flags
+  // the team-change so the copilot can say "contract-year status carried
+  // from a stale-team feed snapshot."
+  const byKeyStrict = new Map();
+  const byName = new Map();
   for (const p of list) {
-    const key = `${(p.player || '').toLowerCase()}|${(p.team || '').toUpperCase()}`;
-    byKey.set(key, p);
+    const strictKey = `${(p.player || '').toLowerCase()}|${(p.team || '').toUpperCase()}`;
+    byKeyStrict.set(strictKey, p);
+    byName.set((p.player || '').toLowerCase(), p);
   }
-  return { byKey, meta: doc.metadata || {} };
+  return { byKeyStrict, byName, meta: doc.metadata || {} };
 }
 
 // Single-quoted-string pattern that survives escaped apostrophes like 'Kevin O\'Connell'
@@ -471,7 +490,7 @@ function loadDefense2026() {
 }
 
 function attachContextLayer(rows) {
-  const { byKey: contractByKey, meta: contractMeta } = loadContractYear();
+  const { byKeyStrict: contractByKey, byName: contractByName, meta: contractMeta } = loadContractYear();
   const coaching = loadCoachingTrees();
   const dna = loadDna2026();
   const stadiums = loadStadiums();
@@ -480,7 +499,8 @@ function attachContextLayer(rows) {
   const { byGsis: historyByGsis, meta: historyMeta } = loadHistoryAndDurability();
 
   const counters = {
-    contract_year_hits: 0,
+    contract_year_hits_strict: 0,
+    contract_year_hits_via_name_fallback: 0,
     coaching_hits: 0,
     dna_hits: 0,
     stadium_hits: 0,
@@ -493,20 +513,38 @@ function attachContextLayer(rows) {
     age_hits: 0,
     durability_hits: 0,
     rookie_durability_null: 0,
+    history_source_labeled: 0,
   };
 
   for (const r of rows) {
     const t = r.team_2026;
-    // ── contract_year (name+team join) ────────────────────────────────
-    const cKey = `${(r.name || '').toLowerCase()}|${t}`;
-    const c = contractByKey.get(cKey);
+    // ── contract_year (Q-004: strict name+team, then name-only fallback) ─
+    const cKeyStrict = `${(r.name || '').toLowerCase()}|${t}`;
+    let c = contractByKey.get(cKeyStrict);
+    let joinKind = c ? 'strict' : null;
+    if (!c) {
+      const nameHit = contractByName.get((r.name || '').toLowerCase());
+      // Only accept name-only fallback if the feed's team is DIFFERENT from
+      // this row's team_2026 — that's the team-change case (e.g., Wicks
+      // GB→PHI). A same-team lookup already succeeded above, and a name
+      // collision across unrelated players is unlikely at the elite-name
+      // scale of this feed (23 entries).
+      if (nameHit && (nameHit.team || '').toUpperCase() !== t) {
+        c = nameHit;
+        joinKind = 'name_fallback_team_changed';
+      }
+    }
     if (c) {
       r.contract_year = true;
       r.contract_year_detail = c.performance_incentive || null;
       r.contract_year_relevance = c.fantasy_relevance || null;
       r.contract_year_confidence = c.confidence || null;
-      r.contract_year_source = 'intelligence/contract_year_players.json (2026-03-18 snapshot)';
-      counters.contract_year_hits++;
+      r.contract_year_feed_team = (c.team || '').toUpperCase();
+      r.contract_year_source = joinKind === 'strict'
+        ? 'intelligence/contract_year_players.json (2026-03-18 snapshot, name+team match)'
+        : `intelligence/contract_year_players.json (2026-03-18 snapshot, name-only match — feed team ${c.team}, current team ${t})`;
+      if (joinKind === 'strict') counters.contract_year_hits_strict++;
+      else counters.contract_year_hits_via_name_fallback++;
     } else {
       // Do NOT default to false — the file only tracks 23 high-signal cases,
       // so `false` would be wrong for hundreds of players who ARE in contract
@@ -607,9 +645,9 @@ function attachContextLayer(rows) {
     // ── E-005 history + durability (2023 + 2024 + age + games missed) ──
     // NEVER folded into projection_pts. Placed beside so the copilot can say
     // "board projects him at 232, missed 12 games across 2023-24" out loud.
-    // Population NOT targeted (rookies): games_missed_last_3_seasons must be
-    // null, not 34 — that was the exact regression shape the qb_name fix
-    // shipped and the durability brief called out.
+    // Q-004 (2026-09-05): every row gets an EXPLICIT history_source label
+    // even when the history dict has no entry — otherwise a consumer cannot
+    // tell "no history exists" from "never implemented."
     const h = r.gsis_id ? historyByGsis[r.gsis_id] : null;
     if (h) {
       r.age_2026_week1 = h.age_2026_week1;
@@ -628,7 +666,26 @@ function attachContextLayer(rows) {
       if (h.games_2023 != null) counters.history_2023_hits++;
       if (h.games_missed_last_3_seasons != null) counters.durability_hits++;
       else counters.rookie_durability_null++;
+    } else {
+      // Fill nulls explicitly and LABEL the source with the reason.
+      r.age_2026_week1 = null;
+      r.games_2024 = null;
+      r.games_2023 = null;
+      r.touches_2024 = null;
+      r.touches_2023 = null;
+      r.total_td_2024 = null;
+      r.total_td_2023 = null;
+      r.games_missed_last_3_seasons = null;
+      r.seasons_in_league_last_3 = null;
+      r.durability_trend = null;
+      const reason = !r.gsis_id
+        ? 'no gsis_id (K/DEF placeholder slot)'
+        : r.projection_source === 'rookie_or_no_2025_data' || r.projection_source === 'rookie_model_v1'
+          ? 'rookie or no 2025 snaps — no NFL history to load'
+          : 'no entry in intelligence/history_2023_2024.json — likely coverage gap in nflverse player_stats for this gsis_id';
+      r.history_source = `absent (${reason})`;
     }
+    counters.history_source_labeled++;
   }
 
   return { counters, meta: { contract_meta: contractMeta, coordinator_moves: COORDINATOR_MOVES_2026 } };
@@ -950,6 +1007,11 @@ async function main() {
       target_share: statRow?.target_share ?? null,
       carry_share: statRow?.carry_share ?? null,
       snap_share: statRow?.snap_share ?? null,
+      // Q-002 (2026-09-05): the only substantive field without a *_source was
+      // snap_share. Label its origin so staleness (F-008) is visible on the row.
+      snap_share_source: statRow?.snap_share != null
+        ? 'playerStats2025.js (frozen 2026-08-23 pre-Q-002; process_pbp.py:515 load_snap_shares() now wired, rebuild required to refresh)'
+        : null,
       touches: statRow ? ((statRow.carries ?? 0) + (statRow.targets ?? 0)) : null,
       total_td: statRow ? ((statRow.receiving_tds ?? 0) + (statRow.rushing_tds ?? 0) + (statRow.passing_tds ?? 0)) : null,
       epa_per_play: statRow?.epa_per_play ?? null,
@@ -1060,7 +1122,8 @@ async function main() {
   // ── E-002 context layer (2026-09-04) ────────────────────────────────────
   const contextResult = attachContextLayer(rows);
   console.log('  context join hits:', JSON.stringify({
-    contract_year: contextResult.counters.contract_year_hits,
+    contract_year_strict: contextResult.counters.contract_year_hits_strict,
+    contract_year_name_fallback: contextResult.counters.contract_year_hits_via_name_fallback,
     coaching: contextResult.counters.coaching_hits,
     coordinator_moves_curated: contextResult.counters.coordinator_moves_hits,
     dna: contextResult.counters.dna_hits,
@@ -1072,6 +1135,7 @@ async function main() {
     history_2023: contextResult.counters.history_2023_hits,
     durability_signal: contextResult.counters.durability_hits,
     rookie_durability_null_correct: contextResult.counters.rookie_durability_null,
+    history_source_labeled_all_rows: contextResult.counters.history_source_labeled,
   }));
   if (contextResult.counters.fan_sentiment_missing_teams.size > 0) {
     console.log('  ⚠ fan_sentiment missing for teams:', [...contextResult.counters.fan_sentiment_missing_teams].sort().join(','));
