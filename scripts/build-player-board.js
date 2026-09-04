@@ -643,14 +643,19 @@ function attachContextLayer(rows) {
       r.fan_hope = fs.hope;
       r.fan_anger = fs.anger;
       r.fan_one_liner = fs.one_liner;
-      // F-002 (2026-09-05): a placeholder row now exists for CAR/CLE/NYG with
-      // null values and a `needs_refresh_2026_09_05` flag. Label the source
-      // accordingly so a copilot can say "the sentiment agent hasn't scraped
-      // this team yet" instead of pretending null means neutral.
-      if (fs.needs_refresh_2026_09_05) {
+      // F-002 (2026-09-05, restored per QA 2026-09-04c P2): distinguish
+      // agent-scraped rows from hand-curated substrate-inferred rows so the
+      // copilot can say "this reading came from Reddit vs was inferred by
+      // the engineer from dna2026/faMoves." Feed carries `source` on the
+      // 3 curated teams (CAR/CLE/NYG); placeholder rows carry
+      // `needs_refresh_2026_09_05`. Neither collapses to the plain source
+      // string — the disclosure survives here.
+      if (fs.source) {
+        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (' + fs.source + ')';
+      } else if (fs.needs_refresh_2026_09_05) {
         r.fan_sentiment_source = 'intelligence/fan_sentiment.json (F-002 placeholder — awaiting sentiment agent scrape)';
       } else {
-        r.fan_sentiment_source = 'intelligence/fan_sentiment.json';
+        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (reddit_scrape)';
       }
       counters.fan_sentiment_hits++;
     } else {
@@ -712,11 +717,15 @@ function attachContextLayer(rows) {
       r.games_missed_last_3_seasons = null;
       r.seasons_in_league_last_3 = null;
       r.durability_trend = null;
+      // QA 2026-09-04c P2: distinguish 2026 rookies (never in NFL before —
+      // no history POSSIBLE) from veterans with a coverage gap. Prior string
+      // pooled 243 rookies with 17 real gaps under one "likely coverage gap"
+      // label, which was the wrong reason for the rookies.
       const reason = !r.gsis_id
         ? 'no gsis_id (K/DEF placeholder slot)'
         : r.projection_source === 'rookie_or_no_2025_data' || r.projection_source === 'rookie_model_v1'
-          ? 'rookie or no 2025 snaps — no NFL history to load'
-          : 'no entry in intelligence/history_2023_2024.json — likely coverage gap in nflverse player_stats for this gsis_id';
+          ? 'rookie — no prior NFL seasons to load'
+          : 'veteran with no entry in intelligence/history_2023_2024.json — coverage gap in nflverse player_stats for this gsis_id';
       r.history_source = `absent (${reason})`;
     }
     counters.history_source_labeled++;

@@ -1,7 +1,10 @@
 import { useMemo } from "react";
 import { Swords, Flame, Calendar, Star, TrendingUp, Eye, Shield, ArrowRight, Target } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
-import { OPPONENTS_2026 } from '../../data/opponents2026';
+// OPPONENTS_2026 import removed 2026-09-05 — used only for a home-page
+// "next opponent" lookup that read the array at index 0 rather than the
+// schedule week. See HomeDashboard.jsx:33 comment block.
+import { SCHEDULE_2026 } from '../../data/schedule2026';
 import { DNA } from '../../data/dna';
 import { DNA_2026 } from '../../data/dna2026';
 import { agg, lgbl } from '../../utils/aggregation';
@@ -30,10 +33,26 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
   const isMobile = useIsMobile();
   const bl = useMemo(() => lgbl(plays), [plays]);
 
-  // Next opponent — first home opponent as preview
-  const opponents = OPPONENTS_2026[primaryTeam];
-  const nextOpp = opponents?.home?.[0] || opponents?.away?.[0] || "BUF";
-  const isHome = opponents?.home?.includes(nextOpp);
+  // Next opponent — resolved from SCHEDULE_2026, not OPPONENTS_2026's
+  // unordered home/away arrays. QA 2026-09-04b: prior version used
+  // OPPONENTS_2026.CHI.home[0] which returned DET (alphabetically first
+  // in the array of full-season home opponents), not the actual Week 1
+  // matchup. 30/32 teams were wrong; every downstream signal (matchup
+  // grade, scheme familiarity, divisional flag, environment/travel)
+  // was being computed against the wrong opponent and stated with
+  // confidence. "Next" here = the earliest REG week the team plays.
+  // LA/LAR: schedule game_ids still encode the Rams as `LA`, so a LAR
+  // lookup must accept that team's schedule under either key.
+  const scheduleTeam = SCHEDULE_2026?.teams?.[primaryTeam] || SCHEDULE_2026?.teams?.[primaryTeam === 'LAR' ? 'LA' : primaryTeam];
+  const nextGame = useMemo(() => {
+    const games = (scheduleTeam?.games || []).filter(g => g.game_type === 'REG');
+    games.sort((a, b) => (a.week ?? 99) - (b.week ?? 99));
+    return games[0] || null;
+  }, [scheduleTeam]);
+  const nextOpp = nextGame?.opponent
+    || (nextGame?.home === primaryTeam ? nextGame?.away : nextGame?.home)
+    || 'BUF';
+  const isHome = nextGame ? (nextGame.home === primaryTeam || nextGame.isHome === true) : false;
 
   // Stats for the matchup
   const myStats = useMemo(() => agg(plays, primaryTeam), [plays, primaryTeam]);
@@ -148,7 +167,9 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
             <div key={`n-${i}`} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginTop: i === 0 && headlines.length > 0 ? 14 : 0, marginBottom: 8, paddingTop: i === 0 && headlines.length > 0 ? 12 : 0, borderTop: i === 0 && headlines.length > 0 ? "1px solid #f1f5f9" : "none" }}>
               <span style={{ fontSize: 10, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "2px 6px", borderRadius: 4, letterSpacing: 0.5, minWidth: 34, textAlign: "center", marginTop: 2 }}>{n.team}</span>
               <a href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, textDecoration: "none" }}>
-                {n.headline}
+                {/* Counsel 2026-09-05: headline dropped from the ESPN wire.
+                    Render a categories-derived label + generic action instead. */}
+                {(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 2).join(' · ') || 'ESPN'} — read on ESPN →
               </a>
             </div>
           ))}

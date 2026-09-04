@@ -63,7 +63,9 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
               {wire.map((n, i) => (
                 <a key={i} href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ display: "flex", alignItems: "flex-start", gap: 10, textDecoration: "none" }}>
                   <span style={{ fontSize: 10, color: "#94a3b8", fontFamily: "monospace", minWidth: 76, marginTop: 3 }}>{(n.published || "").slice(0, 10)}</span>
-                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{n.headline}</span>
+                  {/* Counsel 2026-09-05: headline dropped from the ESPN wire.
+                      Categories-derived label + generic action. */}
+                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 3).join(' · ') || 'ESPN'} — read on ESPN →</span>
                 </a>
               ))}
             </div>

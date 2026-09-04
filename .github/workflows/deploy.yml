@@ -81,7 +81,7 @@ jobs:
           # each route in the build. GitHub Pages serves those directly.
           # Deep links must be 200 (crawlers/unfurlers need it) AND carry
           # route-specific og:url (not the homepage URL).
-          for route in matchup-preview this-week team-intel fantasy-intel war-room so-what dashboard; do
+          for route in matchup-preview this-week team-intel fantasy-intel war-room so-what dashboard 2026-preview; do
             RSTATUS=$(curl -sIL "https://downfieldos.com/${route}" -o /dev/null -w "%{http_code}")
             if [ "$RSTATUS" != "200" ]; then echo "/${route} returned $RSTATUS"; exit 1; fi
             RBODY=$(curl -sL "https://downfieldos.com/${route}")

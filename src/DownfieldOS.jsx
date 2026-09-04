@@ -334,6 +334,17 @@ export default function DownfieldOS() {
             {/* Binding constraint 2026-08-22: no name on the site. Sidebar
                 mailto removed; feedback path routes through the newsletter
                 Beehiiv address once wired. Do not restore a personal email. */}
+            {/* nflverse attribution (CC BY 4.0 §3(a)(1)). Full source list
+                and modification notice at /DATA_SOURCES.md in the repo. */}
+            <div style={{ fontSize: 9, color: "#64748b", marginTop: 8, lineHeight: 1.4 }}>
+              Play-by-play, roster, snap-count and schedule data from{' '}
+              <a href="https://github.com/nflverse" target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8", textDecoration: "underline" }}>nflverse</a>
+              , licensed{' '}
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8", textDecoration: "underline" }}>CC BY 4.0</a>
+              . Modified — see{' '}
+              <a href="https://github.com/masonawolfe/downfieldos/blob/main/DATA_SOURCES.md" target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8", textDecoration: "underline" }}>DATA_SOURCES.md</a>
+              . Provided as-is.
+            </div>
           </div>
         </nav>
 

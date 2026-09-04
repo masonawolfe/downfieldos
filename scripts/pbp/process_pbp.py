@@ -146,10 +146,32 @@ def load_snap_shares(year: int, rosters: pd.DataFrame | None) -> dict:
         print("  ⚠ snap_counts has no offense_snaps > 0 — snap_share will be None.")
         return {}
     mean_by_pfr = off.groupby("pfr_player_id")["offense_pct"].mean()
-    # Values in the raw file are percentages 0-100; convert to 0-1 fraction
-    # to match what build-player-board.js and playerStats2025.js consume.
-    mean_by_pfr = mean_by_pfr / 100.0
+
+    # QA 2026-09-04c P0: the raw offense_pct column is ALREADY a 0-1 fraction
+    # (verified directly: n=26,612, min=0.0, max=1.0, median=0.0, 0 values above 1.0).
+    # The prior version divided by 100 based on a false premise that it was
+    # 0-100. That would have silently zero-ed all snap_share_adj downstream on
+    # the next pipeline run — the exact F-008 damage reproduced inside the
+    # F-008 fix. NEVER re-introduce the /100.0. If a future nflverse release
+    # switches to 0-100, detect it explicitly by max() > 1.0 and scale then.
+    src_max = float(mean_by_pfr.max()) if len(mean_by_pfr) else 0.0
+    if src_max > 1.5:
+        print(f"  ⚠ offense_pct max = {src_max:.2f} > 1.5 — data may have switched to 0-100 scale. Scaling.")
+        mean_by_pfr = mean_by_pfr / 100.0
+
+    # Print the distribution so a regression is visible in the build log, not
+    # silent as it was before (F-008's original failure shape).
+    mn = float(mean_by_pfr.min()) if len(mean_by_pfr) else 0.0
+    mx = float(mean_by_pfr.max()) if len(mean_by_pfr) else 0.0
+    med = float(mean_by_pfr.median()) if len(mean_by_pfr) else 0.0
+    above_70 = int((mean_by_pfr > 0.70).sum())
+    above_60 = int((mean_by_pfr > 0.60).sum())
     print(f"  snap-share players (pfr): {len(mean_by_pfr):,}")
+    print(f"    distribution: min={mn:.3f} median={med:.3f} max={mx:.3f}")
+    print(f"    above 0.70 threshold (snap_share_adj gate): {above_70}")
+    print(f"    above 0.60 threshold (snap_share_adj gate): {above_60}")
+    if mx < 0.10:
+        print(f"  ⚠ SUSPICIOUS: max snap_share {mx:.3f} < 0.10 — the /100 bug may be back.")
 
     if rosters is None or "pfr_id" not in rosters.columns or "gsis_id" not in rosters.columns:
         print("  ⚠ roster has no pfr_id↔gsis_id map — snap_share will be None.")

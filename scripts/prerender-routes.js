@@ -47,6 +47,10 @@ const ROUTES = [
   { path: '/war-room',        title: 'War Room — DownfieldOS',        description: 'Draft-board view — team needs, positional depth, and prospect fit scoring.' },
   { path: '/so-what',         title: 'So What? — DownfieldOS',        description: 'League-wide storylines, misery index, weekly drama rankings — the entertainment layer.' },
   { path: '/dashboard',       title: 'Home Dashboard — DownfieldOS',  description: 'Your team\'s next matchup, intelligence signals, and headlines around the league.' },
+  // Added 2026-09-05 (QA 2026-09-04c P2): route was in sitemap and router but
+  // missed from prerender + smoke test, so /2026-preview kept returning 404
+  // with homepage og:url while the other 7 routes returned 200 with correct meta.
+  { path: '/2026-preview',    title: '2026 Season Preview — DownfieldOS', description: 'Preseason narrative, DNA, sentiment and matchup preview for every team heading into 2026.' },
 ];
 
 function main() {

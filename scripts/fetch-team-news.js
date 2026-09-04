@@ -2,11 +2,19 @@
 /**
  * fetch-team-news.js
  *
- * Pulls recent per-team news headlines from ESPN's public JSON API. Raw
- * signal only — headline + description + link + published timestamp. This
- * replaces the "team news" side of the dead intel-monitor Cowork agent, but
- * it is NOT the editorial team_news.json (that one carries narrative writing
- * and belongs in the Layer 2 reasoning workflow).
+ * Pulls recent per-team news metadata from ESPN's public JSON API.
+ *
+ * Field reduction 2026-09-05 per counsel (2026-09-05 review):
+ *   Kept:    link, published, categories, type
+ *   Dropped: headline, description
+ *
+ * Reason: ESPN's terms (Disney §2.B.x, §2.B.viii, §3.G) bar automated
+ * access AND commercial use with no paid-tier carve-out. Storing ESPN's
+ * verbatim `headline` + `description` in a public repo is copying and
+ * storing expression, which is distinct from linking to the underlying
+ * article. Reducing the fields to metadata + link keeps the pipeline
+ * running without republishing ESPN's written prose. A link is not the
+ * expression.
  *
  * Output: src/data/intelligence/team_news_raw.json
  *
@@ -41,16 +49,17 @@ async function fetchTeamNews(abbr, teamId) {
   const articles = data.articles || [];
 
   return articles.map(a => ({
-    headline: a.headline || null,
-    description: a.description || null,
+    // Counsel 2026-09-05: `headline` and `description` intentionally dropped
+    // to stop republishing ESPN's expression. Retained metadata only:
     type: a.type || null,                                // Media / Story / Preview / etc.
     published: a.published || null,
     last_modified: a.lastModified || null,
     link: a.links?.web?.href || a.links?.mobile?.href || null,
-    // Categories give downstream code a way to bucket (Player / Team / Injury etc.)
+    // Categories: bucket labels only (Player / Team / Injury / etc.). Also
+    // dropped `c.description` inside each category — that field carries
+    // ESPN's editorial prose the same way top-level description does.
     categories: (a.categories || []).map(c => ({
       type: c.type,
-      description: c.description,
       teamId: c.teamId,
       team: c.team?.abbreviation,
       athleteId: c.athleteId,

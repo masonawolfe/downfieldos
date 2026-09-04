@@ -58,11 +58,27 @@ jobs:
             local year="$1"
             local pbp="https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${year}.csv.gz"
             local roster="https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_${year}.csv"
+            # Snap counts — required for load_snap_shares() in process_pbp.py.
+            # Without this file, snap_share = None for every player and
+            # downstream snap_share_adj drops for 122 players silently
+            # (QA 2026-09-04c P0 pattern).
+            local snaps="https://github.com/nflverse/nflverse-data/releases/download/snap_counts/snap_counts_${year}.csv"
             local http
             http=$(curl -sIL --max-time 30 "$pbp" -o /dev/null -w "%{http_code}")
             [ "$http" = "200" ] || return 1
             curl -sL --max-time 300 "$pbp" -o "$PBP_RAW_DIR/play_by_play_${year}.csv.gz"
             curl -sL --max-time 120 "$roster" -o "$PBP_RAW_DIR/roster_weekly_${year}.csv"
+            # snap_counts is a smaller file; a 404 here is not fatal (the
+            # PBP-derived output degrades to snap_share=None), so log and
+            # continue rather than aborting the whole run.
+            local snap_http
+            snap_http=$(curl -sIL --max-time 30 "$snaps" -o /dev/null -w "%{http_code}")
+            if [ "$snap_http" = "200" ]; then
+              curl -sL --max-time 120 "$snaps" -o "$PBP_RAW_DIR/snap_counts_${year}.csv"
+              echo "  ✓ snap_counts_${year}.csv downloaded"
+            else
+              echo "  ⚠ snap_counts_${year}.csv HTTP ${snap_http} — snap_share will be None."
+            fi
             echo "PBP_YEAR=$year" >> "$GITHUB_ENV"
           }
           if ! try_download "$PBP_YEAR"; then
