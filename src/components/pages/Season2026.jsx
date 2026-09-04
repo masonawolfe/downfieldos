@@ -374,16 +374,11 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
             })()}
           </div>
 
-          {/* GM Voice */}
-          <div style={{ background: "#0f172a", borderRadius: 14, padding: 20 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
-              <BookOpen size={14} color="#f97316" />
-              <span style={{ fontSize: 11, fontWeight: 700, color: "#f97316", textTransform: "uppercase", letterSpacing: 1.5 }}>GM Memo</span>
-            </div>
-            <div style={{ fontSize: 13, color: "#e2e8f0", lineHeight: 1.6 }}>
-              <MarkdownBlock text={gmVoice(myTeam, agg(plays, myTeam), bl, genNeeds(myTeam, agg(plays, myTeam), bl))} />
-            </div>
-          </div>
+          {/* "GM Memo" section removed 2026-09-05 per binding constraint
+              (2026-08-22: "no GM stuff"). gmVoice() persona-wraps the same
+              needs data already shown in the block above. If a written
+              summary is wanted here later, source it from a non-persona
+              voice. Do not restore. */}
         </div>
       )}
       <NewsletterCTA />

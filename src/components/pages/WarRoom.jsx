@@ -22,16 +22,17 @@ export function WarRoom({ plays, primaryTeam }) {
   return (
     <div>
       <h2 style={{ fontSize: 28, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -.5 }}>Offseason War Room</h2>
-      <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>What would the GM say?</p>
+      <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>Roster gaps, draft needs, prospect fit.</p>{/* was "What would the GM say?" — removed 2026-09-05 per binding constraint */}
       <TeamSelect value={team} onChange={setTeam} label="Team" />
       <div style={{ marginTop: 20, background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>Season Assessment</h3>
         <div style={{ fontSize: 14, lineHeight: 1.8, color: "#334155", whiteSpace: "pre-wrap" }}>{overview}</div>
       </div>
-      <div style={{ background: "linear-gradient(135deg, #0f172a, #1e293b)", borderRadius: 16, padding: 28, marginBottom: 20 }}>
-        <h3 style={{ fontSize: 18, fontWeight: 800, color: "#fff", margin: "0 0 16px", display: "flex", alignItems: "center", gap: 8 }}><Shield size={20} color="#f97316" /> GM's Take</h3>
-        <div style={{ fontSize: 14, lineHeight: 1.8, color: "#cbd5e1", whiteSpace: "pre-wrap" }}>{gm.replace(/\*\*(.*?)\*\*/g, (m, p) => p).replace(/\*(.*?)\*/g, (m, p) => p)}</div>
-      </div>
+      {/* "GM's Take" section removed 2026-09-05 per binding constraint
+          (2026-08-22: "no GM stuff"). The gmVoice() output was a stylized
+          persona wrapper on top of the same stats already shown above.
+          Underlying data still flows into Draft Needs; the persona voice
+          is what came out. Do not restore. */}
       <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 16px" }}>Draft Needs</h3>
       {needs.map((n, i) => (
         <div key={i} style={{ background: "#fff", borderRadius: 14, border: `1px solid ${n.severity === "High" ? "#fecaca" : n.severity === "Medium" ? "#fed7aa" : "#e2e8f0"}`, borderLeft: `4px solid ${n.severity === "High" ? "#dc2626" : n.severity === "Medium" ? "#ea580c" : "#16a34a"}`, padding: 20, marginBottom: 12 }}>

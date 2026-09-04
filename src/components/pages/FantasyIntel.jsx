@@ -29,7 +29,7 @@ const INJ_BADGE = {
 export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [posFilter, setPosFilter] = useState("QB");
   const [selectedWeek, setSelectedWeek] = useState(18);
-  const [personaKey, setPersonaKey] = useState('MASON');
+  const [personaKey, setPersonaKey] = useState('BALANCED');   // was 'MASON'; renamed 2026-09-05 per binding constraint
   const persona = useMemo(() => PERSONAS.find(p => p.key === personaKey) || PERSONAS[0], [personaKey]);
   const bl = useMemo(() => lgbl(plays), [plays]);
   const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : CURRENT_SEASON, [plays]);
@@ -200,7 +200,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
           </select>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-          <label title="Format + horizon + risk bundled into a named GM persona (P1-1)" style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Mode</label>
+          <label title="Format + horizon + risk bundled into a named mode (P1-1)" style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Mode</label>
           <div style={{ display: "flex", gap: 4 }}>
             {PERSONAS.map(p => (
               <button key={p.key} onClick={() => setPersonaKey(p.key)} title={p.description} style={{ padding: "8px 14px", borderRadius: 8, border: "1px solid", borderColor: personaKey === p.key ? "#f97316" : "#e2e8f0", background: personaKey === p.key ? "#f97316" : "#fff", color: personaKey === p.key ? "#fff" : "#0f172a", fontWeight: 700, fontSize: 12, cursor: "pointer" }}>{p.label}</button>

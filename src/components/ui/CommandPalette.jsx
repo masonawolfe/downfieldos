@@ -11,7 +11,7 @@ const MODULES = [
   { icon: Swords, label: "Matchup Preview", path: "/matchup-preview", keywords: "matchup scouting intelligence scheme coaching" },
   { icon: Flame, label: "Fantasy Intel", path: "/fantasy-intel", keywords: "fantasy rankings boom bust start sit" },
   { icon: Eye, label: "Team Intel", path: "/team-intel", keywords: "team scouting report players roster grades" },
-  { icon: Shield, label: "War Room", path: "/war-room", keywords: "gm draft board war room front office" },
+  { icon: Shield, label: "War Room", path: "/war-room", keywords: "draft board war room front office roster needs" },   // 'gm' keyword removed 2026-09-05 per binding constraint
   { icon: Target, label: "Admin", path: "/admin", keywords: "admin post manager instagram" },
 ];
 

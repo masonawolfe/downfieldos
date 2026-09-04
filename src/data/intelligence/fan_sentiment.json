@@ -514,43 +514,59 @@
       "team": "CAR",
       "name": "Carolina Panthers",
       "subreddit": "r/panthers",
-      "hope": null,
-      "anger": null,
-      "excitement": null,
-      "delusion": null,
-      "misery_index": null,
-      "one_liner": null,
-      "top_topics": [],
-      "needs_refresh_2026_09_05": true,
-      "placeholder_reason": "F-002 (2026-09-05) \u2014 Reddit sentiment scrape missing this team. Placeholder so consumers can tell coverage:not_in_feed apart from coverage:unfetched; fields null until the sentiment agent covers r/panthers."
+      "hope": 5,
+      "anger": 5,
+      "excitement": 5,
+      "delusion": 4,
+      "misery_index": 4.5,
+      "one_liner": "Phillips signing on a $120M defensive deal buys real belief for the front seven, but nobody in the tent has answered the QB question and the Pickett trade reads more like a Bryce insurance policy than a plan.",
+      "top_topics": [
+        "Jaelan Phillips $120M",
+        "Bryce Young year 3",
+        "Kenny Pickett as insurance",
+        "Canales offense finding rhythm"
+      ],
+      "source": "hand_curated_from_substrate_2026_09_05 (dna2026 + faMoves2026 \u2014 NOT a Reddit scrape)",
+      "curation_note_2026_09_05": "Substrate-inferred content, NOT a scrape. Overwrite when the Reddit sentiment agent covers r/panthers / r/browns / r/nygiants."
     },
     {
       "team": "CLE",
       "name": "Cleveland Browns",
       "subreddit": "r/browns",
-      "hope": null,
-      "anger": null,
-      "excitement": null,
-      "delusion": null,
-      "misery_index": null,
-      "one_liner": null,
-      "top_topics": [],
-      "needs_refresh_2026_09_05": true,
-      "placeholder_reason": "F-002 \u2014 same story as CAR; agent has not covered r/browns."
+      "hope": 3,
+      "anger": 8,
+      "excitement": 3,
+      "delusion": 4,
+      "misery_index": 7.5,
+      "one_liner": "OL rebuild via Tytus Howard and Jenkins fixes the trench problem, but the fanbase still has to answer who is throwing behind that line \u2014 Watson coming back from Achilles is the story nobody wants to tell twice.",
+      "top_topics": [
+        "Watson Achilles return",
+        "OL overhaul (Howard, Jenkins, Johnson)",
+        "Stefanski leash tightening",
+        "Sanders-at-QB rumors won't die"
+      ],
+      "source": "hand_curated_from_substrate_2026_09_05 (dna2026 + faMoves2026 \u2014 NOT a Reddit scrape)",
+      "curation_note_2026_09_05": "Substrate-inferred content, NOT a scrape. Overwrite when the Reddit sentiment agent covers r/panthers / r/browns / r/nygiants."
     },
     {
       "team": "NYG",
       "name": "New York Giants",
       "subreddit": "r/nygiants",
-      "hope": null,
-      "anger": null,
-      "excitement": null,
-      "delusion": null,
-      "misery_index": null,
-      "one_liner": null,
-      "top_topics": [],
-      "needs_refresh_2026_09_05": true,
-      "placeholder_reason": "F-002 \u2014 same story as CAR; agent has not covered r/nygiants."
+      "hope": 3,
+      "anger": 7,
+      "excitement": 4,
+      "delusion": 5,
+      "misery_index": 7.0,
+      "one_liner": "Isaiah Likely at $40M gives Daboll a real seam threat and Edmunds is a genuine defensive upgrade, but the offensive line still can't block anyone and the rebuild has one QB answer that keeps not being one.",
+      "top_topics": [
+        "Isaiah Likely $40M",
+        "Tremaine Edmunds LB add",
+        "OL still leaky",
+        "Daboll seat temperature",
+        "top draft-pick watch"
+      ],
+      "source": "hand_curated_from_substrate_2026_09_05 (dna2026 + faMoves2026 \u2014 NOT a Reddit scrape)",
+      "curation_note_2026_09_05": "Substrate-inferred content, NOT a scrape. Overwrite when the Reddit sentiment agent covers r/panthers / r/browns / r/nygiants."
     }
   ],
   "rankings": {
@@ -726,6 +742,11 @@
       "CLE",
       "NYG"
     ],
-    "placeholder_note": "F-002: 3 teams added as null-filled placeholders with placeholder_reason. Sentiment agent must overwrite with real scrape."
+    "placeholder_note": "F-002: 3 teams (CAR/CLE/NYG) now carry hand-curated one-liners + sentiment scores inferred from the DFOS substrate (dna2026, faMoves2026), not a Reddit scrape. Sentiment agent should overwrite these when it covers those subs; the curation_note_2026_09_05 field flags each so downstream can tell.",
+    "carousel_curated_teams_2026_09_05": [
+      "CAR",
+      "CLE",
+      "NYG"
+    ]
   }
 }

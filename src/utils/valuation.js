@@ -142,39 +142,47 @@ export const RISK_CEILING = Object.freeze({
 
 export const RISKS = { RISK_FLOOR, RISK_BALANCED, RISK_CEILING };
 
-// ─── Personas — named bundles of dials ──────────────────────────────────────
+// ─── Modes — functional bundles of dials ────────────────────────────────────
 //
-// The "modes" idea from the pilot: Poles = long-horizon, floor-first; Howie
-// = short-horizon, ceiling-first. Same mechanism the engine already exposes,
-// packaged into personas because they're legible to a football audience and
-// on-brand.
+// Renamed 2026-09-05 per binding constraint (2026-08-22): no personal name
+// on the site, no GM personas. Previously PERSONA_MASON / PERSONA_POLES /
+// PERSONA_HOWIE — same mechanic, now labeled by what the dials actually do.
+// Legacy PERSONA_* exports preserved as aliases so no consumer breaks.
 
-export const PERSONA_MASON = Object.freeze({
-  key: 'MASON',
-  label: 'Mason',
+export const MODE_BALANCED = Object.freeze({
+  key: 'BALANCED',
+  label: 'Balanced',
   description: 'The house default — redraft, balanced. Whatever format you pick, use this until you know why to override.',
   format: FORMAT_STANDARD,
   horizon: HORIZON_REDRAFT,
   risk: RISK_BALANCED,
 });
-export const PERSONA_POLES = Object.freeze({
-  key: 'POLES',
-  label: 'Poles',
-  description: 'Ryan Poles — long-horizon, floor-first. Rewards draft capital and O-line continuity; skeptical of contract-year and age-31 spikes.',
+export const MODE_KEEPER_FLOOR = Object.freeze({
+  key: 'KEEPER_FLOOR',
+  label: 'Keeper · Floor',
+  description: 'Long-horizon, floor-first. Rewards draft capital and O-line continuity; skeptical of contract-year and age-31 spikes.',
   format: FORMAT_STANDARD,
   horizon: HORIZON_KEEPER_3YR,
   risk: RISK_FLOOR,
 });
-export const PERSONA_HOWIE = Object.freeze({
-  key: 'HOWIE',
-  label: 'Howie',
-  description: 'Howie Roseman — short-horizon, ceiling-first. Buys the year-of-the-cliff bounce; treats contract-year as a positive signal.',
+export const MODE_REDRAFT_CEILING = Object.freeze({
+  key: 'REDRAFT_CEILING',
+  label: 'Redraft · Ceiling',
+  description: 'Short-horizon, ceiling-first. Buys the year-of-the-cliff bounce; treats contract-year as a positive signal.',
   format: FORMAT_STANDARD,
   horizon: HORIZON_REDRAFT,
   risk: RISK_CEILING,
 });
 
-export const PERSONAS = [PERSONA_MASON, PERSONA_POLES, PERSONA_HOWIE];
+export const MODES = [MODE_BALANCED, MODE_KEEPER_FLOOR, MODE_REDRAFT_CEILING];
+
+// Legacy aliases so any lingering `PERSONA_MASON` / `PERSONAS` / `personaKey`
+// consumers keep working during the transition. Delete when nothing imports
+// these names.
+export const PERSONA_MASON = MODE_BALANCED;
+export const PERSONA_POLES = MODE_KEEPER_FLOOR;
+export const PERSONA_HOWIE = MODE_REDRAFT_CEILING;
+export const PERSONAS = MODES;
 
 // ─── Positional value curves ────────────────────────────────────────────────
 //

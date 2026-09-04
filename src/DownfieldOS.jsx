@@ -331,7 +331,9 @@ export default function DownfieldOS() {
               {isFiltered ? `${filteredPlays.length.toLocaleString()} / ${allPlays.length.toLocaleString()} plays` : `${allPlays.length.toLocaleString()} plays analyzed`}
             </div>
             <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v7 — {typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'}</div>
-            <a href="mailto:masonawolfe@gmail.com?subject=DownfieldOS%20Feedback" style={{ display: "block", fontSize: 10, color: "#f97316", marginTop: 8, textDecoration: "none" }}>Send Feedback</a>
+            {/* Binding constraint 2026-08-22: no name on the site. Sidebar
+                mailto removed; feedback path routes through the newsletter
+                Beehiiv address once wired. Do not restore a personal email. */}
           </div>
         </nav>
 

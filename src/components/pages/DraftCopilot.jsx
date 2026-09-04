@@ -100,7 +100,7 @@ const EXAMPLE_PICKS = `1. Ja'Marr Chase WR CIN
 export function DraftCopilot() {
   const [teamCount, setTeamCount] = useState(12);
   const [userSlot, setUserSlot] = useState(6);
-  const [personaKey, setPersonaKey] = useState('MASON');
+  const [personaKey, setPersonaKey] = useState('BALANCED');   // was 'MASON'; renamed 2026-09-05 per binding constraint
   const [picksText, setPicksText] = useState(EXAMPLE_PICKS);
 
   const persona = useMemo(() => PERSONAS.find(p => p.key === personaKey) || PERSONAS[0], [personaKey]);
