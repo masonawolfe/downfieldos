@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html",
+    "build": "vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
     "preview": "vite preview",
     "data:fetch": "node scripts/fetch-nflverse-rosters.js",
     "data:pbp": "node scripts/fetch-nflverse-pbp.js",
@@ -25,7 +25,8 @@
     "data:transactions-weekly": "node scripts/build-weekly-transactions.js",
     "data:board:weekly": "node scripts/build-weekly-board.js",
     "data:defense": "node scripts/build-defense.js",
-    "data:history": "node scripts/build-history-and-durability.js"
+    "data:history": "node scripts/build-history-and-durability.js",
+    "prerender": "node scripts/prerender-routes.js"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",
