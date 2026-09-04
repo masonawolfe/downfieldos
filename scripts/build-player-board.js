@@ -634,6 +634,91 @@ function attachContextLayer(rows) {
   return { counters, meta: { contract_meta: contractMeta, coordinator_moves: COORDINATOR_MOVES_2026 } };
 }
 
+// ─── E-003 rookie scoring (2026-09-04) ──────────────────────────────────────
+// Rookies + no-2025-snap players carry null projection_pts today. 240 of them
+// carry a market ADP. The board is blind exactly where the market is active.
+// Per _FROM_COS/2026-09-04-rookie-scoring.md: draft capital is the best rookie
+// predictor; use it, plus depth and team situation. Never fabricate — rookies
+// without a prospect record stay null and the copilot says "unmeasured."
+//
+// Runs AFTER attachValuation so it uses the veteran-derived replacement levels
+// (does not destabilize veteran VORP — QA-gate compliant).
+//
+// projection_source stamped 'rookie_model_v1' so a consumer can tell which kind
+// of projection is which. rookie_model_coverage: 'scored' | 'no_prospect_data'.
+
+const ROOKIE_BASE_BY_POS = { QB: 280, RB: 200, WR: 180, TE: 110 };
+const ROUND_MULT = { 1: 1.0, 2: 0.75, 3: 0.55, 4: 0.4, 5: 0.28, 6: 0.2, 7: 0.15 };
+
+function loadDraftProspects() {
+  try {
+    return JSON.parse(loadFile('src/data/draftProspects2026.json'));
+  } catch (e) {
+    console.log('  ⚠ draftProspects2026.json not loadable:', e.message);
+    return [];
+  }
+}
+
+function attachRookieProjections(rows, replacementByShape) {
+  const prospects = loadDraftProspects();
+  // Index prospects by lowercased name for join
+  const byName = new Map();
+  for (const p of prospects) byName.set((p.name || '').toLowerCase(), p);
+
+  let scored = 0, noProspectData = 0, noBaseForPos = 0;
+  const veteranReplacement = replacementByShape[DEFAULT_SHAPE];
+
+  for (const r of rows) {
+    if (r.projection_source !== 'rookie_or_no_2025_data') continue;
+    const p = byName.get((r.name || '').toLowerCase());
+    if (!p) {
+      // Never fabricate — stay null with a coverage flag saying so.
+      r.rookie_model_coverage = 'no_prospect_data';
+      noProspectData++;
+      continue;
+    }
+    const base = ROOKIE_BASE_BY_POS[r.pos];
+    if (!base) {
+      // Position (e.g., EDGE / LB / CB in the prospect file) isn't a fantasy
+      // skill position — no rookie projection produced.
+      r.rookie_model_coverage = 'position_not_scored';
+      noBaseForPos++;
+      continue;
+    }
+    const round = p.projectedRound || 7;
+    const mult = ROUND_MULT[round] ?? 0.15;
+    // Depth heuristic — no NFL snaps yet, so approximate by round.
+    const depthMult = round === 1 ? 0.8 : round <= 3 ? 0.55 : 0.35;
+    // Team offense signal from DNA (already joined by E-002). Efficiency ranges
+    // roughly 0.35-0.56 on dna2026.
+    const teamEff = r.team_efficiency_dna != null ? r.team_efficiency_dna : 0.47;
+    const teamMult = Math.max(0.7, Math.min(1.3, 0.85 + 0.3 * (teamEff - 0.47) / 0.05));
+    // R1/R2 rookies get a small penalty for a new coordinator (installation lag).
+    const cordPenalty = (r.coordinator_is_new_2026 === true && round <= 2) ? 0.9 : 1.0;
+
+    const proj = Math.round(base * mult * depthMult * teamMult * cordPenalty * 100) / 100;
+    const rep = veteranReplacement[r.pos] ?? 0;
+    const vorpRookie = Math.round((proj - rep) * 100) / 100;
+
+    r.projection_pts = proj;
+    // vorp comes from the default shape and uses the veteran replacement — same
+    // yardstick. Do NOT recompute replacement including rookies (would move
+    // veteran VORP; QA gate would fail).
+    r.vorp = vorpRookie;
+    r.projection_source = 'rookie_model_v1';
+    r.rookie_model_coverage = 'scored';
+    r.rookie_model_inputs = {
+      projectedRound: round, projectedPick: p.projectedPick || null,
+      pos: r.pos, base_by_pos: base, round_mult: mult, depth_mult: depthMult,
+      team_eff: teamEff, team_mult: Math.round(teamMult * 100) / 100,
+      cord_penalty: cordPenalty, replacement_pts_used: rep,
+    };
+    r.rookie_model_source = 'draftProspects2026.json (draft capital primary, depth + team-eff + coordinator-new modifiers). NEVER fabricated — prospects not in the feed stay null.';
+    scored++;
+  }
+  return { scored, noProspectData, noBaseForPos, prospectCount: prospects.length };
+}
+
 function attachValuation(rows) {
   const replacementsByShape = {};
   for (const [key, shape] of Object.entries(LEAGUE_SHAPES)) {
@@ -995,6 +1080,9 @@ async function main() {
   // ── Valuation layer (2026-09-04) ────────────────────────────────────────
   const replacementByShape = attachValuation(rows);
   console.log('  valuation attached — default shape:', DEFAULT_SHAPE);
+  // ── E-003 rookie scoring — after valuation, uses veteran-derived replacement
+  const rookieResult = attachRookieProjections(rows, replacementByShape);
+  console.log('  rookie model applied:', JSON.stringify(rookieResult));
   for (const [key, rep] of Object.entries(replacementByShape)) {
     console.log(`    ${key.padEnd(20)} replacement pts →`, JSON.stringify(rep));
   }
