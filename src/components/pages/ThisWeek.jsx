@@ -5,6 +5,7 @@ import { CURRENT_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { DNA } from '../../data/dna';
+import { SCHEDULE_2026 } from '../../data/schedule2026';
 import { matchupPreview } from '../../utils/narratives';
 import { MatchupGrade } from '../ui/MatchupGrade';
 import { InsightCard } from '../ui/InsightCard';
@@ -18,7 +19,10 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
   const [selectedSeason, setSelectedSeason] = useState(CURRENT_SEASON);
   const [expandedGame, setExpandedGame] = useState(null);
 
-  // Build the week's matchups from play data
+  // Build the week's matchups. Primary: from PBP `plays` (works for 2023-2025
+  // where PBP is present). Fallback: from SCHEDULE_2026 when the selected
+  // season has no PBP (2026 pre-Week-1 case — the surface was previously
+  // blank here). Ship-block #3 from 2026-08-31 escalation.
   const weekGames = useMemo(() => {
     const weekPlays = plays.filter(p => p.season === selectedSeason && p.week === selectedWeek);
     const gameMap = {};
@@ -28,14 +32,45 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
       gameMap[p.gameId].teams.add(p.def);
       gameMap[p.gameId].plays.push(p);
     });
-    const games = Object.values(gameMap).map(g => {
+    let games = Object.values(gameMap).map(g => {
       const teams = [...g.teams];
       const home = teams.find(t => g.plays.some(p => p.off === t && p.ha === "Home")) || teams[0];
       const away = teams.find(t => t !== home) || teams[1];
       return { ...g, home, away };
     }).filter(g => g.home && g.away);
-    // Game of the Week: closest matchup with most explosive potential
-    if (games.length > 0) {
+
+    // Schedule fallback: when PBP has nothing for this (season, week) AND we
+    // have a schedule row for the season, enumerate matchups from the
+    // schedule. Grade math will be degenerate (empty plays → zero stats)
+    // and the card renders as a "schedule-only" preview.
+    if (games.length === 0 && selectedSeason === 2026 && SCHEDULE_2026?.teams) {
+      const seen = new Set();
+      const scheduleGames = [];
+      for (const teamCode of Object.keys(SCHEDULE_2026.teams)) {
+        const teamGames = SCHEDULE_2026.teams[teamCode].games || [];
+        for (const g of teamGames) {
+          if (g.week !== selectedWeek || g.game_type !== 'REG') continue;
+          if (seen.has(g.game_id)) continue;
+          seen.add(g.game_id);
+          const home = g.home;
+          const away = g.away || (g.opponent && g.opponent !== home ? g.opponent : (teamCode === home ? null : teamCode));
+          if (!home || !away) continue;
+          scheduleGames.push({
+            gameId: g.game_id,
+            teams: new Set([home, away]),
+            plays: [],
+            home, away,
+            scheduleOnly: true,
+            gameday: g.gameday, gametime: g.gametime,
+            stadium: g.stadium, spread_line: g.spread_line, total_line: g.total_line,
+          });
+        }
+      }
+      games = scheduleGames;
+    }
+
+    // Game of the Week: only when we have real play data to score with.
+    if (games.length > 0 && !games[0].scheduleOnly) {
       let bestIdx = 0, bestScore = -Infinity;
       const allBl = lgbl(plays);
       games.forEach((g, i) => {
