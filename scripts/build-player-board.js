@@ -465,6 +465,32 @@ function loadFanSentiment() {
   return byTeam;
 }
 
+// F-007 (2026-09-05): first real consumer of the corrections ledger.
+// src/utils/corrections.js existed but nothing imported from it. This
+// build-time snapshot surfaces what the ledger holds every time the board
+// rebuilds — the summary lands in PLAYER_BOARD_2026_META so a downstream
+// consumer or a human reviewing the meta block can see the ledger's state
+// without having to parse the raw file.
+function loadCorrectionsLedger() {
+  const p = path.join(REPO_ROOT, 'data', 'corrections.jsonl');
+  if (!fs.existsSync(p)) return { total: 0, active: 0, rejections: [], flags: [], corrections_active: [], missing: true };
+  const text = fs.readFileSync(p, 'utf8');
+  const records = [];
+  for (const raw of text.split('\n')) {
+    const line = raw.trim();
+    if (!line) continue;
+    try { records.push(JSON.parse(line)); } catch { /* skip bad line */ }
+  }
+  const active = records.filter(r => r.status !== 'superseded' && r.status !== 'resolved');
+  return {
+    total: records.length,
+    active: active.length,
+    rejections: active.filter(r => r.type === 'rejection').map(r => ({ id: r.id, issued: r.issued, applies_to: r.applies_to, summary: r.summary })),
+    flags: active.filter(r => r.type === 'flag').map(r => ({ id: r.id, issued: r.issued, applies_to: r.applies_to, summary: r.summary })),
+    corrections_active: active.filter(r => r.type === 'correction').map(r => ({ id: r.id, issued: r.issued, applies_to: r.applies_to, summary: r.summary })),
+  };
+}
+
 function loadHistoryAndDurability() {
   try {
     const doc = JSON.parse(loadFile('src/data/intelligence/history_2023_2024.json'));
@@ -617,16 +643,24 @@ function attachContextLayer(rows) {
       r.fan_hope = fs.hope;
       r.fan_anger = fs.anger;
       r.fan_one_liner = fs.one_liner;
-      r.fan_sentiment_source = 'intelligence/fan_sentiment.json';
+      // F-002 (2026-09-05): a placeholder row now exists for CAR/CLE/NYG with
+      // null values and a `needs_refresh_2026_09_05` flag. Label the source
+      // accordingly so a copilot can say "the sentiment agent hasn't scraped
+      // this team yet" instead of pretending null means neutral.
+      if (fs.needs_refresh_2026_09_05) {
+        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (F-002 placeholder — awaiting sentiment agent scrape)';
+      } else {
+        r.fan_sentiment_source = 'intelligence/fan_sentiment.json';
+      }
       counters.fan_sentiment_hits++;
     } else {
-      // Team not in the feed (currently CAR/CLE/NYG). Label as such so a
-      // downstream consumer can distinguish "not in feed" from "not joined."
+      // Should now be zero teams — F-002 added placeholders for the 3 gaps.
+      // Keep this branch as an honest fallback in case the feed shape changes.
       r.fan_misery_index = null;
       r.fan_hope = null;
       r.fan_anger = null;
       r.fan_one_liner = null;
-      r.fan_sentiment_source = 'not_in_feed (fan_sentiment.json covers 29 of 32 teams)';
+      r.fan_sentiment_source = 'not_in_feed (feed regressed post-F-002 — investigate)';
       counters.fan_sentiment_missing_teams.add(t);
     }
 
@@ -1197,6 +1231,14 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
     availability_source: availMeta.source || null,
     availability_generated: availMeta.generated || null,
     schema_version: 3,
+    corrections_ledger_snapshot_2026_09_05: (() => {
+      const led = loadCorrectionsLedger();
+      return {
+        source: 'data/corrections.jsonl (parsed at build time by build-player-board.js — F-007 consumer)',
+        note: 'A build-time snapshot of the DFOS self-correction ledger. Anything with type=rejection is a source downstream code MUST NOT cite. Flags are open questions. Corrections are historical fact-fixes. This is the first automated consumer of the ledger — prior finding: 18 records, zero readers.',
+        ...led,
+      };
+    })(),
     context_layer_2026_09_04: {
       joined_sources: [
         'intelligence/contract_year_players.json (23 high-signal entries)',

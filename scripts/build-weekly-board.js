@@ -53,6 +53,23 @@ const TZ_OFFSETS = {
   'America/Los_Angeles': -8,
 };
 
+// F-003 (2026-09-05): opponent home-stadium tz for computing away-game tz_delta.
+// Loaded from src/data/stadiums.js at build time.
+function loadOpponentStadiumTz() {
+  const src = fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'stadiums.js'), 'utf8');
+  // Regex-parse the per-team row (name, city, tz, surface, altitude, dome, capacity).
+  // Same shape used in build-player-board.js; accept either quote style.
+  const QQ = "(?:'((?:[^'\\\\]|\\\\.)*)'|\"((?:[^\"\\\\]|\\\\.)*)\")";
+  const re = new RegExp(`(\\b[A-Z]{2,4}):\\s*\\{\\s*name:\\s*${QQ},\\s*city:\\s*${QQ},\\s*tz:\\s*${QQ},`, 'g');
+  const out = {};
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    // Groups 6/7 hold the tz string (either quote style).
+    out[m[1]] = m[6] != null ? m[6] : m[7];
+  }
+  return out;
+}
+
 function loadPlayerBoard() {
   const src = fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'playerBoard2026.js'), 'utf8');
   // Grab only the PLAYER_BOARD_2026 array body (not the META block that follows).
@@ -154,6 +171,7 @@ async function main() {
   const ftDoc = loadFormerTeammates();
   const ftByMatchup = ftDoc.matchups || {};
   const leagueMedians = computeLeagueMedians(defense);
+  const stadiumTz = loadOpponentStadiumTz();   // F-003
 
   console.log('  player rows loaded:', board.length);
   console.log('  schedule teams:', Object.keys(schedule.teams || {}).length);
@@ -226,15 +244,23 @@ async function main() {
       // Bye-return only counts when there was a prior REG week that was a bye.
       // (Wk 1 has no prior week at all — no "coming off bye" applies.)
       const isByeReturn = week > wkMin && !playedPrevWeek;
-      // tz_delta = home stadium tz offset minus visitor's home tz offset (relative for the road team)
-      // Simplified: for the away team, delta = (game tz) - (home tz); for the home team, 0.
+      // F-003 (2026-09-05): tz_delta resolved for away games too.
+      //   Home game → 0 (no travel).
+      //   Away game → opp home-stadium tz offset − player home-stadium tz offset.
+      //   Positive = travel east; negative = travel west.
+      //   West coast → East coast is +3 (a body-clock disadvantage for early
+      //   games); East → West is -3 (favours the visitor at late slots).
       let tz_delta = 0;
       if (g.home_away === 'A') {
-        // We'd need each team's home tz here — pull from player row's stadium fields (own_team) vs opp's tz.
         const ownTz = p.home_tz;
-        // Opp home tz from defense2026 doesn't carry stadium; we'll fall back to schedule row's stadium's tz lookup being non-trivial.
-        // For a stored artifact, leave tz_delta as 0 unless we resolve opp stadium tz. Marked with tz_delta_source.
-        tz_delta = null;
+        const oppTz = stadiumTz[opp];
+        const ownOffset = TZ_OFFSETS[ownTz];
+        const oppOffset = TZ_OFFSETS[oppTz];
+        if (ownOffset != null && oppOffset != null) {
+          tz_delta = oppOffset - ownOffset;
+        } else {
+          tz_delta = null;
+        }
       }
 
       const weekMeta = {
