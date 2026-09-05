@@ -95,8 +95,10 @@ const PAGE_META = {
     description: "Full NFL team scouting reports — player cards, ratings, archetypes, and roster grids for all 32 teams.",
   },
   "/war-room": {
-    title: "War Room — GM Perspective | DownfieldOS",
-    description: "NFL analysis from the GM's chair — season assessments, draft boards, and front office decision-making.",
+    // Binding constraint 2026-08-22: no GM stuff. Was "War Room — GM Perspective";
+    // was "NFL analysis from the GM's chair". Neutralized to front-office lens.
+    title: "War Room — Roster & Draft Needs | DownfieldOS",
+    description: "NFL team roster gaps, positional depth, and draft-fit scoring across all 32 teams.",
   },
   "/admin": {
     title: "Admin — Post Manager | DownfieldOS",

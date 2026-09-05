@@ -51,6 +51,11 @@ const ROUTES = [
   // missed from prerender + smoke test, so /2026-preview kept returning 404
   // with homepage og:url while the other 7 routes returned 200 with correct meta.
   { path: '/2026-preview',    title: '2026 Season Preview — DownfieldOS', description: 'Preseason narrative, DNA, sentiment and matchup preview for every team heading into 2026.' },
+  // Added 2026-09-05 evening — browser walk of QA 2026-09-04d acceptance
+  // caught /draft-copilot and /admin 404'ing at the HTML layer (SPA fallback
+  // hydrated but initial fetch was a raw 404).
+  { path: '/draft-copilot',   title: 'Draft Copilot — DownfieldOS',      description: 'Live fantasy draft copilot — projected points, VORP, and context-adjusted rankings drawn from the DownfieldOS player board.' },
+  { path: '/admin',           title: 'Admin — DownfieldOS',              description: 'Batch-generate branded matchup posts. Auth-gated.' },
 ];
 
 function main() {

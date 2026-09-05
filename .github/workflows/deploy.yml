@@ -66,6 +66,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+      # Repo needed for .github/scripts/render-smoke.mjs — build job checks
+      # out its own copy, this one must do the same.
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Post-deploy smoke test
         run: |
           sleep 30
@@ -81,7 +87,7 @@ jobs:
           # each route in the build. GitHub Pages serves those directly.
           # Deep links must be 200 (crawlers/unfurlers need it) AND carry
           # route-specific og:url (not the homepage URL).
-          for route in matchup-preview this-week team-intel fantasy-intel war-room so-what dashboard 2026-preview; do
+          for route in matchup-preview this-week team-intel fantasy-intel war-room so-what dashboard 2026-preview draft-copilot admin; do
             RSTATUS=$(curl -sIL "https://downfieldos.com/${route}" -o /dev/null -w "%{http_code}")
             if [ "$RSTATUS" != "200" ]; then echo "/${route} returned $RSTATUS"; exit 1; fi
             RBODY=$(curl -sL "https://downfieldos.com/${route}")
