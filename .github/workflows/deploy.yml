@@ -105,3 +105,14 @@ jobs:
             echo "Bundle $BUNDLE size $BSIZE bytes — suspiciously small (broken build?)"; exit 1
           fi
           echo "Bundle $BUNDLE: 200 OK, ${BSIZE} bytes"
+
+          # ── Headless render — QA 2026-09-04d P1: shell + status are not
+          # evidence the page works. TDZ bugs (2026-04-25 MatchupCenter,
+          # 2026-08-21 FantasyIntel) shipped green through 40+ deploys
+          # because the smoke test measured the CDN, not the product.
+          # Puppeteer boots each route, waits for network idle, and fails
+          # on any uncaught exception or on the error-boundary text.
+      - name: Headless-render each route
+        run: |
+          npm i -D puppeteer@23 --no-audit --no-fund
+          node .github/scripts/render-smoke.mjs

@@ -32,10 +32,17 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   useEffect(() => { if (initialOff) setOffTm(initialOff); }, [initialOff]);
   useEffect(() => { if (initialDef) setDefTm(initialDef); }, [initialDef]);
   useEffect(() => { if (primaryTeam && !initialOff) setOffTm(primaryTeam); }, [primaryTeam]);
-  useEffect(() => { setPivotIdx({}); }, [offTm, defTm, playerSide]); // reset pivots when context changes
+  // P0-A fix (2026-09-05): declarations moved above the useEffect that
+  // reads them. Prior order had the effect referencing playerSide and
+  // pivotIdx two lines before their `useState` declarations — temporal
+  // dead zone, threw on every render for every team, every time. Broken
+  // in production for 132 days (introduced in ba853eb 2026-04-25).
+  // DO NOT re-order effects above state declarations. Line ordering is
+  // the fix, not a component restructure.
   const [showPlayers, setShowPlayers] = useState(true);
   const [playerSide, setPlayerSide] = useState("off"); // "off" = offTm's offense, "def" = defTm's offense
   const [pivotIdx, setPivotIdx] = useState({}); // { matchupKey: alternateIndex }
+  useEffect(() => { setPivotIdx({}); }, [offTm, defTm, playerSide]); // reset pivots when context changes
   const [showThread, setShowThread] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [gameWeek, setGameWeek] = useState(1);

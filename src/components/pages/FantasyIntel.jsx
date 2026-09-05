@@ -99,9 +99,20 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
     });
   }, [plays, rosters, selectedWeek, bl]);
 
+  // P0-B fix (2026-09-05): contractYearNames declaration moved above its
+  // first use in the `sorted` memo. Prior order read contractYearNames at
+  // lines 115 and 126 before its declaration at 128 — temporal dead zone,
+  // threw on every render. Broken in production since 2026-08-21 (3bd1508f).
+  // DO NOT re-order memos above the state/memos they depend on. Line ordering
+  // is the fix, not a component restructure.
+  const contractYearNames = useMemo(() => {
+    const players = contractYearData?.contract_year_players || [];
+    return new Set(players.map(p => p.player));
+  }, []);
+
   // Persona-adjusted ranking: keep the raw opportunity score in tact, but sort
-  // by opportunity × persona value delta so a Ceiling-first (Howie) drafter
-  // gets high-upside players surfaced ahead of same-opportunity floor plays.
+  // by opportunity × persona value delta so a ceiling-first mode gets
+  // high-upside players surfaced ahead of same-opportunity floor plays.
   const sorted = useMemo(() => {
     return [...matchupBoard]
       .map(item => {
@@ -124,11 +135,6 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
       .sort((a, b) => b.adj - a.adj)
       .map(x => x.item);
   }, [matchupBoard, posFilter, persona, contractYearNames]);
-
-  const contractYearNames = useMemo(() => {
-    const players = contractYearData?.contract_year_players || [];
-    return new Set(players.map(p => p.player));
-  }, []);
 
   function FantasyRow({ item, rank }) {
     const pos = item[posFilter];
