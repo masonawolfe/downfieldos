@@ -26,7 +26,8 @@
     "data:board:weekly": "node scripts/build-weekly-board.js",
     "data:defense": "node scripts/build-defense.js",
     "data:history": "node scripts/build-history-and-durability.js",
-    "prerender": "node scripts/prerender-routes.js"
+    "prerender": "node scripts/prerender-routes.js",
+    "data:board:md": "node scripts/build-board-md.mjs"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",
