@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  E-008 (2026-09-05): Beta and Internal routes intentionally NOT listed.
+  Dropped /fantasy-intel, /war-room, /draft-copilot, /admin. Those routes
+  still exist and still return 200 by direct URL (they are prerendered),
+  but they carry <meta name="robots" content="noindex, nofollow"> so
+  Google should not index them regardless of whether they appear here.
+  See RELEASE_PROCESS.md for the promotion gate back to Public.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://downfieldos.com/</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://downfieldos.com/dashboard</loc><lastmod>2026-03-21</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://downfieldos.com/2026-preview</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://downfieldos.com/this-week</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://downfieldos.com/so-what</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://downfieldos.com/matchup-preview</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://downfieldos.com/fantasy-intel</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://downfieldos.com/team-intel</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://downfieldos.com/war-room</loc><lastmod>2026-03-21</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://downfieldos.com/</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://downfieldos.com/dashboard</loc><lastmod>2026-09-05</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://downfieldos.com/2026-preview</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://downfieldos.com/this-week</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://downfieldos.com/so-what</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://downfieldos.com/matchup-preview</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://downfieldos.com/team-intel</loc><lastmod>2026-09-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>

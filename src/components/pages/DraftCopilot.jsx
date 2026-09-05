@@ -169,7 +169,7 @@ export function DraftCopilot() {
 
   return (
     <div>
-      <h2 style={{ fontSize: 28, fontWeight: 900, color: '#0f172a', margin: '0 0 4px', letterSpacing: -1 }}>Draft Copilot</h2>
+      <h2 style={{ fontSize: 28, fontWeight: 900, color: '#0f172a', margin: '0 0 4px', letterSpacing: -1 }}>On the Clock</h2>{/* Renamed 2026-09-05 per E-008: "Copilot" is Microsoft's; "War Room" is already ours. */}
       <p style={{ fontSize: 14, color: '#64748b', margin: '0 0 20px' }}>
         Live survival probability + persona-weighted valuation over the pool. Paste your league's pick log below — the copilot computes each player's odds of surviving to your next pick.
       </p>

@@ -31,6 +31,12 @@ jobs:
       # finding #9). GitHub caches have a natural 7-day TTL, which matches
       # the "refresh weekly during the season" cadence for the in-season
       # year. Bumping the fetch script busts the cache automatically.
+      - name: Release-surface checks (E-008)
+        # Fails the build on:
+        #   1. a nav line missing from PUBLIC_SURFACES
+        #   2. a router <Route> missing from prerender ROUTES
+        # See .github/scripts/check-release-surfaces.mjs and RELEASE_PROCESS.md.
+        run: node .github/scripts/check-release-surfaces.mjs
       - name: Cache PBP JSON outputs
         id: pbp-cache
         uses: actions/cache@v4

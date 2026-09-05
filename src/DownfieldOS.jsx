@@ -48,15 +48,38 @@ const MODULE_GROUPS = [
   { label: "INTELLIGENCE", items: [
     { id: "matchup", path: "/matchup-preview", label: "Matchup Preview", icon: Swords },
     { id: "intel", path: "/team-intel", label: "Team Intel", icon: Eye },
-    { id: "warroom", path: "/war-room", label: "War Room", icon: Shield },
-  ]},
-  { label: "CONTENT", items: [
-    { id: "fantasy", path: "/fantasy-intel", label: "Fantasy Intel", icon: Flame },
-    { id: "draftcopilot", path: "/draft-copilot", label: "Draft Copilot", icon: Zap },
-    { id: "admin", path: "/admin", label: "Admin", icon: Target },
+    // /war-room, /fantasy-intel, /draft-copilot (renamed → "On the Clock")
+    // moved to Beta 2026-09-05 per E-008 + RELEASE_PROCESS.md; /admin moved
+    // to Internal. All four still reachable by typing the URL and still
+    // return 200 (prerendered) — but not surfaced in the nav or the
+    // sitemap. Promotion back to Public requires Mason's explicit yes.
   ]},
 ];
 const MODULES = MODULE_GROUPS.flatMap(g => g.items);
+
+/**
+ * Public surfaces committed alongside the nav. Every entry in MODULES
+ * above must appear in this list — the deploy.yml nav-check job diffs
+ * the two and fails the build on any mismatch. Adding a line to MODULES
+ * without also editing this list fails CI, which is the moment Mason
+ * gets asked. See RELEASE_PROCESS.md for the promotion gate.
+ *
+ * Beta and Internal surfaces (2026-09-05):
+ *   /war-room, /fantasy-intel, /draft-copilot → Beta
+ *   /admin → Internal
+ * They are prerendered and return 200 by direct URL, but not listed
+ * here and not in the sitemap. Promotion back to Public requires an
+ * MVP-line update in SCHUHBOX_STRUCTURE.md or an explicit
+ * DECISIONS.md entry.
+ */
+export const PUBLIC_SURFACES = new Set([
+  '/dashboard',
+  '/2026-preview',
+  '/this-week',
+  '/so-what',
+  '/matchup-preview',
+  '/team-intel',
+]);
 
 /**
  * Page metadata — title, description, OG tags per route.
@@ -87,22 +110,39 @@ const PAGE_META = {
     description: "Deep NFL matchup scouting — scheme analysis, player-level matchups, intelligence signals, and game scripts.",
   },
   "/fantasy-intel": {
-    title: "Fantasy Intel — Matchup Rankings | DownfieldOS",
-    description: "Fantasy football matchup rankings with boom/bust probability by position. Data-driven start/sit decisions.",
+    // Beta 2026-09-05 per E-008 — noindex, dropped from sitemap + nav.
+    title: "Fantasy Intel — DownfieldOS",
+    description: "Fantasy football matchup rankings and start/sit signals. Beta.",
+    stage: 'beta',
   },
   "/team-intel": {
     title: "Team Intel — Full Scouting Report | DownfieldOS",
     description: "Full NFL team scouting reports — player cards, ratings, archetypes, and roster grids for all 32 teams.",
   },
   "/war-room": {
-    // Binding constraint 2026-08-22: no GM stuff. Was "War Room — GM Perspective";
-    // was "NFL analysis from the GM's chair". Neutralized to front-office lens.
+    // Beta 2026-09-05 per E-008. Also GM-copy stripped 2026-09-05 per binding
+    // constraint — title used to be "War Room — GM Perspective".
     title: "War Room — Roster & Draft Needs | DownfieldOS",
-    description: "NFL team roster gaps, positional depth, and draft-fit scoring across all 32 teams.",
+    description: "NFL team roster gaps, positional depth, and draft-fit scoring across all 32 teams. Beta.",
+    stage: 'beta',
+  },
+  "/draft-copilot": {
+    // Beta 2026-09-05 per E-008. Renamed 2026-09-05 — "Copilot" is Microsoft's,
+    // and it was live in the public nav for a period. New label: "On the Clock."
+    // Description rewritten to describe what the page actually does (per
+    // LINKS.md) instead of advertising a fantasy MVP feature that isn't in
+    // production per SCHUHBOX_STRUCTURE.md.
+    title: "On the Clock — DownfieldOS",
+    description: "Set your league size and draft slot, paste the picks that have already happened, get who to take now plus the odds each remaining player survives to your next pick. Reads the live DFOS player board. Beta.",
+    stage: 'beta',
   },
   "/admin": {
-    title: "Admin — Post Manager | DownfieldOS",
-    description: "Auto-generate branded Instagram matchup posts. Batch creation with one click.",
+    // Internal 2026-09-05 per E-008 — noindex, dropped from sitemap + nav.
+    // Its password is hardcoded in the client bundle (AdminPanel.jsx:54);
+    // that is a secrets issue and Internal is NOT a security boundary.
+    title: "Admin — DownfieldOS",
+    description: "Internal tooling.",
+    stage: 'internal',
   },
 };
 
@@ -126,6 +166,14 @@ function updateMeta(path) {
   setMeta("name", "twitter:card", "summary_large_image");
   setMeta("name", "twitter:title", meta.title);
   setMeta("name", "twitter:description", meta.description);
+
+  // Robots directive per stage. Beta and Internal routes are reachable by
+  // direct URL (prerendered, 200) but must not be indexed. Public routes
+  // (default) get "index, follow." Setting this in the runtime SPA is
+  // belt-and-suspenders — the prerendered HTML also carries the tag so
+  // crawlers that don't run JS still see it.
+  const robots = (meta.stage === 'beta' || meta.stage === 'internal') ? 'noindex, nofollow' : 'index, follow';
+  setMeta("name", "robots", robots);
 
   // Canonical URL
   let canonical = document.querySelector('link[rel="canonical"]');
@@ -384,7 +432,7 @@ export default function DownfieldOS() {
             <Route path="/war-room" element={<ErrorBoundary label="War Room"><WarRoom plays={filteredPlays} primaryTeam={primaryTeam} /></ErrorBoundary>} />
             <Route path="/admin" element={<ErrorBoundary label="Admin"><AdminPanel plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/game-prep" element={<ErrorBoundary label="Game Prep"><GamePrep plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} navigate={navigate} /></ErrorBoundary>} />
-            <Route path="/draft-copilot" element={<ErrorBoundary label="Draft Copilot"><DraftCopilot /></ErrorBoundary>} />
+            <Route path="/draft-copilot" element={<ErrorBoundary label="On the Clock"><DraftCopilot /></ErrorBoundary>} />
             {/* Team-specific routes */}
             <Route path="/team/:teamCode" element={<ErrorBoundary label="Team Intel"><TeamRouteWrapper plays={filteredPlays} rosters={rosters} /></ErrorBoundary>} />
             <Route path="/matchup/:matchup" element={<ErrorBoundary label="Matchup Preview"><MatchupRouteWrapper plays={filteredPlays} rosters={rosters} primaryTeam={primaryTeam} /></ErrorBoundary>} />

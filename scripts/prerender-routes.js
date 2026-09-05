@@ -39,23 +39,37 @@ const BASE = 'https://downfieldos.com';
 // Routes to prerender. Keep in sync with the sitemap and React Router routes
 // in DownfieldOS.jsx. Each route needs a distinct title/description because
 // that is what Twitter/LinkedIn unfurl.
+// E-008 stage per route (see RELEASE_PROCESS.md):
+//   'public'   — in the nav, prerendered, in the sitemap, indexed
+//   'beta'     — NOT in the nav, prerendered, NOT in the sitemap, noindex
+//   'internal' — same as beta; conceptually only Mason
+// Prerender is not optional — it is the only reason a direct URL returns
+// 200 in this repo. Do NOT remove Beta/Internal entries from ROUTES.
 const ROUTES = [
-  { path: '/matchup-preview', title: 'Matchup Preview — DownfieldOS', description: 'Weekly NFL matchup grades and player-level scouting for every game. DownfieldOS pairs projected performance with matchup intelligence — defense, coaching, environment.' },
-  { path: '/this-week',       title: 'This Week — DownfieldOS',       description: 'Every NFL game this week, with grades, mismatch flags, and the Game of the Week called from the data.' },
-  { path: '/team-intel',      title: 'Team Intel — DownfieldOS',      description: '32 team dashboards — scheme profile, DNA, roster context, fan sentiment. The team lens beyond box scores.' },
-  { path: '/fantasy-intel',   title: 'Fantasy Intel — DownfieldOS',   description: 'Fantasy-relevant matchup grades, boom/bust flags, and opportunity signals — sortable by slot and by team.' },
-  { path: '/war-room',        title: 'War Room — DownfieldOS',        description: 'Draft-board view — team needs, positional depth, and prospect fit scoring.' },
-  { path: '/so-what',         title: 'So What? — DownfieldOS',        description: 'League-wide storylines, misery index, weekly drama rankings — the entertainment layer.' },
-  { path: '/dashboard',       title: 'Home Dashboard — DownfieldOS',  description: 'Your team\'s next matchup, intelligence signals, and headlines around the league.' },
-  // Added 2026-09-05 (QA 2026-09-04c P2): route was in sitemap and router but
-  // missed from prerender + smoke test, so /2026-preview kept returning 404
-  // with homepage og:url while the other 7 routes returned 200 with correct meta.
-  { path: '/2026-preview',    title: '2026 Season Preview — DownfieldOS', description: 'Preseason narrative, DNA, sentiment and matchup preview for every team heading into 2026.' },
-  // Added 2026-09-05 evening — browser walk of QA 2026-09-04d acceptance
-  // caught /draft-copilot and /admin 404'ing at the HTML layer (SPA fallback
-  // hydrated but initial fetch was a raw 404).
-  { path: '/draft-copilot',   title: 'Draft Copilot — DownfieldOS',      description: 'Live fantasy draft copilot — projected points, VORP, and context-adjusted rankings drawn from the DownfieldOS player board.' },
-  { path: '/admin',           title: 'Admin — DownfieldOS',              description: 'Batch-generate branded matchup posts. Auth-gated.' },
+  { path: '/matchup-preview', stage: 'public', title: 'Matchup Preview — DownfieldOS', description: 'Weekly NFL matchup grades and player-level scouting for every game. DownfieldOS pairs projected performance with matchup intelligence — defense, coaching, environment.' },
+  { path: '/this-week',       stage: 'public', title: 'This Week — DownfieldOS',       description: 'Every NFL game this week, with grades, mismatch flags, and the Game of the Week called from the data.' },
+  { path: '/team-intel',      stage: 'public', title: 'Team Intel — DownfieldOS',      description: '32 team dashboards — scheme profile, DNA, roster context, fan sentiment. The team lens beyond box scores.' },
+  { path: '/so-what',         stage: 'public', title: 'So What? — DownfieldOS',        description: 'League-wide storylines, misery index, weekly drama rankings — the entertainment layer.' },
+  { path: '/dashboard',       stage: 'public', title: 'Home Dashboard — DownfieldOS',  description: 'Your team\'s next matchup, intelligence signals, and headlines around the league.' },
+  { path: '/2026-preview',    stage: 'public', title: '2026 Season Preview — DownfieldOS', description: 'Preseason narrative, DNA, sentiment and matchup preview for every team heading into 2026.' },
+  // Beta 2026-09-05 per E-008 — noindex, dropped from nav + sitemap. Still
+  // returns 200 by direct URL because it is prerendered. Fantasy incubator.
+  { path: '/fantasy-intel',   stage: 'beta',   title: 'Fantasy Intel — DownfieldOS',   description: 'Fantasy football matchup rankings and start/sit signals. Beta.' },
+  { path: '/war-room',        stage: 'beta',   title: 'War Room — DownfieldOS',        description: 'Roster gaps, positional depth, draft-fit scoring across all 32 teams. Beta.' },
+  // Renamed 2026-09-05 — "Copilot" is Microsoft's. Description rewritten
+  // to describe what the page actually does (per LINKS.md) instead of
+  // advertising a fantasy MVP feature that is not in production per
+  // SCHUHBOX_STRUCTURE.md.
+  { path: '/draft-copilot',   stage: 'beta',   title: 'On the Clock — DownfieldOS',    description: 'Set your league size and draft slot, paste the picks that have already happened, get who to take now plus the odds each remaining player survives to your next pick. Reads the live DFOS player board. Beta.' },
+  // Internal 2026-09-05 per E-008 — noindex, dropped from nav + sitemap.
+  // Password is hardcoded in the client bundle (secrets tracks that);
+  // Internal is NOT a security boundary.
+  { path: '/admin',           stage: 'internal', title: 'Admin — DownfieldOS',         description: 'Internal tooling.' },
+  // Caught 2026-09-05 by check-release-surfaces.mjs — this route existed
+  // in the router but had never been prerendered. Filed as Beta pending
+  // Mason's stage decision (per RELEASE_PROCESS.md an engineer may build
+  // at Internal / Beta without asking; only Public needs the yes).
+  { path: '/game-prep',       stage: 'beta',   title: 'Game Prep — DownfieldOS',       description: 'Single-scroll matchup preparation for one game — for podcasters and single-game preppers. Beta.' },
 ];
 
 function main() {
@@ -69,9 +83,10 @@ function main() {
   console.log('=================================================');
 
   let written = 0;
+  let noindexed = 0;
   for (const r of ROUTES) {
     const canonical = BASE + r.path;
-    const html = template
+    let html = template
       // <title>DownfieldOS — Football Intelligence Operating System</title>
       .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(r.title)}</title>`)
       // <meta name="description" ...>
@@ -89,12 +104,24 @@ function main() {
       // <link rel="canonical" href="...">
       .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${canonical}"`);
 
+    // E-008 robots per stage. Beta and Internal must not be indexed.
+    // Inject a <meta name="robots"> in <head> — belt-and-suspenders with
+    // the runtime updateMeta() in DownfieldOS.jsx, so crawlers that don't
+    // run JS still see the directive.
+    if (r.stage === 'beta' || r.stage === 'internal') {
+      const tag = '<meta name="robots" content="noindex, nofollow" />';
+      html = html.replace('</head>', `    ${tag}\n  </head>`);
+      noindexed++;
+    }
+
     const outDir = path.join(DIST, r.path.replace(/^\//, ''));
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html);
-    console.log(`  ${r.path.padEnd(24)} → ${path.relative(DIST, path.join(outDir, 'index.html'))}`);
+    const stageTag = r.stage === 'public' ? '        ' : `[${r.stage}]`.padEnd(8);
+    console.log(`  ${stageTag} ${r.path.padEnd(24)} → ${path.relative(DIST, path.join(outDir, 'index.html'))}`);
     written++;
   }
+  console.log(`\n  ${noindexed} of ${written} route stubs carry <meta name="robots" content="noindex, nofollow" />`);
 
   // Report byte-differences vs the source index.html so a regression that
   // silently disabled the substitutions is visible in the build log.
