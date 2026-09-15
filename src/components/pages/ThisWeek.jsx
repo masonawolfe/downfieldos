@@ -13,6 +13,8 @@ import { RatingBar } from '../ui/RatingBar';
 import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 import { Tooltip } from '../ui/Tooltip';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
+import { WeekRecaps } from '../ui/WeekRecaps';
+import games2026 from '../../data/games2026.json';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
@@ -219,11 +221,41 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
     );
   }
 
+  // 2026 game-recap feed (nflverse schedules + PBP). Most recent completed
+  // week is what "recent results" should show; upcoming week is what "on
+  // deck" should show. Derived once from the feed, not user-selected.
+  const recap2026 = useMemo(() => {
+    const games = games2026?.games || [];
+    const played = games.filter(g => g.played);
+    const upcoming = games.filter(g => !g.played);
+    const lastCompletedWeek = played.length ? Math.max(...played.map(g => g.week)) : null;
+    const nextScheduledWeek = upcoming.length ? Math.min(...upcoming.map(g => g.week)) : null;
+    return { lastCompletedWeek, nextScheduledWeek };
+  }, []);
+
   return (
     <div>
       <h2 style={{ fontSize: 32, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -1 }}>This Week</h2>
       <p style={{ fontSize: 15, color: "#64748b", margin: "0 0 24px" }}>Every game at a glance. Click any matchup to expand.</p>
 
+      {(recap2026.lastCompletedWeek || recap2026.nextScheduledWeek) && (
+        <div style={{ background: "#0d1117", borderRadius: 16, padding: 24, marginBottom: 32, border: "1px solid #21262d" }}>
+          <h3 style={{ fontSize: 20, fontWeight: 900, color: "#f0f6fc", margin: "0 0 4px", letterSpacing: -0.5 }}>2026 Season</h3>
+          <p style={{ fontSize: 13, color: "#8b949e", margin: "0 0 20px" }}>
+            Live results and the next week's schedule, pulled from nflverse.
+          </p>
+          {recap2026.lastCompletedWeek && (
+            <div style={{ marginBottom: recap2026.nextScheduledWeek ? 24 : 0 }}>
+              <WeekRecaps week={recap2026.lastCompletedWeek} highlightTeam={primaryTeam} />
+            </div>
+          )}
+          {recap2026.nextScheduledWeek && recap2026.nextScheduledWeek !== recap2026.lastCompletedWeek && (
+            <WeekRecaps week={recap2026.nextScheduledWeek} highlightTeam={primaryTeam} />
+          )}
+        </div>
+      )}
+
+      <h3 style={{ fontSize: 15, fontWeight: 800, color: "#0f172a", textTransform: "uppercase", letterSpacing: 1.5, margin: "0 0 12px" }}>Historical week explorer</h3>
       <div style={{ display: "flex", gap: 12, marginBottom: 24, alignItems: "flex-end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <label style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Season</label>
