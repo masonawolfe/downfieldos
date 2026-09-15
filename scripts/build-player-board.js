@@ -637,37 +637,21 @@ function attachContextLayer(rows) {
     }
 
     // ── fan sentiment ─────────────────────────────────────────────────
-    const fs = sentiment.get(t);
-    if (fs) {
-      r.fan_misery_index = fs.misery_index;
-      r.fan_hope = fs.hope;
-      r.fan_anger = fs.anger;
-      r.fan_one_liner = fs.one_liner;
-      // F-002 (2026-09-05, restored per QA 2026-09-04c P2): distinguish
-      // agent-scraped rows from hand-curated substrate-inferred rows so the
-      // copilot can say "this reading came from Reddit vs was inferred by
-      // the engineer from dna2026/faMoves." Feed carries `source` on the
-      // 3 curated teams (CAR/CLE/NYG); placeholder rows carry
-      // `needs_refresh_2026_09_05`. Neither collapses to the plain source
-      // string — the disclosure survives here.
-      if (fs.source) {
-        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (' + fs.source + ')';
-      } else if (fs.needs_refresh_2026_09_05) {
-        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (F-002 placeholder — awaiting sentiment agent scrape)';
-      } else {
-        r.fan_sentiment_source = 'intelligence/fan_sentiment.json (reddit_scrape)';
-      }
-      counters.fan_sentiment_hits++;
-    } else {
-      // Should now be zero teams — F-002 added placeholders for the 3 gaps.
-      // Keep this branch as an honest fallback in case the feed shape changes.
-      r.fan_misery_index = null;
-      r.fan_hope = null;
-      r.fan_anger = null;
-      r.fan_one_liner = null;
-      r.fan_sentiment_source = 'not_in_feed (feed regressed post-F-002 — investigate)';
-      counters.fan_sentiment_missing_teams.add(t);
-    }
+    // E-010 option (b), taken 2026-09-14 per CoS `_FROM_COS/2026-09-14-two-
+    // honest-fixes.md`. The underlying intelligence/fan_sentiment.json is
+    // dated 2026-03-21 (offseason_free_agency) and nothing on Code's scheduler
+    // has produced a newer file — fan-sentiment-scorer has zero runs since
+    // re-homing, and its SKILL writes to a stale Cowork path under a dated
+    // filename the board never reads. Rather than joining stale March numbers
+    // onto 1,068 rows for a September draft, null the fields and label the
+    // source honestly. Restore the join when a scorer run lands a fresh
+    // fan_sentiment.json here — same file, same shape, no board change needed.
+    r.fan_misery_index = null;
+    r.fan_hope = null;
+    r.fan_anger = null;
+    r.fan_one_liner = null;
+    r.fan_sentiment_source = 'absent (no live feed since 2026-03-21)';
+    counters.fan_sentiment_missing_teams.add(t);
 
     // ── defense (only for the player's OWN team — not opponent-based;
     // opponent-defense joins live on the weekly board, E-003) ────────
