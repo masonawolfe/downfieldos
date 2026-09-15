@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { NEWSLETTER_NAME, NEWSLETTER_URL } from "../../config/newsletter";
 
 export function NewsletterCTA() {
   return (
@@ -20,7 +21,7 @@ export function NewsletterCTA() {
         </span>
       </div>
       <a
-        href="https://the-audible.beehiiv.com"
+        href={NEWSLETTER_URL}
         target="_blank"
         rel="noopener noreferrer"
         style={{
@@ -36,7 +37,7 @@ export function NewsletterCTA() {
         onMouseEnter={e => { e.target.style.background = "#f97316"; e.target.style.color = "#fff"; e.target.style.borderColor = "#f97316"; }}
         onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = "#f97316"; e.target.style.borderColor = "#f9731640"; }}
       >
-        Subscribe to The Audible →
+        Subscribe to {NEWSLETTER_NAME} →
       </a>
     </div>
   );

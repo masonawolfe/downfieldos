@@ -4,6 +4,7 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import { Logo } from '../ui/Logo';
 import { T } from '../../data/teams';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
+import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../config/newsletter';
 
 const MODULE_CARDS = [
   {
@@ -72,12 +73,12 @@ export function LandingPage({ onSelectTeam, navigate }) {
             </select>
           </div>
           <a
-            href="https://the-audible.beehiiv.com"
+            href={NEWSLETTER_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "1px solid #30363d", borderRadius: 10, padding: "14px 24px", fontSize: 16, fontWeight: 700, color: "#e2e8f0", textDecoration: "none", cursor: "pointer" }}
           >
-            Subscribe to The Audible <ExternalLink size={14} />
+            Subscribe to {NEWSLETTER_NAME} <ExternalLink size={14} />
           </a>
         </div>
 

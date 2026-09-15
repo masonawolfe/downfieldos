@@ -15,6 +15,7 @@ import { agg, lgbl } from './utils/aggregation';
 import { buildDynamicDNA } from './utils/teamIdentity';
 import { sr } from './utils/rng';
 import { NavItem, FilterPanel, InstaPostCard, Logo, TeamSelect, ErrorBoundary } from './components/ui';
+import { NEWSLETTER_NAME, NEWSLETTER_URL } from './config/newsletter';
 import { CommandPalette } from './components/ui/CommandPalette';
 import { Walkthrough, useWalkthrough } from './components/ui/Walkthrough';
 import { Season2026 } from './components/pages/Season2026';
@@ -366,9 +367,9 @@ export default function DownfieldOS() {
             ))}
             <div style={{ height: 1, background: "#1e293b", margin: "8px 0" }} />
             <NavItem icon={Filter} label="Filters" active={showFilters} onClick={() => setShowFilters(!showFilters)} badge={isFiltered ? "ON" : null} />
-            <a href="https://the-audible.beehiiv.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", fontSize: 12, color: "#8B949E", textDecoration: "none", borderRadius: 8, marginTop: 4, transition: "color 0.15s" }} onMouseEnter={e => e.currentTarget.style.color = "#f97316"} onMouseLeave={e => e.currentTarget.style.color = "#8B949E"}>
+            <a href={NEWSLETTER_URL} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", fontSize: 12, color: "#8B949E", textDecoration: "none", borderRadius: 8, marginTop: 4, transition: "color 0.15s" }} onMouseEnter={e => e.currentTarget.style.color = "#f97316"} onMouseLeave={e => e.currentTarget.style.color = "#8B949E"}>
               <Mail size={14} />
-              <span>Subscribe to The Audible</span>
+              <span>Subscribe to {NEWSLETTER_NAME}</span>
             </a>
           </div>
           <div style={{ padding: "12px 16px", background: "#1e293b15", borderRadius: 10, marginTop: 16 }} aria-label="System status">
