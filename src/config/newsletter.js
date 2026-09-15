@@ -5,16 +5,11 @@
 // every surface (sidebar CTA, landing page CTA, embedded NewsletterCTA
 // component, prep-sheet outputs, tweet-thread footers) picks it up on the
 // next build.
-//
-// Do NOT change the Beehiiv URL until the Beehiiv account itself has been
-// updated on Mason's side. The name can change without the URL changing;
-// Beehiiv will keep serving the current subdomain until the account is
-// renamed there.
 export const NEWSLETTER_NAME = 'The Tendency Report';
-// URL/HOST kept on the current Beehiiv subdomain intentionally — Beehiiv
-// itself has not been renamed (that is Mason's account). The display name
-// on downfieldos.com becomes "The Tendency Report" while subscribers reach
-// the same list at the-audible.beehiiv.com. Update these two constants in
-// the same commit as the Beehiiv-side rename.
-export const NEWSLETTER_URL = 'https://the-audible.beehiiv.com';
-export const NEWSLETTER_HOST = 'the-audible.beehiiv.com';
+// Beehiiv publication + subdomain rename landed 2026-09-15. The prior
+// `the-audible.beehiiv.com` host now returns HTTP 404 in a browser
+// (verified this evening — Beehiiv does not redirect old subdomains),
+// so any pointer to it would break the Subscribe link on downfieldos.com
+// and the E-013 form's POST target.
+export const NEWSLETTER_URL = 'https://the-tendency-report.beehiiv.com';
+export const NEWSLETTER_HOST = 'the-tendency-report.beehiiv.com';
