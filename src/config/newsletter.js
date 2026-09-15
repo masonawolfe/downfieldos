@@ -10,6 +10,11 @@
 // updated on Mason's side. The name can change without the URL changing;
 // Beehiiv will keep serving the current subdomain until the account is
 // renamed there.
-export const NEWSLETTER_NAME = 'The Audible';
+export const NEWSLETTER_NAME = 'The Tendency Report';
+// URL/HOST kept on the current Beehiiv subdomain intentionally — Beehiiv
+// itself has not been renamed (that is Mason's account). The display name
+// on downfieldos.com becomes "The Tendency Report" while subscribers reach
+// the same list at the-audible.beehiiv.com. Update these two constants in
+// the same commit as the Beehiiv-side rename.
 export const NEWSLETTER_URL = 'https://the-audible.beehiiv.com';
 export const NEWSLETTER_HOST = 'the-audible.beehiiv.com';
