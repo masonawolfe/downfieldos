@@ -48,24 +48,31 @@ async function fetchTeamNews(abbr, teamId) {
   const data = await res.json();
   const articles = data.articles || [];
 
-  return articles.map(a => ({
-    // Counsel 2026-09-05: `headline` and `description` intentionally dropped
-    // to stop republishing ESPN's expression. Retained metadata only:
-    type: a.type || null,                                // Media / Story / Preview / etc.
-    published: a.published || null,
-    last_modified: a.lastModified || null,
-    link: a.links?.web?.href || a.links?.mobile?.href || null,
-    // Categories: bucket labels only (Player / Team / Injury / etc.). Also
-    // dropped `c.description` inside each category — that field carries
-    // ESPN's editorial prose the same way top-level description does.
-    categories: (a.categories || []).map(c => ({
-      type: c.type,
-      teamId: c.teamId,
-      team: c.team?.abbreviation,
-      athleteId: c.athleteId,
-      athlete: c.athlete?.displayName,
-    })),
-  }));
+  return articles
+    // Filter dead-on-arrival types at build time. `Media` = ESPN video
+    // clips (espn.com/video/clip/...) which the public site now returns
+    // 404 for — 100% of sampled Media links dead 2026-09-15 (QA lane-1;
+    // Story / HeadlineNews / Recap sampled 100% live). Dropping the type
+    // at build removes the dead-link category entirely without needing a
+    // per-link HEAD-check on every build.
+    .filter(a => (a.type || '').toLowerCase() !== 'media')
+    .map(a => ({
+      // Counsel 2026-09-05: `headline` and `description` intentionally
+      // dropped to stop republishing ESPN's expression. Retained metadata:
+      type: a.type || null,                              // Story / HeadlineNews / Recap
+      published: a.published || null,
+      last_modified: a.lastModified || null,
+      link: a.links?.web?.href || a.links?.mobile?.href || null,
+      // Categories: bucket labels only (Player / Team / Injury / etc.).
+      // Dropped `c.description` inside each — same reason as above.
+      categories: (a.categories || []).map(c => ({
+        type: c.type,
+        teamId: c.teamId,
+        team: c.team?.abbreviation,
+        athleteId: c.athleteId,
+        athlete: c.athlete?.displayName,
+      })),
+    }));
 }
 
 async function main() {

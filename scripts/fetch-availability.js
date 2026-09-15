@@ -134,7 +134,13 @@ async function main() {
       team: p.team || null,
       position: p.position || null,
       sleeper_id: sid,
-      source_url: `https://sleeper.app/nfl/player/${sid}`,
+      // Sleeper's player-page URL scheme changed: the old
+      // `sleeper.app/nfl/player/{id}` now returns 307 → 404. New scheme is
+      // `sleeper.app/players/nfl/{id}` (players/, plural, before the sport).
+      // Fixed 2026-09-15 per QA lane-1: all 785 source_url values in the
+      // committed feed were dead; a fresh fetch with this line rewrites
+      // them to the working scheme. See E-016 report in _TO_COS.md.
+      source_url: `https://sleeper.app/players/nfl/${sid}`,
       last_verified_utc: now,
     };
     mapped++;
