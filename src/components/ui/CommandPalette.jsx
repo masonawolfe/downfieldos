@@ -3,6 +3,11 @@ import { Search, TrendingUp, Calendar, Star, Swords, Flame, Eye, Shield, Target,
 import { T } from '../../data/teams';
 import { tn } from '../../utils/formatters';
 
+// /admin removed 2026-09-15 per QA lane-1 (see HomeDashboard.jsx). The
+// command palette is a public discovery surface; keeping the Admin entry
+// here after removing the password gate (E-012) put the internal panel
+// one keystroke from any visitor. Removed. Internal remains reachable by
+// typing the URL directly.
 const MODULES = [
   { icon: Home, label: "Home", path: "/dashboard", keywords: "home dashboard hq" },
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview", keywords: "season preview opponents projections roster draft" },
@@ -11,8 +16,7 @@ const MODULES = [
   { icon: Swords, label: "Matchup Preview", path: "/matchup-preview", keywords: "matchup scouting intelligence scheme coaching" },
   { icon: Flame, label: "Fantasy Intel", path: "/fantasy-intel", keywords: "fantasy rankings boom bust start sit" },
   { icon: Eye, label: "Team Intel", path: "/team-intel", keywords: "team scouting report players roster grades" },
-  { icon: Shield, label: "War Room", path: "/war-room", keywords: "draft board war room front office roster needs" },   // 'gm' keyword removed 2026-09-05 per binding constraint
-  { icon: Target, label: "Admin", path: "/admin", keywords: "admin post manager instagram" },
+  { icon: Shield, label: "War Room", path: "/war-room", keywords: "draft board war room front office roster needs" },
 ];
 
 export function CommandPalette({ isOpen, onClose, navigate, onSelectTeam }) {

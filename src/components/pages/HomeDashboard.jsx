@@ -18,6 +18,12 @@ import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { latestLeagueHeadlines } from '../../utils/teamNews';
 
+// /admin removed 2026-09-15 per QA lane-1: E-012 removed the client-side
+// password gate, so linking to /admin from the public dashboard would put
+// an ungated internal tool one click from the home page. /admin remains
+// URL-reachable only and stays noindex (RELEASE_PROCESS.md classifies it
+// Internal, not a security boundary — this removal closes the public
+// discovery path, not the surface itself).
 const QUICK_LINKS = [
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
   { icon: Calendar, label: "This Week", path: "/this-week" },
@@ -26,7 +32,6 @@ const QUICK_LINKS = [
   { icon: Flame, label: "Fantasy Intel", path: "/fantasy-intel" },
   { icon: Eye, label: "Team Intel", path: "/team-intel" },
   { icon: Shield, label: "War Room", path: "/war-room" },
-  { icon: Target, label: "Admin", path: "/admin" },
 ];
 
 export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigateMatchup }) {

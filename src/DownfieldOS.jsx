@@ -139,8 +139,12 @@ const PAGE_META = {
   },
   "/admin": {
     // Internal 2026-09-05 per E-008 — noindex, dropped from sitemap + nav.
-    // Its password is hardcoded in the client bundle (AdminPanel.jsx:54);
-    // that is a secrets issue and Internal is NOT a security boundary.
+    // E-012 removed the client-side password gate (2026-09-15) — that gate
+    // never protected anything (plaintext literal, no network call, unlock
+    // flag settable from devtools). Internal is NOT a security boundary;
+    // it is discovery + robots posture only. Public discovery paths
+    // (HomeDashboard QUICK_LINKS, CommandPalette MODULES) also removed
+    // 2026-09-15 per QA lane-1. Reachable by URL only.
     title: "Admin — DownfieldOS",
     description: "Internal tooling.",
     stage: 'internal',
