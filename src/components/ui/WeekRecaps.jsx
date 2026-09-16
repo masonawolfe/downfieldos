@@ -41,8 +41,12 @@ export function WeekRecaps({ week, showEmpty = true, highlightTeam = null, compa
               Final{g.overtime ? " (OT)" : ""}
             </div>
           ) : (
+            /* nflverse gametime is US Eastern (unlabeled in the feed). Label
+               it on the element so a Chicago or LA reader knows what they're
+               reading. Full viewer-zone conversion would be sharper UX but
+               needs a full datetime plus reliable TZ handling; label first. */
             <div style={{ fontSize: 10, color: "#8b949e", fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>
-              {g.gametime || "Scheduled"}
+              {g.gametime ? `${g.gametime} ET` : "Scheduled"}
             </div>
           )}
         </div>

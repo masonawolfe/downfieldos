@@ -184,8 +184,11 @@ function ProspectView({ prospect }) {
 
   return (
     <div>
-      <Link to="/war-room" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#64748b", textDecoration: "none", fontSize: 13, marginBottom: 16 }}>
-        <ArrowLeft size={14} /> War Room
+      {/* War Room back-link removed 2026-09-16 per QA lane-1 re-verify: the
+          rookie's public profile URL should not link to a Beta surface. Back
+          to /dashboard is the neutral public destination. */}
+      <Link to="/dashboard" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#64748b", textDecoration: "none", fontSize: 13, marginBottom: 16 }}>
+        <ArrowLeft size={14} /> Dashboard
       </Link>
 
       {/* Header */}
