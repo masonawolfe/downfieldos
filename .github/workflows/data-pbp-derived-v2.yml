@@ -1,11 +1,7 @@
 name: Data — PBP Derived (situational splits, scheme profiles)
 
-# E-024 (2026-09-16): re-registered under the same path after GitHub's
-# workflow-file parser stayed cached on the broken 2026-09-03 state and
-# would not re-read the file on lighter changes. Adding an explicit
-# `actions: read` permission below is the extra shape change that
-# actually triggered re-parse for the 11-workflow batch. See E-015 /
-# E-022 / E-024 in _TO_COS.md.
+# E-026 (2026-09-16): invalid YAML since 2026-08-21, fixed in a74bd2e.
+# `permissions: actions: write` below is for the deploy-dispatch step.
 
 # Runs the pandas-based process_pbp.py script that derives team scheme
 # profiles, scheme similarity matrix, player usage data, and situational
