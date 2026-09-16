@@ -21,6 +21,7 @@ on:
 
 permissions:
   contents: write
+  actions: write  # E-024: needed for the last `gh workflow run deploy.yml` step to trigger the site deploy
 
 concurrency:
   group: data-availability

@@ -1,5 +1,11 @@
-# E-022 (2026-09-16): re-registered under original path after E-015 confirmed the 09-03 registration cache was stuck. See _TO_COS.md.
 name: Data — Referee Tendencies
+
+# E-024 (2026-09-16): re-registered under the same path after GitHub's
+# workflow-file parser stayed cached on the broken 2026-09-03 state and
+# would not re-read the file on lighter changes. Adding an explicit
+# `actions: read` permission below is the extra shape change that
+# actually triggered re-parse for the 11-workflow batch. See E-015 /
+# E-022 / E-024 in _TO_COS.md.
 
 # Computes per-referee penalty tendencies (penalties/game, DPI/game,
 # home-team penalty share, deltas vs league baseline) by joining
@@ -22,6 +28,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: data-referee-tendencies
