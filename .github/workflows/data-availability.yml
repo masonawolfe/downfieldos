@@ -36,6 +36,20 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Fetch nflverse roster_weekly (needed for Sleeper→gsis join)
+        # P0 2026-09-16: fetch-availability.js uses roster_weekly to map
+        # Sleeper's sleeper_id to nflverse's gsis_id. Without this file the
+        # map is empty and only ~90 players match instead of ~737 — and the
+        # committed board loses every PUP/IR/SUSP row. Same fetch step
+        # data-board.yml already uses; both scripts share the two-candidate
+        # path probe (E-023), so fetching to <repo>/data/... satisfies both.
+        run: |
+          set -euo pipefail
+          mkdir -p data/intelligence/raw
+          curl -sSL --fail --max-time 120 \
+            "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.csv.gz" \
+            -o data/intelligence/raw/roster_weekly_2026.csv.gz
+          echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Refresh availability
         run: npm run data:availability
       - name: Commit if changed

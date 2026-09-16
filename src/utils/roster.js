@@ -1,5 +1,6 @@
 import { ROSTERS_2025 } from '../data/rosters2025';
 import { FA_MOVES_2026 } from '../data/faMoves2026';
+import { ROSTERS_2026 } from '../data/rosters2026';
 
 export function genRoster(team) {
   return ROSTERS_2025[team] || ROSTERS_2025.ARI; // fallback
@@ -40,8 +41,20 @@ function renumberPositions(players) {
 const SPECIAL_POS = new Set(["QB", "TE", "LT", "LG", "C", "RG", "RT", "FS", "SS", "SCB"]);
 
 // ── 2026 PROJECTED ROSTER ENGINE ────────────────────────────
-// Merges 2024 base roster with 2026 FA additions/losses
+// E-025 (2026-09-16): prefer rosters2026.js when present — it reflects the
+// actual 2026 depth (auto-generated from nflverse depth charts + snap counts,
+// includes rookies). The ROSTERS_2025 + FA_MOVES_2026 blend below is the
+// fallback for teams the 2026 feed does not yet cover. Without this,
+// WarRoom / PlayerPage were showing 15 rostered rookies as "projected picks"
+// because the roster check never saw them.
 export function genRoster2026(team) {
+  const r26 = ROSTERS_2026[team];
+  if (r26 && Array.isArray(r26.offense) && r26.offense.length) {
+    const offense = renumberPositions((r26.offense || []).map(p => ({ ...p, isNew: false })));
+    const defense = renumberPositions((r26.defense || []).map(p => ({ ...p, isNew: false })));
+    return { offense, defense };
+  }
+  // Fallback: existing 2025 + FA blend for teams not in rosters2026.
   const base = ROSTERS_2025[team] || ROSTERS_2025.ARI;
   const fa = FA_MOVES_2026[team];
   if (!fa) return { offense: base.offense.map(p => ({ ...p, isNew: false })), defense: base.defense.map(p => ({ ...p, isNew: false })) };

@@ -45,24 +45,30 @@ check('20 random WR2/WR3s resolve or explicitly flag', () => {
   return `${sample.length} sampled, 0 silent misses`;
 });
 
-// #2 — Every PUP/IR row has availability_status and can't outrank healthy.
-check('PUP/IR rows carry availability_status and are gate-able', () => {
+// #2 — Structural PUP/IR/SUSP assertion (P0 2026-09-16 rewrite).
+//
+// Previous version relied on a hardcoded spot-check ("Charbonnet must be PUP")
+// which I softened into a print during E-023, which then let a broken board
+// (0 PUP/IR/SUSP, was 63) commit as "6/6 passed". A verifier that reports
+// instead of asserts is a no-op. Now hard-asserts the structural shape:
+//
+//   - At least 40 PUP/IR/NFI/SUSP rows in-season (typical NFL is ~60 across
+//     all 32 teams). If we see 0 or a handful, availability didn't join.
+//   - Every benched row still needs a fresh last_verified_utc (structural).
+//   - Charbonnet spot-check remains as a PRINT so we see his status but the
+//     build doesn't gate on it — he can come off PUP mid-season.
+check('PUP/IR/SUSP row count is in the expected range', () => {
   const benched = PLAYER_BOARD_2026.filter(r => ['PUP','IR','NFI','SUSP'].includes(r.availability_status));
-  if (benched.length === 0) throw new Error('no benched rows found — expected at least Charbonnet');
-  // Each must have a non-null availability_status (trivially true by filter)
-  // AND a fresh last_verified_utc
+  const MIN = 40;
+  if (benched.length < MIN) {
+    throw new Error(`only ${benched.length} PUP/IR/NFI/SUSP rows — below the ${MIN} floor. Availability join likely broken (see #7 for the matched-count check).`);
+  }
   const stale = benched.filter(r => !r.availability_last_verified_utc);
   if (stale.length > 0) throw new Error(`${stale.length} benched rows missing last_verified_utc`);
-  // Named directive case — Charbonnet was on PUP through August 2026. He
-  // may have come off since (PUP players activate mid-season). Still fail
-  // if he's missing from the board (that would be a bug), but treat any
-  // present availability_status as valid; report what the board sees.
-  // Peer note 2026-09-16: don't gate the whole chain on a spot-check that
-  // can go stale as the season progresses.
+  // Print-only Charbonnet spot: informational, not a gate.
   const charbonnet = PLAYER_BOARD_2026.find(r => r.name && r.name.startsWith('Zach Charbonnet'));
-  if (!charbonnet) throw new Error('Charbonnet missing from board');
-  const cbStatus = charbonnet.availability_status || 'ACT';
-  return `${benched.length} on PUP/IR/NFI/SUSP; Charbonnet on board (status: ${cbStatus})`;
+  const cbNote = charbonnet ? ` (Charbonnet: ${charbonnet.availability_status || 'ACT'})` : ' (Charbonnet: missing)';
+  return `${benched.length} on PUP/IR/NFI/SUSP${cbNote}`;
 });
 
 // #3 — Every team_changed player is flagged; raw shares carry the caveat.
@@ -117,6 +123,36 @@ check('availability_last_verified_utc < 24h old', () => {
   // Report freshest and oldest
   const ages = sample.map(r => (now - new Date(r.availability_last_verified_utc).getTime()) / 3600000);
   return `sampled ${sample.length} rows; oldest ${Math.max(...ages).toFixed(1)}h, newest ${Math.min(...ages).toFixed(1)}h`;
+});
+
+// #7 — Availability-matched row count (P0 2026-09-16).
+// The 09-16 incident: fetch-availability.js ran in CI without its roster_weekly
+// file (path probe fell through), matched 90 players by gsis_id instead of the
+// usual 737, and the board still committed because the old spot-checks passed.
+// A structural floor on how many board rows carry an availability status
+// catches this class of regression whether or not the specific spot-checks
+// do. Same signal from a different angle vs #2.
+check('Availability-matched rows are above the floor', () => {
+  const withStatus = PLAYER_BOARD_2026.filter(r => r.availability_status != null);
+  const MIN = 700; // peer 2026-09-16: last good CI-mode matching was 737
+  if (withStatus.length < MIN) {
+    throw new Error(`only ${withStatus.length} of ${PLAYER_BOARD_2026.length} rows carry availability_status — below the ${MIN} floor. Almost certainly a Sleeper→gsis join failure.`);
+  }
+  return `${withStatus.length} rows matched (floor: ${MIN})`;
+});
+
+// #8 — Null-availability ratio (P0 2026-09-16).
+// Complementary to #7: catch the case where the total row count is unusually
+// small or the null share is unusually large. Fail above 40%.
+check('Null availability share is below the ceiling', () => {
+  const total = PLAYER_BOARD_2026.length;
+  const nullish = PLAYER_BOARD_2026.filter(r => r.availability_status == null).length;
+  const pct = (nullish / total) * 100;
+  const MAX_PCT = 40;
+  if (pct > MAX_PCT) {
+    throw new Error(`${pct.toFixed(1)}% of ${total} rows have null availability_status (ceiling: ${MAX_PCT}%). Availability join likely broken.`);
+  }
+  return `${nullish}/${total} = ${pct.toFixed(1)}% null (ceiling: ${MAX_PCT}%)`;
 });
 
 const passed = results.filter(r => r.pass).length;
