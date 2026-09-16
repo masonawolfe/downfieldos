@@ -1,10 +1,20 @@
 name: Data - Contracts Test v3
 
 on:
-  workflow_dispatch: {}
+  schedule:
+    - cron: '0 12 1 * *'
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'Contract-year season (deals ending this year → contract_year)'
+        required: false
+        default: '2026'
+
+permissions:
+  contents: write
 
 jobs:
-  noop:
+  hello:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "hello from data-contracts-v3"
+      - run: echo hello
