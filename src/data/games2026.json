@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T07:28:38.794Z",
+  "generated_at": "2026-09-16T16:19:04.247Z",
   "source": "nflverse/games.csv + public/data/plays-2026.json",
   "season": 2026,
   "weeks_included": [
@@ -54,7 +54,7 @@
         "redzone_snaps": 2,
         "epa_proxy": -0.032089552238805996
       },
-      "narrative": "SEA 13, NE 10 — nail-biter, defensive slog."
+      "narrative": "SEA 13, NE 10. low-scoring nail-biter."
     },
     {
       "gameId": "2026_01_SF_LA",
@@ -62,7 +62,7 @@
       "date": "2026-09-10",
       "weekday": "Thursday",
       "gametime": "20:35",
-      "home": "LA",
+      "home": "LAR",
       "away": "SF",
       "home_score": 7,
       "away_score": 27,
@@ -71,7 +71,14 @@
       "winner": "SF",
       "margin": 20,
       "played": true,
-      "home_stats": null,
+      "home_stats": {
+        "plays": 56,
+        "pass_rate": 0.5,
+        "success_rate": 0.4642857142857143,
+        "explosive_rate": 0.05357142857142857,
+        "redzone_snaps": 9,
+        "epa_proxy": 0.01428571428571429
+      },
       "away_stats": {
         "plays": 64,
         "pass_rate": 0.53125,
@@ -80,7 +87,7 @@
         "redzone_snaps": 10,
         "epa_proxy": 0.14375
       },
-      "narrative": "SF 27, LA 7 — convincing win, even."
+      "narrative": "SF 27, LAR 7. double-digit win."
     },
     {
       "gameId": "2026_01_CHI_CAR",
@@ -113,7 +120,7 @@
         "redzone_snaps": 15,
         "epa_proxy": 0.10714285714285715
       },
-      "narrative": "CHI 59, CAR 37 — blowout, shootout."
+      "narrative": "CHI 59, CAR 37. blowout."
     },
     {
       "gameId": "2026_01_TB_CIN",
@@ -146,7 +153,7 @@
         "redzone_snaps": 9,
         "epa_proxy": 0.07941176470588235
       },
-      "narrative": "CIN 33, TB 27 — one-score game, shootout."
+      "narrative": "CIN 33, TB 27. tight one-score win."
     },
     {
       "gameId": "2026_01_NO_DET",
@@ -179,7 +186,7 @@
         "redzone_snaps": 12,
         "epa_proxy": -0.03823529411764709
       },
-      "narrative": "DET 31, NO 30 — nail-biter, shootout (OT)."
+      "narrative": "DET 31, NO 30. shootout, decided late, OT."
     },
     {
       "gameId": "2026_01_BUF_HOU",
@@ -212,7 +219,7 @@
         "redzone_snaps": 8,
         "epa_proxy": -0.018627450980392146
       },
-      "narrative": "BUF 36, HOU 31 — one-score game, shootout."
+      "narrative": "BUF 36, HOU 31. tight one-score win."
     },
     {
       "gameId": "2026_01_BAL_IND",
@@ -245,7 +252,7 @@
         "redzone_snaps": 11,
         "epa_proxy": 0.11666666666666664
       },
-      "narrative": "BAL 41, IND 23 — convincing win, shootout."
+      "narrative": "BAL 41, IND 23. double-digit win."
     },
     {
       "gameId": "2026_01_CLE_JAX",
@@ -278,7 +285,7 @@
         "redzone_snaps": 7,
         "epa_proxy": -0.021428571428571463
       },
-      "narrative": "JAX 34, CLE 10 — blowout, even."
+      "narrative": "JAX 34, CLE 10. blowout."
     },
     {
       "gameId": "2026_01_ATL_PIT",
@@ -311,7 +318,7 @@
         "redzone_snaps": 0,
         "epa_proxy": -0.08157894736842108
       },
-      "narrative": "PIT 20, ATL 13 — one-score game, even."
+      "narrative": "PIT 20, ATL 13. tight one-score win."
     },
     {
       "gameId": "2026_01_NYJ_TEN",
@@ -344,7 +351,7 @@
         "redzone_snaps": 7,
         "epa_proxy": 0.033333333333333326
       },
-      "narrative": "NYJ 23, TEN 10 — ten-point game, even."
+      "narrative": "NYJ 23, TEN 10. one-score win."
     },
     {
       "gameId": "2026_01_ARI_LAC",
@@ -377,7 +384,7 @@
         "redzone_snaps": 13,
         "epa_proxy": 0.01376811594202898
       },
-      "narrative": "ARI 26, LAC 14 — ten-point game, even."
+      "narrative": "ARI 26, LAC 14. one-score win."
     },
     {
       "gameId": "2026_01_MIA_LV",
@@ -410,7 +417,7 @@
         "redzone_snaps": 5,
         "epa_proxy": -0.13
       },
-      "narrative": "LV 27, MIA 13 — convincing win, even."
+      "narrative": "LV 27, MIA 13. double-digit win."
     },
     {
       "gameId": "2026_01_GB_MIN",
@@ -443,7 +450,7 @@
         "redzone_snaps": 10,
         "epa_proxy": -0.06194029850746269
       },
-      "narrative": "MIN 39, GB 22 — convincing win, shootout."
+      "narrative": "MIN 39, GB 22. double-digit win."
     },
     {
       "gameId": "2026_01_WAS_PHI",
@@ -476,7 +483,7 @@
         "redzone_snaps": 15,
         "epa_proxy": -0.06194029850746269
       },
-      "narrative": "PHI 24, WAS 22 — nail-biter, high-scoring."
+      "narrative": "PHI 24, WAS 22. nail-biter."
     },
     {
       "gameId": "2026_01_DAL_NYG",
@@ -509,7 +516,7 @@
         "redzone_snaps": 9,
         "epa_proxy": 0.06923076923076926
       },
-      "narrative": "NYG 28, DAL 20 — ten-point game, high-scoring."
+      "narrative": "NYG 28, DAL 20. one-score win."
     },
     {
       "gameId": "2026_01_DEN_KC",
@@ -542,7 +549,7 @@
         "redzone_snaps": 4,
         "epa_proxy": -0.10217391304347828
       },
-      "narrative": "KC 31, DEN 10 — blowout, even."
+      "narrative": "KC 31, DEN 10. blowout."
     },
     {
       "gameId": "2026_02_DET_BUF",
@@ -561,7 +568,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ BUF — kickoff Thursday 20:15"
+      "narrative": "DET at BUF. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_02_CAR_ATL",
@@ -580,7 +587,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ ATL — kickoff Sunday 13:00"
+      "narrative": "CAR at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_NO_BAL",
@@ -599,7 +606,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ BAL — kickoff Sunday 13:00"
+      "narrative": "NO at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_MIN_CHI",
@@ -618,7 +625,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ CHI — kickoff Sunday 13:00"
+      "narrative": "MIN at CHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_CIN_HOU",
@@ -637,7 +644,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ HOU — kickoff Sunday 13:00"
+      "narrative": "CIN at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_PIT_NE",
@@ -656,7 +663,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ NE — kickoff Sunday 13:00"
+      "narrative": "PIT at NE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_GB_NYJ",
@@ -675,7 +682,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ NYJ — kickoff Sunday 13:00"
+      "narrative": "GB at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_CLE_TB",
@@ -694,7 +701,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ TB — kickoff Sunday 13:00"
+      "narrative": "CLE at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_PHI_TEN",
@@ -713,7 +720,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ TEN — kickoff Sunday 13:00"
+      "narrative": "PHI at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_02_JAX_DEN",
@@ -732,7 +739,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ DEN — kickoff Sunday 16:05"
+      "narrative": "JAX at DEN. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_02_LV_LAC",
@@ -751,7 +758,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ LAC — kickoff Sunday 16:05"
+      "narrative": "LV at LAC. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_02_SEA_ARI",
@@ -770,7 +777,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ ARI — kickoff Sunday 16:25"
+      "narrative": "SEA at ARI. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_02_WAS_DAL",
@@ -789,7 +796,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ DAL — kickoff Sunday 16:25"
+      "narrative": "WAS at DAL. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_02_MIA_SF",
@@ -808,7 +815,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ SF — kickoff Sunday 16:25"
+      "narrative": "MIA at SF. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_02_IND_KC",
@@ -827,7 +834,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ KC — kickoff Sunday 20:20"
+      "narrative": "IND at KC. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_02_NYG_LA",
@@ -835,7 +842,7 @@
       "date": "2026-09-21",
       "weekday": "Monday",
       "gametime": "20:15",
-      "home": "LA",
+      "home": "LAR",
       "away": "NYG",
       "home_score": null,
       "away_score": null,
@@ -846,7 +853,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ LA — kickoff Monday 20:15"
+      "narrative": "NYG at LAR. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_03_ATL_GB",
@@ -865,7 +872,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ GB — kickoff Thursday 20:15"
+      "narrative": "ATL at GB. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_03_LAC_BUF",
@@ -884,7 +891,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ BUF — kickoff Sunday 13:00"
+      "narrative": "LAC at BUF. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_CAR_CLE",
@@ -903,7 +910,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ CLE — kickoff Sunday 13:00"
+      "narrative": "CAR at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_NYJ_DET",
@@ -922,7 +929,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ DET — kickoff Sunday 13:00"
+      "narrative": "NYJ at DET. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_HOU_IND",
@@ -941,7 +948,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ IND — kickoff Sunday 13:00"
+      "narrative": "HOU at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_NE_JAX",
@@ -960,7 +967,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ JAX — kickoff Sunday 13:00"
+      "narrative": "NE at JAX. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_KC_MIA",
@@ -979,7 +986,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ MIA — kickoff Sunday 13:00"
+      "narrative": "KC at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_TEN_NYG",
@@ -998,7 +1005,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ NYG — kickoff Sunday 13:00"
+      "narrative": "TEN at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_CIN_PIT",
@@ -1017,7 +1024,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ PIT — kickoff Sunday 13:00"
+      "narrative": "CIN at PIT. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_SEA_WAS",
@@ -1036,7 +1043,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ WAS — kickoff Sunday 13:00"
+      "narrative": "SEA at WAS. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_03_ARI_SF",
@@ -1055,7 +1062,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ SF — kickoff Sunday 16:05"
+      "narrative": "ARI at SF. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_03_MIN_TB",
@@ -1074,7 +1081,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ TB — kickoff Sunday 16:05"
+      "narrative": "MIN at TB. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_03_BAL_DAL",
@@ -1093,7 +1100,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ DAL — kickoff Sunday 16:25"
+      "narrative": "BAL at DAL. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_03_LV_NO",
@@ -1112,7 +1119,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ NO — kickoff Sunday 16:25"
+      "narrative": "LV at NO. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_03_LA_DEN",
@@ -1121,7 +1128,7 @@
       "weekday": "Sunday",
       "gametime": "20:20",
       "home": "DEN",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -1131,7 +1138,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ DEN — kickoff Sunday 20:20"
+      "narrative": "LAR at DEN. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_03_PHI_CHI",
@@ -1150,7 +1157,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ CHI — kickoff Monday 20:15"
+      "narrative": "PHI at CHI. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_04_PIT_CLE",
@@ -1169,7 +1176,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ CLE — kickoff Thursday 20:15"
+      "narrative": "PIT at CLE. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_04_IND_WAS",
@@ -1188,7 +1195,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ WAS — kickoff Sunday 09:30"
+      "narrative": "IND at WAS. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_04_TEN_BAL",
@@ -1207,7 +1214,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ BAL — kickoff Sunday 13:00"
+      "narrative": "TEN at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_NE_BUF",
@@ -1226,7 +1233,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ BUF — kickoff Sunday 13:00"
+      "narrative": "NE at BUF. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_NYJ_CHI",
@@ -1245,7 +1252,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ CHI — kickoff Sunday 13:00"
+      "narrative": "NYJ at CHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_JAX_CIN",
@@ -1264,7 +1271,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ CIN — kickoff Sunday 13:00"
+      "narrative": "JAX at CIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_DAL_HOU",
@@ -1283,7 +1290,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ HOU — kickoff Sunday 13:00"
+      "narrative": "DAL at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_ARI_NYG",
@@ -1302,7 +1309,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ NYG — kickoff Sunday 13:00"
+      "narrative": "ARI at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_LA_PHI",
@@ -1311,7 +1318,7 @@
       "weekday": "Sunday",
       "gametime": "13:00",
       "home": "PHI",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -1321,7 +1328,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ PHI — kickoff Sunday 13:00"
+      "narrative": "LAR at PHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_GB_TB",
@@ -1340,7 +1347,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ TB — kickoff Sunday 13:00"
+      "narrative": "GB at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_04_MIA_MIN",
@@ -1359,7 +1366,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ MIN — kickoff Sunday 16:05"
+      "narrative": "MIA at MIN. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_04_KC_LV",
@@ -1378,7 +1385,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ LV — kickoff Sunday 16:25"
+      "narrative": "KC at LV. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_04_LAC_SEA",
@@ -1397,7 +1404,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ SEA — kickoff Sunday 16:25"
+      "narrative": "LAC at SEA. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_04_DEN_SF",
@@ -1416,7 +1423,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ SF — kickoff Sunday 16:25"
+      "narrative": "DEN at SF. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_04_DET_CAR",
@@ -1435,7 +1442,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ CAR — kickoff Sunday 20:20"
+      "narrative": "DET at CAR. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_04_ATL_NO",
@@ -1454,7 +1461,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ NO — kickoff Monday 20:15"
+      "narrative": "ATL at NO. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_05_TB_DAL",
@@ -1473,7 +1480,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ DAL — kickoff Thursday 20:15"
+      "narrative": "TB at DAL. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_05_PHI_JAX",
@@ -1492,7 +1499,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ JAX — kickoff Sunday 09:30"
+      "narrative": "PHI at JAX. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_05_CIN_MIA",
@@ -1511,7 +1518,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ MIA — kickoff Sunday 13:00"
+      "narrative": "CIN at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_LV_NE",
@@ -1530,7 +1537,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ NE — kickoff Sunday 13:00"
+      "narrative": "LV at NE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_MIN_NO",
@@ -1549,7 +1556,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ NO — kickoff Sunday 13:00"
+      "narrative": "MIN at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_CLE_NYJ",
@@ -1568,7 +1575,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ NYJ — kickoff Sunday 13:00"
+      "narrative": "CLE at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_IND_PIT",
@@ -1587,7 +1594,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ PIT — kickoff Sunday 13:00"
+      "narrative": "IND at PIT. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_HOU_TEN",
@@ -1606,7 +1613,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ TEN — kickoff Sunday 13:00"
+      "narrative": "HOU at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_NYG_WAS",
@@ -1625,7 +1632,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ WAS — kickoff Sunday 13:00"
+      "narrative": "NYG at WAS. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_05_DEN_LAC",
@@ -1644,7 +1651,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ LAC — kickoff Sunday 16:05"
+      "narrative": "DEN at LAC. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_05_DET_ARI",
@@ -1663,7 +1670,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ ARI — kickoff Sunday 16:25"
+      "narrative": "DET at ARI. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_05_CHI_GB",
@@ -1682,7 +1689,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ GB — kickoff Sunday 16:25"
+      "narrative": "CHI at GB. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_05_SF_SEA",
@@ -1701,7 +1708,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ SEA — kickoff Sunday 16:25"
+      "narrative": "SF at SEA. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_05_BAL_ATL",
@@ -1720,7 +1727,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ ATL — kickoff Sunday 20:20"
+      "narrative": "BAL at ATL. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_05_BUF_LA",
@@ -1728,7 +1735,7 @@
       "date": "2026-10-12",
       "weekday": "Monday",
       "gametime": "20:15",
-      "home": "LA",
+      "home": "LAR",
       "away": "BUF",
       "home_score": null,
       "away_score": null,
@@ -1739,7 +1746,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ LA — kickoff Monday 20:15"
+      "narrative": "BUF at LAR. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_06_SEA_DEN",
@@ -1758,7 +1765,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ DEN — kickoff Thursday 20:15"
+      "narrative": "SEA at DEN. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_06_HOU_JAX",
@@ -1777,7 +1784,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ JAX — kickoff Sunday 09:30"
+      "narrative": "HOU at JAX. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_06_CHI_ATL",
@@ -1796,7 +1803,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ ATL — kickoff Sunday 13:00"
+      "narrative": "CHI at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_BAL_CLE",
@@ -1815,7 +1822,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ CLE — kickoff Sunday 13:00"
+      "narrative": "BAL at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_TEN_IND",
@@ -1834,7 +1841,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ IND — kickoff Sunday 13:00"
+      "narrative": "TEN at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_NYJ_NE",
@@ -1853,7 +1860,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ NE — kickoff Sunday 13:00"
+      "narrative": "NYJ at NE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_NO_NYG",
@@ -1872,7 +1879,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ NYG — kickoff Sunday 13:00"
+      "narrative": "NO at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_CAR_PHI",
@@ -1891,7 +1898,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ PHI — kickoff Sunday 13:00"
+      "narrative": "CAR at PHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_PIT_TB",
@@ -1910,7 +1917,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ TB — kickoff Sunday 13:00"
+      "narrative": "PIT at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_06_ARI_LA",
@@ -1918,7 +1925,7 @@
       "date": "2026-10-18",
       "weekday": "Sunday",
       "gametime": "16:05",
-      "home": "LA",
+      "home": "LAR",
       "away": "ARI",
       "home_score": null,
       "away_score": null,
@@ -1929,7 +1936,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ LA — kickoff Sunday 16:05"
+      "narrative": "ARI at LAR. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_06_LAC_KC",
@@ -1948,7 +1955,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ KC — kickoff Sunday 16:25"
+      "narrative": "LAC at KC. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_06_BUF_LV",
@@ -1967,7 +1974,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ LV — kickoff Sunday 16:25"
+      "narrative": "BUF at LV. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_06_DAL_GB",
@@ -1986,7 +1993,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ GB — kickoff Sunday 20:20"
+      "narrative": "DAL at GB. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_06_WAS_SF",
@@ -2005,7 +2012,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ SF — kickoff Monday 20:15"
+      "narrative": "WAS at SF. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_07_NE_CHI",
@@ -2024,7 +2031,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ CHI — kickoff Thursday 20:15"
+      "narrative": "NE at CHI. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_07_PIT_NO",
@@ -2043,7 +2050,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ NO — kickoff Sunday 09:30"
+      "narrative": "PIT at NO. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_07_SF_ATL",
@@ -2062,7 +2069,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ ATL — kickoff Sunday 13:00"
+      "narrative": "SF at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_CIN_BAL",
@@ -2081,7 +2088,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ BAL — kickoff Sunday 13:00"
+      "narrative": "CIN at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_TB_CAR",
@@ -2100,7 +2107,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ CAR — kickoff Sunday 13:00"
+      "narrative": "TB at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_NYG_HOU",
@@ -2119,7 +2126,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ HOU — kickoff Sunday 13:00"
+      "narrative": "NYG at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_IND_MIN",
@@ -2138,7 +2145,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ MIN — kickoff Sunday 13:00"
+      "narrative": "IND at MIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_MIA_NYJ",
@@ -2157,7 +2164,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ NYJ — kickoff Sunday 13:00"
+      "narrative": "MIA at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_CLE_TEN",
@@ -2176,7 +2183,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ TEN — kickoff Sunday 13:00"
+      "narrative": "CLE at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_07_DEN_ARI",
@@ -2195,7 +2202,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ ARI — kickoff Sunday 16:05"
+      "narrative": "DEN at ARI. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_07_GB_DET",
@@ -2214,7 +2221,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ DET — kickoff Sunday 16:25"
+      "narrative": "GB at DET. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_07_LA_LV",
@@ -2223,7 +2230,7 @@
       "weekday": "Sunday",
       "gametime": "16:25",
       "home": "LV",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -2233,7 +2240,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ LV — kickoff Sunday 16:25"
+      "narrative": "LAR at LV. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_07_KC_SEA",
@@ -2252,7 +2259,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ SEA — kickoff Sunday 20:20"
+      "narrative": "KC at SEA. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_07_DAL_PHI",
@@ -2271,7 +2278,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ PHI — kickoff Monday 20:15"
+      "narrative": "DAL at PHI. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_08_CAR_GB",
@@ -2290,7 +2297,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ GB — kickoff Thursday 20:15"
+      "narrative": "CAR at GB. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_08_BAL_BUF",
@@ -2309,7 +2316,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ BUF — kickoff Sunday 13:00"
+      "narrative": "BAL at BUF. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_TEN_CIN",
@@ -2328,7 +2335,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ CIN — kickoff Sunday 13:00"
+      "narrative": "TEN at CIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_ARI_DAL",
@@ -2347,7 +2354,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ DAL — kickoff Sunday 13:00"
+      "narrative": "ARI at DAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_MIN_DET",
@@ -2366,7 +2373,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ DET — kickoff Sunday 13:00"
+      "narrative": "MIN at DET. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_IND_JAX",
@@ -2385,7 +2392,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ JAX — kickoff Sunday 13:00"
+      "narrative": "IND at JAX. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_LV_NYJ",
@@ -2404,7 +2411,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ NYJ — kickoff Sunday 13:00"
+      "narrative": "LV at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_CLE_PIT",
@@ -2423,7 +2430,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ PIT — kickoff Sunday 13:00"
+      "narrative": "CLE at PIT. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_ATL_TB",
@@ -2442,7 +2449,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ TB — kickoff Sunday 13:00"
+      "narrative": "ATL at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_08_LAC_LA",
@@ -2450,7 +2457,7 @@
       "date": "2026-11-01",
       "weekday": "Sunday",
       "gametime": "16:05",
-      "home": "LA",
+      "home": "LAR",
       "away": "LAC",
       "home_score": null,
       "away_score": null,
@@ -2461,7 +2468,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ LA — kickoff Sunday 16:05"
+      "narrative": "LAC at LAR. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_08_KC_DEN",
@@ -2480,7 +2487,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ DEN — kickoff Sunday 16:25"
+      "narrative": "KC at DEN. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_08_NE_MIA",
@@ -2499,7 +2506,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ MIA — kickoff Sunday 16:25"
+      "narrative": "NE at MIA. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_08_PHI_WAS",
@@ -2518,7 +2525,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ WAS — kickoff Sunday 20:20"
+      "narrative": "PHI at WAS. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_08_CHI_SEA",
@@ -2537,7 +2544,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ SEA — kickoff Monday 20:15"
+      "narrative": "CHI at SEA. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_09_JAX_BAL",
@@ -2556,7 +2563,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ BAL — kickoff Thursday 20:15"
+      "narrative": "JAX at BAL. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_09_CIN_ATL",
@@ -2575,7 +2582,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ ATL — kickoff Sunday 09:30"
+      "narrative": "CIN at ATL. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_09_DEN_CAR",
@@ -2594,7 +2601,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ CAR — kickoff Sunday 13:00"
+      "narrative": "DEN at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_DAL_IND",
@@ -2613,7 +2620,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ IND — kickoff Sunday 13:00"
+      "narrative": "DAL at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_NYJ_KC",
@@ -2632,7 +2639,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ KC — kickoff Sunday 13:00"
+      "narrative": "NYJ at KC. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_DET_MIA",
@@ -2651,7 +2658,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ MIA — kickoff Sunday 13:00"
+      "narrative": "DET at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_CLE_NO",
@@ -2670,7 +2677,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ NO — kickoff Sunday 13:00"
+      "narrative": "CLE at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_NYG_PHI",
@@ -2689,7 +2696,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ PHI — kickoff Sunday 13:00"
+      "narrative": "NYG at PHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_LA_WAS",
@@ -2698,7 +2705,7 @@
       "weekday": "Sunday",
       "gametime": "13:00",
       "home": "WAS",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -2708,7 +2715,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ WAS — kickoff Sunday 13:00"
+      "narrative": "LAR at WAS. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_09_HOU_LAC",
@@ -2727,7 +2734,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ LAC — kickoff Sunday 16:05"
+      "narrative": "HOU at LAC. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_09_LV_SF",
@@ -2746,7 +2753,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ SF — kickoff Sunday 16:05"
+      "narrative": "LV at SF. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_09_GB_NE",
@@ -2765,7 +2772,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ NE — kickoff Sunday 16:25"
+      "narrative": "GB at NE. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_09_ARI_SEA",
@@ -2784,7 +2791,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ SEA — kickoff Sunday 16:25"
+      "narrative": "ARI at SEA. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_09_TB_CHI",
@@ -2803,7 +2810,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ CHI — kickoff Sunday 20:20"
+      "narrative": "TB at CHI. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_09_BUF_MIN",
@@ -2822,7 +2829,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ MIN — kickoff Monday 20:15"
+      "narrative": "BUF at MIN. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_10_WAS_NYG",
@@ -2841,7 +2848,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ NYG — kickoff Thursday 20:15"
+      "narrative": "WAS at NYG. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_10_NE_DET",
@@ -2860,7 +2867,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ DET — kickoff Sunday 09:30"
+      "narrative": "NE at DET. Kickoff Sunday 09:30 ET."
     },
     {
       "gameId": "2026_10_KC_ATL",
@@ -2879,7 +2886,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ ATL — kickoff Sunday 13:00"
+      "narrative": "KC at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_HOU_CLE",
@@ -2898,7 +2905,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ CLE — kickoff Sunday 13:00"
+      "narrative": "HOU at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_MIN_GB",
@@ -2917,7 +2924,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ GB — kickoff Sunday 13:00"
+      "narrative": "MIN at GB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_MIA_IND",
@@ -2936,7 +2943,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ IND — kickoff Sunday 13:00"
+      "narrative": "MIA at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_CAR_NO",
@@ -2955,7 +2962,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ NO — kickoff Sunday 13:00"
+      "narrative": "CAR at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_BUF_NYJ",
@@ -2974,7 +2981,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ NYJ — kickoff Sunday 13:00"
+      "narrative": "BUF at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_JAX_TEN",
@@ -2993,7 +3000,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ TEN — kickoff Sunday 13:00"
+      "narrative": "JAX at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_10_LA_ARI",
@@ -3002,7 +3009,7 @@
       "weekday": "Sunday",
       "gametime": "16:05",
       "home": "ARI",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -3012,7 +3019,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ ARI — kickoff Sunday 16:05"
+      "narrative": "LAR at ARI. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_10_SEA_LV",
@@ -3031,7 +3038,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ LV — kickoff Sunday 16:05"
+      "narrative": "SEA at LV. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_10_SF_DAL",
@@ -3050,7 +3057,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ DAL — kickoff Sunday 16:25"
+      "narrative": "SF at DAL. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_10_PIT_CIN",
@@ -3069,7 +3076,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ CIN — kickoff Sunday 20:20"
+      "narrative": "PIT at CIN. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_10_LAC_BAL",
@@ -3088,7 +3095,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ BAL — kickoff Monday 20:15"
+      "narrative": "LAC at BAL. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_11_IND_HOU",
@@ -3107,7 +3114,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ HOU — kickoff Thursday 20:15"
+      "narrative": "IND at HOU. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_11_MIA_BUF",
@@ -3126,7 +3133,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ BUF — kickoff Sunday 13:00"
+      "narrative": "MIA at BUF. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_BAL_CAR",
@@ -3145,7 +3152,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ CAR — kickoff Sunday 13:00"
+      "narrative": "BAL at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_NO_CHI",
@@ -3164,7 +3171,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ CHI — kickoff Sunday 13:00"
+      "narrative": "NO at CHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_TEN_DAL",
@@ -3183,7 +3190,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ DAL — kickoff Sunday 13:00"
+      "narrative": "TEN at DAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_TB_DET",
@@ -3202,7 +3209,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ DET — kickoff Sunday 13:00"
+      "narrative": "TB at DET. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_ARI_KC",
@@ -3221,7 +3228,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ KC — kickoff Sunday 13:00"
+      "narrative": "ARI at KC. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_JAX_NYG",
@@ -3240,7 +3247,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ NYG — kickoff Sunday 13:00"
+      "narrative": "JAX at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_11_NYJ_LAC",
@@ -3259,7 +3266,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ LAC — kickoff Sunday 16:05"
+      "narrative": "NYJ at LAC. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_11_LV_DEN",
@@ -3278,7 +3285,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ DEN — kickoff Sunday 16:25"
+      "narrative": "LV at DEN. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_11_PIT_PHI",
@@ -3297,7 +3304,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ PHI — kickoff Sunday 16:25"
+      "narrative": "PIT at PHI. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_11_MIN_SF",
@@ -3316,7 +3323,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ SF — kickoff Sunday 20:20"
+      "narrative": "MIN at SF. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_11_CIN_WAS",
@@ -3335,7 +3342,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ WAS — kickoff Monday 20:15"
+      "narrative": "CIN at WAS. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_12_GB_LA",
@@ -3343,7 +3350,7 @@
       "date": "2026-11-25",
       "weekday": "Wednesday",
       "gametime": "20:00",
-      "home": "LA",
+      "home": "LAR",
       "away": "GB",
       "home_score": null,
       "away_score": null,
@@ -3354,7 +3361,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ LA — kickoff Wednesday 20:00"
+      "narrative": "GB at LAR. Kickoff Wednesday 20:00 ET."
     },
     {
       "gameId": "2026_12_CHI_DET",
@@ -3373,7 +3380,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ DET — kickoff Thursday 13:00"
+      "narrative": "CHI at DET. Kickoff Thursday 13:00 ET."
     },
     {
       "gameId": "2026_12_PHI_DAL",
@@ -3392,7 +3399,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ DAL — kickoff Thursday 16:30"
+      "narrative": "PHI at DAL. Kickoff Thursday 16:30 ET."
     },
     {
       "gameId": "2026_12_KC_BUF",
@@ -3411,7 +3418,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ BUF — kickoff Thursday 20:20"
+      "narrative": "KC at BUF. Kickoff Thursday 20:20 ET."
     },
     {
       "gameId": "2026_12_DEN_PIT",
@@ -3430,7 +3437,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ PIT — kickoff Friday 15:00"
+      "narrative": "DEN at PIT. Kickoff Friday 15:00 ET."
     },
     {
       "gameId": "2026_12_NO_CIN",
@@ -3449,7 +3456,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ CIN — kickoff Sunday 13:00"
+      "narrative": "NO at CIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_LV_CLE",
@@ -3468,7 +3475,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ CLE — kickoff Sunday 13:00"
+      "narrative": "LV at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_BAL_HOU",
@@ -3487,7 +3494,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ HOU — kickoff Sunday 13:00"
+      "narrative": "BAL at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_NYG_IND",
@@ -3506,7 +3513,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ IND — kickoff Sunday 13:00"
+      "narrative": "NYG at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_NYJ_MIA",
@@ -3525,7 +3532,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ MIA — kickoff Sunday 13:00"
+      "narrative": "NYJ at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_ATL_MIN",
@@ -3544,7 +3551,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ MIN — kickoff Sunday 13:00"
+      "narrative": "ATL at MIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_12_TEN_JAX",
@@ -3563,7 +3570,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ JAX — kickoff Sunday 16:05"
+      "narrative": "TEN at JAX. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_12_WAS_ARI",
@@ -3582,7 +3589,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ ARI — kickoff Sunday 16:25"
+      "narrative": "WAS at ARI. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_12_SEA_SF",
@@ -3601,7 +3608,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ SF — kickoff Sunday 16:25"
+      "narrative": "SEA at SF. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_12_NE_LAC",
@@ -3620,7 +3627,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ LAC — kickoff Sunday 20:20"
+      "narrative": "NE at LAC. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_12_CAR_TB",
@@ -3639,7 +3646,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ TB — kickoff Monday 20:15"
+      "narrative": "CAR at TB. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_13_KC_LA",
@@ -3647,7 +3654,7 @@
       "date": "2026-12-03",
       "weekday": "Thursday",
       "gametime": "20:15",
-      "home": "LA",
+      "home": "LAR",
       "away": "KC",
       "home_score": null,
       "away_score": null,
@@ -3658,7 +3665,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ LA — kickoff Thursday 20:15"
+      "narrative": "KC at LAR. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_13_DET_ATL",
@@ -3677,7 +3684,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ ATL — kickoff Sunday 13:00"
+      "narrative": "DET at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_JAX_CHI",
@@ -3696,7 +3703,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ CHI — kickoff Sunday 13:00"
+      "narrative": "JAX at CHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_CIN_CLE",
@@ -3715,7 +3722,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ CLE — kickoff Sunday 13:00"
+      "narrative": "CIN at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_GB_NO",
@@ -3734,7 +3741,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ NO — kickoff Sunday 13:00"
+      "narrative": "GB at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_SF_NYG",
@@ -3753,7 +3760,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ NYG — kickoff Sunday 13:00"
+      "narrative": "SF at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_LAC_TB",
@@ -3772,7 +3779,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ TB — kickoff Sunday 13:00"
+      "narrative": "LAC at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_WAS_TEN",
@@ -3791,7 +3798,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ TEN — kickoff Sunday 13:00"
+      "narrative": "WAS at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_13_PHI_ARI",
@@ -3810,7 +3817,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ ARI — kickoff Sunday 16:05"
+      "narrative": "PHI at ARI. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_13_MIA_DEN",
@@ -3829,7 +3836,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ DEN — kickoff Sunday 16:05"
+      "narrative": "MIA at DEN. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_13_CAR_MIN",
@@ -3848,7 +3855,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ MIN — kickoff Sunday 16:25"
+      "narrative": "CAR at MIN. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_13_BUF_NE",
@@ -3867,7 +3874,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ NE — kickoff Sunday 16:25"
+      "narrative": "BUF at NE. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_13_HOU_PIT",
@@ -3886,7 +3893,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ PIT — kickoff Sunday 20:20"
+      "narrative": "HOU at PIT. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_13_DAL_SEA",
@@ -3905,7 +3912,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ SEA — kickoff Monday 20:15"
+      "narrative": "DAL at SEA. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_14_MIN_NE",
@@ -3924,7 +3931,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ NE — kickoff Thursday 20:15"
+      "narrative": "MIN at NE. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_14_TB_BAL",
@@ -3943,7 +3950,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ BAL — kickoff Sunday 13:00"
+      "narrative": "TB at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_NO_CAR",
@@ -3962,7 +3969,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ CAR — kickoff Sunday 13:00"
+      "narrative": "NO at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_ATL_CLE",
@@ -3981,7 +3988,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ CLE — kickoff Sunday 13:00"
+      "narrative": "ATL at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_TEN_DET",
@@ -4000,7 +4007,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ DET — kickoff Sunday 13:00"
+      "narrative": "TEN at DET. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_CHI_MIA",
@@ -4019,7 +4026,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ MIA — kickoff Sunday 13:00"
+      "narrative": "CHI at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_DEN_NYJ",
@@ -4038,7 +4045,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ NYJ — kickoff Sunday 13:00"
+      "narrative": "DEN at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_IND_PHI",
@@ -4057,7 +4064,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ PHI — kickoff Sunday 13:00"
+      "narrative": "IND at PHI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_HOU_WAS",
@@ -4076,7 +4083,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ WAS — kickoff Sunday 13:00"
+      "narrative": "HOU at WAS. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_14_LAC_LV",
@@ -4095,7 +4102,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ LV — kickoff Sunday 16:05"
+      "narrative": "LAC at LV. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_14_KC_CIN",
@@ -4114,7 +4121,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ CIN — kickoff Sunday 16:25"
+      "narrative": "KC at CIN. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_14_NYG_SEA",
@@ -4133,7 +4140,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ SEA — kickoff Sunday 16:25"
+      "narrative": "NYG at SEA. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_14_LA_SF",
@@ -4142,7 +4149,7 @@
       "weekday": "Sunday",
       "gametime": "16:25",
       "home": "SF",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -4152,7 +4159,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ SF — kickoff Sunday 16:25"
+      "narrative": "LAR at SF. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_14_BUF_GB",
@@ -4171,7 +4178,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ GB — kickoff Sunday 20:20"
+      "narrative": "BUF at GB. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_14_PIT_JAX",
@@ -4190,7 +4197,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ JAX — kickoff Monday 20:15"
+      "narrative": "PIT at JAX. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_15_SF_LAC",
@@ -4209,7 +4216,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ LAC — kickoff Thursday 20:15"
+      "narrative": "SF at LAC. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_15_SEA_PHI",
@@ -4228,7 +4235,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ PHI — kickoff Saturday 17:00"
+      "narrative": "SEA at PHI. Kickoff Saturday 17:00 ET."
     },
     {
       "gameId": "2026_15_CHI_BUF",
@@ -4247,7 +4254,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ BUF — kickoff Saturday 20:20"
+      "narrative": "CHI at BUF. Kickoff Saturday 20:20 ET."
     },
     {
       "gameId": "2026_15_CIN_CAR",
@@ -4266,7 +4273,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ CAR — kickoff Sunday 13:00"
+      "narrative": "CIN at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_MIA_GB",
@@ -4285,7 +4292,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ GB — kickoff Sunday 13:00"
+      "narrative": "MIA at GB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_JAX_HOU",
@@ -4304,7 +4311,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ HOU — kickoff Sunday 13:00"
+      "narrative": "JAX at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_CLE_NYG",
@@ -4323,7 +4330,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ NYG — kickoff Sunday 13:00"
+      "narrative": "CLE at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_BAL_PIT",
@@ -4342,7 +4349,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ PIT — kickoff Sunday 13:00"
+      "narrative": "BAL at PIT. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_NO_TB",
@@ -4361,7 +4368,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ TB — kickoff Sunday 13:00"
+      "narrative": "NO at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_IND_TEN",
@@ -4380,7 +4387,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ TEN — kickoff Sunday 13:00"
+      "narrative": "IND at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_ATL_WAS",
@@ -4399,7 +4406,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ WAS — kickoff Sunday 13:00"
+      "narrative": "ATL at WAS. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_15_NYJ_ARI",
@@ -4418,7 +4425,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ ARI — kickoff Sunday 16:05"
+      "narrative": "NYJ at ARI. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_15_DAL_LA",
@@ -4426,7 +4433,7 @@
       "date": "2026-12-20",
       "weekday": "Sunday",
       "gametime": "16:25",
-      "home": "LA",
+      "home": "LAR",
       "away": "DAL",
       "home_score": null,
       "away_score": null,
@@ -4437,7 +4444,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ LA — kickoff Sunday 16:25"
+      "narrative": "DAL at LAR. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_15_DEN_LV",
@@ -4456,7 +4463,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ LV — kickoff Sunday 16:25"
+      "narrative": "DEN at LV. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_15_DET_MIN",
@@ -4475,7 +4482,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ MIN — kickoff Sunday 20:20"
+      "narrative": "DET at MIN. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_15_NE_KC",
@@ -4494,7 +4501,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ KC — kickoff Monday 20:15"
+      "narrative": "NE at KC. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_16_HOU_PHI",
@@ -4513,7 +4520,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ PHI — kickoff Thursday 20:15"
+      "narrative": "HOU at PHI. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_16_GB_CHI",
@@ -4532,7 +4539,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "GB @ CHI — kickoff Friday 13:00"
+      "narrative": "GB at CHI. Kickoff Friday 13:00 ET."
     },
     {
       "gameId": "2026_16_BUF_DEN",
@@ -4551,7 +4558,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ DEN — kickoff Friday 16:30"
+      "narrative": "BUF at DEN. Kickoff Friday 16:30 ET."
     },
     {
       "gameId": "2026_16_LA_SEA",
@@ -4560,7 +4567,7 @@
       "weekday": "Friday",
       "gametime": "20:15",
       "home": "SEA",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -4570,7 +4577,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ SEA — kickoff Friday 20:15"
+      "narrative": "LAR at SEA. Kickoff Friday 20:15 ET."
     },
     {
       "gameId": "2026_16_TB_ATL",
@@ -4589,7 +4596,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ ATL — kickoff Sunday 13:00"
+      "narrative": "TB at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_CLE_BAL",
@@ -4608,7 +4615,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ BAL — kickoff Sunday 13:00"
+      "narrative": "CLE at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_CIN_IND",
@@ -4627,7 +4634,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN @ IND — kickoff Sunday 13:00"
+      "narrative": "CIN at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_LAC_MIA",
@@ -4646,7 +4653,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ MIA — kickoff Sunday 13:00"
+      "narrative": "LAC at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_WAS_MIN",
@@ -4665,7 +4672,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ MIN — kickoff Sunday 13:00"
+      "narrative": "WAS at MIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_ARI_NO",
@@ -4684,7 +4691,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ARI @ NO — kickoff Sunday 13:00"
+      "narrative": "ARI at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_NE_NYJ",
@@ -4703,7 +4710,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE @ NYJ — kickoff Sunday 13:00"
+      "narrative": "NE at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_CAR_PIT",
@@ -4722,7 +4729,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CAR @ PIT — kickoff Sunday 13:00"
+      "narrative": "CAR at PIT. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_16_TEN_LV",
@@ -4741,7 +4748,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ LV — kickoff Sunday 16:05"
+      "narrative": "TEN at LV. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_16_SF_KC",
@@ -4760,7 +4767,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ KC — kickoff Sunday 16:25"
+      "narrative": "SF at KC. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_16_JAX_DAL",
@@ -4779,7 +4786,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ DAL — kickoff Sunday 20:20"
+      "narrative": "JAX at DAL. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_16_NYG_DET",
@@ -4798,7 +4805,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ DET — kickoff Monday 20:15"
+      "narrative": "NYG at DET. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_17_BAL_CIN",
@@ -4817,7 +4824,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BAL @ CIN — kickoff Thursday 20:15"
+      "narrative": "BAL at CIN. Kickoff Thursday 20:15 ET."
     },
     {
       "gameId": "2026_17_NO_ATL",
@@ -4836,7 +4843,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NO @ ATL — kickoff Sunday 13:00"
+      "narrative": "NO at ATL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_SEA_CAR",
@@ -4855,7 +4862,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ CAR — kickoff Sunday 13:00"
+      "narrative": "SEA at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_IND_CLE",
@@ -4874,7 +4881,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND @ CLE — kickoff Sunday 13:00"
+      "narrative": "IND at CLE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_NYG_DAL",
@@ -4893,7 +4900,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYG @ DAL — kickoff Sunday 13:00"
+      "narrative": "NYG at DAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_WAS_JAX",
@@ -4912,7 +4919,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS @ JAX — kickoff Sunday 13:00"
+      "narrative": "WAS at JAX. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_KC_LAC",
@@ -4931,7 +4938,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "KC @ LAC — kickoff Sunday 13:00"
+      "narrative": "KC at LAC. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_BUF_MIA",
@@ -4950,7 +4957,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "BUF @ MIA — kickoff Sunday 13:00"
+      "narrative": "BUF at MIA. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_DEN_NE",
@@ -4969,7 +4976,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN @ NE — kickoff Sunday 13:00"
+      "narrative": "DEN at NE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_MIN_NYJ",
@@ -4988,7 +4995,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIN @ NYJ — kickoff Sunday 13:00"
+      "narrative": "MIN at NYJ. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_LA_TB",
@@ -4997,7 +5004,7 @@
       "weekday": "Sunday",
       "gametime": "13:00",
       "home": "TB",
-      "away": "LA",
+      "away": "LAR",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -5007,7 +5014,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LA @ TB — kickoff Sunday 13:00"
+      "narrative": "LAR at TB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_PIT_TEN",
@@ -5026,7 +5033,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ TEN — kickoff Sunday 13:00"
+      "narrative": "PIT at TEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_17_LV_ARI",
@@ -5045,7 +5052,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ ARI — kickoff Sunday 16:05"
+      "narrative": "LV at ARI. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_17_DET_CHI",
@@ -5064,7 +5071,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ CHI — kickoff Sunday 16:25"
+      "narrative": "DET at CHI. Kickoff Sunday 16:25 ET."
     },
     {
       "gameId": "2026_17_PHI_SF",
@@ -5083,7 +5090,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ SF — kickoff Sunday 20:20"
+      "narrative": "PHI at SF. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_17_HOU_GB",
@@ -5102,7 +5109,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "HOU @ GB — kickoff Monday 20:15"
+      "narrative": "HOU at GB. Kickoff Monday 20:15 ET."
     },
     {
       "gameId": "2026_18_SF_ARI",
@@ -5121,7 +5128,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SF @ ARI — kickoff Sunday 13:00"
+      "narrative": "SF at ARI. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_PIT_BAL",
@@ -5140,7 +5147,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PIT @ BAL — kickoff Sunday 13:00"
+      "narrative": "PIT at BAL. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_NYJ_BUF",
@@ -5159,7 +5166,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NYJ @ BUF — kickoff Sunday 13:00"
+      "narrative": "NYJ at BUF. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_ATL_CAR",
@@ -5178,7 +5185,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "ATL @ CAR — kickoff Sunday 13:00"
+      "narrative": "ATL at CAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_CLE_CIN",
@@ -5197,7 +5204,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CLE @ CIN — kickoff Sunday 13:00"
+      "narrative": "CLE at CIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_LAC_DEN",
@@ -5216,7 +5223,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC @ DEN — kickoff Sunday 13:00"
+      "narrative": "LAC at DEN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_DET_GB",
@@ -5235,7 +5242,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DET @ GB — kickoff Sunday 13:00"
+      "narrative": "DET at GB. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_TEN_HOU",
@@ -5254,7 +5261,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN @ HOU — kickoff Sunday 13:00"
+      "narrative": "TEN at HOU. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_JAX_IND",
@@ -5273,7 +5280,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "JAX @ IND — kickoff Sunday 13:00"
+      "narrative": "JAX at IND. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_LV_KC",
@@ -5292,7 +5299,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LV @ KC — kickoff Sunday 13:00"
+      "narrative": "LV at KC. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_SEA_LA",
@@ -5300,7 +5307,7 @@
       "date": "2027-01-10",
       "weekday": "Sunday",
       "gametime": "13:00",
-      "home": "LA",
+      "home": "LAR",
       "away": "SEA",
       "home_score": null,
       "away_score": null,
@@ -5311,7 +5318,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "SEA @ LA — kickoff Sunday 13:00"
+      "narrative": "SEA at LAR. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_CHI_MIN",
@@ -5330,7 +5337,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CHI @ MIN — kickoff Sunday 13:00"
+      "narrative": "CHI at MIN. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_MIA_NE",
@@ -5349,7 +5356,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "MIA @ NE — kickoff Sunday 13:00"
+      "narrative": "MIA at NE. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_TB_NO",
@@ -5368,7 +5375,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TB @ NO — kickoff Sunday 13:00"
+      "narrative": "TB at NO. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_PHI_NYG",
@@ -5387,7 +5394,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "PHI @ NYG — kickoff Sunday 13:00"
+      "narrative": "PHI at NYG. Kickoff Sunday 13:00 ET."
     },
     {
       "gameId": "2026_18_DAL_WAS",
@@ -5406,7 +5413,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DAL @ WAS — kickoff Sunday 13:00"
+      "narrative": "DAL at WAS. Kickoff Sunday 13:00 ET."
     }
   ]
 }

@@ -79,7 +79,7 @@ export function WeekRecaps({ week, showEmpty = true, highlightTeam = null, compa
       {played.length > 0 && (
         <div style={{ marginBottom: scheduled.length ? 20 : 0 }}>
           <div style={{ fontSize: 11, fontWeight: 800, color: "#22c55e", textTransform: "uppercase", letterSpacing: 2, marginBottom: 12 }}>
-            Week {week} — Results · {played.length} game{played.length === 1 ? "" : "s"}
+            Week {week} · Results · {played.length} game{played.length === 1 ? "" : "s"}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
             {played.map(g => <Card key={g.gameId} g={g} />)}
@@ -89,7 +89,7 @@ export function WeekRecaps({ week, showEmpty = true, highlightTeam = null, compa
       {scheduled.length > 0 && (
         <div>
           <div style={{ fontSize: 11, fontWeight: 800, color: "#f97316", textTransform: "uppercase", letterSpacing: 2, marginBottom: 12 }}>
-            Week {week} — Upcoming · {scheduled.length} game{scheduled.length === 1 ? "" : "s"}
+            Week {week} · Upcoming · {scheduled.length} game{scheduled.length === 1 ? "" : "s"}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: compact ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 12 }}>
             {scheduled.map(g => <Card key={g.gameId} g={g} />)}

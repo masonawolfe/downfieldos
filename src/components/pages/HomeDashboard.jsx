@@ -24,14 +24,17 @@ import { latestLeagueHeadlines } from '../../utils/teamNews';
 // URL-reachable only and stays noindex (RELEASE_PROCESS.md classifies it
 // Internal, not a security boundary — this removal closes the public
 // discovery path, not the surface itself).
+// /fantasy-intel and /war-room removed 2026-09-16 per QA lane-1: E-008
+// classified both as Beta (noindex, absent from sitemap), but their entries
+// on the public dashboard QUICK_LINKS were the same public-discovery leak
+// that /admin had. Removed. Routes remain URL-reachable and prerendered
+// noindex; they are just not surfaced to visitors from Home.
 const QUICK_LINKS = [
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
   { icon: Calendar, label: "This Week", path: "/this-week" },
   { icon: Star, label: "So What?", path: "/so-what" },
   { icon: Swords, label: "Matchup Preview", path: "/matchup-preview" },
-  { icon: Flame, label: "Fantasy Intel", path: "/fantasy-intel" },
   { icon: Eye, label: "Team Intel", path: "/team-intel" },
-  { icon: Shield, label: "War Room", path: "/war-room" },
 ];
 
 export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigateMatchup }) {
@@ -149,9 +152,8 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
           <button onClick={() => onNavigateMatchup(primaryTeam, nextOpp)} style={{ display: "flex", alignItems: "center", gap: 6, background: "#f97316", border: "none", borderRadius: 8, padding: "10px 16px", color: "#fff", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
             <Swords size={14} /> Full Matchup Preview
           </button>
-          <button onClick={() => navigate("/fantasy-intel")} style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, padding: "10px 16px", color: "#e2e8f0", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
-            <Flame size={14} /> Fantasy Intel
-          </button>
+          {/* Fantasy Intel hero button removed 2026-09-16 per QA lane-1
+              (Beta surface, no public discovery). Route stays URL-reachable. */}
           <button onClick={() => navigate("/this-week")} style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: 8, padding: "10px 16px", color: "#e2e8f0", fontWeight: 700, fontSize: 13, cursor: "pointer" }}>
             <Calendar size={14} /> This Week
           </button>

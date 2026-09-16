@@ -76,6 +76,12 @@ async function fetchGames() {
   for (let i = 1; i < lines.length; i++) {
     const cells = parseCSVLine(lines[i]);
     if (cells[idx.season] !== String(SEASON)) continue;
+    // nflverse encodes the Rams as "LA" in the schedule while the DFOS
+    // team registry uses "LAR" (matches every other feed). Normalize on
+    // ingest so downstream lookups (tn(), TeamIntel joins, weeklyBoard
+    // opponent joins) hit the right row instead of falling through to
+    // the raw code. QA lane-1, 2026-09-16: /this-week showed "LA / LA".
+    const norm = (t) => (t === 'LA' ? 'LAR' : t);
     rows.push({
       game_id: cells[idx.game_id],
       season: parseInt(cells[idx.season], 10),
@@ -83,9 +89,9 @@ async function fetchGames() {
       gameday: cells[idx.gameday],
       weekday: cells[idx.weekday],
       gametime: cells[idx.gametime],
-      away_team: cells[idx.away_team],
+      away_team: norm(cells[idx.away_team]),
       away_score: cells[idx.away_score] === '' ? null : parseInt(cells[idx.away_score], 10),
-      home_team: cells[idx.home_team],
+      home_team: norm(cells[idx.home_team]),
       home_score: cells[idx.home_score] === '' ? null : parseInt(cells[idx.home_score], 10),
       total: cells[idx.total] === '' ? null : parseInt(cells[idx.total], 10),
       overtime: cells[idx.overtime] === '1',
@@ -119,23 +125,38 @@ function teamStats(playsForGame, team) {
   };
 }
 
+// Deterministic one-liner per game. No em dashes (AGENTS.md content rule),
+// no contradictory margin/total combos (QA lane-1: prior version produced
+// "blowout, even" because the total-shape bucket 26-44 was labelled "even"
+// regardless of the margin). Kickoff time carries an ET label — nflverse
+// gametime is US Eastern.
 function narrative(g, homeStats, awayStats) {
   const { home, away, home_score, away_score, winner, margin } = g;
   if (home_score == null || away_score == null) {
-    return `${away} @ ${home} — kickoff ${g.weekday} ${g.gametime || ''}`.trim();
+    const kick = g.gametime ? ` ${g.gametime} ET` : '';
+    return `${away} at ${home}. Kickoff ${g.weekday}${kick}.`.trim();
   }
   const loser = winner === home ? away : home;
   const winnerScore = winner === home ? home_score : away_score;
   const loserScore = winner === home ? away_score : home_score;
-  const shape = margin >= 21 ? 'blowout'
-    : margin >= 14 ? 'convincing win'
-    : margin >= 8 ? 'ten-point game'
-    : margin >= 4 ? 'one-score game'
-    : margin >= 1 ? 'nail-biter'
-    : 'tie';
+  // Pick one shape word for the whole game: prefer margin over total so a
+  // blowout stays a blowout even if the total happens to be middling; only
+  // fall back to a total-shape word when the margin is a normal single-
+  // score/close game (nothing meaningful about the margin) AND the total is
+  // an outlier (shootout / defensive struggle).
   const total = home_score + away_score;
-  const totalShape = total >= 60 ? 'shootout' : total >= 45 ? 'high-scoring' : total <= 25 ? 'defensive slog' : 'even';
-  return `${winner} ${winnerScore}, ${loser} ${loserScore} — ${shape}, ${totalShape}${g.overtime ? ' (OT)' : ''}.`;
+  let shape;
+  if (margin >= 21) shape = 'blowout';
+  else if (margin >= 14) shape = 'double-digit win';
+  else if (margin >= 8) shape = 'one-score win';
+  else if (margin >= 4) shape = 'tight one-score win';
+  else if (margin >= 1) {
+    if (total >= 60) shape = 'shootout, decided late';
+    else if (total <= 25) shape = 'low-scoring nail-biter';
+    else shape = 'nail-biter';
+  } else shape = 'tie';
+  const otSuffix = g.overtime ? ', OT' : '';
+  return `${winner} ${winnerScore}, ${loser} ${loserScore}. ${shape}${otSuffix}.`;
 }
 
 async function main() {
