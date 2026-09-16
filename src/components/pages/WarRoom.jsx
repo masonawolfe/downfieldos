@@ -9,6 +9,25 @@ import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
 import draftProspects from '../../data/draftProspects2026.json';
+import { PLAYER_BOARD_2026 } from '../../data/playerBoard2026';
+
+// E-025 (2026-09-16): rostered-name filter for the draft prospect board.
+// The 2026 draft is already history in this app's timeline — any prospect
+// whose name matches a player on the 2026 board (UDFA, camp add, drafted +
+// on 53) shouldn't render as a "projected pick" with Rd/Pick overlays.
+// Peer QA confirmed the surface is unreachable publicly, so this is a
+// content correctness fix, not a product-shape change.
+const _normalizeName = (n) => (n || '')
+  .toLowerCase()
+  .replace(/\b(jr|sr|ii|iii|iv|v)\b\.?/g, '')
+  .replace(/[^\w\s]/g, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+const ROSTERED_2026_NAMES = new Set(
+  PLAYER_BOARD_2026
+    .map(r => _normalizeName(r.name))
+    .filter(Boolean)
+);
 
 export function WarRoom({ plays, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "CAR");
@@ -67,16 +86,21 @@ function ProspectBoard({ team }) {
 
   // Prospects that fit this team's needs, plus any that list this team as a top fit
   const fits = useMemo(() => {
+    // E-025: drop prospects who are already on a 2026 roster (UDFA, camp add,
+    // drafted + kept). Same filter for both push branches.
+    const isRostered = (p) => ROSTERED_2026_NAMES.has(_normalizeName(p.name));
     const matched = new Set();
     const result = [];
     // First: prospects who list this team as a top fit
     draftProspects.forEach(p => {
+      if (isRostered(p)) return;
       if (p.topFitTeams?.includes(team)) { result.push({ ...p, fitType: 'targeted' }); matched.add(p.id); }
     });
     // Second: prospects whose position matches a team need
     teamNeeds.forEach(need => {
       draftProspects.forEach(p => {
-        if (!matched.has(p.id) && posMatch(need, p.position)) { result.push({ ...p, fitType: 'positional' }); matched.add(p.id); }
+        if (matched.has(p.id) || isRostered(p)) return;
+        if (posMatch(need, p.position)) { result.push({ ...p, fitType: 'positional' }); matched.add(p.id); }
       });
     });
     return result.slice(0, 12); // cap at 12 prospects

@@ -18,6 +18,13 @@ on:
   workflow_run:
     workflows: ["Data — Availability"]
     types: [completed]
+  # Also run on our own daily schedule — 30 min after data-availability's
+  # 11:00 UTC cron. A failed availability run must not silently stop the
+  # board from refreshing; the freshness check in deploy.yml is the
+  # backstop that fails loud if the Generated stamp goes stale. (peer QA
+  # 2026-09-16, freshness residual #3)
+  schedule:
+    - cron: '30 11 * * *'
   workflow_dispatch:
     inputs:
       override_freeze:
@@ -68,7 +75,7 @@ jobs:
           echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Build the pre-draft board
         run: npm run data:board
-      - name: Verify the board (6-check gate — must pass to commit)
+      - name: Verify the board (9-check gate — must pass to commit)
         run: npm run data:board:verify
       # E-009a — emit the always-on readable table beside the JS artifact.
       # Runs AFTER the verifier so the header's "verifier" line reflects

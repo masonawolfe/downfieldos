@@ -5,6 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -65,9 +66,11 @@ check('PUP/IR/SUSP row count is in the expected range', () => {
   }
   const stale = benched.filter(r => !r.availability_last_verified_utc);
   if (stale.length > 0) throw new Error(`${stale.length} benched rows missing last_verified_utc`);
-  // Print-only Charbonnet spot: informational, not a gate.
+  // Print-only Charbonnet spot: informational, not a gate. Print the RAW
+  // availability_status — no `|| 'ACT'` coalesce, or a null would silently
+  // read as "ACT" and the print would lie about the join. (peer QA 2026-09-16)
   const charbonnet = PLAYER_BOARD_2026.find(r => r.name && r.name.startsWith('Zach Charbonnet'));
-  const cbNote = charbonnet ? ` (Charbonnet: ${charbonnet.availability_status || 'ACT'})` : ' (Charbonnet: missing)';
+  const cbNote = charbonnet ? ` (Charbonnet: ${charbonnet.availability_status === undefined || charbonnet.availability_status === null ? 'null' : charbonnet.availability_status})` : ' (Charbonnet: missing)';
   return `${benched.length} on PUP/IR/NFI/SUSP${cbNote}`;
 });
 
@@ -155,8 +158,41 @@ check('Null availability share is below the ceiling', () => {
   return `${nullish}/${total} = ${pct.toFixed(1)}% null (ceiling: ${MAX_PCT}%)`;
 });
 
+// #9 — Row count is within ±5% of the previous committed board (E-027 2026-09-16).
+//
+// Catches the class of failure where a downstream input silently truncates
+// (a broken join, a truncated fetch, an env-path fallthrough that leaves the
+// build with only a subset of players). The Sept 4 → Sept 16 phase transition
+// (nflverse dropping preseason-cut skill players as teams settled to 53)
+// was a legitimate one-time ~7.5% drop; that shift is now the new baseline.
+// Steady-state week-to-week roster churn stays well inside ±5%.
+check('Row count is within ±5% of the previous committed board', () => {
+  let prevSrc;
+  try {
+    prevSrc = execFileSync('git', ['show', 'HEAD:src/data/playerBoard2026.js'], { encoding: 'utf8', cwd: REPO, maxBuffer: 128 * 1024 * 1024 });
+  } catch (e) {
+    // First commit or shallow checkout — nothing to compare against. Emit a
+    // note but do NOT fail: the check exists to catch drift, not to gate the
+    // first-ever commit.
+    return 'no previous commit — first build (skipped comparison)';
+  }
+  // Match every `"gsis_id":` occurrence (with OR without quoted value —
+  // K/DEF rows carry `gsis_id: null` and would otherwise be undercounted,
+  // which is how a spot fix once reported 924 instead of the real 988).
+  const prevCount = (prevSrc.match(/"gsis_id":/g) || []).length;
+  if (prevCount === 0) return 'previous board had 0 rows or is unparseable — skipping comparison';
+  const cur = PLAYER_BOARD_2026.length;
+  const delta = cur - prevCount;
+  const pct = (delta / prevCount) * 100;
+  const MAX_PCT = 5;
+  if (Math.abs(pct) > MAX_PCT) {
+    throw new Error(`row count changed ${pct.toFixed(1)}% (${prevCount} → ${cur}, Δ${delta}) — outside the ±${MAX_PCT}% band. If this is a legitimate multi-team roster event, land a manual override with a note.`);
+  }
+  return `${cur} rows (prev ${prevCount}, Δ${delta >= 0 ? '+' : ''}${delta} = ${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
+});
+
 const passed = results.filter(r => r.pass).length;
 console.log(`\n${'='.repeat(60)}`);
-console.log(`Task 6 acceptance: ${passed}/${results.length} checks passed`);
+console.log(`Task acceptance: ${passed}/${results.length} checks passed`);
 console.log(`${'='.repeat(60)}`);
 if (passed !== results.length) process.exit(1);
