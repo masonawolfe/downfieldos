@@ -31,6 +31,15 @@ jobs:
       # finding #9). GitHub caches have a natural 7-day TTL, which matches
       # the "refresh weekly during the season" cadence for the in-season
       # year. Bumping the fetch script busts the cache automatically.
+      - name: Workflow YAML parse check (E-026)
+        # Ubuntu runners ship Ruby with Psych. Parse every workflow file
+        # with a real YAML parser and fail the deploy if any won't load.
+        # An unparseable workflow file is silently registered under its
+        # path with name=path, 422s on dispatch, and ghosts every push —
+        # the failure mode that hid the 12 data-*-v2 files' broken
+        # `git commit -m` block for nearly a month. Verify with a parser
+        # before theorizing about the platform.
+        run: bash scripts/check-workflows.sh
       - name: Release-surface checks (E-008)
         # Fails the build on:
         #   1. a nav line missing from PUBLIC_SURFACES
