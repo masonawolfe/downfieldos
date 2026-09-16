@@ -281,7 +281,11 @@ async function main() {
   // pipeline (nflverse uses "LA" for the Rams; DFOS uses "LAR").
   const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', AZ: 'ARI' };
   function norm(t) { const u = (t || '').toUpperCase().trim(); return NORM_TEAM[u] || u; }
-  const ROSTER_WEEKLY_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
+  // E-023: probe repo-relative first (CI), fall back to parent (Mason-local).
+  const ROSTER_WEEKLY_PATH = [
+    path.join(__dirname, '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz'),
+    path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz'),
+  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
   const rosterWeeklyByGsis = new Map();
   try {
     const zlib = await import('zlib');
@@ -313,7 +317,11 @@ async function main() {
 
   // ── Task 4 continuation — compute per-team QB + team offense now that
   // team_2025 / team_2026 are populated. ──
-  const TEAM_SCHEME_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json');
+  // E-023: probe repo-relative first, fall back to parent.
+  const TEAM_SCHEME_PATH = [
+    path.join(__dirname, '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json'),
+    path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json'),
+  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json');
   let teamOff = {};
   try {
     const doc = JSON.parse(fs.readFileSync(TEAM_SCHEME_PATH, 'utf8'));
@@ -358,7 +366,11 @@ async function main() {
   // three share fields set null and metadata.usage_join_rate reflecting the miss.
   let usageJoinedCount = 0;
   let usageAvailable = false;
-  const USAGE_PATH = path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json');
+  // E-023: probe repo-relative first, fall back to parent.
+  const USAGE_PATH = [
+    path.join(__dirname, '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json'),
+    path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json'),
+  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json');
   try {
     const usageRaw = fs.readFileSync(USAGE_PATH, 'utf8');
     const usageDoc = JSON.parse(usageRaw);

@@ -39,7 +39,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
 const SLEEPER_URL = 'https://api.sleeper.app/v1/players/nfl';
-const ROSTER_WEEKLY = path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', `roster_weekly_${SEASON}.csv.gz`);
+// E-023: probe repo-relative first (CI puts the file at <repo>/data/...),
+// fall back to Mason-local parent layout (<DFOS>/data/...).
+const ROSTER_WEEKLY = [
+  path.join(__dirname, '..', 'data', 'intelligence', 'raw', `roster_weekly_${SEASON}.csv.gz`),
+  path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', `roster_weekly_${SEASON}.csv.gz`),
+].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', `roster_weekly_${SEASON}.csv.gz`);
 const OUT = path.join(__dirname, '..', 'src', 'data', 'intelligence', `availability_${SEASON}.json`);
 
 // Sleeper → directive schema mapping.

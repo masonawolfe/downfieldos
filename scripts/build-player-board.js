@@ -25,7 +25,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.join(__dirname, '..');
-const OUTER_INTEL = path.join(__dirname, '..', '..', 'data', 'intelligence');
+// E-023 (2026-09-16): probe both. Mason's local layout nests the repo in
+// 01_Schuhbox/DFOS/repo/, with the data feeds at the DFOS root
+// (../../data/intelligence). CI checks the repo out at the workspace root
+// so there is no parent to walk into; the workflow puts the same feeds
+// at <repo>/data/intelligence instead. Prefer the repo-local path first
+// so CI hits it without a symlink, then fall back to the parent path so
+// Mason's local runs keep working unchanged.
+const OUTER_INTEL = [
+  path.join(REPO_ROOT, 'data', 'intelligence'),
+  path.join(__dirname, '..', '..', 'data', 'intelligence'),
+].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence');
 const SEASON = 2026;
 const OUT = path.join(REPO_ROOT, 'src', 'data', `playerBoard${SEASON}.js`);
 

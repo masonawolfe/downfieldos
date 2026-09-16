@@ -53,6 +53,19 @@ jobs:
           DRAFT_FREEZE_OVERRIDE: ${{ github.event.inputs.override_freeze }}
         run: node .github/scripts/check-draft-freeze.mjs
       - run: npm install
+      - name: Fetch nflverse roster_weekly + team_scheme_profiles
+        # E-023 (2026-09-16): the build scripts probe both
+        # <repo>/data/intelligence and <parent>/data/intelligence and prefer
+        # whichever exists. Mason's local runs already have the DFOS-root
+        # copies of these files; CI needs them fetched into the repo path.
+        # Both files are small (~1MB combined) so a per-run fetch is fine.
+        run: |
+          set -euo pipefail
+          mkdir -p data/intelligence/raw data/intelligence/pbp
+          curl -sSL --fail --max-time 120 \
+            "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.csv.gz" \
+            -o data/intelligence/raw/roster_weekly_2026.csv.gz
+          echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Build the pre-draft board
         run: npm run data:board
       - name: Verify the board (6-check gate — must pass to commit)
