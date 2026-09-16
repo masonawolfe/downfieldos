@@ -7,15 +7,13 @@ import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
 import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../config/newsletter';
 
 const MODULE_CARDS = [
+  // Fantasy Intel MODULE_CARD removed 2026-09-16 per QA lane-1: E-008
+  // classified /fantasy-intel as Beta; the landing hero grid was a public
+  // discovery leak. Route stays URL-reachable and prerendered noindex.
   {
     icon: Swords, title: "Matchup Intelligence",
-    desc: "9 intelligence signals per matchup — from scheme familiarity down to WR1 vs CB1 battles. Drill into player-level matchups, coaching trees, revenge games, and film study.",
+    desc: "9 intelligence signals per matchup, from scheme familiarity down to WR1 vs CB1 battles. Drill into player-level matchups, coaching trees, revenge games, and film study.",
     path: "/matchup-preview", color: "#f97316",
-  },
-  {
-    icon: Flame, title: "Fantasy Intel",
-    desc: "Matchup-based opportunity scores with boom/bust probability by position. Data-driven start/sit decisions backed by 100,000+ plays.",
-    path: "/fantasy-intel", color: "#dc2626",
   },
   {
     icon: Calendar, title: "This Week",
@@ -138,12 +136,13 @@ export function LandingPage({ onSelectTeam, navigate }) {
           })}
         </div>
 
-        {/* Additional modules row */}
+        {/* Additional modules row.
+            War Room button removed 2026-09-16 per QA lane-1 (E-008: Beta,
+            no public discovery). Route stays URL-reachable and noindex. */}
         <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 20, flexWrap: "wrap" }}>
           {[
             { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview" },
             { icon: Eye, label: "Team Intel", path: "/team-intel" },
-            { icon: Shield, label: "War Room", path: "/war-room" },
           ].map(m => {
             const Icon = m.icon;
             return (

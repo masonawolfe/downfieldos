@@ -3,20 +3,17 @@ import { Search, TrendingUp, Calendar, Star, Swords, Flame, Eye, Shield, Target,
 import { T } from '../../data/teams';
 import { tn } from '../../utils/formatters';
 
-// /admin removed 2026-09-15 per QA lane-1 (see HomeDashboard.jsx). The
-// command palette is a public discovery surface; keeping the Admin entry
-// here after removing the password gate (E-012) put the internal panel
-// one keystroke from any visitor. Removed. Internal remains reachable by
-// typing the URL directly.
+// Internal / Beta routes removed from public discovery here:
+//   /admin (2026-09-15, E-012 removed the client-side password gate).
+//   /fantasy-intel and /war-room (2026-09-16, E-008 Beta, QA lane-1).
+// All three stay URL-reachable and prerendered noindex.
 const MODULES = [
   { icon: Home, label: "Home", path: "/dashboard", keywords: "home dashboard hq" },
   { icon: TrendingUp, label: "2026 Preview", path: "/2026-preview", keywords: "season preview opponents projections roster draft" },
   { icon: Calendar, label: "This Week", path: "/this-week", keywords: "games week schedule matchups" },
   { icon: Star, label: "So What?", path: "/so-what", keywords: "insights headlines sentiment misery" },
   { icon: Swords, label: "Matchup Preview", path: "/matchup-preview", keywords: "matchup scouting intelligence scheme coaching" },
-  { icon: Flame, label: "Fantasy Intel", path: "/fantasy-intel", keywords: "fantasy rankings boom bust start sit" },
   { icon: Eye, label: "Team Intel", path: "/team-intel", keywords: "team scouting report players roster grades" },
-  { icon: Shield, label: "War Room", path: "/war-room", keywords: "draft board war room front office roster needs" },
 ];
 
 export function CommandPalette({ isOpen, onClose, navigate, onSelectTeam }) {
