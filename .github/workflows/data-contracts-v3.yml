@@ -1,0 +1,10 @@
+name: Data - Contracts Test v3
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello from data-contracts-v3"
