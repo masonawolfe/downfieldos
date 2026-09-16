@@ -1,4 +1,4 @@
-name: Data — Availability
+name: Data - Availability
 
 # Refreshes src/data/intelligence/availability_2026.json from the Sleeper
 # players API. Sleeper caches globally and refreshes multiple times a day;
