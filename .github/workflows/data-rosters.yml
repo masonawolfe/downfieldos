@@ -1,3 +1,4 @@
+# E-022 (2026-09-16): re-registered under original path after E-015 confirmed the 09-03 registration cache was stuck. See _TO_COS.md.
 name: Data — Rosters
 
 # Refreshes src/data/rosters${SEASON}.js from the nflverse depth-chart +
