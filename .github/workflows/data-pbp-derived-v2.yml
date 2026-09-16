@@ -38,7 +38,10 @@ jobs:
     env:
       PBP_YEAR: ${{ github.event.inputs.year }}
       PBP_OUT_DIR: ${{ github.workspace }}/src/data/intelligence/pbp
-      PBP_RAW_DIR: ${{ runner.temp }}/pbp-raw
+      # PBP_RAW_DIR is set in the "Derive PBP_YEAR" step via $GITHUB_ENV.
+      # `${{ runner.temp }}` is a step-context expression and cannot be used
+      # in the job-level env block — GHA rejects the whole file with
+      # "Unrecognized named-value: 'runner'" at dispatch time. (E-026-follow-1)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -58,6 +61,10 @@ jobs:
             echo "Derived PBP_YEAR=$PBP_YEAR"
           fi
           echo "PBP_YEAR=$PBP_YEAR" >> "$GITHUB_ENV"
+          # See job env comment: PBP_RAW_DIR moved here because runner.temp
+          # is a step-context expression. $RUNNER_TEMP shell var is always
+          # exported on GHA runners.
+          echo "PBP_RAW_DIR=$RUNNER_TEMP/pbp-raw" >> "$GITHUB_ENV"
       - name: Download nflverse PBP + roster (fall back to SEASON-1 on 404)
         run: |
           set -euo pipefail
