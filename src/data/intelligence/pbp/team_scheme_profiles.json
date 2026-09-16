@@ -1,0 +1,785 @@
+{
+  "ARI": {
+    "team": "ARI",
+    "offense": {
+      "pass_rate": 0.551,
+      "run_rate": 0.449,
+      "total_plays": 69,
+      "pass_rate_down_1": 0.387,
+      "pass_rate_down_2": 0.68,
+      "pass_rate_down_3": 0.692,
+      "no_huddle_rate": 0.058,
+      "run_direction": {
+        "middle": 0.419,
+        "right": 0.323,
+        "left": 0.258
+      }
+    },
+    "defense": {
+      "total_plays_faced": 51,
+      "opp_pass_rate": 0.588,
+      "opp_pass_rate_down_1": 0.522,
+      "opp_pass_rate_down_2": 0.529,
+      "opp_pass_rate_down_3": 0.75,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "ATL": {
+    "team": "ATL",
+    "offense": {
+      "pass_rate": 0.456,
+      "run_rate": 0.544,
+      "total_plays": 57,
+      "pass_rate_down_1": 0.308,
+      "pass_rate_down_2": 0.526,
+      "pass_rate_down_3": 0.667,
+      "no_huddle_rate": 0.035,
+      "run_direction": {
+        "left": 0.387,
+        "right": 0.323,
+        "middle": 0.29
+      }
+    },
+    "defense": {
+      "total_plays_faced": 61,
+      "opp_pass_rate": 0.705,
+      "opp_pass_rate_down_1": 0.56,
+      "opp_pass_rate_down_2": 0.682,
+      "opp_pass_rate_down_3": 1.0,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "BAL": {
+    "team": "BAL",
+    "offense": {
+      "pass_rate": 0.433,
+      "run_rate": 0.567,
+      "total_plays": 60,
+      "pass_rate_down_1": 0.276,
+      "pass_rate_down_2": 0.5,
+      "pass_rate_down_3": 0.75,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.017,
+      "run_direction": {
+        "right": 0.471,
+        "left": 0.412,
+        "middle": 0.118
+      }
+    },
+    "defense": {
+      "total_plays_faced": 53,
+      "opp_pass_rate": 0.623,
+      "opp_pass_rate_down_1": 0.48,
+      "opp_pass_rate_down_2": 0.765,
+      "opp_pass_rate_down_3": 0.7,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "BUF": {
+    "team": "BUF",
+    "offense": {
+      "pass_rate": 0.615,
+      "run_rate": 0.385,
+      "total_plays": 52,
+      "pass_rate_down_1": 0.462,
+      "pass_rate_down_2": 0.733,
+      "pass_rate_down_3": 0.889,
+      "pass_rate_down_4": 0.0,
+      "no_huddle_rate": 0.019,
+      "run_direction": {
+        "left": 0.368,
+        "right": 0.368,
+        "middle": 0.263
+      }
+    },
+    "defense": {
+      "total_plays_faced": 73,
+      "opp_pass_rate": 0.562,
+      "opp_pass_rate_down_1": 0.533,
+      "opp_pass_rate_down_2": 0.64,
+      "opp_pass_rate_down_3": 0.562,
+      "opp_pass_rate_down_4": 0.0
+    }
+  },
+  "CAR": {
+    "team": "CAR",
+    "offense": {
+      "pass_rate": 0.645,
+      "run_rate": 0.355,
+      "total_plays": 62,
+      "pass_rate_down_1": 0.516,
+      "pass_rate_down_2": 0.714,
+      "pass_rate_down_3": 0.889,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.081,
+      "run_direction": {
+        "left": 0.455,
+        "right": 0.273,
+        "middle": 0.273
+      }
+    },
+    "defense": {
+      "total_plays_faced": 70,
+      "opp_pass_rate": 0.443,
+      "opp_pass_rate_down_1": 0.424,
+      "opp_pass_rate_down_2": 0.364,
+      "opp_pass_rate_down_3": 0.643,
+      "opp_pass_rate_down_4": 0.0
+    }
+  },
+  "CHI": {
+    "team": "CHI",
+    "offense": {
+      "pass_rate": 0.443,
+      "run_rate": 0.557,
+      "total_plays": 70,
+      "pass_rate_down_1": 0.424,
+      "pass_rate_down_2": 0.364,
+      "pass_rate_down_3": 0.643,
+      "pass_rate_down_4": 0.0,
+      "no_huddle_rate": 0.057,
+      "run_direction": {
+        "right": 0.462,
+        "left": 0.333,
+        "middle": 0.205
+      }
+    },
+    "defense": {
+      "total_plays_faced": 62,
+      "opp_pass_rate": 0.645,
+      "opp_pass_rate_down_1": 0.516,
+      "opp_pass_rate_down_2": 0.714,
+      "opp_pass_rate_down_3": 0.889,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "CIN": {
+    "team": "CIN",
+    "offense": {
+      "pass_rate": 0.581,
+      "run_rate": 0.419,
+      "total_plays": 62,
+      "pass_rate_down_1": 0.533,
+      "pass_rate_down_2": 0.556,
+      "pass_rate_down_3": 0.714,
+      "no_huddle_rate": 0.048,
+      "run_direction": {
+        "middle": 0.462,
+        "right": 0.269,
+        "left": 0.269
+      }
+    },
+    "defense": {
+      "total_plays_faced": 51,
+      "opp_pass_rate": 0.627,
+      "opp_pass_rate_down_1": 0.52,
+      "opp_pass_rate_down_2": 0.625,
+      "opp_pass_rate_down_3": 0.9
+    }
+  },
+  "CLE": {
+    "team": "CLE",
+    "offense": {
+      "pass_rate": 0.551,
+      "run_rate": 0.449,
+      "total_plays": 49,
+      "pass_rate_down_1": 0.409,
+      "pass_rate_down_2": 0.706,
+      "pass_rate_down_3": 0.625,
+      "pass_rate_down_4": 0.5,
+      "no_huddle_rate": 0.041,
+      "run_direction": {
+        "left": 0.5,
+        "middle": 0.273,
+        "right": 0.227
+      }
+    },
+    "defense": {
+      "total_plays_faced": 53,
+      "opp_pass_rate": 0.453,
+      "opp_pass_rate_down_1": 0.333,
+      "opp_pass_rate_down_2": 0.706,
+      "opp_pass_rate_down_3": 0.333
+    }
+  },
+  "DAL": {
+    "team": "DAL",
+    "offense": {
+      "pass_rate": 0.654,
+      "run_rate": 0.346,
+      "total_plays": 52,
+      "pass_rate_down_1": 0.5,
+      "pass_rate_down_2": 0.737,
+      "pass_rate_down_3": 0.818,
+      "no_huddle_rate": 0.096,
+      "run_direction": {
+        "middle": 0.389,
+        "right": 0.333,
+        "left": 0.278
+      }
+    },
+    "defense": {
+      "total_plays_faced": 65,
+      "opp_pass_rate": 0.477,
+      "opp_pass_rate_down_1": 0.367,
+      "opp_pass_rate_down_2": 0.52,
+      "opp_pass_rate_down_3": 0.7
+    }
+  },
+  "DEN": {
+    "team": "DEN",
+    "offense": {
+      "pass_rate": 0.696,
+      "run_rate": 0.304,
+      "total_plays": 46,
+      "pass_rate_down_1": 0.526,
+      "pass_rate_down_2": 0.786,
+      "pass_rate_down_3": 0.833,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.065,
+      "run_direction": {
+        "left": 0.385,
+        "right": 0.385,
+        "middle": 0.231
+      }
+    },
+    "defense": {
+      "total_plays_faced": 64,
+      "opp_pass_rate": 0.453,
+      "opp_pass_rate_down_1": 0.423,
+      "opp_pass_rate_down_2": 0.4,
+      "opp_pass_rate_down_3": 0.625,
+      "opp_pass_rate_down_4": 0.0
+    }
+  },
+  "DET": {
+    "team": "DET",
+    "offense": {
+      "pass_rate": 0.548,
+      "run_rate": 0.452,
+      "total_plays": 73,
+      "pass_rate_down_1": 0.471,
+      "pass_rate_down_2": 0.5,
+      "pass_rate_down_3": 0.846,
+      "no_huddle_rate": 0.014,
+      "run_direction": {
+        "middle": 0.375,
+        "right": 0.344,
+        "left": 0.281
+      }
+    },
+    "defense": {
+      "total_plays_faced": 86,
+      "opp_pass_rate": 0.709,
+      "opp_pass_rate_down_1": 0.632,
+      "opp_pass_rate_down_2": 0.786,
+      "opp_pass_rate_down_3": 0.706,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "GB": {
+    "team": "GB",
+    "offense": {
+      "pass_rate": 0.687,
+      "run_rate": 0.313,
+      "total_plays": 67,
+      "pass_rate_down_1": 0.517,
+      "pass_rate_down_2": 0.792,
+      "pass_rate_down_3": 0.917,
+      "pass_rate_down_4": 0.5,
+      "no_huddle_rate": 0.149,
+      "run_direction": {
+        "left": 0.667,
+        "right": 0.238,
+        "middle": 0.095
+      }
+    },
+    "defense": {
+      "total_plays_faced": 59,
+      "opp_pass_rate": 0.475,
+      "opp_pass_rate_down_1": 0.32,
+      "opp_pass_rate_down_2": 0.421,
+      "opp_pass_rate_down_3": 0.786
+    }
+  },
+  "HOU": {
+    "team": "HOU",
+    "offense": {
+      "pass_rate": 0.562,
+      "run_rate": 0.438,
+      "total_plays": 73,
+      "pass_rate_down_1": 0.533,
+      "pass_rate_down_2": 0.64,
+      "pass_rate_down_3": 0.562,
+      "pass_rate_down_4": 0.0,
+      "no_huddle_rate": 0.082,
+      "run_direction": {
+        "right": 0.438,
+        "left": 0.375,
+        "middle": 0.188
+      }
+    },
+    "defense": {
+      "total_plays_faced": 52,
+      "opp_pass_rate": 0.615,
+      "opp_pass_rate_down_1": 0.462,
+      "opp_pass_rate_down_2": 0.733,
+      "opp_pass_rate_down_3": 0.889,
+      "opp_pass_rate_down_4": 0.0
+    }
+  },
+  "IND": {
+    "team": "IND",
+    "offense": {
+      "pass_rate": 0.623,
+      "run_rate": 0.377,
+      "total_plays": 53,
+      "pass_rate_down_1": 0.48,
+      "pass_rate_down_2": 0.765,
+      "pass_rate_down_3": 0.7,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.132,
+      "run_direction": {
+        "right": 0.7,
+        "left": 0.2,
+        "middle": 0.1
+      }
+    },
+    "defense": {
+      "total_plays_faced": 60,
+      "opp_pass_rate": 0.433,
+      "opp_pass_rate_down_1": 0.276,
+      "opp_pass_rate_down_2": 0.5,
+      "opp_pass_rate_down_3": 0.75,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "JAX": {
+    "team": "JAX",
+    "offense": {
+      "pass_rate": 0.453,
+      "run_rate": 0.547,
+      "total_plays": 53,
+      "pass_rate_down_1": 0.333,
+      "pass_rate_down_2": 0.706,
+      "pass_rate_down_3": 0.333,
+      "no_huddle_rate": 0.075,
+      "run_direction": {
+        "left": 0.414,
+        "right": 0.31,
+        "middle": 0.276
+      }
+    },
+    "defense": {
+      "total_plays_faced": 49,
+      "opp_pass_rate": 0.551,
+      "opp_pass_rate_down_1": 0.409,
+      "opp_pass_rate_down_2": 0.706,
+      "opp_pass_rate_down_3": 0.625,
+      "opp_pass_rate_down_4": 0.5
+    }
+  },
+  "KC": {
+    "team": "KC",
+    "offense": {
+      "pass_rate": 0.453,
+      "run_rate": 0.547,
+      "total_plays": 64,
+      "pass_rate_down_1": 0.423,
+      "pass_rate_down_2": 0.4,
+      "pass_rate_down_3": 0.625,
+      "pass_rate_down_4": 0.0,
+      "no_huddle_rate": 0.0,
+      "run_direction": {
+        "middle": 0.457,
+        "left": 0.371,
+        "right": 0.171
+      }
+    },
+    "defense": {
+      "total_plays_faced": 46,
+      "opp_pass_rate": 0.696,
+      "opp_pass_rate_down_1": 0.526,
+      "opp_pass_rate_down_2": 0.786,
+      "opp_pass_rate_down_3": 0.833,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "LAC": {
+    "team": "LAC",
+    "offense": {
+      "pass_rate": 0.588,
+      "run_rate": 0.412,
+      "total_plays": 51,
+      "pass_rate_down_1": 0.522,
+      "pass_rate_down_2": 0.529,
+      "pass_rate_down_3": 0.75,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.02,
+      "run_direction": {
+        "right": 0.429,
+        "middle": 0.333,
+        "left": 0.238
+      }
+    },
+    "defense": {
+      "total_plays_faced": 69,
+      "opp_pass_rate": 0.551,
+      "opp_pass_rate_down_1": 0.387,
+      "opp_pass_rate_down_2": 0.68,
+      "opp_pass_rate_down_3": 0.692
+    }
+  },
+  "LV": {
+    "team": "LV",
+    "offense": {
+      "pass_rate": 0.469,
+      "run_rate": 0.531,
+      "total_plays": 64,
+      "pass_rate_down_1": 0.333,
+      "pass_rate_down_2": 0.542,
+      "pass_rate_down_3": 0.667,
+      "pass_rate_down_4": 0.0,
+      "no_huddle_rate": 0.016,
+      "run_direction": {
+        "middle": 0.412,
+        "left": 0.353,
+        "right": 0.235
+      }
+    },
+    "defense": {
+      "total_plays_faced": 50,
+      "opp_pass_rate": 0.64,
+      "opp_pass_rate_down_1": 0.619,
+      "opp_pass_rate_down_2": 0.556,
+      "opp_pass_rate_down_3": 0.8,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "MIA": {
+    "team": "MIA",
+    "offense": {
+      "pass_rate": 0.64,
+      "run_rate": 0.36,
+      "total_plays": 50,
+      "pass_rate_down_1": 0.619,
+      "pass_rate_down_2": 0.556,
+      "pass_rate_down_3": 0.8,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.02,
+      "run_direction": {
+        "left": 0.5,
+        "middle": 0.333,
+        "right": 0.167
+      }
+    },
+    "defense": {
+      "total_plays_faced": 64,
+      "opp_pass_rate": 0.469,
+      "opp_pass_rate_down_1": 0.333,
+      "opp_pass_rate_down_2": 0.542,
+      "opp_pass_rate_down_3": 0.667,
+      "opp_pass_rate_down_4": 0.0
+    }
+  },
+  "MIN": {
+    "team": "MIN",
+    "offense": {
+      "pass_rate": 0.475,
+      "run_rate": 0.525,
+      "total_plays": 59,
+      "pass_rate_down_1": 0.32,
+      "pass_rate_down_2": 0.421,
+      "pass_rate_down_3": 0.786,
+      "no_huddle_rate": 0.068,
+      "run_direction": {
+        "left": 0.355,
+        "middle": 0.323,
+        "right": 0.323
+      }
+    },
+    "defense": {
+      "total_plays_faced": 67,
+      "opp_pass_rate": 0.687,
+      "opp_pass_rate_down_1": 0.517,
+      "opp_pass_rate_down_2": 0.792,
+      "opp_pass_rate_down_3": 0.917,
+      "opp_pass_rate_down_4": 0.5
+    }
+  },
+  "NE": {
+    "team": "NE",
+    "offense": {
+      "pass_rate": 0.537,
+      "run_rate": 0.463,
+      "total_plays": 67,
+      "pass_rate_down_1": 0.407,
+      "pass_rate_down_2": 0.545,
+      "pass_rate_down_3": 0.75,
+      "pass_rate_down_4": 0.5,
+      "no_huddle_rate": 0.0,
+      "run_direction": {
+        "right": 0.355,
+        "middle": 0.323,
+        "left": 0.323
+      }
+    },
+    "defense": {
+      "total_plays_faced": 47,
+      "opp_pass_rate": 0.553,
+      "opp_pass_rate_down_1": 0.476,
+      "opp_pass_rate_down_2": 0.5,
+      "opp_pass_rate_down_3": 0.727,
+      "opp_pass_rate_down_4": 1.0
+    }
+  },
+  "NO": {
+    "team": "NO",
+    "offense": {
+      "pass_rate": 0.709,
+      "run_rate": 0.291,
+      "total_plays": 86,
+      "pass_rate_down_1": 0.632,
+      "pass_rate_down_2": 0.786,
+      "pass_rate_down_3": 0.706,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.221,
+      "run_direction": {
+        "middle": 0.458,
+        "right": 0.292,
+        "left": 0.25
+      }
+    },
+    "defense": {
+      "total_plays_faced": 73,
+      "opp_pass_rate": 0.548,
+      "opp_pass_rate_down_1": 0.471,
+      "opp_pass_rate_down_2": 0.5,
+      "opp_pass_rate_down_3": 0.846
+    }
+  },
+  "NYG": {
+    "team": "NYG",
+    "offense": {
+      "pass_rate": 0.477,
+      "run_rate": 0.523,
+      "total_plays": 65,
+      "pass_rate_down_1": 0.367,
+      "pass_rate_down_2": 0.52,
+      "pass_rate_down_3": 0.7,
+      "no_huddle_rate": 0.015,
+      "run_direction": {
+        "left": 0.588,
+        "right": 0.265,
+        "middle": 0.147
+      }
+    },
+    "defense": {
+      "total_plays_faced": 52,
+      "opp_pass_rate": 0.654,
+      "opp_pass_rate_down_1": 0.5,
+      "opp_pass_rate_down_2": 0.737,
+      "opp_pass_rate_down_3": 0.818
+    }
+  },
+  "NYJ": {
+    "team": "NYJ",
+    "offense": {
+      "pass_rate": 0.4,
+      "run_rate": 0.6,
+      "total_plays": 60,
+      "pass_rate_down_1": 0.444,
+      "pass_rate_down_2": 0.3,
+      "pass_rate_down_3": 0.455,
+      "pass_rate_down_4": 0.5,
+      "no_huddle_rate": 0.017,
+      "run_direction": {
+        "right": 0.457,
+        "left": 0.286,
+        "middle": 0.257
+      }
+    },
+    "defense": {
+      "total_plays_faced": 49,
+      "opp_pass_rate": 0.714,
+      "opp_pass_rate_down_1": 0.526,
+      "opp_pass_rate_down_2": 0.833,
+      "opp_pass_rate_down_3": 0.833
+    }
+  },
+  "PHI": {
+    "team": "PHI",
+    "offense": {
+      "pass_rate": 0.549,
+      "run_rate": 0.451,
+      "total_plays": 51,
+      "pass_rate_down_1": 0.368,
+      "pass_rate_down_2": 0.556,
+      "pass_rate_down_3": 0.786,
+      "no_huddle_rate": 0.157,
+      "run_direction": {
+        "right": 0.609,
+        "left": 0.261,
+        "middle": 0.13
+      }
+    },
+    "defense": {
+      "total_plays_faced": 68,
+      "opp_pass_rate": 0.529,
+      "opp_pass_rate_down_1": 0.31,
+      "opp_pass_rate_down_2": 0.714,
+      "opp_pass_rate_down_3": 0.667,
+      "opp_pass_rate_down_4": 0.5
+    }
+  },
+  "PIT": {
+    "team": "PIT",
+    "offense": {
+      "pass_rate": 0.705,
+      "run_rate": 0.295,
+      "total_plays": 61,
+      "pass_rate_down_1": 0.56,
+      "pass_rate_down_2": 0.682,
+      "pass_rate_down_3": 1.0,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.066,
+      "run_direction": {
+        "left": 0.5,
+        "right": 0.278,
+        "middle": 0.222
+      }
+    },
+    "defense": {
+      "total_plays_faced": 57,
+      "opp_pass_rate": 0.456,
+      "opp_pass_rate_down_1": 0.308,
+      "opp_pass_rate_down_2": 0.526,
+      "opp_pass_rate_down_3": 0.667
+    }
+  },
+  "SEA": {
+    "team": "SEA",
+    "offense": {
+      "pass_rate": 0.553,
+      "run_rate": 0.447,
+      "total_plays": 47,
+      "pass_rate_down_1": 0.476,
+      "pass_rate_down_2": 0.5,
+      "pass_rate_down_3": 0.727,
+      "pass_rate_down_4": 1.0,
+      "no_huddle_rate": 0.021,
+      "run_direction": {
+        "right": 0.524,
+        "left": 0.381,
+        "middle": 0.095
+      }
+    },
+    "defense": {
+      "total_plays_faced": 67,
+      "opp_pass_rate": 0.537,
+      "opp_pass_rate_down_1": 0.407,
+      "opp_pass_rate_down_2": 0.545,
+      "opp_pass_rate_down_3": 0.75,
+      "opp_pass_rate_down_4": 0.5
+    }
+  },
+  "SF": {
+    "team": "SF",
+    "offense": {
+      "pass_rate": 0.531,
+      "run_rate": 0.469,
+      "total_plays": 64,
+      "pass_rate_down_1": 0.31,
+      "pass_rate_down_2": 0.652,
+      "pass_rate_down_3": 0.833,
+      "no_huddle_rate": 0.0,
+      "run_direction": {
+        "left": 0.367,
+        "right": 0.333,
+        "middle": 0.3
+      }
+    },
+    "defense": {
+      "total_plays_faced": 56,
+      "opp_pass_rate": 0.5,
+      "opp_pass_rate_down_1": 0.435,
+      "opp_pass_rate_down_2": 0.476,
+      "opp_pass_rate_down_3": 0.778,
+      "opp_pass_rate_down_4": 0.333
+    }
+  },
+  "TB": {
+    "team": "TB",
+    "offense": {
+      "pass_rate": 0.627,
+      "run_rate": 0.373,
+      "total_plays": 51,
+      "pass_rate_down_1": 0.52,
+      "pass_rate_down_2": 0.625,
+      "pass_rate_down_3": 0.9,
+      "no_huddle_rate": 0.098,
+      "run_direction": {
+        "left": 0.474,
+        "right": 0.421,
+        "middle": 0.105
+      }
+    },
+    "defense": {
+      "total_plays_faced": 62,
+      "opp_pass_rate": 0.581,
+      "opp_pass_rate_down_1": 0.533,
+      "opp_pass_rate_down_2": 0.556,
+      "opp_pass_rate_down_3": 0.714
+    }
+  },
+  "TEN": {
+    "team": "TEN",
+    "offense": {
+      "pass_rate": 0.714,
+      "run_rate": 0.286,
+      "total_plays": 49,
+      "pass_rate_down_1": 0.526,
+      "pass_rate_down_2": 0.833,
+      "pass_rate_down_3": 0.833,
+      "no_huddle_rate": 0.224,
+      "run_direction": {
+        "right": 0.5,
+        "middle": 0.286,
+        "left": 0.214
+      }
+    },
+    "defense": {
+      "total_plays_faced": 60,
+      "opp_pass_rate": 0.4,
+      "opp_pass_rate_down_1": 0.444,
+      "opp_pass_rate_down_2": 0.3,
+      "opp_pass_rate_down_3": 0.455,
+      "opp_pass_rate_down_4": 0.5
+    }
+  },
+  "WAS": {
+    "team": "WAS",
+    "offense": {
+      "pass_rate": 0.529,
+      "run_rate": 0.471,
+      "total_plays": 68,
+      "pass_rate_down_1": 0.31,
+      "pass_rate_down_2": 0.714,
+      "pass_rate_down_3": 0.667,
+      "pass_rate_down_4": 0.5,
+      "no_huddle_rate": 0.118,
+      "run_direction": {
+        "left": 0.375,
+        "right": 0.312,
+        "middle": 0.312
+      }
+    },
+    "defense": {
+      "total_plays_faced": 51,
+      "opp_pass_rate": 0.549,
+      "opp_pass_rate_down_1": 0.368,
+      "opp_pass_rate_down_2": 0.556,
+      "opp_pass_rate_down_3": 0.786
+    }
+  }
+}
