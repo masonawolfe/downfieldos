@@ -1,23 +1,12 @@
-name: Data - Availability
+# E-015 (2026-09-16): dead file, kept as a marker. Content promoted to
+# data-availability.yml under fresh registration.
+name: (dead) data-availability-test
 
 on:
-  schedule:
-    - cron: '0 11 * * *'
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
-concurrency:
-  group: data-availability-test
-  cancel-in-progress: false
-
 jobs:
-  refresh:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: echo "same name as broken, but different filename"
+      - run: echo "This workflow is intentionally disabled — see .github/workflows/data-availability.yml"
