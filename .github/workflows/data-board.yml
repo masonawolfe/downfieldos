@@ -76,7 +76,7 @@ jobs:
           echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Build the pre-draft board
         run: npm run data:board
-      - name: Verify the board (9-check gate — must pass to commit)
+      - name: Verify the board (10-check gate — must pass to commit)
         run: npm run data:board:verify
       # E-009a — emit the always-on readable table beside the JS artifact.
       # Runs AFTER the verifier so the header's "verifier" line reflects
