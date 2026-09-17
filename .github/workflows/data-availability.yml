@@ -16,7 +16,7 @@ name: Data — Availability
 
 on:
   schedule:
-    - cron: '0 11 * * *'
+    - cron: '4 4 * * *'  # E-030 2026-09-17: overnight UTC (was `0 11`) — 11:00 UTC never fired due to GHA peak-hour backlog. See _TO_COS 2026-09-17.
   workflow_dispatch: {}
 
 permissions:

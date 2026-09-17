@@ -11,7 +11,7 @@ on:
   schedule:
     # Weekly Mon 12:00 UTC — schedule changes are rare, but line/roof/surface
     # metadata drifts as gameweek approaches and this catches flex moves.
-    - cron: '27 12 * * 1'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '21 5 * * 1'  # E-030 2026-09-17: overnight UTC (was `27 12`) — Mon refresh, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       season:

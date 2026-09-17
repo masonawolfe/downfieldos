@@ -19,12 +19,13 @@ on:
     workflows: ["Data — Availability"]
     types: [completed]
   # Also run on our own daily schedule — 30 min after data-availability's
-  # 11:00 UTC cron. A failed availability run must not silently stop the
-  # board from refreshing; the freshness check in deploy.yml is the
-  # backstop that fails loud if the Generated stamp goes stale. (peer QA
-  # 2026-09-16, freshness residual #3)
+  # cron. A failed availability run must not silently stop the board from
+  # refreshing; the freshness check in deploy.yml is the backstop that
+  # fails loud if the Generated stamp goes stale. (peer QA 2026-09-16,
+  # freshness residual #3.) E-030 2026-09-17: moved to overnight UTC to
+  # avoid peak-hour scheduler backlog.
   schedule:
-    - cron: '30 11 * * *'
+    - cron: '34 4 * * *'  # E-030 2026-09-17: overnight UTC (was `30 11`) — 30 min after availability's 04:04.
   workflow_dispatch:
     inputs:
       override_freeze:

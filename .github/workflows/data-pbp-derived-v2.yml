@@ -12,7 +12,7 @@ on:
   schedule:
     # Weekly Tue 13:00 UTC — after the previous week's PBP CSV has been
     # rebuilt by nflverse (which happens on their Mon cadence).
-    - cron: '7 13 * * 2'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '11 6 * * 2'  # E-030 2026-09-17: overnight UTC (was `7 13`) — Tue refresh, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       year:

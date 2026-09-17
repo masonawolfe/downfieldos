@@ -14,7 +14,7 @@ on:
   schedule:
     # Weekly Wed 12:00 UTC year-round; nflverse rebuilds stats_player weekly
     # and the file is stable in offseason.
-    - cron: '22 12 * * 3'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '13 5 * * 3'  # E-030 2026-09-17: overnight UTC (was `22 12`) — Wed refresh, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       season:

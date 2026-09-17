@@ -11,7 +11,7 @@ on:
   schedule:
     # Daily 12:00 UTC — trade activity spikes in bursts at the deadline / cut
     # weekends / draft. Cheap fetch (< 1 MB).
-    - cron: '2 12 * * *'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '41 4 * * *'  # E-030 2026-09-17: overnight UTC (was `2 12`) — avoid GHA peak-hour backlog.
   workflow_dispatch: {}
 
 permissions:

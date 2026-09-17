@@ -10,7 +10,7 @@ name: Data — Team News
 on:
   schedule:
     # Daily at 12:00 and 21:00 UTC — headline churn is high, refresh is cheap.
-    - cron: '7 12,21 * * *'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '49 4,21 * * *'  # E-030 2026-09-17: overnight UTC + late-day (was `7 12,21`) — primary 04:49, secondary 21:49 both off peak-hour backlog.
   workflow_dispatch:
     inputs:
       limit_per_team:

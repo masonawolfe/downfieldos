@@ -10,9 +10,9 @@ name: Data — Rosters
 on:
   schedule:
     # Tue 12:00 UTC year-round (roster moves keep coming in the offseason)
-    - cron: '32 12 * * 2'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '29 5 * * 2'  # E-030 2026-09-17: overnight UTC (was `32 12`) — Tue refresh, off peak-hour backlog.
     # Wed / Sat 12:00 UTC Sep–Jan (in-season churn: waivers, IR, trades)
-    - cron: '32 12 * 9-12,1 3,6'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '29 5 * 9-12,1 3,6'  # E-030 2026-09-17: overnight UTC (was `32 12`) — seasonal Wed/Sat, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       season:

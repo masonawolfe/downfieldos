@@ -14,7 +14,7 @@ name: Data — Weekly Transactions (derived)
 on:
   schedule:
     # Weekly Thu 12:30 UTC — nflverse publishes weekly rosters Wed evening.
-    - cron: '47 12 * * 4'  # E-029 2026-09-16: staggered minute (was `30`) so no two data workflows start together.
+    - cron: '53 5 * * 4'  # E-030 2026-09-17: overnight UTC (was `47 12`) — Thu refresh, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       season:

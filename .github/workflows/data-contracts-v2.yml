@@ -11,7 +11,7 @@ name: Data — Contracts
 on:
   schedule:
     # Monthly on the 1st, 12:00 UTC
-    - cron: '12 12 1 * *'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '57 4 1 * *'  # E-030 2026-09-17: overnight UTC (was `12 12`) — monthly on the 1st, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       season:

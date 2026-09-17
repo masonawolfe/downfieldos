@@ -10,8 +10,8 @@ name: Data — Injuries
 on:
   schedule:
     # Wed 12:00 UTC year-round; NFL injury reports drop Wed/Thu/Fri in-season
-    - cron: '17 12 * * 3'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
-    - cron: '17 12 * * 5'  # Fri refresh to catch late-week designation changes (staggered per E-029).
+    - cron: '5 5 * * 3'  # E-030 2026-09-17: overnight UTC (was `17 12`) — Wed refresh, off peak-hour backlog.
+    - cron: '5 5 * * 5'  # E-030 2026-09-17: overnight UTC (was `17 12`) — Fri refresh to catch late-week designation changes.
   workflow_dispatch:
     inputs:
       season:

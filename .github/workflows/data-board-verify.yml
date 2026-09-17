@@ -12,9 +12,10 @@ name: Data — Player Board Verify
 
 on:
   schedule:
-    # 06:00 and 18:00 UTC — brackets the daily availability + board chain
-    # so any acceptance regression surfaces within ~12h.
-    - cron: '0 6,18 * * *'
+    # E-030 2026-09-17: once daily at 06:29 UTC — a fallback after the
+    # overnight cadence (avail 04:04, board 04:34, v2 feeds 04:41–06:23)
+    # settles. Primary trigger is still workflow_run on board completion.
+    - cron: '29 6 * * *'
   workflow_run:
     workflows: ["Data — Player Board"]
     types: [completed]

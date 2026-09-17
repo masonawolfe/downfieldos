@@ -11,7 +11,7 @@ on:
   schedule:
     # Weekly Thu 12:00 UTC — the NFL announces crew assignments Wed for the
     # coming weekend; Thu refresh has them all.
-    - cron: '37 12 * * 4'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '37 5 * * 4'  # E-030 2026-09-17: overnight UTC (was `37 12`) — Thu refresh, off peak-hour backlog.
   workflow_dispatch: {}
 
 permissions:

@@ -16,7 +16,7 @@ on:
   schedule:
     # Weekly Fri 14:00 UTC — after data-referees (Thu) has refreshed
     # the appearance file for the week.
-    - cron: '7 14 * * 5'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '23 6 * * 5'  # E-030 2026-09-17: overnight UTC (was `7 14`) — Fri refresh, off peak-hour backlog.
   workflow_dispatch: {}
   workflow_run:
     workflows: ["Data — Referees"]

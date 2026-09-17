@@ -11,7 +11,7 @@ on:
   schedule:
     # Monthly on the 1st, 12:00 UTC — the graph changes with team assignments;
     # once roster syncs land, one monthly rebuild is enough.
-    - cron: '42 12 1 * *'  # E-029 2026-09-16: staggered minute (was `0`) so no two data workflows start together.
+    - cron: '45 5 1 * *'  # E-030 2026-09-17: overnight UTC (was `42 12`) — monthly on the 1st, off peak-hour backlog.
   workflow_dispatch:
     inputs:
       current_season:
