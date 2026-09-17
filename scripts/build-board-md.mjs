@@ -119,9 +119,21 @@ async function main() {
   ].join('\n');
 
   const tableHeader = [
-    '| # | Player | Pos | Team | Bye | VORP | β | Δ(v1↔v2) | ADP | Recommendation |',
-    '|---:|---|:---:|:---:|:---:|---:|---:|---:|---:|---|',
+    '| # | Player | Pos | Team | Bye | Health | VORP | β | Δ(v1↔v2) | ADP | Recommendation |',
+    '|---:|---|:---:|:---:|:---:|:---:|---:|---:|---:|---:|---|',
   ].join('\n');
+
+  // E-035 (2026-09-17): Health column collapses availability_status +
+  // game_designation into a single glyph the copilot's Q-gate can read
+  // without a schema lookup. Blank = healthy (ACT, no designation). See
+  // build-player-board.js:1005 for the BLOCKED set semantics.
+  function healthCell(p) {
+    const gd = p.game_designation;
+    const st = p.availability_status;
+    if (st && st !== 'ACT') return st;
+    if (gd) return gd;
+    return '';
+  }
 
   const nextSnapshotRows = [];
   const AGREE_TOL = 3;   // per position rank buckets — if v1 and v2 rank the player within 3 spots, ✓
@@ -162,6 +174,7 @@ async function main() {
       p.pos,
       p.team_2026,
       p.bye_week ?? '',
+      healthCell(p),
       p.vorp != null ? p.vorp.toFixed(0) : '',
       p.total_score_beta != null ? p.total_score_beta.toFixed(0) : '',
       deltaSigned != null ? (deltaSigned >= 0 ? '+' : '') + deltaSigned.toFixed(0) : '',

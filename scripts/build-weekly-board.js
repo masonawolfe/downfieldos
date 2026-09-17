@@ -51,6 +51,15 @@ const TZ_OFFSETS = {
   'America/Denver': -7,
   'America/Phoenix': -7,   // no DST but works for offset calc here
   'America/Los_Angeles': -8,
+  // E-036 (2026-09-17): international-venue offsets for known intl games.
+  // Standard-time offsets — Sept 2026 games fall in the shoulder of DST
+  // where +/- 1h can vary; magnitude matters more than exact hour for
+  // fatigue-modeling purposes and the assert stays valid either way.
+  'Australia/Melbourne': 10,
+  'Europe/London': 0,
+  'Europe/Berlin': 1,
+  'Europe/Madrid': 1,
+  'America/Sao_Paulo': -3,
 };
 
 // F-003 (2026-09-05): opponent home-stadium tz for computing away-game tz_delta.
@@ -201,6 +210,9 @@ async function main() {
         referee: g.referee,
         game_id: g.game_id,
         game_type: g.game_type || 'REG',
+        // E-036 (2026-09-17): propagate international-venue markers.
+        venue_tz: g.venue_tz || null,
+        venue_country: g.venue_country || null,
       };
     }
   }
@@ -250,8 +262,21 @@ async function main() {
       //   Positive = travel east; negative = travel west.
       //   West coast → East coast is +3 (a body-clock disadvantage for early
       //   games); East → West is -3 (favours the visitor at late slots).
+      // E-036 (2026-09-17): international games — both teams travel to a
+      // neutral venue, so `home_away === 'H'` is not a shortcut to tz_delta 0.
+      // fetch-schedule.js stamps `venue_tz` on intl games; when set, compute
+      // the delta from the player's home tz to the neutral venue's tz for
+      // both sides.
       let tz_delta = 0;
-      if (g.home_away === 'A') {
+      if (g.venue_tz) {
+        const ownOffset = TZ_OFFSETS[p.home_tz];
+        const venueOffset = TZ_OFFSETS[g.venue_tz];
+        if (ownOffset != null && venueOffset != null) {
+          tz_delta = venueOffset - ownOffset;
+        } else {
+          tz_delta = null;
+        }
+      } else if (g.home_away === 'A') {
         const ownTz = p.home_tz;
         const oppTz = stadiumTz[opp];
         const ownOffset = TZ_OFFSETS[ownTz];
@@ -296,12 +321,42 @@ async function main() {
         tz_delta,
         // Refs (usually null until Tuesday of game week)
         assigned_ref: g.referee || null,
+        // E-036: international-venue markers. Both are null for domestic
+        // games; populated by fetch-schedule.js for known intl stadiums.
+        venue_tz: g.venue_tz || null,
+        venue_country: g.venue_country || null,
         // Score
         weekly_value: v.weekly_value,
         weekly_value_rationale: v.weekly_value_rationale,
       });
     }
   }
+
+  // E-036 (2026-09-17) assert: for every international-venue game we scored,
+  // tz_delta must be resolved (venue_tz set → non-null) and the roof must
+  // NOT be `dome`/`closed` inherited from the home team's usual stadium.
+  // Melbourne Cricket Ground pre-fix had roof=dome + tz_delta=0 because the
+  // schedule inherited SoFi's values, and the +0.50 "dome home" bonus went
+  // to a team that lost 27-7 after a trans-Pacific trip. Any intl stadium
+  // NOT in fetch-schedule.js INTL_VENUES map fails here, forcing a new
+  // override before the flawed bonus can fire again.
+  const intlByGame = new Map();
+  for (const r of rows) { if (r.venue_country && !intlByGame.has(r.game_id)) intlByGame.set(r.game_id, r); }
+  const intlProblems = [];
+  for (const [gid, r] of intlByGame) {
+    if (r.tz_delta == null) intlProblems.push(`${gid} at ${r.stadium}: tz_delta null — venue_tz not in TZ_OFFSETS?`);
+    if (r.is_dome_game && r.venue_country && r.venue_country !== 'US') {
+      // A truly-domed intl venue (retractable roof closed) is possible, but flag it as
+      // needing an explicit override rather than silently keeping the dome-home bonus.
+      intlProblems.push(`${gid} at ${r.stadium}: is_dome_game=true but venue is intl (${r.venue_country}) — explicit override needed if intended.`);
+    }
+  }
+  if (intlProblems.length > 0) {
+    console.error('E-036 assert failed — international-game venue metadata:');
+    for (const p of intlProblems) console.error('  ' + p);
+    process.exit(1);
+  }
+  if (intlByGame.size > 0) console.log(`  E-036: ${intlByGame.size} international game(s) verified (roof + venue_tz + tz_delta).`);
 
   // Summary stats
   const totalRows = rows.length;

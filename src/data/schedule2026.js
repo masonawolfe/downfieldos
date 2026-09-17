@@ -1,5 +1,5 @@
 // Auto-generated from nflverse schedules release (games.csv) — season 2026
-// Generated: 2026-08-21T14:45:29.578Z
+// Generated: 2026-09-17T23:31:01.950Z
 // Source: nflverse (github.com/nflverse/nflverse-data — schedules release)
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-schedule.js
 
@@ -19,7 +19,7 @@ export const SCHEDULE_2026 = {
     "total_regular_games": 272,
     "total_postseason_games": 0,
     "source": "nflverse (github.com/nflverse/nflverse-data — schedules release)",
-    "generated": "2026-08-21T14:45:29.578Z",
+    "generated": "2026-09-17T23:31:01.950Z",
     "notes": "Bye = week within regular-season span with no scheduled game. LA normalized to LAR. Env fields (roof, surface, stadium) preserved for K/DEF environment model."
   },
   "teams": {
@@ -39,9 +39,11 @@ export const SCHEDULE_2026 = {
           "surface": "matrixturf",
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
-          "referee": null,
-          "spread_line": 10.5,
-          "total_line": 46.5,
+          "referee": "Ron Torbert",
+          "spread_line": 8.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -60,8 +62,10 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": -10,
-          "total_line": 44.5,
+          "spread_line": -3.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -80,8 +84,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 11.5,
-          "total_line": 46.5,
+          "spread_line": 8.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -100,8 +106,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 7,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -120,8 +128,10 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": -8.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -140,8 +150,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 13.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -162,6 +174,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -182,6 +196,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -202,6 +218,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -222,6 +240,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -242,6 +262,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -262,6 +284,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -282,6 +306,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -302,6 +328,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -322,6 +350,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -342,6 +372,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -362,6 +394,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         }
@@ -384,9 +418,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
-          "referee": null,
-          "spread_line": 3,
-          "total_line": 42.5,
+          "referee": "Brad Rogers",
+          "spread_line": 6.5,
+          "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -405,8 +441,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 44.5,
+          "spread_line": -2.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -425,8 +463,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 7.5,
+          "spread_line": 6.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -445,8 +485,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -465,8 +507,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -485,8 +529,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -505,8 +551,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -527,6 +575,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -543,10 +593,12 @@ export const SCHEDULE_2026 = {
           "roof": null,
           "surface": "fieldturf",
           "stadium": "Bernabeu",
-          "stadium_id": "ATL97",
+          "stadium_id": "MAD01",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -567,6 +619,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -587,6 +641,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -607,6 +663,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -627,6 +685,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -647,6 +707,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -667,6 +729,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -687,6 +751,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -707,6 +773,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         }
@@ -725,13 +793,15 @@ export const SCHEDULE_2026 = {
           "home": "IND",
           "away": "BAL",
           "div_game": false,
-          "roof": null,
+          "roof": "closed",
           "surface": "fieldturf",
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
-          "referee": null,
-          "spread_line": -3.5,
+          "referee": "Scott Novak",
+          "spread_line": -3,
           "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -752,6 +822,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": 7.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -768,10 +840,12 @@ export const SCHEDULE_2026 = {
           "roof": null,
           "surface": "matrixturf",
           "stadium": "Maracana Stadium",
-          "stadium_id": "DAL00",
+          "stadium_id": "RIO00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 51.5,
+          "spread_line": -3,
+          "total_line": 52.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -790,8 +864,10 @@ export const SCHEDULE_2026 = {
           "stadium": "M&T Bank Stadium",
           "stadium_id": "BAL00",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -810,8 +886,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -830,8 +908,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -6.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -850,8 +930,10 @@ export const SCHEDULE_2026 = {
           "stadium": "M&T Bank Stadium",
           "stadium_id": "BAL00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -872,6 +954,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -892,6 +976,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -912,6 +998,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -932,6 +1020,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -952,6 +1042,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -972,6 +1064,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -992,6 +1086,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -1012,6 +1108,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -1032,6 +1130,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -1052,6 +1152,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         }
@@ -1070,13 +1172,15 @@ export const SCHEDULE_2026 = {
           "home": "HOU",
           "away": "BUF",
           "div_game": false,
-          "roof": null,
+          "roof": "closed",
           "surface": "astroturf",
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
-          "referee": null,
+          "referee": "Alex Moore",
           "spread_line": -1.5,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -1095,8 +1199,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 52.5,
+          "spread_line": 5.5,
+          "total_line": 54.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -1115,8 +1221,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 48.5,
+          "spread_line": 4.5,
+          "total_line": 49.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -1135,8 +1243,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -1155,8 +1265,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 53.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -1175,8 +1287,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
           "referee": null,
-          "spread_line": -6.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -1197,6 +1311,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -1217,6 +1333,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -1237,6 +1355,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -1257,6 +1377,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -1275,8 +1397,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -1297,6 +1421,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -1317,6 +1443,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -1337,6 +1465,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -1355,8 +1485,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -1377,6 +1509,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -1397,6 +1531,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         }
@@ -1419,9 +1555,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Bank of America Stadium",
           "stadium_id": "CAR00",
-          "referee": null,
-          "spread_line": -2.5,
+          "referee": "Brad Allen",
+          "spread_line": -3,
           "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -1440,8 +1578,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 44.5,
+          "spread_line": -2.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -1460,8 +1600,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 39.5,
+          "spread_line": -2.5,
+          "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -1480,8 +1622,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Bank of America Stadium",
           "stadium_id": "CAR00",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -1500,8 +1644,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": 6.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -1522,6 +1668,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -1542,6 +1690,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -1562,6 +1712,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -1582,6 +1734,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -1602,6 +1756,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -1622,6 +1778,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -1642,6 +1800,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -1662,6 +1822,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -1682,6 +1844,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -1702,6 +1866,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -1722,6 +1888,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -1742,6 +1910,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         }
@@ -1764,9 +1934,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Bank of America Stadium",
           "stadium_id": "CAR00",
-          "referee": null,
-          "spread_line": -2.5,
+          "referee": "Brad Allen",
+          "spread_line": -3,
           "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -1785,8 +1957,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 45.5,
+          "spread_line": 4.5,
+          "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -1806,7 +1980,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "CHI98",
           "referee": null,
           "spread_line": 1.5,
-          "total_line": 46.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -1825,8 +2001,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -1845,8 +2023,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -1865,8 +2045,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -1885,8 +2067,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -1907,6 +2091,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -1927,6 +2113,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -1947,6 +2135,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -1965,8 +2155,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 53.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -1987,6 +2179,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -2007,6 +2201,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -2027,6 +2223,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -2045,8 +2243,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -2067,6 +2267,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -2087,6 +2289,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         }
@@ -2109,9 +2313,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
-          "referee": null,
+          "referee": "John Hussey",
           "spread_line": 3.5,
-          "total_line": 51.5,
+          "total_line": 50.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -2132,6 +2338,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": 2.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -2150,8 +2358,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 46.5,
+          "spread_line": -2.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -2170,8 +2380,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -2190,8 +2402,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": -6,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -2210,8 +2424,10 @@ export const SCHEDULE_2026 = {
           "stadium": "M&T Bank Stadium",
           "stadium_id": "BAL00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -2232,6 +2448,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -2248,10 +2466,12 @@ export const SCHEDULE_2026 = {
           "roof": null,
           "surface": "fieldturf",
           "stadium": "Bernabeu",
-          "stadium_id": "ATL97",
+          "stadium_id": "MAD01",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -2272,6 +2492,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -2292,6 +2514,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -2312,6 +2536,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -2332,6 +2558,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -2352,6 +2580,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -2372,6 +2602,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -2392,6 +2624,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -2412,6 +2646,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -2432,6 +2668,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         }
@@ -2454,9 +2692,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
-          "referee": null,
-          "spread_line": 7.5,
+          "referee": "Craig Wrolstad",
+          "spread_line": 8.5,
           "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -2475,8 +2715,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 42.5,
+          "spread_line": 8.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -2495,8 +2737,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 39.5,
+          "spread_line": -2.5,
+          "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -2515,8 +2759,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 40.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -2535,8 +2781,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 39.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -2555,8 +2803,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -6.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -2575,8 +2825,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 40.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -2597,6 +2849,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -2617,6 +2871,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -2637,6 +2893,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -2657,6 +2915,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -2677,6 +2937,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -2697,6 +2959,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -2717,6 +2981,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -2737,6 +3003,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -2757,6 +3025,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -2777,6 +3047,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         }
@@ -2799,9 +3071,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
-          "referee": null,
-          "spread_line": -2.5,
-          "total_line": 48.5,
+          "referee": "Carl Cheffers",
+          "spread_line": -3,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -2820,8 +3094,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 51.5,
+          "spread_line": 3.5,
+          "total_line": 50.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -2838,10 +3114,12 @@ export const SCHEDULE_2026 = {
           "roof": null,
           "surface": "matrixturf",
           "stadium": "Maracana Stadium",
-          "stadium_id": "DAL00",
+          "stadium_id": "RIO00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 51.5,
+          "spread_line": -3,
+          "total_line": 52.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -2860,8 +3138,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -2880,8 +3160,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 52.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -2900,8 +3182,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -2922,6 +3206,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -2942,6 +3228,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -2962,6 +3250,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -2982,6 +3272,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -3002,6 +3294,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -3020,8 +3314,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -3042,6 +3338,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -3062,6 +3360,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -3082,6 +3382,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -3102,6 +3404,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -3122,6 +3426,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         }
@@ -3144,9 +3450,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
-          "referee": null,
-          "spread_line": 3,
+          "referee": "Clay Martin",
+          "spread_line": 2.5,
           "total_line": 42.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -3166,7 +3474,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "DEN00",
           "referee": null,
           "spread_line": 2.5,
-          "total_line": 43.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -3185,8 +3495,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 45.5,
+          "spread_line": -2.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -3205,8 +3517,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -3225,8 +3539,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -3245,8 +3561,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -3267,6 +3585,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -3287,6 +3607,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -3307,6 +3629,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -3327,6 +3651,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -3345,8 +3671,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 39.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -3367,6 +3695,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -3387,6 +3717,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -3407,6 +3739,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -3425,8 +3759,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -3447,6 +3783,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -3467,6 +3805,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         }
@@ -3489,9 +3829,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Ford Field",
           "stadium_id": "DET00",
-          "referee": null,
+          "referee": "Alan Eck",
           "spread_line": 7,
-          "total_line": 48.5,
+          "total_line": 49.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -3510,8 +3852,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 52.5,
+          "spread_line": 5.5,
+          "total_line": 54.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -3530,8 +3874,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 9.5,
-          "total_line": 45.5,
+          "spread_line": 7,
+          "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -3550,8 +3896,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Bank of America Stadium",
           "stadium_id": "CAR00",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -3570,8 +3918,10 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": -8.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -3592,6 +3942,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -3612,6 +3964,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -3632,6 +3986,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -3648,10 +4004,12 @@ export const SCHEDULE_2026 = {
           "roof": "dome",
           "surface": "fieldturf",
           "stadium": "FC Bayern Munich Stadium",
-          "stadium_id": "DET00",
+          "stadium_id": "MUN01",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -3672,6 +4030,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         },
@@ -3690,8 +4050,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 53.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -3712,6 +4074,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -3732,6 +4096,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -3752,6 +4118,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -3772,6 +4140,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -3792,6 +4162,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -3812,6 +4184,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         }
@@ -3834,9 +4208,11 @@ export const SCHEDULE_2026 = {
           "surface": "sportturf",
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
-          "referee": null,
+          "referee": "Shawn Hochuli",
           "spread_line": 1.5,
-          "total_line": 45.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -3855,8 +4231,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": -5.5,
-          "total_line": 42.5,
+          "spread_line": -3.5,
+          "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -3875,8 +4253,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 7.5,
+          "spread_line": 6.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -3895,8 +4275,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -3915,8 +4297,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -3935,8 +4319,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lambeau Field",
           "stadium_id": "GNB00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -3957,6 +4343,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -3977,6 +4365,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -3997,6 +4387,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -4017,6 +4409,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -4035,8 +4429,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -4057,6 +4453,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -4077,6 +4475,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -4097,6 +4497,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -4115,8 +4517,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -4137,6 +4541,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -4157,6 +4563,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         }
@@ -4175,13 +4583,15 @@ export const SCHEDULE_2026 = {
           "home": "HOU",
           "away": "BUF",
           "div_game": false,
-          "roof": null,
+          "roof": "closed",
           "surface": "astroturf",
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
-          "referee": null,
+          "referee": "Alex Moore",
           "spread_line": -1.5,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -4202,6 +4612,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": 2.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -4220,8 +4632,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": -1.5,
+          "spread_line": -2.5,
           "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -4240,8 +4654,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -4260,8 +4676,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": -3.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -4278,10 +4696,12 @@ export const SCHEDULE_2026 = {
           "roof": "outdoors",
           "surface": "grass",
           "stadium": "Wembley Stadium",
-          "stadium_id": "JAX00",
+          "stadium_id": "LON00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "JAX",
           "isHome": false
         },
@@ -4300,8 +4720,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -4322,6 +4744,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -4342,6 +4766,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -4362,6 +4788,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -4382,6 +4810,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -4402,6 +4832,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -4422,6 +4854,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -4442,6 +4876,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -4460,8 +4896,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 38.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -4482,6 +4920,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -4502,6 +4942,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         }
@@ -4520,13 +4962,15 @@ export const SCHEDULE_2026 = {
           "home": "IND",
           "away": "BAL",
           "div_game": false,
-          "roof": null,
+          "roof": "closed",
           "surface": "fieldturf",
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
-          "referee": null,
-          "spread_line": -3.5,
+          "referee": "Scott Novak",
+          "spread_line": -3,
           "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -4546,7 +4990,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "KAN00",
           "referee": null,
           "spread_line": 6.5,
-          "total_line": 47.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -4565,8 +5011,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": -1.5,
+          "spread_line": -2.5,
           "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -4580,13 +5028,15 @@ export const SCHEDULE_2026 = {
           "home": "WAS",
           "away": "IND",
           "div_game": false,
-          "roof": "outdoors",
+          "roof": "retractable",
           "surface": "grass",
           "stadium": "Tottenham Hotspur Stadium",
-          "stadium_id": "WAS00",
+          "stadium_id": "LON02",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "WAS",
           "isHome": false
         },
@@ -4605,8 +5055,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": false
         },
@@ -4625,8 +5077,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -4647,6 +5101,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -4667,6 +5123,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -4687,6 +5145,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -4707,6 +5167,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -4727,6 +5189,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -4747,6 +5211,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -4767,6 +5233,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -4787,6 +5255,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -4807,6 +5277,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -4827,6 +5299,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -4847,6 +5321,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         }
@@ -4869,9 +5345,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
-          "referee": null,
-          "spread_line": 7.5,
+          "referee": "Craig Wrolstad",
+          "spread_line": 8.5,
           "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -4891,7 +5369,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "DEN00",
           "referee": null,
           "spread_line": 2.5,
-          "total_line": 43.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -4910,8 +5390,10 @@ export const SCHEDULE_2026 = {
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": 1.5,
+          "spread_line": 2.5,
           "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -4930,8 +5412,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 51.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -4945,13 +5429,15 @@ export const SCHEDULE_2026 = {
           "home": "JAX",
           "away": "PHI",
           "div_game": false,
-          "roof": "outdoors",
+          "roof": "retractable",
           "surface": "grass",
           "stadium": "Tottenham Hotspur Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "PHI",
           "isHome": true
         },
@@ -4968,10 +5454,12 @@ export const SCHEDULE_2026 = {
           "roof": "outdoors",
           "surface": "grass",
           "stadium": "Wembley Stadium",
-          "stadium_id": "JAX00",
+          "stadium_id": "LON00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "HOU",
           "isHome": true
         },
@@ -4992,6 +5480,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -5012,6 +5502,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -5032,6 +5524,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -5052,6 +5546,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -5072,6 +5568,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -5092,6 +5590,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -5112,6 +5612,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -5132,6 +5634,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -5152,6 +5656,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -5172,6 +5678,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -5192,6 +5700,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         }
@@ -5214,9 +5724,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
-          "referee": null,
-          "spread_line": 3,
+          "referee": "Clay Martin",
+          "spread_line": 2.5,
           "total_line": 42.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -5236,7 +5748,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "KAN00",
           "referee": null,
           "spread_line": 6.5,
-          "total_line": 47.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -5255,8 +5769,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": -7.5,
+          "spread_line": -8.5,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -5275,8 +5791,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
           "referee": null,
-          "spread_line": -5.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -5295,8 +5813,10 @@ export const SCHEDULE_2026 = {
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -5317,6 +5837,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -5337,6 +5859,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -5357,6 +5881,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -5377,6 +5903,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -5397,6 +5925,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -5415,8 +5945,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -5437,6 +5969,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -5457,6 +5991,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -5477,6 +6013,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -5497,6 +6035,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -5517,6 +6057,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -5537,6 +6079,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         }
@@ -5559,9 +6103,11 @@ export const SCHEDULE_2026 = {
           "surface": "matrixturf",
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
-          "referee": null,
-          "spread_line": 10.5,
-          "total_line": 46.5,
+          "referee": "Ron Torbert",
+          "spread_line": 8.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -5580,8 +6126,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 42.5,
+          "spread_line": 6.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -5600,8 +6148,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 48.5,
+          "spread_line": 4.5,
+          "total_line": 49.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -5620,8 +6170,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -5640,8 +6192,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -5660,8 +6214,10 @@ export const SCHEDULE_2026 = {
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -5682,6 +6238,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -5702,6 +6260,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -5722,6 +6282,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -5742,6 +6304,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -5762,6 +6326,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -5782,6 +6348,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -5802,6 +6370,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -5822,6 +6392,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -5842,6 +6414,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -5862,6 +6436,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -5882,6 +6458,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         }
@@ -5900,13 +6478,15 @@ export const SCHEDULE_2026 = {
           "home": "LAR",
           "away": "SF",
           "div_game": true,
-          "roof": "dome",
-          "surface": "matrixturf",
+          "roof": "outdoors",
+          "surface": "grass",
           "stadium": "Melbourne Cricket Ground",
-          "stadium_id": "LAX01",
-          "referee": null,
+          "stadium_id": "MEL00",
+          "referee": "Alex Kemp",
           "spread_line": 3.5,
-          "total_line": 48.5,
+          "total_line": 47.5,
+          "venue_tz": "Australia/Melbourne",
+          "venue_country": "AU",
           "opponent": "SF",
           "isHome": true
         },
@@ -5925,8 +6505,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 8.5,
+          "spread_line": 7,
           "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -5945,8 +6527,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -3,
-          "total_line": 45.5,
+          "spread_line": -2.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -5965,8 +6549,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -5985,8 +6571,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 53.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -6005,8 +6593,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 13.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -6027,6 +6617,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -6047,6 +6639,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -6067,6 +6661,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -6087,6 +6683,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -6105,8 +6703,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -6127,6 +6727,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -6147,6 +6749,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -6167,6 +6771,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -6185,8 +6791,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -6207,6 +6815,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -6227,6 +6837,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         }
@@ -6249,9 +6861,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
-          "referee": null,
-          "spread_line": 3.5,
+          "referee": "Clete Blakeman",
+          "spread_line": 3,
           "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -6270,8 +6884,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 42.5,
+          "spread_line": 6.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -6290,8 +6906,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 42.5,
+          "spread_line": 3,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -6310,8 +6928,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
           "referee": null,
-          "spread_line": -5.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -6330,8 +6950,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -6350,8 +6972,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
           "referee": null,
-          "spread_line": -6.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -6372,6 +6996,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -6392,6 +7018,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -6412,6 +7040,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -6432,6 +7062,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -6452,6 +7084,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -6472,6 +7106,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -6492,6 +7128,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -6512,6 +7150,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -6532,6 +7172,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -6552,6 +7194,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -6572,6 +7216,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         }
@@ -6594,9 +7240,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Allegiant Stadium",
           "stadium_id": "VEG00",
-          "referee": null,
-          "spread_line": 3.5,
+          "referee": "Clete Blakeman",
+          "spread_line": 3,
           "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -6615,8 +7263,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 10.5,
-          "total_line": 46.5,
+          "spread_line": 13.5,
+          "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -6635,8 +7285,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": -7.5,
+          "spread_line": -8.5,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -6655,8 +7307,10 @@ export const SCHEDULE_2026 = {
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
           "referee": null,
-          "spread_line": 7.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -6675,8 +7329,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": -6,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -6695,8 +7351,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 41.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -6717,6 +7375,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -6737,6 +7397,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -6757,6 +7419,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -6777,6 +7441,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -6797,6 +7463,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -6817,6 +7485,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -6837,6 +7507,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -6857,6 +7529,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -6877,6 +7551,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -6897,6 +7573,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -6917,6 +7595,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         }
@@ -6939,9 +7619,11 @@ export const SCHEDULE_2026 = {
           "surface": "sportturf",
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
-          "referee": null,
+          "referee": "Shawn Hochuli",
           "spread_line": 1.5,
-          "total_line": 45.5,
+          "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -6960,8 +7642,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 45.5,
+          "spread_line": 4.5,
+          "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -6981,7 +7665,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "TAM00",
           "referee": null,
           "spread_line": 1.5,
-          "total_line": 44.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -7000,8 +7686,10 @@ export const SCHEDULE_2026 = {
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
           "referee": null,
-          "spread_line": 7.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -7020,8 +7708,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -7042,6 +7732,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -7062,6 +7754,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -7082,6 +7776,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -7102,6 +7798,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": false
         },
@@ -7118,10 +7816,12 @@ export const SCHEDULE_2026 = {
           "roof": "outdoors",
           "surface": "grass",
           "stadium": "Estadio Banorte",
-          "stadium_id": "SFO01",
+          "stadium_id": "MEX00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -7142,6 +7842,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -7162,6 +7864,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -7182,6 +7886,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -7202,6 +7908,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": true
         },
@@ -7222,6 +7930,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -7242,6 +7952,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -7262,6 +7974,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         }
@@ -7284,9 +7998,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
-          "referee": null,
-          "spread_line": 3.5,
+          "referee": "Adrian Hill",
+          "spread_line": 3,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -7305,8 +8021,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 43.5,
+          "spread_line": 5.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -7325,8 +8043,10 @@ export const SCHEDULE_2026 = {
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": 1.5,
+          "spread_line": 2.5,
           "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -7345,8 +8065,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         },
@@ -7365,8 +8087,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -7385,8 +8109,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 9.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -7405,8 +8131,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -7427,6 +8155,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -7447,6 +8177,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -7463,10 +8195,12 @@ export const SCHEDULE_2026 = {
           "roof": "dome",
           "surface": "fieldturf",
           "stadium": "FC Bayern Munich Stadium",
-          "stadium_id": "DET00",
+          "stadium_id": "MUN01",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -7487,6 +8221,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -7507,6 +8243,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -7527,6 +8265,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -7547,6 +8287,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -7567,6 +8309,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": false
         },
@@ -7587,6 +8331,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -7607,6 +8353,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         }
@@ -7629,9 +8377,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Ford Field",
           "stadium_id": "DET00",
-          "referee": null,
+          "referee": "Alan Eck",
           "spread_line": 7,
-          "total_line": 48.5,
+          "total_line": 49.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -7652,6 +8402,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": 7.5,
           "total_line": 46.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -7670,8 +8422,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 42.5,
+          "spread_line": 3,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -7690,8 +8444,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -7710,8 +8466,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Caesars Superdome",
           "stadium_id": "NOR00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -7730,8 +8488,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -7748,10 +8508,12 @@ export const SCHEDULE_2026 = {
           "roof": "dome",
           "surface": "sportturf",
           "stadium": "Stade de France",
-          "stadium_id": "NOR00",
+          "stadium_id": "PAR00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -7772,6 +8534,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -7792,6 +8556,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -7812,6 +8578,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -7832,6 +8600,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -7852,6 +8622,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -7872,6 +8644,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -7892,6 +8666,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -7912,6 +8688,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -7932,6 +8710,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -7952,6 +8732,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": true
         }
@@ -7974,9 +8756,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
-          "referee": null,
-          "spread_line": -2.5,
-          "total_line": 48.5,
+          "referee": "Carl Cheffers",
+          "spread_line": -3,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -7995,8 +8779,10 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 8.5,
+          "spread_line": 7,
           "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         },
@@ -8015,8 +8801,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 44.5,
+          "spread_line": 5.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": true
         },
@@ -8035,8 +8823,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 7,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -8055,8 +8845,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -8075,8 +8867,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 44.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -8095,8 +8889,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         },
@@ -8117,6 +8913,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -8137,6 +8935,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -8157,6 +8957,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -8177,6 +8979,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -8197,6 +9001,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -8217,6 +9023,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -8237,6 +9045,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -8257,6 +9067,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -8277,6 +9089,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -8297,6 +9111,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         }
@@ -8319,9 +9135,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
-          "referee": null,
-          "spread_line": 3,
-          "total_line": 38.5,
+          "referee": "Land Clark",
+          "spread_line": 1.5,
+          "total_line": 39.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -8340,8 +9158,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": -5.5,
-          "total_line": 42.5,
+          "spread_line": -3.5,
+          "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -8360,8 +9180,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 9.5,
-          "total_line": 45.5,
+          "spread_line": 7,
+          "total_line": 48.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -8380,8 +9202,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -8400,8 +9224,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 39.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -8420,8 +9246,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 9.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -8440,8 +9268,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 41.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -8462,6 +9292,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -8482,6 +9314,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -8502,6 +9336,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": true
         },
@@ -8522,6 +9358,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -8542,6 +9380,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": false
         },
@@ -8562,6 +9402,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -8582,6 +9424,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -8602,6 +9446,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -8622,6 +9468,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -8642,6 +9490,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BUF",
           "isHome": false
         }
@@ -8664,9 +9514,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
-          "referee": null,
-          "spread_line": 4.5,
-          "total_line": 47.5,
+          "referee": "Shawn Smith",
+          "spread_line": 6,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -8685,8 +9537,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 42.5,
+          "spread_line": -7,
+          "total_line": 39.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -8706,7 +9560,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "CHI98",
           "referee": null,
           "spread_line": 1.5,
-          "total_line": 46.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -8725,8 +9581,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -8740,13 +9598,15 @@ export const SCHEDULE_2026 = {
           "home": "JAX",
           "away": "PHI",
           "div_game": false,
-          "roof": "outdoors",
+          "roof": "retractable",
           "surface": "grass",
           "stadium": "Tottenham Hotspur Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "JAX",
           "isHome": false
         },
@@ -8765,8 +9625,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": 6.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -8787,6 +9649,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -8807,6 +9671,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -8827,6 +9693,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -8847,6 +9715,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -8865,8 +9735,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 49.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -8887,6 +9759,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -8907,6 +9781,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -8927,6 +9803,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -8945,8 +9823,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 38.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -8967,6 +9847,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -8987,6 +9869,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         }
@@ -9009,9 +9893,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
-          "referee": null,
-          "spread_line": 3,
-          "total_line": 42.5,
+          "referee": "Brad Rogers",
+          "spread_line": 6.5,
+          "total_line": 40.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -9030,8 +9916,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Gillette Stadium",
           "stadium_id": "BOS00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 43.5,
+          "spread_line": 5.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": false
         },
@@ -9050,8 +9938,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 46.5,
+          "spread_line": -2.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -9070,8 +9960,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 40.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": false
         },
@@ -9090,8 +9982,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -9110,8 +10004,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TB",
           "isHome": false
         },
@@ -9128,10 +10024,12 @@ export const SCHEDULE_2026 = {
           "roof": "dome",
           "surface": "sportturf",
           "stadium": "Stade de France",
-          "stadium_id": "NOR00",
+          "stadium_id": "PAR00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 42.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         },
@@ -9152,6 +10050,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -9172,6 +10072,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -9192,6 +10094,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -9210,8 +10114,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 39.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -9232,6 +10138,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -9252,6 +10160,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -9272,6 +10182,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": true
         },
@@ -9292,6 +10204,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -9312,6 +10226,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -9332,6 +10248,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         }
@@ -9354,9 +10272,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
-          "referee": null,
-          "spread_line": 3.5,
+          "referee": "Adrian Hill",
+          "spread_line": 3,
           "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NE",
           "isHome": true
         },
@@ -9375,8 +10295,10 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": -10,
-          "total_line": 44.5,
+          "spread_line": -3.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -9395,8 +10317,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": -3.5,
-          "total_line": 46.5,
+          "spread_line": -2.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": false
         },
@@ -9415,8 +10339,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -9435,8 +10361,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": true
         },
@@ -9455,8 +10383,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Empower Field at Mile High",
           "stadium_id": "DEN00",
           "referee": null,
-          "spread_line": -2.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": false
         },
@@ -9477,6 +10407,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": true
         },
@@ -9497,6 +10429,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": true
         },
@@ -9517,6 +10451,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -9537,6 +10473,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -9557,6 +10495,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -9577,6 +10517,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         },
@@ -9597,6 +10539,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -9617,6 +10561,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -9635,8 +10581,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -9657,6 +10605,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -9677,6 +10627,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": false
         }
@@ -9695,13 +10647,15 @@ export const SCHEDULE_2026 = {
           "home": "LAR",
           "away": "SF",
           "div_game": true,
-          "roof": "dome",
-          "surface": "matrixturf",
+          "roof": "outdoors",
+          "surface": "grass",
           "stadium": "Melbourne Cricket Ground",
-          "stadium_id": "LAX01",
-          "referee": null,
+          "stadium_id": "MEL00",
+          "referee": "Alex Kemp",
           "spread_line": 3.5,
-          "total_line": 48.5,
+          "total_line": 47.5,
+          "venue_tz": "Australia/Melbourne",
+          "venue_country": "AU",
           "opponent": "LAR",
           "isHome": false
         },
@@ -9720,8 +10674,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 10.5,
-          "total_line": 46.5,
+          "spread_line": 13.5,
+          "total_line": 44.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIA",
           "isHome": true
         },
@@ -9740,8 +10696,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 11.5,
-          "total_line": 46.5,
+          "spread_line": 8.5,
+          "total_line": 47.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": true
         },
@@ -9760,8 +10718,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 46.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DEN",
           "isHome": true
         },
@@ -9780,8 +10740,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lumen Field",
           "stadium_id": "SEA00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": false
         },
@@ -9800,8 +10762,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -9820,8 +10784,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Mercedes-Benz Stadium",
           "stadium_id": "ATL97",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -9842,6 +10808,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": true
         },
@@ -9862,6 +10830,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -9878,10 +10848,12 @@ export const SCHEDULE_2026 = {
           "roof": "outdoors",
           "surface": "grass",
           "stadium": "Estadio Banorte",
-          "stadium_id": "SFO01",
+          "stadium_id": "MEX00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -9902,6 +10874,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -9922,6 +10896,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -9942,6 +10918,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -9962,6 +10940,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": false
         },
@@ -9982,6 +10962,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "KC",
           "isHome": false
         },
@@ -10002,6 +10984,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -10022,6 +11006,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         }
@@ -10044,9 +11030,11 @@ export const SCHEDULE_2026 = {
           "surface": "fieldturf",
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
-          "referee": null,
+          "referee": "John Hussey",
           "spread_line": 3.5,
-          "total_line": 51.5,
+          "total_line": 50.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -10065,8 +11053,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 42.5,
+          "spread_line": 8.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -10086,7 +11076,9 @@ export const SCHEDULE_2026 = {
           "stadium_id": "TAM00",
           "referee": null,
           "spread_line": 1.5,
-          "total_line": 44.5,
+          "total_line": 45.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": true
         },
@@ -10105,8 +11097,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": -1.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "GB",
           "isHome": true
         },
@@ -10125,8 +11119,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 52.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -10145,8 +11141,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 45.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -10167,6 +11165,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": false
         },
@@ -10187,6 +11187,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -10207,6 +11209,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CHI",
           "isHome": false
         },
@@ -10227,6 +11231,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -10247,6 +11253,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CAR",
           "isHome": true
         },
@@ -10267,6 +11275,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAC",
           "isHome": true
         },
@@ -10287,6 +11297,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -10307,6 +11319,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": true
         },
@@ -10327,6 +11341,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": false
         },
@@ -10347,6 +11363,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -10367,6 +11385,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NO",
           "isHome": false
         }
@@ -10389,9 +11409,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
-          "referee": null,
-          "spread_line": 3,
-          "total_line": 38.5,
+          "referee": "Land Clark",
+          "spread_line": 1.5,
+          "total_line": 39.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYJ",
           "isHome": true
         },
@@ -10410,8 +11432,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 42.5,
+          "spread_line": -7,
+          "total_line": 39.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -10430,8 +11454,10 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 44.5,
+          "spread_line": 5.5,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -10450,8 +11476,10 @@ export const SCHEDULE_2026 = {
           "stadium": "M&T Bank Stadium",
           "stadium_id": "BAL00",
           "referee": null,
-          "spread_line": 8.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "BAL",
           "isHome": false
         },
@@ -10470,8 +11498,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": -3.5,
-          "total_line": 43.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -10490,8 +11520,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": 3.5,
-          "total_line": 47.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": false
         },
@@ -10510,8 +11542,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Nissan Stadium",
           "stadium_id": "NAS00",
           "referee": null,
-          "spread_line": 2.5,
-          "total_line": 40.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CLE",
           "isHome": true
         },
@@ -10532,6 +11566,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": false
         },
@@ -10552,6 +11588,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": true
         },
@@ -10572,6 +11610,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -10592,6 +11632,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -10612,6 +11654,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "WAS",
           "isHome": true
         },
@@ -10632,6 +11676,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DET",
           "isHome": false
         },
@@ -10652,6 +11698,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "IND",
           "isHome": true
         },
@@ -10672,6 +11720,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LV",
           "isHome": false
         },
@@ -10692,6 +11742,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PIT",
           "isHome": true
         },
@@ -10712,6 +11764,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": false
         }
@@ -10734,9 +11788,11 @@ export const SCHEDULE_2026 = {
           "surface": "grass",
           "stadium": "Lincoln Financial Field",
           "stadium_id": "PHI00",
-          "referee": null,
-          "spread_line": 4.5,
-          "total_line": 47.5,
+          "referee": "Shawn Smith",
+          "spread_line": 6,
+          "total_line": 43.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": false
         },
@@ -10755,8 +11811,10 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 4.5,
-          "total_line": 51.5,
+          "spread_line": 3.5,
+          "total_line": 50.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": false
         },
@@ -10775,8 +11833,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": -3.5,
-          "total_line": 46.5,
+          "spread_line": -2.5,
+          "total_line": 41.5,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SEA",
           "isHome": true
         },
@@ -10790,13 +11850,15 @@ export const SCHEDULE_2026 = {
           "home": "WAS",
           "away": "IND",
           "div_game": false,
-          "roof": "outdoors",
+          "roof": "retractable",
           "surface": "grass",
           "stadium": "Tottenham Hotspur Stadium",
-          "stadium_id": "WAS00",
+          "stadium_id": "LON02",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": "Europe/London",
+          "venue_country": "GB",
           "opponent": "IND",
           "isHome": true
         },
@@ -10815,8 +11877,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": 1.5,
-          "total_line": 48.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": true
         },
@@ -10835,8 +11899,10 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 50.5,
+          "spread_line": null,
+          "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "SF",
           "isHome": false
         },
@@ -10857,6 +11923,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "PHI",
           "isHome": true
         },
@@ -10877,6 +11945,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "LAR",
           "isHome": true
         },
@@ -10897,6 +11967,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "NYG",
           "isHome": false
         },
@@ -10917,6 +11989,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "CIN",
           "isHome": true
         },
@@ -10937,6 +12011,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ARI",
           "isHome": false
         },
@@ -10957,6 +12033,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "TEN",
           "isHome": false
         },
@@ -10977,6 +12055,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "HOU",
           "isHome": true
         },
@@ -10997,6 +12077,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "ATL",
           "isHome": true
         },
@@ -11017,6 +12099,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "MIN",
           "isHome": false
         },
@@ -11037,6 +12121,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "JAX",
           "isHome": false
         },
@@ -11057,6 +12143,8 @@ export const SCHEDULE_2026 = {
           "referee": null,
           "spread_line": null,
           "total_line": null,
+          "venue_tz": null,
+          "venue_country": null,
           "opponent": "DAL",
           "isHome": true
         }
@@ -11080,9 +12168,11 @@ export const SCHEDULE_2026 = {
         "surface": "fieldturf",
         "stadium": "Lumen Field",
         "stadium_id": "SEA00",
-        "referee": null,
-        "spread_line": 3.5,
-        "total_line": 44.5
+        "referee": "Adrian Hill",
+        "spread_line": 3,
+        "total_line": 44.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_SF_LA",
@@ -11094,13 +12184,15 @@ export const SCHEDULE_2026 = {
         "home": "LAR",
         "away": "SF",
         "div_game": true,
-        "roof": "dome",
-        "surface": "matrixturf",
+        "roof": "outdoors",
+        "surface": "grass",
         "stadium": "Melbourne Cricket Ground",
-        "stadium_id": "LAX01",
-        "referee": null,
+        "stadium_id": "MEL00",
+        "referee": "Alex Kemp",
         "spread_line": 3.5,
-        "total_line": 48.5
+        "total_line": 47.5,
+        "venue_tz": "Australia/Melbourne",
+        "venue_country": "AU"
       },
       {
         "game_id": "2026_01_CHI_CAR",
@@ -11116,9 +12208,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "Bank of America Stadium",
         "stadium_id": "CAR00",
-        "referee": null,
-        "spread_line": -2.5,
-        "total_line": 47.5
+        "referee": "Brad Allen",
+        "spread_line": -3,
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_TB_CIN",
@@ -11134,9 +12228,11 @@ export const SCHEDULE_2026 = {
         "surface": "fieldturf",
         "stadium": "Paycor Stadium",
         "stadium_id": "CIN00",
-        "referee": null,
+        "referee": "John Hussey",
         "spread_line": 3.5,
-        "total_line": 51.5
+        "total_line": 50.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_NO_DET",
@@ -11152,9 +12248,11 @@ export const SCHEDULE_2026 = {
         "surface": "fieldturf",
         "stadium": "Ford Field",
         "stadium_id": "DET00",
-        "referee": null,
+        "referee": "Alan Eck",
         "spread_line": 7,
-        "total_line": 48.5
+        "total_line": 49.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_BUF_HOU",
@@ -11166,13 +12264,15 @@ export const SCHEDULE_2026 = {
         "home": "HOU",
         "away": "BUF",
         "div_game": false,
-        "roof": null,
+        "roof": "closed",
         "surface": "astroturf",
         "stadium": "Reliant Stadium",
         "stadium_id": "HOU00",
-        "referee": null,
+        "referee": "Alex Moore",
         "spread_line": -1.5,
-        "total_line": 44.5
+        "total_line": 44.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_BAL_IND",
@@ -11184,13 +12284,15 @@ export const SCHEDULE_2026 = {
         "home": "IND",
         "away": "BAL",
         "div_game": false,
-        "roof": null,
+        "roof": "closed",
         "surface": "fieldturf",
         "stadium": "Lucas Oil Stadium",
         "stadium_id": "IND00",
-        "referee": null,
-        "spread_line": -3.5,
-        "total_line": 48.5
+        "referee": "Scott Novak",
+        "spread_line": -3,
+        "total_line": 48.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_CLE_JAX",
@@ -11206,9 +12308,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "EverBank Stadium",
         "stadium_id": "JAX00",
-        "referee": null,
-        "spread_line": 7.5,
-        "total_line": 40.5
+        "referee": "Craig Wrolstad",
+        "spread_line": 8.5,
+        "total_line": 40.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_ATL_PIT",
@@ -11224,9 +12328,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "Acrisure Stadium",
         "stadium_id": "PIT00",
-        "referee": null,
-        "spread_line": 3,
-        "total_line": 42.5
+        "referee": "Brad Rogers",
+        "spread_line": 6.5,
+        "total_line": 40.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_NYJ_TEN",
@@ -11242,9 +12348,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "Nissan Stadium",
         "stadium_id": "NAS00",
-        "referee": null,
-        "spread_line": 3,
-        "total_line": 38.5
+        "referee": "Land Clark",
+        "spread_line": 1.5,
+        "total_line": 39.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_ARI_LAC",
@@ -11260,9 +12368,11 @@ export const SCHEDULE_2026 = {
         "surface": "matrixturf",
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
-        "referee": null,
-        "spread_line": 10.5,
-        "total_line": 46.5
+        "referee": "Ron Torbert",
+        "spread_line": 8.5,
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_MIA_LV",
@@ -11278,9 +12388,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "Allegiant Stadium",
         "stadium_id": "VEG00",
-        "referee": null,
-        "spread_line": 3.5,
-        "total_line": 40.5
+        "referee": "Clete Blakeman",
+        "spread_line": 3,
+        "total_line": 40.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_GB_MIN",
@@ -11296,9 +12408,11 @@ export const SCHEDULE_2026 = {
         "surface": "sportturf",
         "stadium": "U.S. Bank Stadium",
         "stadium_id": "MIN01",
-        "referee": null,
+        "referee": "Shawn Hochuli",
         "spread_line": 1.5,
-        "total_line": 45.5
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_WAS_PHI",
@@ -11314,9 +12428,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "Lincoln Financial Field",
         "stadium_id": "PHI00",
-        "referee": null,
-        "spread_line": 4.5,
-        "total_line": 47.5
+        "referee": "Shawn Smith",
+        "spread_line": 6,
+        "total_line": 43.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_DAL_NYG",
@@ -11332,9 +12448,11 @@ export const SCHEDULE_2026 = {
         "surface": "fieldturf",
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
-        "referee": null,
-        "spread_line": -2.5,
-        "total_line": 48.5
+        "referee": "Carl Cheffers",
+        "spread_line": -3,
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_01_DEN_KC",
@@ -11350,9 +12468,11 @@ export const SCHEDULE_2026 = {
         "surface": "grass",
         "stadium": "GEHA Field at Arrowhead Stadium",
         "stadium_id": "KAN00",
-        "referee": null,
-        "spread_line": 3,
-        "total_line": 42.5
+        "referee": "Clay Martin",
+        "spread_line": 2.5,
+        "total_line": 42.5,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "2": [
@@ -11371,8 +12491,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Highmark Stadium",
         "stadium_id": "BUF00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 52.5
+        "spread_line": 5.5,
+        "total_line": 54.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_CAR_ATL",
@@ -11389,8 +12511,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Mercedes-Benz Stadium",
         "stadium_id": "ATL97",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 44.5
+        "spread_line": -2.5,
+        "total_line": 43.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_NO_BAL",
@@ -11408,7 +12532,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": 7.5,
-        "total_line": 46.5
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_MIN_CHI",
@@ -11425,8 +12551,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Soldier Field",
         "stadium_id": "CHI98",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 45.5
+        "spread_line": 4.5,
+        "total_line": 48.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_CIN_HOU",
@@ -11444,7 +12572,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "HOU00",
         "referee": null,
         "spread_line": 2.5,
-        "total_line": 46.5
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_PIT_NE",
@@ -11461,8 +12591,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Gillette Stadium",
         "stadium_id": "BOS00",
         "referee": null,
-        "spread_line": 4.5,
-        "total_line": 43.5
+        "spread_line": 5.5,
+        "total_line": 41.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_GB_NYJ",
@@ -11479,8 +12611,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": -5.5,
-        "total_line": 42.5
+        "spread_line": -3.5,
+        "total_line": 44.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_CLE_TB",
@@ -11497,8 +12631,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Raymond James Stadium",
         "stadium_id": "TAM00",
         "referee": null,
-        "spread_line": 5.5,
-        "total_line": 42.5
+        "spread_line": 8.5,
+        "total_line": 41.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_PHI_TEN",
@@ -11515,8 +12651,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Nissan Stadium",
         "stadium_id": "NAS00",
         "referee": null,
-        "spread_line": -4.5,
-        "total_line": 42.5
+        "spread_line": -7,
+        "total_line": 39.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_JAX_DEN",
@@ -11534,7 +12672,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DEN00",
         "referee": null,
         "spread_line": 2.5,
-        "total_line": 43.5
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_LV_LAC",
@@ -11551,8 +12691,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 8.5,
-        "total_line": 42.5
+        "spread_line": 6.5,
+        "total_line": 43.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_SEA_ARI",
@@ -11569,8 +12711,10 @@ export const SCHEDULE_2026 = {
         "stadium": "State Farm Stadium",
         "stadium_id": "PHO00",
         "referee": null,
-        "spread_line": -10,
-        "total_line": 44.5
+        "spread_line": -3.5,
+        "total_line": 41.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_WAS_DAL",
@@ -11587,8 +12731,10 @@ export const SCHEDULE_2026 = {
         "stadium": "AT&T Stadium",
         "stadium_id": "DAL00",
         "referee": null,
-        "spread_line": 4.5,
-        "total_line": 51.5
+        "spread_line": 3.5,
+        "total_line": 50.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_MIA_SF",
@@ -11605,8 +12751,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Levi's Stadium",
         "stadium_id": "SFO01",
         "referee": null,
-        "spread_line": 10.5,
-        "total_line": 46.5
+        "spread_line": 13.5,
+        "total_line": 44.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_IND_KC",
@@ -11624,7 +12772,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": 6.5,
-        "total_line": 47.5
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_02_NYG_LA",
@@ -11641,8 +12791,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 8.5,
-        "total_line": 48.5
+        "spread_line": 7,
+        "total_line": 48.5,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "3": [
@@ -11661,8 +12813,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lambeau Field",
         "stadium_id": "GNB00",
         "referee": null,
-        "spread_line": 7.5,
-        "total_line": 46.5
+        "spread_line": 6.5,
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_LAC_BUF",
@@ -11679,8 +12833,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Highmark Stadium",
         "stadium_id": "BUF00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 48.5
+        "spread_line": 4.5,
+        "total_line": 49.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_CAR_CLE",
@@ -11697,8 +12853,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Huntington Bank Field",
         "stadium_id": "CLE00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 39.5
+        "spread_line": -2.5,
+        "total_line": 40.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_NYJ_DET",
@@ -11715,8 +12873,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Ford Field",
         "stadium_id": "DET00",
         "referee": null,
-        "spread_line": 9.5,
-        "total_line": 45.5
+        "spread_line": 7,
+        "total_line": 48.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_HOU_IND",
@@ -11733,8 +12893,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lucas Oil Stadium",
         "stadium_id": "IND00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 45.5
+        "spread_line": -2.5,
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_NE_JAX",
@@ -11751,8 +12913,10 @@ export const SCHEDULE_2026 = {
         "stadium": "EverBank Stadium",
         "stadium_id": "JAX00",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 45.5
+        "spread_line": 2.5,
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_KC_MIA",
@@ -11769,8 +12933,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Hard Rock Stadium",
         "stadium_id": "MIA00",
         "referee": null,
-        "spread_line": -7.5,
-        "total_line": 44.5
+        "spread_line": -8.5,
+        "total_line": 44.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_TEN_NYG",
@@ -11787,8 +12953,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 44.5
+        "spread_line": 5.5,
+        "total_line": 43.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_CIN_PIT",
@@ -11805,8 +12973,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Acrisure Stadium",
         "stadium_id": "PIT00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 46.5
+        "spread_line": -2.5,
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_SEA_WAS",
@@ -11823,8 +12993,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Northwest Stadium",
         "stadium_id": "WAS00",
         "referee": null,
-        "spread_line": -3.5,
-        "total_line": 46.5
+        "spread_line": -2.5,
+        "total_line": 41.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_ARI_SF",
@@ -11841,8 +13013,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Levi's Stadium",
         "stadium_id": "SFO01",
         "referee": null,
-        "spread_line": 11.5,
-        "total_line": 46.5
+        "spread_line": 8.5,
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_MIN_TB",
@@ -11860,7 +13034,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": 1.5,
-        "total_line": 44.5
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_BAL_DAL",
@@ -11875,10 +13051,12 @@ export const SCHEDULE_2026 = {
         "roof": null,
         "surface": "matrixturf",
         "stadium": "Maracana Stadium",
-        "stadium_id": "DAL00",
+        "stadium_id": "RIO00",
         "referee": null,
-        "spread_line": -2.5,
-        "total_line": 51.5
+        "spread_line": -3,
+        "total_line": 52.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_LV_NO",
@@ -11895,8 +13073,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Caesars Superdome",
         "stadium_id": "NOR00",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 42.5
+        "spread_line": 3,
+        "total_line": 45.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_LA_DEN",
@@ -11913,8 +13093,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Empower Field at Mile High",
         "stadium_id": "DEN00",
         "referee": null,
-        "spread_line": -3,
-        "total_line": 45.5
+        "spread_line": -2.5,
+        "total_line": 46.5,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_03_PHI_CHI",
@@ -11932,7 +13114,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CHI98",
         "referee": null,
         "spread_line": 1.5,
-        "total_line": 46.5
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "4": [
@@ -11951,8 +13135,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Huntington Bank Field",
         "stadium_id": "CLE00",
         "referee": null,
-        "spread_line": -2.5,
-        "total_line": 40.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_IND_WAS",
@@ -11964,13 +13150,15 @@ export const SCHEDULE_2026 = {
         "home": "WAS",
         "away": "IND",
         "div_game": false,
-        "roof": "outdoors",
+        "roof": "retractable",
         "surface": "grass",
         "stadium": "Tottenham Hotspur Stadium",
-        "stadium_id": "WAS00",
+        "stadium_id": "LON02",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 50.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": "Europe/London",
+        "venue_country": "GB"
       },
       {
         "game_id": "2026_04_TEN_BAL",
@@ -11987,8 +13175,10 @@ export const SCHEDULE_2026 = {
         "stadium": "M&T Bank Stadium",
         "stadium_id": "BAL00",
         "referee": null,
-        "spread_line": 8.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_NE_BUF",
@@ -12005,8 +13195,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Highmark Stadium",
         "stadium_id": "BUF00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_NYJ_CHI",
@@ -12023,8 +13215,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Soldier Field",
         "stadium_id": "CHI98",
         "referee": null,
-        "spread_line": 8.5,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_JAX_CIN",
@@ -12041,8 +13235,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Paycor Stadium",
         "stadium_id": "CIN00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 51.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_DAL_HOU",
@@ -12059,8 +13255,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Reliant Stadium",
         "stadium_id": "HOU00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_ARI_NYG",
@@ -12077,8 +13275,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": 7,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_LA_PHI",
@@ -12095,8 +13295,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lincoln Financial Field",
         "stadium_id": "PHI00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_GB_TB",
@@ -12113,8 +13315,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Raymond James Stadium",
         "stadium_id": "TAM00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_MIA_MIN",
@@ -12131,8 +13335,10 @@ export const SCHEDULE_2026 = {
         "stadium": "U.S. Bank Stadium",
         "stadium_id": "MIN01",
         "referee": null,
-        "spread_line": 7.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_KC_LV",
@@ -12149,8 +13355,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Allegiant Stadium",
         "stadium_id": "VEG00",
         "referee": null,
-        "spread_line": -5.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_LAC_SEA",
@@ -12167,8 +13375,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lumen Field",
         "stadium_id": "SEA00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_DEN_SF",
@@ -12185,8 +13395,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Levi's Stadium",
         "stadium_id": "SFO01",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 46.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_DET_CAR",
@@ -12203,8 +13415,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Bank of America Stadium",
         "stadium_id": "CAR00",
         "referee": null,
-        "spread_line": -3,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_04_ATL_NO",
@@ -12221,8 +13435,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Caesars Superdome",
         "stadium_id": "NOR00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "5": [
@@ -12241,8 +13457,10 @@ export const SCHEDULE_2026 = {
         "stadium": "AT&T Stadium",
         "stadium_id": "DAL00",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 52.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_PHI_JAX",
@@ -12254,13 +13472,15 @@ export const SCHEDULE_2026 = {
         "home": "JAX",
         "away": "PHI",
         "div_game": false,
-        "roof": "outdoors",
+        "roof": "retractable",
         "surface": "grass",
         "stadium": "Tottenham Hotspur Stadium",
         "stadium_id": "JAX00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": "Europe/London",
+        "venue_country": "GB"
       },
       {
         "game_id": "2026_05_CIN_MIA",
@@ -12277,8 +13497,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Hard Rock Stadium",
         "stadium_id": "MIA00",
         "referee": null,
-        "spread_line": -6,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_LV_NE",
@@ -12295,8 +13517,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Gillette Stadium",
         "stadium_id": "BOS00",
         "referee": null,
-        "spread_line": 8.5,
-        "total_line": 44.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_MIN_NO",
@@ -12313,8 +13537,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Caesars Superdome",
         "stadium_id": "NOR00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 44.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_CLE_NYJ",
@@ -12331,8 +13557,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 39.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_IND_PIT",
@@ -12349,8 +13577,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Acrisure Stadium",
         "stadium_id": "PIT00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_HOU_TEN",
@@ -12367,8 +13597,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Nissan Stadium",
         "stadium_id": "NAS00",
         "referee": null,
-        "spread_line": -3.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_NYG_WAS",
@@ -12385,8 +13617,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Northwest Stadium",
         "stadium_id": "WAS00",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 48.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_DEN_LAC",
@@ -12403,8 +13637,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 44.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_DET_ARI",
@@ -12421,8 +13657,10 @@ export const SCHEDULE_2026 = {
         "stadium": "State Farm Stadium",
         "stadium_id": "PHO00",
         "referee": null,
-        "spread_line": -8.5,
-        "total_line": 48.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_CHI_GB",
@@ -12439,8 +13677,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lambeau Field",
         "stadium_id": "GNB00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_SF_SEA",
@@ -12457,8 +13697,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lumen Field",
         "stadium_id": "SEA00",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 48.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_BAL_ATL",
@@ -12475,8 +13717,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Mercedes-Benz Stadium",
         "stadium_id": "ATL97",
         "referee": null,
-        "spread_line": -4.5,
-        "total_line": 48.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_05_BUF_LA",
@@ -12493,8 +13737,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 53.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "6": [
@@ -12513,8 +13759,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Empower Field at Mile High",
         "stadium_id": "DEN00",
         "referee": null,
-        "spread_line": -2.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_HOU_JAX",
@@ -12529,10 +13777,12 @@ export const SCHEDULE_2026 = {
         "roof": "outdoors",
         "surface": "grass",
         "stadium": "Wembley Stadium",
-        "stadium_id": "JAX00",
+        "stadium_id": "LON00",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 42.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": "Europe/London",
+        "venue_country": "GB"
       },
       {
         "game_id": "2026_06_CHI_ATL",
@@ -12549,8 +13799,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Mercedes-Benz Stadium",
         "stadium_id": "ATL97",
         "referee": null,
-        "spread_line": -3,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_BAL_CLE",
@@ -12567,8 +13819,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Huntington Bank Field",
         "stadium_id": "CLE00",
         "referee": null,
-        "spread_line": -6.5,
-        "total_line": 44.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_TEN_IND",
@@ -12585,8 +13839,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lucas Oil Stadium",
         "stadium_id": "IND00",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_NYJ_NE",
@@ -12603,8 +13859,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Gillette Stadium",
         "stadium_id": "BOS00",
         "referee": null,
-        "spread_line": 9.5,
-        "total_line": 42.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_NO_NYG",
@@ -12621,8 +13879,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 44.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_CAR_PHI",
@@ -12639,8 +13899,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lincoln Financial Field",
         "stadium_id": "PHI00",
         "referee": null,
-        "spread_line": 6.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_PIT_TB",
@@ -12657,8 +13919,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Raymond James Stadium",
         "stadium_id": "TAM00",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_ARI_LA",
@@ -12675,8 +13939,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 13.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_LAC_KC",
@@ -12693,8 +13959,10 @@ export const SCHEDULE_2026 = {
         "stadium": "GEHA Field at Arrowhead Stadium",
         "stadium_id": "KAN00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 46.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_BUF_LV",
@@ -12711,8 +13979,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Allegiant Stadium",
         "stadium_id": "VEG00",
         "referee": null,
-        "spread_line": -6.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_DAL_GB",
@@ -12729,8 +13999,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lambeau Field",
         "stadium_id": "GNB00",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 51.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_06_WAS_SF",
@@ -12747,8 +14019,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Levi's Stadium",
         "stadium_id": "SFO01",
         "referee": null,
-        "spread_line": 5.5,
-        "total_line": 50.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "7": [
@@ -12767,8 +14041,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Soldier Field",
         "stadium_id": "CHI98",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_PIT_NO",
@@ -12783,10 +14059,12 @@ export const SCHEDULE_2026 = {
         "roof": "dome",
         "surface": "sportturf",
         "stadium": "Stade de France",
-        "stadium_id": "NOR00",
+        "stadium_id": "PAR00",
         "referee": null,
-        "spread_line": -2.5,
-        "total_line": 42.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_SF_ATL",
@@ -12803,8 +14081,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Mercedes-Benz Stadium",
         "stadium_id": "ATL97",
         "referee": null,
-        "spread_line": -4.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_CIN_BAL",
@@ -12821,8 +14101,10 @@ export const SCHEDULE_2026 = {
         "stadium": "M&T Bank Stadium",
         "stadium_id": "BAL00",
         "referee": null,
-        "spread_line": 3.5,
-        "total_line": 51.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_TB_CAR",
@@ -12840,7 +14122,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_NYG_HOU",
@@ -12857,8 +14141,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Reliant Stadium",
         "stadium_id": "HOU00",
         "referee": null,
-        "spread_line": 5.5,
-        "total_line": 43.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_IND_MIN",
@@ -12876,7 +14162,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_MIA_NYJ",
@@ -12893,8 +14181,10 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 41.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_CLE_TEN",
@@ -12911,8 +14201,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Nissan Stadium",
         "stadium_id": "NAS00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 40.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_DEN_ARI",
@@ -12930,7 +14222,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_GB_DET",
@@ -12948,7 +14242,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DET00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_LA_LV",
@@ -12966,7 +14262,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "VEG00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_KC_SEA",
@@ -12984,7 +14282,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SEA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_07_DAL_PHI",
@@ -13002,7 +14302,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHI00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "8": [
@@ -13022,7 +14324,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_BAL_BUF",
@@ -13040,7 +14344,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_TEN_CIN",
@@ -13058,7 +14364,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_ARI_DAL",
@@ -13076,7 +14384,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_MIN_DET",
@@ -13094,7 +14404,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DET00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_IND_JAX",
@@ -13112,7 +14424,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "JAX00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_LV_NYJ",
@@ -13130,7 +14444,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_CLE_PIT",
@@ -13148,7 +14464,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PIT00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_ATL_TB",
@@ -13166,7 +14484,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_LAC_LA",
@@ -13184,7 +14504,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_KC_DEN",
@@ -13202,7 +14524,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DEN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_NE_MIA",
@@ -13220,7 +14544,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_PHI_WAS",
@@ -13238,7 +14564,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_08_CHI_SEA",
@@ -13256,7 +14584,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SEA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "9": [
@@ -13276,7 +14606,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_CIN_ATL",
@@ -13291,10 +14623,12 @@ export const SCHEDULE_2026 = {
         "roof": null,
         "surface": "fieldturf",
         "stadium": "Bernabeu",
-        "stadium_id": "ATL97",
+        "stadium_id": "MAD01",
         "referee": null,
-        "spread_line": -4.5,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_DEN_CAR",
@@ -13312,7 +14646,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_DAL_IND",
@@ -13330,7 +14666,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "IND00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_NYJ_KC",
@@ -13348,7 +14686,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_DET_MIA",
@@ -13366,7 +14706,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_CLE_NO",
@@ -13384,7 +14726,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NOR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_NYG_PHI",
@@ -13402,7 +14746,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHI00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_LA_WAS",
@@ -13420,7 +14766,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_HOU_LAC",
@@ -13438,7 +14786,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_LV_SF",
@@ -13456,7 +14806,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SFO01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_GB_NE",
@@ -13474,7 +14826,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BOS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_ARI_SEA",
@@ -13492,7 +14846,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SEA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_TB_CHI",
@@ -13510,7 +14866,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CHI98",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_09_BUF_MIN",
@@ -13528,7 +14886,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "10": [
@@ -13548,7 +14908,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_NE_DET",
@@ -13563,10 +14925,12 @@ export const SCHEDULE_2026 = {
         "roof": "dome",
         "surface": "fieldturf",
         "stadium": "FC Bayern Munich Stadium",
-        "stadium_id": "DET00",
+        "stadium_id": "MUN01",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_KC_ATL",
@@ -13584,7 +14948,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "ATL97",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_HOU_CLE",
@@ -13602,7 +14968,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CLE00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_MIN_GB",
@@ -13620,7 +14988,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_MIA_IND",
@@ -13638,7 +15008,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "IND00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_CAR_NO",
@@ -13656,7 +15028,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NOR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_BUF_NYJ",
@@ -13674,7 +15048,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_JAX_TEN",
@@ -13692,7 +15068,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_LA_ARI",
@@ -13710,7 +15088,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_SEA_LV",
@@ -13728,7 +15108,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "VEG00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_SF_DAL",
@@ -13746,7 +15128,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_PIT_CIN",
@@ -13764,7 +15148,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_10_LAC_BAL",
@@ -13782,7 +15168,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "11": [
@@ -13802,7 +15190,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "HOU00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_MIA_BUF",
@@ -13820,7 +15210,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_BAL_CAR",
@@ -13838,7 +15230,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_NO_CHI",
@@ -13856,7 +15250,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CHI98",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_TEN_DAL",
@@ -13874,7 +15270,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_TB_DET",
@@ -13892,7 +15290,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DET00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_ARI_KC",
@@ -13910,7 +15310,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_JAX_NYG",
@@ -13928,7 +15330,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_NYJ_LAC",
@@ -13946,7 +15350,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_LV_DEN",
@@ -13964,7 +15370,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DEN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_PIT_PHI",
@@ -13982,7 +15390,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHI00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_MIN_SF",
@@ -13997,10 +15407,12 @@ export const SCHEDULE_2026 = {
         "roof": "outdoors",
         "surface": "grass",
         "stadium": "Estadio Banorte",
-        "stadium_id": "SFO01",
+        "stadium_id": "MEX00",
         "referee": null,
-        "spread_line": 4.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_11_CIN_WAS",
@@ -14018,7 +15430,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "12": [
@@ -14037,8 +15451,10 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 5.5,
-        "total_line": 48.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_CHI_DET",
@@ -14055,8 +15471,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Ford Field",
         "stadium_id": "DET00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 53.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_PHI_DAL",
@@ -14073,8 +15491,10 @@ export const SCHEDULE_2026 = {
         "stadium": "AT&T Stadium",
         "stadium_id": "DAL00",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 49.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_KC_BUF",
@@ -14091,8 +15511,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Highmark Stadium",
         "stadium_id": "BUF00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 50.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_DEN_PIT",
@@ -14109,8 +15531,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Acrisure Stadium",
         "stadium_id": "PIT00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 39.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_NO_CIN",
@@ -14128,7 +15552,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_LV_CLE",
@@ -14146,7 +15572,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CLE00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_BAL_HOU",
@@ -14164,7 +15592,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "HOU00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_NYG_IND",
@@ -14182,7 +15612,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "IND00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_NYJ_MIA",
@@ -14200,7 +15632,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_ATL_MIN",
@@ -14218,7 +15652,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_TEN_JAX",
@@ -14236,7 +15672,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "JAX00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_WAS_ARI",
@@ -14254,7 +15692,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_SEA_SF",
@@ -14272,7 +15712,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SFO01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_NE_LAC",
@@ -14290,7 +15732,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_12_CAR_TB",
@@ -14308,7 +15752,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "13": [
@@ -14328,7 +15774,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_DET_ATL",
@@ -14346,7 +15794,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "ATL97",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_JAX_CHI",
@@ -14364,7 +15814,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CHI98",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_CIN_CLE",
@@ -14382,7 +15834,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CLE00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_GB_NO",
@@ -14400,7 +15854,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NOR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_SF_NYG",
@@ -14418,7 +15874,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_LAC_TB",
@@ -14436,7 +15894,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_WAS_TEN",
@@ -14454,7 +15914,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_PHI_ARI",
@@ -14472,7 +15934,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_MIA_DEN",
@@ -14490,7 +15954,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DEN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_CAR_MIN",
@@ -14508,7 +15974,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_BUF_NE",
@@ -14526,7 +15994,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BOS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_HOU_PIT",
@@ -14544,7 +16014,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PIT00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_13_DAL_SEA",
@@ -14562,7 +16034,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SEA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "14": [
@@ -14582,7 +16056,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BOS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_TB_BAL",
@@ -14600,7 +16076,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_NO_CAR",
@@ -14618,7 +16096,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_ATL_CLE",
@@ -14636,7 +16116,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CLE00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_TEN_DET",
@@ -14654,7 +16136,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DET00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_CHI_MIA",
@@ -14672,7 +16156,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_DEN_NYJ",
@@ -14690,7 +16176,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_IND_PHI",
@@ -14708,7 +16196,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHI00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_HOU_WAS",
@@ -14726,7 +16216,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_LAC_LV",
@@ -14744,7 +16236,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "VEG00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_KC_CIN",
@@ -14762,7 +16256,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_NYG_SEA",
@@ -14780,7 +16276,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SEA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_LA_SF",
@@ -14798,7 +16296,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SFO01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_BUF_GB",
@@ -14816,7 +16316,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_14_PIT_JAX",
@@ -14834,7 +16336,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "JAX00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "15": [
@@ -14854,7 +16358,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_SEA_PHI",
@@ -14872,7 +16378,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHI00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_CHI_BUF",
@@ -14890,7 +16398,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_CIN_CAR",
@@ -14908,7 +16418,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_MIA_GB",
@@ -14926,7 +16438,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_JAX_HOU",
@@ -14944,7 +16458,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "HOU00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_CLE_NYG",
@@ -14962,7 +16478,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_BAL_PIT",
@@ -14980,7 +16498,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PIT00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_NO_TB",
@@ -14998,7 +16518,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_IND_TEN",
@@ -15016,7 +16538,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_ATL_WAS",
@@ -15034,7 +16558,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_NYJ_ARI",
@@ -15052,7 +16578,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_DAL_LA",
@@ -15070,7 +16598,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_DEN_LV",
@@ -15088,7 +16618,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "VEG00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_DET_MIN",
@@ -15106,7 +16638,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_15_NE_KC",
@@ -15124,7 +16658,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "16": [
@@ -15143,8 +16679,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lincoln Financial Field",
         "stadium_id": "PHI00",
         "referee": null,
-        "spread_line": 2.5,
-        "total_line": 38.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_GB_CHI",
@@ -15161,8 +16699,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Soldier Field",
         "stadium_id": "CHI98",
         "referee": null,
-        "spread_line": 1.5,
-        "total_line": 47.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_BUF_DEN",
@@ -15179,8 +16719,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Empower Field at Mile High",
         "stadium_id": "DEN00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 46.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_LA_SEA",
@@ -15197,8 +16739,10 @@ export const SCHEDULE_2026 = {
         "stadium": "Lumen Field",
         "stadium_id": "SEA00",
         "referee": null,
-        "spread_line": -1.5,
-        "total_line": 45.5
+        "spread_line": null,
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_TB_ATL",
@@ -15216,7 +16760,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "ATL97",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_CLE_BAL",
@@ -15234,7 +16780,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_CIN_IND",
@@ -15252,7 +16800,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "IND00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_LAC_MIA",
@@ -15270,7 +16820,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_WAS_MIN",
@@ -15288,7 +16840,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_ARI_NO",
@@ -15306,7 +16860,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NOR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_NE_NYJ",
@@ -15324,7 +16880,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_CAR_PIT",
@@ -15342,7 +16900,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PIT00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_TEN_LV",
@@ -15360,7 +16920,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "VEG00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_SF_KC",
@@ -15378,7 +16940,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_JAX_DAL",
@@ -15396,7 +16960,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_16_NYG_DET",
@@ -15414,7 +16980,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DET00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "17": [
@@ -15434,7 +17002,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_NO_ATL",
@@ -15452,7 +17022,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "ATL97",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_SEA_CAR",
@@ -15470,7 +17042,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_IND_CLE",
@@ -15488,7 +17062,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CLE00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_NYG_DAL",
@@ -15506,7 +17082,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_WAS_JAX",
@@ -15524,7 +17102,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "JAX00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_KC_LAC",
@@ -15542,7 +17122,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_BUF_MIA",
@@ -15560,7 +17142,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIA00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_DEN_NE",
@@ -15578,7 +17162,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BOS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_MIN_NYJ",
@@ -15596,7 +17182,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_LA_TB",
@@ -15614,7 +17202,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "TAM00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_PIT_TEN",
@@ -15632,7 +17222,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_LV_ARI",
@@ -15650,7 +17242,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_DET_CHI",
@@ -15668,7 +17262,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CHI98",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_PHI_SF",
@@ -15686,7 +17282,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "SFO01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_17_HOU_GB",
@@ -15704,7 +17302,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ],
     "18": [
@@ -15724,7 +17324,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "PHO00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_PIT_BAL",
@@ -15742,7 +17344,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_NYJ_BUF",
@@ -15760,7 +17364,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_ATL_CAR",
@@ -15778,7 +17384,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CAR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_CLE_CIN",
@@ -15796,7 +17404,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "CIN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_LAC_DEN",
@@ -15814,7 +17424,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "DEN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_DET_GB",
@@ -15832,7 +17444,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "GNB00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_TEN_HOU",
@@ -15850,7 +17464,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "HOU00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_JAX_IND",
@@ -15868,7 +17484,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "IND00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_LV_KC",
@@ -15886,7 +17504,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "KAN00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_SEA_LA",
@@ -15904,7 +17524,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "LAX01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_CHI_MIN",
@@ -15922,7 +17544,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "MIN01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_MIA_NE",
@@ -15940,7 +17564,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BOS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_TB_NO",
@@ -15958,7 +17584,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NOR00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_PHI_NYG",
@@ -15976,7 +17604,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "NYC01",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       },
       {
         "game_id": "2026_18_DAL_WAS",
@@ -15994,7 +17624,9 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": null,
-        "total_line": null
+        "total_line": null,
+        "venue_tz": null,
+        "venue_country": null
       }
     ]
   },

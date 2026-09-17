@@ -158,6 +158,24 @@ check('Null availability share is below the ceiling', () => {
   return `${nullish}/${total} = ${pct.toFixed(1)}% null (ceiling: ${MAX_PCT}%)`;
 });
 
+// #10 — Every top-100-ADP player carries a non-null availability_status (E-035 2026-09-17).
+//
+// The Sept-17 draft-copilot report caught Josh Jacobs at ADP 20 with a null
+// availability_status — the P0 join-shape failure at a different rank. Any
+// top-100 player being unresolved is a class of failure worth trapping at
+// the verifier gate, not discovering when a copilot recommends against a
+// starter because his gate flagged the null.
+check('Every top-100-ADP player carries a non-null availability_status', () => {
+  const top = PLAYER_BOARD_2026
+    .filter(r => r.adp_overall != null && r.adp_overall <= 100 && r.pos !== 'K' && r.pos !== 'DEF');
+  const nulls = top.filter(r => r.availability_status == null);
+  if (nulls.length > 0) {
+    const names = nulls.slice(0, 5).map(r => `${r.name} (adp ${r.adp_overall})`).join(', ');
+    throw new Error(`${nulls.length} of ${top.length} top-100-ADP players carry null availability_status: ${names}${nulls.length > 5 ? ', …' : ''}. Availability join lost a slice of the top of the board.`);
+  }
+  return `${top.length} top-100-ADP players all have a status`;
+});
+
 // #9 — Row count is within ±5% of the previous committed board (E-027 2026-09-16).
 //
 // Catches the class of failure where a downstream input silently truncates

@@ -113,10 +113,30 @@ async function main() {
   const maxWeek = weeks[weeks.length - 1];
   console.log(`  Regular-season weeks: ${minWeek}–${maxWeek} (${weeks.length} distinct)\n`);
 
+  // E-036 (2026-09-17): international-venue overrides. nflverse's `schedules`
+  // release inherits the home team's usual `roof` / `surface` / stadium_id for
+  // international games — so a game at Melbourne Cricket Ground shows
+  // `roof: dome, surface: matrixturf, stadium_id: LAX01` (SoFi's values,
+  // LAR's home). That flatters the wrong environment: a +0.50 "dome home"
+  // bonus went to a team that lost 27-7 after a trans-Pacific trip. Patch
+  // the venue characteristics at ingest, and stamp a `venue_tz` + `intl` flag
+  // downstream code can use for tz_delta and int'l asserts. Add rows here as
+  // NFL announces new intl games each season.
+  const INTL_VENUES = {
+    'Melbourne Cricket Ground':   { roof: 'outdoors',    surface: 'grass', venue_tz: 'Australia/Melbourne', country: 'AU' },
+    'Wembley Stadium':            { roof: 'outdoors',    surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
+    'Tottenham Hotspur Stadium':  { roof: 'retractable', surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
+    'Deutsche Bank Park':         { roof: 'outdoors',    surface: 'grass', venue_tz: 'Europe/Berlin',       country: 'DE' },
+    'Estadio Santiago Bernabéu':  { roof: 'retractable', surface: 'grass', venue_tz: 'Europe/Madrid',       country: 'ES' },
+    'Arena Corinthians':          { roof: 'outdoors',    surface: 'grass', venue_tz: 'America/Sao_Paulo',   country: 'BR' },
+  };
+
   // Compact per-game record — used by both byWeek index and per-team games list
   function compact(row, teamSide /* 'home' | 'away' | null */) {
     const home = norm(row.home_team);
     const away = norm(row.away_team);
+    const stadium = row.stadium || null;
+    const intl = stadium ? INTL_VENUES[stadium] : null;
     const rec = {
       game_id: row.game_id,
       week: intOrNull(row.week),
@@ -127,13 +147,22 @@ async function main() {
       home: home,
       away: away,
       div_game: row.div_game === '1',
-      roof: row.roof || null,           // outdoors / dome / closed / open
-      surface: row.surface || null,
-      stadium: row.stadium || null,
+      // If it's a known international venue, override nflverse's roof/surface
+      // (which are inherited from the home team's usual stadium and wrong).
+      roof: (intl?.roof ?? row.roof) || null,
+      surface: (intl?.surface ?? row.surface) || null,
+      stadium: stadium,
       stadium_id: row.stadium_id || null,
       referee: row.referee || null,
       spread_line: row.spread_line !== '' && row.spread_line != null ? Number(row.spread_line) : null,
       total_line: row.total_line !== '' && row.total_line != null ? Number(row.total_line) : null,
+      // E-036: `venue_tz` and `venue_country` populated for international
+      // games only. build-weekly-board.js reads `venue_tz` to compute the
+      // right tz_delta for both sides (nflverse's default assumed the home
+      // team was on their usual time zone, giving tz_delta 0 for
+      // trans-Pacific trips).
+      venue_tz: intl?.venue_tz ?? null,
+      venue_country: intl?.country ?? null,
     };
     if (teamSide === 'home') {
       return { ...rec, opponent: away, isHome: true };

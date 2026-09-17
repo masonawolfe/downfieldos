@@ -125,7 +125,14 @@ async function main() {
   let onPupIrNfi = 0;
   let flaggedQdo = 0;
   for (const [sid, p] of Object.entries(players)) {
-    const gsis = p.gsis_id || sleeperToGsis.get(sid) || null;
+    // E-035 (2026-09-17): trim the key. Sleeper's own `p.gsis_id` field
+    // arrives with a leading space for ~862 records — Josh Jacobs (ADP 20)
+    // was keyed as " 00-0035700" in the last committed availability file,
+    // so the board's lookup by "00-0035700" returned null and the copilot
+    // saw a top-100 player with no status. Trim at ingest so downstream
+    // consumers can key on the canonical form.
+    const rawGsis = p.gsis_id || sleeperToGsis.get(sid) || null;
+    const gsis = rawGsis ? String(rawGsis).trim() : null;
     if (!gsis) continue;
     const { status, game_designation } = mapStatus(p);
     const note = [p.injury_body_part, p.injury_notes].filter(Boolean).join(' — ') || null;
