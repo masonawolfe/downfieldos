@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-09-16T18:40:10.953Z |
+| This build | 2026-09-17T13:33:51.680Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-16T17:48:36.680Z |
-| Ranked rows this build | 512 |
+| Prior build | 2026-09-16T18:40:10.953Z |
+| Ranked rows this build | 514 |
 | Ranked rows prior build | 512 |
 
 ---
@@ -18,7 +18,15 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 286 | Jerome Ford | RB | MIN | -127 |
+| 318 | Marquez Valdes-Scantling | WR | LAC | -140 |
+| 333 | Jack Stoll | TE | SF | -146 |
+| 375 | Khalil Herbert | RB | ATL | -162 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 107 | Jake Tonges | TE | SF | -19 |
+| 137 | Jordan Mason | RB | MIN | -45 |
