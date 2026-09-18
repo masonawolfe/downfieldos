@@ -32,6 +32,13 @@ jobs:
       - run: npm install
       - name: Refresh weekly actuals
         run: npm run data:actuals
+      # QA 2026-09-17 19:05: calibration must also run when new actuals land
+      # (a new week of data changes every projection-vs-actual pair, not just
+      # when the board changes). If it fails (assert on projected == weekly_value
+      # mismatch), don't commit — the class is exactly "calibration and board
+      # out of sync".
+      - name: Emit CALIBRATION.md (E-032)
+        run: npm run --silent data:calibration
       - name: Commit if changed
         id: commit
         run: |
@@ -39,6 +46,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/data/intelligence/weekly_actuals_2026.json
+          git add CALIBRATION.md src/data/intelligence/calibration_2026.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No weekly-actuals changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

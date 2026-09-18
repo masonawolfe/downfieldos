@@ -38,7 +38,7 @@ jobs:
         with:
           node-version: 22
       - run: npm install
-      - name: Verify the player board (6 acceptance checks)
+      - name: Verify the player board (10 acceptance checks)
         # Exits non-zero if any check fails. That's the whole point — a
         # failing run here means the board should not be trusted.
         run: npm run data:board:verify

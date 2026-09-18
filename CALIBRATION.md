@@ -4,7 +4,9 @@
 
 | | |
 |---|---|
-| Generated | 2026-09-17T23:21:37.886Z |
+| Generated | 2026-09-18T00:33:52.402Z |
+| Weekly board generated | 2026-09-17T23:32:25.615Z |
+| Player board generated | 2026-09-17T23:35:35.920Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
 | Actuals generated | 2026-09-17T23:19:15.937Z |
 | Weeks covered | 1 |
@@ -16,16 +18,16 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17). Written from draf
 
 | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|
-| 316 | 0.17 | 5.59 | 7.34 |
+| 316 | 0.36 | 5.5 | 7.25 |
 
 ## By position
 
 | Pos | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|---|
-| QB | 35 | 0.08 | 7.11 | 8.85 |
-| RB | 76 | 0.67 | 5.75 | 7.74 |
-| WR | 135 | 0 | 5.63 | 7.21 |
-| TE | 70 | 0 | 4.58 | 6.22 |
+| QB | 35 | 0.23 | 7.09 | 8.69 |
+| RB | 76 | 0.83 | 5.69 | 7.68 |
+| WR | 135 | 0.18 | 5.57 | 7.18 |
+| TE | 70 | 0.25 | 4.35 | 6 |
 
 ## Per-adjustment: fired vs not fired
 
@@ -33,11 +35,11 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 
 | Adjustment | Fired N | Fired mean err | Fired \|err\| | Not-fired N | Not-fired mean err | Not-fired \|err\| |
 |---|---|---|---|---|---|---|
-| matchup | 316 | 0.17 | 5.59 | 0 | — | — |
-| dome_home | 53 | -1.72 | 5.63 | 263 | 0.55 | 5.58 |
-| short_week | 0 | — | — | 316 | 0.17 | 5.59 |
-| bye_return | 0 | — | — | 316 | 0.17 | 5.59 |
-| tz_travel | 14 | -1.23 | 4.72 | 302 | 0.24 | 5.63 |
+| matchup | 316 | 0.36 | 5.5 | 0 | — | — |
+| dome_home | 60 | -0.04 | 5.24 | 256 | 0.45 | 5.56 |
+| short_week | 0 | — | — | 316 | 0.36 | 5.5 |
+| bye_return | 0 | — | — | 316 | 0.36 | 5.5 |
+| tz_travel | 35 | -1.11 | 4.83 | 281 | 0.54 | 5.58 |
 
 **The ±4 matchup cap:** if fired-mean-error and fired-|err| are close to not-fired, the cap isn't buying us signal. If fired-|err| is materially smaller (e.g. ~2 point improvement), it is. First-week sample is small — trend needs weeks 2+ to be decisive.
 
@@ -52,9 +54,8 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 | Caleb Williams | QB | CHI | 1 | CAR | 16.67 | 37.26 | +20.59 | CAR allows 15.6 QB fpts/g (median 17.9) -2.30 |
 | Derrick Henry | RB | BAL | 1 | IND | 14.99 | 35.3 | +20.31 | IND allows 20.4 RB fpts/g (median 22.2) -1.80 |
 | Justin Jefferson | WR | MIN | 1 | GB | 12.31 | 31.2 | +18.89 | dome home +0.50 |
-| Matthew Stafford | QB | LAR | 1 | SF | 22.4 | 4.1 | -18.3 | dome home +0.50 |
 | Ja'Marr Chase | WR | CIN | 1 | TB | 20.14 | 3.2 | -16.94 | TB allows 31.6 WR fpts/g (median 31.1) +0.50 |
-| David Montgomery | RB | HOU | 1 | BUF | 11.98 | 28.9 | +16.92 | BUF allows 24.6 RB fpts/g (median 22.2) +2.40 |
+| David Montgomery | RB | HOU | 1 | BUF | 12.48 | 28.9 | +16.42 | BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50 |
 | Kalif Raymond | WR | CHI | 1 | CAR | 0.03 | 16.4 | +16.37 | CAR allows 27.2 WR fpts/g (median 31.1) -3.90 |
 | DJ Moore | WR | BUF | 1 | HOU | 5.07 | 21 | +15.93 | HOU allows 25.7 WR fpts/g (median 31.1) -4.00 |
 | Antonio Williams | WR | WAS | 1 | PHI | 0.5 | 16.4 | +15.9 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 |
@@ -65,6 +66,7 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 | Chuba Hubbard | RB | CAR | 1 | CHI | 8.49 | 23.7 | +15.21 | base pace, no context adjustments fired |
 | Tyrone Tracy Jr. | RB | NYG | 1 | DAL | 14.55 | -0.6 | -15.15 | DAL allows 25.9 RB fpts/g (median 22.2) +3.70 |
 | Josh Allen | QB | BUF | 1 | HOU | 20.79 | 35.66 | +14.87 | HOU allows 14.4 QB fpts/g (median 17.9) -3.50 |
+| Ashton Jeanty | RB | LV | 1 | MIA | 17.84 | 32.7 | +14.86 | MIA allows 25.0 RB fpts/g (median 22.2) +2.80 · dome home +0.50 |
 
 ---
 

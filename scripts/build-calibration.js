@@ -34,6 +34,15 @@ const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
 
 const boardMod = await import(path.join(REPO, 'src', 'data', 'weeklyBoard2026.js'));
 const WEEKLY_BOARD = boardMod.WEEKLY_BOARD_2026;
+const WEEKLY_BOARD_META = boardMod.WEEKLY_BOARD_2026_META || null;
+
+// Read the daily board too so we can stamp its `generated` timestamp on
+// CALIBRATION.md — makes visible that this run is downstream of the shipped
+// board, not upstream. (QA 2026-09-17 19:05: the previous CALIBRATION.md
+// stamped ahead of the weekly board that shipped in the same commit, so
+// 41 of 316 projections were stale.)
+const playerBoardMod = await import(path.join(REPO, 'src', 'data', 'playerBoard2026.js'));
+const PLAYER_BOARD_META = playerBoardMod.PLAYER_BOARD_2026_META;
 
 const actualsPath = path.join(REPO, 'src', 'data', 'intelligence', `weekly_actuals_${SEASON}.json`);
 if (!fs.existsSync(actualsPath)) {
@@ -90,6 +99,31 @@ for (const r of WEEKLY_BOARD) {
 
 console.log(`  matched pairs: ${perPair.length}`);
 
+// Assert: every projected value equals the board's weekly_value for that
+// (gsis_id, week). This is a tautology at generation time (we read from
+// WEEKLY_BOARD), but it fires if calibration_2026.json is ever committed
+// against a board it wasn't generated from. QA 2026-09-17 19:05 caught the
+// class: CALIBRATION.md rode along a commit that also rewrote the weekly
+// board, and 41 of 316 `projected` values no longer matched what shipped.
+// Combined with the data-board.yml wiring that runs calibration *after*
+// the board build, this makes drift impossible.
+{
+  const boardWv = new Map();
+  for (const r of WEEKLY_BOARD) boardWv.set(`${r.gsis_id}_${r.week}`, r.weekly_value);
+  const mismatches = perPair.filter(r => {
+    const w = boardWv.get(`${r.gsis_id}_${r.week}`);
+    return w == null || Math.abs(w - r.projected) > 0.001;
+  });
+  if (mismatches.length > 0) {
+    console.error(`\ncalibration assert failed: ${mismatches.length} of ${perPair.length} projected values do not match board's weekly_value`);
+    for (const m of mismatches.slice(0, 5)) {
+      const w = boardWv.get(`${m.gsis_id}_${m.week}`);
+      console.error(`  ${m.name} (${m.gsis_id}) wk${m.week}: cal.projected=${m.projected} board.weekly_value=${w}`);
+    }
+    process.exit(1);
+  }
+}
+
 function agg(rows) {
   const n = rows.length;
   if (n === 0) return { n: 0 };
@@ -126,6 +160,11 @@ const meta = {
   generated_utc: new Date().toISOString(),
   actuals_source: actualsDoc.meta.source_url,
   actuals_generated_utc: actualsDoc.meta.generated_utc,
+  // QA 2026-09-17: stamp the boards this run read, so downstream can see
+  // whether CALIBRATION.md is fresh relative to what shipped. If either
+  // stamp trails the calibration `generated_utc`, calibration is stale.
+  weekly_board_generated_utc: WEEKLY_BOARD_META?.generated || null,
+  player_board_generated_utc: PLAYER_BOARD_META?.generated || null,
   scoring_note: 'projected uses WEEKLY_BOARD_2026.weekly_value (base + matchup + env). actual uses fantasy_points_ppr from nflverse.',
 };
 
@@ -151,6 +190,8 @@ md.push('');
 md.push('| | |');
 md.push('|---|---|');
 md.push(`| Generated | ${meta.generated_utc} |`);
+md.push(`| Weekly board generated | ${meta.weekly_board_generated_utc || '(missing — no META)'} |`);
+md.push(`| Player board generated | ${meta.player_board_generated_utc || '(missing — no META)'} |`);
 md.push(`| Actuals source | \`${meta.actuals_source}\` |`);
 md.push(`| Actuals generated | ${meta.actuals_generated_utc} |`);
 md.push(`| Weeks covered | ${actualsDoc.meta.weeks_present.join(', ')} |`);
