@@ -4,14 +4,14 @@
 
 | | |
 |---|---|
-| Generated | 2026-09-18T09:09:16.050Z |
+| Generated | 2026-09-18T12:58:56.004Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Commit | `643b631` |
+| Commit | `7f1db85` |
 | Rows in board | 992 |
 | Draftable skill rows (ranked below) | 511 |
-| Verifier | 11/11 checks passed |
+| Verifier | 12/12 checks passed |
 | Schema version | 3 |
-| Board generated | 2026-09-18T09:09:14.032Z |
+| Board generated | 2026-09-18T12:58:54.043Z |
 | Availability generated | 2026-09-18T08:57:47.789Z |
 
 **Recommendation column** — v1 (VORP) and v2 (β total_score_beta) agreement per row. 
@@ -407,7 +407,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 381 | Quentin Skinner | WR | BUF | 7 |  | -162 | -154 | +8 |  | β says: QB EPA Josh Allen +8.92 · moved NYJ→BUF +8.12 · team offense -5.08 |
 | 382 | Xavier Weaver | WR | ARI | 14 | Q | -163 | -142 | +21 | 647 | β says: team pass rate +9.1 · RZ pass rate +7.1 · Questionable +4.89 |
 | 383 | Eric Saubert | TE | SEA | 11 |  | -164 | -175 | -11 | 576 | β says: team pass rate -6.2 · RZ pass rate -5.9 · team offense +1.32 |
-| 384 | Dylan Drummond | WR | ATL | 11 |  | -165 | -170 | -5 | 251 | ✓ agree (v1 pos #153, v2 pos #156) |
+| 384 | Dylan Drummond | WR | ATL | 11 |  | -165 | -170 | -5 | 251 | β says: RZ pass rate -2.85 · team pass rate -1.9 · team offense -0.84 |
 | 385 | Jelani Woods | TE | NYJ | 13 |  | -166 | -184 | -18 | 243 | β says: QB EPA Geno Smith -9.12 · team offense -5.08 · RZ pass rate -1.9 |
 | 386 | Jared Wiley | TE | KC | 5 |  | -166 | -152 | +14 | 435 | β says: QB EPA Patrick Mahomes +8.53 · team pass rate +3.2 · 1 dome playoff wks +1.5 |
 | 387 | Evan Hull | RB | ARI | 14 |  | -166 | -157 | +9 | 686 | β says: moved NO→ARI +8.32 · 1 dome playoff wks +1.5 · team offense -0.39 |
@@ -431,7 +431,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 405 | Jack Westover | TE | WAS | 7 |  | -173 | -164 | +9 | 626 | β says: moved NE→WAS +8.67 · team offense +6.36 · RZ pass rate -3.65 |
 | 406 | Tylan Wallace | WR | CLE | 11 |  | -174 | -172 | +2 | 670 | ✓ agree (v1 pos #159, v2 pos #162) |
 | 407 | Ashton Dulin | WR | IND | 13 | Q | -174 | -162 | +13 | 697 | β says: QB EPA Daniel Jones +8.16 · Questionable +5.23 · RZ pass rate -4.05 |
-| 408 | Samori Toure | WR | PHI | 10 |  | -174 | -170 | +4 |  | ✓ agree (v1 pos #161, v2 pos #158) |
+| 408 | Samori Toure | WR | PHI | 10 |  | -174 | -170 | +4 |  | ✓ agree (v1 pos #161, v2 pos #159) |
 | 409 | Trent Sherfield | WR | BUF | 7 |  | -175 | -163 | +12 | 596 | β says: QB EPA Josh Allen +8.92 · moved ARI→BUF +8.74 · team pass rate -6 |
 | 410 | Tom Kennedy | WR | DET | 6 |  | -175 | -158 | +17 | 650 | β says: QB EPA Jared Goff +10 · team offense +3.28 · 2 dome playoff wks +3 |
 | 411 | Austin Trammell | WR | JAX | 7 |  | -175 | -175 | -0 | 658 | ✓ agree (v1 pos #164, v2 pos #167) |
@@ -464,7 +464,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 438 | Julius Chestnut | RB | TEN | 9 |  | -180 | -184 | -3 | 651 | β says: team offense -4.8 · 1 dome playoff wks +1.5 |
 | 439 | Arian Smith | WR | NYJ | 13 |  | -180 | -198 | -18 | 698 | β says: QB EPA Geno Smith -9.12 · team offense -5.08 · RZ pass rate -1.9 |
 | 440 | Kendall Milton | RB | CIN | 6 |  | -181 | -181 | -0 | 657 | ✓ agree (v1 pos #110, v2 pos #111) |
-| 441 | Bryce Oliver | WR | CLE | 11 |  | -181 | -171 | +10 | 471 | β says: moved TEN→CLE +9.06 · team offense -6.4 · team pass rate +5.6 |
+| 441 | Bryce Oliver | WR | HOU | 8 |  | -181 | -165 | +16 | 471 | β says: moved TEN→HOU +9.06 · team offense -6.4 · QB EPA C.J. Stroud +5.96 |
 | 442 | Fernando Mendoza | QB | LV | 13 |  | -181 |  |  | 108 | v1 pos #48 vs v2 pos #75 |
 | 443 | Kalel Mullings | RB | TEN | 9 |  | -182 | -185 | -3 | 690 | β says: team offense -4.8 · 1 dome playoff wks +1.5 |
 | 444 | Dareke Young | WR | LV | 13 |  | -182 | -172 | +10 | 676 | β says: moved SEA→LV +9.1 · team offense -8.6 · team pass rate +4.4 |
