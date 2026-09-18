@@ -4,17 +4,15 @@
 
 | | |
 |---|---|
-| This build | 2026-09-18T14:11:41.601Z |
+| This build | 2026-09-18T14:35:44.469Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-18T13:37:08.154Z |
+| Prior build | 2026-09-18T14:11:41.602Z |
 | Ranked rows this build | 511 |
 | Ranked rows prior build | 511 |
 
 ---
 ## Risers (moved up ≥3 ranks)
-| Δ | Player | Pos | Team | Prior | Now |
-|---:|---|:---:|:---:|---:|---:|
-| +57 | Fernando Mendoza | QB | LV | 442 | 385 |
+_None._
 
 ## Fallers (moved down ≥3 ranks)
 _None._
