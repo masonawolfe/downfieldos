@@ -307,7 +307,7 @@ check('coachingTrees per-role 2026 verification ratchet', () => {
       }
     }
   }
-  const CEILING = 95; // 2026-09-18: 1 of 96 verified (CHI.oc = Press Taylor). Tighten as verifications land.
+  const CEILING = 0; // 2026-09-18: all 32 teams primary-verified for 2026 season. Any regression fires.
   if (unverified > CEILING) {
     throw new Error(`${unverified} of 96 (team,role) rows unverified for ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedRoles.slice(0, 10).join(', ')}${unverifiedRoles.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
   }
