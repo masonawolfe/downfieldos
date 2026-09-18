@@ -118,7 +118,11 @@ export const COACHING_TREES = {
       // with Gary Kubiak (Shanahan family); Cleveland ran wide-zone / heavy
       // play-action. Prior MCVAY label was Morris-era.
       trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
-      style: 'Wide-zone / play-action heavy', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
+      // E-038f (2026-09-18, QA 10:05): trimmed scheme descriptor to lineage
+      // only. The Wikipedia bio documents Stefanski's Vikings assistant and
+      // Browns HC path but does not use "wide-zone / play-action heavy" as a
+      // scheme label. Restore the descriptor when a source states it.
+      style: 'Vikings assistant → Browns HC lineage (Stefanski)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
     },
     BAL: {
       hc: 'Jesse Minter',       hc_verified_on: '2026-09-18', hc_source: 'https://www.baltimoreravens.com/team/coaches/',
@@ -129,7 +133,10 @@ export const COACHING_TREES = {
       // Lamar-RPO to defensive-forward Harbaugh identity (Minter is a DC
       // by trade).
       trees: ['HARBAUGH'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
-      style: 'Defensive-forward Harbaugh identity', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
+      // E-038f: "defensive-forward" cut — the bio documents Minter's DC
+      // path at Michigan under Jim Harbaugh and Chargers under Jim Harbaugh,
+      // but no scheme-descriptor phrase.
+      style: 'Michigan DC → Chargers DC lineage (Minter, Jim Harbaugh)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
     },
     BUF: {
       hc: 'Joe Brady',          hc_verified_on: '2026-09-18', hc_source: 'https://www.buffalobills.com/team/coaches/',
@@ -164,7 +171,10 @@ export const COACHING_TREES = {
       // Recorded per peer's rule as an ambiguity, not guessed at.
       trees: [], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
       trees_note: "Monken's career doesn't fit any of the 10 defined trees. Modern downfield passing scheme with no single founder; scheme-similarity comparisons using this row should degrade gracefully to no-tree overlap.",
-      style: 'Downfield passing', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
+      // E-038f: "downfield passing" was descriptor, not sourced. Bio
+      // documents the OC path (Bucs → Bengals WR coach → Southern Miss HC
+      // → Georgia OC → Ravens OC → Browns HC) — lineage only.
+      style: 'Bucs → Georgia OC → Ravens OC → Browns HC lineage (Monken)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
     },
     DAL: {
       hc: 'Brian Schottenheimer', hc_verified_on: '2026-09-18', hc_source: 'https://www.dallascowboys.com/team/coaches/',
@@ -234,7 +244,9 @@ export const COACHING_TREES = {
       // is a Shanahan-tree wide-zone coach. Prior BELICHICK label was Carroll-
       // era defense-first; that identity flips under Kubiak.
       trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
-      style: 'Kubiak zone concepts', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
+      // E-038f: "zone concepts" is a scheme descriptor; the bio documents
+      // Klint Kubiak's positions but does not name a scheme label.
+      style: 'Vikings OC → 49ers passing coordinator → Saints OC lineage (Kubiak family)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
     },
     MIA: {
       hc: 'Jeff Hafley',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Miami_Dolphins_season',
@@ -263,7 +275,9 @@ export const COACHING_TREES = {
       // implied. Kept PAYTON tree since Sean Payton's system left roots in
       // NO's roster/scheme, but style renamed.
       trees: ['PAYTON', 'SIRIANNI'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
-      style: 'Air-Coryell / RPO hybrid', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
+      // E-038f: "Air-Coryell / RPO hybrid" was descriptor. Bio documents
+      // Moore's OC path (Cowboys → LAC → Eagles → NO HC) — lineage only.
+      style: 'Cowboys OC → LAC OC → Eagles OC lineage (Moore)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
     },
     NYG: {
       hc: 'John Harbaugh',      hc_verified_on: '2026-09-18', hc_source: 'https://www.giants.com/team/coaches/',
@@ -274,7 +288,9 @@ export const COACHING_TREES = {
       // that carries from Baltimore. OC Matt Nagy adds REID-family passing
       // wrinkles.
       trees: ['HARBAUGH', 'REID'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/John_Harbaugh',
-      style: 'Physical Harbaugh identity', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/John_Harbaugh',
+      // E-038f: "physical" is descriptor. Bio documents J. Harbaugh's Eagles
+      // ST coach → Ravens HC → Giants HC path — lineage only.
+      style: 'Eagles ST → Ravens HC → Giants HC lineage (Harbaugh)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/John_Harbaugh',
     },
     NYJ: {
       hc: 'Aaron Glenn',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_New_York_Jets_season',
@@ -297,7 +313,10 @@ export const COACHING_TREES = {
       // McCarthy is a Marty Schottenheimer/Andy Reid tree hybrid). Style
       // shifts from Tomlin's zone-blitz identity to McCarthy West Coast timing.
       trees: ['REID'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
-      style: 'West Coast timing', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
+      // E-038f: "West Coast timing" is my characterization. The bio documents
+      // McCarthy's Packers HC (2006-18) and Cowboys HC (2020-23) tenure —
+      // lineage only.
+      style: 'Packers HC → Cowboys HC lineage (McCarthy)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
     },
     SEA: {
       hc: 'Mike Macdonald',     hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Seattle_Seahawks_season',
@@ -337,7 +356,10 @@ export const COACHING_TREES = {
       // as unverified for the trees field.
       trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
       tree_confidence: 'closest-available',
-      style: 'Cover-3 zone-heavy 4-3 (Carroll lineage; SHANAHAN tree is closest available)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
+      // E-038f (QA 10:05): "Cover-3 zone-heavy 4-3" cut — the Wikipedia bio
+      // does not state that phrase. Lineage retained; Carroll roots recorded
+      // in `trees_note` above, not asserted as scheme.
+      style: 'Seattle assistant → 49ers DC → Jets HC lineage (Saleh)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
     },
     WAS: {
       hc: 'Dan Quinn',          hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Washington_Commanders_season',
