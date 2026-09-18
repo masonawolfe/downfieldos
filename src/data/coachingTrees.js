@@ -101,11 +101,14 @@ export const COACHING_TREES = {
       oc: 'Nathaniel Hackett',  oc_verified_on: '2026-09-18', oc_source: 'https://www.azcardinals.com/team/coaches/',
       dc: 'Nick Rallis',        dc_verified_on: '2026-09-18', dc_source: 'https://www.azcardinals.com/team/coaches/',
       // E-038b (2026-09-18): trees/style refreshed for new HC Mike LaFleur.
-      // Brother of Matt LaFleur; came through 49ers under Kyle Shanahan, then
-      // Jets OC (2021-22) and Rams OC (2023) under McVay — Shanahan/McVay
-      // family, not the Sirianni RPO lineage the prior label carried.
+      // Brother of Matt LaFleur; 49ers assistant under Kyle Shanahan
+      // (2016-2020), Jets OC (2021-22), Rams OC (2023). Wikipedia bio
+      // documents the Shanahan lineage explicitly.
+      // E-038d (2026-09-18): style tightened to what the Wikipedia bio
+      // actually states — "Shanahan zone concepts" was my characterization,
+      // not a source's words. QA 2026-09-18 09:05 CT caught the outrun.
       trees: ['SHANAHAN', 'MCVAY'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Mike_LaFleur',
-      style: 'Shanahan zone concepts', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_LaFleur',
+      style: 'Shanahan-family (49ers/Jets/Rams OC lineage)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_LaFleur',
     },
     ATL: {
       hc: 'Kevin Stefanski',    hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Atlanta_Falcons_season',
@@ -324,11 +327,17 @@ export const COACHING_TREES = {
       hc: 'Robert Saleh',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
       oc: 'Brian Daboll',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
       dc: 'Gus Bradley',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
-      // E-038b: Saleh is a Shanahan-tree DC (49ers 2017-2020 → Jets HC 2021-24).
-      // 4-3 wide-9 defensive front. Prior MCVAY label was Callahan-era; the
-      // style flips to a defensive-forward Shanahan-family identity.
+      // E-038b: Saleh worked under Kyle Shanahan (49ers DC 2017-2020) and
+      // under Pete Carroll early (Seattle 2011-2013). His scheme is a
+      // Carroll-lineage Cover-3 zone-heavy 4-3, closer to the CARROLL tree
+      // than to the SHANAHAN tree — but no CARROLL tree exists in our
+      // 10 defined ones. SHANAHAN is the closest-available proxy, not a
+      // direct fit. QA 2026-09-18 09:05 CT flagged this; recorded per the
+      // ambiguity rule via `tree_confidence`. Check #12 counts this row
+      // as unverified for the trees field.
       trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
-      style: 'Shanahan-family defense (4-3 wide-9)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
+      tree_confidence: 'closest-available',
+      style: 'Cover-3 zone-heavy 4-3 (Carroll lineage; SHANAHAN tree is closest available)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
     },
     WAS: {
       hc: 'Dan Quinn',          hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Washington_Commanders_season',

@@ -318,16 +318,27 @@ check('coachingTrees per-role and per-field NFL-season verification ratchet', ()
     const keyMatch = slice.match(/^\s*([A-Z]{2,3}):\s*\{/m);
     if (!keyMatch) continue;
     const team = keyMatch[1];
+    // E-038d (2026-09-18, QA 09:05): a row that carries
+    // `tree_confidence: 'closest-available'` (SHANAHAN as a stand-in
+    // for CARROLL on TEN, etc.) is a partial verification — the source
+    // says the coach's lineage but our 10 defined trees don't include
+    // his home tree. Count the `trees` field as unverified when that
+    // flag is set, regardless of trees_verified_on.
+    const closestAvailable = /tree_confidence:\s*['"]closest-available['"]/.test(slice);
     for (const field of ['hc', 'oc', 'dc', 'trees', 'style']) {
       const re = new RegExp(`${field}_verified_on:\\s*'(\\d{4})-\\d{2}-\\d{2}'`);
       const rm = slice.match(re);
-      if (!rm || parseInt(rm[1], 10) < currentYear) {
+      const dateOk = rm && parseInt(rm[1], 10) >= currentYear;
+      // The `trees` field on a closest-available row does not count as verified
+      // even when its verified_on date matches — the tree label is a proxy.
+      const confidenceGap = field === 'trees' && closestAvailable;
+      if (!dateOk || confidenceGap) {
         unverified++;
-        unverifiedFields.push(`${team}.${field}`);
+        unverifiedFields.push(`${team}.${field}${confidenceGap ? ' (closest-available)' : ''}`);
       }
     }
   }
-  const CEILING = 46; // 2026-09-18 (E-038b): 46 = 23 unchanged teams' trees + style (still on 2025-2026 baseline). Tighten as verifications land.
+  const CEILING = 47; // 2026-09-18 (E-038d): 46 unchanged teams' trees+style (still on 2025-2026 baseline) + 1 closest-available (TEN.trees). Tighten as verifications land.
   if (unverified > CEILING) {
     throw new Error(`${unverified} of 160 (team,field) rows unverified for NFL season ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedFields.slice(0, 10).join(', ')}${unverifiedFields.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
   }
