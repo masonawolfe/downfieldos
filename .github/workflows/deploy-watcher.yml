@@ -84,6 +84,35 @@ jobs:
           SHORT=$(echo "$SHA" | cut -c1-7)
           FIRSTLINE=$(echo "$COMMIT_MSG" | head -1)
           COMMIT_URL=https://github.com/${GITHUB_REPOSITORY}/commit/${SHA}
+          # Q-040 (2026-09-18): the bot-author guard on the job's `if:` fires
+          # for ANY commit whose head_commit.author.name is "github-actions[bot]"
+          # — that includes dependabot, tooling PRs merged by the bot, etc.
+          # Narrow the real path to commits that also carry the `chore(data):`
+          # prefix every data workflow uses. Simulate path is exempt (it sets
+          # its own commit-message string).
+          if [ "$IS_SIM" != "1" ]; then
+            case "$FIRSTLINE" in
+              chore\(data\):*) ;;
+              *)
+                echo "  head commit '${FIRSTLINE}' is not a chore(data): commit — bot-author guard fired on a non-data commit; skipping."
+                exit 0
+                ;;
+            esac
+          fi
+          # Q-040 (2026-09-18): the deploy pipeline retries within the run and
+          # the workflow_run trigger can re-fire on the same SHA. Before
+          # opening a new issue, search for an open one that already names
+          # this SHA — same incident, one issue, resolved once by a human.
+          EXISTING=$(gh issue list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --search "bot commit ${SHORT} in:title" \
+            --json number \
+            --jq '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+            echo "  open issue #${EXISTING} already tracks bot commit ${SHORT}; not opening a duplicate."
+            exit 0
+          fi
           gh issue create \
             --repo "$GITHUB_REPOSITORY" \
             --title "${TITLE_PREFIX}deploy failed after bot commit ${SHORT}: ${FIRSTLINE}" \
