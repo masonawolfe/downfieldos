@@ -99,14 +99,15 @@ for (const r of WEEKLY_BOARD) {
 
 console.log(`  matched pairs: ${perPair.length}`);
 
-// Assert: every projected value equals the board's weekly_value for that
-// (gsis_id, week). This is a tautology at generation time (we read from
-// WEEKLY_BOARD), but it fires if calibration_2026.json is ever committed
-// against a board it wasn't generated from. QA 2026-09-17 19:05 caught the
-// class: CALIBRATION.md rode along a commit that also rewrote the weekly
-// board, and 41 of 316 `projected` values no longer matched what shipped.
-// Combined with the data-board.yml wiring that runs calibration *after*
-// the board build, this makes drift impossible.
+// In-script sanity-check — NOT a protection against drift. QA 2026-09-17
+// 20:05 called this out correctly: this compares `projected` to
+// `WEEKLY_BOARD.weekly_value` in the same array it was just built from, so
+// it can never fail within one process. It stays here as a defensive
+// guard against a future refactor where the script derives `projected`
+// from something other than WEEKLY_BOARD. The real drift protection lives
+// at the point where the committed artifacts meet: verifier check #11 in
+// verify-player-board.mjs loads calibration_2026.json from disk and
+// asserts every projected equals the committed board's weekly_value.
 {
   const boardWv = new Map();
   for (const r of WEEKLY_BOARD) boardWv.set(`${r.gsis_id}_${r.week}`, r.weekly_value);

@@ -76,7 +76,7 @@ jobs:
           echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Build the pre-draft board
         run: npm run data:board
-      - name: Verify the board (10-check gate — must pass to commit)
+      - name: Verify the board (11-check gate — must pass to commit)
         id: verify
         # Q-022 2026-09-17: capture the passed/total count from the last
         # "Task acceptance: N/M checks passed" line and expose it as a step

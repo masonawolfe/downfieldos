@@ -15,6 +15,19 @@ const board = await import(REPO + 'src/data/playerBoard2026.js');
 const PLAYER_BOARD_2026 = board.PLAYER_BOARD_2026;
 const meta = board.PLAYER_BOARD_2026_META;
 
+// Optional: load the weekly board + the committed calibration for check #11.
+// Absent files ⇒ check #11 no-ops with a note; the verifier stays honest
+// about what it could and could not read.
+let WEEKLY_BOARD = null, WEEKLY_META = null, CAL_DOC = null;
+try {
+  const wkb = await import(REPO + 'src/data/weeklyBoard2026.js');
+  WEEKLY_BOARD = wkb.WEEKLY_BOARD_2026;
+  WEEKLY_META = wkb.WEEKLY_BOARD_2026_META || null;
+} catch {}
+try {
+  CAL_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/calibration_2026.json', 'utf8'));
+} catch {}
+
 console.log(`Board: ${PLAYER_BOARD_2026.length} rows, generated ${meta.generated}\n`);
 
 const results = [];
@@ -207,6 +220,44 @@ check('Row count is within ±5% of the previous committed board', () => {
     throw new Error(`row count changed ${pct.toFixed(1)}% (${prevCount} → ${cur}, Δ${delta}) — outside the ±${MAX_PCT}% band. If this is a legitimate multi-team roster event, land a manual override with a note.`);
   }
   return `${cur} rows (prev ${prevCount}, Δ${delta >= 0 ? '+' : ''}${delta} = ${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
+});
+
+// #11 — Committed calibration matches the committed weekly board.
+//
+// QA 2026-09-17 20:05 caught the class where CALIBRATION.md shipped in
+// the same commit as a weekly-board rewrite, but the calibration was
+// generated from the PRE-rewrite board — 41 of 316 `projected` values
+// were stale on arrival. The in-script assert in build-calibration.js
+// is a tautology (same in-memory board), so the real drift protection
+// lives HERE: load `calibration_2026.json` from disk and check every
+// row against the committed WEEKLY_BOARD_2026. Also refuse to pass if
+// the calibration's stamp of `weekly_board_generated_utc` is older
+// than the current WEEKLY_BOARD_META.generated — the "table lags the
+// board" signal, encoded.
+check('Calibration matches the committed weekly board (or is absent)', () => {
+  if (!CAL_DOC) return 'no calibration_2026.json on disk — skipped';
+  if (!WEEKLY_BOARD) return 'no weeklyBoard2026.js — skipped';
+  const boardWv = new Map();
+  for (const r of WEEKLY_BOARD) boardWv.set(`${r.gsis_id}_${r.week}`, r.weekly_value);
+  const mismatches = (CAL_DOC.rows || []).filter(r => {
+    const bv = boardWv.get(`${r.gsis_id}_${r.week}`);
+    return bv == null || Math.abs(bv - r.projected) > 0.001;
+  });
+  if (mismatches.length > 0) {
+    const sample = mismatches.slice(0, 5).map(m => {
+      const bv = boardWv.get(`${m.gsis_id}_${m.week}`);
+      return `${m.name} wk${m.week}: cal=${m.projected} board=${bv}`;
+    }).join('; ');
+    throw new Error(`${mismatches.length} of ${CAL_DOC.rows.length} calibration rows do not match the committed board's weekly_value — ${sample}`);
+  }
+  // Stamp check: if calibration's weekly_board timestamp trails the current
+  // board's, the calibration is stale relative to what's about to ship.
+  const calStamp = CAL_DOC.meta?.weekly_board_generated_utc;
+  const wkbStamp = WEEKLY_META?.generated;
+  if (calStamp && wkbStamp && new Date(calStamp) < new Date(wkbStamp)) {
+    throw new Error(`CALIBRATION.md's Weekly board generated stamp (${calStamp}) is older than the current WEEKLY_BOARD (${wkbStamp}) — regenerate calibration.`);
+  }
+  return `${CAL_DOC.rows.length} calibration rows match; stamp ${calStamp || 'unknown'} ≥ board ${wkbStamp || 'unknown'}`;
 });
 
 const passed = results.filter(r => r.pass).length;

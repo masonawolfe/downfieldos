@@ -123,12 +123,23 @@ async function main() {
   // downstream code can use for tz_delta and int'l asserts. Add rows here as
   // NFL announces new intl games each season.
   const INTL_VENUES = {
-    'Melbourne Cricket Ground':   { roof: 'outdoors',    surface: 'grass', venue_tz: 'Australia/Melbourne', country: 'AU' },
-    'Wembley Stadium':            { roof: 'outdoors',    surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
-    'Tottenham Hotspur Stadium':  { roof: 'retractable', surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
-    'Deutsche Bank Park':         { roof: 'outdoors',    surface: 'grass', venue_tz: 'Europe/Berlin',       country: 'DE' },
-    'Estadio Santiago Bernabéu':  { roof: 'retractable', surface: 'grass', venue_tz: 'Europe/Madrid',       country: 'ES' },
-    'Arena Corinthians':          { roof: 'outdoors',    surface: 'grass', venue_tz: 'America/Sao_Paulo',   country: 'BR' },
+    'Melbourne Cricket Ground':   { roof: 'outdoors', surface: 'grass', venue_tz: 'Australia/Melbourne', country: 'AU' },
+    'Wembley Stadium':            { roof: 'outdoors', surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
+    // Tottenham Hotspur Stadium's "retractable" element is the pitch (the
+    // football/soccer turf slides out to expose the NFL artificial-grass
+    // surface); the roof over the seating shell is fixed and the pitch is
+    // open sky. Upstream nflverse correctly codes it `outdoors`. QA
+    // 2026-09-17 20:05 caught the wrong override here.
+    'Tottenham Hotspur Stadium':  { roof: 'outdoors', surface: 'grass', venue_tz: 'Europe/London',       country: 'GB' },
+    'Deutsche Bank Park':         { roof: 'outdoors', surface: 'grass', venue_tz: 'Europe/Berlin',       country: 'DE' },
+    // Real Madrid's Bernabéu. Upstream spells it 'Bernabeu' (no accent);
+    // match that exactly. Roof/surface deliberately left unset so upstream
+    // (roof: null, surface: fieldturf) rides through — the roof is
+    // retractable but nflverse doesn't tell us whether the NFL game
+    // was played with it closed. venue_tz + country make the assert fire
+    // and tz_delta compute for the trip.
+    'Bernabeu':                   { venue_tz: 'Europe/Madrid',    country: 'ES' },
+    'Arena Corinthians':          { roof: 'outdoors', surface: 'grass', venue_tz: 'America/Sao_Paulo',   country: 'BR' },
   };
 
   // Compact per-game record — used by both byWeek index and per-team games list

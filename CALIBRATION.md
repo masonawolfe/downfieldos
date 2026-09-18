@@ -4,8 +4,8 @@
 
 | | |
 |---|---|
-| Generated | 2026-09-18T00:36:51.346Z |
-| Weekly board generated | 2026-09-17T23:32:25.615Z |
+| Generated | 2026-09-18T01:37:13.966Z |
+| Weekly board generated | 2026-09-18T01:36:59.740Z |
 | Player board generated | 2026-09-18T00:36:49.966Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
 | Actuals generated | 2026-09-17T23:19:15.937Z |
@@ -18,16 +18,16 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17). Written from draf
 
 | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|
-| 316 | 0.36 | 5.5 | 7.25 |
+| 316 | 0.35 | 5.52 | 7.26 |
 
 ## By position
 
 | Pos | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|---|
 | QB | 35 | 0.23 | 7.09 | 8.69 |
-| RB | 76 | 0.83 | 5.69 | 7.68 |
-| WR | 135 | 0.18 | 5.57 | 7.18 |
-| TE | 70 | 0.25 | 4.35 | 6 |
+| RB | 76 | 0.75 | 5.8 | 7.74 |
+| WR | 135 | 0.19 | 5.57 | 7.18 |
+| TE | 70 | 0.29 | 4.31 | 5.98 |
 
 ## Per-adjustment: fired vs not fired
 
@@ -35,11 +35,11 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 
 | Adjustment | Fired N | Fired mean err | Fired \|err\| | Not-fired N | Not-fired mean err | Not-fired \|err\| |
 |---|---|---|---|---|---|---|
-| matchup | 316 | 0.36 | 5.5 | 0 | — | — |
-| dome_home | 60 | -0.04 | 5.24 | 256 | 0.45 | 5.56 |
-| short_week | 0 | — | — | 316 | 0.36 | 5.5 |
-| bye_return | 0 | — | — | 316 | 0.36 | 5.5 |
-| tz_travel | 35 | -1.11 | 4.83 | 281 | 0.54 | 5.58 |
+| matchup | 316 | 0.35 | 5.52 | 0 | — | — |
+| dome_home | 61 | -0.01 | 5.13 | 255 | 0.43 | 5.61 |
+| short_week | 0 | — | — | 316 | 0.35 | 5.52 |
+| bye_return | 0 | — | — | 316 | 0.35 | 5.52 |
+| tz_travel | 35 | -1.11 | 4.83 | 281 | 0.53 | 5.6 |
 
 **The ±4 matchup cap:** if fired-mean-error and fired-|err| are close to not-fired, the cap isn't buying us signal. If fired-|err| is materially smaller (e.g. ~2 point improvement), it is. First-week sample is small — trend needs weeks 2+ to be decisive.
 
