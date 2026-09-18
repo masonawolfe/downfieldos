@@ -8,11 +8,30 @@ name: Deploy Watcher
 # commit failed at the smoke test's headless-render step; the next
 # deploy passed against the same site, but for ~2 hours the fresh
 # injuries data sat undeployed with no signal to a human.
+#
+# workflow_dispatch mode (2026-09-18 QA 08:10 CT ask): a `simulate`
+# input lets QA prove the issue-open path without needing a real
+# deploy failure. The synthetic issue is titled with "[SIMULATED]"
+# so it is obvious in the issue list and easy to close.
 
 on:
   workflow_run:
     workflows: ["Deploy to GitHub Pages"]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      simulate:
+        description: 'Set true to simulate a bot-commit deploy failure (creates a [SIMULATED] issue and returns).'
+        required: false
+        default: 'false'
+      simulate_sha:
+        description: 'Head SHA to reference in the simulated issue (default: dispatch commit).'
+        required: false
+        default: ''
+      simulate_run_url:
+        description: 'Fake deploy run URL to reference in the simulated issue (default: this workflow_dispatch URL).'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -21,29 +40,54 @@ permissions:
 
 jobs:
   open_issue_on_bot_failure:
-    # Only fire when the failed deploy's head_commit was authored by the
-    # bot (a data-refresh commit) — a human push that fails is already
-    # visible on the pusher's terminal / PR.
+    # Real path: a Deploy run failed AND its head_commit was authored by
+    # the bot. Simulate path: an operator dispatched with simulate=true.
     if: >-
-      github.event.workflow_run.conclusion == 'failure' &&
-      github.event.workflow_run.head_commit.author.name == 'github-actions[bot]'
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'failure' &&
+       github.event.workflow_run.head_commit.author.name == 'github-actions[bot]')
     runs-on: ubuntu-latest
     steps:
       - name: Open issue for failed deploy after bot data commit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Real event: read from workflow_run payload.
           RUN_URL: ${{ github.event.workflow_run.html_url }}
           SHA: ${{ github.event.workflow_run.head_commit.id }}
           COMMIT_MSG: ${{ github.event.workflow_run.head_commit.message }}
-          COMMIT_URL: https://github.com/${{ github.repository }}/commit/${{ github.event.workflow_run.head_commit.id }}
+          # Dispatch overrides.
+          SIMULATE: ${{ github.event.inputs.simulate }}
+          SIM_URL: ${{ github.event.inputs.simulate_run_url }}
+          SIM_SHA: ${{ github.event.inputs.simulate_sha }}
+          THIS_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
+          # Prefix titles + tag body when the operator dispatched with
+          # simulate=true. The bot-commit guard on the job's `if:` is
+          # bypassed for workflow_dispatch, so we honor `simulate` here.
+          if [ "${SIMULATE:-false}" = "true" ]; then
+            IS_SIM=1
+            RUN_URL="${SIM_URL:-$THIS_RUN_URL}"
+            SHA="${SIM_SHA:-${GITHUB_SHA}}"
+            COMMIT_MSG="[SIMULATED] deploy-watcher self-test dispatched from ${GITHUB_ACTOR}"
+            TITLE_PREFIX="[SIMULATED] "
+            BODY_TAG=$'**This is a self-test dispatched by an operator, not a real deploy failure.** Close after verifying.\n\n'
+          elif [ "${GITHUB_EVENT_NAME}" = "workflow_dispatch" ]; then
+            # Dispatched without simulate=true — do nothing.
+            echo "  workflow_dispatch fired without simulate=true; nothing to do."
+            exit 0
+          else
+            IS_SIM=0
+            TITLE_PREFIX=""
+            BODY_TAG=""
+          fi
           SHORT=$(echo "$SHA" | cut -c1-7)
           FIRSTLINE=$(echo "$COMMIT_MSG" | head -1)
+          COMMIT_URL=https://github.com/${GITHUB_REPOSITORY}/commit/${SHA}
           gh issue create \
             --repo "$GITHUB_REPOSITORY" \
-            --title "deploy failed after bot commit ${SHORT}: ${FIRSTLINE}" \
-            --body "**Deploy run failed on a bot data commit — the site is running against the previous commit until the next deploy succeeds.**
+            --title "${TITLE_PREFIX}deploy failed after bot commit ${SHORT}: ${FIRSTLINE}" \
+            --body "${BODY_TAG}**Deploy run failed on a bot data commit — the site is running against the previous commit until the next deploy succeeds.**
 
           - Failed deploy run: ${RUN_URL}
           - Bot commit: [\`${SHORT}\`](${COMMIT_URL})
