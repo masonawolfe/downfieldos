@@ -344,13 +344,26 @@ check('coachingTrees per-role and per-field NFL-season verification ratchet', ()
       // The `trees` field on a closest-available row does not count as verified
       // even when its verified_on date matches — the tree label is a proxy.
       const confidenceGap = field === 'trees' && closestAvailable;
-      if (!dateOk || confidenceGap) {
+      // E-038g (2026-09-18, QA Q-048): the style field must also carry a
+      // `style_source` URL, not just a fresh `style_verified_on`. A date-only
+      // pass on `style` would let unsourced scheme characterisations back in;
+      // QA flagged 23 pre-curation style strings (2 still naming schemes:
+      // IND `RPO-spread`, PHI `RPO + Fangio defense`) that had no source and
+      // no date. Fold source presence into the same unverified count so the
+      // ratchet's 23 rows track provenance, not recency alone. Same rule
+      // extended to `trees` (Q-043: 20 of 32 team rows were sourced only to
+      // Wikipedia season pages; source presence is separately audited).
+      const sourceRe = new RegExp(`${field}_source:\\s*['"][^'"]+['"]`);
+      const sourceOk = sourceRe.test(slice);
+      const sourceGap = (field === 'style' || field === 'trees') && !sourceOk;
+      if (!dateOk || confidenceGap || sourceGap) {
         unverified++;
-        unverifiedFields.push(`${team}.${field}${confidenceGap ? ' (closest-available)' : ''}`);
+        const tag = confidenceGap ? ' (closest-available)' : sourceGap && dateOk ? ' (no source)' : '';
+        unverifiedFields.push(`${team}.${field}${tag}`);
       }
     }
   }
-  const CEILING = 47; // 2026-09-18 (E-038d): 46 unchanged teams' trees+style (still on 2025-2026 baseline) + 1 closest-available (TEN.trees). Tighten as verifications land.
+  const CEILING = 47; // 2026-09-18 (E-038g): 23 unsourced trees + 23 unsourced style + 1 closest-available (TEN.trees). Same count as before — E-038g folds `style_source`/`trees_source` presence into the same unverified predicate rather than raising the number, so future date-only additions still trip the gate. Tighten as sourced verifications land.
   if (unverified > CEILING) {
     throw new Error(`${unverified} of 160 (team,field) rows unverified for NFL season ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedFields.slice(0, 10).join(', ')}${unverifiedFields.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
   }
