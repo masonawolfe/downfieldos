@@ -2,7 +2,7 @@ name: Data — Player Board
 
 # Rebuilds src/data/playerBoard2026.js by joining playerStats2025 (with
 # usage/team-change/QB enrichment), roster_weekly_2026, availability, and
-# schedule. Then runs the 6-check verifier INLINE as a gate — if any check
+# schedule. Then runs the verifier INLINE as a gate — if any check
 # fails, no commit and no deploy dispatch happens. That keeps a stale or
 # broken board out of production.
 #
@@ -76,6 +76,18 @@ jobs:
           echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Build the pre-draft board
         run: npm run data:board
+      # QA 2026-09-17 21:05 caught the ordering trap: calibration must be
+      # regenerated BEFORE the verifier runs, so verifier check #11 grades
+      # the calibration that is about to ship in this commit — not the
+      # previous commit's file against the current weekly board. Sequence:
+      # build → emit calibration → verify (11-check) → emit BOARD.md → commit.
+      - name: Emit CALIBRATION.md (E-032)
+        run: |
+          if [ -f src/data/intelligence/weekly_actuals_2026.json ]; then
+            npm run --silent data:calibration
+          else
+            echo "  no weekly_actuals_2026.json yet — skipping calibration."
+          fi
       - name: Verify the board (11-check gate — must pass to commit)
         id: verify
         # Q-022 2026-09-17: capture the passed/total count from the last
@@ -98,18 +110,6 @@ jobs:
       # the repo. See scripts/build-board-md.mjs.
       - name: Emit BOARD.md + BOARD_WEEKLY.md (E-009a)
         run: npm run --silent data:board:md
-      # QA 2026-09-17 19:05: calibration must run downstream of the board
-      # build so CALIBRATION.md's `projected` values can never lag the
-      # weekly board's `weekly_value` (41 of 316 were stale in the last
-      # release). The step is a no-op if weekly_actuals_2026.json isn't
-      # present (early season / SEASON=next-year).
-      - name: Emit CALIBRATION.md (E-032)
-        run: |
-          if [ -f src/data/intelligence/weekly_actuals_2026.json ]; then
-            npm run --silent data:calibration
-          else
-            echo "  no weekly_actuals_2026.json yet — skipping calibration."
-          fi
       - name: Commit if changed
         id: commit
         env:

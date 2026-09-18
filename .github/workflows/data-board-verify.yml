@@ -1,6 +1,6 @@
 name: Data — Player Board Verify
 
-# Standalone acceptance gate that runs the same 6 checks the board build
+# Standalone acceptance gate that runs the same verifier the board build
 # runs inline. This one exists to catch drift between builds — e.g.,
 # availability rebuilds but the board isn't recomputed, so
 # `availability_last_verified_utc < 24h` drifts past its threshold and no
