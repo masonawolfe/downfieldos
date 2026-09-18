@@ -17,6 +17,7 @@ Outputs (saved to PBP_OUT_DIR env, or ./ if unset — see BASE_DIR):
     - scheme_similarity_matrix.json
     - player_usage_data.json
     - situational_splits.json
+    - situational_splits_history.json  (E-039: add-never-overwrite; snapshots[0].teams == latest snapshot)
     - pbp_sync_metadata.json
 
   Docstring updated 2026-08-30 to match code — the "saved to current
@@ -619,6 +620,39 @@ def main():
     with open(BASE_DIR / "situational_splits.json", "w") as f:
         json.dump(splits, f, indent=2)
     print("  ✓ situational_splits.json")
+
+    # E-039 (2026-09-18): add-never-overwrite history alongside the latest
+    # snapshot. Consumers keep reading situational_splits.json unchanged;
+    # situational_splits_history.json accumulates dated snapshots so
+    # week-over-week comparison is possible without spelunking git blame.
+    # Assert the new snapshot's timestamp is not older than the previous —
+    # a clock rollback or a re-run against older data would otherwise land
+    # silently.
+    history_path = BASE_DIR / "situational_splits_history.json"
+    now_iso = datetime.utcnow().isoformat() + "Z"
+    new_entry = {"generated_utc": now_iso, "season": year, "teams": splits}
+    history = {"meta": {"note": "Append-only per-snapshot history. Latest first. situational_splits.json is snapshots[0].teams."}, "snapshots": []}
+    if history_path.exists():
+        try:
+            with open(history_path) as f:
+                history = json.load(f)
+                if "snapshots" not in history or not isinstance(history["snapshots"], list):
+                    history["snapshots"] = []
+        except (json.JSONDecodeError, ValueError) as e:
+            print(f"  ⚠ situational_splits_history.json unreadable ({e}) — starting fresh")
+            history = {"meta": {"note": "Append-only per-snapshot history. Latest first. situational_splits.json is snapshots[0].teams."}, "snapshots": []}
+    if history["snapshots"]:
+        prev_ts = history["snapshots"][0].get("generated_utc", "")
+        if prev_ts and now_iso < prev_ts:
+            raise RuntimeError(
+                f"situational_splits history: new snapshot generated_utc {now_iso} "
+                f"is OLDER than previous {prev_ts}. Clock rollback or re-run against "
+                f"stale data? Refuse to append."
+            )
+    history["snapshots"].insert(0, new_entry)
+    with open(history_path, "w") as f:
+        json.dump(history, f, indent=2)
+    print(f"  ✓ situational_splits_history.json ({len(history['snapshots'])} snapshots, latest {now_iso})")
 
     # --- Metadata ---
     metadata = {

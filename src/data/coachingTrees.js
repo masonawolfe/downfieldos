@@ -7,7 +7,19 @@
  *
  * Trees are named after the foundational figure.
  * A coach can belong to multiple trees (e.g., McVay worked under Gruden and Shanahan).
+ *
+ * E-038 (2026-09-18): per-role provenance fields added.
+ *   {hc,oc,dc}_verified_on  ISO date the row was checked against a primary source
+ *   {hc,oc,dc}_source       URL / short label of that primary source
+ * Consumers keep reading `staff.hc / staff.oc / staff.dc` as strings — the
+ * provenance is parallel metadata. verify-player-board.mjs check #12 counts
+ * stale rows and fires when the count exceeds a ratchet floor. Ratchet
+ * tightens as teams are verified for 2026 season. See NEXT_ACTIONS E-038
+ * follow-up for the primary-source pass on the remaining 31 teams.
  */
+
+const DEFAULT_VERIFIED_ON = null;
+const DEFAULT_SOURCE = 'inherited from 2025-2026 curated file — not primary-verified for 2026';
 
 export const COACHING_TREES = {
   // Tree definitions: name, description, core principles
@@ -71,7 +83,15 @@ export const COACHING_TREES = {
     BAL: { hc: 'John Harbaugh', oc: 'Todd Monken', dc: 'Zach Orr', trees: ['HARBAUGH'], style: 'Run-first RPO' },
     BUF: { hc: 'Joe Brady', oc: 'Pete Carmichael', dc: 'Jim Leonhard', trees: ['BELICHICK', 'REID'], style: 'Josh Allen system' },
     CAR: { hc: 'Dave Canales', oc: 'Brad Idzik', dc: 'Ejiro Evero', trees: ['MCVAY', 'PAYTON'], style: 'Developing QB' },
-    CHI: { hc: 'Ben Johnson', oc: 'Declan Doyle', dc: 'Dennis Allen', trees: ['CAMPBELL', 'PAYTON'], style: 'Run-game creativity' },
+    // CHI OC updated 2026-09-18 from Declan Doyle → Press Taylor (E-038,
+    // Central Strategist's Press Taylor report; confirmed by peer QA 2026-09-18).
+    CHI: {
+      hc: 'Ben Johnson',    hc_verified_on: DEFAULT_VERIFIED_ON, hc_source: DEFAULT_SOURCE,
+      oc: 'Press Taylor',   oc_verified_on: '2026-09-18',        oc_source: 'peer QA 2026-09-18 (Central Strategist Press Taylor report); confirms 2026 hire',
+      dc: 'Dennis Allen',   dc_verified_on: DEFAULT_VERIFIED_ON, dc_source: DEFAULT_SOURCE,
+      trees: ['CAMPBELL', 'PAYTON'],
+      style: 'Run-game creativity',
+    },
     CIN: { hc: 'Zac Taylor', oc: 'Dan Pitcher', dc: 'Lou Anarumo', trees: ['MCVAY'], style: 'Downfield passing' },
     CLE: { hc: 'Kevin Stefanski', oc: 'Ken Dorsey', dc: 'Jim Schwartz', trees: ['SHANAHAN'], style: 'Play-action heavy' },
     DAL: { hc: 'Brian Schottenheimer', oc: 'Klayton Adams', dc: 'Al Harris', trees: ['BELICHICK'], style: 'Power offense' },

@@ -260,6 +260,60 @@ check('Calibration matches the committed weekly board (or is absent)', () => {
   return `${CAL_DOC.rows.length} calibration rows match; stamp ${calStamp || 'unknown'} ≥ board ${wkbStamp || 'unknown'}`;
 });
 
+// #12 — coachingTrees.js provenance ratchet (E-038 2026-09-18).
+//
+// Every team should carry {hc,oc,dc}_verified_on with an ISO date inside the
+// current NFL season. Rows that inherited from the 2025-2026 curated file
+// without primary-source verification count as stale. Peer QA 2026-09-18
+// caught CHI shipping Declan Doyle as OC when Press Taylor holds the job
+// in 2026, and DET is similarly stale — no free feed carries coordinator
+// names, so the file has to be curated by hand.
+//
+// Ratchet: fail only when the stale count EXCEEDS the ceiling below. Today
+// exactly one team (CHI) is fully verified for 2026, so 31 stale is the
+// starting ceiling. Tighten this number as teams are primary-verified.
+// The ceiling is a monotone commitment — it never goes up.
+check('coachingTrees per-role 2026 verification ratchet', () => {
+  const treesMod = fs.readFileSync(REPO + 'src/data/coachingTrees.js', 'utf8');
+  const startTag = 'teams: {';
+  const startIdx = treesMod.indexOf(startTag);
+  if (startIdx < 0) throw new Error('teams: block not found in coachingTrees.js');
+  const currentYear = new Date().getUTCFullYear();
+  // Rough team-key match: ^    XXX: { on its own line.
+  const teamKeys = [];
+  const teamKeyRe = /^    ([A-Z]{2,3}):\s*\{/gm;
+  let m;
+  while ((m = teamKeyRe.exec(treesMod)) !== null) teamKeys.push(m[1]);
+  if (teamKeys.length !== 32) throw new Error(`expected 32 team keys in coachingTrees.js, found ${teamKeys.length}`);
+  // Count unverified ROLES (not teams). 32 teams × 3 roles (HC, OC, DC) = 96
+  // total; each row needs its own primary-source date. Peer QA 2026-09-18:
+  // CHI OC (Press Taylor) is verified, the other 95 are inherited from the
+  // 2025-2026 curated file and have not been checked against a primary
+  // source for 2026. The ratchet is monotone — the CEILING only drops as
+  // verifications land, never rises.
+  let unverified = 0;
+  const unverifiedRoles = [];
+  const slices = treesMod.slice(startIdx).split(/\n(?=    [A-Z]{2,3}:\s*\{)/);
+  for (const slice of slices) {
+    const keyMatch = slice.match(/^\s*([A-Z]{2,3}):\s*\{/m);
+    if (!keyMatch) continue;
+    const team = keyMatch[1];
+    for (const role of ['hc', 'oc', 'dc']) {
+      const re = new RegExp(`${role}_verified_on:\\s*'(\\d{4})-\\d{2}-\\d{2}'`);
+      const rm = slice.match(re);
+      if (!rm || parseInt(rm[1], 10) < currentYear) {
+        unverified++;
+        unverifiedRoles.push(`${team}.${role}`);
+      }
+    }
+  }
+  const CEILING = 95; // 2026-09-18: 1 of 96 verified (CHI.oc = Press Taylor). Tighten as verifications land.
+  if (unverified > CEILING) {
+    throw new Error(`${unverified} of 96 (team,role) rows unverified for ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedRoles.slice(0, 10).join(', ')}${unverifiedRoles.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
+  }
+  return `${unverified} of 96 (team,role) rows unverified (ratchet ceiling: ${CEILING}) — tighten as verifications land`;
+});
+
 const passed = results.filter(r => r.pass).length;
 console.log(`\n${'='.repeat(60)}`);
 console.log(`Task acceptance: ${passed}/${results.length} checks passed`);
