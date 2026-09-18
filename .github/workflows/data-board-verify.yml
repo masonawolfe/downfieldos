@@ -34,11 +34,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Q-027 (2026-09-18): check #9 (row count vs previous committed
+          # board) needs the parent commit to compare against. The build
+          # workflow runs the verifier before the commit, so its HEAD is
+          # already the "previous" board and depth=1 is fine. This verify
+          # workflow runs AFTER the board push, so HEAD is the new board
+          # and the check would compare it to itself — always Δ0, silently
+          # passing every drift. Need depth=2 so `HEAD~1:board` resolves.
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - run: npm install
-      - name: Verify the player board (all acceptance checks)
-        # Exits non-zero if any check fails. That's the whole point — a
-        # failing run here means the board should not be trusted.
+      - name: Verify the player board against its parent commit (all acceptance checks)
+        # Q-027 (2026-09-18): point check #9 at the pre-push board via
+        # HEAD~1 rather than the default HEAD, which would compare the
+        # just-pushed board to itself. Exits non-zero if any check fails.
+        env:
+          PREV_BOARD_REF: HEAD~1
         run: npm run data:board:verify

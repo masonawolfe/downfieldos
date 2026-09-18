@@ -227,15 +227,25 @@ check('Row count is within ±5% of the previous committed board', () => {
   // when the file itself is absent from HEAD (rename, first-ever commit).
   // Locally, both paths are legitimate scratch cases; in CI, they hide
   // exactly the drift the check exists to catch.
+  //
+  // Q-027 (2026-09-18): the "previous committed board" defaults to HEAD,
+  // which is right for the build workflow (data-board.yml runs the verifier
+  // BEFORE the commit, so HEAD is the last good board). It is wrong for the
+  // verify workflow (data-board-verify.yml runs AFTER the commit, so HEAD is
+  // the board we just built and the check compares it to itself, always
+  // Δ0). data-board-verify sets `PREV_BOARD_REF=HEAD~1` to point at the
+  // pre-push board. Requires the checkout to have that parent commit —
+  // enforced by fetch-depth: 2 in that workflow.
   const IS_CI = !!process.env.CI || !!process.env.GITHUB_ACTIONS;
+  const PREV_REF = process.env.PREV_BOARD_REF || 'HEAD';
   let prevSrc;
   try {
-    prevSrc = execFileSync('git', ['show', 'HEAD:src/data/playerBoard2026.js'], { encoding: 'utf8', cwd: REPO, maxBuffer: 128 * 1024 * 1024 });
+    prevSrc = execFileSync('git', ['show', `${PREV_REF}:src/data/playerBoard2026.js`], { encoding: 'utf8', cwd: REPO, maxBuffer: 128 * 1024 * 1024 });
   } catch (e) {
     // First commit or shallow checkout — nothing to compare against.
     const gitMsg = String(e.stderr || e.message || 'unknown git error').trim().split('\n').slice(-2).join(' ');
-    const reason = `HEAD:src/data/playerBoard2026.js not readable — ${gitMsg}`;
-    if (IS_CI) throw new Error(`${reason}. In CI the comparison must have a baseline (the file must exist at HEAD — a rename, delete, or first-ever commit is what usually breaks this); locally this path is a soft-skip for scratch builds.`);
+    const reason = `${PREV_REF}:src/data/playerBoard2026.js not readable — ${gitMsg}`;
+    if (IS_CI) throw new Error(`${reason}. In CI the comparison must have a baseline (the file must exist at ${PREV_REF} — a rename, delete, first-ever commit, or missing parent from shallow checkout is what usually breaks this); locally this path is a soft-skip for scratch builds.`);
     return `${reason} — SKIPPED (local run; CI would fail here)`;
   }
   // Match every `"gsis_id":` occurrence (with OR without quoted value —
@@ -243,7 +253,7 @@ check('Row count is within ±5% of the previous committed board', () => {
   // which is how a spot fix once reported 924 instead of the real 988).
   const prevCount = (prevSrc.match(/"gsis_id":/g) || []).length;
   if (prevCount === 0) {
-    const reason = `previous board at HEAD had 0 gsis_id matches (${prevSrc.length} bytes read) — file present but unparseable or truncated`;
+    const reason = `previous board at ${PREV_REF} had 0 gsis_id matches (${prevSrc.length} bytes read) — file present but unparseable or truncated`;
     if (IS_CI) throw new Error(`${reason}. In CI this must be an incident, not a silent skip — either the previous commit truncated the board or the shape changed and this regex is stale.`);
     return `${reason} — SKIPPED (local run; CI would fail here)`;
   }
