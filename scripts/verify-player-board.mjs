@@ -28,6 +28,18 @@ try {
   CAL_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/calibration_2026.json', 'utf8'));
 } catch {}
 
+// E-038e (2026-09-18): import coachingTrees.js as a module for check #14
+// rather than regex-scraping. Same lesson build-player-board.js just
+// learned — a parsed object beats a fragile text scrape.
+let COACHING = { teams: {}, trees: {}, changes_2026: {} };
+try {
+  const { pathToFileURL } = await import('url');
+  const mod = await import(pathToFileURL(REPO + 'src/data/coachingTrees.js').href);
+  COACHING = mod.COACHING_TREES || COACHING;
+} catch (e) {
+  console.error('warn: could not import coachingTrees.js —', e.message);
+}
+
 // NFL season year, matching fetch-injuries.js. The league year rolls over
 // ~March 1 (free agency). Using this instead of getUTCFullYear() so that
 // check #12 does not fail every build on 2027-01-01 when calendar-year
@@ -399,7 +411,16 @@ check('No parallel staff table or stale coach hardcode outside coachingTrees.js'
     !f.endsWith('/coachingTrees.js') &&
     !f.includes('/workflows-archive/') &&
     !f.includes('/_archive/') &&
-    !f.endsWith('/verify-player-board.mjs')   // this file defines STALE_NAMES for the check itself
+    !f.endsWith('/verify-player-board.mjs') &&  // this file defines STALE_NAMES for the check itself
+    // E-038e (2026-09-18): exclude generated data files. `playerBoard2026.js`
+    // and `weeklyBoard2026.js` are written by build scripts and legitimately
+    // contain every current coach's name in notes / rationale strings —
+    // e.g., "Matt Nagy OC (from KC)" on NYG's row. That's Nagy in his
+    // current role, not a stale hardcode. Source-file scans still catch
+    // real hardcodes; data-file scans false-positive on legitimate
+    // per-team notes.
+    !f.endsWith('/src/data/playerBoard2026.js') &&
+    !f.endsWith('/src/data/weeklyBoard2026.js')
   );
 
   for (const f of files) {
@@ -428,6 +449,52 @@ check('No parallel staff table or stale coach hardcode outside coachingTrees.js'
     throw new Error(`${OFFENDERS.length} parallel-table / stale-coach reference(s) outside coachingTrees.js:\n    ${sample}${OFFENDERS.length > 5 ? `\n    …and ${OFFENDERS.length - 5} more` : ''}`);
   }
   return `${files.length} files scanned — none hardcodes a stale coach or a parallel staff table`;
+});
+
+// #14 — Board rows carry non-null coach names matching coachingTrees.js
+// AND coordinator_is_new_2026 non-null on teams that have a changes_2026
+// entry. E-038e (2026-09-18): peer QA 09:35 caught the class — the board
+// had been shipping with 100% null hc_name/oc_name/dc_name because
+// loadCoachingTrees() regex-parsed the JS text and stopped matching when
+// E-038 changed the row shape. The 13/13 verifier stayed green through
+// two commits because no check ever read a board row's coach fields.
+// This is the E-023 lesson again: a green gate that does not assert the
+// field is not a gate.
+check('Board rows carry non-null coach names matching coachingTrees.js', () => {
+  const teams = COACHING.teams || {};
+  const changes = COACHING.changes_2026 || {};
+
+  const skillRows = PLAYER_BOARD_2026.filter(r => r.pos && r.pos !== 'K' && r.pos !== 'DEF');
+  if (skillRows.length === 0) throw new Error('no skill rows on the board — cannot verify coach names');
+
+  const nullNames = [];
+  const wrongNames = [];
+  const nullChanges = [];
+  for (const r of skillRows) {
+    const staff = teams[r.team_2026];
+    if (!staff) continue; // unknown team code — separate check would flag
+    for (const role of [['hc', 'hc_name'], ['oc', 'oc_name'], ['dc', 'dc_name']]) {
+      const [k, field] = role;
+      if (r[field] == null) { nullNames.push(`${r.name}.${field}`); continue; }
+      if (r[field] !== staff[k]) wrongNames.push(`${r.name}.${field}: board='${r[field]}' tree='${staff[k]}'`);
+    }
+    if (changes[r.team_2026] && r.coordinator_is_new_2026 === null) {
+      nullChanges.push(`${r.name} (${r.team_2026})`);
+    }
+  }
+  if (nullNames.length > 0) {
+    const sample = nullNames.slice(0, 5).join(', ');
+    throw new Error(`${nullNames.length} of ${skillRows.length * 3} skill (row, coach-field) rows are null. Sample: ${sample}. Class: E-023 — loader silently returned {}; the board's coach-name write blocks never fired.`);
+  }
+  if (wrongNames.length > 0) {
+    const sample = wrongNames.slice(0, 5).join('\n    ');
+    throw new Error(`${wrongNames.length} skill rows carry a coach name that disagrees with coachingTrees.js:\n    ${sample}`);
+  }
+  if (nullChanges.length > 0) {
+    const sample = nullChanges.slice(0, 5).join(', ');
+    throw new Error(`${nullChanges.length} skill rows on teams with a changes_2026 entry carry coordinator_is_new_2026: null. Sample: ${sample}. The changes_2026 join is broken.`);
+  }
+  return `${skillRows.length} skill rows: all coach names match coachingTrees.js; ${Object.keys(changes).length} changes_2026 teams all populated`;
 });
 
 const passed = results.filter(r => r.pass).length;

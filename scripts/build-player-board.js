@@ -20,7 +20,7 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -399,25 +399,21 @@ function pickQ(m, iSingle, iDouble) {
   return m[iSingle] != null ? unesc(m[iSingle]) : (m[iDouble] != null ? unesc(m[iDouble]) : null);
 }
 
-function loadCoachingTrees() {
-  const src = loadFile('src/data/coachingTrees.js');
-  const teamsBlock = src.slice(src.indexOf('teams: {'));
-  const teams = {};
-  const rowRe = new RegExp(`(\\b[A-Z]{2,4}):\\s*\\{\\s*hc:\\s*${SQ},\\s*oc:\\s*${SQ},\\s*dc:\\s*${SQ},\\s*trees:\\s*\\[([^\\]]*)\\],\\s*style:\\s*${SQ}\\s*\\}`, 'g');
-  let m;
-  while ((m = rowRe.exec(teamsBlock)) !== null) {
-    const treesArr = m[5].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean);
-    teams[m[1]] = { hc: unesc(m[2]), oc: unesc(m[3]), dc: unesc(m[4]), trees: treesArr, style: unesc(m[6]) };
-  }
-  const treesBlock = src.slice(src.indexOf('trees: {'), src.indexOf('teams: {'));
-  const trees = {};
-  const tRe = new RegExp(`(\\b[A-Z_]+):\\s*\\{\\s*name:\\s*${SQ},\\s*founder:\\s*${SQ},\\s*principles:\\s*\\[([^\\]]*)\\]`, 'g');
-  let tm;
-  while ((tm = tRe.exec(treesBlock)) !== null) {
-    const principles = tm[4].split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean).map(unesc);
-    trees[tm[1]] = { name: unesc(tm[2]), founder: unesc(tm[3]), principles };
-  }
-  return { teams, trees };
+async function loadCoachingTrees() {
+  // E-038e (2026-09-18): STOP regex-parsing a JS module. The E-038 per-role
+  // provenance fields changed the row shape and silently broke the previous
+  // regex — no team matched, `teams` came back as `{}`, and every board row
+  // shipped with `hc_name`/`oc_name`/`dc_name` null while the verifier's
+  // green gate never noticed. QA 09:35 CT caught it. This is the E-023 lesson
+  // again: a gate that does not assert the field is not a gate. Import the
+  // module so the object is the source, not a fragile text scrape.
+  const mod = await import(pathToFileURL(path.join(REPO_ROOT, 'src/data/coachingTrees.js')).href);
+  const ct = mod.COACHING_TREES || {};
+  return {
+    teams: ct.teams || {},
+    trees: ct.trees || {},
+    changes_2026: ct.changes_2026 || {},
+  };
 }
 
 function loadDna2026() {
@@ -508,9 +504,9 @@ function loadDefense2026() {
   }
 }
 
-function attachContextLayer(rows) {
+async function attachContextLayer(rows) {
   const { byKeyStrict: contractByKey, byName: contractByName, meta: contractMeta } = loadContractYear();
-  const coaching = loadCoachingTrees();
+  const coaching = await loadCoachingTrees();
   const dna = loadDna2026();
   const stadiums = loadStadiums();
   const sentiment = loadFanSentiment();
@@ -1140,7 +1136,7 @@ async function main() {
     }));
 
   // ── E-002 context layer (2026-09-04) ────────────────────────────────────
-  const contextResult = attachContextLayer(rows);
+  const contextResult = await attachContextLayer(rows);
   console.log('  context join hits:', JSON.stringify({
     contract_year_strict: contextResult.counters.contract_year_hits_strict,
     contract_year_name_fallback: contextResult.counters.contract_year_hits_via_name_fallback,
