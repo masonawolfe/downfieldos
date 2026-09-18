@@ -66,11 +66,38 @@ async function checkRoute(browser, route) {
 }
 
 const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+
+// Peer QA 2026-09-18 07:40 CT: retry a route ONCE on the chunk-race error
+// signature. main.jsx boots with React.lazy(() => import('@clerk/clerk-react')),
+// so a fresh deploy where the /assets/*.js chunk hash hasn't propagated to
+// every CDN edge yet returns the SPA fallback HTML instead of the JS chunk.
+// The dynamic import parses that HTML as JS and throws
+// `Unexpected token '<', "<!DOCTYPE ..."`. This bit the 09-34Z injuries
+// deploy while the next one at 11-29Z passed against the same site. Retry
+// after a 6s sleep to let the CDN edge catch up.
+const CHUNK_RACE_SIGNATURES = [
+  /Unexpected token '<'/i,
+  /Loading chunk .* failed/i,
+  /Loading CSS chunk .* failed/i,
+  /Failed to fetch dynamically imported module/i,
+];
+function isChunkRace(rr) {
+  if (rr.ok) return false;
+  const first = rr.firstError || rr.firstConsoleError || '';
+  return CHUNK_RACE_SIGNATURES.some(re => re.test(first));
+}
+
 const results = [];
 for (const r of ROUTES) {
-  const rr = await checkRoute(browser, r);
+  let rr = await checkRoute(browser, r);
+  if (isChunkRace(rr)) {
+    console.log(`RETRY  ${r.padEnd(20)} chunk-race signature — sleeping 6s and re-checking once (${(rr.firstError || '').slice(0, 80)})`);
+    await new Promise(res => setTimeout(res, 6000));
+    rr = await checkRoute(browser, r);
+    rr.retried = true;
+  }
   results.push(rr);
-  const line = `${rr.ok ? 'OK    ' : 'BROKEN'} ${r.padEnd(20)} uncaught=${rr.uncaughtCount} console_err=${rr.consoleErrorCount}${rr.errorBoundary ? '  ERROR BOUNDARY' : ''}${rr.firstError ? '  first: ' + rr.firstError.slice(0, 120) : ''}`;
+  const line = `${rr.ok ? 'OK    ' : 'BROKEN'} ${r.padEnd(20)} uncaught=${rr.uncaughtCount} console_err=${rr.consoleErrorCount}${rr.retried ? ' (after retry)' : ''}${rr.errorBoundary ? '  ERROR BOUNDARY' : ''}${rr.firstError ? '  first: ' + rr.firstError.slice(0, 120) : ''}`;
   console.log(line);
 }
 await browser.close();

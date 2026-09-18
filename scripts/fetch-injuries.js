@@ -138,6 +138,27 @@ async function main() {
     byTeamCompact[p.team].push(p);
   }
 
+  // Shape asserts — fail the feed before commit so a broken file never
+  // reaches the site. Peer QA 2026-09-18 07:40 CT: shape drift belongs
+  // to the feed, not the page. Any assertion failure here exits the
+  // workflow BEFORE the git commit, so the last-known-good file stays
+  // in the repo.
+  const REQUIRED_META_KEYS = ['season', 'source', 'generated', 'total_reports', 'unique_players'];
+  for (const k of REQUIRED_META_KEYS) {
+    if (meta[k] == null) throw new Error(`shape assert: meta.${k} is null/missing`);
+  }
+  if (!Array.isArray(players) || players.length === 0) throw new Error(`shape assert: full.players is empty or not-array (${typeof players})`);
+  const nflTeamCount = Object.keys(byTeam).length;
+  if (nflTeamCount < 25 || nflTeamCount > 32) throw new Error(`shape assert: full.byTeam has ${nflTeamCount} teams — expected 25-32 (some teams may have zero reports; a floor of 25 catches "join dropped every team")`);
+  for (const p of players.slice(0, 20)) {
+    if (!p.team || !p.name || !p.position) throw new Error(`shape assert: full.players sample missing required field team/name/position: ${JSON.stringify(p).slice(0, 200)}`);
+  }
+  if (!Array.isArray(compact) || compact.length === 0) throw new Error(`shape assert: compact.players is empty or not-array (${typeof compact})`);
+  for (const p of compact.slice(0, 20)) {
+    if (!p.team || !p.name || !p.position) throw new Error(`shape assert: compact.players sample missing required field team/name/position: ${JSON.stringify(p).slice(0, 200)}`);
+  }
+  console.log(`  shape asserts passed: ${nflTeamCount} teams, ${players.length} full players, ${compact.length} compact players.`);
+
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   // Full (weeks history) — reserved for deep-history analysis.
   fs.writeFileSync(OUT, JSON.stringify({ meta, byTeam, players }));

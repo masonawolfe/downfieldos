@@ -1,0 +1,59 @@
+name: Deploy Watcher
+
+# Opens a GitHub issue when a Deploy to GitHub Pages run fails after a
+# bot data commit — so a data commit sitting undeployed is visible
+# instead of buried in the Actions log.
+#
+# Peer QA 2026-09-18 07:40 CT: deploy run 35330257688 for the injuries
+# commit failed at the smoke test's headless-render step; the next
+# deploy passed against the same site, but for ~2 hours the fresh
+# injuries data sat undeployed with no signal to a human.
+
+on:
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  open_issue_on_bot_failure:
+    # Only fire when the failed deploy's head_commit was authored by the
+    # bot (a data-refresh commit) — a human push that fails is already
+    # visible on the pusher's terminal / PR.
+    if: >-
+      github.event.workflow_run.conclusion == 'failure' &&
+      github.event.workflow_run.head_commit.author.name == 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open issue for failed deploy after bot data commit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+          SHA: ${{ github.event.workflow_run.head_commit.id }}
+          COMMIT_MSG: ${{ github.event.workflow_run.head_commit.message }}
+          COMMIT_URL: https://github.com/${{ github.repository }}/commit/${{ github.event.workflow_run.head_commit.id }}
+        run: |
+          set -euo pipefail
+          SHORT=$(echo "$SHA" | cut -c1-7)
+          FIRSTLINE=$(echo "$COMMIT_MSG" | head -1)
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "deploy failed after bot commit ${SHORT}: ${FIRSTLINE}" \
+            --body "**Deploy run failed on a bot data commit — the site is running against the previous commit until the next deploy succeeds.**
+
+          - Failed deploy run: ${RUN_URL}
+          - Bot commit: [\`${SHORT}\`](${COMMIT_URL})
+          - Commit message (first line): ${FIRSTLINE}
+
+          The deploy pipeline's smoke test flags any route that throws an uncaught exception or lands on the error boundary. See the failing step's log in the run above.
+
+          Auto-filed by \`.github/workflows/deploy-watcher.yml\`. Close when the site is on a good commit again (a later successful deploy will not close this — resolve manually so the issue is a record of the outage window)." \
+            || {
+              echo "gh issue create failed — falling back to workflow annotation"
+              echo "::error::Deploy $RUN_URL failed after bot commit $SHORT: $FIRSTLINE"
+              exit 0
+            }
