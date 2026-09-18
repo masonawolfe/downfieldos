@@ -337,4 +337,63 @@ export const COACHING_TREES = {
       trees: ['SHANAHAN'], style: 'Quinn system',
     },
   },
+
+  // E-038c (2026-09-18): per-team is_new booleans for the 2026 hiring cycle.
+  // SINGLE SOURCE OF TRUTH — replaces the deleted COORDINATOR_MOVES_2026
+  // hardcode in scripts/build-player-board.js, which had stale coach names
+  // (Doyle at CHI, Morton at DET, Nagy at KC, Carroll at LV) and shipped
+  // them into the board. QA 2026-09-18 08:35 CT caught this.
+  //
+  // A team's booleans are derived from the E-038-verified `teams` block
+  // above (2026 staff) compared against the 2025 baseline. `true` means the
+  // role changed for the 2026 season; `false` means it continued from 2025;
+  // `null` means the 2025 identity of that role was not resolved (a team's
+  // 2025 file was never snapshotted).
+  //
+  // For teams whose 2025 baseline is not disambiguated in this repo, the
+  // booleans are LEFT OFF (undefined ⇒ null in consumers). Extend as
+  // curation deepens; verify-player-board.mjs check #12 counts them the
+  // same way as trees/style.
+  //
+  // Notes are short and human-readable. They land on PLAYER_BOARD_2026 rows
+  // as `coordinator_change_note`.
+  changes_2026: {
+    // Nine confirmed new-HC teams (E-038, 2026-09-18): all-new staff except
+    // ARI where Nick Rallis was retained as DC.
+    ARI: { hc: true,  oc: true,  dc: false, note: 'Mike LaFleur (from LAR OC) replaces Gannon; Nathaniel Hackett OC; Nick Rallis DC retained.' },
+    ATL: { hc: true,  oc: true,  dc: true,  note: 'Kevin Stefanski (from CLE HC) replaces Morris; Tommy Rees OC / Jeff Ulbrich DC.' },
+    BAL: { hc: true,  oc: true,  dc: true,  note: 'Jesse Minter (from LAC DC) replaces John Harbaugh (to NYG); Declan Doyle OC / Anthony Weaver DC.' },
+    CLE: { hc: true,  oc: true,  dc: true,  note: 'Todd Monken (from BAL OC) replaces Stefanski; Travis Switzer OC / Mike Rutenberg DC.' },
+    LV:  { hc: true,  oc: true,  dc: true,  note: 'Klint Kubiak (from NO OC) replaces Pete Carroll; Andrew Janocko OC / Rob Leonard DC.' },
+    NO:  { hc: true,  oc: true,  dc: true,  note: 'Kellen Moore (from PHI OC) replaces Rizzi; Doug Nussmeier OC / Brandon Staley DC.' },
+    NYG: { hc: true,  oc: true,  dc: true,  note: 'John Harbaugh (from BAL) replaces Daboll; Matt Nagy OC (from KC) / Dennard Wilson DC (from TEN).' },
+    PIT: { hc: true,  oc: true,  dc: true,  note: 'Mike McCarthy replaces Tomlin; Brian Angelichio OC / Patrick Graham DC.' },
+    TEN: { hc: true,  oc: true,  dc: true,  note: 'Robert Saleh (from NYJ HC) replaces Callahan; Brian Daboll OC (from NYG HC) / Gus Bradley DC.' },
+    // HC-stable teams with confirmed OC/DC changes.
+    CHI: { hc: false, oc: true,  dc: false, note: 'Press Taylor OC replaces Declan Doyle for 2026; Dennis Allen DC retained.' },
+    CIN: { hc: false, oc: false, dc: true,  note: 'Al Golden DC replaces Lou Anarumo (to IND); Zac Taylor / Dan Pitcher continuity.' },
+    DAL: { hc: false, oc: false, dc: true,  note: 'Christian Parker DC replaces Al Harris; Schottenheimer / Klayton Adams continuity.' },
+    DEN: { hc: false, oc: true,  dc: false, note: 'Davis Webb OC replaces Joe Lombardi; Payton HC / Vance Joseph DC retained.' },
+    DET: { hc: false, oc: true,  dc: true,  note: 'Drew Petzing OC (from ARI) replaces John Morton; Kelvin Sheppard DC replaces Aaron Glenn (to NYJ HC).' },
+    GB:  { hc: false, oc: false, dc: true,  note: 'Jonathan Gannon DC (from ARI HC) replaces Jeff Hafley (to MIA HC); LaFleur / Stenavich continuity.' },
+    HOU: { hc: false, oc: true,  dc: false, note: 'Nick Caley OC replaces Bobby Slowik (to MIA OC); Ryans HC / Burke DC retained.' },
+    IND: { hc: false, oc: false, dc: true,  note: 'Lou Anarumo DC (from CIN) replaces Gus Bradley (to TEN); Steichen / Cooter continuity.' },
+    JAX: { hc: false, oc: true,  dc: true,  note: 'Grant Udinski OC (Coen no longer dual-hats) / Anthony Campanile DC replaces Ryan Nielsen; Coen HC retained.' },
+    KC:  { hc: false, oc: true,  dc: false, note: 'Eric Bieniemy OC returns replacing Matt Nagy (to NYG); Reid HC / Spagnuolo DC retained.' },
+    LAC: { hc: false, oc: true,  dc: true,  note: 'Mike McDaniel OC (from MIA HC) replaces Greg Roman; Chris O\'Leary DC replaces Jesse Minter (to BAL HC).' },
+    LAR: { hc: false, oc: true,  dc: false, note: 'Nathan Scheelhaase OC replaces Mike LaFleur (to ARI HC); McVay HC / Shula DC retained.' },
+    MIA: { hc: true,  oc: true,  dc: true,  note: 'Jeff Hafley (from GB DC) replaces Mike McDaniel (to LAC OC); Bobby Slowik OC (from HOU) / Sean Duggan DC.' },
+    NE:  { hc: false, oc: false, dc: true,  note: 'Zak Kuhr DC replaces Terrell Williams; Vrabel / McDaniels continuity.' },
+    NYJ: { hc: false, oc: true,  dc: true,  note: 'Frank Reich OC replaces Tanner Engstrand; Brian Duker DC replaces Steve Wilks; Glenn HC retained.' },
+    PHI: { hc: false, oc: true,  dc: false, note: 'Sean Mannion OC replaces Kellen Moore (to NO HC); Sirianni / Fangio retained.' },
+    SEA: { hc: false, oc: true,  dc: false, note: 'Brian Fleury OC replaces Ryan Grubb; Macdonald / Durde retained.' },
+    SF:  { hc: false, oc: false, dc: true,  note: 'Raheem Morris DC (from ATL HC) replaces Nick Sorensen; Shanahan / Klay Kubiak continuity.' },
+    TB:  { hc: false, oc: true,  dc: true,  note: 'Zac Robinson OC (from ATL) replaces Liam Coen (to JAX HC); George Edwards elevated on defense (see teams.TB.dc_note); Bowles HC retained.' },
+    WAS: { hc: false, oc: true,  dc: true,  note: 'David Blough OC replaces Kliff Kingsbury; Daronte Jones DC replaces Joe Whitt; Quinn HC retained.' },
+    // Confirmed all-continuity from 2025 (Joe Brady's 2025 hire not counted
+    // as 2026-new).
+    BUF: { hc: false, oc: false, dc: false, note: 'Joe Brady / Pete Carmichael / Jim Leonhard — full 2025 staff returned.' },
+    CAR: { hc: false, oc: false, dc: false, note: 'Canales / Idzik / Evero — full 2025 staff returned.' },
+    MIN: { hc: false, oc: false, dc: false, note: "Kevin O'Connell / Wes Phillips / Brian Flores — full 2025 staff returned." },
+  },
 };

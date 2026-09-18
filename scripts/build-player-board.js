@@ -357,33 +357,16 @@ function computeTotalScoreBeta(r) {
 
 // Highest-confidence 2026 coordinator changes. Q-004 (2026-09-05) split into
 // three explicit buckets so consumers can distinguish continuity from ignorance:
-//   MOVES — an actual change (HC/OC/DC true)
-//   STABLE — verified unchanged from 2025 (all false)
-//   (absent) — unresolved, coordinator_is_new_2026 stays null with a source
-//              label saying so
-//
-// Prior version had no `false` anywhere, so ignorance and continuity read
-// identically. Fixed by adding STABLE entries for teams where 2026 staff are
-// verified same as 2025 from public reporting.
-const COORDINATOR_MOVES_2026 = {
-  // Changes — sourced from publicly reported HC turnover
-  CHI: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Ben Johnson replaces Eberflus interim, brings Declan Doyle OC / Dennis Allen DC' },
-  NE: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Mike Vrabel replaces Jerod Mayo; McDaniels back at OC / Terrell Williams DC' },
-  JAX: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Liam Coen replaces Doug Pederson (Coen also OC)' },
-  LV: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Pete Carroll replaces Pierce interim; new full staff' },
-  DAL: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Schottenheimer replaces McCarthy; Klayton Adams OC / Al Harris DC' },
-  DET: { hc_is_new: false, oc_is_new: true, dc_is_new: false, note: 'Ben Johnson left for CHI; John Morton promoted to OC. HC/DC stable.' },
-  // Verified unchanged — sourced from public reporting confirming full 2025
-  // staff returned intact. Do NOT extend without verifying against a public
-  // 2025 snapshot; guessing here fabricates continuity.
-  KC:  { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Reid / Nagy / Spagnuolo — verified 2025 → 2026 continuity' },
-  SF:  { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Kyle Shanahan / Klay Kubiak / Sorensen — verified continuity' },
-  BAL: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Harbaugh / Monken / Orr — verified continuity' },
-  LAC: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Jim Harbaugh / Greg Roman / Jesse Minter — verified continuity (year 2 of the staff)' },
-  DEN: { hc_is_new: false, oc_is_new: false, dc_is_new: false, note: 'Payton / Lombardi / Vance Joseph — verified continuity' },
-  BUF: { hc_is_new: true, oc_is_new: true, dc_is_new: true, note: 'Joe Brady replaces McDermott (fired); full new staff Pete Carmichael / Jim Leonhard' },
-};
-const COORDINATOR_MOVES_SOURCE = 'curated_2026 (public HC-change reporting + coachingTrees.js diff; MOVES + STABLE buckets so continuity ≠ ignorance)';
+// E-038c (2026-09-18): COORDINATOR_MOVES_2026 removed. The prior version
+// carried stale coach names (Doyle at CHI, Morton at DET, Nagy at KC,
+// Carroll at LV) and shipped them into the board because this map, not
+// coachingTrees.js, was what the loop below actually read. Fix at root:
+// single source of truth. `COACHING_TREES.changes_2026[t]` in
+// src/data/coachingTrees.js now carries the per-team `hc`, `oc`, `dc`
+// booleans and the `note`; check #13 in verify-player-board.mjs fires on
+// any parallel table that comes back. See _TO_COS 2026-09-18 for the
+// commit trail.
+const COORDINATOR_MOVES_SOURCE = 'coachingTrees.js:changes_2026 (single source of truth, E-038c 2026-09-18)';
 
 function loadFile(rel) { return fs.readFileSync(path.join(REPO_ROOT, rel), 'utf8'); }
 
@@ -607,19 +590,19 @@ function attachContextLayer(rows) {
       counters.coaching_hits++;
     }
 
-    // ── coordinator_is_new_2026 (curated) ─────────────────────────────
-    const cm = COORDINATOR_MOVES_2026[t];
+    // ── coordinator_is_new_2026 (E-038c: from coachingTrees.js single-source-of-truth) ─
+    const cm = coaching.changes_2026?.[t];
     if (cm) {
-      r.hc_is_new_2026 = cm.hc_is_new;
-      r.oc_is_new_2026 = cm.oc_is_new;
-      r.dc_is_new_2026 = cm.dc_is_new;
-      r.coordinator_is_new_2026 = cm.oc_is_new || cm.dc_is_new;
-      r.coordinator_change_note = cm.note;
+      r.hc_is_new_2026 = cm.hc ?? null;
+      r.oc_is_new_2026 = cm.oc ?? null;
+      r.dc_is_new_2026 = cm.dc ?? null;
+      r.coordinator_is_new_2026 = (cm.oc || cm.dc) ?? null;
+      r.coordinator_change_note = cm.note ?? null;
       r.coordinator_source = COORDINATOR_MOVES_SOURCE;
       counters.coordinator_moves_hits++;
     } else {
       r.coordinator_is_new_2026 = null;
-      r.coordinator_source = 'unresolved_needs_2025_snapshot (no 2025 coach map on disk to diff against; curated list only covers publicly-reported HC-driven turnover)';
+      r.coordinator_source = 'unresolved (team missing from coachingTrees.changes_2026 — no 2025 baseline confirmed for this team yet)';
     }
 
     // ── team DNA ──────────────────────────────────────────────────────
@@ -725,7 +708,7 @@ function attachContextLayer(rows) {
     counters.history_source_labeled++;
   }
 
-  return { counters, meta: { contract_meta: contractMeta, coordinator_moves: COORDINATOR_MOVES_2026 } };
+  return { counters, meta: { contract_meta: contractMeta, coordinator_moves: coaching.changes_2026 || {} } };
 }
 
 // ─── E-003 rookie scoring (2026-09-04) ──────────────────────────────────────
@@ -1252,8 +1235,8 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
         'defense2026.js (own-team-defense summary; opponent-side joins live on weekly board — E-003)',
         'intelligence/history_2023_2024.json (E-005 — age + 2023 + 2024 + games_missed_last_3)',
       ],
-      coordinator_moves_2026_curated: COORDINATOR_MOVES_2026,
-      unresolved_coordinator_map_note: 'coordinator_is_new_2026 is null for every team not in the curated map. No 2025 team-coach snapshot on disk to diff against; populating with a guess would be exactly the coverage-not-correctness trap the qb_name fix flagged. Extend COORDINATOR_MOVES_2026 in build-player-board.js as curation improves.',
+      coordinator_moves_2026_curated: contextResult.meta.coordinator_moves,
+      unresolved_coordinator_map_note: 'coordinator_is_new_2026 is null for every team not present in coachingTrees.js:changes_2026. E-038c (2026-09-18) moved the curated map out of this build script and into coachingTrees.js as the single source of truth. Extend that block as 2025-baseline verification lands.',
       field_source_labels_on_row: ['contract_year_source', 'coaching_source', 'coordinator_source', 'dna_source', 'stadium_source', 'fan_sentiment_source', 'own_team_defense_source', 'history_source'],
       e005_durability_design: 'games_missed_last_3_seasons is NOT folded into projection_pts. It sits beside so a human can weigh it. Rookies + 2025-only players → null, not 34 phantom-missed games. seasons_in_league_last_3 is the transparency field for the denominator.',
     },

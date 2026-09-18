@@ -28,6 +28,17 @@ try {
   CAL_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/calibration_2026.json', 'utf8'));
 } catch {}
 
+// NFL season year, matching fetch-injuries.js. The league year rolls over
+// ~March 1 (free agency). Using this instead of getUTCFullYear() so that
+// check #12 does not fail every build on 2027-01-01 when calendar-year
+// rolls but the NFL 2026 season is still in playoffs.
+function currentNflSeason() {
+  const now = new Date();
+  const y = now.getUTCFullYear();
+  const m = now.getUTCMonth() + 1;
+  return m >= 3 ? y : y - 1;
+}
+
 console.log(`Board: ${PLAYER_BOARD_2026.length} rows, generated ${meta.generated}\n`);
 
 const results = [];
@@ -273,18 +284,27 @@ check('Calibration matches the committed weekly board (or is absent)', () => {
 // exactly one team (CHI) is fully verified for 2026, so 31 stale is the
 // starting ceiling. Tighten this number as teams are primary-verified.
 // The ceiling is a monotone commitment — it never goes up.
-check('coachingTrees per-role and per-field 2026 verification ratchet', () => {
+check('coachingTrees per-role and per-field NFL-season verification ratchet', () => {
   const treesMod = fs.readFileSync(REPO + 'src/data/coachingTrees.js', 'utf8');
-  const startTag = 'teams: {';
-  const startIdx = treesMod.indexOf(startTag);
-  if (startIdx < 0) throw new Error('teams: block not found in coachingTrees.js');
-  const currentYear = new Date().getUTCFullYear();
-  // Rough team-key match: ^    XXX: { on its own line.
+  // Narrow the scan to the `teams: {` block only. E-038c added a
+  // `changes_2026: {` block whose team keys would otherwise double the
+  // count. Stop at the `},\n\n  changes_2026:` boundary (or at the end
+  // of the object).
+  const teamsStart = treesMod.indexOf('teams: {');
+  if (teamsStart < 0) throw new Error('teams: block not found in coachingTrees.js');
+  const changesStart = treesMod.indexOf('changes_2026: {', teamsStart);
+  const teamsEnd = changesStart > 0 ? changesStart : treesMod.length;
+  const teamsBlock = treesMod.substring(teamsStart, teamsEnd);
+  // QA 2026-09-18 08:35 CT: was comparing to calendar-year, so 2027-01-01
+  // would fail every build on a day nobody's watching. Compare to the
+  // current NFL season instead (rolls over ~March 1, matches
+  // fetch-injuries.js semantics).
+  const currentYear = currentNflSeason();
   const teamKeys = [];
   const teamKeyRe = /^    ([A-Z]{2,3}):\s*\{/gm;
   let m;
-  while ((m = teamKeyRe.exec(treesMod)) !== null) teamKeys.push(m[1]);
-  if (teamKeys.length !== 32) throw new Error(`expected 32 team keys in coachingTrees.js, found ${teamKeys.length}`);
+  while ((m = teamKeyRe.exec(teamsBlock)) !== null) teamKeys.push(m[1]);
+  if (teamKeys.length !== 32) throw new Error(`expected 32 team keys in coachingTrees.js teams block, found ${teamKeys.length}`);
   // Count unverified (team, field) rows. 32 teams × 5 fields (hc, oc, dc,
   // trees, style) = 160 total. E-038b (2026-09-18): the 3 role fields are
   // fully verified for 2026 (96/96); the 2 scheme fields are partial —
@@ -293,7 +313,7 @@ check('coachingTrees per-role and per-field 2026 verification ratchet', () => {
   // as verifications land, never rises.
   let unverified = 0;
   const unverifiedFields = [];
-  const slices = treesMod.slice(startIdx).split(/\n(?=    [A-Z]{2,3}:\s*\{)/);
+  const slices = teamsBlock.split(/\n(?=    [A-Z]{2,3}:\s*\{)/);
   for (const slice of slices) {
     const keyMatch = slice.match(/^\s*([A-Z]{2,3}):\s*\{/m);
     if (!keyMatch) continue;
@@ -309,9 +329,94 @@ check('coachingTrees per-role and per-field 2026 verification ratchet', () => {
   }
   const CEILING = 46; // 2026-09-18 (E-038b): 46 = 23 unchanged teams' trees + style (still on 2025-2026 baseline). Tighten as verifications land.
   if (unverified > CEILING) {
-    throw new Error(`${unverified} of 160 (team,field) rows unverified for ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedFields.slice(0, 10).join(', ')}${unverifiedFields.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
+    throw new Error(`${unverified} of 160 (team,field) rows unverified for NFL season ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedFields.slice(0, 10).join(', ')}${unverifiedFields.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
   }
-  return `${unverified} of 160 (team,field) rows unverified (ratchet ceiling: ${CEILING}) — tighten as verifications land`;
+  return `${unverified} of 160 (team,field) rows unverified for NFL season ${currentYear} (ratchet ceiling: ${CEILING})`;
+});
+
+// #13 — no parallel staff table (E-038c 2026-09-18).
+//
+// QA 2026-09-18 08:35 CT caught the class: scripts/build-player-board.js
+// held its own `COORDINATOR_MOVES_2026` with stale coach names, and it
+// was what the board actually read while coachingTrees.js sat verified
+// and ignored. Fix at root: one source of truth. This check guards
+// against a parallel table coming back — flags any file under scripts/
+// or src/ that defines a top-level `COORDINATOR_MOVES_*` identifier, OR
+// that hardcodes one of the specific known-stale coach names outside
+// coachingTrees.js.
+check('No parallel staff table or stale coach hardcode outside coachingTrees.js', () => {
+  const OFFENDERS = [];
+  // Set of stale coach names E-038c retired (were current in COORDINATOR_MOVES_2026,
+  // no longer current in coachingTrees.js). Any file that mentions one of these
+  // as a JS string is either a stale reference or a comment; either way, flag.
+  const STALE_NAMES = [
+    'Declan Doyle',      // was CHI OC; now BAL OC — hardcoding CHI's OC as Doyle is stale
+    'John Morton',       // was DET OC
+    'Pete Carroll',      // was LV HC
+    'Matt Nagy',         // was KC OC; now NYG OC
+    'Frank Smith',       // was MIA OC
+    'Terrell Williams',  // was NE DC
+    'Al Harris',         // was DAL DC
+    'Zach Orr',          // was BAL DC
+    'Ken Dorsey',        // was CLE OC
+    'Jim Schwartz',      // was CLE DC
+    'Kliff Kingsbury',   // was WAS OC
+    'Joe Whitt',         // was WAS DC
+  ];
+  const PARALLEL_TABLE_PATTERNS = [
+    /const\s+COORDINATOR_MOVES(?:_\d{4})?\s*=/,   // the exact identifier we just deleted
+    /const\s+COACHING_STAFF(?:_\d{4})?\s*=\s*\{/, // future parallel-table shape guess
+  ];
+
+  // Walk scripts/ and src/ for .js/.jsx/.mjs files.
+  function walk(dir, out) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === 'node_modules' || entry.name.startsWith('.')) continue;
+        walk(p, out);
+      } else if (/\.(m?jsx?|mjs)$/.test(entry.name)) {
+        out.push(p);
+      }
+    }
+    return out;
+  }
+  const files = [
+    ...walk(REPO + 'scripts', []),
+    ...walk(REPO + 'src', []),
+  ].filter(f =>
+    !f.endsWith('/coachingTrees.js') &&
+    !f.includes('/workflows-archive/') &&
+    !f.includes('/_archive/') &&
+    !f.endsWith('/verify-player-board.mjs')   // this file defines STALE_NAMES for the check itself
+  );
+
+  for (const f of files) {
+    const src = fs.readFileSync(f, 'utf8');
+    for (const re of PARALLEL_TABLE_PATTERNS) {
+      if (re.test(src)) {
+        // Cut a small context window for the offender line.
+        const m = src.match(re);
+        const idx = src.indexOf(m[0]);
+        const line = src.substring(0, idx).split('\n').length;
+        OFFENDERS.push(`${f.replace(REPO, '')}:${line} — parallel table identifier ${m[0]}`);
+      }
+    }
+    for (const name of STALE_NAMES) {
+      // Match the name as a plain string literal (single or double quote).
+      const nameRe = new RegExp(`['"\`]${name.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}['"\`]`);
+      if (nameRe.test(src)) {
+        const line = src.substring(0, src.search(nameRe)).split('\n').length;
+        OFFENDERS.push(`${f.replace(REPO, '')}:${line} — hardcoded stale coach "${name}" (retired 2026-09-18 E-038c)`);
+      }
+    }
+  }
+
+  if (OFFENDERS.length > 0) {
+    const sample = OFFENDERS.slice(0, 5).join('\n    ');
+    throw new Error(`${OFFENDERS.length} parallel-table / stale-coach reference(s) outside coachingTrees.js:\n    ${sample}${OFFENDERS.length > 5 ? `\n    …and ${OFFENDERS.length - 5} more` : ''}`);
+  }
+  return `${files.length} files scanned — none hardcodes a stale coach or a parallel staff table`;
 });
 
 const passed = results.filter(r => r.pass).length;
