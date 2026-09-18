@@ -88,7 +88,7 @@ jobs:
           else
             echo "  no weekly_actuals_2026.json yet — skipping calibration."
           fi
-      - name: Verify the board (11-check gate — must pass to commit)
+      - name: Verify the board (verifier gate — must pass to commit)
         id: verify
         # Q-022 2026-09-17: capture the passed/total count from the last
         # "Task acceptance: N/M checks passed" line and expose it as a step

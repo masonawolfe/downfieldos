@@ -51,7 +51,7 @@ jobs:
       # doesn't rebuild the board — it grades the on-disk state — so it also
       # catches "committed board went stale relative to today's inputs"
       # (check #6 availability freshness, etc.) as a side benefit.
-      - name: Verify the board (11-check gate — must pass to commit)
+      - name: Verify the board (verifier gate — must pass to commit)
         id: verify
         run: |
           set -euo pipefail
