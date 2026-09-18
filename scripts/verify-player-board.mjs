@@ -221,20 +221,32 @@ check('Every top-100-ADP player carries a non-null availability_status', () => {
 // was a legitimate one-time ~7.5% drop; that shift is now the new baseline.
 // Steady-state week-to-week roster churn stays well inside ±5%.
 check('Row count is within ±5% of the previous committed board', () => {
+  // Q-023 (2026-09-18): CI is not allowed to hit either skip path silently.
+  // A shallow checkout (default actions/checkout depth=1) has HEAD but no
+  // parent, so `git show HEAD:` succeeds — the failure path here fires only
+  // when the file itself is absent from HEAD (rename, first-ever commit).
+  // Locally, both paths are legitimate scratch cases; in CI, they hide
+  // exactly the drift the check exists to catch.
+  const IS_CI = !!process.env.CI || !!process.env.GITHUB_ACTIONS;
   let prevSrc;
   try {
     prevSrc = execFileSync('git', ['show', 'HEAD:src/data/playerBoard2026.js'], { encoding: 'utf8', cwd: REPO, maxBuffer: 128 * 1024 * 1024 });
   } catch (e) {
-    // First commit or shallow checkout — nothing to compare against. Emit a
-    // note but do NOT fail: the check exists to catch drift, not to gate the
-    // first-ever commit.
-    return 'no previous commit — first build (skipped comparison)';
+    // First commit or shallow checkout — nothing to compare against.
+    const gitMsg = String(e.stderr || e.message || 'unknown git error').trim().split('\n').slice(-2).join(' ');
+    const reason = `HEAD:src/data/playerBoard2026.js not readable — ${gitMsg}`;
+    if (IS_CI) throw new Error(`${reason}. In CI the comparison must have a baseline (the file must exist at HEAD — a rename, delete, or first-ever commit is what usually breaks this); locally this path is a soft-skip for scratch builds.`);
+    return `${reason} — SKIPPED (local run; CI would fail here)`;
   }
   // Match every `"gsis_id":` occurrence (with OR without quoted value —
   // K/DEF rows carry `gsis_id: null` and would otherwise be undercounted,
   // which is how a spot fix once reported 924 instead of the real 988).
   const prevCount = (prevSrc.match(/"gsis_id":/g) || []).length;
-  if (prevCount === 0) return 'previous board had 0 rows or is unparseable — skipping comparison';
+  if (prevCount === 0) {
+    const reason = `previous board at HEAD had 0 gsis_id matches (${prevSrc.length} bytes read) — file present but unparseable or truncated`;
+    if (IS_CI) throw new Error(`${reason}. In CI this must be an incident, not a silent skip — either the previous commit truncated the board or the shape changed and this regex is stale.`);
+    return `${reason} — SKIPPED (local run; CI would fail here)`;
+  }
   const cur = PLAYER_BOARD_2026.length;
   const delta = cur - prevCount;
   const pct = (delta / prevCount) * 100;
