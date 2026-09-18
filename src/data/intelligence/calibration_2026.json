@@ -1,11 +1,11 @@
 {
   "meta": {
     "season": 2026,
-    "generated_utc": "2026-09-18T00:33:52.402Z",
+    "generated_utc": "2026-09-18T00:36:51.346Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
     "actuals_generated_utc": "2026-09-17T23:19:15.937Z",
     "weekly_board_generated_utc": "2026-09-17T23:32:25.615Z",
-    "player_board_generated_utc": "2026-09-17T23:35:35.920Z",
+    "player_board_generated_utc": "2026-09-18T00:36:49.966Z",
     "scoring_note": "projected uses WEEKLY_BOARD_2026.weekly_value (base + matchup + env). actual uses fantasy_points_ppr from nflverse."
   },
   "overall": {
