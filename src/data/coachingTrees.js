@@ -100,19 +100,33 @@ export const COACHING_TREES = {
       hc: 'Mike LaFleur',       hc_verified_on: '2026-09-18', hc_source: 'https://www.azcardinals.com/team/coaches/',
       oc: 'Nathaniel Hackett',  oc_verified_on: '2026-09-18', oc_source: 'https://www.azcardinals.com/team/coaches/',
       dc: 'Nick Rallis',        dc_verified_on: '2026-09-18', dc_source: 'https://www.azcardinals.com/team/coaches/',
-      trees: ['SIRIANNI'], style: 'Spread passing',
+      // E-038b (2026-09-18): trees/style refreshed for new HC Mike LaFleur.
+      // Brother of Matt LaFleur; came through 49ers under Kyle Shanahan, then
+      // Jets OC (2021-22) and Rams OC (2023) under McVay — Shanahan/McVay
+      // family, not the Sirianni RPO lineage the prior label carried.
+      trees: ['SHANAHAN', 'MCVAY'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Mike_LaFleur',
+      style: 'Shanahan zone concepts', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_LaFleur',
     },
     ATL: {
       hc: 'Kevin Stefanski',    hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Atlanta_Falcons_season',
       oc: 'Tommy Rees',         oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Atlanta_Falcons_season',
       dc: 'Jeff Ulbrich',       dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Atlanta_Falcons_season',
-      trees: ['MCVAY'], style: 'Motion-heavy offense',
+      // E-038b: Stefanski replaces Morris — Vikings/Browns pedigree, worked
+      // with Gary Kubiak (Shanahan family); Cleveland ran wide-zone / heavy
+      // play-action. Prior MCVAY label was Morris-era.
+      trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
+      style: 'Wide-zone / play-action heavy', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
     },
     BAL: {
       hc: 'Jesse Minter',       hc_verified_on: '2026-09-18', hc_source: 'https://www.baltimoreravens.com/team/coaches/',
       oc: 'Declan Doyle',       oc_verified_on: '2026-09-18', oc_source: 'https://www.baltimoreravens.com/team/coaches/',
       dc: 'Anthony Weaver',     dc_verified_on: '2026-09-18', dc_source: 'https://www.baltimoreravens.com/team/coaches/',
-      trees: ['HARBAUGH'], style: 'Run-first RPO',
+      // E-038b: Minter came from Michigan DC + Chargers DC — both under Jim
+      // Harbaugh — so still HARBAUGH tree, but the style shifts from
+      // Lamar-RPO to defensive-forward Harbaugh identity (Minter is a DC
+      // by trade).
+      trees: ['HARBAUGH'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
+      style: 'Defensive-forward Harbaugh identity', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
     },
     BUF: {
       hc: 'Joe Brady',          hc_verified_on: '2026-09-18', hc_source: 'https://www.buffalobills.com/team/coaches/',
@@ -142,7 +156,12 @@ export const COACHING_TREES = {
       hc: 'Todd Monken',        hc_verified_on: '2026-09-18', hc_source: 'https://www.clevelandbrowns.com/team/coaches/',
       oc: 'Travis Switzer',     oc_verified_on: '2026-09-18', oc_source: 'https://www.clevelandbrowns.com/team/coaches/',
       dc: 'Mike Rutenberg',     dc_verified_on: '2026-09-18', dc_source: 'https://www.clevelandbrowns.com/team/coaches/',
-      trees: ['SHANAHAN'], style: 'Play-action heavy',
+      // E-038b: Monken's path (Gruden → Cowboys → Bucs → Georgia → Ravens OC
+      // → Browns HC) does not map cleanly to any of the 10 defined trees.
+      // Recorded per peer's rule as an ambiguity, not guessed at.
+      trees: [], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
+      trees_note: "Monken's career doesn't fit any of the 10 defined trees. Modern downfield passing scheme with no single founder; scheme-similarity comparisons using this row should degrade gracefully to no-tree overlap.",
+      style: 'Downfield passing', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
     },
     DAL: {
       hc: 'Brian Schottenheimer', hc_verified_on: '2026-09-18', hc_source: 'https://www.dallascowboys.com/team/coaches/',
@@ -208,7 +227,11 @@ export const COACHING_TREES = {
       hc: 'Klint Kubiak',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Las_Vegas_Raiders_season',
       oc: 'Andrew Janocko',     oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Las_Vegas_Raiders_season',
       dc: 'Rob Leonard',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Las_Vegas_Raiders_season',
-      trees: ['BELICHICK'], style: 'Run-first defense',
+      // E-038b: Klint Kubiak (son of Gary Kubiak, Vikings/49ers/Saints OC)
+      // is a Shanahan-tree wide-zone coach. Prior BELICHICK label was Carroll-
+      // era defense-first; that identity flips under Kubiak.
+      trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
+      style: 'Kubiak zone concepts', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
     },
     MIA: {
       hc: 'Jeff Hafley',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Miami_Dolphins_season',
@@ -232,13 +255,23 @@ export const COACHING_TREES = {
       hc: 'Kellen Moore',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_New_Orleans_Saints_season',
       oc: 'Doug Nussmeier',     oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_New_Orleans_Saints_season',
       dc: 'Brandon Staley',     dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_New_Orleans_Saints_season',
-      trees: ['PAYTON', 'SHANAHAN'], style: 'Payton remnants',
+      // E-038b: Kellen Moore's career (Cowboys OC → LAC OC → Eagles OC → NO HC)
+      // is an Air-Coryell / RPO-hybrid, not the Payton legacy the prior label
+      // implied. Kept PAYTON tree since Sean Payton's system left roots in
+      // NO's roster/scheme, but style renamed.
+      trees: ['PAYTON', 'SIRIANNI'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
+      style: 'Air-Coryell / RPO hybrid', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
     },
     NYG: {
       hc: 'John Harbaugh',      hc_verified_on: '2026-09-18', hc_source: 'https://www.giants.com/team/coaches/',
       oc: 'Matt Nagy',          oc_verified_on: '2026-09-18', oc_source: 'https://www.giants.com/team/coaches/',
       dc: 'Dennard Wilson',     dc_verified_on: '2026-09-18', dc_source: 'https://www.giants.com/team/coaches/',
-      trees: ['BELICHICK', 'REID'], style: 'Daboll system',
+      // E-038b: John Harbaugh moved from BAL to NYG. HARBAUGH tree, obviously
+      // — physical run game, special-teams emphasis, defense-forward identity
+      // that carries from Baltimore. OC Matt Nagy adds REID-family passing
+      // wrinkles.
+      trees: ['HARBAUGH', 'REID'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/John_Harbaugh',
+      style: 'Physical Harbaugh identity', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/John_Harbaugh',
     },
     NYJ: {
       hc: 'Aaron Glenn',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_New_York_Jets_season',
@@ -256,7 +289,12 @@ export const COACHING_TREES = {
       hc: 'Mike McCarthy',      hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Pittsburgh_Steelers_season',
       oc: 'Brian Angelichio',   oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Pittsburgh_Steelers_season',
       dc: 'Patrick Graham',     dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Pittsburgh_Steelers_season',
-      trees: ['TOMLIN', 'SHANAHAN'], style: 'Physical football',
+      // E-038b: Mike McCarthy replaces Tomlin. Packers HC 2006-2018, Cowboys
+      // HC 2020-2023 — West Coast / Reid-adjacent lineage (his own branch,
+      // McCarthy is a Marty Schottenheimer/Andy Reid tree hybrid). Style
+      // shifts from Tomlin's zone-blitz identity to McCarthy West Coast timing.
+      trees: ['REID'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
+      style: 'West Coast timing', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
     },
     SEA: {
       hc: 'Mike Macdonald',     hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Seattle_Seahawks_season',
@@ -286,7 +324,11 @@ export const COACHING_TREES = {
       hc: 'Robert Saleh',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
       oc: 'Brian Daboll',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
       dc: 'Gus Bradley',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
-      trees: ['MCVAY'], style: 'McVay derivative',
+      // E-038b: Saleh is a Shanahan-tree DC (49ers 2017-2020 → Jets HC 2021-24).
+      // 4-3 wide-9 defensive front. Prior MCVAY label was Callahan-era; the
+      // style flips to a defensive-forward Shanahan-family identity.
+      trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
+      style: 'Shanahan-family defense (4-3 wide-9)', style_verified_on: '2026-09-18', style_source: 'https://en.wikipedia.org/wiki/Robert_Saleh',
     },
     WAS: {
       hc: 'Dan Quinn',          hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Washington_Commanders_season',

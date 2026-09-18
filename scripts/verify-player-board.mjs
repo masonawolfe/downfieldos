@@ -273,7 +273,7 @@ check('Calibration matches the committed weekly board (or is absent)', () => {
 // exactly one team (CHI) is fully verified for 2026, so 31 stale is the
 // starting ceiling. Tighten this number as teams are primary-verified.
 // The ceiling is a monotone commitment — it never goes up.
-check('coachingTrees per-role 2026 verification ratchet', () => {
+check('coachingTrees per-role and per-field 2026 verification ratchet', () => {
   const treesMod = fs.readFileSync(REPO + 'src/data/coachingTrees.js', 'utf8');
   const startTag = 'teams: {';
   const startIdx = treesMod.indexOf(startTag);
@@ -285,33 +285,33 @@ check('coachingTrees per-role 2026 verification ratchet', () => {
   let m;
   while ((m = teamKeyRe.exec(treesMod)) !== null) teamKeys.push(m[1]);
   if (teamKeys.length !== 32) throw new Error(`expected 32 team keys in coachingTrees.js, found ${teamKeys.length}`);
-  // Count unverified ROLES (not teams). 32 teams × 3 roles (HC, OC, DC) = 96
-  // total; each row needs its own primary-source date. Peer QA 2026-09-18:
-  // CHI OC (Press Taylor) is verified, the other 95 are inherited from the
-  // 2025-2026 curated file and have not been checked against a primary
-  // source for 2026. The ratchet is monotone — the CEILING only drops as
-  // verifications land, never rises.
+  // Count unverified (team, field) rows. 32 teams × 5 fields (hc, oc, dc,
+  // trees, style) = 160 total. E-038b (2026-09-18): the 3 role fields are
+  // fully verified for 2026 (96/96); the 2 scheme fields are partial —
+  // 18 verified for the 9 teams with new 2026 HCs, 46 still inherited
+  // from the 2025-2026 baseline. Ratchet is monotone: CEILING only drops
+  // as verifications land, never rises.
   let unverified = 0;
-  const unverifiedRoles = [];
+  const unverifiedFields = [];
   const slices = treesMod.slice(startIdx).split(/\n(?=    [A-Z]{2,3}:\s*\{)/);
   for (const slice of slices) {
     const keyMatch = slice.match(/^\s*([A-Z]{2,3}):\s*\{/m);
     if (!keyMatch) continue;
     const team = keyMatch[1];
-    for (const role of ['hc', 'oc', 'dc']) {
-      const re = new RegExp(`${role}_verified_on:\\s*'(\\d{4})-\\d{2}-\\d{2}'`);
+    for (const field of ['hc', 'oc', 'dc', 'trees', 'style']) {
+      const re = new RegExp(`${field}_verified_on:\\s*'(\\d{4})-\\d{2}-\\d{2}'`);
       const rm = slice.match(re);
       if (!rm || parseInt(rm[1], 10) < currentYear) {
         unverified++;
-        unverifiedRoles.push(`${team}.${role}`);
+        unverifiedFields.push(`${team}.${field}`);
       }
     }
   }
-  const CEILING = 0; // 2026-09-18: all 32 teams primary-verified for 2026 season. Any regression fires.
+  const CEILING = 46; // 2026-09-18 (E-038b): 46 = 23 unchanged teams' trees + style (still on 2025-2026 baseline). Tighten as verifications land.
   if (unverified > CEILING) {
-    throw new Error(`${unverified} of 96 (team,role) rows unverified for ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedRoles.slice(0, 10).join(', ')}${unverifiedRoles.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
+    throw new Error(`${unverified} of 160 (team,field) rows unverified for ${currentYear} (ratchet ceiling: ${CEILING}). Sample: ${unverifiedFields.slice(0, 10).join(', ')}${unverifiedFields.length > 10 ? ', …' : ''}. Ratchet is monotone — the ceiling only ever drops, never rises.`);
   }
-  return `${unverified} of 96 (team,role) rows unverified (ratchet ceiling: ${CEILING}) — tighten as verifications land`;
+  return `${unverified} of 160 (team,field) rows unverified (ratchet ceiling: ${CEILING}) — tighten as verifications land`;
 });
 
 const passed = results.filter(r => r.pass).length;
