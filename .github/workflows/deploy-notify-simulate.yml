@@ -1,0 +1,38 @@
+name: E-043 · Notify-path simulate
+
+# Proof workflow for the caller-side watch/notify composite step
+# (`.github/actions/watch-dispatched-deploy`). Dispatch it with a
+# desired conclusion (cancelled / failure / skipped) and it files a
+# [SIMULATED] issue via the same code path the 15 data callers use.
+#
+# Never runs on cron/push. This does not touch the deploy pipeline or
+# any data file — it exists only to prove the notify path fires.
+
+on:
+  workflow_dispatch:
+    inputs:
+      conclusion:
+        description: 'Which non-success outcome to simulate (cancelled | failure | skipped).'
+        required: true
+        default: 'cancelled'
+        type: choice
+        options:
+          - cancelled
+          - failure
+          - skipped
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Watch dispatched deploy + notify on non-success (simulate branch)
+        uses: ./.github/actions/watch-dispatched-deploy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          simulate_conclusion: ${{ github.event.inputs.conclusion }}

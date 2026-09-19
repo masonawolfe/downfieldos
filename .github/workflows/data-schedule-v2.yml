@@ -22,6 +22,7 @@ on:
 permissions:
   contents: write
   actions: write  # E-028 2026-09-16: needed for the final `gh workflow run deploy.yml` step to POST to /actions/workflows/*/dispatches; `read` returns 403.
+  issues: write  # E-043 2026-09-19: needed by the watch-dispatched-deploy composite step to open/comment the outage issue.
 
 concurrency:
   group: data-schedule
@@ -77,3 +78,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+      - name: Watch dispatched deploy + notify on non-success (E-043)
+        if: steps.commit.outputs.changed == 'true'
+        uses: ./.github/actions/watch-dispatched-deploy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

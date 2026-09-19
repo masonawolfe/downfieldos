@@ -1,0 +1,214 @@
+# E-043 (2026-09-19): watch the deploy we just dispatched, and open a
+# de-duped GitHub issue if it does not succeed — including the case where
+# the pages concurrency group cancels it while still pending, in which
+# case the deploy has 0 jobs and deploy.yml's own notify_on_failure job
+# cannot fire (run 35142037261 for 45b3394 on 09-18 is the incident).
+#
+# Caller pattern (all 15 data workflows):
+#
+#   - name: Trigger site deploy
+#     if: steps.commit.outputs.changed == 'true'
+#     env:
+#       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+#   - name: Watch dispatched deploy + notify on non-success
+#     if: steps.commit.outputs.changed == 'true'
+#     uses: ./.github/actions/watch-dispatched-deploy
+#     with:
+#       github_token: ${{ secrets.GITHUB_TOKEN }}
+#
+# The caller MUST carry `permissions: issues: write` — the composite
+# needs it to open or comment on the outage issue.
+#
+# Behaviour:
+# - Resolve the latest workflow_dispatch deploy run on HEAD (git rev-parse
+#   HEAD, taken after the caller's push). Poll up to 30s for it to
+#   register on GitHub's side.
+# - `gh run watch` to completion (returns whatever conclusion).
+# - success: no issue, exit 0.
+# - non-success (failure / cancelled / cancelled-while-pending / skipped):
+#     * If a LATER deploy run has already succeeded, treat as benign —
+#       comment on an existing open outage issue if one is open; do not
+#       open a new one.
+#     * Otherwise: open/comment a de-duped issue keyed on short SHA,
+#       naming this run's URL + conclusion + the caller workflow that
+#       dispatched it.
+name: 'Watch dispatched deploy + notify on non-success'
+description: 'After `gh workflow run deploy.yml`, watch the dispatched run and open or comment a de-duped outage issue on any non-success (including a pages-concurrency cancel-while-pending).'
+inputs:
+  github_token:
+    description: 'GITHUB_TOKEN with issues:write + actions:read. Passed by the caller so the composite runs as the caller''s job.'
+    required: true
+  head_sha:
+    description: 'SHA to search for (defaults to git rev-parse HEAD, i.e. the just-pushed commit).'
+    required: false
+    default: ''
+  register_wait_seconds:
+    description: 'How long to wait for the dispatched run to register on GitHub before giving up (default 30).'
+    required: false
+    default: '30'
+  simulate_conclusion:
+    description: 'Testing hook — when set to failure/cancelled/skipped, skip the resolve+watch loop and pretend the dispatched deploy ended with this conclusion. Files a [SIMULATED] issue. Only for proving the notify path; leave empty in normal use.'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - name: Resolve, watch, notify
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github_token }}
+        INPUT_SHA: ${{ inputs.head_sha }}
+        WAIT_S: ${{ inputs.register_wait_seconds }}
+        SIM_CONCLUSION: ${{ inputs.simulate_conclusion }}
+        REPO: ${{ github.repository }}
+        CALLER_WF: ${{ github.workflow }}
+        CALLER_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      run: |
+        set -euo pipefail
+        SHA="${INPUT_SHA:-$(git rev-parse HEAD)}"
+        SHORT=$(echo "$SHA" | cut -c1-7)
+        echo "  watching for dispatched deploy on ${SHORT} (caller: ${CALLER_WF})"
+
+        # Simulate hook — skip resolve+watch, file a [SIMULATED] issue with
+        # the requested conclusion. Only meant for one-shot proofs of the
+        # notify path; leave `simulate_conclusion` empty in normal use.
+        if [ -n "${SIM_CONCLUSION:-}" ]; then
+          FAKE_RUN_URL="https://github.com/${REPO}/actions/runs/simulated-${GITHUB_RUN_ID:-0}"
+          BODY="**This is an operator dry-run of the caller-side watch/notify path (E-043), not a real deploy failure.** Close after verifying.
+
+**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) simulated ending \`${SIM_CONCLUSION}\`.**
+
+- Simulated deploy run: ${FAKE_RUN_URL} (conclusion: **${SIM_CONCLUSION}**)
+- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
+- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
+
+Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19, simulate branch). Verifies the notify path fires from the caller side — closes the gap that deploy.yml's \`notify_on_failure\` cannot cover for a run that was cancelled while still pending (0 jobs)."
+          existing=$(gh issue list --repo "$REPO" --state open \
+            --search "[SIMULATED] deploy failed after commit ${SHORT} in:title" \
+            --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$BODY" \
+              && echo "  simulate: commented on existing [SIMULATED] issue #$existing"
+          else
+            gh issue create --repo "$REPO" \
+              --title "[SIMULATED] deploy failed after commit ${SHORT}" \
+              --body "$BODY" \
+              && echo "  simulate: opened new [SIMULATED] issue"
+          fi
+          exit 0
+        fi
+
+        # Resolve the latest workflow_dispatch deploy run on this SHA.
+        # GitHub can lag a few seconds registering the run after
+        # `gh workflow run` returns.
+        POLL_INTERVAL=5
+        ATTEMPTS=$(( WAIT_S / POLL_INTERVAL ))
+        [ "$ATTEMPTS" -lt 1 ] && ATTEMPTS=1
+        RUN_ID=""
+        for i in $(seq 1 "$ATTEMPTS"); do
+          RUN_ID=$(gh run list \
+            --repo "$REPO" \
+            --workflow=deploy.yml \
+            --commit "$SHA" \
+            --event workflow_dispatch \
+            --limit 1 \
+            --json databaseId --jq '.[0].databaseId // empty' 2>/dev/null || echo "")
+          if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "null" ]; then break; fi
+          echo "    attempt $i/$ATTEMPTS — no dispatched deploy run for ${SHORT} yet"
+          sleep "$POLL_INTERVAL"
+        done
+
+        # Helper to open/comment a de-duped issue.
+        # Args: $1 = title kind ("failed"/"cancelled"/"never-registered"),
+        #       $2 = body body-text.
+        notify() {
+          local kind="$1"
+          local body="$2"
+          local search_hits existing
+          existing=$(gh issue list \
+            --repo "$REPO" \
+            --state open \
+            --search "deploy failed after commit ${SHORT} in:title" \
+            --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$body" \
+              && echo "  commented on open issue #$existing" \
+              || echo "::error::gh issue comment failed"
+            return 0
+          fi
+          gh issue create \
+            --repo "$REPO" \
+            --title "deploy failed after commit ${SHORT}" \
+            --body "$body" \
+            && echo "  opened new outage issue" \
+            || {
+              echo "::error::gh issue create failed — falling back to workflow annotation"
+              echo "::error::Deploy ${kind} on ${SHORT}: $body"
+            }
+        }
+
+        if [ -z "$RUN_ID" ] || [ "$RUN_ID" = "null" ]; then
+          # The dispatch call returned but no run registered inside the
+          # wait window. Rare; open a heads-up issue rather than staying
+          # silent, since a bot data commit is now sitting undeployed.
+          notify "never-registered" "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) never registered a run within ${WAIT_S}s.**
+
+- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
+- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
+
+Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Close when a later deploy succeeds."
+          exit 0
+        fi
+
+        RUN_URL="https://github.com/${REPO}/actions/runs/${RUN_ID}"
+        echo "  watching deploy run ${RUN_ID} (${RUN_URL})"
+        # gh run watch waits for the run to finish; --exit-status returns
+        # non-zero if it did not succeed. Do NOT let that fail the caller.
+        gh run watch "$RUN_ID" --repo "$REPO" --exit-status || true
+
+        CONCLUSION=$(gh run view "$RUN_ID" --repo "$REPO" --json conclusion --jq '.conclusion // "unknown"' 2>/dev/null || echo "unknown")
+        echo "  deploy ${RUN_ID} conclusion=${CONCLUSION}"
+
+        if [ "$CONCLUSION" = "success" ]; then
+          echo "  no outage; exit 0"
+          exit 0
+        fi
+
+        # Non-success. Check whether a later deploy run has already
+        # succeeded (same or newer SHA — a subsequent push, or a manual
+        # re-dispatch after we caught the issue). Range: 20 most recent.
+        LATER_SUCCESS_URL=""
+        LATER_SUCCESS_SHA=""
+        while IFS=$'\t' read -r id sha url conc; do
+          [ "$conc" != "success" ] && continue
+          [ "$id" -le "$RUN_ID" ] && continue
+          LATER_SUCCESS_URL="$url"
+          LATER_SUCCESS_SHA="$sha"
+          break
+        done < <(gh run list --repo "$REPO" --workflow=deploy.yml --limit 20 \
+          --json databaseId,headSha,url,conclusion \
+          --jq '.[] | [.databaseId, .headSha, .url, .conclusion] | @tsv' 2>/dev/null || true)
+
+        if [ -n "$LATER_SUCCESS_URL" ]; then
+          BENIGN_MSG="Dispatched deploy ${RUN_URL} ended \`${CONCLUSION}\`, but a later deploy on [\`$(echo "$LATER_SUCCESS_SHA" | cut -c1-7)\`](https://github.com/${REPO}/commit/${LATER_SUCCESS_SHA}) succeeded (${LATER_SUCCESS_URL}) — no outage window from this incident. Caller: **${CALLER_WF}** (${CALLER_RUN_URL})."
+          existing=$(gh issue list --repo "$REPO" --state open \
+            --search "deploy failed after commit ${SHORT} in:title" \
+            --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --repo "$REPO" --body "$BENIGN_MSG" \
+              && echo "  commented benign update on open issue #$existing"
+          else
+            echo "  benign non-success (later success): $BENIGN_MSG"
+          fi
+          exit 0
+        fi
+
+        # Non-success and no later success — a real outage window.
+        notify "$CONCLUSION" "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) ended \`${CONCLUSION}\` — the site is running against the previous successful deploy until a later run succeeds.**
+
+- Dispatched deploy: ${RUN_URL} (conclusion: **${CONCLUSION}**)
+- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
+- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
+
+Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Fires from the caller side because deploy.yml's own \`notify_on_failure\` cannot fire on a run that was cancelled while still pending (0 jobs). Close when a later deploy succeeds; subsequent non-successes on the same commit will comment on this issue rather than opening a new one."
