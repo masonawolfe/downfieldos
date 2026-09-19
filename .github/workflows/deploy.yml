@@ -4,11 +4,23 @@ on:
   push:
     branches: ['main']
   workflow_dispatch:
+    inputs:
+      simulate_failure:
+        description: 'Set true to run the notify path without failing the deploy (opens a [SIMULATED] issue and returns).'
+        required: false
+        default: 'false'
 
 permissions:
   contents: read
   pages: write
   id-token: write
+  # E-041 (2026-09-19): needed by notify_on_failure to open/comment issues.
+  # The deploy-watcher subscribed via workflow_run stopped catching failures
+  # once data workflows started dispatching deploy.yml with GITHUB_TOKEN —
+  # GitHub does not fan out workflow_run events for GITHUB_TOKEN-triggered
+  # runs, so 6 of 6 deploys today produced 0 watcher runs. Notify inline
+  # so visibility no longer depends on the fan-out.
+  issues: write
 
 concurrency:
   group: 'pages'
@@ -160,3 +172,84 @@ jobs:
         run: |
           npm i -D puppeteer@23 --no-audit --no-fund
           node .github/scripts/render-smoke.mjs
+
+  # E-041 (2026-09-19): opens or updates a GitHub issue when any deploy
+  # job fails, with SHA-based de-dupe. Runs inline so the notification
+  # does not depend on workflow_run cascade — deploy runs triggered by
+  # `gh workflow run deploy.yml` from a data workflow's GITHUB_TOKEN
+  # never fan out workflow_run and were silently going unnoticed by the
+  # standalone deploy-watcher.yml. The watcher is kept as a second
+  # signal for push-triggered / human-token deploys.
+  notify_on_failure:
+    runs-on: ubuntu-latest
+    needs: [build, deploy, smoke-test]
+    # Fires when any upstream job failed OR when the operator dispatched
+    # with simulate_failure=true (proof path). `always()` ensures this
+    # job is scheduled even after an upstream failure.
+    if: >-
+      ${{ always() && (
+        needs.build.result == 'failure' ||
+        needs.deploy.result == 'failure' ||
+        needs.smoke-test.result == 'failure' ||
+        github.event.inputs.simulate_failure == 'true'
+      ) }}
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Open or update failure issue with SHA de-dupe
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.sha }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+          SMOKE_RESULT: ${{ needs.smoke-test.result }}
+          IS_SIM: ${{ github.event.inputs.simulate_failure }}
+        run: |
+          set -euo pipefail
+          SHORT=$(echo "$SHA" | cut -c1-7)
+          COMMIT_URL="https://github.com/${GITHUB_REPOSITORY}/commit/${SHA}"
+          FAILED=""
+          [ "$BUILD_RESULT"  = "failure" ] && FAILED="${FAILED} build"
+          [ "$DEPLOY_RESULT" = "failure" ] && FAILED="${FAILED} deploy"
+          [ "$SMOKE_RESULT"  = "failure" ] && FAILED="${FAILED} smoke-test"
+          FAILED="${FAILED## }"
+          if [ "$IS_SIM" = "true" ]; then
+            TITLE_PREFIX="[SIMULATED] "
+            BODY_TAG=$'**This is an operator dry-run of the in-deploy failure notify path (E-041), not a real deploy failure.** Close after verifying.\n\n'
+            FAILED="${FAILED:-simulate}"
+          else
+            TITLE_PREFIX=""
+            BODY_TAG=""
+          fi
+          # De-dupe: search for an open issue naming the same SHA. Comment
+          # instead of opening a duplicate. One incident, one issue.
+          EXISTING=$(gh issue list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --search "deploy failed after commit ${SHORT} in:title" \
+            --json number \
+            --jq '.[0].number' 2>/dev/null || echo "")
+          if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
+            gh issue comment "$EXISTING" \
+              --repo "$GITHUB_REPOSITORY" \
+              --body "Additional failure on ${SHORT}: ${RUN_URL} (failed: ${FAILED})" || echo "comment failed; falling back to annotation"
+            echo "  updated open issue #${EXISTING} for ${SHORT}"
+            exit 0
+          fi
+          gh issue create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "${TITLE_PREFIX}deploy failed after commit ${SHORT}" \
+            --body "${BODY_TAG}**Deploy to GitHub Pages failed — the site is running against the previous successful deploy until this is resolved.**
+
+          - Failed run: ${RUN_URL}
+          - Commit: [\`${SHORT}\`](${COMMIT_URL})
+          - Failed jobs: ${FAILED}
+
+          Auto-filed by \`.github/workflows/deploy.yml\` (notify_on_failure job — E-041 2026-09-19). Close when a later deploy succeeds; subsequent failures on the same commit will comment on this issue rather than opening a new one." \
+            || {
+              echo "gh issue create failed — falling back to workflow annotation"
+              echo "::error::Deploy $RUN_URL failed after commit $SHORT (failed: $FAILED)"
+              exit 0
+            }
