@@ -122,6 +122,23 @@ async function fetchSnapsWithFallback() {
   }
 }
 
+// E-042 (2026-09-19): starter selection must consult the availability
+// feed. Before this, a depth chart's pos_rank=1 shipped as a starter
+// even when the availability_2026.json snapshot designated that player
+// Out/IR/PUP/NFI/SUSP. QA (2026-09-19 07:45) found 6 such slots:
+// ATL QB Penix, BUF WR1 DJ Moore, HOU WR1 Nico Collins, MIN QB Kyler
+// Murray, SEA QB Sam Darnold, WAS TE Chig Okonkwo — all gd=O.
+const OUT_STATUSES = new Set(['IR', 'PUP', 'NFI', 'SUSP']);
+const OUT_DESIGNATIONS = new Set(['O', 'Out']);
+function outReason(availRec) {
+  if (!availRec) return null;
+  const s = String(availRec.status || '').toUpperCase();
+  const gd = String(availRec.game_designation || '');
+  if (OUT_STATUSES.has(s)) return s;
+  if (OUT_DESIGNATIONS.has(gd)) return 'Out';
+  return null;
+}
+
 async function main() {
   console.log(`DownfieldOS — nflverse Roster Generation (${SEASON})`);
   console.log('========================================\n');
@@ -132,6 +149,22 @@ async function main() {
   const snapRows = snapResult.rows;
   const snapSeasonUsed = snapResult.season;
   const rosterRows = await fetchCSV(ROSTER_URL, `roster metadata (${SEASON})`);
+
+  // E-042: load availability so the starter picker can skip designated-out
+  // players. Read-only; a missing file logs and disables the filter (rather
+  // than blocking a rebuild), and the new verifier check #15 will fail loudly
+  // if the shipped roster contains an out player regardless.
+  const AVAIL_PATH = path.join(__dirname, '../src/data/intelligence/availability_2026.json');
+  let availById = {};
+  let availStamp = null;
+  try {
+    const doc = JSON.parse(fs.readFileSync(AVAIL_PATH, 'utf8'));
+    availById = doc.players || {};
+    availStamp = doc.meta?.generated || null;
+    console.log(`  Loaded availability_2026.json (${Object.keys(availById).length} players, generated ${availStamp || 'unknown'})`);
+  } catch (err) {
+    console.log(`  ⚠ availability_2026.json unavailable (${err.message}) — starter filter disabled; verifier check #15 will still fail if any out player ships.`);
+  }
 
   // Build years_exp lookup from roster data
   const expMap = {};
@@ -159,20 +192,29 @@ async function main() {
     if (!latestDate[team] || r.dt > latestDate[team]) latestDate[team] = r.dt;
   });
 
-  // Get starters from latest depth chart
+  // E-042 (2026-09-19): expand pool to pos_rank 1-3 so a designated-out
+  // pos_rank=1 has an eligible backup to promote. `posRank` is retained
+  // on each candidate so the picker can prefer top-of-chart when snap-share
+  // ties (a pos_rank=2 backup with more snap share than pos_rank=1 could
+  // otherwise "beat" the true starter on availability parity).
   const starters = {};
   depthRows.forEach(r => {
     const team = norm(r.team);
     if (r.dt !== latestDate[team]) return; // only latest week
-    if (r.pos_rank !== '1') return; // only starters
+    const rank = parseInt(r.pos_rank, 10);
+    if (!Number.isFinite(rank) || rank < 1 || rank > 3) return;
 
     const posAbb = r.pos_abb;
     if (!starters[team]) starters[team] = [];
-    starters[team].push({ name: r.player_name, posAbb, gsis_id: r.gsis_id });
+    starters[team].push({ name: r.player_name, posAbb, gsis_id: r.gsis_id, posRank: rank });
   });
 
   // Build rosters
   const rosters = {};
+
+  // E-042: metrics captured across all teams to log at the end and prove
+  // the demotions happened in one place.
+  const demotions = [];
 
   ALL_TEAMS.forEach(team => {
     const teamStarters = starters[team] || [];
@@ -183,6 +225,50 @@ async function main() {
     function getSnaps(name) {
       const key = `${team}_${name}`;
       return snapMap[key] || null;
+    }
+
+    // E-042 helper: walk sortedCandidates in order, skipping designated-out
+    // players. Fill up to `count` slots; each filled slot carries a
+    // `starter_reason` string when at least one candidate ahead of it was
+    // skipped for availability. Resets between picks so WR2 does not
+    // inherit WR1's skip trail.
+    function pickAvailable(sortedCandidates, count) {
+      const chosen = [];
+      let skipped = [];
+      for (const c of sortedCandidates) {
+        if (chosen.length >= count) break;
+        const reason = c.gsis_id ? outReason(availById[c.gsis_id]) : null;
+        if (reason) {
+          skipped.push(`${c.name} (${reason})`);
+          continue;
+        }
+        chosen.push({ ...c, starter_reason: skipped.length ? `promoted after: ${skipped.join(', ')}` : null });
+        if (skipped.length) demotions.push({ team, name: c.name, posAbb: c.posAbb, skipped: [...skipped] });
+        skipped = [];
+      }
+      return chosen;
+    }
+
+    // Sort candidates for a position by (posRank ASC, snap-share DESC).
+    // pos_rank=1 is preferred even when snap share is close because the
+    // depth chart is the team's declared starter today; snap share is a
+    // last-season signal that can lag mid-preseason moves.
+    function sortByRankAndSnaps(candidates, side /* 'off'|'def' */) {
+      return [...candidates].sort((a, b) => {
+        if (a.posRank !== b.posRank) return a.posRank - b.posRank;
+        const aS = side === 'off' ? (getSnaps(a.name)?.offSnaps || 0) : (getSnaps(a.name)?.defSnaps || 0);
+        const bS = side === 'off' ? (getSnaps(b.name)?.offSnaps || 0) : (getSnaps(b.name)?.defSnaps || 0);
+        return bS - aS;
+      });
+    }
+
+    // Push a roster row, attaching starter_reason only when set (keeps
+    // existing rows unchanged when no demotion happened).
+    function push(target, pos, cand, posGroup) {
+      const r = calcRating(cand.name, posGroup);
+      const row = { pos, gsis_id: cand.gsis_id ?? null, name: cand.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' };
+      if (cand.starter_reason) row.starter_reason = cand.starter_reason;
+      target.push(row);
     }
 
     // `rating` in the emitted rows is a SNAP-SHARE PROXY, not a player
@@ -225,107 +311,89 @@ async function main() {
     }
 
     // === OFFENSE ===
+    // Each block: filter candidates by position group, dedupe by name (LWR
+    // and WR can be the same player), sort by (posRank, snap-share), then
+    // pick the first N available via pickAvailable — which adds a
+    // starter_reason when a demotion happened.
+
     // QB
-    const qb = teamStarters.find(s => s.posAbb === 'QB');
-    if (qb) {
-      const r = calcRating(qb.name, 'QB');
-      offense.push({ pos: 'QB', gsis_id: qb.gsis_id ?? null, name: qb.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    const qbCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'QB'), 'off');
+    pickAvailable(qbCands, 1).forEach(c => push(offense, 'QB', c, 'QB'));
 
-    // RBs — from depth chart, sorted by snap count
-    const rbStarters = teamStarters.filter(s => ['RB', 'FB'].includes(s.posAbb));
-    const rbsSorted = rbStarters.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
-    rbsSorted.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p.name, 'RB');
-      offense.push({ pos: `RB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    });
+    // RBs
+    const rbCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['RB', 'FB'].includes(s.posAbb)).map(r => [r.name, r])).values()],
+      'off'
+    );
+    pickAvailable(rbCands, 2).forEach((c, i) => push(offense, `RB${i + 1}`, c, 'RB'));
 
-    // WRs — sorted by snap count for WR1/WR2/WR3
-    const wrStarters = teamStarters.filter(s => ['WR', 'LWR', 'RWR', 'SWR'].includes(s.posAbb));
-    // Deduplicate by name (same player can appear at LWR and WR)
-    const wrUnique = [...new Map(wrStarters.map(w => [w.name, w])).values()];
-    const wrsSorted = wrUnique.sort((a, b) => ((getSnaps(b.name)?.offSnaps || 0) - (getSnaps(a.name)?.offSnaps || 0)));
-    wrsSorted.slice(0, 3).forEach((p, i) => {
-      const r = calcRating(p.name, 'WR');
-      offense.push({ pos: `WR${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    });
+    // WRs
+    const wrCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['WR', 'LWR', 'RWR', 'SWR'].includes(s.posAbb)).map(w => [w.name, w])).values()],
+      'off'
+    );
+    pickAvailable(wrCands, 3).forEach((c, i) => push(offense, `WR${i + 1}`, c, 'WR'));
 
     // TE
-    const te = teamStarters.find(s => s.posAbb === 'TE');
-    if (te) {
-      const r = calcRating(te.name, 'TE');
-      offense.push({ pos: 'TE', gsis_id: te.gsis_id ?? null, name: te.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    const teCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'TE'), 'off');
+    pickAvailable(teCands, 1).forEach(c => push(offense, 'TE', c, 'TE'));
 
-    // OL — direct position mapping
+    // OL — direct position mapping, each slot filled from its own depth
     ['LT', 'LG', 'C', 'RG', 'RT'].forEach(olPos => {
-      const ol = teamStarters.find(s => s.posAbb === olPos);
-      if (ol) {
-        const r = calcRating(ol.name, olPos);
-        offense.push({ pos: olPos, gsis_id: ol.gsis_id ?? null, name: ol.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-      }
+      const olCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === olPos), 'off');
+      pickAvailable(olCands, 1).forEach(c => push(offense, olPos, c, olPos));
     });
 
     // === DEFENSE ===
-    // EDGE — LDE, RDE, LOLB, ROLB sorted by snap count
-    const edgeStarters = teamStarters.filter(s => ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'].includes(s.posAbb));
-    const edgeUnique = [...new Map(edgeStarters.map(e => [e.name, e])).values()];
-    const edgesSorted = edgeUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
-    edgesSorted.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p.name, 'EDGE');
-      defense.push({ pos: `EDGE${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    });
+    // EDGE
+    const edgeCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'].includes(s.posAbb)).map(e => [e.name, e])).values()],
+      'def'
+    );
+    pickAvailable(edgeCands, 2).forEach((c, i) => push(defense, `EDGE${i + 1}`, c, 'EDGE'));
 
-    // DT — LDT, RDT, NT, DT
-    const dtStarters = teamStarters.filter(s => ['LDT', 'RDT', 'NT', 'DT'].includes(s.posAbb));
-    const dtUnique = [...new Map(dtStarters.map(d => [d.name, d])).values()];
-    const dtSorted = dtUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
-    if (dtSorted[0]) {
-      const r = calcRating(dtSorted[0].name, 'DT');
-      defense.push({ pos: 'DT', gsis_id: dtSorted[0].gsis_id ?? null, name: dtSorted[0].name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    // DT
+    const dtCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['LDT', 'RDT', 'NT', 'DT'].includes(s.posAbb)).map(d => [d.name, d])).values()],
+      'def'
+    );
+    pickAvailable(dtCands, 1).forEach(c => push(defense, 'DT', c, 'DT'));
 
-    // LB — MLB, LILB, RILB, WLB, SLB
-    const lbStarters = teamStarters.filter(s => ['MLB', 'LILB', 'RILB', 'WLB', 'SLB', 'ILB'].includes(s.posAbb));
-    const lbUnique = [...new Map(lbStarters.map(l => [l.name, l])).values()];
-    const lbsSorted = lbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
-    lbsSorted.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p.name, 'LB');
-      defense.push({ pos: `LB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    });
+    // LB
+    const lbCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['MLB', 'LILB', 'RILB', 'WLB', 'SLB', 'ILB'].includes(s.posAbb)).map(l => [l.name, l])).values()],
+      'def'
+    );
+    pickAvailable(lbCands, 2).forEach((c, i) => push(defense, `LB${i + 1}`, c, 'LB'));
 
-    // CB — LCB, RCB
-    const cbStarters = teamStarters.filter(s => ['LCB', 'RCB', 'CB'].includes(s.posAbb));
-    const cbUnique = [...new Map(cbStarters.map(c => [c.name, c])).values()];
-    const cbsSorted = cbUnique.sort((a, b) => ((getSnaps(b.name)?.defSnaps || 0) - (getSnaps(a.name)?.defSnaps || 0)));
-    cbsSorted.slice(0, 2).forEach((p, i) => {
-      const r = calcRating(p.name, 'CB');
-      defense.push({ pos: `CB${i + 1}`, gsis_id: p.gsis_id ?? null, name: p.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    });
+    // CB
+    const cbCands = sortByRankAndSnaps(
+      [...new Map(teamStarters.filter(s => ['LCB', 'RCB', 'CB'].includes(s.posAbb)).map(c => [c.name, c])).values()],
+      'def'
+    );
+    pickAvailable(cbCands, 2).forEach((c, i) => push(defense, `CB${i + 1}`, c, 'CB'));
 
     // SCB (nickel)
-    const scb = teamStarters.find(s => s.posAbb === 'NB');
-    if (scb) {
-      const r = calcRating(scb.name, 'CB');
-      defense.push({ pos: 'SCB', gsis_id: scb.gsis_id ?? null, name: scb.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    const scbCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'NB'), 'def');
+    pickAvailable(scbCands, 1).forEach(c => push(defense, 'SCB', c, 'CB'));
 
-    // FS
-    const fs = teamStarters.find(s => s.posAbb === 'FS');
-    if (fs) {
-      const r = calcRating(fs.name, 'S');
-      defense.push({ pos: 'FS', gsis_id: fs.gsis_id ?? null, name: fs.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    // FS / SS
+    const fsCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'FS'), 'def');
+    pickAvailable(fsCands, 1).forEach(c => push(defense, 'FS', c, 'S'));
 
-    // SS
-    const ss = teamStarters.find(s => s.posAbb === 'SS');
-    if (ss) {
-      const r = calcRating(ss.name, 'S');
-      defense.push({ pos: 'SS', gsis_id: ss.gsis_id ?? null, name: ss.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' });
-    }
+    const ssCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'SS'), 'def');
+    pickAvailable(ssCands, 1).forEach(c => push(defense, 'SS', c, 'S'));
 
     rosters[team] = { offense, defense };
   });
+
+  // E-042: log demotions so the run's stdout is proof the filter fired.
+  if (demotions.length) {
+    console.log(`\nStarter demotions (E-042): ${demotions.length}`);
+    demotions.forEach(d => console.log(`  ${d.team} ${d.posAbb} → ${d.name} (skipped: ${d.skipped.join(', ')})`));
+  } else {
+    console.log('\nNo starter demotions this run — every depth-chart pos_rank=1 candidate is available.');
+  }
 
   // Write output
   const output = `// Auto-generated from nflverse depth charts + snap counts (${SEASON} season)

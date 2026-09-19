@@ -40,6 +40,25 @@ try {
   console.error('warn: could not import coachingTrees.js —', e.message);
 }
 
+// E-042 (2026-09-19): pre-load rosters2026.js and availability_2026.json
+// at top level so check #15's body stays synchronous. Same lesson as
+// [green-gate-must-assert-the-field]: an async check body against the
+// sync check() runner passes silently on the returned Promise.
+let ROSTERS = {};
+let AVAIL_DOC = { players: {}, meta: {} };
+try {
+  const { pathToFileURL } = await import('url');
+  const mod = await import(pathToFileURL(REPO + 'src/data/rosters2026.js').href);
+  ROSTERS = mod.ROSTERS_2026 || ROSTERS;
+} catch (e) {
+  console.error('warn: could not import rosters2026.js —', e.message);
+}
+try {
+  AVAIL_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/availability_2026.json', 'utf8'));
+} catch (e) {
+  console.error('warn: could not read availability_2026.json —', e.message);
+}
+
 // NFL season year, matching fetch-injuries.js. The league year rolls over
 // ~March 1 (free agency). Using this instead of getUTCFullYear() so that
 // check #12 does not fail every build on 2027-01-01 when calendar-year
@@ -547,6 +566,45 @@ check('Board rows carry non-null coach names matching coachingTrees.js', () => {
     throw new Error(`${nullChanges.length} skill rows on teams with a changes_2026 entry carry coordinator_is_new_2026: null. Sample: ${sample}. The changes_2026 join is broken.`);
   }
   return `${skillRows.length} skill rows: all coach names match coachingTrees.js; ${Object.keys(changes).length} changes_2026 teams all populated`;
+});
+
+// #15 — starter slots on rosters2026.js never hold a designated-out player
+//
+// E-042 (2026-09-19): QA 2026-09-19 07:45 flagged 6 offensive starter slots
+// in rosters2026.js pointing at players designated Out for Week 3 —
+// ATL QB Penix, BUF WR1 DJ Moore, HOU WR1 Nico Collins, MIN QB Kyler
+// Murray, SEA QB Sam Darnold, WAS TE Chig Okonkwo. The depth-chart-only
+// picker in fetch-nflverse-roster-base.js never consulted the
+// availability feed. Fix at source (picker demotes to next snap-share
+// candidate with a `starter_reason` note) + a shipped-artifact assert
+// here: no starter slot on either side of the ball can be an out player
+// as of the current availability_2026.json snapshot. Same lesson as
+// [green-gate-must-assert-the-field]: gate the exact field on the
+// shipped file, not a proxy upstream.
+check('No starter slot holds a player designated Out/IR/PUP/NFI/SUSP', () => {
+  const availById = AVAIL_DOC.players || {};
+  const OUT_S = new Set(['IR', 'PUP', 'NFI', 'SUSP']);
+  const OUT_GD = new Set(['O', 'Out']);
+  const offenders = [];
+  for (const [team, r] of Object.entries(ROSTERS)) {
+    for (const side of ['offense', 'defense']) {
+      for (const p of r[side] || []) {
+        if (!p.gsis_id) continue;
+        const a = availById[p.gsis_id];
+        if (!a) continue;
+        const s = String(a.status || '').toUpperCase();
+        const gd = String(a.game_designation || '');
+        const reason = OUT_S.has(s) ? s : (OUT_GD.has(gd) ? 'Out' : null);
+        if (reason) offenders.push(`${team} ${p.pos} ${p.name} (${reason})`);
+      }
+    }
+  }
+  if (offenders.length > 0) {
+    const sample = offenders.slice(0, 8).join(', ');
+    throw new Error(`${offenders.length} starter slot(s) hold a designated-out player: ${sample}${offenders.length > 8 ? ', …' : ''}. Fix at fetch-nflverse-roster-base.js (E-042 picker) — do not paper over with a manual roster edit.`);
+  }
+  const totalStarters = Object.values(ROSTERS).reduce((n, r) => n + (r.offense?.length || 0) + (r.defense?.length || 0), 0);
+  return `${totalStarters} starter slots across 32 teams; 0 designated-out (availability generated ${AVAIL_DOC.meta?.generated || 'unknown'})`;
 });
 
 const passed = results.filter(r => r.pass).length;
