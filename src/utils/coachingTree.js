@@ -53,8 +53,22 @@ export function calcCoachingTreeOverlap(team1, team2) {
     overlapScore,
     narrative,
     details: {
-      team1: { hc: staff1.hc, oc: staff1.oc, dc: staff1.dc, style: staff1.style, trees: staff1.trees },
-      team2: { hc: staff2.hc, oc: staff2.oc, dc: staff2.dc, style: staff2.style, trees: staff2.trees },
+      // E-038h / Q-043 (2026-09-18): also pass through `_title` and `_note`
+      // side-band metadata for each role so the renderer can show TB's
+      // "HC also calls the defense" title and Bowles-as-play-caller note
+      // (and any future non-standard staff shapes) without a second lookup.
+      team1: {
+        hc: staff1.hc, hc_title: staff1.hc_title || null, hc_note: staff1.hc_note || null,
+        oc: staff1.oc, oc_title: staff1.oc_title || null, oc_note: staff1.oc_note || null,
+        dc: staff1.dc, dc_title: staff1.dc_title || null, dc_note: staff1.dc_note || null,
+        style: staff1.style, trees: staff1.trees,
+      },
+      team2: {
+        hc: staff2.hc, hc_title: staff2.hc_title || null, hc_note: staff2.hc_note || null,
+        oc: staff2.oc, oc_title: staff2.oc_title || null, oc_note: staff2.oc_note || null,
+        dc: staff2.dc, dc_title: staff2.dc_title || null, dc_note: staff2.dc_note || null,
+        style: staff2.style, trees: staff2.trees,
+      },
     },
   };
 }

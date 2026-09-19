@@ -307,15 +307,25 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{tn(offTm)}</div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{coachTree.details.team1.hc}</div>
                 <div style={{ fontSize: 11, color: "#64748b" }}>OC: {coachTree.details.team1.oc}</div>
-                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team1.dc}</div>
-                <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team1.style}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team1.dc}{coachTree.details.team1.dc_title ? ` · ${coachTree.details.team1.dc_title}` : ""}</div>
+                {coachTree.details.team1.dc_note && (
+                  <div style={{ fontSize: 10, color: "#64748b", marginTop: 2, lineHeight: 1.4 }}>{coachTree.details.team1.dc_note}</div>
+                )}
+                {coachTree.details.team1.style && (
+                  <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team1.style}</div>
+                )}
               </div>
               <div style={{ padding: "10px 14px", background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>{tn(defTm)}</div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>{coachTree.details.team2.hc}</div>
                 <div style={{ fontSize: 11, color: "#64748b" }}>OC: {coachTree.details.team2.oc}</div>
-                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team2.dc}</div>
-                <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team2.style}</div>
+                <div style={{ fontSize: 11, color: "#64748b" }}>DC: {coachTree.details.team2.dc}{coachTree.details.team2.dc_title ? ` · ${coachTree.details.team2.dc_title}` : ""}</div>
+                {coachTree.details.team2.dc_note && (
+                  <div style={{ fontSize: 10, color: "#64748b", marginTop: 2, lineHeight: 1.4 }}>{coachTree.details.team2.dc_note}</div>
+                )}
+                {coachTree.details.team2.style && (
+                  <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4, fontStyle: "italic" }}>{coachTree.details.team2.style}</div>
+                )}
               </div>
             </div>
           )}

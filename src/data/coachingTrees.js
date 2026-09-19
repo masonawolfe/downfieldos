@@ -30,10 +30,12 @@
  * pass; check #12 does not gate on trees/style today.
  *
  * TB defensive coordinator: no coach on the Buccaneers' staff carries
- * the explicit "Defensive Coordinator" title. George Edwards is "Pass
- * Game Coordinator" on defense. Per peer's rule ("record the ambiguity
- * in a note field rather than guessing"), TB.dc is populated with
- * George Edwards and `dc_note` explains the ambiguity.
+ * the explicit "Defensive Coordinator" title. HC Bowles calls the
+ * defense himself; George Edwards is Pass Game Coordinator (senior
+ * defensive assistant). Per Q-043 (2026-09-18), TB.dc names the
+ * play-caller (Bowles), `dc_title` records the non-standard shape, and
+ * `dc_note` explains it. Renderers should surface `dc_note` whenever
+ * `dc` is rendered.
  */
 
 export const COACHING_TREES = {
@@ -142,25 +144,25 @@ export const COACHING_TREES = {
       hc: 'Joe Brady',          hc_verified_on: '2026-09-18', hc_source: 'https://www.buffalobills.com/team/coaches/',
       oc: 'Pete Carmichael',    oc_verified_on: '2026-09-18', oc_source: 'https://www.buffalobills.com/team/coaches/',
       dc: 'Jim Leonhard',       dc_verified_on: '2026-09-18', dc_source: 'https://www.buffalobills.com/team/coaches/',
-      trees: ['BELICHICK', 'REID'], style: '',
+      trees: ['BELICHICK', 'REID'], style: null,
     },
     CAR: {
       hc: 'Dave Canales',       hc_verified_on: '2026-09-18', hc_source: 'https://www.panthers.com/team/coaches/',
       oc: 'Brad Idzik',         oc_verified_on: '2026-09-18', oc_source: 'https://www.panthers.com/team/coaches/',
       dc: 'Ejiro Evero',        dc_verified_on: '2026-09-18', dc_source: 'https://www.panthers.com/team/coaches/',
-      trees: ['MCVAY', 'PAYTON'], style: '',
+      trees: ['MCVAY', 'PAYTON'], style: null,
     },
     CHI: {
       hc: 'Ben Johnson',        hc_verified_on: '2026-09-18', hc_source: 'https://www.chicagobears.com/team/coaches/',
       oc: 'Press Taylor',       oc_verified_on: '2026-09-18', oc_source: 'https://www.chicagobears.com/team/coaches/',
       dc: 'Dennis Allen',       dc_verified_on: '2026-09-18', dc_source: 'https://www.chicagobears.com/team/coaches/',
-      trees: ['CAMPBELL', 'PAYTON'], style: '',
+      trees: ['CAMPBELL', 'PAYTON'], style: null,
     },
     CIN: {
       hc: 'Zac Taylor',         hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Cincinnati_Bengals_season',
       oc: 'Dan Pitcher',        oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Cincinnati_Bengals_season',
       dc: 'Al Golden',          dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Cincinnati_Bengals_season',
-      trees: ['MCVAY'], style: '',
+      trees: ['MCVAY'], style: null,
     },
     CLE: {
       hc: 'Todd Monken',        hc_verified_on: '2026-09-18', hc_source: 'https://www.clevelandbrowns.com/team/coaches/',
@@ -180,7 +182,7 @@ export const COACHING_TREES = {
       hc: 'Brian Schottenheimer', hc_verified_on: '2026-09-18', hc_source: 'https://www.dallascowboys.com/team/coaches/',
       oc: 'Klayton Adams',        oc_verified_on: '2026-09-18', oc_source: 'https://www.dallascowboys.com/team/coaches/',
       dc: 'Christian Parker',     dc_verified_on: '2026-09-18', dc_source: 'https://www.dallascowboys.com/team/coaches/',
-      trees: ['BELICHICK'], style: '',
+      trees: ['BELICHICK'], style: null,
     },
     DEN: {
       hc: 'Sean Payton',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Denver_Broncos_season',
@@ -192,31 +194,31 @@ export const COACHING_TREES = {
       hc: 'Dan Campbell',       hc_verified_on: '2026-09-18', hc_source: 'https://www.detroitlions.com/team/coaches/',
       oc: 'Drew Petzing',       oc_verified_on: '2026-09-18', oc_source: 'https://www.detroitlions.com/team/coaches/',
       dc: 'Kelvin Sheppard',    dc_verified_on: '2026-09-18', dc_source: 'https://www.detroitlions.com/team/coaches/',
-      trees: ['CAMPBELL', 'PAYTON'], style: '',
+      trees: ['CAMPBELL', 'PAYTON'], style: null,
     },
     GB: {
       hc: 'Matt LaFleur',       hc_verified_on: '2026-09-18', hc_source: 'https://www.packers.com/team/coaches/',
       oc: 'Adam Stenavich',     oc_verified_on: '2026-09-18', oc_source: 'https://www.packers.com/team/coaches/',
       dc: 'Jonathan Gannon',    dc_verified_on: '2026-09-18', dc_source: 'https://www.packers.com/team/coaches/',
-      trees: ['SHANAHAN', 'MCVAY'], style: '',
+      trees: ['SHANAHAN', 'MCVAY'], style: null,
     },
     HOU: {
       hc: 'DeMeco Ryans',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Houston_Texans_season',
       oc: 'Nick Caley',         oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Houston_Texans_season',
       dc: 'Matt Burke',         dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Houston_Texans_season',
-      trees: ['SHANAHAN'], style: '',
+      trees: ['SHANAHAN'], style: null,
     },
     IND: {
       hc: 'Shane Steichen',     hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Indianapolis_Colts_season',
       oc: 'Jim Bob Cooter',     oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Indianapolis_Colts_season',
       dc: 'Lou Anarumo',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Indianapolis_Colts_season',
-      trees: ['SIRIANNI', 'REID'], style: '',
+      trees: ['SIRIANNI', 'REID'], style: null,
     },
     JAX: {
       hc: 'Liam Coen',          hc_verified_on: '2026-09-18', hc_source: 'https://www.jaguars.com/team/coaches/',
       oc: 'Grant Udinski',      oc_verified_on: '2026-09-18', oc_source: 'https://www.jaguars.com/team/coaches/',
       dc: 'Anthony Campanile',  dc_verified_on: '2026-09-18', dc_source: 'https://www.jaguars.com/team/coaches/',
-      trees: ['MCVAY'], style: '',
+      trees: ['MCVAY'], style: null,
     },
     KC: {
       hc: 'Andy Reid',          hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Kansas_City_Chiefs_season',
@@ -228,7 +230,7 @@ export const COACHING_TREES = {
       hc: 'Jim Harbaugh',       hc_verified_on: '2026-09-18', hc_source: 'https://www.chargers.com/team/coaches/',
       oc: 'Mike McDaniel',      oc_verified_on: '2026-09-18', oc_source: 'https://www.chargers.com/team/coaches/',
       dc: "Chris O'Leary",      dc_verified_on: '2026-09-18', dc_source: 'https://www.chargers.com/team/coaches/',
-      trees: ['HARBAUGH'], style: '',
+      trees: ['HARBAUGH'], style: null,
     },
     LAR: {
       hc: 'Sean McVay',           hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Los_Angeles_Rams_season',
@@ -252,13 +254,13 @@ export const COACHING_TREES = {
       hc: 'Jeff Hafley',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Miami_Dolphins_season',
       oc: 'Bobby Slowik',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Miami_Dolphins_season',
       dc: 'Sean Duggan',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Miami_Dolphins_season',
-      trees: ['SHANAHAN', 'MCDANIEL'], style: '',
+      trees: ['SHANAHAN', 'MCDANIEL'], style: null,
     },
     MIN: {
       hc: "Kevin O'Connell",    hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Minnesota_Vikings_season',
       oc: 'Wes Phillips',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Minnesota_Vikings_season',
       dc: 'Brian Flores',       dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Minnesota_Vikings_season',
-      trees: ['MCVAY', 'SHANAHAN'], style: '',
+      trees: ['MCVAY', 'SHANAHAN'], style: null,
     },
     NE: {
       hc: 'Mike Vrabel',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_New_England_Patriots_season',
@@ -296,13 +298,13 @@ export const COACHING_TREES = {
       hc: 'Aaron Glenn',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_New_York_Jets_season',
       oc: 'Frank Reich',        oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_New_York_Jets_season',
       dc: 'Brian Duker',        dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_New_York_Jets_season',
-      trees: ['CAMPBELL'], style: '',
+      trees: ['CAMPBELL'], style: null,
     },
     PHI: {
       hc: 'Nick Sirianni',      hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Philadelphia_Eagles_season',
       oc: 'Sean Mannion',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Philadelphia_Eagles_season',
       dc: 'Vic Fangio',         dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Philadelphia_Eagles_season',
-      trees: ['SIRIANNI', 'REID'], style: '',
+      trees: ['SIRIANNI', 'REID'], style: null,
     },
     PIT: {
       hc: 'Mike McCarthy',      hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Pittsburgh_Steelers_season',
@@ -322,7 +324,7 @@ export const COACHING_TREES = {
       hc: 'Mike Macdonald',     hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Seattle_Seahawks_season',
       oc: 'Brian Fleury',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Seattle_Seahawks_season',
       dc: 'Aden Durde',         dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Seattle_Seahawks_season',
-      trees: ['HARBAUGH'], style: '',
+      trees: ['HARBAUGH'], style: null,
     },
     SF: {
       hc: 'Kyle Shanahan',      hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_San_Francisco_49ers_season',
@@ -331,16 +333,19 @@ export const COACHING_TREES = {
       trees: ['SHANAHAN'], style: 'Shanahan system',
     },
     TB: {
-      hc: 'Todd Bowles',        hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Tampa_Bay_Buccaneers_season',
-      oc: 'Zac Robinson',       oc_verified_on: '2026-09-18', oc_source: 'https://en.wikipedia.org/wiki/2026_Tampa_Bay_Buccaneers_season',
-      dc: 'George Edwards',     dc_verified_on: '2026-09-18', dc_source: 'https://en.wikipedia.org/wiki/2026_Tampa_Bay_Buccaneers_season',
-      // TB does not list a coach with the explicit "Defensive Coordinator"
-      // title. George Edwards is listed as "Pass Game Coordinator" on the
-      // defensive side and is the senior defensive title after HC Bowles
-      // (who calls the defense himself). Recorded per peer's rule: use a
-      // note field rather than guess.
-      dc_note: 'Buccaneers do not list a formal Defensive Coordinator for 2026; George Edwards holds Pass Game Coordinator title and is the senior defensive assistant. HC Bowles calls the defense.',
-      trees: ['BELICHICK'], style: '',
+      hc: 'Todd Bowles',        hc_verified_on: '2026-09-18', hc_source: 'https://www.buccaneers.com/team/coaches-roster/',
+      oc: 'Zac Robinson',       oc_verified_on: '2026-09-18', oc_source: 'https://www.buccaneers.com/team/coaches-roster/',
+      // Q-043 (2026-09-18): buccaneers.com lists no Defensive Coordinator;
+      // HC Bowles calls the defense himself and George Edwards holds the
+      // Pass Game Coordinator title on the defensive side. Naming Edwards
+      // as `dc` (prior E-038 value) misrepresents the role structure —
+      // buccaneers.com contradicts it directly. `dc` now names the
+      // play-caller (Bowles), `dc_title` records the non-standard shape,
+      // and `dc_note` explains it for renderers that surface notes.
+      dc: 'Todd Bowles',        dc_verified_on: '2026-09-18', dc_source: 'https://www.buccaneers.com/team/coaches-roster/',
+      dc_title: 'HC also calls the defense; Pass Game Coordinator: George Edwards',
+      dc_note: 'Buccaneers list no formal Defensive Coordinator for 2026. HC Todd Bowles calls the defense; George Edwards is Pass Game Coordinator (senior defensive assistant).',
+      trees: ['BELICHICK'], style: null,
     },
     TEN: {
       hc: 'Robert Saleh',       hc_verified_on: '2026-09-18', hc_source: 'https://en.wikipedia.org/wiki/2026_Tennessee_Titans_season',
@@ -419,7 +424,7 @@ export const COACHING_TREES = {
     PHI: { hc: false, oc: true,  dc: false, note: 'Sean Mannion OC replaces Kellen Moore (to NO HC); Sirianni / Fangio retained.' },
     SEA: { hc: false, oc: true,  dc: false, note: 'Brian Fleury OC replaces Ryan Grubb; Macdonald / Durde retained.' },
     SF:  { hc: false, oc: false, dc: true,  note: 'Raheem Morris DC (from ATL HC) replaces Nick Sorensen; Shanahan / Klay Kubiak continuity.' },
-    TB:  { hc: false, oc: true,  dc: true,  note: 'Zac Robinson OC (from ATL) replaces Liam Coen (to JAX HC); George Edwards elevated on defense (see teams.TB.dc_note); Bowles HC retained.' },
+    TB:  { hc: false, oc: true,  dc: true,  note: 'Zac Robinson OC (from ATL) replaces Liam Coen (to JAX HC); no formal Defensive Coordinator for 2026 — HC Bowles calls the defense, George Edwards is Pass Game Coordinator (see teams.TB.dc_note); Bowles HC retained.' },
     WAS: { hc: false, oc: true,  dc: true,  note: 'David Blough OC replaces Kliff Kingsbury; Daronte Jones DC replaces Joe Whitt; Quinn HC retained.' },
     // Confirmed all-continuity from 2025 (Joe Brady's 2025 hire not counted
     // as 2026-new).

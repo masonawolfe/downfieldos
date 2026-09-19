@@ -339,6 +339,23 @@ check('coachingTrees per-role and per-field NFL-season verification ratchet', ()
   let m;
   while ((m = teamKeyRe.exec(teamsBlock)) !== null) teamKeys.push(m[1]);
   if (teamKeys.length !== 32) throw new Error(`expected 32 team keys in coachingTrees.js teams block, found ${teamKeys.length}`);
+  // E-038h (2026-09-18): style contract. A team's `style` field must be
+  // either `null` (unsourced, renderer omits) OR a non-empty string with a
+  // matching `style_source`. `style: ''` was the shape E-038g used to cut
+  // the 17 unsourced strings; on 2026-09-18 the live bundle
+  // (index-BgTBcjHG.js) rendered 17 blank italic lines because
+  // MatchupCenter.jsx:311,318 printed the empty string. Fail hard on the
+  // shape, not the count — an empty string is never a legitimate style
+  // value, and the renderer now omits null but has no defence against ''.
+  const emptyStyleTeams = [];
+  for (const slice of teamsBlock.split(/\n(?=    [A-Z]{2,3}:\s*\{)/)) {
+    const k = slice.match(/^\s*([A-Z]{2,3}):\s*\{/m);
+    if (!k) continue;
+    if (/style:\s*''/.test(slice) || /style:\s*""/.test(slice)) emptyStyleTeams.push(k[1]);
+  }
+  if (emptyStyleTeams.length > 0) {
+    throw new Error(`coachingTrees.js contract violation: ${emptyStyleTeams.length} teams carry style: '' — use null for unsourced (renderer omits) or a non-empty string with a matching style_source. Offenders: ${emptyStyleTeams.join(', ')}.`);
+  }
   // Count unverified (team, field) rows. 32 teams × 5 fields (hc, oc, dc,
   // trees, style) = 160 total. E-038b (2026-09-18): the 3 role fields are
   // fully verified for 2026 (96/96); the 2 scheme fields are partial —
