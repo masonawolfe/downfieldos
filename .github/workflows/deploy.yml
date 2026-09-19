@@ -174,23 +174,33 @@ jobs:
           node .github/scripts/render-smoke.mjs
 
   # E-041 (2026-09-19): opens or updates a GitHub issue when any deploy
-  # job fails, with SHA-based de-dupe. Runs inline so the notification
-  # does not depend on workflow_run cascade — deploy runs triggered by
-  # `gh workflow run deploy.yml` from a data workflow's GITHUB_TOKEN
-  # never fan out workflow_run and were silently going unnoticed by the
-  # standalone deploy-watcher.yml. The watcher is kept as a second
-  # signal for push-triggered / human-token deploys.
+  # job does not succeed. Runs inline so the notification does not depend
+  # on workflow_run cascade — the standalone deploy-watcher.yml fired 15
+  # times on 09-18 against workflow_dispatch shapes and 0 times on 09-19
+  # against the same shape, with no repo change in between. Cause is
+  # unknown; the inline job removes the dependency, so debugging why the
+  # cascade stopped no longer gates outage visibility. The watcher is
+  # kept as a second signal.
+  #
+  # Q-052 (2026-09-19 12:05 CT): originally fired on `failure` only. A
+  # `cancelled` deploy (e.g. run 35142037261 for `45b3394` on 09-18,
+  # cancelled by the `pages` concurrency group) notified nothing and a
+  # bot data commit could sit undeployed silently. Predicate widened to
+  # any-non-success — `failure`, `cancelled`, or `skipped` (a job that
+  # never ran because a needed job did not succeed). Issue body now
+  # names each job's result so the debugger sees which one moved.
   notify_on_failure:
     runs-on: ubuntu-latest
     needs: [build, deploy, smoke-test]
-    # Fires when any upstream job failed OR when the operator dispatched
-    # with simulate_failure=true (proof path). `always()` ensures this
-    # job is scheduled even after an upstream failure.
+    # Fires when ANY of build/deploy/smoke-test did not end in success,
+    # OR when the operator dispatched with simulate_failure=true (proof
+    # path). `always()` ensures this job is scheduled even after an
+    # upstream failure or cancellation.
     if: >-
       ${{ always() && (
-        needs.build.result == 'failure' ||
-        needs.deploy.result == 'failure' ||
-        needs.smoke-test.result == 'failure' ||
+        needs.build.result != 'success' ||
+        needs.deploy.result != 'success' ||
+        needs.smoke-test.result != 'success' ||
         github.event.inputs.simulate_failure == 'true'
       ) }}
     permissions:
@@ -210,15 +220,24 @@ jobs:
           set -euo pipefail
           SHORT=$(echo "$SHA" | cut -c1-7)
           COMMIT_URL="https://github.com/${GITHUB_REPOSITORY}/commit/${SHA}"
-          FAILED=""
-          [ "$BUILD_RESULT"  = "failure" ] && FAILED="${FAILED} build"
-          [ "$DEPLOY_RESULT" = "failure" ] && FAILED="${FAILED} deploy"
-          [ "$SMOKE_RESULT"  = "failure" ] && FAILED="${FAILED} smoke-test"
-          FAILED="${FAILED## }"
+          # Q-052: report every job's result, not just failures. Names
+          # the state so a `cancelled` (concurrency group ate it) or a
+          # `skipped` (a `needs:` job did not succeed) is visible in the
+          # issue body without a click into the run.
+          JOBS_LINE="build=${BUILD_RESULT}, deploy=${DEPLOY_RESULT}, smoke-test=${SMOKE_RESULT}"
+          NOT_OK=""
+          for entry in "build=${BUILD_RESULT}" "deploy=${DEPLOY_RESULT}" "smoke-test=${SMOKE_RESULT}"; do
+            n="${entry%%=*}"; r="${entry#*=}"
+            [ "$r" != "success" ] && NOT_OK="${NOT_OK}${n}(${r}) "
+          done
+          NOT_OK="${NOT_OK% }"
+          [ -z "$NOT_OK" ] && NOT_OK="none"
           if [ "$IS_SIM" = "true" ]; then
             TITLE_PREFIX="[SIMULATED] "
             BODY_TAG=$'**This is an operator dry-run of the in-deploy failure notify path (E-041), not a real deploy failure.** Close after verifying.\n\n'
-            FAILED="${FAILED:-simulate}"
+            # Simulate always passes the predicate even when everything succeeded;
+            # tag the not_ok line so it does not read "none".
+            [ "$NOT_OK" = "none" ] && NOT_OK="simulate"
           else
             TITLE_PREFIX=""
             BODY_TAG=""
@@ -234,22 +253,23 @@ jobs:
           if [ -n "$EXISTING" ] && [ "$EXISTING" != "null" ]; then
             gh issue comment "$EXISTING" \
               --repo "$GITHUB_REPOSITORY" \
-              --body "Additional failure on ${SHORT}: ${RUN_URL} (failed: ${FAILED})" || echo "comment failed; falling back to annotation"
+              --body "Additional non-success on ${SHORT}: ${RUN_URL} (jobs: ${JOBS_LINE})" || echo "comment failed; falling back to annotation"
             echo "  updated open issue #${EXISTING} for ${SHORT}"
             exit 0
           fi
           gh issue create \
             --repo "$GITHUB_REPOSITORY" \
             --title "${TITLE_PREFIX}deploy failed after commit ${SHORT}" \
-            --body "${BODY_TAG}**Deploy to GitHub Pages failed — the site is running against the previous successful deploy until this is resolved.**
+            --body "${BODY_TAG}**Deploy to GitHub Pages did not succeed — the site is running against the previous successful deploy until this is resolved.**
 
-          - Failed run: ${RUN_URL}
+          - Run: ${RUN_URL}
           - Commit: [\`${SHORT}\`](${COMMIT_URL})
-          - Failed jobs: ${FAILED}
+          - Jobs: ${JOBS_LINE}
+          - Not-success: ${NOT_OK}
 
-          Auto-filed by \`.github/workflows/deploy.yml\` (notify_on_failure job — E-041 2026-09-19). Close when a later deploy succeeds; subsequent failures on the same commit will comment on this issue rather than opening a new one." \
+          Auto-filed by \`.github/workflows/deploy.yml\` (\`notify_on_failure\` — E-041 2026-09-19). Fires on any non-success result (\`failure\`, \`cancelled\`, or \`skipped\`) so a concurrency-group cancellation (\`pages\` group ate the run) or a downstream job that never ran because an upstream one did not succeed is still visible. Close when a later deploy succeeds; subsequent non-successes on the same commit will comment on this issue rather than opening a new one." \
             || {
               echo "gh issue create failed — falling back to workflow annotation"
-              echo "::error::Deploy $RUN_URL failed after commit $SHORT (failed: $FAILED)"
+              echo "::error::Deploy $RUN_URL did not succeed after commit $SHORT (jobs: $JOBS_LINE)"
               exit 0
             }
