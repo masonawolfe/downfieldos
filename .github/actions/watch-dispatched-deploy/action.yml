@@ -75,15 +75,21 @@ runs:
         # notify path; leave `simulate_conclusion` empty in normal use.
         if [ -n "${SIM_CONCLUSION:-}" ]; then
           FAKE_RUN_URL="https://github.com/${REPO}/actions/runs/simulated-${GITHUB_RUN_ID:-0}"
-          BODY="**This is an operator dry-run of the caller-side watch/notify path (E-043), not a real deploy failure.** Close after verifying.
-
-**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) simulated ending \`${SIM_CONCLUSION}\`.**
-
-- Simulated deploy run: ${FAKE_RUN_URL} (conclusion: **${SIM_CONCLUSION}**)
-- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
-- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
-
-Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19, simulate branch). Verifies the notify path fires from the caller side — closes the gap that deploy.yml's \`notify_on_failure\` cannot cover for a run that was cancelled while still pending (0 jobs)."
+          # Body built via printf to keep continuation lines inside the YAML
+          # block scalar. Leading `**` and `-` at column 1 in a bare heredoc
+          # would drop out of the block and get parsed by GitHub's YAML
+          # lexer, which reads `*` as an alias marker. E-026 lesson: keep
+          # every continuation indented deeper than the block anchor.
+          BODY=$(printf '%s\n' \
+            "**This is an operator dry-run of the caller-side watch/notify path (E-043), not a real deploy failure.** Close after verifying." \
+            "" \
+            "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) simulated ending \`${SIM_CONCLUSION}\`.**" \
+            "" \
+            "- Simulated deploy run: ${FAKE_RUN_URL} (conclusion: **${SIM_CONCLUSION}**)" \
+            "- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}" \
+            "- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})" \
+            "" \
+            "Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19, simulate branch). Verifies the notify path fires from the caller side — closes the gap that deploy.yml's \`notify_on_failure\` cannot cover for a run that was cancelled while still pending (0 jobs).")
           existing=$(gh issue list --repo "$REPO" --state open \
             --search "[SIMULATED] deploy failed after commit ${SHORT} in:title" \
             --json number --jq '.[0].number // empty' 2>/dev/null || echo "")
@@ -152,12 +158,14 @@ Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19, sim
           # The dispatch call returned but no run registered inside the
           # wait window. Rare; open a heads-up issue rather than staying
           # silent, since a bot data commit is now sitting undeployed.
-          notify "never-registered" "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) never registered a run within ${WAIT_S}s.**
-
-- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
-- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
-
-Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Close when a later deploy succeeds."
+          NR_BODY=$(printf '%s\n' \
+            "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) never registered a run within ${WAIT_S}s.**" \
+            "" \
+            "- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}" \
+            "- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})" \
+            "" \
+            "Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Close when a later deploy succeeds.")
+          notify "never-registered" "$NR_BODY"
           exit 0
         fi
 
@@ -205,10 +213,12 @@ Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Cl
         fi
 
         # Non-success and no later success — a real outage window.
-        notify "$CONCLUSION" "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) ended \`${CONCLUSION}\` — the site is running against the previous successful deploy until a later run succeeds.**
-
-- Dispatched deploy: ${RUN_URL} (conclusion: **${CONCLUSION}**)
-- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}
-- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})
-
-Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Fires from the caller side because deploy.yml's own \`notify_on_failure\` cannot fire on a run that was cancelled while still pending (0 jobs). Close when a later deploy succeeds; subsequent non-successes on the same commit will comment on this issue rather than opening a new one."
+        OUTAGE_BODY=$(printf '%s\n' \
+          "**Dispatched deploy for [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA}) ended \`${CONCLUSION}\` — the site is running against the previous successful deploy until a later run succeeds.**" \
+          "" \
+          "- Dispatched deploy: ${RUN_URL} (conclusion: **${CONCLUSION}**)" \
+          "- Caller workflow: **${CALLER_WF}** — ${CALLER_RUN_URL}" \
+          "- Commit: [\`${SHORT}\`](https://github.com/${REPO}/commit/${SHA})" \
+          "" \
+          "Auto-filed by \`.github/actions/watch-dispatched-deploy\` (E-043 2026-09-19). Fires from the caller side because deploy.yml's own \`notify_on_failure\` cannot fire on a run that was cancelled while still pending (0 jobs). Close when a later deploy succeeds; subsequent non-successes on the same commit will comment on this issue rather than opening a new one.")
+        notify "$CONCLUSION" "$OUTAGE_BODY"
