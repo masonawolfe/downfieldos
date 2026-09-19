@@ -3,7 +3,7 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-09-19T09:39:52.066Z
+// Generated: 2026-09-19T16:39:18.451Z
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
 
@@ -27,11 +27,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0037263",
+        "name": "Tyler Allgeier",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0038559",
         "name": "Michael Wilson",
         "grade": "Above Avg",
         "rating": 86,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039849",
+        "name": "Marvin Harrison Jr.",
+        "grade": "Above Avg",
+        "rating": 86,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0033307",
+        "name": "Kendrick Bourne",
+        "grade": "Above Avg",
+        "rating": 79,
         "rating_source": "snap_share_v1"
       },
       {
@@ -170,11 +194,12 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0039917",
-        "name": "Michael Penix Jr.",
+        "gsis_id": "00-0036212",
+        "name": "Tua Tagovailoa",
         "grade": "Average",
-        "rating": 73,
-        "rating_source": "snap_share_v1"
+        "rating": 74,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Michael Penix Jr. (Out)"
       },
       {
         "pos": "RB1",
@@ -185,11 +210,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0037746",
+        "name": "Brian Robinson Jr.",
+        "grade": "Below Avg",
+        "rating": 67,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0037238",
         "name": "Drake London",
         "grade": "Above Avg",
         "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0037741",
+        "name": "Jahan Dotson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0035208",
+        "name": "Olamide Zaccheaus",
+        "grade": "Average",
+        "rating": 70,
         "rating_source": "snap_share_v1"
       },
       {
@@ -300,11 +349,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0040156",
-        "name": "Billy Bowman Jr.",
+        "gsis_id": "00-0039002",
+        "name": "Sydney Brown",
         "grade": "Average",
-        "rating": 71,
-        "rating_source": "snap_share_v1"
+        "rating": 73,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Billy Bowman Jr. (Out)"
       },
       {
         "pos": "FS",
@@ -343,9 +393,33 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0034975",
+        "name": "Justice Hill",
+        "grade": "Average",
+        "rating": 74,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0039064",
         "name": "Zay Flowers",
+        "grade": "Average",
+        "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0036550",
+        "name": "Rashod Bateman",
+        "grade": "Above Avg",
+        "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039792",
+        "name": "Devontez Walker",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1"
@@ -410,11 +484,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0036130",
-        "name": "Nnamdi Madubuike",
+        "gsis_id": "00-0036081",
+        "name": "Broderick Washington Jr.",
         "grade": "Average",
-        "rating": 74,
-        "rating_source": "snap_share_v1"
+        "rating": 71,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Nnamdi Madubuike (Out)"
       },
       {
         "pos": "DT",
@@ -501,11 +576,28 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039875",
+        "name": "Ray Davis",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
-        "gsis_id": "00-0034827",
-        "name": "DJ Moore",
+        "gsis_id": "00-0037261",
+        "name": "Khalil Shakir",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: DJ Moore (Out)"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039901",
+        "name": "Keon Coleman",
         "grade": "Average",
-        "rating": 74,
+        "rating": 77,
         "rating_source": "snap_share_v1"
       },
       {
@@ -560,18 +652,19 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0035230",
-        "name": "Ed Oliver",
-        "grade": "Above Avg",
-        "rating": 87,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0040132",
+        "name": "Landon Jackson",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Ed Oliver (Out), T.J. Sanders (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0040724",
-        "name": "T.J. Sanders",
+        "gsis_id": "00-0039873",
+        "name": "DeWayne Carter",
         "grade": "Average",
-        "rating": 71,
+        "rating": 73,
         "rating_source": "snap_share_v1"
       },
       {
@@ -659,11 +752,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039344",
+        "name": "Jonathon Brooks",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0040124",
         "name": "Tetairoa McMillan",
         "grade": "Above Avg",
         "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039491",
+        "name": "Jalen Coker",
+        "grade": "Above Avg",
+        "rating": 81,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039342",
+        "name": "Xavier Legette",
+        "grade": "Average",
+        "rating": 77,
         "rating_source": "snap_share_v1"
       },
       {
@@ -726,11 +843,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0036903",
-        "name": "Bobby Brown III",
+        "gsis_id": "00-0041148",
+        "name": "Aaron Hall",
         "grade": "Average",
-        "rating": 74,
-        "rating_source": "snap_share_v1"
+        "rating": 75,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Bobby Brown III (Out)"
       },
       {
         "pos": "DT",
@@ -817,11 +935,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0040236",
+        "name": "Kyle Monangai",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0039919",
         "name": "Rome Odunze",
         "grade": "Average",
         "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0040735",
+        "name": "Luther Burden III",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0032464",
+        "name": "Kalif Raymond",
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1"
       },
       {
@@ -975,11 +1117,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0033526",
+        "name": "Samaje Perine",
+        "grade": "Below Avg",
+        "rating": 67,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0036900",
         "name": "Ja'Marr Chase",
         "grade": "Above Avg",
         "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0036410",
+        "name": "Tee Higgins",
+        "grade": "Above Avg",
+        "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0038619",
+        "name": "Andrei Iosivas",
+        "grade": "Average",
+        "rating": 77,
         "rating_source": "snap_share_v1"
       },
       {
@@ -1149,6 +1315,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0041547",
+        "name": "KC Concepcion",
+        "grade": "Average",
+        "rating": 75,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0041037",
+        "name": "Denzel Boston",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0040663",
         "name": "Harold Fannin Jr.",
@@ -1315,6 +1497,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0037247",
+        "name": "George Pickens",
+        "grade": "Above Avg",
+        "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039410",
+        "name": "Ryan Flournoy",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0038041",
         "name": "Jake Ferguson",
@@ -1390,18 +1588,19 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0038556",
-        "name": "DeMarvion Overshown",
-        "grade": "Above Avg",
-        "rating": 81,
-        "rating_source": "snap_share_v1"
-      },
-      {
-        "pos": "LB2",
         "gsis_id": "00-0040725",
         "name": "Donovan Ezeiruaku",
         "grade": "Average",
         "rating": 75,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: DeMarvion Overshown (Out)"
+      },
+      {
+        "pos": "LB2",
+        "gsis_id": "00-0034967",
+        "name": "Rashan Gary",
+        "grade": "Above Avg",
+        "rating": 78,
         "rating_source": "snap_share_v1"
       },
       {
@@ -1430,11 +1629,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0033877",
-        "name": "Malik Hooker",
-        "grade": "Below Avg",
-        "rating": 67,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0035227",
+        "name": "P.J. Locke",
+        "grade": "Average",
+        "rating": 74,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Malik Hooker (Out)"
       },
       {
         "pos": "SS",
@@ -1465,9 +1665,25 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0040730",
+        "name": "RJ Harvey",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0036613",
         "name": "Jaylen Waddle",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0034348",
+        "name": "Courtland Sutton",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1"
@@ -1623,11 +1839,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039364",
+        "name": "Sione Vaki",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0036963",
         "name": "Amon-Ra St. Brown",
         "grade": "Above Avg",
         "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0037240",
+        "name": "Jameson Williams",
+        "grade": "Above Avg",
+        "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0040669",
+        "name": "Isaac TeSlaa",
+        "grade": "Above Avg",
+        "rating": 79,
         "rating_source": "snap_share_v1"
       },
       {
@@ -1781,11 +2021,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0038685",
+        "name": "Chris Brooks",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0038124",
         "name": "Christian Watson",
         "grade": "Above Avg",
         "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039146",
+        "name": "Jayden Reed",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0040667",
+        "name": "Matthew Golden",
+        "grade": "Above Avg",
+        "rating": 79,
         "rating_source": "snap_share_v1"
       },
       {
@@ -1939,11 +2203,28 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0040583",
+        "name": "Woody Marks",
+        "grade": "Average",
+        "rating": 75,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
-        "gsis_id": "00-0036554",
-        "name": "Nico Collins",
-        "grade": "Above Avg",
-        "rating": 82,
+        "gsis_id": "00-0038618",
+        "name": "Xavier Hutchinson",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Nico Collins (Out)"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038608",
+        "name": "Kayshon Boutte",
+        "grade": "Average",
+        "rating": 77,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2097,11 +2378,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0041125",
+        "name": "Seth McGowan",
+        "grade": "Below Avg",
+        "rating": 67,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0037664",
         "name": "Alec Pierce",
         "grade": "Average",
         "rating": 74,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038997",
+        "name": "Josh Downs",
+        "grade": "Above Avg",
+        "rating": 81,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0030279",
+        "name": "Keenan Allen",
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2255,11 +2560,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0038611",
+        "name": "Chris Rodriguez Jr.",
+        "grade": "Average",
+        "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0039893",
         "name": "Brian Thomas Jr.",
         "grade": "Average",
         "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038606",
+        "name": "Parker Washington",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0034960",
+        "name": "Jakobi Meyers",
+        "grade": "Above Avg",
+        "rating": 78,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2429,6 +2758,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0039894",
+        "name": "Xavier Worthy",
+        "grade": "Above Avg",
+        "rating": 81,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0038104",
+        "name": "Tyquan Thornton",
+        "grade": "Above Avg",
+        "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0030506",
         "name": "Travis Kelce",
@@ -2552,11 +2897,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0038982",
-        "name": "Chamarri Conner",
-        "grade": "Average",
-        "rating": 73,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0039825",
+        "name": "Jaden Hicks",
+        "grade": "Above Avg",
+        "rating": 81,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Chamarri Conner (Out)"
       }
     ]
   },
@@ -2592,6 +2938,22 @@ export const ROSTERS_2026 = {
         "name": "Ladd McConkey",
         "grade": "Average",
         "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038544",
+        "name": "Quentin Johnston",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0040727",
+        "name": "Tre' Harris",
+        "grade": "Average",
+        "rating": 71,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2710,11 +3072,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0036992",
-        "name": "Elijah Molden",
-        "grade": "Above Avg",
-        "rating": 82,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0041064",
+        "name": "Genesis Smith",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Elijah Molden (Out)"
       },
       {
         "pos": "SS",
@@ -2745,11 +3108,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039738",
+        "name": "Blake Corum",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0039075",
         "name": "Puka Nacua",
         "grade": "Average",
         "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0031381",
+        "name": "Davante Adams",
+        "grade": "Average",
+        "rating": 75,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039751",
+        "name": "Jordan Whittington",
+        "grade": "Average",
+        "rating": 73,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2919,6 +3306,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0037291",
+        "name": "Jalen Nailor",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0040729",
+        "name": "Jack Bech",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0039338",
         "name": "Brock Bowers",
@@ -3018,11 +3421,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0040641",
-        "name": "Darien Porter",
-        "grade": "Above Avg",
-        "rating": 79,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0040889",
+        "name": "Hezekiah Masses",
+        "grade": "Below Avg",
+        "rating": 67,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Darien Porter (Out)"
       },
       {
         "pos": "SCB",
@@ -3085,6 +3489,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0041523",
+        "name": "Caleb Douglas",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0041525",
+        "name": "Chris Bell",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0037252",
         "name": "Greg Dulcich",
@@ -3136,18 +3556,19 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0039911",
-        "name": "Chop Robinson",
-        "grade": "Average",
-        "rating": 77,
-        "rating_source": "snap_share_v1"
-      },
-      {
-        "pos": "EDGE2",
         "gsis_id": "00-0036159",
         "name": "Josh Uche",
         "grade": "Average",
         "rating": 71,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Chop Robinson (Out)"
+      },
+      {
+        "pos": "EDGE2",
+        "gsis_id": "00-0036682",
+        "name": "Malik Herring",
+        "grade": "Average",
+        "rating": 74,
         "rating_source": "snap_share_v1"
       },
       {
@@ -3220,11 +3641,12 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0035228",
-        "name": "Kyler Murray",
-        "grade": "Average",
-        "rating": 70,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0032950",
+        "name": "Carson Wentz",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Kyler Murray (Out)"
       },
       {
         "pos": "RB1",
@@ -3248,6 +3670,14 @@ export const ROSTERS_2026 = {
         "name": "Justin Jefferson",
         "grade": "Above Avg",
         "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038994",
+        "name": "Jordan Addison",
+        "grade": "Above Avg",
+        "rating": 81,
         "rating_source": "snap_share_v1"
       },
       {
@@ -3417,6 +3847,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0038621",
+        "name": "DeMario Douglas",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0033555",
+        "name": "Mack Hollins",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0033090",
         "name": "Hunter Henry",
@@ -3567,11 +4013,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0033906",
+        "name": "Alvin Kamara",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0037239",
         "name": "Chris Olave",
         "grade": "Above Avg",
         "rating": 87,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039424",
+        "name": "Devaughn Vele",
+        "grade": "Above Avg",
+        "rating": 86,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0041099",
+        "name": "Barion Brown",
+        "grade": "Below Avg",
+        "rating": 67,
         "rating_source": "snap_share_v1"
       },
       {
@@ -3741,6 +4211,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0041042",
+        "name": "Malachi Fields",
+        "grade": "Above Avg",
+        "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0036309",
+        "name": "Darnell Mooney",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0037838",
         "name": "Isaiah Likely",
@@ -3891,11 +4377,27 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039794",
+        "name": "Braelon Allen",
+        "grade": "Average",
+        "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0037740",
         "name": "Garrett Wilson",
         "grade": "Above Avg",
         "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0039890",
+        "name": "Adonai Mitchell",
+        "grade": "Above Avg",
+        "rating": 81,
         "rating_source": "snap_share_v1"
       },
       {
@@ -4014,11 +4516,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0034789",
-        "name": "Minkah Fitzpatrick",
-        "grade": "Average",
-        "rating": 70,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0040165",
+        "name": "Malachi Moore",
+        "grade": "Below Avg",
+        "rating": 67,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Minkah Fitzpatrick (Out)"
       },
       {
         "pos": "SS",
@@ -4049,11 +4552,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0038555",
+        "name": "Tank Bigsby",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0036912",
         "name": "DeVonta Smith",
         "grade": "Above Avg",
         "rating": 82,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038393",
+        "name": "Dontayvion Wicks",
+        "grade": "Above Avg",
+        "rating": 81,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0040867",
+        "name": "Makai Lemon",
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1"
       },
       {
@@ -4223,6 +4750,22 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0036252",
+        "name": "Michael Pittman Jr.",
+        "grade": "Above Avg",
+        "rating": 84,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039739",
+        "name": "Roman Wilson",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0038558",
         "name": "Darnell Washington",
@@ -4322,11 +4865,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039167",
-        "name": "Joey Porter Jr.",
-        "grade": "Average",
-        "rating": 73,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0036617",
+        "name": "Asante Samuel Jr.",
+        "grade": "Above Avg",
+        "rating": 87,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Joey Porter Jr. (Out)"
       },
       {
         "pos": "SCB",
@@ -4358,11 +4902,12 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0034869",
-        "name": "Sam Darnold",
-        "grade": "Average",
-        "rating": 70,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0035704",
+        "name": "Drew Lock",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Sam Darnold (Out)"
       },
       {
         "pos": "RB1",
@@ -4386,6 +4931,22 @@ export const ROSTERS_2026 = {
         "name": "Jaxon Smith-Njigba",
         "grade": "Average",
         "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0037545",
+        "name": "Rashid Shaheed",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0033908",
+        "name": "Cooper Kupp",
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1"
       },
       {
@@ -4512,11 +5073,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0038765",
-        "name": "Ty Okada",
+        "gsis_id": "00-0038866",
+        "name": "AJ Finley",
         "grade": "Average",
         "rating": 73,
-        "rating_source": "snap_share_v1"
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Ty Okada (Out)"
       }
     ]
   },
@@ -4552,6 +5114,22 @@ export const ROSTERS_2026 = {
         "name": "Mike Evans",
         "grade": "Above Avg",
         "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0035719",
+        "name": "Deebo Samuel",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0032775",
+        "name": "Demarcus Robinson",
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1"
       },
       {
@@ -4705,11 +5283,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0036919",
+        "name": "Kenny Gainwell",
+        "grade": "Average",
+        "rating": 74,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0040129",
         "name": "Emeka Egbuka",
         "grade": "Above Avg",
         "rating": 79,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0033921",
+        "name": "Chris Godwin Jr.",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0039855",
+        "name": "Jalen McMillan",
+        "grade": "Average",
+        "rating": 73,
         "rating_source": "snap_share_v1"
       },
       {
@@ -4863,11 +5465,35 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0039032",
+        "name": "Tyjae Spears",
+        "grade": "Average",
+        "rating": 73,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0041438",
         "name": "Carnell Tate",
         "grade": "Average",
         "rating": 75,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR2",
+        "gsis_id": "00-0038117",
+        "name": "Wan'Dale Robinson",
+        "grade": "Above Avg",
+        "rating": 78,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0034837",
+        "name": "Calvin Ridley",
+        "grade": "Average",
+        "rating": 74,
         "rating_source": "snap_share_v1"
       },
       {
@@ -5021,6 +5647,14 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "RB2",
+        "gsis_id": "00-0037256",
+        "name": "Rachaad White",
+        "grade": "Average",
+        "rating": 74,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "WR1",
         "gsis_id": "00-0035659",
         "name": "Terry McLaurin",
@@ -5029,12 +5663,29 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR2",
+        "gsis_id": "00-0031588",
+        "name": "Stefon Diggs",
+        "grade": "Average",
+        "rating": 75,
+        "rating_source": "snap_share_v1"
+      },
+      {
+        "pos": "WR3",
+        "gsis_id": "00-0041040",
+        "name": "Antonio Williams",
+        "grade": "Average",
+        "rating": 71,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
-        "gsis_id": "00-0037809",
-        "name": "Chig Okonkwo",
+        "gsis_id": "00-0036628",
+        "name": "John Bates",
         "grade": "Above Avg",
         "rating": 78,
-        "rating_source": "snap_share_v1"
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Chig Okonkwo (Out)"
       },
       {
         "pos": "LT",
