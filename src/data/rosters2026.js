@@ -3,7 +3,7 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-09-19T16:39:18.451Z
+// Generated: 2026-09-20T12:51:02.886Z
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
 
@@ -402,22 +402,15 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0039064",
-        "name": "Zay Flowers",
-        "grade": "Average",
-        "rating": 73,
-        "rating_source": "snap_share_v1"
-      },
-      {
-        "pos": "WR2",
         "gsis_id": "00-0036550",
         "name": "Rashod Bateman",
         "grade": "Above Avg",
         "rating": 82,
-        "rating_source": "snap_share_v1"
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Zay Flowers (Out)"
       },
       {
-        "pos": "WR3",
+        "pos": "WR2",
         "gsis_id": "00-0039792",
         "name": "Devontez Walker",
         "grade": "Average",
@@ -1666,10 +1659,10 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040730",
-        "name": "RJ Harvey",
+        "gsis_id": "00-0036727",
+        "name": "Adam Prentice",
         "grade": "Average",
-        "rating": 71,
+        "rating": 70,
         "rating_source": "snap_share_v1"
       },
       {
@@ -2120,11 +2113,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "DT",
-        "gsis_id": "00-0033109",
-        "name": "Javon Hargrave",
+        "gsis_id": "00-0037094",
+        "name": "Jonathan Ford",
         "grade": "Average",
-        "rating": 71,
-        "rating_source": "snap_share_v1"
+        "rating": 74,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Javon Hargrave (Out)"
       },
       {
         "pos": "LB1",
@@ -3255,11 +3249,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0039834",
-        "name": "Kamren Kinchens",
-        "grade": "Above Avg",
-        "rating": 81,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0038366",
+        "name": "Tanner Ingle",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Kamren Kinchens (Out)"
       },
       {
         "pos": "SS",
@@ -3962,11 +3957,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0034778",
-        "name": "Carlton Davis III",
-        "grade": "Average",
-        "rating": 74,
-        "rating_source": "snap_share_v1"
+        "gsis_id": "00-0039770",
+        "name": "Charles Woods",
+        "grade": "Below Avg",
+        "rating": 69,
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Carlton Davis III (Out)"
       },
       {
         "pos": "SCB",
@@ -4401,6 +4397,14 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1"
       },
       {
+        "pos": "WR3",
+        "gsis_id": "00-0039451",
+        "name": "Isaiah Williams",
+        "grade": "Average",
+        "rating": 77,
+        "rating_source": "snap_share_v1"
+      },
+      {
         "pos": "TE",
         "gsis_id": "00-0040736",
         "name": "Mason Taylor",
@@ -4751,19 +4755,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0036252",
-        "name": "Michael Pittman Jr.",
-        "grade": "Above Avg",
-        "rating": 84,
-        "rating_source": "snap_share_v1"
-      },
-      {
-        "pos": "WR3",
         "gsis_id": "00-0039739",
         "name": "Roman Wilson",
         "grade": "Average",
         "rating": 77,
-        "rating_source": "snap_share_v1"
+        "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Michael Pittman Jr. (Out)"
       },
       {
         "pos": "TE",
@@ -5073,10 +5070,10 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0038866",
-        "name": "AJ Finley",
-        "grade": "Average",
-        "rating": 73,
+        "gsis_id": "00-0037323",
+        "name": "Rodney Thomas II",
+        "grade": "Above Avg",
+        "rating": 84,
         "rating_source": "snap_share_v1",
         "starter_reason": "promoted after: Ty Okada (Out)"
       }
