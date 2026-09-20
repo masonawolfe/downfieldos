@@ -59,7 +59,16 @@ export function pickAvailable(sortedCandidates, count, availById) {
   let skipped = [];
   for (const c of sortedCandidates) {
     if (chosen.length >= count) break;
-    const reason = c.gsis_id ? outReason(availById[c.gsis_id]) : null;
+    // Q-059 (2026-09-20): a candidate with no gsis_id is a phantom
+    // depth-chart entry (nflverse sometimes emits one at pos_rank=1
+    // for a team's whole DL/OL group). It cannot be a real starter;
+    // skip. Left in the pool it wins as "available" and ships a
+    // nameless row that both check #15 and check #17 miss.
+    if (!c.gsis_id) {
+      skipped.push({ name: c.name || '(unnamed)', reason: 'phantom depth-chart entry (no gsis_id)' });
+      continue;
+    }
+    const reason = outReason(availById[c.gsis_id]);
     if (reason) {
       skipped.push({ name: c.name, reason });
       continue;

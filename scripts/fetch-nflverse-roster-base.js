@@ -215,6 +215,14 @@ async function main() {
     if (r.dt !== latestDate[team]) return; // only latest week
     const rank = parseInt(r.pos_rank, 10);
     if (!Number.isFinite(rank) || rank < 1) return; // no upper cap
+    // Q-059 (2026-09-20): nflverse sometimes emits a depth-chart row
+    // with an empty gsis_id + player_name (a phantom slot; observed on
+    // PHI's pos_rank=1 NT). Left in the pool it wins the picker as
+    // "available" and ships the roster with a nameless starter,
+    // invisible to both checks. Drop it here — reconcile will mark
+    // the slot vacant when the pool is exhausted, and check #17 will
+    // still fire if too many pools are empty.
+    if (!r.gsis_id || !r.player_name) return;
 
     const posAbb = r.pos_abb;
     if (!starters[team]) starters[team] = [];
@@ -239,9 +247,14 @@ async function main() {
     RB:   ['RB'], FB: ['FB', 'RB'],
     WR:   ['WR', 'LWR', 'RWR', 'SWR'],
     TE:   ['TE'],
-    T:    ['LT', 'RT'],
-    G:    ['LG', 'RG'],
-    C:    ['C'],
+    // Q-059 (2026-09-20): interior OL cross-fills — QA noted Sleeper
+    // tags Saints linemen as OL and NO C's pool stayed at 1. Guards
+    // routinely play center and tackles can slide inside in a pinch,
+    // so broadcast Gs to C and Ts to G. Same rationale as the S ↔
+    // FS/SS swing added earlier.
+    T:    ['LT', 'RT', 'LG', 'RG'],
+    G:    ['LG', 'RG', 'C'],
+    C:    ['C', 'LG', 'RG'],
     DE:   ['LDE', 'RDE', 'EDGE'],
     EDGE: ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'],
     DT:   ['LDT', 'RDT', 'DT'],

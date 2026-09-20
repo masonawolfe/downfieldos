@@ -654,7 +654,14 @@ check('Vacant starter slots stay under threshold', () => {
   for (const [team, r] of Object.entries(ROSTERS)) {
     for (const side of ['offense', 'defense']) {
       for (const p of r[side] || []) {
-        if (p.gsis_id == null) vacancies.push(`${team} ${p.pos}`);
+        // Q-059 (2026-09-20): both null and empty-string gsis_id are
+        // vacant. The reconcile step sets null when it intentionally
+        // marks a slot vacant; the roster build's phantom-slot filter
+        // (Q-059) now prevents unmarked "" rows from shipping, but
+        // check #17 also handles the empty-string shape so an older
+        // roster that predates the filter still gets caught here
+        // instead of silently passing.
+        if (p.gsis_id == null || p.gsis_id === '') vacancies.push(`${team} ${p.pos}`);
       }
     }
   }
