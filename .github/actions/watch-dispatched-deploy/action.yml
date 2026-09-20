@@ -74,6 +74,10 @@ inputs:
     description: 'Testing hook — when set to failure/cancelled/skipped, skip the resolve+watch loop and pretend the dispatched deploy ended with this conclusion. Files a [SIMULATED] issue. Only for proving the notify path; leave empty in normal use.'
     required: false
     default: ''
+  simulate_benign_later_sha:
+    description: 'Q-056 (2026-09-19) proof hook — when set to a SHA, pretend our dispatched deploy was cancelled AND a later deploy succeeded on this SHA. Composite runs the gh api compare check against ${head_sha}...${simulate_benign_later_sha} and prints the benign path (or, if the status is behind/diverged/errored, the outage path). Set to `HEAD` to mean "same as our SHA" (trivially benign). Overrides simulate_conclusion.'
+    required: false
+    default: ''
 runs:
   using: 'composite'
   steps:
@@ -92,6 +96,7 @@ runs:
         DISPATCH_LOOKBACK_S: ${{ inputs.dispatch_lookback_seconds }}
         WATCH_TIMEOUT_S: ${{ inputs.watch_timeout_seconds }}
         SIM_CONCLUSION: ${{ inputs.simulate_conclusion }}
+        SIM_BENIGN_LATER_SHA: ${{ inputs.simulate_benign_later_sha }}
         REPO: ${{ github.repository }}
         CALLER_WF: ${{ github.workflow }}
         CALLER_RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -100,6 +105,34 @@ runs:
         SHA="${INPUT_SHA:-$(git rev-parse HEAD)}"
         SHORT=$(echo "$SHA" | cut -c1-7)
         echo "  watching for dispatched deploy on ${SHORT} (caller: ${CALLER_WF})"
+
+        # Q-056 (2026-09-19) proof hook — pretend our dispatched deploy
+        # was cancelled AND a later deploy succeeded on SIM_BENIGN_LATER_SHA.
+        # Runs the same gh api compare check the real path uses, and
+        # prints which branch fires. Overrides simulate_conclusion.
+        if [ -n "${SIM_BENIGN_LATER_SHA:-}" ]; then
+          SIM_LATER_SHA="${SIM_BENIGN_LATER_SHA}"
+          [ "$SIM_LATER_SHA" = "HEAD" ] && SIM_LATER_SHA="$SHA"
+          echo "  [SIM Q-056] pretending deploy on ${SHORT} was cancelled; later successful deploy on ${SIM_LATER_SHA}"
+          if [ "$SIM_LATER_SHA" = "$SHA" ]; then
+            SIM_STATUS="identical (same commit — skipped API call)"
+          else
+            SIM_STATUS=$(gh api "repos/${REPO}/compare/${SHA}...${SIM_LATER_SHA}" --jq '.status // "empty"' 2>/dev/null || echo "api-error")
+          fi
+          echo "  [SIM Q-056] compare ${SHORT}...${SIM_LATER_SHA:0:7} → status=${SIM_STATUS}"
+          case "$SIM_STATUS" in
+            identical*|ahead)
+              MSG="[SIM Q-056] BENIGN path fires — dispatched deploy on ${SHORT} would be marked benign because a later deploy on ${SIM_LATER_SHA} succeeded (status: ${SIM_STATUS}). No new outage issue would open."
+              echo "  ${MSG}"
+              exit 0
+              ;;
+            *)
+              MSG="[SIM Q-056] OUTAGE path fires — compare returned status=${SIM_STATUS}; the later run does not cover our SHA, so an outage issue would open."
+              echo "  ${MSG}"
+              exit 0
+              ;;
+          esac
+        fi
 
         # Simulate hook — skip resolve+watch, file a [SIMULATED] issue with
         # the requested conclusion. Only meant for one-shot proofs of the
@@ -265,27 +298,56 @@ runs:
         # Non-success. Check whether a later deploy run has already
         # succeeded on a SHA that is the same as ours OR a descendant
         # (a subsequent push, or a manual re-dispatch after we caught
-        # the issue). E-043b (2026-09-19): older code only tested
-        # databaseId > RUN_ID; a later success on an unrelated older
-        # branch would then mark our cancel benign. Now we also require
-        # `git merge-base --is-ancestor $SHA $laterSHA` (SHA is an
-        # ancestor of laterSHA, i.e. laterSHA is same-or-newer).
-        # Requires the workspace to have both commits reachable from
-        # HEAD; the caller's checkout does (fast-forward main).
+        # the issue).
+        #
+        # Q-056 (2026-09-19): E-043b used `git merge-base --is-ancestor`,
+        # which requires both commits in the local object store. Every
+        # data caller checks out with the default fetch-depth 1 — the
+        # later run's SHA is not local, git errors, the candidate is
+        # skipped, and a genuinely benign concurrency cancel opens an
+        # issue. Fix inside the composite by calling GitHub's compare
+        # API instead:
+        #
+        #   GET /repos/{o}/{r}/compare/<ourSHA>...<laterSHA>
+        #   → .status ∈ { identical | ahead | behind | diverged }
+        #     - identical: same commit → benign
+        #     - ahead: laterSHA is N commits after ourSHA → benign
+        #     - behind: laterSHA is older than ourSHA → not benign
+        #     - diverged: forked history → not benign
+        #
+        # The API knows the full history regardless of shallow checkout.
+        # If the call errors (rate limit, no perms), skip the candidate
+        # — safe direction: an issue gets filed and a human closes it,
+        # matching pre-Q-056 behaviour.
         LATER_SUCCESS_URL=""
         LATER_SUCCESS_SHA=""
         while IFS=$'\t' read -r id sha url conc; do
           [ "$conc" != "success" ] && continue
           [ "$id" -le "$RUN_ID" ] && continue
-          # SHA ancestry check — if it fails (git doesn't know one of
-          # the commits, or they're on divergent history) skip this
-          # candidate rather than trust the run-id ordering alone.
-          if ! git merge-base --is-ancestor "$SHA" "$sha" 2>/dev/null; then
-            continue
+          if [ -z "$sha" ] || [ "$sha" = "$SHA" ]; then
+            # Same commit — trivially benign, skip API round-trip.
+            LATER_SUCCESS_URL="$url"
+            LATER_SUCCESS_SHA="$sha"
+            break
           fi
-          LATER_SUCCESS_URL="$url"
-          LATER_SUCCESS_SHA="$sha"
-          break
+          cmp_status=$(gh api "repos/${REPO}/compare/${SHA}...${sha}" --jq '.status // ""' 2>/dev/null || echo "")
+          case "$cmp_status" in
+            identical|ahead)
+              LATER_SUCCESS_URL="$url"
+              LATER_SUCCESS_SHA="$sha"
+              break
+              ;;
+            behind|diverged)
+              # Not benign — a later successful deploy on an older or
+              # divergent branch doesn't cover our cancelled SHA.
+              continue
+              ;;
+            *)
+              # API call failed. Safe direction is to skip.
+              echo "  compare API returned empty status for ${SHA}...${sha}; skipping candidate (will open issue if no benign candidate found)"
+              continue
+              ;;
+          esac
         done < <(gh run list --repo "$REPO" --workflow=deploy.yml --limit 20 \
           --json databaseId,headSha,url,conclusion \
           --jq '.[] | [.databaseId, .headSha, .url, .conclusion] | @tsv' 2>/dev/null || true)
