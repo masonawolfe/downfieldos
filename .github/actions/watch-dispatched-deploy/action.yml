@@ -78,11 +78,11 @@ runs:
   using: 'composite'
   steps:
     - name: Resolve, watch, notify
-      # E-043b (2026-09-19): hard step-level ceiling as belt-and-suspenders
-      # over the in-loop WATCH_TIMEOUT_S ceiling (default 20 min). 25 min
-      # is 5 min headroom for issue-open + status calls after the poll
-      # loop exits. If both bounds are hit, the caller keeps moving.
-      timeout-minutes: 25
+      # E-043b (2026-09-19): step-level `timeout-minutes` is not accepted
+      # on a composite-action step (only on JOB steps). The in-loop
+      # WATCH_TIMEOUT_S bounds this step from the inside (default 1200s
+      # = 20 min); the caller carries `timeout-minutes: 25` on the
+      # `uses:` line as the outer safety.
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.github_token }}
