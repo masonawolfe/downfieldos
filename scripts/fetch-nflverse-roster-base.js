@@ -234,6 +234,7 @@ async function main() {
   // stay preferred; the 53-man fills only surface when the ranked
   // pool has no available candidate.
   const ROSTER_POS_MAP = {
+    // Specific tags (from depth_chart_position)
     QB:   ['QB'],
     RB:   ['RB'], FB: ['FB', 'RB'],
     WR:   ['WR', 'LWR', 'RWR', 'SWR'],
@@ -241,18 +242,24 @@ async function main() {
     T:    ['LT', 'RT'],
     G:    ['LG', 'RG'],
     C:    ['C'],
-    OL:   ['LT', 'LG', 'C', 'RG', 'RT'], // rare 'OL' tag = full swing
     DE:   ['LDE', 'RDE', 'EDGE'],
     EDGE: ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'],
     DT:   ['LDT', 'RDT', 'DT'],
     NT:   ['NT', 'DT'],
-    LB:   ['MLB', 'LILB', 'RILB', 'ILB', 'WLB', 'SLB', 'LOLB', 'ROLB'],
+    MLB:  ['MLB', 'LILB', 'RILB', 'ILB'],
     ILB:  ['MLB', 'LILB', 'RILB', 'ILB'],
     OLB:  ['LOLB', 'ROLB'],
     CB:   ['LCB', 'RCB', 'CB', 'NB'],
     S:    ['FS', 'SS'],
-    FS:   ['FS'],
-    SS:   ['SS'],
+    FS:   ['FS', 'SS'],  // safeties often swing
+    SS:   ['FS', 'SS'],
+    // Broad tags (fallback when depth_chart_position is empty — from
+    // `position`: nflverse uses DB, OL, DL, LB, DB=577, OL=511, LB=440,
+    // DL=409). Broadcast broadly.
+    DB:   ['LCB', 'RCB', 'CB', 'NB', 'FS', 'SS'],
+    OL:   ['LT', 'LG', 'C', 'RG', 'RT'],
+    DL:   ['LDE', 'RDE', 'LDT', 'RDT', 'DT', 'NT', 'EDGE'],
+    LB:   ['MLB', 'LILB', 'RILB', 'ILB', 'WLB', 'SLB', 'LOLB', 'ROLB'],
   };
   // Per-team + per-posAbb dedup: skip a fill when the player already
   // appears in the pool for that posAbb (from depth chart or an
@@ -266,8 +273,13 @@ async function main() {
   rosterRows.forEach(r => {
     const team = norm(r.team);
     if (!team) return;
+    // Q-058 follow-up: nflverse `position` is BROAD (DB, OL, DL, LB —
+    // 577 DB, 511 OL, 440 LB, 409 DL). `depth_chart_position` carries
+    // the specific tag (CB, T, G, C, MLB, ILB, DE, DT, NT, FS, SS,
+    // ...). Prefer the specific tag when set; fall back to broad.
+    const posSpecific = String(r.depth_chart_position || '').toUpperCase();
     const posBroad = String(r.position || '').toUpperCase();
-    const targets = ROSTER_POS_MAP[posBroad];
+    const targets = ROSTER_POS_MAP[posSpecific] || ROSTER_POS_MAP[posBroad];
     if (!targets) return;
     const gsis = r.gsis_id || null;
     if (!gsis) return;
