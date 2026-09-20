@@ -131,6 +131,12 @@ jobs:
           # step wrote nothing new — `git add` on missing files skips them).
           git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md
           git add CALIBRATION.md src/data/intelligence/calibration_2026.json 2>/dev/null || true
+          # E-044 (2026-09-20): stage the reconciled rosters2026.js so the
+          # UI (which reads it directly) sees the same demotions the
+          # board's verifier gate saw. Without this, reconcile is
+          # in-memory-only and the shipped UI still shows Out starters
+          # a few hours after they're flagged.
+          git add src/data/rosters2026.js 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No board changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

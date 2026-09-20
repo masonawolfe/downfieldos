@@ -66,9 +66,20 @@ async function main() {
   const priorMeta = mod.ROSTERS_META || null;
   console.log(`  rosters2026.js: ${Object.keys(rosters).length} teams, prior availability_stamp: ${priorMeta?.availability_stamp || 'unknown'}`);
 
-  // For each team + side + slot: read the row's candidates array, walk
-  // in emitted order (already sorted by posRank + snap-share at roster
-  // build time), pick the first available, apply diff.
+  // Group rows in the same position family (WR1/WR2/WR3 → WR, RB1/RB2 →
+  // RB, EDGE1/EDGE2 → EDGE, LB1/LB2 → LB, CB1/CB2 → CB, QB → QB, TE →
+  // TE, OL positions each their own single-slot group). All rows in a
+  // group share the SAME candidate pool at roster-build time, so a
+  // per-row call with count=1 would duplicate the top-available across
+  // slots. Pool-aware: pick top-N-available ONCE per group, distribute
+  // results back to WR1/WR2/WR3 in order.
+  function groupKey(pos) {
+    // Strip trailing digit(s) so WR1/WR2/WR3 → WR, LB1/LB2 → LB, etc.
+    // Single-slot positions (QB, TE, DT, SCB, FS, SS, OL letters) stay
+    // as their own group.
+    return pos.replace(/[0-9]+$/, '');
+  }
+
   const swaps = [];
   const noBackup = [];
   const missingCandidates = [];
@@ -76,37 +87,46 @@ async function main() {
   for (const [team, sides] of Object.entries(rosters)) {
     for (const side of ['offense', 'defense']) {
       const rows = sides[side] || [];
+      // Group rows by position family, preserving order (WR1 before WR2).
+      const groups = new Map(); // groupKey → [rows in order]
       for (const row of rows) {
-        // Some rows (K, DEF, or historical rows) may not carry
-        // `candidates`. Skip — check #15 still validates them.
-        if (!Array.isArray(row.candidates) || row.candidates.length === 0) {
-          missingCandidates.push(`${team} ${side}/${row.pos}`);
+        const k = groupKey(row.pos);
+        if (!groups.has(k)) groups.set(k, []);
+        groups.get(k).push(row);
+      }
+      for (const [gk, groupRows] of groups) {
+        // Skip rows whose pool is missing (pre-E-044 bootstrap). Each
+        // row's `candidates` is the same pool at roster-build time; we
+        // can trust the first one.
+        const first = groupRows[0];
+        if (!Array.isArray(first.candidates) || first.candidates.length === 0) {
+          for (const r of groupRows) missingCandidates.push(`${team} ${side}/${r.pos}`);
           continue;
         }
-        // The stored candidates array is already sorted; walk it.
-        const { chosen } = pickAvailable(row.candidates, 1, availById);
-        if (chosen.length === 0) {
-          // Whole pool is designated-out. Leave the row as-is (name,
-          // gsis_id unchanged); annotate why so the board build's
-          // check #15 shows a meaningful message.
-          row.starter_reason = `no available candidate in depth pool (${row.candidates.length} tried: ${row.candidates.map(c => c.name).join(', ')})`;
-          noBackup.push(`${team} ${row.pos}: ${row.name} (all ${row.candidates.length} candidates out)`);
-          continue;
+        const count = groupRows.length;
+        const { chosen } = pickAvailable(first.candidates, count, availById);
+        // If chosen is shorter than count, the tail rows have no
+        // available candidate in the pool; annotate but leave the
+        // pre-existing player so consumers see the last known state.
+        for (let i = 0; i < groupRows.length; i++) {
+          const row = groupRows[i];
+          const winner = chosen[i]; // may be undefined if pool exhausted
+          if (!winner) {
+            row.starter_reason = `no available candidate in depth pool for ${gk}${i + 1} (${first.candidates.length} in pool)`;
+            noBackup.push(`${team} ${row.pos}: ${row.name} (all ${first.candidates.length} candidates out for slot ${i + 1})`);
+            continue;
+          }
+          if (winner.gsis_id === row.gsis_id) {
+            if (!winner.starter_reason && row.starter_reason) delete row.starter_reason;
+            else if (winner.starter_reason) row.starter_reason = winner.starter_reason;
+            continue;
+          }
+          swaps.push({ team, pos: row.pos, from: row.name, fromReason: outReason(availById[row.gsis_id]) || 'unknown', to: winner.name });
+          row.gsis_id = winner.gsis_id;
+          row.name = winner.name;
+          if (winner.starter_reason) row.starter_reason = winner.starter_reason;
+          else delete row.starter_reason;
         }
-        const winner = chosen[0];
-        // Same player as currently emitted → no-op (drop stale
-        // starter_reason if the top-of-pool is now cleanly available).
-        if (winner.gsis_id === row.gsis_id) {
-          if (!winner.starter_reason && row.starter_reason) delete row.starter_reason;
-          else if (winner.starter_reason) row.starter_reason = winner.starter_reason;
-          continue;
-        }
-        // Real swap — record it and mutate the row in place.
-        swaps.push({ team, pos: row.pos, from: row.name, fromReason: outReason(availById[row.gsis_id]) || 'unknown', to: winner.name });
-        row.gsis_id = winner.gsis_id;
-        row.name = winner.name;
-        if (winner.starter_reason) row.starter_reason = winner.starter_reason;
-        else delete row.starter_reason;
       }
     }
   }
