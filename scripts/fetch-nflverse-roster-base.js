@@ -221,35 +221,63 @@ async function main() {
     starters[team].push({ name: r.player_name, posAbb, gsis_id: r.gsis_id, posRank: rank });
   });
 
-  // Q-058: 53-man roster fills. Map nflverse roster.position (broad
-  // groups: QB, RB, FB, WR, TE, T, G, C, DE, DT, LB, CB, S, ...) to
-  // the depth-chart posAbb the picker searches on. Only add a fill
-  // when the player is not already in the depth-chart pool for that
-  // team (dedup by gsis_id + name).
+  // Q-058: 53-man roster fills. Map each broad roster position to
+  // ALL the depth-chart posAbbs where that player is a legitimate
+  // backup. A left tackle can back up an injured right tackle; a
+  // cornerback can slide to nickel; a safety can play either FS or
+  // SS. Broadcasting the same 53-man player to multiple posAbb
+  // buckets is what raises the pool from 1 → 2+ for the single-slot
+  // positions (LT, RG, DT, SCB, FS, SS) that stayed thin under a
+  // one-to-one map.
+  //
+  // Sentinel posRank=99 sorts last, so depth-chart-ranked players
+  // stay preferred; the 53-man fills only surface when the ranked
+  // pool has no available candidate.
   const ROSTER_POS_MAP = {
-    QB: 'QB', RB: 'RB', FB: 'FB', WR: 'WR', TE: 'TE',
-    T: 'LT', G: 'LG', C: 'C', // OL fills — arbitrary side; picker uses posAbb equality on the exact slot
-    DE: 'LDE', DT: 'DT', NT: 'DT', LB: 'MLB', ILB: 'MLB', OLB: 'LOLB', EDGE: 'LDE',
-    CB: 'LCB', S: 'FS', FS: 'FS', SS: 'SS',
+    QB:   ['QB'],
+    RB:   ['RB'], FB: ['FB', 'RB'],
+    WR:   ['WR', 'LWR', 'RWR', 'SWR'],
+    TE:   ['TE'],
+    T:    ['LT', 'RT'],
+    G:    ['LG', 'RG'],
+    C:    ['C'],
+    OL:   ['LT', 'LG', 'C', 'RG', 'RT'], // rare 'OL' tag = full swing
+    DE:   ['LDE', 'RDE', 'EDGE'],
+    EDGE: ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'],
+    DT:   ['LDT', 'RDT', 'DT'],
+    NT:   ['NT', 'DT'],
+    LB:   ['MLB', 'LILB', 'RILB', 'ILB', 'WLB', 'SLB', 'LOLB', 'ROLB'],
+    ILB:  ['MLB', 'LILB', 'RILB', 'ILB'],
+    OLB:  ['LOLB', 'ROLB'],
+    CB:   ['LCB', 'RCB', 'CB', 'NB'],
+    S:    ['FS', 'SS'],
+    FS:   ['FS'],
+    SS:   ['SS'],
   };
-  // Per-team depth-chart pool by gsis_id to skip duplicates.
-  const depthByTeam = {};
+  // Per-team + per-posAbb dedup: skip a fill when the player already
+  // appears in the pool for that posAbb (from depth chart or an
+  // earlier broadcast slot).
+  const poolKey = (team, posAbb, gsis) => `${team}|${posAbb}|${gsis}`;
+  const seenByPool = new Set();
   for (const [team, arr] of Object.entries(starters)) {
-    depthByTeam[team] = new Set(arr.map(x => x.gsis_id).filter(Boolean));
+    for (const x of arr) if (x.gsis_id) seenByPool.add(poolKey(team, x.posAbb, x.gsis_id));
   }
-  const ROSTER_SENTINEL_RANK = 99; // sort last within their position family
+  const ROSTER_SENTINEL_RANK = 99;
   rosterRows.forEach(r => {
     const team = norm(r.team);
     if (!team) return;
     const posBroad = String(r.position || '').toUpperCase();
-    const posAbb = ROSTER_POS_MAP[posBroad];
-    if (!posAbb) return;
+    const targets = ROSTER_POS_MAP[posBroad];
+    if (!targets) return;
     const gsis = r.gsis_id || null;
     if (!gsis) return;
-    if (depthByTeam[team] && depthByTeam[team].has(gsis)) return;
     if (!starters[team]) starters[team] = [];
-    starters[team].push({ name: r.full_name, posAbb, gsis_id: gsis, posRank: ROSTER_SENTINEL_RANK });
-    depthByTeam[team]?.add(gsis);
+    for (const posAbb of targets) {
+      const k = poolKey(team, posAbb, gsis);
+      if (seenByPool.has(k)) continue;
+      starters[team].push({ name: r.full_name, posAbb, gsis_id: gsis, posRank: ROSTER_SENTINEL_RANK });
+      seenByPool.add(k);
+    }
   });
 
   // Build rosters
