@@ -636,6 +636,35 @@ check('rosters2026.js reconciled against shipped availability_2026.json', () => 
   return `rosters reconciled by ${reconciledBy} against availability ${availStamp} (${swaps} swap(s), ${noBackup} no-backup slot(s))`;
 });
 
+// #17 — vacant starter slots stay under a threshold
+//
+// Q-058 (2026-09-20): the E-044 reconcile step now marks a slot vacant
+// (gsis_id=null, starter_reason='no available backup') when every
+// candidate in the pool is Out/IR/PUP/NFI/SUSP. Check #15 accepts
+// vacants because "vacant" is a truthful state — but a real data
+// problem (a whole team's roster designated Out, a pool that
+// collapsed to zero for a structural reason) would silently ship as
+// 32 vacants if nothing counted them. Threshold picked at 8 per
+// peer's guidance: covers the natural cadence-drift noise (a handful
+// of thin-pool teams a given week) without letting a systemic
+// collapse through.
+check('Vacant starter slots stay under threshold', () => {
+  const VACANT_CEILING = 8;
+  const vacancies = [];
+  for (const [team, r] of Object.entries(ROSTERS)) {
+    for (const side of ['offense', 'defense']) {
+      for (const p of r[side] || []) {
+        if (p.gsis_id == null) vacancies.push(`${team} ${p.pos}`);
+      }
+    }
+  }
+  if (vacancies.length > VACANT_CEILING) {
+    const sample = vacancies.slice(0, 12).join(', ');
+    throw new Error(`${vacancies.length} vacant starter slot(s) — exceeds ceiling ${VACANT_CEILING}. Sample: ${sample}${vacancies.length > 12 ? ', …' : ''}. Look at rosters2026.js candidate pools for the affected positions; a systemic collapse (whole team designated Out, source-data outage, wrong position mapping) is more likely than a real cluster of Out designations.`);
+  }
+  return `${vacancies.length} vacant slot(s) (ceiling: ${VACANT_CEILING})${vacancies.length ? ` — ${vacancies.join(', ')}` : ''}`;
+});
+
 const passed = results.filter(r => r.pass).length;
 console.log(`\n${'='.repeat(60)}`);
 console.log(`Task acceptance: ${passed}/${results.length} checks passed`);

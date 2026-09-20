@@ -112,8 +112,17 @@ async function main() {
           const row = groupRows[i];
           const winner = chosen[i]; // may be undefined if pool exhausted
           if (!winner) {
-            row.starter_reason = `no available candidate in depth pool for ${gk}${i + 1} (${first.candidates.length} in pool)`;
-            noBackup.push(`${team} ${row.pos}: ${row.name} (all ${first.candidates.length} candidates out for slot ${i + 1})`);
+            // Q-058 (2026-09-20): mark the slot vacant rather than
+            // leaving the Out player seated. Consumers (UI, board)
+            // see gsis_id=null / name=null and can render an
+            // explicit "— vacant —" instead of a misleading Out
+            // starter. Check #15 skips gsis_id=null rows; a new
+            // check #17 counts vacancies and fails above a
+            // threshold so a data problem still surfaces.
+            row.gsis_id = null;
+            row.name = null;
+            row.starter_reason = `no available backup (${first.candidates.length} in depth pool, all Out/IR/PUP/NFI/SUSP)`;
+            noBackup.push(`${team} ${row.pos}: vacant (all ${first.candidates.length} candidates out)`);
             continue;
           }
           if (winner.gsis_id === row.gsis_id) {
