@@ -72,6 +72,10 @@ jobs:
             sleep $((RANDOM % 8 + 3))
           done
           echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Record dispatch floor epoch (E-043b)
+        if: steps.commit.outputs.changed == 'true'
+        id: predispatch
+        run: echo "at=$(date -u +%s)" >> "$GITHUB_OUTPUT"
       - name: Trigger site deploy
         if: steps.commit.outputs.changed == 'true'
         env:
@@ -79,6 +83,8 @@ jobs:
         run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
       - name: Watch dispatched deploy + notify on non-success (E-043)
         if: steps.commit.outputs.changed == 'true'
+        timeout-minutes: 25  # E-043b: keep the caller job from being pinned by a stuck deploy.
         uses: ./.github/actions/watch-dispatched-deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          dispatched_after_epoch: ${{ steps.predispatch.outputs.at }}

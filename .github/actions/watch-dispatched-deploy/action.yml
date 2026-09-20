@@ -6,33 +6,44 @@
 #
 # Caller pattern (all 15 data workflows):
 #
+#   - name: Record dispatch floor epoch (E-043b)
+#     if: steps.commit.outputs.changed == 'true'
+#     id: predispatch
+#     run: echo "at=$(date -u +%s)" >> "$GITHUB_OUTPUT"
 #   - name: Trigger site deploy
 #     if: steps.commit.outputs.changed == 'true'
 #     env:
 #       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #     run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
-#   - name: Watch dispatched deploy + notify on non-success
+#   - name: Watch dispatched deploy + notify on non-success (E-043)
 #     if: steps.commit.outputs.changed == 'true'
+#     timeout-minutes: 25
 #     uses: ./.github/actions/watch-dispatched-deploy
 #     with:
 #       github_token: ${{ secrets.GITHUB_TOKEN }}
+#       dispatched_after_epoch: ${{ steps.predispatch.outputs.at }}
 #
 # The caller MUST carry `permissions: issues: write` — the composite
 # needs it to open or comment on the outage issue.
 #
 # Behaviour:
-# - Resolve the latest workflow_dispatch deploy run on HEAD (git rev-parse
-#   HEAD, taken after the caller's push). Poll up to 30s for it to
-#   register on GitHub's side.
-# - `gh run watch` to completion (returns whatever conclusion).
-# - success: no issue, exit 0.
-# - non-success (failure / cancelled / cancelled-while-pending / skipped):
-#     * If a LATER deploy run has already succeeded, treat as benign —
-#       comment on an existing open outage issue if one is open; do not
-#       open a new one.
-#     * Otherwise: open/comment a de-duped issue keyed on short SHA,
-#       naming this run's URL + conclusion + the caller workflow that
-#       dispatched it.
+# - Resolve the newest workflow_dispatch deploy run on HEAD created
+#   at/after `dispatched_after_epoch` (the epoch the caller recorded
+#   immediately before `gh workflow run deploy.yml`). E-043b: the
+#   time filter is the guard against a re-dispatch selecting a stale
+#   prior run for the same SHA. Poll up to 30s for it to register.
+# - Bounded watch: poll `gh run view --json status` every 15s with a
+#   20-min ceiling (WATCH_TIMEOUT_S). Timeout is treated as non-success.
+# - success: log `watched run N: success`, exit 0. (Search-friendly
+#   line so QA can grep a green chain and confirm the composite ran.)
+# - non-success (failure / cancelled / cancelled-while-pending /
+#   skipped / timed_out):
+#     * If a LATER deploy run has already succeeded on a same-or-newer
+#       SHA (verified with `git merge-base --is-ancestor $SHA
+#       $laterSHA`, E-043b), treat as benign — comment on an existing
+#       open outage issue if one is open; do not open a new one.
+#     * Otherwise: open or comment a de-duped issue keyed on short
+#       SHA, naming this run's URL + conclusion + the caller workflow.
 name: 'Watch dispatched deploy + notify on non-success'
 description: 'After `gh workflow run deploy.yml`, watch the dispatched run and open or comment a de-duped outage issue on any non-success (including a pages-concurrency cancel-while-pending).'
 inputs:
@@ -47,6 +58,18 @@ inputs:
     description: 'How long to wait for the dispatched run to register on GitHub before giving up (default 30).'
     required: false
     default: '30'
+  dispatched_after_epoch:
+    description: 'UTC epoch seconds recorded IMMEDIATELY BEFORE the caller ran `gh workflow run deploy.yml`. Used as a createdAt floor when resolving the dispatched run so a re-dispatch of the same SHA cannot select a stale prior run. When omitted, falls back to (composite-start epoch − dispatch_lookback_seconds) with a warning; the input is the reliable path.'
+    required: false
+    default: ''
+  dispatch_lookback_seconds:
+    description: 'Fallback lookback window (default 120) when dispatched_after_epoch is not supplied. Filter accepts runs created within this many seconds before composite start. Only used if dispatched_after_epoch is empty.'
+    required: false
+    default: '120'
+  watch_timeout_seconds:
+    description: 'Bounded ceiling on how long to poll for run completion (default 1200 = 20 min). A pending pages deploy that never starts (concurrency wedge) or a stuck job will otherwise block the caller forever. Timeout is treated as non-success and files its own issue wording.'
+    required: false
+    default: '1200'
   simulate_conclusion:
     description: 'Testing hook — when set to failure/cancelled/skipped, skip the resolve+watch loop and pretend the dispatched deploy ended with this conclusion. Files a [SIMULATED] issue. Only for proving the notify path; leave empty in normal use.'
     required: false
@@ -55,11 +78,19 @@ runs:
   using: 'composite'
   steps:
     - name: Resolve, watch, notify
+      # E-043b (2026-09-19): hard step-level ceiling as belt-and-suspenders
+      # over the in-loop WATCH_TIMEOUT_S ceiling (default 20 min). 25 min
+      # is 5 min headroom for issue-open + status calls after the poll
+      # loop exits. If both bounds are hit, the caller keeps moving.
+      timeout-minutes: 25
       shell: bash
       env:
         GH_TOKEN: ${{ inputs.github_token }}
         INPUT_SHA: ${{ inputs.head_sha }}
         WAIT_S: ${{ inputs.register_wait_seconds }}
+        DISPATCHED_AFTER_EPOCH: ${{ inputs.dispatched_after_epoch }}
+        DISPATCH_LOOKBACK_S: ${{ inputs.dispatch_lookback_seconds }}
+        WATCH_TIMEOUT_S: ${{ inputs.watch_timeout_seconds }}
         SIM_CONCLUSION: ${{ inputs.simulate_conclusion }}
         REPO: ${{ github.repository }}
         CALLER_WF: ${{ github.workflow }}
@@ -108,20 +139,46 @@ runs:
         # Resolve the latest workflow_dispatch deploy run on this SHA.
         # GitHub can lag a few seconds registering the run after
         # `gh workflow run` returns.
+        #
+        # E-043b (2026-09-19): filter by createdAt so a re-dispatch of the
+        # same SHA cannot select a stale prior run. Caller passes
+        # `dispatched_after_epoch` (UTC seconds recorded before `gh workflow
+        # run`); we accept only runs with createdAt >= that. Falls back to
+        # (composite-start − DISPATCH_LOOKBACK_S) with a warning — good
+        # enough for a first pass but loses the guarantee.
+        COMPOSITE_START_EPOCH=$(date -u +%s)
+        if [ -n "${DISPATCHED_AFTER_EPOCH:-}" ]; then
+          FLOOR_EPOCH="$DISPATCHED_AFTER_EPOCH"
+          FLOOR_SRC="caller-recorded"
+        else
+          FLOOR_EPOCH=$(( COMPOSITE_START_EPOCH - DISPATCH_LOOKBACK_S ))
+          FLOOR_SRC="fallback (composite-start − ${DISPATCH_LOOKBACK_S}s)"
+          echo "::warning::watch-dispatched-deploy: dispatched_after_epoch not passed by caller; using ${FLOOR_SRC}. A re-dispatch of the same SHA could pick a stale run."
+        fi
+        # ISO-8601 with Z for jq date parsing.
+        FLOOR_ISO=$(date -u -d "@$FLOOR_EPOCH" '+%Y-%m-%dT%H:%M:%SZ' 2>/dev/null || python3 -c "import datetime; print(datetime.datetime.utcfromtimestamp($FLOOR_EPOCH).strftime('%Y-%m-%dT%H:%M:%SZ'))")
+        echo "  floor: ${FLOOR_ISO} (${FLOOR_SRC})"
+
         POLL_INTERVAL=5
         ATTEMPTS=$(( WAIT_S / POLL_INTERVAL ))
         [ "$ATTEMPTS" -lt 1 ] && ATTEMPTS=1
         RUN_ID=""
+        RUN_URL_RESOLVED=""
         for i in $(seq 1 "$ATTEMPTS"); do
-          RUN_ID=$(gh run list \
-            --repo "$REPO" \
-            --workflow=deploy.yml \
-            --commit "$SHA" \
-            --event workflow_dispatch \
-            --limit 1 \
-            --json databaseId --jq '.[0].databaseId // empty' 2>/dev/null || echo "")
+          # Pull up to 10 recent workflow_dispatch runs on this SHA, filter
+          # client-side by createdAt >= floor, take the newest.
+          read -r RUN_ID RUN_URL_RESOLVED <<<"$(
+            gh run list \
+              --repo "$REPO" \
+              --workflow=deploy.yml \
+              --commit "$SHA" \
+              --event workflow_dispatch \
+              --limit 10 \
+              --json databaseId,createdAt,url \
+              --jq "[.[] | select(.createdAt >= \"${FLOOR_ISO}\")] | sort_by(.createdAt) | last | \"\(.databaseId // \"\") \(.url // \"\")\"" 2>/dev/null || echo ""
+          )"
           if [ -n "$RUN_ID" ] && [ "$RUN_ID" != "null" ]; then break; fi
-          echo "    attempt $i/$ATTEMPTS — no dispatched deploy run for ${SHORT} yet"
+          echo "    attempt $i/$ATTEMPTS — no dispatched deploy run for ${SHORT} at/after ${FLOOR_ISO} yet"
           sleep "$POLL_INTERVAL"
         done
 
@@ -169,28 +226,63 @@ runs:
           exit 0
         fi
 
-        RUN_URL="https://github.com/${REPO}/actions/runs/${RUN_ID}"
+        RUN_URL="${RUN_URL_RESOLVED:-https://github.com/${REPO}/actions/runs/${RUN_ID}}"
         echo "  watching deploy run ${RUN_ID} (${RUN_URL})"
-        # gh run watch waits for the run to finish; --exit-status returns
-        # non-zero if it did not succeed. Do NOT let that fail the caller.
-        gh run watch "$RUN_ID" --repo "$REPO" --exit-status || true
 
-        CONCLUSION=$(gh run view "$RUN_ID" --repo "$REPO" --json conclusion --jq '.conclusion // "unknown"' 2>/dev/null || echo "unknown")
-        echo "  deploy ${RUN_ID} conclusion=${CONCLUSION}"
+        # E-043b (2026-09-19): bounded watch. `gh run watch` blocks
+        # indefinitely — a pages deploy stuck in the concurrency queue or
+        # a hung job would pin the caller. Poll status with a 20-min
+        # ceiling by default; on timeout, treat as non-success with
+        # dedicated wording. Step also carries timeout-minutes as a
+        # belt-and-suspenders bound.
+        WATCH_DEADLINE=$(( $(date -u +%s) + WATCH_TIMEOUT_S ))
+        STATUS=""
+        CONCLUSION=""
+        WATCH_POLL_INTERVAL=15
+        while true; do
+          NOW=$(date -u +%s)
+          if [ "$NOW" -ge "$WATCH_DEADLINE" ]; then
+            CONCLUSION="timed_out"
+            break
+          fi
+          read -r STATUS CONCLUSION <<<"$(gh run view "$RUN_ID" --repo "$REPO" --json status,conclusion --jq '"\(.status // "") \(.conclusion // "")"' 2>/dev/null || echo " ")"
+          if [ "$STATUS" = "completed" ]; then
+            [ -z "$CONCLUSION" ] && CONCLUSION="unknown"
+            break
+          fi
+          sleep "$WATCH_POLL_INTERVAL"
+        done
+        echo "  watched run ${RUN_ID}: ${CONCLUSION}"
 
         if [ "$CONCLUSION" = "success" ]; then
-          echo "  no outage; exit 0"
+          # E-043b: named "watched run … success" line so QA can grep it
+          # in a real chain's log and confirm the composite ran without
+          # opening any Actions UI. First real green pass expected on the
+          # overnight cadence.
           exit 0
         fi
 
         # Non-success. Check whether a later deploy run has already
-        # succeeded (same or newer SHA — a subsequent push, or a manual
-        # re-dispatch after we caught the issue). Range: 20 most recent.
+        # succeeded on a SHA that is the same as ours OR a descendant
+        # (a subsequent push, or a manual re-dispatch after we caught
+        # the issue). E-043b (2026-09-19): older code only tested
+        # databaseId > RUN_ID; a later success on an unrelated older
+        # branch would then mark our cancel benign. Now we also require
+        # `git merge-base --is-ancestor $SHA $laterSHA` (SHA is an
+        # ancestor of laterSHA, i.e. laterSHA is same-or-newer).
+        # Requires the workspace to have both commits reachable from
+        # HEAD; the caller's checkout does (fast-forward main).
         LATER_SUCCESS_URL=""
         LATER_SUCCESS_SHA=""
         while IFS=$'\t' read -r id sha url conc; do
           [ "$conc" != "success" ] && continue
           [ "$id" -le "$RUN_ID" ] && continue
+          # SHA ancestry check — if it fails (git doesn't know one of
+          # the commits, or they're on divergent history) skip this
+          # candidate rather than trust the run-id ordering alone.
+          if ! git merge-base --is-ancestor "$SHA" "$sha" 2>/dev/null; then
+            continue
+          fi
           LATER_SUCCESS_URL="$url"
           LATER_SUCCESS_SHA="$sha"
           break
