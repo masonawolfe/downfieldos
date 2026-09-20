@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-09-19T16:46:03.547Z |
+| This build | 2026-09-20T13:05:47.062Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-19T08:56:55.881Z |
-| Ranked rows this build | 511 |
+| Prior build | 2026-09-19T16:46:03.547Z |
+| Ranked rows this build | 510 |
 | Ranked rows prior build | 511 |
 
 ---
@@ -21,4 +21,6 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 244 | Omar Cooper Jr. | WR | NYJ | -106 |
