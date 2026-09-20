@@ -45,11 +45,13 @@ try {
 // [green-gate-must-assert-the-field]: an async check body against the
 // sync check() runner passes silently on the returned Promise.
 let ROSTERS = {};
+let ROSTERS_META = null;
 let AVAIL_DOC = { players: {}, meta: {} };
 try {
   const { pathToFileURL } = await import('url');
   const mod = await import(pathToFileURL(REPO + 'src/data/rosters2026.js').href);
   ROSTERS = mod.ROSTERS_2026 || ROSTERS;
+  ROSTERS_META = mod.ROSTERS_META || null;
 } catch (e) {
   console.error('warn: could not import rosters2026.js —', e.message);
 }
@@ -605,6 +607,33 @@ check('No starter slot holds a player designated Out/IR/PUP/NFI/SUSP', () => {
   }
   const totalStarters = Object.values(ROSTERS).reduce((n, r) => n + (r.offense?.length || 0) + (r.defense?.length || 0), 0);
   return `${totalStarters} starter slots across 32 teams; 0 designated-out (availability generated ${AVAIL_DOC.meta?.generated || 'unknown'})`;
+});
+
+// #16 — rosters were reconciled against the shipped availability snapshot
+//
+// E-044 (2026-09-20): rosters cron runs 3x/week; availability cron runs
+// every 4h. A designation change between roster builds ships Out
+// starters (5 slots on 09-20). Fix is the reconcile-rosters-availability
+// step in data-board.yml, which re-picks against ship-time availability
+// and updates ROSTERS_META.availability_stamp. This check asserts the
+// step actually ran and used the same availability snapshot the board
+// is about to ship with — otherwise a later-added workflow could
+// forget the step and drift would return.
+check('rosters2026.js reconciled against shipped availability_2026.json', () => {
+  if (!ROSTERS_META) {
+    throw new Error('rosters2026.js does not export ROSTERS_META — the roster build predates E-044 (2026-09-20). Rebuild rosters, then re-run this check.');
+  }
+  const rosterStamp = ROSTERS_META.availability_stamp;
+  const availStamp = AVAIL_DOC.meta?.generated;
+  if (!rosterStamp) throw new Error('ROSTERS_META.availability_stamp is missing — reconcile step did not run.');
+  if (!availStamp) throw new Error('availability_2026.json meta.generated is missing — cannot compare.');
+  if (rosterStamp !== availStamp) {
+    throw new Error(`ROSTERS_META.availability_stamp (${rosterStamp}) does not match availability_2026.json meta.generated (${availStamp}) — the reconcile step ran against a different availability snapshot than the board is about to ship with. Re-run \`npm run data:reconcile-rosters\` before the board build.`);
+  }
+  const reconciledBy = ROSTERS_META.reconciled_by || 'unknown';
+  const swaps = ROSTERS_META.swaps_this_run ?? '?';
+  const noBackup = ROSTERS_META.no_backup_this_run ?? '?';
+  return `rosters reconciled by ${reconciledBy} against availability ${availStamp} (${swaps} swap(s), ${noBackup} no-backup slot(s))`;
 });
 
 const passed = results.filter(r => r.pass).length;

@@ -75,6 +75,14 @@ jobs:
             "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.csv.gz" \
             -o data/intelligence/raw/roster_weekly_2026.csv.gz
           echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
+      - name: Reconcile rosters against today's availability (E-044)
+        # E-044 (2026-09-20): rosters cron and availability cron drift;
+        # a designation change between roster builds ships Out starters.
+        # This step re-runs the E-042 picker over each row's `candidates`
+        # array against the availability snapshot the board is about to
+        # ship with, then rewrites rosters2026.js in place with the new
+        # picks and updated ROSTERS_META.availability_stamp.
+        run: npm run data:reconcile-rosters
       - name: Build the pre-draft board
         run: npm run data:board
       # QA 2026-09-17 21:05 caught the ordering trap: calibration must be

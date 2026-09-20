@@ -20,6 +20,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { appendRefreshLogEntry } from './_lib/refresh_log.js';
+// E-044 (2026-09-20): picker logic moved to a shared module so the board
+// build's reconcile step (build-player-board.js) can re-run it against
+// today's availability using the `candidates` array we emit below. One
+// source of truth for "who starts given today's availability."
+import { outReason, pickAvailable as pickAvailableShared } from './_lib/starter_pick.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -122,22 +127,18 @@ async function fetchSnapsWithFallback() {
   }
 }
 
-// E-042 (2026-09-19): starter selection must consult the availability
-// feed. Before this, a depth chart's pos_rank=1 shipped as a starter
-// even when the availability_2026.json snapshot designated that player
-// Out/IR/PUP/NFI/SUSP. QA (2026-09-19 07:45) found 6 such slots:
-// ATL QB Penix, BUF WR1 DJ Moore, HOU WR1 Nico Collins, MIN QB Kyler
-// Murray, SEA QB Sam Darnold, WAS TE Chig Okonkwo — all gd=O.
-const OUT_STATUSES = new Set(['IR', 'PUP', 'NFI', 'SUSP']);
-const OUT_DESIGNATIONS = new Set(['O', 'Out']);
-function outReason(availRec) {
-  if (!availRec) return null;
-  const s = String(availRec.status || '').toUpperCase();
-  const gd = String(availRec.game_designation || '');
-  if (OUT_STATUSES.has(s)) return s;
-  if (OUT_DESIGNATIONS.has(gd)) return 'Out';
-  return null;
-}
+// E-042 / E-044 (2026-09-19/20): `outReason` and `pickAvailable` now
+// live in ./_lib/starter_pick.js so the board's reconcile step imports
+// them from the same module. The comment history:
+//   E-042 (2026-09-19): starter selection must consult the availability
+//   feed. Before this, a depth chart's pos_rank=1 shipped as a starter
+//   even when the availability_2026.json snapshot designated that player
+//   Out/IR/PUP/NFI/SUSP.
+//   E-044 (2026-09-20): rosters cron (3x/week) and availability cron
+//   (every 4h) drift; a designation change between roster builds shipped
+//   Out starters and blocked the overnight board. Fix at the root — the
+//   board build reconciles rosters2026.js against today's availability
+//   using the same picker.
 
 async function main() {
   console.log(`DownfieldOS — nflverse Roster Generation (${SEASON})`);
@@ -227,25 +228,12 @@ async function main() {
       return snapMap[key] || null;
     }
 
-    // E-042 helper: walk sortedCandidates in order, skipping designated-out
-    // players. Fill up to `count` slots; each filled slot carries a
-    // `starter_reason` string when at least one candidate ahead of it was
-    // skipped for availability. Resets between picks so WR2 does not
-    // inherit WR1's skip trail.
+    // E-044 (2026-09-20): delegate to shared picker so the board's
+    // reconcile step runs the same logic. Adapter records demotions in
+    // this team's context.
     function pickAvailable(sortedCandidates, count) {
-      const chosen = [];
-      let skipped = [];
-      for (const c of sortedCandidates) {
-        if (chosen.length >= count) break;
-        const reason = c.gsis_id ? outReason(availById[c.gsis_id]) : null;
-        if (reason) {
-          skipped.push(`${c.name} (${reason})`);
-          continue;
-        }
-        chosen.push({ ...c, starter_reason: skipped.length ? `promoted after: ${skipped.join(', ')}` : null });
-        if (skipped.length) demotions.push({ team, name: c.name, posAbb: c.posAbb, skipped: [...skipped] });
-        skipped = [];
-      }
+      const { chosen, demotions: local } = pickAvailableShared(sortedCandidates, count, availById);
+      for (const d of local) demotions.push({ team, name: d.name, posAbb: d.pos, skipped: d.skipped.map(s => `${s.name} (${s.reason})`) });
       return chosen;
     }
 
@@ -262,12 +250,17 @@ async function main() {
       });
     }
 
-    // Push a roster row, attaching starter_reason only when set (keeps
-    // existing rows unchanged when no demotion happened).
-    function push(target, pos, cand, posGroup) {
+    // E-044 (2026-09-20): emit the full sorted candidate pool alongside
+    // each starter so the board's reconcile step can re-pick against
+    // today's availability without re-fetching depth charts. Trimmed to
+    // gsis_id + name + posAbb + posRank — the fields the picker reads.
+    function push(target, pos, cand, posGroup, sortedPool) {
       const r = calcRating(cand.name, posGroup);
       const row = { pos, gsis_id: cand.gsis_id ?? null, name: cand.name, grade: gradeFromRating(r), rating: r, rating_source: 'snap_share_v1' };
       if (cand.starter_reason) row.starter_reason = cand.starter_reason;
+      if (sortedPool && sortedPool.length) {
+        row.candidates = sortedPool.map(c => ({ gsis_id: c.gsis_id ?? null, name: c.name, posAbb: c.posAbb, posRank: c.posRank }));
+      }
       target.push(row);
     }
 
@@ -316,32 +309,36 @@ async function main() {
     // pick the first N available via pickAvailable — which adds a
     // starter_reason when a demotion happened.
 
+    // E-044 (2026-09-20): each push now also receives the sorted
+    // candidate pool so the emitted row carries a `candidates` array
+    // for the board's reconcile step.
+
     // QB
     const qbCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'QB'), 'off');
-    pickAvailable(qbCands, 1).forEach(c => push(offense, 'QB', c, 'QB'));
+    pickAvailable(qbCands, 1).forEach(c => push(offense, 'QB', c, 'QB', qbCands));
 
     // RBs
     const rbCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['RB', 'FB'].includes(s.posAbb)).map(r => [r.name, r])).values()],
       'off'
     );
-    pickAvailable(rbCands, 2).forEach((c, i) => push(offense, `RB${i + 1}`, c, 'RB'));
+    pickAvailable(rbCands, 2).forEach((c, i) => push(offense, `RB${i + 1}`, c, 'RB', rbCands));
 
     // WRs
     const wrCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['WR', 'LWR', 'RWR', 'SWR'].includes(s.posAbb)).map(w => [w.name, w])).values()],
       'off'
     );
-    pickAvailable(wrCands, 3).forEach((c, i) => push(offense, `WR${i + 1}`, c, 'WR'));
+    pickAvailable(wrCands, 3).forEach((c, i) => push(offense, `WR${i + 1}`, c, 'WR', wrCands));
 
     // TE
     const teCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'TE'), 'off');
-    pickAvailable(teCands, 1).forEach(c => push(offense, 'TE', c, 'TE'));
+    pickAvailable(teCands, 1).forEach(c => push(offense, 'TE', c, 'TE', teCands));
 
     // OL — direct position mapping, each slot filled from its own depth
     ['LT', 'LG', 'C', 'RG', 'RT'].forEach(olPos => {
       const olCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === olPos), 'off');
-      pickAvailable(olCands, 1).forEach(c => push(offense, olPos, c, olPos));
+      pickAvailable(olCands, 1).forEach(c => push(offense, olPos, c, olPos, olCands));
     });
 
     // === DEFENSE ===
@@ -350,39 +347,39 @@ async function main() {
       [...new Map(teamStarters.filter(s => ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'].includes(s.posAbb)).map(e => [e.name, e])).values()],
       'def'
     );
-    pickAvailable(edgeCands, 2).forEach((c, i) => push(defense, `EDGE${i + 1}`, c, 'EDGE'));
+    pickAvailable(edgeCands, 2).forEach((c, i) => push(defense, `EDGE${i + 1}`, c, 'EDGE', edgeCands));
 
     // DT
     const dtCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['LDT', 'RDT', 'NT', 'DT'].includes(s.posAbb)).map(d => [d.name, d])).values()],
       'def'
     );
-    pickAvailable(dtCands, 1).forEach(c => push(defense, 'DT', c, 'DT'));
+    pickAvailable(dtCands, 1).forEach(c => push(defense, 'DT', c, 'DT', dtCands));
 
     // LB
     const lbCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['MLB', 'LILB', 'RILB', 'WLB', 'SLB', 'ILB'].includes(s.posAbb)).map(l => [l.name, l])).values()],
       'def'
     );
-    pickAvailable(lbCands, 2).forEach((c, i) => push(defense, `LB${i + 1}`, c, 'LB'));
+    pickAvailable(lbCands, 2).forEach((c, i) => push(defense, `LB${i + 1}`, c, 'LB', lbCands));
 
     // CB
     const cbCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['LCB', 'RCB', 'CB'].includes(s.posAbb)).map(c => [c.name, c])).values()],
       'def'
     );
-    pickAvailable(cbCands, 2).forEach((c, i) => push(defense, `CB${i + 1}`, c, 'CB'));
+    pickAvailable(cbCands, 2).forEach((c, i) => push(defense, `CB${i + 1}`, c, 'CB', cbCands));
 
     // SCB (nickel)
     const scbCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'NB'), 'def');
-    pickAvailable(scbCands, 1).forEach(c => push(defense, 'SCB', c, 'CB'));
+    pickAvailable(scbCands, 1).forEach(c => push(defense, 'SCB', c, 'CB', scbCands));
 
     // FS / SS
     const fsCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'FS'), 'def');
-    pickAvailable(fsCands, 1).forEach(c => push(defense, 'FS', c, 'S'));
+    pickAvailable(fsCands, 1).forEach(c => push(defense, 'FS', c, 'S', fsCands));
 
     const ssCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'SS'), 'def');
-    pickAvailable(ssCands, 1).forEach(c => push(defense, 'SS', c, 'S'));
+    pickAvailable(ssCands, 1).forEach(c => push(defense, 'SS', c, 'S', ssCands));
 
     rosters[team] = { offense, defense };
   });
@@ -396,16 +393,40 @@ async function main() {
   }
 
   // Write output
+  // E-044 (2026-09-20): also export ROSTERS_META with the availability
+  // stamp the picker was reconciled against + the reconciler that ran.
+  // The board's reconcile step overwrites this same file after re-picking
+  // against ship-time availability; verifier check #16 asserts the stamp
+  // matches the shipped availability_2026.json so a mid-cadence drift
+  // between rosters cron and availability cron can no longer silently
+  // ship a stale roster.
+  const rostersMeta = {
+    generated: new Date().toISOString(),
+    availability_stamp: availStamp,
+    reconciled_by: 'fetch-nflverse-roster-base.js',
+    sources: [
+      `depth_charts_${SEASON}.csv`,
+      `snap_counts_${snapSeasonUsed}.csv`,
+      `roster_${SEASON}.csv`,
+      'availability_2026.json',
+    ],
+  };
   const output = `// Auto-generated from nflverse depth charts + snap counts (${SEASON} season)
 // NOTE: rating is a SNAP-SHARE PROXY (68-85 base by snap share + exp
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: ${new Date().toISOString()}
-// Sources: depth_charts_${SEASON}.csv, snap_counts_${snapSeasonUsed}.csv, roster_${SEASON}.csv
+// Sources: depth_charts_${SEASON}.csv, snap_counts_${snapSeasonUsed}.csv, roster_${SEASON}.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=${SEASON} node scripts/fetch-nflverse-roster-base.js
+// E-044 (2026-09-20): each starter row carries a \`candidates\` array
+// (pos_rank 1-3 pool) so the board build can re-pick against today's
+// availability at ship time. ROSTERS_META.availability_stamp names the
+// availability snapshot the reconciler last used.
 
 export const ROSTERS_${SEASON} = ${JSON.stringify(rosters, null, 2)};
+
+export const ROSTERS_META = ${JSON.stringify(rostersMeta, null, 2)};
 `;
 
   fs.writeFileSync(OUT_PATH, output);
