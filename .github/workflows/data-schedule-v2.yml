@@ -41,6 +41,20 @@ jobs:
         env:
           SEASON: ${{ github.event.inputs.season || '2026' }}
         run: npm run data:schedule
+      - name: Upstream drift gate (E-046)
+        # E-046 (2026-09-21): after fetch-schedule.js has written the new
+        # file, re-fetch nflverse games.csv and compare all 272 game_ids
+        # both ways plus week / home / away / gameday / gametime /
+        # weekday / stadium / roof / surface. Fail the build on any id
+        # mismatch or any week/home/away change; allowlist LA→LAR
+        # normalizations and the deliberate INTL roof/surface overrides.
+        # Spread/total lines are excluded (they move between the
+        # refresh and the compare fetch). Closes Q-034 — check #18
+        # (delta-null vs previous commit) does not detect populated-
+        # and-wrong rows, this one does.
+        env:
+          SEASON: ${{ github.event.inputs.season || '2026' }}
+        run: npm run data:schedule:verify-upstream
       - name: Commit if changed
         id: commit
         run: |
