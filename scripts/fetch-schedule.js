@@ -19,7 +19,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
+import { execFileSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -142,12 +143,74 @@ async function main() {
     'Arena Corinthians':          { roof: 'outdoors', surface: 'grass', venue_tz: 'America/Sao_Paulo',   country: 'BR' },
   };
 
+  // E-045 (2026-09-21): never overwrite a populated schedule field with
+  // an upstream null. QA (09:05 CT) caught the Monday refresh 7034753
+  // silently dropping `surface` on 14 Week-2 games (NO_BAL / MIN_CHI
+  // grass → null; PIT_NE / GB_NYJ / CAR_ATL fieldturf → null; +9 more).
+  // Zero impact today (surface carried, not scored) but the moment a
+  // scoring term reads surface it sees a null. Fix: load HEAD's
+  // committed schedule, build a prev-by-game_id index, and if a new
+  // record's roof/surface/venue_tz is null AND the prior committed
+  // value was non-null, carry the prior value forward with a stamp
+  // `<field>_source: 'carried-forward <ISO> (from HEAD)'`.
+  const CARRIED_FIELDS = ['roof', 'surface', 'venue_tz'];
+  const prevByGameId = new Map();
+  let prevLoadError = null;
+  // E-045 restore path: `PREV_REF=<sha>` overrides HEAD when a prior
+  // refresh dropped a field and HEAD has the drop baked in. One-time
+  // use to unstick the state; from then on the default HEAD is fine
+  // because the new HEAD will carry the restored values.
+  const PREV_REF = process.env.PREV_REF || 'HEAD';
+  try {
+    const prevSrc = execFileSync('git', ['show', `${PREV_REF}:src/data/schedule${SEASON}.js`], { encoding: 'utf8', cwd: path.resolve(__dirname, '..'), maxBuffer: 32 * 1024 * 1024 });
+    // Extract SCHEDULE_2026 = {...}; via a small trick — parse as a
+    // Function returning the object. Safe: source is our own committed
+    // file, not untrusted input.
+    const jsonSlice = prevSrc.match(/export const SCHEDULE_\d+ = (\{[\s\S]*?\n\});\s*$/m);
+    if (jsonSlice) {
+      const prevObj = JSON.parse(jsonSlice[1]);
+      // Walk both indices — byWeek and per-team games — dedup by game_id.
+      const collect = (rec) => {
+        if (!rec?.game_id) return;
+        if (!prevByGameId.has(rec.game_id)) {
+          prevByGameId.set(rec.game_id, { roof: rec.roof, surface: rec.surface, venue_tz: rec.venue_tz });
+        }
+      };
+      for (const wArr of Object.values(prevObj.byWeek || {})) for (const g of wArr) collect(g);
+      for (const t of Object.values(prevObj.teams || {})) for (const g of (t.games || [])) collect(g);
+      console.log(`  loaded prev schedule from ${PREV_REF}: ${prevByGameId.size} unique game_ids indexed for carry-forward`);
+    }
+  } catch (e) {
+    prevLoadError = e.message;
+    console.log(`  ⚠ could not load ${PREV_REF}:src/data/schedule${SEASON}.js — carry-forward disabled for this run (${e.message.split('\n')[0]})`);
+  }
+  const carryStamp = new Date().toISOString();
+  const carryLog = [];
+
   // Compact per-game record — used by both byWeek index and per-team games list
   function compact(row, teamSide /* 'home' | 'away' | null */) {
     const home = norm(row.home_team);
     const away = norm(row.away_team);
     const stadium = row.stadium || null;
     const intl = stadium ? INTL_VENUES[stadium] : null;
+    // E-045: candidate values BEFORE carry-forward. Then per-field, if
+    // upstream is null and prev committed value is non-null, restore
+    // the prev value and stamp `<field>_source`.
+    const proposed = {
+      roof: (intl?.roof ?? row.roof) || null,
+      surface: (intl?.surface ?? row.surface) || null,
+      venue_tz: intl?.venue_tz ?? null,
+    };
+    const prev = prevByGameId.get(row.game_id) || {};
+    const sourceStamps = {};
+    for (const f of CARRIED_FIELDS) {
+      if ((proposed[f] == null || proposed[f] === '') && prev[f] != null && prev[f] !== '') {
+        // Never overwrite value with null.
+        proposed[f] = prev[f];
+        sourceStamps[`${f}_source`] = `carried-forward ${carryStamp} (from HEAD)`;
+        carryLog.push({ game_id: row.game_id, field: f, from: prev[f] });
+      }
+    }
     const rec = {
       game_id: row.game_id,
       week: intOrNull(row.week),
@@ -160,8 +223,8 @@ async function main() {
       div_game: row.div_game === '1',
       // If it's a known international venue, override nflverse's roof/surface
       // (which are inherited from the home team's usual stadium and wrong).
-      roof: (intl?.roof ?? row.roof) || null,
-      surface: (intl?.surface ?? row.surface) || null,
+      roof: proposed.roof,
+      surface: proposed.surface,
       stadium: stadium,
       stadium_id: row.stadium_id || null,
       referee: row.referee || null,
@@ -172,8 +235,9 @@ async function main() {
       // right tz_delta for both sides (nflverse's default assumed the home
       // team was on their usual time zone, giving tz_delta 0 for
       // trans-Pacific trips).
-      venue_tz: intl?.venue_tz ?? null,
+      venue_tz: proposed.venue_tz,
       venue_country: intl?.country ?? null,
+      ...sourceStamps,
     };
     if (teamSide === 'home') {
       return { ...rec, opponent: away, isHome: true };
@@ -263,6 +327,23 @@ async function main() {
   Object.keys(byeByWeek).sort((a, b) => a - b).forEach(w => {
     console.log(`  Week ${w}: ${byeByWeek[w].length} team(s) — ${byeByWeek[w].join(', ')}`);
   });
+
+  // E-045: carry-forward summary. `carryLog` will have duplicates
+  // because `compact()` runs three times per game (byWeek + home
+  // team's list + away team's list); dedup by game_id+field for the
+  // human-readable count.
+  const uniqCarries = new Map(); // key = `${game_id}|${field}` → {game_id, field, from}
+  for (const c of carryLog) uniqCarries.set(`${c.game_id}|${c.field}`, c);
+  if (uniqCarries.size) {
+    console.log(`\nCarry-forward (E-045): ${uniqCarries.size} field(s) restored from HEAD after upstream returned null`);
+    for (const c of uniqCarries.values()) {
+      console.log(`  ${c.game_id} ${c.field}: null → ${JSON.stringify(c.from)} (carried)`);
+    }
+  } else if (prevLoadError) {
+    console.log('\nCarry-forward (E-045): skipped — HEAD load failed');
+  } else {
+    console.log('\nCarry-forward (E-045): 0 fields needed carry-forward (upstream matched or exceeded HEAD for every game).');
+  }
 
   const meta = {
     season: SEASON,

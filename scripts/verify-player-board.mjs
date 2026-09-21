@@ -648,6 +648,67 @@ check('rosters2026.js reconciled against shipped availability_2026.json', () => 
 // peer's guidance: covers the natural cadence-drift noise (a handful
 // of thin-pool teams a given week) without letting a systemic
 // collapse through.
+// #18 — schedule delta-null assert (E-045 2026-09-21)
+//
+// QA (09:05 CT) caught the Monday schedule refresh (run 7034753)
+// silently dropping `surface` on 14 Week-2 games (NO_BAL / MIN_CHI
+// grass → null; PIT_NE / GB_NYJ / CAR_ATL fieldturf → null; +9 more).
+// Zero impact today because surface is carried but not scored — but
+// the moment a scoring term reads surface, it silently sees a null.
+// fetch-schedule.js now carries forward from HEAD when upstream flips
+// non-null → null; this check is the belt-and-suspenders: read
+// HEAD:src/data/schedule2026.js and the currently-checked-out file,
+// walk each game_id, fail if any of {roof, surface, venue_tz} that
+// was non-null before is null now.
+check('Schedule fields never regress non-null → null (E-045)', () => {
+  const SCHEDULE_PATH = REPO + 'src/data/schedule2026.js';
+  const CARRIED_FIELDS = ['roof', 'surface', 'venue_tz'];
+  let prevSrc;
+  try {
+    prevSrc = execFileSync('git', ['show', 'HEAD:src/data/schedule2026.js'], { encoding: 'utf8', cwd: REPO, maxBuffer: 32 * 1024 * 1024 });
+  } catch (e) {
+    return 'no prior committed schedule to compare against — skipped';
+  }
+  let curSrc;
+  try {
+    curSrc = fs.readFileSync(SCHEDULE_PATH, 'utf8');
+  } catch (e) {
+    throw new Error(`could not read current ${SCHEDULE_PATH}: ${e.message}`);
+  }
+  function parseSchedule(src, label) {
+    const m = src.match(/export const SCHEDULE_\d+ = (\{[\s\S]*?\n\});\s*$/m);
+    if (!m) throw new Error(`could not parse ${label} schedule — export const SCHEDULE_XXXX = {...} block not found`);
+    return JSON.parse(m[1]);
+  }
+  const prev = parseSchedule(prevSrc, 'HEAD');
+  const cur = parseSchedule(curSrc, 'current');
+  const gather = (obj) => {
+    const out = new Map();
+    for (const wArr of Object.values(obj.byWeek || {})) for (const g of wArr) if (g?.game_id && !out.has(g.game_id)) out.set(g.game_id, g);
+    for (const t of Object.values(obj.teams || {})) for (const g of (t.games || [])) if (g?.game_id && !out.has(g.game_id)) out.set(g.game_id, g);
+    return out;
+  };
+  const prevIdx = gather(prev);
+  const curIdx = gather(cur);
+  const regressions = [];
+  for (const [gid, curRec] of curIdx) {
+    const prevRec = prevIdx.get(gid);
+    if (!prevRec) continue; // new game — nothing to regress against
+    for (const f of CARRIED_FIELDS) {
+      const wasNonNull = prevRec[f] != null && prevRec[f] !== '';
+      const nowNull = curRec[f] == null || curRec[f] === '';
+      if (wasNonNull && nowNull) {
+        regressions.push(`${gid} ${f}: ${JSON.stringify(prevRec[f])} → null`);
+      }
+    }
+  }
+  if (regressions.length > 0) {
+    const sample = regressions.slice(0, 10).join(', ');
+    throw new Error(`${regressions.length} schedule field regression(s) — non-null in HEAD, null now. Sample: ${sample}${regressions.length > 10 ? ', …' : ''}. fetch-schedule.js (E-045) should carry these forward; if this check is firing, the carry-forward step failed to load HEAD or its parser missed the shape.`);
+  }
+  return `${curIdx.size} game_ids compared to HEAD; 0 roof/surface/venue_tz regressions`;
+});
+
 check('Vacant starter slots stay under threshold', () => {
   const VACANT_CEILING = 8;
   const vacancies = [];
