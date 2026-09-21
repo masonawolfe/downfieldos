@@ -1,5 +1,5 @@
 // Auto-generated from nflverse schedules release (games.csv) — season 2026
-// Generated: 2026-09-21T14:32:15.065Z
+// Generated: 2026-09-21T15:38:31.195Z
 // Source: nflverse (github.com/nflverse/nflverse-data — schedules release)
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-schedule.js
 
@@ -19,7 +19,7 @@ export const SCHEDULE_2026 = {
     "total_regular_games": 272,
     "total_postseason_games": 0,
     "source": "nflverse (github.com/nflverse/nflverse-data — schedules release)",
-    "generated": "2026-09-21T14:32:15.065Z",
+    "generated": "2026-09-21T15:38:31.195Z",
     "notes": "Bye = week within regular-season span with no scheduled game. LA normalized to LAR. Env fields (roof, surface, stadium) preserved for K/DEF environment model."
   },
   "teams": {
@@ -1222,7 +1222,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BUF00",
           "referee": null,
           "spread_line": 7,
-          "total_line": 50.5,
+          "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "LAC",
@@ -6149,7 +6149,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BUF00",
           "referee": null,
           "spread_line": 7,
-          "total_line": 50.5,
+          "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "BUF",
@@ -10318,7 +10318,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "WAS00",
           "referee": null,
           "spread_line": -6.5,
-          "total_line": 40.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "WAS",
@@ -11834,7 +11834,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "WAS00",
           "referee": null,
           "spread_line": -6.5,
-          "total_line": 40.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "SEA",
@@ -12834,7 +12834,7 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": 7,
-        "total_line": 50.5,
+        "total_line": 49.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -12994,7 +12994,7 @@ export const SCHEDULE_2026 = {
         "stadium_id": "WAS00",
         "referee": null,
         "spread_line": -6.5,
-        "total_line": 40.5,
+        "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null
       },
