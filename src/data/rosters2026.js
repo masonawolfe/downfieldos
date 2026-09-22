@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-09-20T19:04:13.855Z
-// Reconciled: 2026-09-21T14:33:56.338Z against availability_2026.json
-//             (generated 2026-09-21T09:51:59.731Z) — 0 swap(s),
+// Reconciled: 2026-09-22T09:18:37.825Z against availability_2026.json
+//             (generated 2026-09-22T09:15:34.646Z) — 8 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -17116,8 +17116,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0034377",
-        "name": "Avonte Maddox",
+        "gsis_id": "00-0033294",
+        "name": "Chuck Clark",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -17176,7 +17176,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Avonte Maddox (Out), Brian Branch (PUP)"
       }
     ]
   },
@@ -25332,8 +25333,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0038046",
-        "name": "Charlie Kolar",
+        "gsis_id": "00-0040189",
+        "name": "Oronde Gadsden",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -25374,7 +25375,8 @@ export const ROSTERS_2026 = {
             "posAbb": "TE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Charlie Kolar (Out), David Njoku (Out)"
       },
       {
         "pos": "LT",
@@ -26567,8 +26569,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0039075",
-        "name": "Puka Nacua",
+        "gsis_id": "00-0031381",
+        "name": "Davante Adams",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -26639,12 +26641,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Puka Nacua (Out)"
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0031381",
-        "name": "Davante Adams",
+        "gsis_id": "00-0040590",
+        "name": "Konata Mumpfield",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -26715,12 +26718,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jordan Whittington (Out)"
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0039751",
-        "name": "Jordan Whittington",
+        "gsis_id": "00-0038359",
+        "name": "Xavier Smith",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -36207,8 +36211,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0040691",
-        "name": "Jaxson Dart",
+        "gsis_id": "00-0031503",
+        "name": "Jameis Winston",
         "grade": "Above Avg",
         "rating": 84,
         "rating_source": "snap_share_v1",
@@ -36231,7 +36235,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaxson Dart (Out)"
       },
       {
         "pos": "RB1",
@@ -37035,8 +37040,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0040694",
-        "name": "Darius Alexander",
+        "gsis_id": "00-0041095",
+        "name": "Bobby Jamison-Travis",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -37095,7 +37100,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Darius Alexander (Out)"
       },
       {
         "pos": "DT",
@@ -37421,8 +37427,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039000",
-        "name": "Deonte Banks",
+        "gsis_id": "00-0039821",
+        "name": "Andru Phillips",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -37517,7 +37523,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Deonte Banks (Out)"
       },
       {
         "pos": "SCB",
@@ -50238,10 +50245,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-09-20T19:04:13.855Z",
-  "availability_stamp": "2026-09-21T09:51:59.731Z",
+  "availability_stamp": "2026-09-22T09:15:34.646Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-09-21T14:33:56.338Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-09-22T09:18:37.825Z",
+  "swaps_this_run": 8,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
