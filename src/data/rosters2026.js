@@ -3,9 +3,13 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-09-23T10:11:49.452Z
+// Generated: 2026-09-23T10:11:49.451Z
+// Reconciled: 2026-09-24T09:17:35.625Z against availability_2026.json
+//             (generated 2026-09-24T09:14:58.360Z) — 7 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -1093,7 +1097,7 @@ export const ROSTERS_2026 = {
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Will Johnson (Out)",
+        "starter_reason": "promoted after: Will Johnson (IR)",
         "candidates": [
           {
             "gsis_id": "00-0040751",
@@ -2603,8 +2607,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0033945",
-        "name": "Samson Ebukam",
+        "gsis_id": "00-0031576",
+        "name": "Za'Darius Smith",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -2705,12 +2709,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Samson Ebukam (Out)"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0031576",
-        "name": "Za'Darius Smith",
+        "gsis_id": "00-0037815",
+        "name": "Cameron Thomas",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -6427,8 +6432,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0039344",
-        "name": "Jonathon Brooks",
+        "gsis_id": "00-0036265",
+        "name": "AJ Dillon",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
@@ -6475,7 +6480,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jonathon Brooks (IR)"
       },
       {
         "pos": "WR1",
@@ -9838,8 +9844,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0038619",
-        "name": "Andrei Iosivas",
+        "gsis_id": "00-0040785",
+        "name": "Dohnte Meyers",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -9904,7 +9910,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Andrei Iosivas (Out)"
       },
       {
         "pos": "TE",
@@ -17509,8 +17516,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0039146",
-        "name": "Jayden Reed",
+        "gsis_id": "00-0038090",
+        "name": "Skyy Moore",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -17587,7 +17594,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jayden Reed (Out)"
       },
       {
         "pos": "TE",
@@ -48643,8 +48651,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0039910",
-        "name": "Jayden Daniels",
+        "gsis_id": "00-0032268",
+        "name": "Marcus Mariota",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -48673,7 +48681,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jayden Daniels (Out)"
       },
       {
         "pos": "RB1",
@@ -50133,8 +50142,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0037616",
-        "name": "Nick Cross",
+        "gsis_id": "00-0039681",
+        "name": "Tyler Owens",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -50193,7 +50202,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Nick Cross (Out)"
       }
     ]
   }
@@ -50201,8 +50211,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-09-23T10:11:49.451Z",
-  "availability_stamp": "2026-09-23T09:15:39.729Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-09-24T09:14:58.360Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-09-24T09:17:35.625Z",
+  "swaps_this_run": 7,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
