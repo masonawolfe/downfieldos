@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| This build | 2026-09-24T09:17:38.559Z |
+| This build | 2026-09-24T09:28:27.852Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-23T09:29:33.961Z |
+| Prior build | 2026-09-24T09:17:38.560Z |
 | Ranked rows this build | 514 |
 | Ranked rows prior build | 514 |
 
@@ -18,13 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 257 | Jaret Patterson | RB | MIN | -112 |
-| 293 | Brandin Cooks | WR | SF | -129 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 138 | David Njoku | TE | LAC | -44 |
-| 404 | Ronnie Rivers | RB | LAR | -171 |
+_None._
