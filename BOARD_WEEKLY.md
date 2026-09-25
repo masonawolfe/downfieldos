@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-09-25T09:36:31.742Z |
+| This build | 2026-09-25T09:46:01.703Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-24T09:28:27.852Z |
+| Prior build | 2026-09-25T09:36:31.743Z |
 | Ranked rows this build | 513 |
-| Ranked rows prior build | 514 |
+| Ranked rows prior build | 513 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -21,6 +21,4 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 102 | Jaxson Dart | QB | NYG | -14 |
+_None._
