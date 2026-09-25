@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-09-23T10:11:49.451Z
-// Reconciled: 2026-09-24T09:28:25.037Z against availability_2026.json
-//             (generated 2026-09-24T09:14:58.360Z) — 0 swap(s),
+// Reconciled: 2026-09-25T09:36:28.835Z against availability_2026.json
+//             (generated 2026-09-25T09:33:32.006Z) — 2 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -2908,12 +2908,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0040077",
-        "name": "Robert Longerbeam",
+        "gsis_id": "00-0034843",
+        "name": "Mike Hughes",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: A.J. Terrell Jr. (IR)",
+        "starter_reason": "promoted after: A.J. Terrell Jr. (IR), Robert Longerbeam (Out)",
         "candidates": [
           {
             "gsis_id": "00-0034639",
@@ -14092,8 +14092,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0033877",
-        "name": "Malik Hooker",
+        "gsis_id": "00-0035705",
+        "name": "Jalen Thompson",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -14134,7 +14134,8 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Malik Hooker (Out), P.J. Locke (Out)"
       },
       {
         "pos": "SS",
@@ -50211,10 +50212,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-09-23T10:11:49.451Z",
-  "availability_stamp": "2026-09-24T09:14:58.360Z",
+  "availability_stamp": "2026-09-25T09:33:32.006Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-09-24T09:28:25.037Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-09-25T09:36:28.835Z",
+  "swaps_this_run": 2,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
