@@ -3,13 +3,9 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-09-23T10:11:49.451Z
-// Reconciled: 2026-09-26T09:30:01.839Z against availability_2026.json
-//             (generated 2026-09-26T09:18:13.330Z) — 0 swap(s),
-//             0 no-backup slot(s).
+// Generated: 2026-09-26T10:03:14.277Z
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
-//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -949,6 +945,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0040019",
+            "name": "Jay Toia",
+            "posAbb": "DT",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0040283",
             "name": "Jared Harrison-Hunte",
             "posAbb": "DT",
@@ -1706,7 +1708,7 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0037741",
         "name": "Jahan Dotson",
         "grade": "Above Avg",
-        "rating": 78,
+        "rating": 82,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -2002,14 +2004,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0033752",
-            "name": "Storm Norton",
+            "gsis_id": "00-0033793",
+            "name": "Corey Levin",
             "posAbb": "LG",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0033793",
-            "name": "Corey Levin",
+            "gsis_id": "00-0033752",
+            "name": "Storm Norton",
             "posAbb": "LG",
             "posRank": 99
           },
@@ -2144,7 +2146,7 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0035630",
         "name": "Chris Lindstrom",
         "grade": "Above Avg",
-        "rating": 82,
+        "rating": 87,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -2190,14 +2192,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0033752",
-            "name": "Storm Norton",
+            "gsis_id": "00-0033793",
+            "name": "Corey Levin",
             "posAbb": "RG",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0033793",
-            "name": "Corey Levin",
+            "gsis_id": "00-0033752",
+            "name": "Storm Norton",
             "posAbb": "RG",
             "posRank": 99
           },
@@ -2368,14 +2370,20 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0031576",
+            "name": "Za'Darius Smith",
+            "posAbb": "ROLB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0033945",
             "name": "Samson Ebukam",
             "posAbb": "EDGE",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0031576",
-            "name": "Za'Darius Smith",
+            "gsis_id": "00-0040056",
+            "name": "Jared Ivey",
             "posAbb": "ROLB",
             "posRank": 99
           },
@@ -2468,14 +2476,20 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0031576",
+            "name": "Za'Darius Smith",
+            "posAbb": "ROLB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0033945",
             "name": "Samson Ebukam",
             "posAbb": "EDGE",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0031576",
-            "name": "Za'Darius Smith",
+            "gsis_id": "00-0040056",
+            "name": "Jared Ivey",
             "posAbb": "ROLB",
             "posRank": 99
           },
@@ -2562,12 +2576,6 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040056",
-            "name": "Jared Ivey",
-            "posAbb": "DT",
-            "posRank": 99
-          },
-          {
             "gsis_id": "00-0034371",
             "name": "Da'Shawn Hand",
             "posAbb": "DT",
@@ -2614,15 +2622,15 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0033945",
-            "name": "Samson Ebukam",
-            "posAbb": "SLB",
-            "posRank": 1
-          },
-          {
             "gsis_id": "00-0031576",
             "name": "Za'Darius Smith",
             "posAbb": "WLB",
+            "posRank": 1
+          },
+          {
+            "gsis_id": "00-0033945",
+            "name": "Samson Ebukam",
+            "posAbb": "SLB",
             "posRank": 1
           },
           {
@@ -2709,27 +2717,27 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Samson Ebukam (Out)"
+        ]
       },
       {
         "pos": "LB2",
         "gsis_id": "00-0037815",
         "name": "Cameron Thomas",
-        "grade": "Average",
-        "rating": 71,
+        "grade": "Above Avg",
+        "rating": 78,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Samson Ebukam (Out)",
         "candidates": [
-          {
-            "gsis_id": "00-0033945",
-            "name": "Samson Ebukam",
-            "posAbb": "SLB",
-            "posRank": 1
-          },
           {
             "gsis_id": "00-0031576",
             "name": "Za'Darius Smith",
             "posAbb": "WLB",
+            "posRank": 1
+          },
+          {
+            "gsis_id": "00-0033945",
+            "name": "Samson Ebukam",
+            "posAbb": "SLB",
             "posRank": 1
           },
           {
@@ -2839,12 +2847,6 @@ export const ROSTERS_2026 = {
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040077",
-            "name": "Robert Longerbeam",
-            "posAbb": "RCB",
-            "posRank": 3
-          },
-          {
             "gsis_id": "00-0034843",
             "name": "Mike Hughes",
             "posAbb": "CB",
@@ -2865,6 +2867,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0041188",
             "name": "Malcolm DeWalt IV",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040077",
+            "name": "Robert Longerbeam",
             "posAbb": "CB",
             "posRank": 99
           },
@@ -2910,10 +2918,10 @@ export const ROSTERS_2026 = {
         "pos": "CB2",
         "gsis_id": "00-0034843",
         "name": "Mike Hughes",
-        "grade": "Average",
-        "rating": 71,
+        "grade": "Above Avg",
+        "rating": 87,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: A.J. Terrell Jr. (IR), Robert Longerbeam (Out)",
+        "starter_reason": "promoted after: A.J. Terrell Jr. (IR)",
         "candidates": [
           {
             "gsis_id": "00-0034639",
@@ -2925,12 +2933,6 @@ export const ROSTERS_2026 = {
             "gsis_id": "00-0036285",
             "name": "A.J. Terrell Jr.",
             "posAbb": "LCB",
-            "posRank": 3
-          },
-          {
-            "gsis_id": "00-0040077",
-            "name": "Robert Longerbeam",
-            "posAbb": "RCB",
             "posRank": 3
           },
           {
@@ -2954,6 +2956,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0041188",
             "name": "Malcolm DeWalt IV",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040077",
+            "name": "Robert Longerbeam",
             "posAbb": "CB",
             "posRank": 99
           },
@@ -3054,6 +3062,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0039685",
             "name": "A.J. Woods",
+            "posAbb": "NB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040077",
+            "name": "Robert Longerbeam",
             "posAbb": "NB",
             "posRank": 99
           },
@@ -3667,9 +3681,10 @@ export const ROSTERS_2026 = {
         "pos": "LT",
         "gsis_id": "00-0040070",
         "name": "Carson Vinson",
-        "grade": "Above Avg",
-        "rating": 79,
+        "grade": "Below Avg",
+        "rating": 67,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Ronnie Stanley (Out)",
         "candidates": [
           {
             "gsis_id": "00-0032965",
@@ -3719,8 +3734,7 @@ export const ROSTERS_2026 = {
             "posAbb": "LT",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Ronnie Stanley (Out)"
+        ]
       },
       {
         "pos": "LG",
@@ -5796,6 +5810,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0032763",
+            "name": "Austin Johnson",
+            "posAbb": "DT",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0038099",
             "name": "Phidarian Mathis",
             "posAbb": "DT",
@@ -6394,20 +6414,20 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0039344",
-            "name": "Jonathon Brooks",
+            "gsis_id": "00-0036265",
+            "name": "AJ Dillon",
             "posAbb": "RB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0036265",
-            "name": "AJ Dillon",
+            "gsis_id": "00-0040644",
+            "name": "Trevor Etienne",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040644",
-            "name": "Trevor Etienne",
+            "gsis_id": "00-0039344",
+            "name": "Jonathon Brooks",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -6435,8 +6455,8 @@ export const ROSTERS_2026 = {
         "pos": "RB2",
         "gsis_id": "00-0036265",
         "name": "AJ Dillon",
-        "grade": "Below Avg",
-        "rating": 69,
+        "grade": "Average",
+        "rating": 70,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -6446,20 +6466,20 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0039344",
-            "name": "Jonathon Brooks",
+            "gsis_id": "00-0036265",
+            "name": "AJ Dillon",
             "posAbb": "RB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0036265",
-            "name": "AJ Dillon",
+            "gsis_id": "00-0040644",
+            "name": "Trevor Etienne",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040644",
-            "name": "Trevor Etienne",
+            "gsis_id": "00-0039344",
+            "name": "Jonathon Brooks",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -6481,8 +6501,7 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Jonathon Brooks (IR)"
+        ]
       },
       {
         "pos": "WR1",
@@ -6763,14 +6782,14 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0040187",
-            "name": "Mitchell Evans",
+            "gsis_id": "00-0031610",
+            "name": "Darren Waller",
             "posAbb": "TE",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0031610",
-            "name": "Darren Waller",
+            "gsis_id": "00-0040187",
+            "name": "Mitchell Evans",
             "posAbb": "TE",
             "posRank": 3
           },
@@ -7878,9 +7897,10 @@ export const ROSTERS_2026 = {
         "pos": "FS",
         "gsis_id": "00-0040159",
         "name": "Lathan Ransom",
-        "grade": "Above Avg",
-        "rating": 78,
+        "grade": "Average",
+        "rating": 75,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Nick Scott (Out)",
         "candidates": [
           {
             "gsis_id": "00-0035669",
@@ -7895,6 +7915,12 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
+            "gsis_id": "00-0036356",
+            "name": "Isaiah Simmons",
+            "posAbb": "FS",
+            "posRank": 3
+          },
+          {
             "gsis_id": "00-0036962",
             "name": "Tre'von Moehrig",
             "posAbb": "FS",
@@ -7903,12 +7929,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0041076",
             "name": "Zakee Wheatley",
-            "posAbb": "FS",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0036356",
-            "name": "Isaiah Simmons",
             "posAbb": "FS",
             "posRank": 99
           },
@@ -7924,8 +7944,7 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Nick Scott (Out)"
+        ]
       },
       {
         "pos": "SS",
@@ -9848,9 +9867,10 @@ export const ROSTERS_2026 = {
         "pos": "WR3",
         "gsis_id": "00-0040785",
         "name": "Dohnte Meyers",
-        "grade": "Average",
-        "rating": 77,
+        "grade": "Below Avg",
+        "rating": 67,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Andrei Iosivas (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036900",
@@ -9912,8 +9932,7 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Andrei Iosivas (Out)"
+        ]
       },
       {
         "pos": "TE",
@@ -13680,12 +13699,6 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040019",
-            "name": "Jay Toia",
-            "posAbb": "DT",
-            "posRank": 99
-          },
-          {
             "gsis_id": "00-0040931",
             "name": "Tommy Dunn",
             "posAbb": "DT",
@@ -14096,9 +14109,10 @@ export const ROSTERS_2026 = {
         "pos": "FS",
         "gsis_id": "00-0035705",
         "name": "Jalen Thompson",
-        "grade": "Below Avg",
-        "rating": 67,
+        "grade": "Above Avg",
+        "rating": 87,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Malik Hooker (Out), P.J. Locke (Out)",
         "candidates": [
           {
             "gsis_id": "00-0033877",
@@ -14136,8 +14150,7 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Malik Hooker (Out), P.J. Locke (Out)"
+        ]
       },
       {
         "pos": "SS",
@@ -16218,10 +16231,16 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
+            "gsis_id": "00-0040374",
+            "name": "Seth McLaughlin",
+            "posAbb": "C",
+            "posRank": 2
+          },
+          {
             "gsis_id": "00-0037297",
             "name": "Cade Mays",
             "posAbb": "C",
-            "posRank": 2
+            "posRank": 3
           },
           {
             "gsis_id": "00-0040728",
@@ -16256,12 +16275,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040193",
             "name": "Miles Frazier",
-            "posAbb": "C",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040374",
-            "name": "Seth McLaughlin",
             "posAbb": "C",
             "posRank": 99
           },
@@ -16399,21 +16412,21 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RT",
-        "gsis_id": "00-0036905",
-        "name": "Larry Borom",
+        "gsis_id": "00-0011237",
+        "name": "Blake Miller",
         "grade": "Above Avg",
-        "rating": 78,
+        "rating": 84,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0036905",
-            "name": "Larry Borom",
+            "gsis_id": "00-0011237",
+            "name": "Blake Miller",
             "posAbb": "RT",
             "posRank": 1
           },
           {
-            "gsis_id": "00-0011237",
-            "name": "Blake Miller",
+            "gsis_id": "00-0036905",
+            "name": "Larry Borom",
             "posAbb": "RT",
             "posRank": 2
           },
@@ -17133,9 +17146,10 @@ export const ROSTERS_2026 = {
         "pos": "SS",
         "gsis_id": "00-0033294",
         "name": "Chuck Clark",
-        "grade": "Average",
-        "rating": 77,
+        "grade": "Above Avg",
+        "rating": 79,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Thomas Harper (Out), Avonte Maddox (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039660",
@@ -17203,8 +17217,7 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Thomas Harper (Out), Avonte Maddox (IR)"
+        ]
       }
     ]
   },
@@ -17240,27 +17253,27 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0039811",
-        "name": "MarShawn Lloyd",
-        "grade": "Average",
-        "rating": 73,
+        "gsis_id": "00-0040142",
+        "name": "Kaleb Johnson",
+        "grade": "Below Avg",
+        "rating": 67,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0039811",
-            "name": "MarShawn Lloyd",
+            "gsis_id": "00-0040142",
+            "name": "Kaleb Johnson",
             "posAbb": "RB",
             "posRank": 1
           },
           {
-            "gsis_id": "00-0038685",
-            "name": "Chris Brooks",
+            "gsis_id": "00-0039811",
+            "name": "MarShawn Lloyd",
             "posAbb": "RB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040142",
-            "name": "Kaleb Johnson",
+            "gsis_id": "00-0038685",
+            "name": "Chris Brooks",
             "posAbb": "RB",
             "posRank": 3
           },
@@ -17298,27 +17311,27 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0038685",
-        "name": "Chris Brooks",
+        "gsis_id": "00-0039811",
+        "name": "MarShawn Lloyd",
         "grade": "Average",
-        "rating": 77,
+        "rating": 73,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0039811",
-            "name": "MarShawn Lloyd",
+            "gsis_id": "00-0040142",
+            "name": "Kaleb Johnson",
             "posAbb": "RB",
             "posRank": 1
           },
           {
-            "gsis_id": "00-0038685",
-            "name": "Chris Brooks",
+            "gsis_id": "00-0039811",
+            "name": "MarShawn Lloyd",
             "posAbb": "RB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040142",
-            "name": "Kaleb Johnson",
+            "gsis_id": "00-0038685",
+            "name": "Chris Brooks",
             "posAbb": "RB",
             "posRank": 3
           },
@@ -17375,14 +17388,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0039146",
-            "name": "Jayden Reed",
+            "gsis_id": "00-0038090",
+            "name": "Skyy Moore",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0038090",
-            "name": "Skyy Moore",
+            "gsis_id": "00-0039146",
+            "name": "Jayden Reed",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -17457,14 +17470,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0039146",
-            "name": "Jayden Reed",
+            "gsis_id": "00-0038090",
+            "name": "Skyy Moore",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0038090",
-            "name": "Skyy Moore",
+            "gsis_id": "00-0039146",
+            "name": "Jayden Reed",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -17523,7 +17536,7 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0038090",
         "name": "Skyy Moore",
         "grade": "Average",
-        "rating": 73,
+        "rating": 74,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -17539,14 +17552,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0039146",
-            "name": "Jayden Reed",
+            "gsis_id": "00-0038090",
+            "name": "Skyy Moore",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0038090",
-            "name": "Skyy Moore",
+            "gsis_id": "00-0039146",
+            "name": "Jayden Reed",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -17598,8 +17611,7 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Jayden Reed (Out)"
+        ]
       },
       {
         "pos": "TE",
@@ -17622,14 +17634,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0038589",
-            "name": "Josh Whyle",
+            "gsis_id": "00-0040598",
+            "name": "Mark Redman",
             "posAbb": "TE",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040598",
-            "name": "Mark Redman",
+            "gsis_id": "00-0038589",
+            "name": "Josh Whyle",
             "posAbb": "TE",
             "posRank": 4
           },
@@ -17680,14 +17692,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0037817",
-            "name": "Zach Bako-Bewele",
+            "gsis_id": "00-0040726",
+            "name": "Anthony Belton",
             "posAbb": "LT",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040726",
-            "name": "Anthony Belton",
+            "gsis_id": "00-0037817",
+            "name": "Zach Bako-Bewele",
             "posAbb": "LT",
             "posRank": 99
           },
@@ -17707,15 +17719,15 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LG",
-        "gsis_id": "00-0036551",
-        "name": "Aaron Banks",
+        "gsis_id": "00-0040884",
+        "name": "Jager Burton",
         "grade": "Average",
-        "rating": 74,
+        "rating": 75,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0036551",
-            "name": "Aaron Banks",
+            "gsis_id": "00-0040884",
+            "name": "Jager Burton",
             "posAbb": "LG",
             "posRank": 1
           },
@@ -17726,8 +17738,8 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040884",
-            "name": "Jager Burton",
+            "gsis_id": "00-0036551",
+            "name": "Aaron Banks",
             "posAbb": "LG",
             "posRank": 3
           },
@@ -17738,26 +17750,26 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0039817",
-            "name": "Jacob Monk",
-            "posAbb": "LG",
-            "posRank": 99
-          },
-          {
             "gsis_id": "00-0039904",
             "name": "Jordan Morgan",
             "posAbb": "LG",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0037817",
-            "name": "Zach Bako-Bewele",
+            "gsis_id": "00-0039817",
+            "name": "Jacob Monk",
             "posAbb": "LG",
             "posRank": 99
           },
           {
             "gsis_id": "00-0040726",
             "name": "Anthony Belton",
+            "posAbb": "LG",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0037817",
+            "name": "Zach Bako-Bewele",
             "posAbb": "LG",
             "posRank": 99
           },
@@ -17826,14 +17838,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0039817",
-            "name": "Jacob Monk",
+            "gsis_id": "00-0039904",
+            "name": "Jordan Morgan",
             "posAbb": "C",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0039904",
-            "name": "Jordan Morgan",
+            "gsis_id": "00-0039817",
+            "name": "Jacob Monk",
             "posAbb": "C",
             "posRank": 99
           },
@@ -17920,14 +17932,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0037817",
-            "name": "Zach Bako-Bewele",
+            "gsis_id": "00-0040884",
+            "name": "Jager Burton",
             "posAbb": "RG",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040884",
-            "name": "Jager Burton",
+            "gsis_id": "00-0037817",
+            "name": "Zach Bako-Bewele",
             "posAbb": "RG",
             "posRank": 99
           },
@@ -17986,7 +17998,7 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0040726",
         "name": "Anthony Belton",
         "grade": "Average",
-        "rating": 71,
+        "rating": 75,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -18038,8 +18050,8 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0040689",
-            "name": "Anthony Campbell",
+            "gsis_id": "00-0040869",
+            "name": "Chris McClellan",
             "posAbb": "LDE",
             "posRank": 2
           },
@@ -18050,9 +18062,9 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040869",
-            "name": "Chris McClellan",
-            "posAbb": "RDE",
+            "gsis_id": "00-0040689",
+            "name": "Anthony Campbell",
+            "posAbb": "LDE",
             "posRank": 3
           },
           {
@@ -18138,8 +18150,8 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0040689",
-            "name": "Anthony Campbell",
+            "gsis_id": "00-0040869",
+            "name": "Chris McClellan",
             "posAbb": "LDE",
             "posRank": 2
           },
@@ -18150,9 +18162,9 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040869",
-            "name": "Chris McClellan",
-            "posAbb": "RDE",
+            "gsis_id": "00-0040689",
+            "name": "Anthony Campbell",
+            "posAbb": "LDE",
             "posRank": 3
           },
           {
@@ -18303,38 +18315,38 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
+            "gsis_id": "00-0040877",
+            "name": "Dani Dennis-Sutton",
+            "posAbb": "SLB",
+            "posRank": 2
+          },
+          {
             "gsis_id": "00-0038463",
             "name": "Brenton Cox Jr.",
             "posAbb": "WLB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0036932",
-            "name": "Micah Parsons",
-            "posAbb": "SLB",
-            "posRank": 2
-          },
-          {
-            "gsis_id": "00-0040877",
-            "name": "Dani Dennis-Sutton",
+            "gsis_id": "00-0040012",
+            "name": "Collin Oliver",
             "posAbb": "WLB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040012",
-            "name": "Collin Oliver",
+            "gsis_id": "00-0036932",
+            "name": "Micah Parsons",
             "posAbb": "SLB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0039850",
-            "name": "Edgerrin Cooper",
+            "gsis_id": "00-0034431",
+            "name": "Zaire Franklin",
             "posAbb": "ILB",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0034431",
-            "name": "Zaire Franklin",
+            "gsis_id": "00-0039850",
+            "name": "Edgerrin Cooper",
             "posAbb": "ILB",
             "posRank": 99
           },
@@ -18391,38 +18403,38 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
+            "gsis_id": "00-0040877",
+            "name": "Dani Dennis-Sutton",
+            "posAbb": "SLB",
+            "posRank": 2
+          },
+          {
             "gsis_id": "00-0038463",
             "name": "Brenton Cox Jr.",
             "posAbb": "WLB",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0036932",
-            "name": "Micah Parsons",
-            "posAbb": "SLB",
-            "posRank": 2
-          },
-          {
-            "gsis_id": "00-0040877",
-            "name": "Dani Dennis-Sutton",
+            "gsis_id": "00-0040012",
+            "name": "Collin Oliver",
             "posAbb": "WLB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040012",
-            "name": "Collin Oliver",
+            "gsis_id": "00-0036932",
+            "name": "Micah Parsons",
             "posAbb": "SLB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0039850",
-            "name": "Edgerrin Cooper",
+            "gsis_id": "00-0034431",
+            "name": "Zaire Franklin",
             "posAbb": "ILB",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0034431",
-            "name": "Zaire Franklin",
+            "gsis_id": "00-0039850",
+            "name": "Edgerrin Cooper",
             "posAbb": "ILB",
             "posRank": 99
           },
@@ -18659,12 +18671,6 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0040033",
-            "name": "Johnathan Baldwin II",
-            "posAbb": "FS",
-            "posRank": 3
-          },
-          {
             "gsis_id": "00-0039813",
             "name": "Evan Williams",
             "posAbb": "FS",
@@ -18701,6 +18707,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0040033",
+            "name": "Johnathan Baldwin",
+            "posAbb": "FS",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0040968",
             "name": "Murvin Kenion",
             "posAbb": "FS",
@@ -18721,6 +18733,12 @@ export const ROSTERS_2026 = {
             "name": "Evan Williams",
             "posAbb": "SS",
             "posRank": 1
+          },
+          {
+            "gsis_id": "00-0040033",
+            "name": "Johnathan Baldwin II",
+            "posAbb": "SS",
+            "posRank": 2
           },
           {
             "gsis_id": "00-0036388",
@@ -18761,12 +18779,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0039959",
             "name": "Tra Fluellen",
-            "posAbb": "SS",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040033",
-            "name": "Johnathan Baldwin",
             "posAbb": "SS",
             "posRank": 99
           },
@@ -19466,21 +19478,21 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RG",
-        "gsis_id": "00-0038131",
-        "name": "Ed Ingram",
+        "gsis_id": "00-0034399",
+        "name": "Wyatt Teller",
         "grade": "Above Avg",
-        "rating": 87,
+        "rating": 78,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0038131",
-            "name": "Ed Ingram",
+            "gsis_id": "00-0034399",
+            "name": "Wyatt Teller",
             "posAbb": "RG",
             "posRank": 1
           },
           {
-            "gsis_id": "00-0034399",
-            "name": "Wyatt Teller",
+            "gsis_id": "00-0038131",
+            "name": "Ed Ingram",
             "posAbb": "RG",
             "posRank": 2
           },
@@ -19936,8 +19948,9 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0039395",
         "name": "Jamal Hill",
         "grade": "Below Avg",
-        "rating": 67,
+        "rating": 69,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Jake Hummel (Out)",
         "candidates": [
           {
             "gsis_id": "00-0037633",
@@ -19999,15 +20012,14 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Jake Hummel (Out)"
+        ]
       },
       {
         "pos": "LB2",
         "gsis_id": "00-0041465",
         "name": "Wade Woodaz",
         "grade": "Below Avg",
-        "rating": 69,
+        "rating": 67,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -22979,70 +22991,6 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0034413",
-        "name": "Foyesade Oluokun",
-        "grade": "Above Avg",
-        "rating": 79,
-        "rating_source": "snap_share_v1",
-        "candidates": [
-          {
-            "gsis_id": "00-0034413",
-            "name": "Foyesade Oluokun",
-            "posAbb": "WLB",
-            "posRank": 1
-          },
-          {
-            "gsis_id": "00-0034473",
-            "name": "Dennis Gardeck",
-            "posAbb": "SLB",
-            "posRank": 1
-          },
-          {
-            "gsis_id": "00-0038570",
-            "name": "Ventrell Miller",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040326",
-            "name": "Branson Combs",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0035240",
-            "name": "Jahlani Tavai",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040723",
-            "name": "Jack Kiser",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0041127",
-            "name": "Parker Hughes",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040395",
-            "name": "Jared Bartlett",
-            "posAbb": "ILB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0034413",
-            "name": "Foye Oluokun",
-            "posAbb": "ILB",
-            "posRank": 99
-          }
-        ]
-      },
-      {
-        "pos": "LB2",
         "gsis_id": "00-0034473",
         "name": "Dennis Gardeck",
         "grade": "Average",
@@ -23050,16 +22998,16 @@ export const ROSTERS_2026 = {
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0034413",
-            "name": "Foyesade Oluokun",
-            "posAbb": "WLB",
-            "posRank": 1
-          },
-          {
             "gsis_id": "00-0034473",
             "name": "Dennis Gardeck",
             "posAbb": "SLB",
             "posRank": 1
+          },
+          {
+            "gsis_id": "00-0034413",
+            "name": "Foyesade Oluokun",
+            "posAbb": "ILB",
+            "posRank": 99
           },
           {
             "gsis_id": "00-0038570",
@@ -23096,10 +23044,62 @@ export const ROSTERS_2026 = {
             "name": "Jared Bartlett",
             "posAbb": "ILB",
             "posRank": 99
+          }
+        ]
+      },
+      {
+        "pos": "LB2",
+        "gsis_id": "00-0034413",
+        "name": "Foyesade Oluokun",
+        "grade": "Above Avg",
+        "rating": 82,
+        "rating_source": "snap_share_v1",
+        "candidates": [
+          {
+            "gsis_id": "00-0034473",
+            "name": "Dennis Gardeck",
+            "posAbb": "SLB",
+            "posRank": 1
           },
           {
             "gsis_id": "00-0034413",
-            "name": "Foye Oluokun",
+            "name": "Foyesade Oluokun",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0038570",
+            "name": "Ventrell Miller",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040326",
+            "name": "Branson Combs",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0035240",
+            "name": "Jahlani Tavai",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040723",
+            "name": "Jack Kiser",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041127",
+            "name": "Parker Hughes",
+            "posAbb": "ILB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040395",
+            "name": "Jared Bartlett",
             "posAbb": "ILB",
             "posRank": 99
           }
@@ -25087,14 +25087,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040184",
-            "name": "KeAndre Lambert-Smith",
+            "gsis_id": "00-0034272",
+            "name": "Marquez Valdes-Scantling",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0034272",
-            "name": "Marquez Valdes-Scantling",
+            "gsis_id": "00-0040184",
+            "name": "KeAndre Lambert-Smith",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -25193,14 +25193,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040184",
-            "name": "KeAndre Lambert-Smith",
+            "gsis_id": "00-0034272",
+            "name": "Marquez Valdes-Scantling",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0034272",
-            "name": "Marquez Valdes-Scantling",
+            "gsis_id": "00-0040184",
+            "name": "KeAndre Lambert-Smith",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -25299,14 +25299,14 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040184",
-            "name": "KeAndre Lambert-Smith",
+            "gsis_id": "00-0034272",
+            "name": "Marquez Valdes-Scantling",
             "posAbb": "SWR",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0034272",
-            "name": "Marquez Valdes-Scantling",
+            "gsis_id": "00-0040184",
+            "name": "KeAndre Lambert-Smith",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -25367,22 +25367,23 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Charlie Kolar (Out)",
         "candidates": [
           {
-            "gsis_id": "00-0040189",
-            "name": "Oronde Gadsden",
+            "gsis_id": "00-0038046",
+            "name": "Charlie Kolar",
             "posAbb": "TE",
             "posRank": 1
           },
           {
-            "gsis_id": "00-0039489",
-            "name": "Hayden Rucci",
+            "gsis_id": "00-0040189",
+            "name": "Oronde Gadsden",
             "posAbb": "TE",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0038046",
-            "name": "Charlie Kolar",
+            "gsis_id": "00-0039489",
+            "name": "Hayden Rucci",
             "posAbb": "TE",
             "posRank": 3
           },
@@ -25427,14 +25428,14 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0035688",
-            "name": "Trey Pipkins III",
+            "gsis_id": "00-0041105",
+            "name": "Logan Taylor",
             "posAbb": "LT",
             "posRank": 2
           },
           {
-            "gsis_id": "00-0041105",
-            "name": "Logan Taylor",
+            "gsis_id": "00-0035688",
+            "name": "Trey Pipkins III",
             "posAbb": "LT",
             "posRank": 3
           },
@@ -25472,33 +25473,33 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LG",
-        "gsis_id": "00-0036736",
-        "name": "Kayode Awosika",
+        "gsis_id": "00-0037241",
+        "name": "Trevor Penning",
         "grade": "Average",
-        "rating": 71,
+        "rating": 74,
         "rating_source": "snap_share_v1",
         "candidates": [
-          {
-            "gsis_id": "00-0035688",
-            "name": "Trey Pipkins III",
-            "posAbb": "LG",
-            "posRank": 1
-          },
-          {
-            "gsis_id": "00-0036736",
-            "name": "Kayode Awosika",
-            "posAbb": "LG",
-            "posRank": 2
-          },
           {
             "gsis_id": "00-0037241",
             "name": "Trevor Penning",
             "posAbb": "LG",
-            "posRank": 3
+            "posRank": 1
           },
           {
             "gsis_id": "00-0041107",
             "name": "Alex Harkey",
+            "posAbb": "LG",
+            "posRank": 2
+          },
+          {
+            "gsis_id": "00-0035688",
+            "name": "Trey Pipkins III",
+            "posAbb": "LG",
+            "posRank": 3
+          },
+          {
+            "gsis_id": "00-0036736",
+            "name": "Kayode Awosika",
             "posAbb": "LG",
             "posRank": 4
           },
@@ -25574,8 +25575,7 @@ export const ROSTERS_2026 = {
             "posAbb": "LG",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Trey Pipkins III (Out)"
+        ]
       },
       {
         "pos": "C",
@@ -26371,9 +26371,10 @@ export const ROSTERS_2026 = {
         "pos": "FS",
         "gsis_id": "00-0041064",
         "name": "Genesis Smith",
-        "grade": "Above Avg",
-        "rating": 82,
+        "grade": "Average",
+        "rating": 71,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Elijah Molden (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036992",
@@ -26423,8 +26424,7 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Elijah Molden (Out)"
+        ]
       },
       {
         "pos": "SS",
@@ -27935,6 +27935,12 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
+            "gsis_id": "00-0040923",
+            "name": "Maximus Pulley",
+            "posAbb": "FS",
+            "posRank": 3
+          },
+          {
             "gsis_id": "00-0037841",
             "name": "Quentin Lake",
             "posAbb": "FS",
@@ -28019,6 +28025,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040600",
             "name": "Nate Valcarcel",
+            "posAbb": "SS",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040923",
+            "name": "Maximus Pulley",
             "posAbb": "SS",
             "posRank": 99
           },
@@ -29789,8 +29801,9 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0039880",
         "name": "Malik Washington",
         "grade": "Above Avg",
-        "rating": 79,
+        "rating": 81,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Caleb Douglas (Out)",
         "candidates": [
           {
             "gsis_id": "00-0041523",
@@ -29852,15 +29865,14 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Caleb Douglas (Out)"
+        ]
       },
       {
         "pos": "WR2",
         "gsis_id": "00-0041525",
         "name": "Chris Bell",
-        "grade": "Above Avg",
-        "rating": 81,
+        "grade": "Average",
+        "rating": 71,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -29929,8 +29941,8 @@ export const ROSTERS_2026 = {
         "pos": "WR3",
         "gsis_id": "00-0038824",
         "name": "Ryan Miller",
-        "grade": "Average",
-        "rating": 71,
+        "grade": "Below Avg",
+        "rating": 69,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -30575,9 +30587,10 @@ export const ROSTERS_2026 = {
         "pos": "EDGE2",
         "gsis_id": "00-0036409",
         "name": "Jordyn Brooks",
-        "grade": "Average",
-        "rating": 71,
+        "grade": "Above Avg",
+        "rating": 82,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Robert Beal Jr. (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036159",
@@ -30699,8 +30712,7 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Robert Beal Jr. (Out)"
+        ]
       },
       {
         "pos": "DT",
@@ -31357,6 +31369,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0036755",
+            "name": "Jaret Patterson",
+            "posAbb": "RB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0037267",
             "name": "Jerome Ford",
             "posAbb": "RB",
@@ -31411,6 +31429,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0036670",
             "name": "Jermar Jefferson",
+            "posAbb": "RB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0036755",
+            "name": "Jaret Patterson",
             "posAbb": "RB",
             "posRank": 99
           },
@@ -32213,6 +32237,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0035073",
+            "name": "Jonathan Harris",
+            "posAbb": "EDGE",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0039494",
             "name": "Kenny Dyson",
             "posAbb": "ROLB",
@@ -32325,6 +32355,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0035073",
+            "name": "Jonathan Harris",
+            "posAbb": "EDGE",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0039494",
             "name": "Kenny Dyson",
             "posAbb": "ROLB",
@@ -32391,12 +32427,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0041046",
             "name": "Domonique Orange",
-            "posAbb": "DT",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0036695",
-            "name": "Naquan Jones",
             "posAbb": "DT",
             "posRank": 99
           },
@@ -33939,6 +33969,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0037638",
+            "name": "Benton Whitley",
+            "posAbb": "EDGE",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0039053",
             "name": "Jose Ramirez",
             "posAbb": "ROLB",
@@ -34024,6 +34060,12 @@ export const ROSTERS_2026 = {
             "gsis_id": "00-0034828",
             "name": "Harold Landry III",
             "posAbb": "ROLB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0037638",
+            "name": "Benton Whitley",
+            "posAbb": "EDGE",
             "posRank": 99
           },
           {
@@ -34149,8 +34191,8 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0041402",
-            "name": "Quintayvious Hutchins",
+            "gsis_id": "00-0034828",
+            "name": "Harold Landry III",
             "posAbb": "WLB",
             "posRank": 2
           },
@@ -34161,9 +34203,15 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0034828",
-            "name": "Harold Landry III",
+            "gsis_id": "00-0041402",
+            "name": "Quintayvious Hutchins",
             "posAbb": "WLB",
+            "posRank": 3
+          },
+          {
+            "gsis_id": "00-0039053",
+            "name": "Jose Ramirez",
+            "posAbb": "SLB",
             "posRank": 3
           },
           {
@@ -34215,8 +34263,9 @@ export const ROSTERS_2026 = {
         "gsis_id": "00-0041569",
         "name": "Gabe Jacas",
         "grade": "Average",
-        "rating": 74,
+        "rating": 75,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Dre'Mont Jones (Out)",
         "candidates": [
           {
             "gsis_id": "00-0040574",
@@ -34237,8 +34286,8 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0041402",
-            "name": "Quintayvious Hutchins",
+            "gsis_id": "00-0034828",
+            "name": "Harold Landry III",
             "posAbb": "WLB",
             "posRank": 2
           },
@@ -34249,9 +34298,15 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0034828",
-            "name": "Harold Landry III",
+            "gsis_id": "00-0041402",
+            "name": "Quintayvious Hutchins",
             "posAbb": "WLB",
+            "posRank": 3
+          },
+          {
+            "gsis_id": "00-0039053",
+            "name": "Jose Ramirez",
+            "posAbb": "SLB",
             "posRank": 3
           },
           {
@@ -34296,8 +34351,7 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Dre'Mont Jones (Out)"
+        ]
       },
       {
         "pos": "CB1",
@@ -34512,12 +34566,6 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0037205",
-            "name": "Brenden Schooler",
-            "posAbb": "FS",
-            "posRank": 3
-          },
-          {
             "gsis_id": "00-0040716",
             "name": "Craig Woodson",
             "posAbb": "FS",
@@ -34526,6 +34574,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0039692",
             "name": "Dell Pettus",
+            "posAbb": "FS",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0037205",
+            "name": "Brenden Schooler",
             "posAbb": "FS",
             "posRank": 99
           },
@@ -34570,10 +34624,16 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
+            "gsis_id": "00-0037205",
+            "name": "Brenden Schooler",
+            "posAbb": "SS",
+            "posRank": 2
+          },
+          {
             "gsis_id": "00-0039692",
             "name": "Dell Pettus",
             "posAbb": "SS",
-            "posRank": 2
+            "posRank": 3
           },
           {
             "gsis_id": "00-0033132",
@@ -34584,12 +34644,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040204",
             "name": "Jaylen Reed",
-            "posAbb": "SS",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0037205",
-            "name": "Brenden Schooler",
             "posAbb": "SS",
             "posRank": 99
           },
@@ -34678,14 +34732,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0038551",
-            "name": "Kendre Miller",
+            "gsis_id": "00-0041326",
+            "name": "CJ Donaldson",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0041326",
-            "name": "CJ Donaldson",
+            "gsis_id": "00-0038551",
+            "name": "Kendre Miller",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -34736,14 +34790,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0038551",
-            "name": "Kendre Miller",
+            "gsis_id": "00-0041326",
+            "name": "CJ Donaldson",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0041326",
-            "name": "CJ Donaldson",
+            "gsis_id": "00-0038551",
+            "name": "Kendre Miller",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -35078,12 +35132,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0037475",
             "name": "Stone Smartt",
-            "posAbb": "TE",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0041327",
-            "name": "Cody Hardy",
             "posAbb": "TE",
             "posRank": 99
           }
@@ -38180,6 +38228,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0041327",
+            "name": "Cody Hardy",
+            "posAbb": "TE",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0041577",
             "name": "Connor Hulstein",
             "posAbb": "TE",
@@ -38742,6 +38796,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0036843",
+            "name": "Isaiahh Loudermilk",
+            "posAbb": "DT",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0040404",
             "name": "Payton Page",
             "posAbb": "DT",
@@ -38753,9 +38813,10 @@ export const ROSTERS_2026 = {
         "pos": "LB1",
         "gsis_id": "00-0029607",
         "name": "Demario Davis",
-        "grade": "Average",
-        "rating": 71,
+        "grade": "Above Avg",
+        "rating": 79,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Kiko Mauigoa (Out)",
         "candidates": [
           {
             "gsis_id": "00-0040186",
@@ -38817,15 +38878,14 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Kiko Mauigoa (Out)"
+        ]
       },
       {
         "pos": "LB2",
         "gsis_id": "00-0036500",
         "name": "Jamien Sherwood",
         "grade": "Above Avg",
-        "rating": 79,
+        "rating": 82,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
@@ -38892,21 +38952,21 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0036987",
-        "name": "Brandon Stephens",
+        "gsis_id": "00-0040133",
+        "name": "Azareye'h Thomas",
         "grade": "Above Avg",
-        "rating": 82,
+        "rating": 79,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0036987",
-            "name": "Brandon Stephens",
+            "gsis_id": "00-0040133",
+            "name": "Azareye'h Thomas",
             "posAbb": "CB",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040133",
-            "name": "Azareye'h Thomas",
+            "gsis_id": "00-0036987",
+            "name": "Brandon Stephens",
             "posAbb": "CB",
             "posRank": 99
           },
@@ -38968,21 +39028,21 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0040133",
-        "name": "Azareye'h Thomas",
+        "gsis_id": "00-0036987",
+        "name": "Brandon Stephens",
         "grade": "Above Avg",
-        "rating": 79,
+        "rating": 82,
         "rating_source": "snap_share_v1",
         "candidates": [
           {
-            "gsis_id": "00-0036987",
-            "name": "Brandon Stephens",
+            "gsis_id": "00-0040133",
+            "name": "Azareye'h Thomas",
             "posAbb": "CB",
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040133",
-            "name": "Azareye'h Thomas",
+            "gsis_id": "00-0036987",
+            "name": "Brandon Stephens",
             "posAbb": "CB",
             "posRank": 99
           },
@@ -39128,9 +39188,10 @@ export const ROSTERS_2026 = {
         "pos": "FS",
         "gsis_id": "00-0040165",
         "name": "Malachi Moore",
-        "grade": "Average",
-        "rating": 70,
+        "grade": "Below Avg",
+        "rating": 67,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Minkah Fitzpatrick (Out)",
         "candidates": [
           {
             "gsis_id": "00-0034789",
@@ -39186,8 +39247,7 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Minkah Fitzpatrick (Out)"
+        ]
       },
       {
         "pos": "SS",
@@ -39704,34 +39764,34 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0030061",
-            "name": "Zach Ertz",
-            "posAbb": "TE",
-            "posRank": 2
-          },
-          {
             "gsis_id": "00-0033246",
             "name": "Johnny Mundt",
             "posAbb": "TE",
-            "posRank": 3
+            "posRank": 2
           },
           {
             "gsis_id": "00-0038498",
             "name": "E.J. Jenkins",
             "posAbb": "TE",
-            "posRank": 4
+            "posRank": 3
           },
           {
             "gsis_id": "00-0037086",
             "name": "Grant Calcaterra",
             "posAbb": "TE",
-            "posRank": 5
+            "posRank": 4
           },
           {
             "gsis_id": "00-0041483",
             "name": "Eli Stowers",
             "posAbb": "TE",
-            "posRank": 6
+            "posRank": 5
+          },
+          {
+            "gsis_id": "00-0030061",
+            "name": "Zach Ertz",
+            "posAbb": "TE",
+            "posRank": 99
           },
           {
             "gsis_id": "00-0036332",
@@ -40530,6 +40590,18 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0033393",
+            "name": "Kenny Moore II",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0036559",
+            "name": "Shaun Wade",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0038641",
             "name": "Isaiah Bolden",
             "posAbb": "CB",
@@ -40538,12 +40610,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040071",
             "name": "Mac McWilliams",
-            "posAbb": "CB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040077",
-            "name": "Robert Longerbeam",
             "posAbb": "CB",
             "posRank": 99
           }
@@ -40600,6 +40666,18 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0033393",
+            "name": "Kenny Moore II",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0036559",
+            "name": "Shaun Wade",
+            "posAbb": "CB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0038641",
             "name": "Isaiah Bolden",
             "posAbb": "CB",
@@ -40608,12 +40686,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040071",
             "name": "Mac McWilliams",
-            "posAbb": "CB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040077",
-            "name": "Robert Longerbeam",
             "posAbb": "CB",
             "posRank": 99
           }
@@ -40664,6 +40736,18 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0033393",
+            "name": "Kenny Moore II",
+            "posAbb": "NB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0036559",
+            "name": "Shaun Wade",
+            "posAbb": "NB",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0038641",
             "name": "Isaiah Bolden",
             "posAbb": "NB",
@@ -40678,12 +40762,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0039140",
             "name": "Kelee Ringo",
-            "posAbb": "NB",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040077",
-            "name": "Robert Longerbeam",
             "posAbb": "NB",
             "posRank": 99
           }
@@ -40730,12 +40808,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040905",
             "name": "Cole Wisniewski",
-            "posAbb": "FS",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040923",
-            "name": "Maximus Pulley",
             "posAbb": "FS",
             "posRank": 99
           },
@@ -40796,12 +40868,6 @@ export const ROSTERS_2026 = {
             "name": "Cole Wisniewski",
             "posAbb": "SS",
             "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040923",
-            "name": "Maximus Pulley",
-            "posAbb": "SS",
-            "posRank": 99
           }
         ]
       }
@@ -40858,12 +40924,6 @@ export const ROSTERS_2026 = {
             "posRank": 1
           },
           {
-            "gsis_id": "00-0041398",
-            "name": "Riley Nowakowski",
-            "posAbb": "FB",
-            "posRank": 1
-          },
-          {
             "gsis_id": "00-0036139",
             "name": "Rico Dowdle",
             "posAbb": "RB",
@@ -40874,6 +40934,12 @@ export const ROSTERS_2026 = {
             "name": "Eli Heidenreich",
             "posAbb": "RB",
             "posRank": 3
+          },
+          {
+            "gsis_id": "00-0041398",
+            "name": "Riley Nowakowski",
+            "posAbb": "RB",
+            "posRank": 99
           },
           {
             "gsis_id": "00-0035594",
@@ -40897,22 +40963,17 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0041398",
-        "name": "Riley Nowakowski",
+        "gsis_id": "00-0041490",
+        "name": "Eli Heidenreich",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Rico Dowdle (Out)",
         "candidates": [
           {
             "gsis_id": "00-0037228",
             "name": "Jaylen Warren",
             "posAbb": "RB",
-            "posRank": 1
-          },
-          {
-            "gsis_id": "00-0041398",
-            "name": "Riley Nowakowski",
-            "posAbb": "FB",
             "posRank": 1
           },
           {
@@ -40926,6 +40987,12 @@ export const ROSTERS_2026 = {
             "name": "Eli Heidenreich",
             "posAbb": "RB",
             "posRank": 3
+          },
+          {
+            "gsis_id": "00-0041398",
+            "name": "Riley Nowakowski",
+            "posAbb": "RB",
+            "posRank": 99
           },
           {
             "gsis_id": "00-0035594",
@@ -41290,12 +41357,6 @@ export const ROSTERS_2026 = {
             "name": "Robert Tonyan",
             "posAbb": "TE",
             "posRank": 3
-          },
-          {
-            "gsis_id": "00-0041398",
-            "name": "Riley Nowakowski",
-            "posAbb": "TE",
-            "posRank": 99
           },
           {
             "gsis_id": "00-0039420",
@@ -42644,6 +42705,12 @@ export const ROSTERS_2026 = {
             "name": "Rashad Rochelle",
             "posAbb": "SWR",
             "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041542",
+            "name": "Malick Meiga",
+            "posAbb": "SWR",
+            "posRank": 99
           }
         ]
       },
@@ -42733,6 +42800,12 @@ export const ROSTERS_2026 = {
             "name": "Rashad Rochelle",
             "posAbb": "SWR",
             "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041542",
+            "name": "Malick Meiga",
+            "posAbb": "SWR",
+            "posRank": 99
           }
         ]
       },
@@ -42819,6 +42892,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0041476",
             "name": "Rashad Rochelle",
+            "posAbb": "SWR",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041542",
+            "name": "Malick Meiga",
             "posAbb": "SWR",
             "posRank": 99
           }
@@ -43094,23 +43173,29 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RG",
-        "gsis_id": "00-0039020",
-        "name": "Anthony Bradford",
-        "grade": "Above Avg",
-        "rating": 81,
+        "gsis_id": "00-0039839",
+        "name": "Christian Haynes",
+        "grade": "Average",
+        "rating": 73,
         "rating_source": "snap_share_v1",
         "candidates": [
-          {
-            "gsis_id": "00-0039020",
-            "name": "Anthony Bradford",
-            "posAbb": "RG",
-            "posRank": 1
-          },
           {
             "gsis_id": "00-0039839",
             "name": "Christian Haynes",
             "posAbb": "RG",
+            "posRank": 1
+          },
+          {
+            "gsis_id": "00-0040882",
+            "name": "Beau Stephens",
+            "posAbb": "RG",
             "posRank": 2
+          },
+          {
+            "gsis_id": "00-0039020",
+            "name": "Anthony Bradford",
+            "posAbb": "RG",
+            "posRank": 3
           },
           {
             "gsis_id": "00-0037812",
@@ -43133,12 +43218,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0040639",
             "name": "Grey Zabel",
-            "posAbb": "RG",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0040882",
-            "name": "Beau Stephens",
             "posAbb": "RG",
             "posRank": 99
           },
@@ -43916,17 +43995,24 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0040733",
-        "name": "Nick Emmanwori",
+        "gsis_id": "00-0037323",
+        "name": "Rodney Thomas II",
         "grade": "Above Avg",
-        "rating": 87,
+        "rating": 84,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Julian Love (Out)",
         "candidates": [
           {
             "gsis_id": "00-0034974",
             "name": "Julian Love",
             "posAbb": "FS",
             "posRank": 1
+          },
+          {
+            "gsis_id": "00-0037323",
+            "name": "Rodney Thomas II",
+            "posAbb": "FS",
+            "posRank": 2
           },
           {
             "gsis_id": "00-0040733",
@@ -43937,12 +44023,6 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0038866",
             "name": "AJ Finley",
-            "posAbb": "FS",
-            "posRank": 99
-          },
-          {
-            "gsis_id": "00-0037323",
-            "name": "Rodney Thomas",
             "posAbb": "FS",
             "posRank": 99
           },
@@ -43976,16 +44056,16 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Julian Love (Out)"
+        ]
       },
       {
         "pos": "SS",
         "gsis_id": "00-0038866",
         "name": "AJ Finley",
-        "grade": "Average",
-        "rating": 73,
+        "grade": "Below Avg",
+        "rating": 69,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Ty Okada (Out)",
         "candidates": [
           {
             "gsis_id": "00-0038765",
@@ -44041,8 +44121,7 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Ty Okada (Out)"
+        ]
       }
     ]
   },
@@ -44243,6 +44322,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0031236",
+            "name": "Brandin Cooks",
+            "posAbb": "SWR",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0035719",
             "name": "Deebo Samuel Sr.",
             "posAbb": "SWR",
@@ -44331,6 +44416,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
+            "gsis_id": "00-0031236",
+            "name": "Brandin Cooks",
+            "posAbb": "SWR",
+            "posRank": 99
+          },
+          {
             "gsis_id": "00-0035719",
             "name": "Deebo Samuel Sr.",
             "posAbb": "SWR",
@@ -44415,6 +44506,12 @@ export const ROSTERS_2026 = {
           {
             "gsis_id": "00-0039916",
             "name": "Ricky Pearsall",
+            "posAbb": "SWR",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0031236",
+            "name": "Brandin Cooks",
             "posAbb": "SWR",
             "posRank": 99
           },
@@ -44964,9 +45061,10 @@ export const ROSTERS_2026 = {
         "pos": "EDGE2",
         "gsis_id": "00-0039148",
         "name": "Keion White",
-        "grade": "Above Avg",
-        "rating": 78,
+        "grade": "Average",
+        "rating": 73,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Nick Bosa (Out)",
         "candidates": [
           {
             "gsis_id": "00-0034982",
@@ -45070,8 +45168,7 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Nick Bosa (Out)"
+        ]
       },
       {
         "pos": "DT",
@@ -45094,14 +45191,20 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0040711",
-            "name": "C.J. West",
+            "gsis_id": "00-0036695",
+            "name": "Naquan Jones",
             "posAbb": "DT",
             "posRank": 99
           },
           {
             "gsis_id": "00-0041363",
             "name": "James Thompson Jr.",
+            "posAbb": "DT",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0040711",
+            "name": "C.J. West",
             "posAbb": "DT",
             "posRank": 99
           },
@@ -46411,12 +46514,6 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0041339",
-            "name": "Deshawn McKnight",
-            "posAbb": "EDGE",
-            "posRank": 99
-          },
-          {
             "gsis_id": "00-0039068",
             "name": "Yaya Diaby",
             "posAbb": "ROLB",
@@ -46432,6 +46529,12 @@ export const ROSTERS_2026 = {
             "gsis_id": "00-0041031",
             "name": "Rueben Bain Jr.",
             "posAbb": "ROLB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041339",
+            "name": "Deshawn McKnight",
+            "posAbb": "EDGE",
             "posRank": 99
           },
           {
@@ -46493,12 +46596,6 @@ export const ROSTERS_2026 = {
             "posRank": 99
           },
           {
-            "gsis_id": "00-0041339",
-            "name": "Deshawn McKnight",
-            "posAbb": "EDGE",
-            "posRank": 99
-          },
-          {
             "gsis_id": "00-0039068",
             "name": "Yaya Diaby",
             "posAbb": "ROLB",
@@ -46514,6 +46611,12 @@ export const ROSTERS_2026 = {
             "gsis_id": "00-0041031",
             "name": "Rueben Bain Jr.",
             "posAbb": "ROLB",
+            "posRank": 99
+          },
+          {
+            "gsis_id": "00-0041339",
+            "name": "Deshawn McKnight",
+            "posAbb": "EDGE",
             "posRank": 99
           },
           {
@@ -47155,14 +47258,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0037594",
-            "name": "Julius Chestnut",
+            "gsis_id": "00-0040886",
+            "name": "Nicholas Singleton",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040886",
-            "name": "Nicholas Singleton",
+            "gsis_id": "00-0037594",
+            "name": "Julius Chestnut",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -47201,14 +47304,14 @@ export const ROSTERS_2026 = {
             "posRank": 2
           },
           {
-            "gsis_id": "00-0037594",
-            "name": "Julius Chestnut",
+            "gsis_id": "00-0040886",
+            "name": "Nicholas Singleton",
             "posAbb": "RB",
             "posRank": 3
           },
           {
-            "gsis_id": "00-0040886",
-            "name": "Nicholas Singleton",
+            "gsis_id": "00-0037594",
+            "name": "Julius Chestnut",
             "posAbb": "RB",
             "posRank": 4
           },
@@ -48668,9 +48771,10 @@ export const ROSTERS_2026 = {
         "pos": "QB",
         "gsis_id": "00-0032268",
         "name": "Marcus Mariota",
-        "grade": "Above Avg",
-        "rating": 81,
+        "grade": "Average",
+        "rating": 71,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Jayden Daniels (Out)",
         "candidates": [
           {
             "gsis_id": "00-0039910",
@@ -48696,8 +48800,7 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Jayden Daniels (Out)"
+        ]
       },
       {
         "pos": "RB1",
@@ -49023,9 +49126,10 @@ export const ROSTERS_2026 = {
         "pos": "TE",
         "gsis_id": "00-0039912",
         "name": "Ben Sinnott",
-        "grade": "Above Avg",
-        "rating": 78,
+        "grade": "Average",
+        "rating": 77,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Chig Okonkwo (Out)",
         "candidates": [
           {
             "gsis_id": "00-0037809",
@@ -49075,8 +49179,7 @@ export const ROSTERS_2026 = {
             "posAbb": "TE",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Chig Okonkwo (Out)"
+        ]
       },
       {
         "pos": "LT",
@@ -50160,9 +50263,10 @@ export const ROSTERS_2026 = {
         "pos": "SS",
         "gsis_id": "00-0039681",
         "name": "Tyler Owens",
-        "grade": "Above Avg",
-        "rating": 82,
+        "grade": "Below Avg",
+        "rating": 69,
         "rating_source": "snap_share_v1",
+        "starter_reason": "promoted after: Nick Cross (Out)",
         "candidates": [
           {
             "gsis_id": "00-0037616",
@@ -50218,20 +50322,16 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ],
-        "starter_reason": "promoted after: Nick Cross (Out)"
+        ]
       }
     ]
   }
 };
 
 export const ROSTERS_META = {
-  "generated": "2026-09-23T10:11:49.451Z",
+  "generated": "2026-09-26T10:03:14.276Z",
   "availability_stamp": "2026-09-26T09:18:13.330Z",
-  "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-09-26T09:30:01.839Z",
-  "swaps_this_run": 0,
-  "no_backup_this_run": 0,
+  "reconciled_by": "fetch-nflverse-roster-base.js",
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
