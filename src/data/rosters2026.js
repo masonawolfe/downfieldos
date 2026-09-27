@@ -3,9 +3,13 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-09-26T10:03:14.277Z
+// Generated: 2026-09-26T10:03:14.276Z
+// Reconciled: 2026-09-27T10:00:09.299Z against availability_2026.json
+//             (generated 2026-09-27T09:57:38.891Z) — 5 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -8004,8 +8008,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0039918",
-        "name": "Caleb Williams",
+        "gsis_id": "00-0038416",
+        "name": "Tyson Bagent",
         "grade": "Above Avg",
         "rating": 86,
         "rating_source": "snap_share_v1",
@@ -8034,7 +8038,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Caleb Williams (Out)"
       },
       {
         "pos": "RB1",
@@ -9870,7 +9875,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Andrei Iosivas (Out)",
+        "starter_reason": "promoted after: Andrei Iosivas (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036900",
@@ -14112,7 +14117,7 @@ export const ROSTERS_2026 = {
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Malik Hooker (Out), P.J. Locke (Out)",
+        "starter_reason": "promoted after: Malik Hooker (Out), P.J. Locke (IR)",
         "candidates": [
           {
             "gsis_id": "00-0033877",
@@ -17149,7 +17154,7 @@ export const ROSTERS_2026 = {
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Thomas Harper (Out), Avonte Maddox (IR)",
+        "starter_reason": "promoted after: Thomas Harper (IR), Avonte Maddox (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039660",
@@ -19950,7 +19955,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Jake Hummel (Out)",
+        "starter_reason": "promoted after: Jake Hummel (IR)",
         "candidates": [
           {
             "gsis_id": "00-0037633",
@@ -39469,8 +39474,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0035662",
-        "name": "Hollywood Brown",
+        "gsis_id": "00-0036912",
+        "name": "DeVonta Smith",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -39559,12 +39564,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Hollywood Brown (Out)"
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0036912",
-        "name": "DeVonta Smith",
+        "gsis_id": "00-0038393",
+        "name": "Dontayvion Wicks",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -39657,8 +39663,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0038393",
-        "name": "Dontayvion Wicks",
+        "gsis_id": "00-0040867",
+        "name": "Makai Lemon",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -39751,8 +39757,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0034351",
-        "name": "Dallas Goedert",
+        "gsis_id": "00-0033246",
+        "name": "Johnny Mundt",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -39799,7 +39805,8 @@ export const ROSTERS_2026 = {
             "posAbb": "TE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dallas Goedert (Out)"
       },
       {
         "pos": "LT",
@@ -50330,8 +50337,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-09-26T10:03:14.276Z",
-  "availability_stamp": "2026-09-26T09:18:13.330Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-09-27T09:57:38.891Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-09-27T10:00:09.299Z",
+  "swaps_this_run": 5,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
