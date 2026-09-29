@@ -26,7 +26,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
-const GAMES_URL = 'https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv';
+// E-047 (2026-09-29): source of record for the schedule is the nflverse
+// `schedules` RELEASE asset. See DATA_SOURCES.md § Schedule source of
+// record for why this and not nfldata/raw/master. `GAMES_URL` is
+// overridable only so the carry-forward path can be exercised against a
+// doctored CSV in a test — CI and cron always use the default.
+const GAMES_URL = process.env.GAMES_URL || 'https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv';
 const OUT_PATH = path.join(__dirname, `../src/data/schedule${SEASON}.js`);
 
 const TEAM_MAP = { OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', LA: 'LAR' };
@@ -207,7 +212,11 @@ async function main() {
       if ((proposed[f] == null || proposed[f] === '') && prev[f] != null && prev[f] !== '') {
         // Never overwrite value with null.
         proposed[f] = prev[f];
-        sourceStamps[`${f}_source`] = `carried-forward ${carryStamp} (from HEAD)`;
+        // E-047 (2026-09-29): name the ref we actually read. The first
+        // cut hardcoded "(from HEAD)", which misstates provenance on any
+        // run that used the PREV_REF override — exactly the run that
+        // restores a dropped field, so exactly the stamp that matters.
+        sourceStamps[`${f}_source`] = `carried-forward ${carryStamp} (from ${PREV_REF})`;
         carryLog.push({ game_id: row.game_id, field: f, from: prev[f] });
       }
     }

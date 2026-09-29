@@ -35,6 +35,40 @@ consumed as-is or after transformation described below:
 | Contracts | <https://github.com/nflverse/nflverse-data/releases/tag/contracts> |
 | Officials | <https://github.com/nflverse/nflverse-data/releases/tag/officials> |
 
+### Schedule source of record (E-047, 2026-09-29)
+
+nflverse publishes the same schedule through two paths, and they are not
+the same artifact:
+
+| Path | URL |
+|---|---|
+| **Source of record** | `https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv` |
+| Not used | `https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv` |
+
+**The release asset is the source of record.** Reasons, in order:
+
+1. **It is what produces the file.** `scripts/fetch-schedule.js` ingests the
+   release asset. A gate that graded `schedule2026.js` against the other
+   path would be grading the file against a feed that did not produce it —
+   any disagreement between the two paths would read as local corruption.
+2. **Releases are versioned and immutable per tag.** `raw.githubusercontent`
+   serves whatever is on `master` at request time, including mid-rebuild
+   states. The E-045 incident (14 Week-2 `surface` values dropped to null on
+   the 09-21 refresh, restored upstream within days) is exactly that class.
+3. **One fetch, one grade.** `scripts/verify-schedule-upstream.mjs` reads the
+   same constant. Both honour a `GAMES_URL` env override, which exists only
+   so the carry-forward path can be exercised against a doctored CSV in a
+   test — CI and cron always use the default above.
+
+**Anything that audits the schedule must use the release asset.** QA's
+standing 272-row upstream audit and the newsletter fact-checks were reading
+`nfldata/raw/master`; on 2026-09-29 that produced a reported disagreement on
+`2026_03_PHI_CHI` (`surface` blank vs `grass`). Re-fetched on 2026-09-29,
+both paths agreed — 272 REG games, **0 field differences** across
+week/home/away/gameday/gametime/weekday/stadium/roof/surface, 0 blank
+surfaces on either. The disagreement was a transient mid-rebuild read of
+`master`, which is the reason the release asset wins.
+
 **Modification notice (§3(a)(1)(b)):** The nflverse data has been modified in
 DownfieldOS as follows. Modifications happen in the scripts listed and are
 also recorded per-field in the built artifacts via `*_source` labels.

@@ -43,7 +43,11 @@ const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 
 const SEASON = parseInt(process.env.SEASON || '2026', 10);
-const GAMES_URL = 'https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv';
+// E-047 (2026-09-29): must be the SAME source of record fetch-schedule.js
+// uses, or the gate grades the file against a feed that did not produce
+// it. See DATA_SOURCES.md § Schedule source of record. Overridable only
+// for tests; CI and cron always use the default.
+const GAMES_URL = process.env.GAMES_URL || 'https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv';
 const SCHED_PATH = path.join(REPO_ROOT, `src/data/schedule${SEASON}.js`);
 
 const TEAM_MAP = { OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', LA: 'LAR' };
@@ -114,13 +118,34 @@ async function main() {
   const localMatch = localSrc.match(/export const SCHEDULE_\d+ = (\{[\s\S]*?\n\});\s*$/m);
   if (!localMatch) throw new Error(`could not parse ${SCHED_PATH}`);
   const localObj = JSON.parse(localMatch[1]);
-  // Local index: keyed by game_id → row (byWeek entries carry the full record).
-  const localById = new Map();
-  for (const wArr of Object.values(localObj.byWeek || {})) {
-    for (const g of wArr) {
-      if (g?.game_id && !localById.has(g.game_id)) localById.set(g.game_id, g);
-    }
+  // Q-061 (2026-09-29): schedule2026.js stores EVERY game three times —
+  // once in `byWeek[N]`, once in `teams[HOME].games`, once in
+  // `teams[AWAY].games`. The first cut of this gate indexed only
+  // `byWeek` and kept the FIRST copy per game_id, so the two `teams`
+  // copies were never graded. QA proved it: mutating the `teams` block
+  // passed the gate. The app reads the `teams` copy
+  // (HomeDashboard.jsx:54, ThisWeek.jsx:51-52), so the ungraded copies
+  // are the ones users actually see.
+  //
+  // Now: collect EVERY copy with its location, grade all of them
+  // against upstream, and additionally fail when copies of the same
+  // game disagree with each other.
+  const localCopies = new Map(); // game_id → [{ loc, rec }]
+  const addCopy = (loc, g) => {
+    if (!g?.game_id) return;
+    if (!localCopies.has(g.game_id)) localCopies.set(g.game_id, []);
+    localCopies.get(g.game_id).push({ loc, rec: g });
+  };
+  for (const [w, wArr] of Object.entries(localObj.byWeek || {})) {
+    for (const g of wArr) addCopy(`byWeek[${w}]`, g);
   }
+  for (const [t, td] of Object.entries(localObj.teams || {})) {
+    for (const g of (td.games || [])) addCopy(`teams[${t}]`, g);
+  }
+  // Representative copy per game_id, for the id-set comparison only.
+  const localById = new Map();
+  for (const [gid, copies] of localCopies) localById.set(gid, copies[0].rec);
+  const totalCopies = [...localCopies.values()].reduce((n, c) => n + c.length, 0);
 
   // Fetch upstream fresh
   console.log('  fetching games.csv from nflverse...');
@@ -134,7 +159,7 @@ async function main() {
   for (const r of upstreamRows) {
     if (!upstreamById.has(r.game_id)) upstreamById.set(r.game_id, r);
   }
-  console.log(`  local:    ${localById.size} REG game_ids`);
+  console.log(`  local:    ${localById.size} REG game_ids across ${totalCopies} stored copies (byWeek + teams)`);
   console.log(`  upstream: ${upstreamById.size} REG game_ids for ${SEASON}\n`);
 
   const errors = [];
@@ -154,8 +179,31 @@ async function main() {
   const idMismatches = [];
   const softMismatches = [];
   const allowlistedDiffs = [];
+  const copyDivergences = [];
+  const missingStamps = [];
 
-  for (const [gid, local] of localById) {
+  // Q-061: copies of the same game must agree with each other. This is
+  // independent of upstream — a local edit (hand-edit, partial rewrite,
+  // a bug in fetch-schedule.js's three compact() calls) that touches
+  // one copy and not the others is corruption even if the touched copy
+  // still matches upstream.
+  const ALL_GRADED = ['week', 'home', 'away', 'gameday', 'gametime', 'weekday', 'stadium', 'roof', 'surface'];
+  for (const [gid, copies] of localCopies) {
+    if (copies.length < 2) continue;
+    const [{ loc: baseLoc, rec: base }] = copies;
+    for (const { loc, rec } of copies.slice(1)) {
+      for (const f of ALL_GRADED) {
+        if (base[f] !== rec[f]) {
+          copyDivergences.push(`${gid} ${f}: ${baseLoc}=${JSON.stringify(base[f])} vs ${loc}=${JSON.stringify(rec[f])}`);
+        }
+      }
+    }
+  }
+  if (copyDivergences.length) {
+    errors.push(`${copyDivergences.length} copy divergence(s) inside schedule2026.js — the same game stored with different values in byWeek vs teams:\n    ${copyDivergences.slice(0, 15).join('\n    ')}${copyDivergences.length > 15 ? '\n    …' : ''}`);
+  }
+
+  for (const [gid, copies] of localCopies) {
     const up = upstreamById.get(gid);
     if (!up) continue; // already reported as onlyLocal above
 
@@ -172,36 +220,57 @@ async function main() {
       surface: up.surface || null,
     };
 
-    // HARD checks first
-    for (const f of HARD_FIELDS) {
-      if (local[f] !== upNorm[f]) {
-        idMismatches.push(`${gid} ${f}: local=${JSON.stringify(local[f])} upstream=${JSON.stringify(upNorm[f])}`);
+    // Q-061: grade EVERY stored copy, not just the first. A copy that
+    // the app reads (teams[...]) is as load-bearing as byWeek.
+    for (const { loc, rec: local } of copies) {
+      // HARD checks first
+      for (const f of HARD_FIELDS) {
+        if (local[f] !== upNorm[f]) {
+          idMismatches.push(`${gid} @${loc} ${f}: local=${JSON.stringify(local[f])} upstream=${JSON.stringify(upNorm[f])}`);
+        }
+      }
+      // SOFT checks
+      for (const f of SOFT_FIELDS) {
+        const l = local[f];
+        const u = upNorm[f];
+        if (l === u) continue;
+        // Allowlist: intl venue roof/surface overrides
+        if (f === 'roof' && INTL_ROOF_OVERRIDES[local.stadium] && l === INTL_ROOF_OVERRIDES[local.stadium]) {
+          allowlistedDiffs.push(`${gid} @${loc} roof=${JSON.stringify(l)} vs upstream=${JSON.stringify(u)} (Melbourne/intl override)`);
+          continue;
+        }
+        if (f === 'surface' && INTL_SURFACE_OVERRIDES[local.stadium] && l === INTL_SURFACE_OVERRIDES[local.stadium]) {
+          allowlistedDiffs.push(`${gid} @${loc} surface=${JSON.stringify(l)} vs upstream=${JSON.stringify(u)} (Melbourne/intl override)`);
+          continue;
+        }
+        // Allowlist: E-045 carry-forward (local has a value, upstream has null).
+        // fetch-schedule.js restored a prior-committed non-null value; upstream
+        // going null on a later refresh is the exact class E-045 was written
+        // to survive. Not a drift — a survived drop.
+        //
+        // E-047 (2026-09-29): the allowance is now CONDITIONAL on the
+        // stamp. QA found zero `<field>_source` stamps across all seven
+        // committed versions, so a carried-forward value was
+        // indistinguishable from a fetched one — and this allowlist
+        // branch would wave through a genuine local corruption that
+        // happened to coincide with an upstream null. A carried value
+        // must say so.
+        if (l != null && l !== '' && (u == null || u === '')) {
+          const stamp = local[`${f}_source`];
+          if (stamp && String(stamp).startsWith('carried-forward')) {
+            allowlistedDiffs.push(`${gid} @${loc} ${f}=${JSON.stringify(l)} vs upstream=null (E-045 carry-forward, stamped)`);
+          } else {
+            missingStamps.push(`${gid} @${loc} ${f}=${JSON.stringify(l)} but upstream is null and there is no ${f}_source stamp`);
+          }
+          continue;
+        }
+        softMismatches.push(`${gid} @${loc} ${f}: local=${JSON.stringify(l)} upstream=${JSON.stringify(u)}`);
       }
     }
-    // SOFT checks
-    for (const f of SOFT_FIELDS) {
-      const l = local[f];
-      const u = upNorm[f];
-      if (l === u) continue;
-      // Allowlist: intl venue roof/surface overrides
-      if (f === 'roof' && INTL_ROOF_OVERRIDES[local.stadium] && l === INTL_ROOF_OVERRIDES[local.stadium]) {
-        allowlistedDiffs.push(`${gid} roof=${JSON.stringify(l)} vs upstream=${JSON.stringify(u)} (Melbourne/intl override)`);
-        continue;
-      }
-      if (f === 'surface' && INTL_SURFACE_OVERRIDES[local.stadium] && l === INTL_SURFACE_OVERRIDES[local.stadium]) {
-        allowlistedDiffs.push(`${gid} surface=${JSON.stringify(l)} vs upstream=${JSON.stringify(u)} (Melbourne/intl override)`);
-        continue;
-      }
-      // Allowlist: E-045 carry-forward (local has a value, upstream has null).
-      // fetch-schedule.js restored a prior-committed non-null value; upstream
-      // going null on a later refresh is the exact class E-045 was written
-      // to survive. Not a drift — a survived drop.
-      if (l != null && l !== '' && (u == null || u === '')) {
-        allowlistedDiffs.push(`${gid} ${f}=${JSON.stringify(l)} vs upstream=null (E-045 carry-forward)`);
-        continue;
-      }
-      softMismatches.push(`${gid} ${f}: local=${JSON.stringify(l)} upstream=${JSON.stringify(u)}`);
-    }
+  }
+
+  if (missingStamps.length) {
+    errors.push(`${missingStamps.length} unstamped carry-forward value(s) — local holds a value where upstream is null, but no \`<field>_source\` stamp says it was carried:\n    ${missingStamps.slice(0, 15).join('\n    ')}${missingStamps.length > 15 ? '\n    …' : ''}`);
   }
 
   if (idMismatches.length) {
@@ -213,9 +282,11 @@ async function main() {
 
   // Report
   console.log(`  both-ways id compare: ${onlyLocal.length + onlyUpstream.length} discrepancies`);
+  console.log(`  copy divergences (byWeek vs teams): ${copyDivergences.length}`);
   console.log(`  identity mismatches (week/home/away): ${idMismatches.length}`);
   console.log(`  soft field mismatches: ${softMismatches.length}`);
-  console.log(`  allowlisted diffs: ${allowlistedDiffs.length} (17 LA→LAR normalizations + Melbourne/intl overrides + E-045 carry-forward)`);
+  console.log(`  unstamped carry-forwards: ${missingStamps.length}`);
+  console.log(`  allowlisted diffs: ${allowlistedDiffs.length} (17 LA→LAR normalizations + Melbourne/intl overrides + stamped E-045 carry-forward)`);
   if (allowlistedDiffs.length && process.env.VERBOSE) {
     console.log('    ' + allowlistedDiffs.slice(0, 20).join('\n    '));
   }
@@ -227,7 +298,7 @@ async function main() {
     console.error(`Refuse to commit the refreshed schedule. Q-034 class: an identity or field mismatch means either upstream reshuffled the slate (which needs human review) or fetch-schedule.js corrupted the ingest.`);
     process.exit(1);
   }
-  console.log(`\n✓ SCHEDULE UPSTREAM DRIFT GATE PASSED — ${localById.size} game_ids clean vs upstream (${allowlistedDiffs.length} allowlisted diffs).`);
+  console.log(`\n✓ SCHEDULE UPSTREAM DRIFT GATE PASSED — ${localById.size} game_ids / ${totalCopies} stored copies clean vs upstream, copies agree with each other (${allowlistedDiffs.length} allowlisted diffs).`);
 }
 
 await main();
