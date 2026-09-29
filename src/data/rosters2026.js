@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-09-26T10:03:14.276Z
-// Reconciled: 2026-09-28T11:11:02.473Z against availability_2026.json
-//             (generated 2026-09-28T10:48:55.790Z) — 0 swap(s),
+// Reconciled: 2026-09-29T10:39:27.262Z against availability_2026.json
+//             (generated 2026-09-29T10:36:51.038Z) — 8 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -7690,8 +7690,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0036944",
-        "name": "Jaycee Horn",
+        "gsis_id": "00-0039380",
+        "name": "Chau Smith-Wade",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -7756,12 +7756,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaycee Horn (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039380",
-        "name": "Chau Smith-Wade",
+        "gsis_id": "00-0038101",
+        "name": "Akayleb Evans",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
@@ -7830,8 +7831,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0036944",
-        "name": "Jaycee Horn",
+        "gsis_id": "00-0039380",
+        "name": "Chau Smith-Wade",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -7896,7 +7897,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaycee Horn (Out)"
       },
       {
         "pos": "FS",
@@ -29748,7 +29750,7 @@ export const ROSTERS_2026 = {
             "posRank": 99
           }
         ],
-        "starter_reason": "promoted after: De'Von Achane (Out), Jaylen Wright (Out)"
+        "starter_reason": "promoted after: De'Von Achane (IR), Jaylen Wright (Out)"
       },
       {
         "pos": "RB2",
@@ -34733,8 +34735,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0036973",
-        "name": "Travis Etienne Jr.",
+        "gsis_id": "00-0033906",
+        "name": "Alvin Kamara",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -34787,12 +34789,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Travis Etienne Jr. (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0033906",
-        "name": "Alvin Kamara",
+        "gsis_id": "00-0041326",
+        "name": "CJ Donaldson",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -37321,8 +37324,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0035713",
-        "name": "Brian Burns",
+        "gsis_id": "00-0037611",
+        "name": "Kayvon Thibodeaux",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -37393,7 +37396,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Brian Burns (Out)"
       },
       {
         "pos": "CB1",
@@ -45693,8 +45697,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0034855",
-        "name": "Baker Mayfield",
+        "gsis_id": "00-0041251",
+        "name": "Jalon Daniels",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -45723,7 +45727,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Baker Mayfield (Out)"
       },
       {
         "pos": "RB1",
@@ -45996,8 +46001,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0039855",
-        "name": "Jalen McMillan",
+        "gsis_id": "00-0039589",
+        "name": "Kameron Johnson",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
@@ -46086,7 +46091,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jalen McMillan (Out)"
       },
       {
         "pos": "TE",
@@ -50359,10 +50365,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-09-26T10:03:14.276Z",
-  "availability_stamp": "2026-09-28T10:48:55.790Z",
+  "availability_stamp": "2026-09-29T10:36:51.038Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-09-28T11:11:02.473Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-09-29T10:39:27.262Z",
+  "swaps_this_run": 8,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
