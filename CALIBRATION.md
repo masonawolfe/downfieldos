@@ -4,13 +4,13 @@
 
 | | |
 |---|---|
-| Generated | 2026-09-30T10:41:29.479Z |
+| Generated | 2026-09-30T12:53:03.834Z |
 | Weekly board generated | 2026-09-18T01:36:59.740Z |
 | Player board generated | 2026-09-30T10:41:28.999Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-09-23T11:56:07.256Z |
-| Weeks covered | 1, 2 |
-| Matched pairs | 638 |
+| Actuals generated | 2026-09-30T12:53:03.319Z |
+| Weeks covered | 1, 2, 3 |
+| Matched pairs | 954 |
 
 Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17). Written from draft-copilot in-season ask: "nothing records outcomes". `projected` = `WEEKLY_BOARD_2026.weekly_value` (base + matchup + env). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected.
 
@@ -18,16 +18,16 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17). Written from draf
 
 | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|
-| 638 | 0.09 | 5.37 | 7.03 |
+| 954 | 0.26 | 5.27 | 6.88 |
 
 ## By position
 
 | Pos | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|---|
-| QB | 72 | -0.44 | 7.42 | 9.01 |
-| RB | 158 | -0.31 | 4.91 | 6.58 |
-| WR | 270 | 0.41 | 5.64 | 7.27 |
-| TE | 138 | 0.22 | 4.29 | 5.8 |
+| QB | 104 | -0.43 | 7.05 | 8.56 |
+| RB | 236 | -0.33 | 4.92 | 6.5 |
+| WR | 404 | 0.68 | 5.48 | 7.07 |
+| TE | 210 | 0.45 | 4.37 | 5.93 |
 
 ## Per-adjustment: fired vs not fired
 
@@ -35,11 +35,11 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 
 | Adjustment | Fired N | Fired mean err | Fired \|err\| | Not-fired N | Not-fired mean err | Not-fired \|err\| |
 |---|---|---|---|---|---|---|
-| matchup | 638 | 0.09 | 5.37 | 0 | — | — |
-| dome_home | 82 | -0.28 | 5.29 | 556 | 0.15 | 5.38 |
-| short_week | 22 | 3.2 | 6.21 | 616 | -0.02 | 5.34 |
-| bye_return | 0 | — | — | 638 | 0.09 | 5.37 |
-| tz_travel | 53 | -2.09 | 5.28 | 585 | 0.29 | 5.38 |
+| matchup | 954 | 0.26 | 5.27 | 0 | — | — |
+| dome_home | 101 | -0.12 | 5.38 | 853 | 0.3 | 5.26 |
+| short_week | 40 | 3.57 | 6.04 | 914 | 0.11 | 5.23 |
+| bye_return | 0 | — | — | 954 | 0.26 | 5.27 |
+| tz_travel | 74 | -1.28 | 5.45 | 880 | 0.39 | 5.25 |
 
 **The ±4 matchup cap:** if fired-mean-error and fired-|err| are close to not-fired, the cap isn't buying us signal. If fired-|err| is materially smaller (e.g. ~2 point improvement), it is. First-week sample is small — trend needs weeks 2+ to be decisive.
 
@@ -55,18 +55,18 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 | Amon-Ra St. Brown | WR | DET | 2 | BUF | 14.01 | 35.2 | +21.19 | BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00 |
 | Rashod Bateman | WR | BAL | 2 | NO | 0.71 | 21.8 | +21.09 | NO allows 27.7 WR fpts/g (median 31.1) -3.40 |
 | Davante Adams | WR | LAR | 2 | NYG | 18.42 | 39.5 | +21.08 | NYG allows 33.1 WR fpts/g (median 31.1) +2.00 · dome home +0.50 |
+| Kalif Raymond | WR | CHI | 3 | PHI | -0.07 | 21 | +21.07 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 |
+| Konata Mumpfield | WR | LAR | 3 | DEN | -1.48 | 19.3 | +20.78 | DEN allows 27.0 WR fpts/g (median 31.1) -4.00 |
 | Drew Lock | QB | SEA | 2 | ARI | 0.63 | 21.4 | +20.77 | ARI allows 18.5 QB fpts/g (median 17.9) +0.60 |
 | Caleb Williams | QB | CHI | 1 | CAR | 16.67 | 37.26 | +20.59 | CAR allows 15.6 QB fpts/g (median 17.9) -2.30 |
 | Derrick Henry | RB | BAL | 1 | IND | 14.99 | 35.3 | +20.31 | IND allows 20.4 RB fpts/g (median 22.2) -1.80 |
+| Kenyon Sadiq | TE | NYJ | 3 | DET | 3.72 | 23.5 | +19.78 | DET allows 13.7 TE fpts/g (median 13.6) +0.10 |
 | Justin Jefferson | WR | MIN | 1 | GB | 12.31 | 31.2 | +18.89 | dome home +0.50 |
 | Cody White | WR | LV | 2 | LAC | -1.75 | 16.4 | +18.15 | LAC allows 26.9 WR fpts/g (median 31.1) -4.00 |
+| Drake Maye | QB | NE | 3 | JAX | 21.89 | 3.76 | -18.13 | JAX allows 18.1 QB fpts/g (median 17.9) +0.20 |
 | Tre Tucker | WR | LV | 2 | LAC | 5.21 | 22.9 | +17.69 | LAC allows 26.9 WR fpts/g (median 31.1) -4.00 |
 | Ja'Marr Chase | WR | CIN | 1 | TB | 20.14 | 3.2 | -16.94 | TB allows 31.6 WR fpts/g (median 31.1) +0.50 |
 | Josh Allen | QB | BUF | 2 | DET | 24.39 | 40.82 | +16.43 | DET allows 19.0 QB fpts/g (median 17.9) +1.10 · short week (Thu after Sun) -1.00 |
-| David Montgomery | RB | HOU | 1 | BUF | 12.48 | 28.9 | +16.42 | BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50 |
-| Kalif Raymond | WR | CHI | 1 | CAR | 0.03 | 16.4 | +16.37 | CAR allows 27.2 WR fpts/g (median 31.1) -3.90 |
-| Drake Maye | QB | NE | 2 | PIT | 23.99 | 8.02 | -15.97 | PIT allows 20.2 QB fpts/g (median 17.9) +2.30 |
-| CeeDee Lamb | WR | DAL | 2 | WAS | 19.34 | 35.3 | +15.96 | WAS allows 35.0 WR fpts/g (median 31.1) +3.90 |
 
 ---
 
