@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-09-29T10:52:18.463Z |
+| This build | 2026-09-30T10:30:24.431Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-29T10:39:30.018Z |
-| Ranked rows this build | 509 |
+| Prior build | 2026-09-29T10:52:18.463Z |
+| Ranked rows this build | 508 |
 | Ranked rows prior build | 509 |
 
 ---
@@ -18,7 +18,16 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 161 | Austin Ekeler | RB | WAS | -60 |
+| 327 | John FitzPatrick | TE | CLE | -139 |
+| 475 | Justin Shorter | WR | LV | -194 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 95 | Audric Estimé | RB | NO | -7 |
+| 233 | Josh Oliver | TE | MIN | -100 |
+| 337 | Jack Bech | WR | LV | -143 |
+| 481 | Coleman Owen | WR | IND | -194 |
