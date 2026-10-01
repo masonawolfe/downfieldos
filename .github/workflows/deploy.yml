@@ -166,11 +166,30 @@ jobs:
           if [ -z "$BUNDLE" ]; then echo "No JS bundle referenced in root HTML"; exit 1; fi
           BSTATUS=$(curl -sI "https://downfieldos.com${BUNDLE}" -o /dev/null -w "%{http_code}")
           if [ "$BSTATUS" != "200" ]; then echo "Bundle $BUNDLE returned $BSTATUS"; exit 1; fi
+          # E-048 follow-on (2026-10-01): this probe read `content-length`
+          # from a HEAD and treated an ABSENT header the same as a small
+          # bundle — "suspiciously small (broken build?)" with an empty
+          # size in the message. GitHub Pages now answers HEAD for this
+          # asset with 200 and no content-length, so the gate failed every
+          # deploy while the bundle was fine (6,897,496 bytes, verified by
+          # GET). A gate that fails for a reason it misreports trains
+          # people to ignore red, which is worse than no gate.
+          #
+          # Measure the bytes we actually receive. Fall back to HEAD's
+          # content-length only as a cheap first try.
           BSIZE=$(curl -sI "https://downfieldos.com${BUNDLE}" | grep -i "^content-length:" | awk '{print $2}' | tr -d '\r')
-          if [ -z "$BSIZE" ] || [ "$BSIZE" -lt 100000 ]; then
-            echo "Bundle $BUNDLE size $BSIZE bytes — suspiciously small (broken build?)"; exit 1
+          BSIZE_SRC="content-length"
+          if [ -z "$BSIZE" ]; then
+            BSIZE=$(curl -s --fail "https://downfieldos.com${BUNDLE}" | wc -c | tr -d ' ')
+            BSIZE_SRC="GET byte count (no content-length on HEAD)"
           fi
-          echo "Bundle $BUNDLE: 200 OK, ${BSIZE} bytes"
+          if [ -z "$BSIZE" ] || [ "$BSIZE" -eq 0 ]; then
+            echo "Bundle $BUNDLE: could not measure size — fetch failed"; exit 1
+          fi
+          if [ "$BSIZE" -lt 100000 ]; then
+            echo "Bundle $BUNDLE is ${BSIZE} bytes via ${BSIZE_SRC} — under the 100000 floor (broken build?)"; exit 1
+          fi
+          echo "Bundle $BUNDLE: 200 OK, ${BSIZE} bytes (via ${BSIZE_SRC})"
 
           # ── Headless render — QA 2026-09-04d P1: shell + status are not
           # evidence the page works. TDZ bugs (2026-04-25 MatchupCenter,
