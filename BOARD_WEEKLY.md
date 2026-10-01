@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-10-01T10:56:12.259Z |
+| This build | 2026-10-01T11:08:43.774Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-09-30T10:41:30.934Z |
+| Prior build | 2026-10-01T10:56:12.260Z |
 | Ranked rows this build | 510 |
-| Ranked rows prior build | 508 |
+| Ranked rows prior build | 510 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -18,15 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 95 | Audric Estimé | RB | MIN | -7 |
-| 351 | Dante Pettis | WR | SF | -148 |
-| 481 | Coleman Owen | WR | GB | -194 |
-| 505 | Brett Rypien | QB | TB | -322 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 130 | Jayden Reed | WR | GB | -39 |
-| 169 | Jalen McMillan | WR | TB | -67 |
+_None._
