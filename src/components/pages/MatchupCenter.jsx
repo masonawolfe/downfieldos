@@ -330,6 +330,20 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             </div>
           )}
           <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{coachTree.narrative}</div>
+          {/* E-048 (2026-10-01, counsel C-012): CC BY-SA 4.0 attribution for
+              the coach lineage facts, required on the surface where the text
+              appears (Wikimedia ToU §7.2). Credit + licence link + notice of
+              modification, which is what §3(a)(1) asks for. Coach names and
+              titles are verified against team official sites and are facts,
+              not Wikipedia text — the ShareAlike claim is on the lineage
+              strings only. See DATA_SOURCES.md § Wikipedia. */}
+          <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 12, lineHeight: 1.5, borderTop: "1px solid #f1f5f9", paddingTop: 8 }}>
+            Coaching lineage adapted from{" "}
+            <a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "underline" }}>Wikipedia</a>{" "}
+            contributors, licensed{" "}
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "underline" }}>CC BY-SA 4.0</a>
+            . Modified: biography prose reduced to lineage labels and classified into DownfieldOS coaching trees. Coach names and titles verified against team official sites.
+          </div>
         </div>
 
         {/* Environment Factors */}

@@ -12,6 +12,7 @@
     "data:rosters": "node scripts/fetch-nflverse-roster-base.js",
     "data:reconcile-rosters": "node scripts/reconcile-rosters-availability.mjs",
     "data:schedule:verify-upstream": "node scripts/verify-schedule-upstream.mjs",
+    "check:data-sources": "node scripts/check-data-sources.mjs",
     "data:schedule": "node scripts/fetch-schedule.js",
     "data:stats": "node scripts/build-player-stats.js",
     "data:injuries": "node scripts/fetch-injuries.js",

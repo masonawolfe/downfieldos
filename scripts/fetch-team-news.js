@@ -109,9 +109,18 @@ async function main() {
       generated: new Date().toISOString(),
       teams_covered: Object.keys(results).filter(k => results[k].length > 0).length,
       teams_failed: failed,
-      total_headlines: totalItems,
+      // E-048: renamed from `total_headlines`. No headline is stored, so the
+      // old key asserted the same thing the stale note did. Nothing reads
+      // it (grepped src/ and scripts/ — only the data file itself carried
+      // it), so the rename has no consumer.
+      total_items: totalItems,
       per_team_cap: LIMIT,
-      notes: 'Raw headlines only — headline, description, timestamp, ESPN link. No editorial interpretation. Replace nothing in the existing curated team_news.json; the editorial layer is the responsibility of the Layer 2 reasoning workflow.',
+      // E-048 (2026-10-01, counsel C-012): this note described fields the
+      // 2026-09-05 field reduction stopped collecting. `headline` and
+      // `description` are ESPN's expression and are no longer fetched or
+      // stored; the note claiming otherwise was the only remaining record
+      // saying they were. Corrected to match what is actually written.
+      notes: 'Link and labels only — per item: link, published, last_modified, type, categories. No headline, no description, no summary: ESPN\'s expression is not collected or stored (field reduction 2026-09-05). No editorial interpretation. Replaces nothing in the curated team_news.json; the editorial layer is the Layer 2 reasoning workflow\'s responsibility.',
     },
     teams: results,
   };
