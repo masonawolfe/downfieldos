@@ -235,11 +235,15 @@ jobs:
     permissions:
       contents: read
       issues: write
+      # E-050 (2026-10-01): needed to list sibling deploy runs for the
+      # supersede check below.
+      actions: read
     steps:
       - name: Open or update failure issue with SHA de-dupe
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
           RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           BUILD_RESULT: ${{ needs.build.result }}
           DEPLOY_RESULT: ${{ needs.deploy.result }}
@@ -261,6 +265,82 @@ jobs:
           done
           NOT_OK="${NOT_OK% }"
           [ -z "$NOT_OK" ] && NOT_OK="none"
+
+          # ── E-050 (2026-10-01): supersede check for the cancelled class ──
+          #
+          # Q-052 widened this job's predicate from `== failure` to
+          # `!= success` so a deploy cancelled by the `pages` concurrency
+          # group would stop being silent. Correct, but it did not carry
+          # over the benign-later-success logic that
+          # .github/actions/watch-dispatched-deploy already had. Result:
+          # every concurrency cancellation filed an issue even when the
+          # very next deploy covered it — 7 such issues between 09-22 and
+          # 10-01 (#6, #19, #24, #26, #43, #80, #88).
+          #
+          # Scope: the CANCELLED class only. A genuine `failure` still
+          # alarms even if a later deploy succeeded — a broken build that
+          # someone else happened to fix is still something to know about.
+          # Peer's instruction was explicit on this narrowing.
+          #
+          # Timing, which the composite did not have to solve: that job
+          # watched a run from outside and could wait. This job runs
+          # INSIDE the cancelled run, and the superseding run is usually
+          # still in_progress at this moment — so asking "did a later run
+          # SUCCEED" is false at exactly the wrong time and files anyway.
+          #
+          # So the test is "does a newer deploy run exist on a same-or-
+          # newer SHA", counting success AND still-deciding states. If one
+          # exists, it owns the outcome: it succeeds (benign) or it fails
+          # and files its OWN issue. No wait, no timeout, no gap, no
+          # double-report.
+          #
+          # SHA ancestry via the compare API, per Q-056 — `git merge-base`
+          # needs both commits locally and this job has no checkout at all.
+          IS_CANCELLED_CLASS=0
+          case "${BUILD_RESULT}|${DEPLOY_RESULT}|${SMOKE_RESULT}" in
+            *failure*) ;;                      # a real failure is never superseded away
+            *cancelled*) IS_CANCELLED_CLASS=1 ;;
+          esac
+
+          if [ "$IS_CANCELLED_CLASS" = "1" ] && [ "${IS_SIM:-false}" != "true" ]; then
+            echo "  cancelled class (${JOBS_LINE}) — checking for a superseding deploy"
+            SUPERSEDED_BY=""
+            SUPERSEDED_SHA=""
+            SUPERSEDED_STATE=""
+            while IFS=$'\t' read -r id sha url status conc; do
+              [ -z "$id" ] && continue
+              [ "$id" -le "$RUN_ID" ] && continue          # not newer
+              # A newer run counts if it succeeded, or if it is still
+              # deciding (it will file its own issue if it fails).
+              case "${conc:-$status}" in
+                success|in_progress|queued|requested|waiting|pending|"") ;;
+                *) continue ;;
+              esac
+              if [ -n "$sha" ] && [ "$sha" != "$SHA" ]; then
+                cmp=$(gh api "repos/${GITHUB_REPOSITORY}/compare/${SHA}...${sha}" --jq '.status // ""' 2>/dev/null || echo "")
+                case "$cmp" in
+                  identical|ahead) ;;                      # same or newer — covers us
+                  *) continue ;;                           # behind/diverged/unknown — does not
+                esac
+              fi
+              SUPERSEDED_BY="$url"
+              SUPERSEDED_SHA="$sha"
+              SUPERSEDED_STATE="${conc:-$status}"
+              break
+            done < <(gh run list --repo "$GITHUB_REPOSITORY" --workflow=deploy.yml --limit 20 \
+              --json databaseId,headSha,url,status,conclusion \
+              --jq '.[] | [.databaseId, .headSha, .url, .status, .conclusion] | @tsv' 2>/dev/null || true)
+
+            if [ -n "$SUPERSEDED_BY" ]; then
+              echo "  benign: superseded by ${SUPERSEDED_BY} (state=${SUPERSEDED_STATE}, sha=$(echo "$SUPERSEDED_SHA" | cut -c1-7))"
+              echo "  that run owns the outcome for this SHA — not filing an issue."
+              echo "::notice::Deploy for ${SHORT} was cancelled by the pages concurrency group and superseded by ${SUPERSEDED_BY}. No issue filed (E-050)."
+              exit 0
+            fi
+            echo "  no superseding deploy found — this cancellation left the SHA uncovered, filing."
+          fi
+          # ── end E-050 supersede check ──
+
           if [ "$IS_SIM" = "true" ]; then
             TITLE_PREFIX="[SIMULATED] "
             BODY_TAG=$'**This is an operator dry-run of the in-deploy failure notify path (E-041), not a real deploy failure.** Close after verifying.\n\n'

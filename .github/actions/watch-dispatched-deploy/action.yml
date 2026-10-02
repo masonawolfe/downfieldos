@@ -352,6 +352,66 @@ runs:
           --json databaseId,headSha,url,conclusion \
           --jq '.[] | [.databaseId, .headSha, .url, .conclusion] | @tsv' 2>/dev/null || true)
 
+        # E-050 (2026-10-01): the check above asks "did a later deploy
+        # SUCCEED". For a CANCELLED deploy that is the wrong question, and
+        # it is the reason seven issues were filed between 09-22 and 10-01
+        # (#6, #19, #24, #26, #43, #80, #88) for incidents that were
+        # already covered.
+        #
+        # Worked example, issue #88: deploy 36857897500 was cancelled at
+        # 11:50:33 on 036ccd8. Deploy 36857930807 started 18 seconds later
+        # on the newer SHA 3a2e149 and took ownership. Two things defeat
+        # the success-only test:
+        #   1. at check time the superseding run was still in_progress, so
+        #      "later success" was false;
+        #   2. that run later ended `failure` (the content-length smoke
+        #      probe bug, fixed in 3713dec), so even a retroactive
+        #      success-only test still says not-benign —
+        # yet the cancellation WAS superseded, and the superseding run
+        # filed its own issue (#90). Filing #88 as well reported one
+        # incident twice.
+        #
+        # So for the cancelled class the question is "does a newer deploy
+        # run exist on a same-or-newer SHA". If one does, it owns the
+        # outcome: it succeeds (benign) or it fails and files its own
+        # issue. No wait, no timeout, no gap, no double-report.
+        #
+        # Scope: cancelled only. A genuine `failure` still alarms even
+        # when a later deploy succeeded — a broken build someone else
+        # happened to fix is still worth knowing about.
+        SUPERSEDED_BY=""
+        SUPERSEDED_SHA=""
+        SUPERSEDED_STATE=""
+        if [ -z "$LATER_SUCCESS_URL" ] && [ "$CONCLUSION" = "cancelled" ]; then
+          while IFS=$'\t' read -r id sha url status conc; do
+            [ -z "$id" ] && continue
+            [ "$id" -le "$RUN_ID" ] && continue
+            case "${conc:-$status}" in
+              success|in_progress|queued|requested|waiting|pending|"") ;;
+              *) continue ;;
+            esac
+            if [ -n "$sha" ] && [ "$sha" != "$SHA" ]; then
+              cmp=$(gh api "repos/${REPO}/compare/${SHA}...${sha}" --jq '.status // ""' 2>/dev/null || echo "")
+              case "$cmp" in
+                identical|ahead) ;;
+                *) continue ;;
+              esac
+            fi
+            SUPERSEDED_BY="$url"; SUPERSEDED_SHA="$sha"; SUPERSEDED_STATE="${conc:-$status}"
+            break
+          done < <(gh run list --repo "$REPO" --workflow=deploy.yml --limit 20 \
+            --json databaseId,headSha,url,status,conclusion \
+            --jq '.[] | [.databaseId, .headSha, .url, .status, .conclusion] | @tsv' 2>/dev/null || true)
+
+          if [ -n "$SUPERSEDED_BY" ]; then
+            echo "  benign: dispatched deploy ${RUN_URL} was cancelled, superseded by ${SUPERSEDED_BY} (state=${SUPERSEDED_STATE}, sha=$(echo "$SUPERSEDED_SHA" | cut -c1-7))"
+            echo "  that run owns the outcome for this SHA — not filing an issue."
+            echo "::notice::Cancelled deploy for ${SHORT} superseded by ${SUPERSEDED_BY}. No issue filed (E-050)."
+            exit 0
+          fi
+          echo "  cancelled with no superseding deploy — the SHA is uncovered, filing."
+        fi
+
         if [ -n "$LATER_SUCCESS_URL" ]; then
           BENIGN_MSG="Dispatched deploy ${RUN_URL} ended \`${CONCLUSION}\`, but a later deploy on [\`$(echo "$LATER_SUCCESS_SHA" | cut -c1-7)\`](https://github.com/${REPO}/commit/${LATER_SUCCESS_SHA}) succeeded (${LATER_SUCCESS_URL}) — no outage window from this incident. Caller: **${CALLER_WF}** (${CALLER_RUN_URL})."
           existing=$(gh issue list --repo "$REPO" --state open \
