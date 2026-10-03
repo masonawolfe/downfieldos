@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-10-02T10:42:11.264Z |
+| This build | 2026-10-03T09:51:45.889Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-02T10:30:09.278Z |
-| Ranked rows this build | 509 |
+| Prior build | 2026-10-02T10:42:11.265Z |
+| Ranked rows this build | 507 |
 | Ranked rows prior build | 509 |
 
 ---
@@ -18,7 +18,13 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 466 | Malik Turner | WR | SF | -194 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 224 | Terrance Ferguson | TE | LAR | -97 |
+| 349 | British Brooks | RB | HOU | -147 |
+| 474 | Justin Shorter | WR | LV | -194 |
