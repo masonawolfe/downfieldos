@@ -4,14 +4,14 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-03T09:51:45.876Z |
+| Generated | 2026-10-03T10:01:08.741Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Commit | `e75ea21` |
+| Commit | `f539d34` |
 | Rows in board | 1007 |
 | Draftable skill rows (ranked below) | 507 |
 | Verifier | 18/18 checks passed |
 | Schema version | 3 |
-| Board generated | 2026-10-03T09:51:43.792Z |
+| Board generated | 2026-10-03T10:01:06.978Z |
 | Availability generated | 2026-10-03T09:48:52.612Z |
 
 **Recommendation column** — v1 (VORP) and v2 (β total_score_beta) agreement per row. 
