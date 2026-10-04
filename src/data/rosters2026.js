@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-03T10:31:13.685Z
+// Reconciled: 2026-10-04T10:34:54.552Z against availability_2026.json
+//             (generated 2026-10-04T10:31:50.432Z) — 2 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -20790,8 +20794,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0030279",
-        "name": "Keenan Allen",
+        "gsis_id": "00-0041132",
+        "name": "Deion Burks",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -20880,7 +20884,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Keenan Allen (Out), Alec Pierce (IR)"
       },
       {
         "pos": "TE",
@@ -36032,8 +36037,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0035402",
-        "name": "Carl Granderson",
+        "gsis_id": "00-0039425",
+        "name": "Myles Cole",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -36104,7 +36109,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Carl Granderson (Out), Anfernee Jennings (Out)"
       },
       {
         "pos": "CB1",
@@ -42716,7 +42722,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Jadarian Price (Out)",
+        "starter_reason": "promoted after: Jadarian Price (IR)",
         "candidates": [
           {
             "gsis_id": "00-0041512",
@@ -50637,8 +50643,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-03T10:31:13.685Z",
-  "availability_stamp": "2026-10-03T09:48:52.612Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-04T10:31:50.432Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-04T10:34:54.552Z",
+  "swaps_this_run": 2,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
