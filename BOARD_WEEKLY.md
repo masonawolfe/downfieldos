@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-10-04T10:34:56.951Z |
+| This build | 2026-10-04T10:44:49.240Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-03T10:01:08.751Z |
+| Prior build | 2026-10-04T10:34:56.952Z |
 | Ranked rows this build | 505 |
-| Ranked rows prior build | 507 |
+| Ranked rows prior build | 505 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -21,7 +21,4 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 167 | Jadarian Price | RB | SEA | -63 |
-| 212 | Xavier Legette | WR | CAR | -93 |
+_None._
