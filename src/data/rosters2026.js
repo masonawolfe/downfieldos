@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-03T10:31:13.685Z
-// Reconciled: 2026-10-05T11:47:48.320Z against availability_2026.json
-//             (generated 2026-10-05T11:23:06.904Z) — 0 swap(s),
+// Reconciled: 2026-10-06T11:15:32.893Z against availability_2026.json
+//             (generated 2026-10-06T11:12:24.367Z) — 9 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -2583,8 +2583,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0031576",
-        "name": "Za'Darius Smith",
+        "gsis_id": "00-0033945",
+        "name": "Samson Ebukam",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -2691,12 +2691,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Za'Darius Smith (Out)"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0033945",
-        "name": "Samson Ebukam",
+        "gsis_id": "00-0037815",
+        "name": "Cameron Thomas",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -21324,8 +21325,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0034825",
-        "name": "Arden Key",
+        "gsis_id": "00-0039340",
+        "name": "Laiatu Latu",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -21378,12 +21379,13 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Arden Key (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039340",
-        "name": "Laiatu Latu",
+        "gsis_id": "00-0041111",
+        "name": "Caden Curry",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -21436,7 +21438,8 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Micheal Clemons (IR)"
       },
       {
         "pos": "DT",
@@ -38910,8 +38913,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039284",
-        "name": "Braiden McGregor",
+        "gsis_id": "00-0036902",
+        "name": "Joseph Ossai",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -38983,7 +38986,7 @@ export const ROSTERS_2026 = {
             "posRank": 99
           }
         ],
-        "starter_reason": "promoted after: Kingsley Enagbare (Out)"
+        "starter_reason": "promoted after: Kingsley Enagbare (Out), Braiden McGregor (Out)"
       },
       {
         "pos": "DT",
@@ -39581,8 +39584,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0038555",
-        "name": "Tank Bigsby",
+        "gsis_id": "00-0039746",
+        "name": "Will Shipley",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -39636,12 +39639,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           }
         ],
-        "starter_reason": "promoted after: Saquon Barkley (Out)"
+        "starter_reason": "promoted after: Saquon Barkley (Out), Tank Bigsby (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0039746",
-        "name": "Will Shipley",
+        "gsis_id": "00-0037258",
+        "name": "Dameon Pierce",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
@@ -42030,8 +42033,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0040678",
-        "name": "Derrick Harmon",
+        "gsis_id": "00-0040188",
+        "name": "Yahya Black",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -42120,7 +42123,8 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Derrick Harmon (IR)"
       },
       {
         "pos": "DT",
@@ -47381,8 +47385,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0036411",
-        "name": "Antoine Winfield Jr.",
+        "gsis_id": "00-0036993",
+        "name": "Ifeatu Melifonwu",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -47441,7 +47445,8 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Antoine Winfield Jr. (Out)"
       },
       {
         "pos": "SS",
@@ -50669,10 +50674,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-03T10:31:13.685Z",
-  "availability_stamp": "2026-10-05T11:23:06.904Z",
+  "availability_stamp": "2026-10-06T11:12:24.367Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-05T11:47:48.320Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-06T11:15:32.893Z",
+  "swaps_this_run": 9,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
