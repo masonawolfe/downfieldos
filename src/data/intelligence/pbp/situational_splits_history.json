@@ -4,6 +4,886 @@
   },
   "snapshots": [
     {
+      "generated_utc": "2026-10-06T13:14:45.881932Z",
+      "season": 2026,
+      "teams": {
+        "ARI": {
+          "team": "ARI",
+          "red_zone": {
+            "plays": 48,
+            "pass_rate": 0.583,
+            "run_rate": 0.417
+          },
+          "goal_line": {
+            "plays": 16,
+            "pass_rate": 0.688,
+            "run_rate": 0.312
+          },
+          "third_down": {
+            "plays": 55,
+            "pass_rate": 0.764,
+            "conversion_rate": 0.4
+          },
+          "fourth_down": {
+            "total": 32,
+            "go_for_it": 4,
+            "punt": 20,
+            "field_goal": 6,
+            "go_rate": 0.125
+          },
+          "two_minute_drill": {
+            "plays": 40,
+            "pass_rate": 0.875
+          }
+        },
+        "ATL": {
+          "team": "ATL",
+          "red_zone": {
+            "plays": 28,
+            "pass_rate": 0.214,
+            "run_rate": 0.786
+          },
+          "goal_line": {
+            "plays": 9,
+            "pass_rate": 0.222,
+            "run_rate": 0.778
+          },
+          "third_down": {
+            "plays": 43,
+            "pass_rate": 0.698,
+            "conversion_rate": 0.372
+          },
+          "fourth_down": {
+            "total": 28,
+            "go_for_it": 2,
+            "punt": 13,
+            "field_goal": 9,
+            "go_rate": 0.071
+          },
+          "two_minute_drill": {
+            "plays": 25,
+            "pass_rate": 0.72
+          }
+        },
+        "BAL": {
+          "team": "BAL",
+          "red_zone": {
+            "plays": 43,
+            "pass_rate": 0.349,
+            "run_rate": 0.651
+          },
+          "goal_line": {
+            "plays": 18,
+            "pass_rate": 0.278,
+            "run_rate": 0.722
+          },
+          "third_down": {
+            "plays": 36,
+            "pass_rate": 0.75,
+            "conversion_rate": 0.333
+          },
+          "fourth_down": {
+            "total": 25,
+            "go_for_it": 4,
+            "punt": 15,
+            "field_goal": 5,
+            "go_rate": 0.16
+          },
+          "two_minute_drill": {
+            "plays": 34,
+            "pass_rate": 0.735
+          }
+        },
+        "BUF": {
+          "team": "BUF",
+          "red_zone": {
+            "plays": 43,
+            "pass_rate": 0.465,
+            "run_rate": 0.535
+          },
+          "goal_line": {
+            "plays": 15,
+            "pass_rate": 0.333,
+            "run_rate": 0.667
+          },
+          "third_down": {
+            "plays": 44,
+            "pass_rate": 0.75,
+            "conversion_rate": 0.545
+          },
+          "fourth_down": {
+            "total": 19,
+            "go_for_it": 4,
+            "punt": 9,
+            "field_goal": 5,
+            "go_rate": 0.211
+          },
+          "two_minute_drill": {
+            "plays": 34,
+            "pass_rate": 0.676
+          }
+        },
+        "CAR": {
+          "team": "CAR",
+          "red_zone": {
+            "plays": 47,
+            "pass_rate": 0.638,
+            "run_rate": 0.362
+          },
+          "goal_line": {
+            "plays": 12,
+            "pass_rate": 0.75,
+            "run_rate": 0.25
+          },
+          "third_down": {
+            "plays": 50,
+            "pass_rate": 0.78,
+            "conversion_rate": 0.38
+          },
+          "fourth_down": {
+            "total": 31,
+            "go_for_it": 8,
+            "punt": 13,
+            "field_goal": 9,
+            "go_rate": 0.258
+          },
+          "two_minute_drill": {
+            "plays": 36,
+            "pass_rate": 0.889
+          }
+        },
+        "CHI": {
+          "team": "CHI",
+          "red_zone": {
+            "plays": 73,
+            "pass_rate": 0.425,
+            "run_rate": 0.575
+          },
+          "goal_line": {
+            "plays": 23,
+            "pass_rate": 0.261,
+            "run_rate": 0.739
+          },
+          "third_down": {
+            "plays": 56,
+            "pass_rate": 0.643,
+            "conversion_rate": 0.482
+          },
+          "fourth_down": {
+            "total": 28,
+            "go_for_it": 10,
+            "punt": 8,
+            "field_goal": 8,
+            "go_rate": 0.357
+          },
+          "two_minute_drill": {
+            "plays": 29,
+            "pass_rate": 0.897
+          }
+        },
+        "CIN": {
+          "team": "CIN",
+          "red_zone": {
+            "plays": 31,
+            "pass_rate": 0.516,
+            "run_rate": 0.484
+          },
+          "goal_line": {
+            "plays": 8,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "third_down": {
+            "plays": 53,
+            "pass_rate": 0.774,
+            "conversion_rate": 0.472
+          },
+          "fourth_down": {
+            "total": 30,
+            "go_for_it": 4,
+            "punt": 13,
+            "field_goal": 9,
+            "go_rate": 0.133
+          },
+          "two_minute_drill": {
+            "plays": 39,
+            "pass_rate": 0.846
+          }
+        },
+        "CLE": {
+          "team": "CLE",
+          "red_zone": {
+            "plays": 31,
+            "pass_rate": 0.548,
+            "run_rate": 0.452
+          },
+          "goal_line": {
+            "plays": 8,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "third_down": {
+            "plays": 46,
+            "pass_rate": 0.609,
+            "conversion_rate": 0.326
+          },
+          "fourth_down": {
+            "total": 33,
+            "go_for_it": 6,
+            "punt": 16,
+            "field_goal": 8,
+            "go_rate": 0.182
+          },
+          "two_minute_drill": {
+            "plays": 28,
+            "pass_rate": 0.679
+          }
+        },
+        "DAL": {
+          "team": "DAL",
+          "red_zone": {
+            "plays": 50,
+            "pass_rate": 0.48,
+            "run_rate": 0.52
+          },
+          "goal_line": {
+            "plays": 21,
+            "pass_rate": 0.429,
+            "run_rate": 0.571
+          },
+          "third_down": {
+            "plays": 49,
+            "pass_rate": 0.857,
+            "conversion_rate": 0.531
+          },
+          "fourth_down": {
+            "total": 23,
+            "go_for_it": 3,
+            "punt": 7,
+            "field_goal": 11,
+            "go_rate": 0.13
+          },
+          "two_minute_drill": {
+            "plays": 37,
+            "pass_rate": 0.784
+          }
+        },
+        "DEN": {
+          "team": "DEN",
+          "red_zone": {
+            "plays": 34,
+            "pass_rate": 0.618,
+            "run_rate": 0.382
+          },
+          "goal_line": {
+            "plays": 14,
+            "pass_rate": 0.429,
+            "run_rate": 0.571
+          },
+          "third_down": {
+            "plays": 52,
+            "pass_rate": 0.769,
+            "conversion_rate": 0.404
+          },
+          "fourth_down": {
+            "total": 32,
+            "go_for_it": 2,
+            "punt": 19,
+            "field_goal": 7,
+            "go_rate": 0.062
+          },
+          "two_minute_drill": {
+            "plays": 23,
+            "pass_rate": 0.826
+          }
+        },
+        "DET": {
+          "team": "DET",
+          "red_zone": {
+            "plays": 58,
+            "pass_rate": 0.603,
+            "run_rate": 0.397
+          },
+          "goal_line": {
+            "plays": 14,
+            "pass_rate": 0.429,
+            "run_rate": 0.571
+          },
+          "third_down": {
+            "plays": 46,
+            "pass_rate": 0.848,
+            "conversion_rate": 0.391
+          },
+          "fourth_down": {
+            "total": 33,
+            "go_for_it": 7,
+            "punt": 15,
+            "field_goal": 5,
+            "go_rate": 0.212
+          },
+          "two_minute_drill": {
+            "plays": 26,
+            "pass_rate": 0.885
+          }
+        },
+        "GB": {
+          "team": "GB",
+          "red_zone": {
+            "plays": 44,
+            "pass_rate": 0.568,
+            "run_rate": 0.432
+          },
+          "goal_line": {
+            "plays": 11,
+            "pass_rate": 0.545,
+            "run_rate": 0.455
+          },
+          "third_down": {
+            "plays": 45,
+            "pass_rate": 0.933,
+            "conversion_rate": 0.267
+          },
+          "fourth_down": {
+            "total": 37,
+            "go_for_it": 9,
+            "punt": 18,
+            "field_goal": 5,
+            "go_rate": 0.243
+          },
+          "two_minute_drill": {
+            "plays": 27,
+            "pass_rate": 0.926
+          }
+        },
+        "HOU": {
+          "team": "HOU",
+          "red_zone": {
+            "plays": 33,
+            "pass_rate": 0.636,
+            "run_rate": 0.364
+          },
+          "third_down": {
+            "plays": 53,
+            "pass_rate": 0.792,
+            "conversion_rate": 0.358
+          },
+          "fourth_down": {
+            "total": 34,
+            "go_for_it": 7,
+            "punt": 18,
+            "field_goal": 8,
+            "go_rate": 0.206
+          },
+          "two_minute_drill": {
+            "plays": 44,
+            "pass_rate": 0.886
+          }
+        },
+        "IND": {
+          "team": "IND",
+          "red_zone": {
+            "plays": 38,
+            "pass_rate": 0.421,
+            "run_rate": 0.579
+          },
+          "goal_line": {
+            "plays": 9,
+            "pass_rate": 0.111,
+            "run_rate": 0.889
+          },
+          "third_down": {
+            "plays": 52,
+            "pass_rate": 0.692,
+            "conversion_rate": 0.404
+          },
+          "fourth_down": {
+            "total": 31,
+            "go_for_it": 6,
+            "punt": 12,
+            "field_goal": 11,
+            "go_rate": 0.194
+          },
+          "two_minute_drill": {
+            "plays": 30,
+            "pass_rate": 0.633
+          }
+        },
+        "JAX": {
+          "team": "JAX",
+          "red_zone": {
+            "plays": 34,
+            "pass_rate": 0.529,
+            "run_rate": 0.471
+          },
+          "goal_line": {
+            "plays": 8,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "third_down": {
+            "plays": 44,
+            "pass_rate": 0.568,
+            "conversion_rate": 0.523
+          },
+          "fourth_down": {
+            "total": 23,
+            "go_for_it": 0,
+            "punt": 12,
+            "field_goal": 8,
+            "go_rate": 0.0
+          },
+          "two_minute_drill": {
+            "plays": 19,
+            "pass_rate": 0.684
+          }
+        },
+        "KC": {
+          "team": "KC",
+          "red_zone": {
+            "plays": 50,
+            "pass_rate": 0.56,
+            "run_rate": 0.44
+          },
+          "goal_line": {
+            "plays": 17,
+            "pass_rate": 0.529,
+            "run_rate": 0.471
+          },
+          "third_down": {
+            "plays": 49,
+            "pass_rate": 0.735,
+            "conversion_rate": 0.449
+          },
+          "fourth_down": {
+            "total": 30,
+            "go_for_it": 7,
+            "punt": 12,
+            "field_goal": 8,
+            "go_rate": 0.233
+          },
+          "two_minute_drill": {
+            "plays": 32,
+            "pass_rate": 0.594
+          }
+        },
+        "LAC": {
+          "team": "LAC",
+          "red_zone": {
+            "plays": 37,
+            "pass_rate": 0.405,
+            "run_rate": 0.595
+          },
+          "goal_line": {
+            "plays": 8,
+            "pass_rate": 0.25,
+            "run_rate": 0.75
+          },
+          "third_down": {
+            "plays": 52,
+            "pass_rate": 0.788,
+            "conversion_rate": 0.385
+          },
+          "fourth_down": {
+            "total": 29,
+            "go_for_it": 6,
+            "punt": 16,
+            "field_goal": 6,
+            "go_rate": 0.207
+          },
+          "two_minute_drill": {
+            "plays": 22,
+            "pass_rate": 0.682
+          }
+        },
+        "LV": {
+          "team": "LV",
+          "red_zone": {
+            "plays": 46,
+            "pass_rate": 0.587,
+            "run_rate": 0.413
+          },
+          "goal_line": {
+            "plays": 12,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "third_down": {
+            "plays": 51,
+            "pass_rate": 0.824,
+            "conversion_rate": 0.431
+          },
+          "fourth_down": {
+            "total": 33,
+            "go_for_it": 6,
+            "punt": 15,
+            "field_goal": 8,
+            "go_rate": 0.182
+          },
+          "two_minute_drill": {
+            "plays": 39,
+            "pass_rate": 0.821
+          }
+        },
+        "MIA": {
+          "team": "MIA",
+          "red_zone": {
+            "plays": 27,
+            "pass_rate": 0.333,
+            "run_rate": 0.667
+          },
+          "third_down": {
+            "plays": 50,
+            "pass_rate": 0.68,
+            "conversion_rate": 0.4
+          },
+          "fourth_down": {
+            "total": 31,
+            "go_for_it": 6,
+            "punt": 15,
+            "field_goal": 7,
+            "go_rate": 0.194
+          },
+          "two_minute_drill": {
+            "plays": 17,
+            "pass_rate": 0.529
+          }
+        },
+        "MIN": {
+          "team": "MIN",
+          "red_zone": {
+            "plays": 23,
+            "pass_rate": 0.565,
+            "run_rate": 0.435
+          },
+          "third_down": {
+            "plays": 60,
+            "pass_rate": 0.85,
+            "conversion_rate": 0.367
+          },
+          "fourth_down": {
+            "total": 37,
+            "go_for_it": 3,
+            "punt": 22,
+            "field_goal": 11,
+            "go_rate": 0.081
+          },
+          "two_minute_drill": {
+            "plays": 21,
+            "pass_rate": 0.571
+          }
+        },
+        "NE": {
+          "team": "NE",
+          "red_zone": {
+            "plays": 24,
+            "pass_rate": 0.708,
+            "run_rate": 0.292
+          },
+          "goal_line": {
+            "plays": 9,
+            "pass_rate": 0.556,
+            "run_rate": 0.444
+          },
+          "third_down": {
+            "plays": 51,
+            "pass_rate": 0.725,
+            "conversion_rate": 0.392
+          },
+          "fourth_down": {
+            "total": 29,
+            "go_for_it": 6,
+            "punt": 14,
+            "field_goal": 7,
+            "go_rate": 0.207
+          },
+          "two_minute_drill": {
+            "plays": 33,
+            "pass_rate": 0.545
+          }
+        },
+        "NO": {
+          "team": "NO",
+          "red_zone": {
+            "plays": 47,
+            "pass_rate": 0.596,
+            "run_rate": 0.404
+          },
+          "goal_line": {
+            "plays": 13,
+            "pass_rate": 0.538,
+            "run_rate": 0.462
+          },
+          "third_down": {
+            "plays": 62,
+            "pass_rate": 0.774,
+            "conversion_rate": 0.5
+          },
+          "fourth_down": {
+            "total": 32,
+            "go_for_it": 9,
+            "punt": 14,
+            "field_goal": 5,
+            "go_rate": 0.281
+          },
+          "two_minute_drill": {
+            "plays": 40,
+            "pass_rate": 0.9
+          }
+        },
+        "NYG": {
+          "team": "NYG",
+          "red_zone": {
+            "plays": 34,
+            "pass_rate": 0.441,
+            "run_rate": 0.559
+          },
+          "goal_line": {
+            "plays": 7,
+            "pass_rate": 0.286,
+            "run_rate": 0.714
+          },
+          "third_down": {
+            "plays": 52,
+            "pass_rate": 0.808,
+            "conversion_rate": 0.442
+          },
+          "fourth_down": {
+            "total": 29,
+            "go_for_it": 2,
+            "punt": 16,
+            "field_goal": 8,
+            "go_rate": 0.069
+          },
+          "two_minute_drill": {
+            "plays": 22,
+            "pass_rate": 0.682
+          }
+        },
+        "NYJ": {
+          "team": "NYJ",
+          "red_zone": {
+            "plays": 30,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "goal_line": {
+            "plays": 10,
+            "pass_rate": 0.4,
+            "run_rate": 0.6
+          },
+          "third_down": {
+            "plays": 49,
+            "pass_rate": 0.755,
+            "conversion_rate": 0.347
+          },
+          "fourth_down": {
+            "total": 36,
+            "go_for_it": 4,
+            "punt": 18,
+            "field_goal": 8,
+            "go_rate": 0.111
+          },
+          "two_minute_drill": {
+            "plays": 30,
+            "pass_rate": 0.8
+          }
+        },
+        "PHI": {
+          "team": "PHI",
+          "red_zone": {
+            "plays": 37,
+            "pass_rate": 0.378,
+            "run_rate": 0.622
+          },
+          "goal_line": {
+            "plays": 8,
+            "pass_rate": 0.375,
+            "run_rate": 0.625
+          },
+          "third_down": {
+            "plays": 53,
+            "pass_rate": 0.774,
+            "conversion_rate": 0.358
+          },
+          "fourth_down": {
+            "total": 34,
+            "go_for_it": 7,
+            "punt": 19,
+            "field_goal": 4,
+            "go_rate": 0.206
+          },
+          "two_minute_drill": {
+            "plays": 32,
+            "pass_rate": 0.875
+          }
+        },
+        "PIT": {
+          "team": "PIT",
+          "red_zone": {
+            "plays": 31,
+            "pass_rate": 0.71,
+            "run_rate": 0.29
+          },
+          "third_down": {
+            "plays": 49,
+            "pass_rate": 0.857,
+            "conversion_rate": 0.347
+          },
+          "fourth_down": {
+            "total": 32,
+            "go_for_it": 3,
+            "punt": 18,
+            "field_goal": 9,
+            "go_rate": 0.094
+          },
+          "two_minute_drill": {
+            "plays": 29,
+            "pass_rate": 0.897
+          }
+        },
+        "SEA": {
+          "team": "SEA",
+          "red_zone": {
+            "plays": 46,
+            "pass_rate": 0.457,
+            "run_rate": 0.543
+          },
+          "goal_line": {
+            "plays": 15,
+            "pass_rate": 0.267,
+            "run_rate": 0.733
+          },
+          "third_down": {
+            "plays": 45,
+            "pass_rate": 0.756,
+            "conversion_rate": 0.333
+          },
+          "fourth_down": {
+            "total": 32,
+            "go_for_it": 5,
+            "punt": 18,
+            "field_goal": 5,
+            "go_rate": 0.156
+          },
+          "two_minute_drill": {
+            "plays": 27,
+            "pass_rate": 0.63
+          }
+        },
+        "SF": {
+          "team": "SF",
+          "red_zone": {
+            "plays": 43,
+            "pass_rate": 0.488,
+            "run_rate": 0.512
+          },
+          "goal_line": {
+            "plays": 13,
+            "pass_rate": 0.308,
+            "run_rate": 0.692
+          },
+          "third_down": {
+            "plays": 40,
+            "pass_rate": 0.725,
+            "conversion_rate": 0.575
+          },
+          "fourth_down": {
+            "total": 18,
+            "go_for_it": 2,
+            "punt": 11,
+            "field_goal": 4,
+            "go_rate": 0.111
+          },
+          "two_minute_drill": {
+            "plays": 26,
+            "pass_rate": 0.692
+          }
+        },
+        "TB": {
+          "team": "TB",
+          "red_zone": {
+            "plays": 34,
+            "pass_rate": 0.559,
+            "run_rate": 0.441
+          },
+          "third_down": {
+            "plays": 55,
+            "pass_rate": 0.764,
+            "conversion_rate": 0.364
+          },
+          "fourth_down": {
+            "total": 33,
+            "go_for_it": 6,
+            "punt": 17,
+            "field_goal": 9,
+            "go_rate": 0.182
+          },
+          "two_minute_drill": {
+            "plays": 40,
+            "pass_rate": 0.8
+          }
+        },
+        "TEN": {
+          "team": "TEN",
+          "red_zone": {
+            "plays": 42,
+            "pass_rate": 0.357,
+            "run_rate": 0.643
+          },
+          "goal_line": {
+            "plays": 13,
+            "pass_rate": 0.308,
+            "run_rate": 0.692
+          },
+          "third_down": {
+            "plays": 48,
+            "pass_rate": 0.708,
+            "conversion_rate": 0.354
+          },
+          "fourth_down": {
+            "total": 31,
+            "go_for_it": 4,
+            "punt": 21,
+            "field_goal": 5,
+            "go_rate": 0.129
+          },
+          "two_minute_drill": {
+            "plays": 31,
+            "pass_rate": 0.871
+          }
+        },
+        "WAS": {
+          "team": "WAS",
+          "red_zone": {
+            "plays": 38,
+            "pass_rate": 0.5,
+            "run_rate": 0.5
+          },
+          "goal_line": {
+            "plays": 11,
+            "pass_rate": 0.727,
+            "run_rate": 0.273
+          },
+          "third_down": {
+            "plays": 57,
+            "pass_rate": 0.719,
+            "conversion_rate": 0.316
+          },
+          "fourth_down": {
+            "total": 36,
+            "go_for_it": 7,
+            "punt": 19,
+            "field_goal": 9,
+            "go_rate": 0.194
+          },
+          "two_minute_drill": {
+            "plays": 35,
+            "pass_rate": 0.543
+          }
+        }
+      }
+    },
+    {
       "generated_utc": "2026-09-29T12:45:38.869978Z",
       "season": 2026,
       "teams": {
