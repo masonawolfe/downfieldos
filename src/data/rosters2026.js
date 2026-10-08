@@ -3,9 +3,13 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-10-07T11:54:34.437Z
+// Generated: 2026-10-07T11:54:34.436Z
+// Reconciled: 2026-10-08T11:21:25.865Z against availability_2026.json
+//             (generated 2026-10-08T11:17:51.323Z) — 2 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -13975,8 +13979,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0037839",
-        "name": "Cobie Durant",
+        "gsis_id": "00-0039465",
+        "name": "Reddy Steward",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -14053,7 +14057,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Cobie Durant (Out)"
       },
       {
         "pos": "SCB",
@@ -45975,8 +45980,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0040185",
-        "name": "Marques Sigle",
+        "gsis_id": "00-0039360",
+        "name": "Malik Mustapha",
         "grade": "Above Avg",
         "rating": 84,
         "rating_source": "snap_share_v1",
@@ -46035,7 +46040,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Marques Sigle (Out)"
       }
     ]
   },
@@ -50726,8 +50732,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-07T11:54:34.436Z",
-  "availability_stamp": "2026-10-07T11:00:05.631Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-08T11:17:51.323Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-08T11:21:25.865Z",
+  "swaps_this_run": 2,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
