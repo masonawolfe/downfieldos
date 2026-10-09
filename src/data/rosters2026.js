@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-07T11:54:34.436Z
-// Reconciled: 2026-10-08T11:34:31.830Z against availability_2026.json
-//             (generated 2026-10-08T11:17:51.323Z) — 0 swap(s),
+// Reconciled: 2026-10-09T11:19:09.026Z against availability_2026.json
+//             (generated 2026-10-09T11:16:23.725Z) — 5 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -41289,8 +41289,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0036252",
-        "name": "Michael Pittman Jr.",
+        "gsis_id": "00-0039739",
+        "name": "Roman Wilson",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -41391,12 +41391,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Michael Pittman Jr. (Out)"
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0039739",
-        "name": "Roman Wilson",
+        "gsis_id": "00-0041489",
+        "name": "Germie Bernard",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -41501,8 +41502,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0041489",
-        "name": "Germie Bernard",
+        "gsis_id": "00-0036862",
+        "name": "Ben Skowronek",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -46857,8 +46858,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0041079",
-        "name": "DeMonte Capehart",
+        "gsis_id": "00-0039063",
+        "name": "Calijah Kancey",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -46935,12 +46936,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: DeMonte Capehart (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039063",
-        "name": "Calijah Kancey",
+        "gsis_id": "00-0032889",
+        "name": "A'Shawn Robinson",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -50732,10 +50734,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-07T11:54:34.436Z",
-  "availability_stamp": "2026-10-08T11:17:51.323Z",
+  "availability_stamp": "2026-10-09T11:16:23.725Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-08T11:34:31.830Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-09T11:19:09.026Z",
+  "swaps_this_run": 5,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
