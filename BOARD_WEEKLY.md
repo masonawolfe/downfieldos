@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-10-09T11:29:02.482Z |
+| This build | 2026-10-10T10:36:08.181Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-09T11:19:11.428Z |
-| Ranked rows this build | 499 |
+| Prior build | 2026-10-09T11:29:02.483Z |
+| Ranked rows this build | 498 |
 | Ranked rows prior build | 499 |
 
 ---
@@ -21,4 +21,6 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 218 | Pat Bryant | WR | DEN | -96 |
