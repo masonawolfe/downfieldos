@@ -26,6 +26,11 @@ Outputs (saved to PBP_OUT_DIR env, or ./ if unset — see BASE_DIR):
   CoS finding #10.
 
 Idempotent — safe to re-run. Overwrites previous outputs.
+
+Team codes (E-6, 2026-10-10): nflverse "LA" (and STL/SD/OAK/WSH/AZ) is
+normalised to the DFOS code via TEAM_CODE_MAP at load time. The run exits 1
+before writing anything if any per-team output covers fewer than 32 teams,
+and again after writing if the files on disk do not.
 """
 
 import json
@@ -70,6 +75,112 @@ NFL_TEAMS = [
     "LAC", "LAR", "LV", "MIA", "MIN", "NE", "NO", "NYG",
     "NYJ", "PHI", "PIT", "SEA", "SF", "TB", "TEN", "WAS"
 ]
+EXPECTED_TEAM_COUNT = 32
+assert len(set(NFL_TEAMS)) == EXPECTED_TEAM_COUNT, "NFL_TEAMS must list 32 distinct codes"
+
+# E-6 (2026-10-10): nflverse -> DFOS team-code normalisation. THE ONE PLACE.
+# nflverse play_by_play_{year} (and roster_weekly / snap_counts) label the
+# Rams "LA", while NFL_TEAMS and every other DFOS surface (rosters, schedule,
+# weekly board) use "LAR". Every per-team loop below filters on NFL_TEAMS, so
+# the Rams silently vanished from all PBP-derived outputs (31 teams shipped).
+# Relocated-franchise codes are mapped too so older seasons normalise the same
+# way. Mirrors NORM_TEAM in scripts/build-defense.js / build-player-board.js /
+# build-weekly-board.js (incl. AZ). Add new codes HERE, nowhere else.
+TEAM_CODE_MAP = {"LA": "LAR", "STL": "LAR", "SD": "LAC", "OAK": "LV", "WSH": "WAS", "AZ": "ARI"}
+
+# Team-valued columns normalised at load time, per source. Only posteam and
+# defteam drive the aggregations today; the rest are normalised so any future
+# use of them cannot reintroduce the split.
+PBP_TEAM_COLUMNS = [
+    "posteam", "defteam", "home_team", "away_team", "side_of_field",
+    "timeout_team", "td_team", "return_team", "penalty_team",
+]
+ROSTER_TEAM_COLUMNS = ["team"]
+SNAP_TEAM_COLUMNS = ["team", "opponent"]
+
+
+def normalise_team_columns(df: pd.DataFrame, columns: list, label: str) -> pd.DataFrame:
+    """Rewrite legacy/nflverse team codes to DFOS codes via TEAM_CODE_MAP."""
+    for col in columns:
+        if col not in df.columns:
+            continue
+        hits = df[col].isin(list(TEAM_CODE_MAP))
+        if hits.any():
+            codes = sorted(df.loc[hits, col].dropna().unique().tolist())
+            df[col] = df[col].replace(TEAM_CODE_MAP)
+            print(f"  team codes: {label}.{col} normalised {int(hits.sum()):,} rows "
+                  f"({', '.join(f'{c}->{TEAM_CODE_MAP[c]}' for c in codes)})")
+    return df
+
+
+def fail(message: str) -> None:
+    """Fail the run loudly. Exit non-zero so the Actions job stops before
+    the commit step and nothing partial ships."""
+    print(f"\n::error title=PBP team coverage::{message}", file=sys.stderr)
+    print(f"FATAL: {message}", file=sys.stderr)
+    sys.exit(1)
+
+
+def assert_known_team_codes(df: pd.DataFrame, columns: list, label: str) -> None:
+    """After normalisation every posteam/defteam must be in NFL_TEAMS. An
+    unknown code means a team would be silently skipped by every loop."""
+    for col in columns:
+        if col not in df.columns:
+            continue
+        unknown = sorted(set(df[col].dropna().astype(str)) - set(NFL_TEAMS))
+        if unknown:
+            fail(f"{label}.{col} has team codes not in NFL_TEAMS: {unknown}. "
+                 f"Add them to TEAM_CODE_MAP in scripts/pbp/process_pbp.py.")
+
+
+def team_coverage_problems(profiles: dict, splits: dict, similarity: dict,
+                           usage: dict, history_teams: dict | None = None) -> list:
+    """Every per-team output must carry exactly the 32 NFL_TEAMS.
+    Returns a list of human-readable problems (empty == pass)."""
+    expected = set(NFL_TEAMS)
+    problems = []
+
+    def check(name, teams):
+        teams = set(teams)
+        if teams != expected:
+            problems.append(f"{name}: {len(teams)} teams (expected {EXPECTED_TEAM_COUNT}); "
+                            f"missing={sorted(expected - teams)} unexpected={sorted(teams - expected)}")
+
+    if len(profiles) != EXPECTED_TEAM_COUNT:
+        problems.append(f"teams_profiled == {len(profiles)}, expected {EXPECTED_TEAM_COUNT}")
+    check("team_scheme_profiles", profiles.keys())
+    check("situational_splits", splits.keys())
+    check("scheme_similarity_matrix rows", similarity.keys())
+    bad_rows = sorted(t for t, row in similarity.items() if set(row.keys()) != expected)
+    if bad_rows:
+        problems.append(f"scheme_similarity_matrix: {len(bad_rows)} row(s) without all "
+                        f"{EXPECTED_TEAM_COUNT} columns: {bad_rows[:5]}")
+    check("player_usage_data teams", {r.get("team") for r in usage.values()})
+    if history_teams is not None:
+        check("situational_splits_history snapshots[0].teams", history_teams.keys())
+    return problems
+
+
+def verify_written_outputs(out_dir: Path) -> list:
+    """Re-open the files actually written to disk and re-run the coverage
+    check on them — gate the shipped artifact, not the in-memory proxy."""
+    def load(name):
+        with open(out_dir / name) as f:
+            return json.load(f)
+    history = load("situational_splits_history.json")
+    snaps = history.get("snapshots") or [{}]
+    problems = team_coverage_problems(
+        load("team_scheme_profiles.json"),
+        load("situational_splits.json"),
+        load("scheme_similarity_matrix.json"),
+        load("player_usage_data.json"),
+        history_teams=snaps[0].get("teams", {}),
+    )
+    meta = load("pbp_sync_metadata.json")
+    if meta.get("teams_profiled") != EXPECTED_TEAM_COUNT:
+        problems.append(f"pbp_sync_metadata.teams_profiled == {meta.get('teams_profiled')}, "
+                        f"expected {EXPECTED_TEAM_COUNT}")
+    return problems
 
 
 def parse_args():
@@ -101,6 +212,9 @@ def load_pbp(year: int) -> pd.DataFrame:
         sys.exit(1)
 
     print(f"Loaded {len(df):,} plays, {len(df.columns)} columns")
+    # E-6: normalise immediately so nothing downstream ever sees "LA".
+    df = normalise_team_columns(df, PBP_TEAM_COLUMNS, "pbp")
+    assert_known_team_codes(df, ["posteam", "defteam"], "pbp")
     return df
 
 
@@ -109,7 +223,7 @@ def load_rosters(year: int) -> pd.DataFrame | None:
     path = RAW_DIR / f"roster_weekly_{year}.csv"
     if path.exists():
         print(f"Loading rosters from {path}...")
-        return pd.read_csv(path, low_memory=False)
+        return normalise_team_columns(pd.read_csv(path, low_memory=False), ROSTER_TEAM_COLUMNS, "roster")
     print(f"No roster file found at {path} — skipping roster-based metrics.")
     return None
 
@@ -140,7 +254,7 @@ def load_snap_shares(year: int, rosters: pd.DataFrame | None) -> dict:
             return {}
 
     print(f"Loading snap counts from {path}...")
-    snaps = pd.read_csv(path, low_memory=False)
+    snaps = normalise_team_columns(pd.read_csv(path, low_memory=False), SNAP_TEAM_COLUMNS, "snap_counts")
     # Season-mean offense_pct per pfr_player_id (only rows with any offense_snaps).
     off = snaps[snaps["offense_snaps"].fillna(0) > 0][["pfr_player_id", "offense_pct"]].copy()
     if off.empty:
@@ -602,6 +716,16 @@ def main():
     similarity = compute_scheme_similarity(profiles)
     print(f"  → {len(similarity)}x{len(similarity)} similarity matrix")
 
+    # E-6 hard gate, BEFORE anything is written: a missing team fails the job
+    # instead of silently shipping 31 (every refresh committed 2026-09-16 ..
+    # 2026-10-06 lacked the Rams and nothing checked). Fails before the history append so a bad run cannot
+    # pollute situational_splits_history.json either.
+    problems = team_coverage_problems(profiles, splits, similarity, usage)
+    if problems:
+        fail("PBP-derived outputs do not cover all 32 teams — refusing to write.\n  "
+             + "\n  ".join(problems))
+    print(f"  ✓ team coverage: teams_profiled == {len(profiles)}; all per-team outputs carry {EXPECTED_TEAM_COUNT} teams")
+
     # --- Save outputs ---
     print(f"\nSaving outputs to {BASE_DIR}/...")
 
@@ -677,6 +801,12 @@ def main():
     with open(BASE_DIR / "pbp_sync_metadata.json", "w") as f:
         json.dump(metadata, f, indent=2)
     print("  ✓ pbp_sync_metadata.json")
+
+    # E-6: re-read what landed on disk and gate on that, not the dicts.
+    problems = verify_written_outputs(BASE_DIR)
+    if problems:
+        fail("Written PBP outputs failed the 32-team read-back check.\n  " + "\n  ".join(problems))
+    print(f"  ✓ read-back: written outputs carry all {EXPECTED_TEAM_COUNT} teams")
 
     # --- Validation spot checks ---
     print(f"\n{'=' * 60}")
