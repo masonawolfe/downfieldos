@@ -1,0 +1,1205 @@
+{
+  "metadata": {
+    "season": 2025,
+    "games_processed": 272,
+    "plays_processed": 32941,
+    "weeks_covered": "1-18",
+    "built_date": "2026-08-23",
+    "data_source": "nflverse play-by-play",
+    "data_quality": {
+      "shotgun": true,
+      "no_huddle": true,
+      "air_yards": true,
+      "epa": true,
+      "run_location": true,
+      "qb_scramble": true,
+      "pass_oe": true
+    }
+  },
+  "teams": {
+    "ARI": {
+      "offense": {
+        "total_plays": 1074,
+        "pass_rate": 0.661,
+        "rush_rate": 0.339,
+        "pass_rate_by_down": {
+          "1": 0.585,
+          "2": 0.693,
+          "3": 0.754,
+          "4": 0.75
+        },
+        "shotgun_rate": 0.714,
+        "no_huddle_rate": 0.121,
+        "run_direction": {
+          "left": 0.327,
+          "middle": 0.299,
+          "right": 0.374
+        },
+        "red_zone_pass_rate": 0.692,
+        "deep_pass_rate": 0.087,
+        "qb_scramble_rate": 0.035,
+        "epa_per_play": -0.019,
+        "avg_air_yards": 7.19,
+        "third_down_conv_rate": 0.415
+      },
+      "defense": {
+        "total_plays_faced": 1053,
+        "sack_rate": 0.05,
+        "interception_rate": 0.017,
+        "qb_hit_rate": 0.116,
+        "yards_per_carry_allowed": 4.83,
+        "stuff_rate": 0.16,
+        "epa_per_play_allowed": 0.088,
+        "red_zone_td_rate": 0.213,
+        "pass_rate_faced": 0.567
+      }
+    },
+    "ATL": {
+      "offense": {
+        "total_plays": 1036,
+        "pass_rate": 0.551,
+        "rush_rate": 0.449,
+        "pass_rate_by_down": {
+          "1": 0.436,
+          "2": 0.568,
+          "3": 0.766,
+          "4": 0.643
+        },
+        "shotgun_rate": 0.805,
+        "no_huddle_rate": 0.111,
+        "run_direction": {
+          "left": 0.459,
+          "middle": 0.134,
+          "right": 0.407
+        },
+        "red_zone_pass_rate": 0.493,
+        "deep_pass_rate": 0.105,
+        "qb_scramble_rate": 0.014,
+        "epa_per_play": -0.021,
+        "avg_air_yards": 7.69,
+        "third_down_conv_rate": 0.337
+      },
+      "defense": {
+        "total_plays_faced": 1047,
+        "sack_rate": 0.097,
+        "interception_rate": 0.027,
+        "qb_hit_rate": 0.153,
+        "yards_per_carry_allowed": 4.72,
+        "stuff_rate": 0.142,
+        "epa_per_play_allowed": -0.004,
+        "red_zone_td_rate": 0.161,
+        "pass_rate_faced": 0.564
+      }
+    },
+    "BAL": {
+      "offense": {
+        "total_plays": 956,
+        "pass_rate": 0.487,
+        "rush_rate": 0.513,
+        "pass_rate_by_down": {
+          "1": 0.407,
+          "2": 0.446,
+          "3": 0.682,
+          "4": 0.76
+        },
+        "shotgun_rate": 0.649,
+        "no_huddle_rate": 0.029,
+        "run_direction": {
+          "left": 0.427,
+          "middle": 0.172,
+          "right": 0.4
+        },
+        "red_zone_pass_rate": 0.401,
+        "deep_pass_rate": 0.101,
+        "qb_scramble_rate": 0.039,
+        "epa_per_play": 0.034,
+        "avg_air_yards": 8.17,
+        "third_down_conv_rate": 0.413
+      },
+      "defense": {
+        "total_plays_faced": 1077,
+        "sack_rate": 0.046,
+        "interception_rate": 0.017,
+        "qb_hit_rate": 0.146,
+        "yards_per_carry_allowed": 4.38,
+        "stuff_rate": 0.165,
+        "epa_per_play_allowed": 0.025,
+        "red_zone_td_rate": 0.167,
+        "pass_rate_faced": 0.611
+      }
+    },
+    "BUF": {
+      "offense": {
+        "total_plays": 1065,
+        "pass_rate": 0.51,
+        "rush_rate": 0.49,
+        "pass_rate_by_down": {
+          "1": 0.362,
+          "2": 0.582,
+          "3": 0.673,
+          "4": 0.688
+        },
+        "shotgun_rate": 0.498,
+        "no_huddle_rate": 0.061,
+        "run_direction": {
+          "left": 0.34,
+          "middle": 0.27,
+          "right": 0.39
+        },
+        "red_zone_pass_rate": 0.442,
+        "deep_pass_rate": 0.098,
+        "qb_scramble_rate": 0.047,
+        "epa_per_play": 0.136,
+        "avg_air_yards": 7.32,
+        "third_down_conv_rate": 0.459
+      },
+      "defense": {
+        "total_plays_faced": 950,
+        "sack_rate": 0.071,
+        "interception_rate": 0.026,
+        "qb_hit_rate": 0.17,
+        "yards_per_carry_allowed": 5.21,
+        "stuff_rate": 0.18,
+        "epa_per_play_allowed": -0.016,
+        "red_zone_td_rate": 0.181,
+        "pass_rate_faced": 0.532
+      }
+    },
+    "CAR": {
+      "offense": {
+        "total_plays": 996,
+        "pass_rate": 0.553,
+        "rush_rate": 0.447,
+        "pass_rate_by_down": {
+          "1": 0.419,
+          "2": 0.609,
+          "3": 0.724,
+          "4": 0.641
+        },
+        "shotgun_rate": 0.669,
+        "no_huddle_rate": 0.062,
+        "run_direction": {
+          "left": 0.378,
+          "middle": 0.337,
+          "right": 0.285
+        },
+        "red_zone_pass_rate": 0.544,
+        "deep_pass_rate": 0.078,
+        "qb_scramble_rate": 0.034,
+        "epa_per_play": -0.039,
+        "avg_air_yards": 6.72,
+        "third_down_conv_rate": 0.365
+      },
+      "defense": {
+        "total_plays_faced": 998,
+        "sack_rate": 0.056,
+        "interception_rate": 0.028,
+        "qb_hit_rate": 0.099,
+        "yards_per_carry_allowed": 4.57,
+        "stuff_rate": 0.132,
+        "epa_per_play_allowed": 0.067,
+        "red_zone_td_rate": 0.196,
+        "pass_rate_faced": 0.536
+      }
+    },
+    "CHI": {
+      "offense": {
+        "total_plays": 1096,
+        "pass_rate": 0.547,
+        "rush_rate": 0.453,
+        "pass_rate_by_down": {
+          "1": 0.495,
+          "2": 0.519,
+          "3": 0.675,
+          "4": 0.724
+        },
+        "shotgun_rate": 0.518,
+        "no_huddle_rate": 0.049,
+        "run_direction": {
+          "left": 0.322,
+          "middle": 0.163,
+          "right": 0.515
+        },
+        "red_zone_pass_rate": 0.456,
+        "deep_pass_rate": 0.138,
+        "qb_scramble_rate": 0.04,
+        "epa_per_play": 0.079,
+        "avg_air_yards": 8.65,
+        "third_down_conv_rate": 0.425
+      },
+      "defense": {
+        "total_plays_faced": 1022,
+        "sack_rate": 0.061,
+        "interception_rate": 0.04,
+        "qb_hit_rate": 0.14,
+        "yards_per_carry_allowed": 5.07,
+        "stuff_rate": 0.142,
+        "epa_per_play_allowed": 0.018,
+        "red_zone_td_rate": 0.196,
+        "pass_rate_faced": 0.558
+      }
+    },
+    "CIN": {
+      "offense": {
+        "total_plays": 1049,
+        "pass_rate": 0.645,
+        "rush_rate": 0.355,
+        "pass_rate_by_down": {
+          "1": 0.575,
+          "2": 0.646,
+          "3": 0.784,
+          "4": 0.7
+        },
+        "shotgun_rate": 0.82,
+        "no_huddle_rate": 0.027,
+        "run_direction": {
+          "left": 0.358,
+          "middle": 0.256,
+          "right": 0.385
+        },
+        "red_zone_pass_rate": 0.609,
+        "deep_pass_rate": 0.108,
+        "qb_scramble_rate": 0.013,
+        "epa_per_play": -0.008,
+        "avg_air_yards": 7.39,
+        "third_down_conv_rate": 0.44
+      },
+      "defense": {
+        "total_plays_faced": 1035,
+        "sack_rate": 0.061,
+        "interception_rate": 0.023,
+        "qb_hit_rate": 0.137,
+        "yards_per_carry_allowed": 5.42,
+        "stuff_rate": 0.106,
+        "epa_per_play_allowed": 0.13,
+        "red_zone_td_rate": 0.213,
+        "pass_rate_faced": 0.552
+      }
+    },
+    "CLE": {
+      "offense": {
+        "total_plays": 1028,
+        "pass_rate": 0.592,
+        "rush_rate": 0.408,
+        "pass_rate_by_down": {
+          "1": 0.492,
+          "2": 0.608,
+          "3": 0.757,
+          "4": 0.552
+        },
+        "shotgun_rate": 0.673,
+        "no_huddle_rate": 0.089,
+        "run_direction": {
+          "left": 0.32,
+          "middle": 0.276,
+          "right": 0.404
+        },
+        "red_zone_pass_rate": 0.527,
+        "deep_pass_rate": 0.094,
+        "qb_scramble_rate": 0.031,
+        "epa_per_play": -0.19,
+        "avg_air_yards": 6.81,
+        "third_down_conv_rate": 0.336
+      },
+      "defense": {
+        "total_plays_faced": 994,
+        "sack_rate": 0.098,
+        "interception_rate": 0.02,
+        "qb_hit_rate": 0.191,
+        "yards_per_carry_allowed": 4.4,
+        "stuff_rate": 0.2,
+        "epa_per_play_allowed": -0.096,
+        "red_zone_td_rate": 0.203,
+        "pass_rate_faced": 0.543
+      }
+    },
+    "DAL": {
+      "offense": {
+        "total_plays": 1104,
+        "pass_rate": 0.593,
+        "rush_rate": 0.407,
+        "pass_rate_by_down": {
+          "1": 0.47,
+          "2": 0.608,
+          "3": 0.829,
+          "4": 0.794
+        },
+        "shotgun_rate": 0.625,
+        "no_huddle_rate": 0.091,
+        "run_direction": {
+          "left": 0.364,
+          "middle": 0.317,
+          "right": 0.319
+        },
+        "red_zone_pass_rate": 0.568,
+        "deep_pass_rate": 0.107,
+        "qb_scramble_rate": 0.026,
+        "epa_per_play": 0.098,
+        "avg_air_yards": 8.17,
+        "third_down_conv_rate": 0.42
+      },
+      "defense": {
+        "total_plays_faced": 1027,
+        "sack_rate": 0.059,
+        "interception_rate": 0.01,
+        "qb_hit_rate": 0.177,
+        "yards_per_carry_allowed": 4.96,
+        "stuff_rate": 0.171,
+        "epa_per_play_allowed": 0.167,
+        "red_zone_td_rate": 0.224,
+        "pass_rate_faced": 0.577
+      }
+    },
+    "DEN": {
+      "offense": {
+        "total_plays": 1079,
+        "pass_rate": 0.593,
+        "rush_rate": 0.407,
+        "pass_rate_by_down": {
+          "1": 0.504,
+          "2": 0.571,
+          "3": 0.797,
+          "4": 0.6
+        },
+        "shotgun_rate": 0.652,
+        "no_huddle_rate": 0.129,
+        "run_direction": {
+          "left": 0.392,
+          "middle": 0.211,
+          "right": 0.397
+        },
+        "red_zone_pass_rate": 0.565,
+        "deep_pass_rate": 0.113,
+        "qb_scramble_rate": 0.033,
+        "epa_per_play": 0.05,
+        "avg_air_yards": 7.33,
+        "third_down_conv_rate": 0.414
+      },
+      "defense": {
+        "total_plays_faced": 1055,
+        "sack_rate": 0.103,
+        "interception_rate": 0.015,
+        "qb_hit_rate": 0.226,
+        "yards_per_carry_allowed": 3.91,
+        "stuff_rate": 0.189,
+        "epa_per_play_allowed": -0.088,
+        "red_zone_td_rate": 0.142,
+        "pass_rate_faced": 0.624
+      }
+    },
+    "DET": {
+      "offense": {
+        "total_plays": 1051,
+        "pass_rate": 0.589,
+        "rush_rate": 0.411,
+        "pass_rate_by_down": {
+          "1": 0.506,
+          "2": 0.57,
+          "3": 0.779,
+          "4": 0.742
+        },
+        "shotgun_rate": 0.515,
+        "no_huddle_rate": 0.061,
+        "run_direction": {
+          "left": 0.326,
+          "middle": 0.239,
+          "right": 0.436
+        },
+        "red_zone_pass_rate": 0.529,
+        "deep_pass_rate": 0.063,
+        "qb_scramble_rate": 0.005,
+        "epa_per_play": 0.082,
+        "avg_air_yards": 6.44,
+        "third_down_conv_rate": 0.39
+      },
+      "defense": {
+        "total_plays_faced": 1040,
+        "sack_rate": 0.08,
+        "interception_rate": 0.021,
+        "qb_hit_rate": 0.163,
+        "yards_per_carry_allowed": 4.56,
+        "stuff_rate": 0.142,
+        "epa_per_play_allowed": -0.01,
+        "red_zone_td_rate": 0.181,
+        "pass_rate_faced": 0.586
+      }
+    },
+    "GB": {
+      "offense": {
+        "total_plays": 993,
+        "pass_rate": 0.523,
+        "rush_rate": 0.477,
+        "pass_rate_by_down": {
+          "1": 0.425,
+          "2": 0.535,
+          "3": 0.684,
+          "4": 0.68
+        },
+        "shotgun_rate": 0.629,
+        "no_huddle_rate": 0.088,
+        "run_direction": {
+          "left": 0.328,
+          "middle": 0.268,
+          "right": 0.404
+        },
+        "red_zone_pass_rate": 0.45,
+        "deep_pass_rate": 0.135,
+        "qb_scramble_rate": 0.035,
+        "epa_per_play": 0.115,
+        "avg_air_yards": 8.78,
+        "third_down_conv_rate": 0.485
+      },
+      "defense": {
+        "total_plays_faced": 1057,
+        "sack_rate": 0.062,
+        "interception_rate": 0.012,
+        "qb_hit_rate": 0.17,
+        "yards_per_carry_allowed": 4.25,
+        "stuff_rate": 0.154,
+        "epa_per_play_allowed": 0.034,
+        "red_zone_td_rate": 0.182,
+        "pass_rate_faced": 0.553
+      }
+    },
+    "HOU": {
+      "offense": {
+        "total_plays": 1078,
+        "pass_rate": 0.571,
+        "rush_rate": 0.429,
+        "pass_rate_by_down": {
+          "1": 0.432,
+          "2": 0.629,
+          "3": 0.748,
+          "4": 0.526
+        },
+        "shotgun_rate": 0.618,
+        "no_huddle_rate": 0.037,
+        "run_direction": {
+          "left": 0.318,
+          "middle": 0.29,
+          "right": 0.392
+        },
+        "red_zone_pass_rate": 0.542,
+        "deep_pass_rate": 0.104,
+        "qb_scramble_rate": 0.031,
+        "epa_per_play": -0.013,
+        "avg_air_yards": 8.23,
+        "third_down_conv_rate": 0.374
+      },
+      "defense": {
+        "total_plays_faced": 982,
+        "sack_rate": 0.08,
+        "interception_rate": 0.032,
+        "qb_hit_rate": 0.151,
+        "yards_per_carry_allowed": 4.06,
+        "stuff_rate": 0.175,
+        "epa_per_play_allowed": -0.131,
+        "red_zone_td_rate": 0.223,
+        "pass_rate_faced": 0.599
+      }
+    },
+    "IND": {
+      "offense": {
+        "total_plays": 1011,
+        "pass_rate": 0.574,
+        "rush_rate": 0.426,
+        "pass_rate_by_down": {
+          "1": 0.499,
+          "2": 0.595,
+          "3": 0.731,
+          "4": 0.37
+        },
+        "shotgun_rate": 0.717,
+        "no_huddle_rate": 0.051,
+        "run_direction": {
+          "left": 0.254,
+          "middle": 0.414,
+          "right": 0.332
+        },
+        "red_zone_pass_rate": 0.469,
+        "deep_pass_rate": 0.097,
+        "qb_scramble_rate": 0.025,
+        "epa_per_play": 0.072,
+        "avg_air_yards": 8.04,
+        "third_down_conv_rate": 0.43
+      },
+      "defense": {
+        "total_plays_faced": 1101,
+        "sack_rate": 0.059,
+        "interception_rate": 0.021,
+        "qb_hit_rate": 0.14,
+        "yards_per_carry_allowed": 3.98,
+        "stuff_rate": 0.188,
+        "epa_per_play_allowed": 0.004,
+        "red_zone_td_rate": 0.175,
+        "pass_rate_faced": 0.603
+      }
+    },
+    "JAX": {
+      "offense": {
+        "total_plays": 1074,
+        "pass_rate": 0.561,
+        "rush_rate": 0.439,
+        "pass_rate_by_down": {
+          "1": 0.47,
+          "2": 0.616,
+          "3": 0.701,
+          "4": 0.345
+        },
+        "shotgun_rate": 0.607,
+        "no_huddle_rate": 0.069,
+        "run_direction": {
+          "left": 0.355,
+          "middle": 0.376,
+          "right": 0.269
+        },
+        "red_zone_pass_rate": 0.444,
+        "deep_pass_rate": 0.124,
+        "qb_scramble_rate": 0.04,
+        "epa_per_play": 0.031,
+        "avg_air_yards": 8.71,
+        "third_down_conv_rate": 0.403
+      },
+      "defense": {
+        "total_plays_faced": 1030,
+        "sack_rate": 0.048,
+        "interception_rate": 0.033,
+        "qb_hit_rate": 0.136,
+        "yards_per_carry_allowed": 4.09,
+        "stuff_rate": 0.162,
+        "epa_per_play_allowed": -0.105,
+        "red_zone_td_rate": 0.191,
+        "pass_rate_faced": 0.651
+      }
+    },
+    "KC": {
+      "offense": {
+        "total_plays": 1048,
+        "pass_rate": 0.602,
+        "rush_rate": 0.398,
+        "pass_rate_by_down": {
+          "1": 0.501,
+          "2": 0.662,
+          "3": 0.718,
+          "4": 0.562
+        },
+        "shotgun_rate": 0.807,
+        "no_huddle_rate": 0.025,
+        "run_direction": {
+          "left": 0.386,
+          "middle": 0.23,
+          "right": 0.384
+        },
+        "red_zone_pass_rate": 0.534,
+        "deep_pass_rate": 0.122,
+        "qb_scramble_rate": 0.055,
+        "epa_per_play": 0.035,
+        "avg_air_yards": 7.8,
+        "third_down_conv_rate": 0.38
+      },
+      "defense": {
+        "total_plays_faced": 978,
+        "sack_rate": 0.064,
+        "interception_rate": 0.018,
+        "qb_hit_rate": 0.18,
+        "yards_per_carry_allowed": 4.18,
+        "stuff_rate": 0.164,
+        "epa_per_play_allowed": -0.019,
+        "red_zone_td_rate": 0.186,
+        "pass_rate_faced": 0.557
+      }
+    },
+    "LAC": {
+      "offense": {
+        "total_plays": 1080,
+        "pass_rate": 0.579,
+        "rush_rate": 0.421,
+        "pass_rate_by_down": {
+          "1": 0.442,
+          "2": 0.653,
+          "3": 0.716,
+          "4": 0.6
+        },
+        "shotgun_rate": 0.714,
+        "no_huddle_rate": 0.038,
+        "run_direction": {
+          "left": 0.375,
+          "middle": 0.33,
+          "right": 0.295
+        },
+        "red_zone_pass_rate": 0.554,
+        "deep_pass_rate": 0.117,
+        "qb_scramble_rate": 0.052,
+        "epa_per_play": -0.023,
+        "avg_air_yards": 8.05,
+        "third_down_conv_rate": 0.46
+      },
+      "defense": {
+        "total_plays_faced": 955,
+        "sack_rate": 0.082,
+        "interception_rate": 0.035,
+        "qb_hit_rate": 0.16,
+        "yards_per_carry_allowed": 4.44,
+        "stuff_rate": 0.2,
+        "epa_per_play_allowed": -0.083,
+        "red_zone_td_rate": 0.154,
+        "pass_rate_faced": 0.575
+      }
+    },
+    "LAR": {
+      "offense": {
+        "total_plays": 1056,
+        "pass_rate": 0.584,
+        "rush_rate": 0.416,
+        "pass_rate_by_down": {
+          "1": 0.507,
+          "2": 0.598,
+          "3": 0.766,
+          "4": 0.533
+        },
+        "shotgun_rate": 0.41,
+        "no_huddle_rate": 0.066,
+        "run_direction": {
+          "left": 0.296,
+          "middle": 0.342,
+          "right": 0.362
+        },
+        "red_zone_pass_rate": 0.566,
+        "deep_pass_rate": 0.146,
+        "qb_scramble_rate": 0.007,
+        "epa_per_play": 0.145,
+        "avg_air_yards": 9.31,
+        "third_down_conv_rate": 0.404
+      },
+      "defense": {
+        "total_plays_faced": 1068,
+        "sack_rate": 0.074,
+        "interception_rate": 0.025,
+        "qb_hit_rate": 0.181,
+        "yards_per_carry_allowed": 4.38,
+        "stuff_rate": 0.12,
+        "epa_per_play_allowed": -0.061,
+        "red_zone_td_rate": 0.149,
+        "pass_rate_faced": 0.596
+      }
+    },
+    "LV": {
+      "offense": {
+        "total_plays": 942,
+        "pass_rate": 0.614,
+        "rush_rate": 0.386,
+        "pass_rate_by_down": {
+          "1": 0.55,
+          "2": 0.585,
+          "3": 0.77,
+          "4": 0.625
+        },
+        "shotgun_rate": 0.661,
+        "no_huddle_rate": 0.087,
+        "run_direction": {
+          "left": 0.355,
+          "middle": 0.291,
+          "right": 0.355
+        },
+        "red_zone_pass_rate": 0.598,
+        "deep_pass_rate": 0.087,
+        "qb_scramble_rate": 0.023,
+        "epa_per_play": -0.215,
+        "avg_air_yards": 6.27,
+        "third_down_conv_rate": 0.338
+      },
+      "defense": {
+        "total_plays_faced": 1054,
+        "sack_rate": 0.066,
+        "interception_rate": 0.014,
+        "qb_hit_rate": 0.144,
+        "yards_per_carry_allowed": 4.08,
+        "stuff_rate": 0.199,
+        "epa_per_play_allowed": 0.024,
+        "red_zone_td_rate": 0.174,
+        "pass_rate_faced": 0.533
+      }
+    },
+    "MIA": {
+      "offense": {
+        "total_plays": 942,
+        "pass_rate": 0.55,
+        "rush_rate": 0.45,
+        "pass_rate_by_down": {
+          "1": 0.439,
+          "2": 0.564,
+          "3": 0.734,
+          "4": 0.739
+        },
+        "shotgun_rate": 0.714,
+        "no_huddle_rate": 0.035,
+        "run_direction": {
+          "left": 0.381,
+          "middle": 0.223,
+          "right": 0.396
+        },
+        "red_zone_pass_rate": 0.51,
+        "deep_pass_rate": 0.089,
+        "qb_scramble_rate": 0.016,
+        "epa_per_play": -0.017,
+        "avg_air_yards": 7.05,
+        "third_down_conv_rate": 0.349
+      },
+      "defense": {
+        "total_plays_faced": 1016,
+        "sack_rate": 0.07,
+        "interception_rate": 0.016,
+        "qb_hit_rate": 0.135,
+        "yards_per_carry_allowed": 4.92,
+        "stuff_rate": 0.176,
+        "epa_per_play_allowed": 0.088,
+        "red_zone_td_rate": 0.234,
+        "pass_rate_faced": 0.546
+      }
+    },
+    "MIN": {
+      "offense": {
+        "total_plays": 943,
+        "pass_rate": 0.58,
+        "rush_rate": 0.42,
+        "pass_rate_by_down": {
+          "1": 0.476,
+          "2": 0.599,
+          "3": 0.76,
+          "4": 0.625
+        },
+        "shotgun_rate": 0.557,
+        "no_huddle_rate": 0.075,
+        "run_direction": {
+          "left": 0.332,
+          "middle": 0.289,
+          "right": 0.379
+        },
+        "red_zone_pass_rate": 0.613,
+        "deep_pass_rate": 0.11,
+        "qb_scramble_rate": 0.03,
+        "epa_per_play": -0.115,
+        "avg_air_yards": 7.78,
+        "third_down_conv_rate": 0.323
+      },
+      "defense": {
+        "total_plays_faced": 1017,
+        "sack_rate": 0.099,
+        "interception_rate": 0.016,
+        "qb_hit_rate": 0.192,
+        "yards_per_carry_allowed": 4.07,
+        "stuff_rate": 0.194,
+        "epa_per_play_allowed": -0.099,
+        "red_zone_td_rate": 0.13,
+        "pass_rate_faced": 0.488
+      }
+    },
+    "NE": {
+      "offense": {
+        "total_plays": 1017,
+        "pass_rate": 0.542,
+        "rush_rate": 0.458,
+        "pass_rate_by_down": {
+          "1": 0.438,
+          "2": 0.561,
+          "3": 0.749,
+          "4": 0.6
+        },
+        "shotgun_rate": 0.55,
+        "no_huddle_rate": 0.024,
+        "run_direction": {
+          "left": 0.371,
+          "middle": 0.291,
+          "right": 0.338
+        },
+        "red_zone_pass_rate": 0.477,
+        "deep_pass_rate": 0.131,
+        "qb_scramble_rate": 0.062,
+        "epa_per_play": 0.159,
+        "avg_air_yards": 9.19,
+        "third_down_conv_rate": 0.436
+      },
+      "defense": {
+        "total_plays_faced": 966,
+        "sack_rate": 0.062,
+        "interception_rate": 0.018,
+        "qb_hit_rate": 0.153,
+        "yards_per_carry_allowed": 4.3,
+        "stuff_rate": 0.171,
+        "epa_per_play_allowed": -0.047,
+        "red_zone_td_rate": 0.229,
+        "pass_rate_faced": 0.582
+      }
+    },
+    "NO": {
+      "offense": {
+        "total_plays": 1064,
+        "pass_rate": 0.597,
+        "rush_rate": 0.403,
+        "pass_rate_by_down": {
+          "1": 0.486,
+          "2": 0.649,
+          "3": 0.743,
+          "4": 0.588
+        },
+        "shotgun_rate": 0.788,
+        "no_huddle_rate": 0.227,
+        "run_direction": {
+          "left": 0.348,
+          "middle": 0.287,
+          "right": 0.365
+        },
+        "red_zone_pass_rate": 0.492,
+        "deep_pass_rate": 0.117,
+        "qb_scramble_rate": 0.034,
+        "epa_per_play": -0.088,
+        "avg_air_yards": 8.18,
+        "third_down_conv_rate": 0.396
+      },
+      "defense": {
+        "total_plays_faced": 1029,
+        "sack_rate": 0.085,
+        "interception_rate": 0.019,
+        "qb_hit_rate": 0.149,
+        "yards_per_carry_allowed": 4.17,
+        "stuff_rate": 0.169,
+        "epa_per_play_allowed": -0.059,
+        "red_zone_td_rate": 0.198,
+        "pass_rate_faced": 0.516
+      }
+    },
+    "NYG": {
+      "offense": {
+        "total_plays": 1079,
+        "pass_rate": 0.534,
+        "rush_rate": 0.466,
+        "pass_rate_by_down": {
+          "1": 0.475,
+          "2": 0.472,
+          "3": 0.722,
+          "4": 0.692
+        },
+        "shotgun_rate": 0.767,
+        "no_huddle_rate": 0.214,
+        "run_direction": {
+          "left": 0.371,
+          "middle": 0.267,
+          "right": 0.361
+        },
+        "red_zone_pass_rate": 0.47,
+        "deep_pass_rate": 0.125,
+        "qb_scramble_rate": 0.047,
+        "epa_per_play": 0.012,
+        "avg_air_yards": 8.52,
+        "third_down_conv_rate": 0.404
+      },
+      "defense": {
+        "total_plays_faced": 1032,
+        "sack_rate": 0.066,
+        "interception_rate": 0.015,
+        "qb_hit_rate": 0.158,
+        "yards_per_carry_allowed": 5.63,
+        "stuff_rate": 0.172,
+        "epa_per_play_allowed": 0.087,
+        "red_zone_td_rate": 0.228,
+        "pass_rate_faced": 0.571
+      }
+    },
+    "NYJ": {
+      "offense": {
+        "total_plays": 1009,
+        "pass_rate": 0.551,
+        "rush_rate": 0.449,
+        "pass_rate_by_down": {
+          "1": 0.491,
+          "2": 0.516,
+          "3": 0.677,
+          "4": 0.707
+        },
+        "shotgun_rate": 0.731,
+        "no_huddle_rate": 0.097,
+        "run_direction": {
+          "left": 0.429,
+          "middle": 0.229,
+          "right": 0.342
+        },
+        "red_zone_pass_rate": 0.512,
+        "deep_pass_rate": 0.081,
+        "qb_scramble_rate": 0.056,
+        "epa_per_play": -0.127,
+        "avg_air_yards": 6.93,
+        "third_down_conv_rate": 0.349
+      },
+      "defense": {
+        "total_plays_faced": 1053,
+        "sack_rate": 0.048,
+        "interception_rate": 0.0,
+        "qb_hit_rate": 0.107,
+        "yards_per_carry_allowed": 4.69,
+        "stuff_rate": 0.182,
+        "epa_per_play_allowed": 0.147,
+        "red_zone_td_rate": 0.237,
+        "pass_rate_faced": 0.515
+      }
+    },
+    "PHI": {
+      "offense": {
+        "total_plays": 995,
+        "pass_rate": 0.535,
+        "rush_rate": 0.465,
+        "pass_rate_by_down": {
+          "1": 0.44,
+          "2": 0.556,
+          "3": 0.7,
+          "4": 0.45
+        },
+        "shotgun_rate": 0.775,
+        "no_huddle_rate": 0.193,
+        "run_direction": {
+          "left": 0.357,
+          "middle": 0.241,
+          "right": 0.402
+        },
+        "red_zone_pass_rate": 0.416,
+        "deep_pass_rate": 0.13,
+        "qb_scramble_rate": 0.043,
+        "epa_per_play": 0.026,
+        "avg_air_yards": 9.06,
+        "third_down_conv_rate": 0.377
+      },
+      "defense": {
+        "total_plays_faced": 1066,
+        "sack_rate": 0.072,
+        "interception_rate": 0.021,
+        "qb_hit_rate": 0.175,
+        "yards_per_carry_allowed": 4.39,
+        "stuff_rate": 0.132,
+        "epa_per_play_allowed": -0.079,
+        "red_zone_td_rate": 0.171,
+        "pass_rate_faced": 0.546
+      }
+    },
+    "PIT": {
+      "offense": {
+        "total_plays": 975,
+        "pass_rate": 0.595,
+        "rush_rate": 0.405,
+        "pass_rate_by_down": {
+          "1": 0.498,
+          "2": 0.601,
+          "3": 0.788,
+          "4": 0.478
+        },
+        "shotgun_rate": 0.667,
+        "no_huddle_rate": 0.116,
+        "run_direction": {
+          "left": 0.393,
+          "middle": 0.213,
+          "right": 0.393
+        },
+        "red_zone_pass_rate": 0.518,
+        "deep_pass_rate": 0.091,
+        "qb_scramble_rate": 0.013,
+        "epa_per_play": 0.026,
+        "avg_air_yards": 6.01,
+        "third_down_conv_rate": 0.404
+      },
+      "defense": {
+        "total_plays_faced": 1104,
+        "sack_rate": 0.073,
+        "interception_rate": 0.023,
+        "qb_hit_rate": 0.163,
+        "yards_per_carry_allowed": 4.38,
+        "stuff_rate": 0.153,
+        "epa_per_play_allowed": 0.018,
+        "red_zone_td_rate": 0.166,
+        "pass_rate_faced": 0.599
+      }
+    },
+    "SEA": {
+      "offense": {
+        "total_plays": 997,
+        "pass_rate": 0.508,
+        "rush_rate": 0.492,
+        "pass_rate_by_down": {
+          "1": 0.456,
+          "2": 0.478,
+          "3": 0.663,
+          "4": 0.583
+        },
+        "shotgun_rate": 0.462,
+        "no_huddle_rate": 0.074,
+        "run_direction": {
+          "left": 0.398,
+          "middle": 0.282,
+          "right": 0.32
+        },
+        "red_zone_pass_rate": 0.432,
+        "deep_pass_rate": 0.105,
+        "qb_scramble_rate": 0.014,
+        "epa_per_play": 0.033,
+        "avg_air_yards": 7.89,
+        "third_down_conv_rate": 0.406
+      },
+      "defense": {
+        "total_plays_faced": 1061,
+        "sack_rate": 0.072,
+        "interception_rate": 0.028,
+        "qb_hit_rate": 0.169,
+        "yards_per_carry_allowed": 3.82,
+        "stuff_rate": 0.182,
+        "epa_per_play_allowed": -0.116,
+        "red_zone_td_rate": 0.161,
+        "pass_rate_faced": 0.613
+      }
+    },
+    "SF": {
+      "offense": {
+        "total_plays": 1065,
+        "pass_rate": 0.566,
+        "rush_rate": 0.434,
+        "pass_rate_by_down": {
+          "1": 0.481,
+          "2": 0.568,
+          "3": 0.746,
+          "4": 0.591
+        },
+        "shotgun_rate": 0.539,
+        "no_huddle_rate": 0.037,
+        "run_direction": {
+          "left": 0.358,
+          "middle": 0.269,
+          "right": 0.373
+        },
+        "red_zone_pass_rate": 0.507,
+        "deep_pass_rate": 0.095,
+        "qb_scramble_rate": 0.024,
+        "epa_per_play": 0.088,
+        "avg_air_yards": 7.52,
+        "third_down_conv_rate": 0.507
+      },
+      "defense": {
+        "total_plays_faced": 1019,
+        "sack_rate": 0.033,
+        "interception_rate": 0.01,
+        "qb_hit_rate": 0.095,
+        "yards_per_carry_allowed": 4.44,
+        "stuff_rate": 0.166,
+        "epa_per_play_allowed": 0.07,
+        "red_zone_td_rate": 0.203,
+        "pass_rate_faced": 0.592
+      }
+    },
+    "TB": {
+      "offense": {
+        "total_plays": 1065,
+        "pass_rate": 0.564,
+        "rush_rate": 0.436,
+        "pass_rate_by_down": {
+          "1": 0.449,
+          "2": 0.625,
+          "3": 0.687,
+          "4": 0.621
+        },
+        "shotgun_rate": 0.651,
+        "no_huddle_rate": 0.062,
+        "run_direction": {
+          "left": 0.446,
+          "middle": 0.237,
+          "right": 0.317
+        },
+        "red_zone_pass_rate": 0.557,
+        "deep_pass_rate": 0.115,
+        "qb_scramble_rate": 0.04,
+        "epa_per_play": -0.009,
+        "avg_air_yards": 8.09,
+        "third_down_conv_rate": 0.414
+      },
+      "defense": {
+        "total_plays_faced": 990,
+        "sack_rate": 0.061,
+        "interception_rate": 0.022,
+        "qb_hit_rate": 0.142,
+        "yards_per_carry_allowed": 4.39,
+        "stuff_rate": 0.21,
+        "epa_per_play_allowed": 0.013,
+        "red_zone_td_rate": 0.246,
+        "pass_rate_faced": 0.61
+      }
+    },
+    "TEN": {
+      "offense": {
+        "total_plays": 995,
+        "pass_rate": 0.626,
+        "rush_rate": 0.374,
+        "pass_rate_by_down": {
+          "1": 0.495,
+          "2": 0.664,
+          "3": 0.78,
+          "4": 0.771
+        },
+        "shotgun_rate": 0.729,
+        "no_huddle_rate": 0.102,
+        "run_direction": {
+          "left": 0.329,
+          "middle": 0.307,
+          "right": 0.364
+        },
+        "red_zone_pass_rate": 0.584,
+        "deep_pass_rate": 0.09,
+        "qb_scramble_rate": 0.023,
+        "epa_per_play": -0.16,
+        "avg_air_yards": 7.08,
+        "third_down_conv_rate": 0.319
+      },
+      "defense": {
+        "total_plays_faced": 992,
+        "sack_rate": 0.075,
+        "interception_rate": 0.011,
+        "qb_hit_rate": 0.165,
+        "yards_per_carry_allowed": 4.55,
+        "stuff_rate": 0.184,
+        "epa_per_play_allowed": 0.101,
+        "red_zone_td_rate": 0.252,
+        "pass_rate_faced": 0.562
+      }
+    },
+    "WAS": {
+      "offense": {
+        "total_plays": 979,
+        "pass_rate": 0.515,
+        "rush_rate": 0.485,
+        "pass_rate_by_down": {
+          "1": 0.375,
+          "2": 0.561,
+          "3": 0.706,
+          "4": 0.846
+        },
+        "shotgun_rate": 0.878,
+        "no_huddle_rate": 0.616,
+        "run_direction": {
+          "left": 0.382,
+          "middle": 0.258,
+          "right": 0.36
+        },
+        "red_zone_pass_rate": 0.405,
+        "deep_pass_rate": 0.119,
+        "qb_scramble_rate": 0.065,
+        "epa_per_play": 0.006,
+        "avg_air_yards": 8.63,
+        "third_down_conv_rate": 0.38
+      },
+      "defense": {
+        "total_plays_faced": 1073,
+        "sack_rate": 0.072,
+        "interception_rate": 0.014,
+        "qb_hit_rate": 0.151,
+        "yards_per_carry_allowed": 4.96,
+        "stuff_rate": 0.147,
+        "epa_per_play_allowed": 0.143,
+        "red_zone_td_rate": 0.218,
+        "pass_rate_faced": 0.543
+      }
+    }
+  }
+}

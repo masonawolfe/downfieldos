@@ -40,10 +40,34 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Fetch nflverse roster_weekly_2026 (team_2026 / team_changed join)
+        # E-4 (2026-10-10): build-player-stats.js reads roster_weekly_2026 to
+        # set team_2026 / team_changed and to attach QB + team offense by the
+        # player's 2026 team. This job never fetched it, so every CI build
+        # since 09-23 shipped team_2026 = null on every row. Same fetch as
+        # data-board.yml / data-availability.yml (E-023 repo-relative path).
+        # The 2025 usage + team-offense inputs are committed as
+        # src/data/intelligence/pbp/*_2025.json and need no fetch.
+        run: |
+          set -euo pipefail
+          mkdir -p data/intelligence/raw
+          curl -sSL --fail --max-time 120 \
+            "https://github.com/nflverse/nflverse-data/releases/download/weekly_rosters/roster_weekly_2026.csv.gz" \
+            -o data/intelligence/raw/roster_weekly_2026.csv.gz
+          echo "  roster_weekly_2026.csv.gz: $(wc -c < data/intelligence/raw/roster_weekly_2026.csv.gz) bytes"
       - name: Refresh player stats
         env:
           SEASON: ${{ github.event.inputs.season || '2025' }}
         run: npm run data:stats
+      - name: Enrichment floor (E-4 — must pass to commit)
+        # Fails the job (so "Commit if changed" never runs) when the freshly
+        # built playerStats${SEASON}.js has 0 rows with usage joined, or fewer
+        # non-null target_share / carry_share / snap_share / team_pass_rate /
+        # team_off_epa_per_play / team_rz_pass_rate / team_2026 than HEAD.
+        # Reads the row fields of the built file, not the header or META.
+        env:
+          SEASON: ${{ github.event.inputs.season || '2025' }}
+        run: npm run data:stats:floor
       - name: Commit if changed
         id: commit
         run: |

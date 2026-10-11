@@ -30,6 +30,56 @@ const PBP_URL = `https://github.com/nflverse/nflverse-data/releases/download/pbp
 // `passing_interceptions`, `sacks` → `sacks_suffered`.
 const PLAYER_STATS_URL = `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_reg_${SEASON}.csv`;
 
+// E-4 (2026-10-10): season-aware enrichment sources.
+// The weekly CI job (data-player-stats-v2.yml) only ever had the repo
+// checkout, and the E-023 probes below looked for <repo>/data/intelligence/…
+// and <parent>/data/intelligence/… — neither exists in CI. From 2026-09-23
+// every CI rebuild shipped target_share / carry_share / snap_share /
+// team_pass_rate / team_off_epa_per_play / team_rz_pass_rate = null on every
+// row. The 2025 usage + team-offense files now live in the repo with the
+// season in the filename and are probed FIRST; the old probes stay as
+// fallbacks. src/data/intelligence/pbp/player_usage_data.json and
+// team_scheme_profiles.json (no suffix) are the 2026 ROLLING outputs of
+// data-pbp-derived-v2.yml and must never feed a 2025 build — they are not
+// in the candidate list, and any candidate whose metadata.season is missing
+// or disagrees with SEASON is rejected.
+const REPO_ROOT = path.join(__dirname, '..');
+function relRepo(p) { return path.relative(REPO_ROOT, p).split(path.sep).join('/'); }
+// Label for the committed header/META: never a machine-specific absolute
+// path. In-repo → repo-relative; the legacy parent probe → ../data/…;
+// anything else (an env override pointing at a scratch dir) → basename.
+function sourceLabel(p) {
+  const rel = relRepo(p);
+  if (rel.startsWith('../') && !rel.startsWith('../data/')) return `external:${path.basename(p)}`;
+  return rel;
+}
+
+// Returns { path, doc } for the first candidate that exists, parses, and
+// declares metadata.season === SEASON; null when none qualifies. When the env
+// override is set it is the ONLY candidate (used by the floor's
+// induced-failure proof: PLAYER_USAGE_PATH=/nonexistent).
+function loadSeasonJson(label, envVar, candidates) {
+  const override = process.env[envVar];
+  const list = override ? [override] : candidates;
+  for (const p of list) {
+    if (!fs.existsSync(p)) continue;
+    let doc;
+    try { doc = JSON.parse(fs.readFileSync(p, 'utf8')); }
+    catch (err) { console.log(`⚠ ${label}: ${relRepo(p)} unreadable (${err.message}) — trying next candidate`); continue; }
+    // Strict: a file that cannot prove its season is rejected. The 2026
+    // rolling outputs of data-pbp-derived-v2.yml carry no metadata.season,
+    // so they can never be picked up by a 2025 build through a fallback.
+    const fileSeason = doc?.metadata?.season;
+    if (fileSeason == null || Number(fileSeason) !== SEASON) {
+      console.log(`⚠ ${label}: ${relRepo(p)} has metadata.season=${fileSeason ?? 'missing'}, build is ${SEASON} — skipped`);
+      continue;
+    }
+    return { path: p, doc };
+  }
+  console.log(`⚠ ${label}: no usable file among ${list.map(relRepo).join(', ')}`);
+  return null;
+}
+
 const TEAM_MAP = {
   OAK: 'LV', STL: 'LAR', LA: 'LAR', SD: 'LAC', WSH: 'WAS',
 };
@@ -282,10 +332,14 @@ async function main() {
   const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', AZ: 'ARI' };
   function norm(t) { const u = (t || '').toUpperCase().trim(); return NORM_TEAM[u] || u; }
   // E-023: probe repo-relative first (CI), fall back to parent (Mason-local).
+  // E-4: this file is NOT committed (2026 rolling, ~380KB gz); the
+  // player-stats workflow now fetches it into <repo>/data/intelligence/raw/
+  // the same way data-board.yml does. ROSTER_WEEKLY_PATH env overrides.
   const ROSTER_WEEKLY_PATH = [
+    process.env.ROSTER_WEEKLY_PATH || null,
     path.join(__dirname, '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz'),
     path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz'),
-  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
+  ].find(p => p && fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'raw', 'roster_weekly_2026.csv.gz');
   const rosterWeeklyByGsis = new Map();
   try {
     const zlib = await import('zlib');
@@ -317,19 +371,19 @@ async function main() {
 
   // ── Task 4 continuation — compute per-team QB + team offense now that
   // team_2025 / team_2026 are populated. ──
-  // E-023: probe repo-relative first, fall back to parent.
-  const TEAM_SCHEME_PATH = [
+  // E-4: season-labelled committed file first; E-023 probes as fallbacks.
+  const teamScheme = loadSeasonJson('team_scheme_profiles', 'TEAM_SCHEME_PATH', [
+    path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'pbp', `team_scheme_profiles_${SEASON}.json`),
     path.join(__dirname, '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json'),
     path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json'),
-  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'team_scheme_profiles.json');
+  ]);
   let teamOff = {};
-  try {
-    const doc = JSON.parse(fs.readFileSync(TEAM_SCHEME_PATH, 'utf8'));
+  if (teamScheme) {
     // File shape: { metadata: {...}, teams: { KC: { offense: {...}, defense: {...} }, … } }
-    teamOff = doc.teams || doc;
-    console.log(`Loaded team_scheme_profiles: ${Object.keys(teamOff).length} teams`);
-  } catch (err) {
-    console.log(`⚠ team_scheme_profiles unavailable (${err.message}) — team_off_epa will be null`);
+    teamOff = teamScheme.doc.teams || teamScheme.doc;
+    console.log(`Loaded team_scheme_profiles: ${Object.keys(teamOff).length} teams from ${relRepo(teamScheme.path)}`);
+  } else {
+    console.log(`⚠ team_scheme_profiles unavailable — team_off_epa_per_play / team_pass_rate / team_rz_pass_rate will be null`);
   }
   // Primary QB per team from playerStats2025
   const qbByTeam = {};
@@ -361,19 +415,21 @@ async function main() {
   console.log(`QB-production join: ${qbJoinedCount}/${nonQbCount} skill rows have qb_name populated (${(qbJoinedCount/nonQbCount*100).toFixed(1)}%)`);
 
   // EM/PO Directive v2 Task 2 — enrich with usage shares from
-  // data/intelligence/pbp/player_usage_data.json. gsis_id is the join key.
+  // src/data/intelligence/pbp/player_usage_data_${SEASON}.json (E-4; was
+  // data/intelligence/pbp/player_usage_data.json). gsis_id is the join key.
   // Missing usage file is not fatal — the stats rows still emit, with the
   // three share fields set null and metadata.usage_join_rate reflecting the miss.
   let usageJoinedCount = 0;
   let usageAvailable = false;
-  // E-023: probe repo-relative first, fall back to parent.
-  const USAGE_PATH = [
+  // E-4: season-labelled committed file first; E-023 probes as fallbacks.
+  const usage = loadSeasonJson('player_usage_data', 'PLAYER_USAGE_PATH', [
+    path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'pbp', `player_usage_data_${SEASON}.json`),
     path.join(__dirname, '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json'),
     path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json'),
-  ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence', 'pbp', 'player_usage_data.json');
+  ]);
   try {
-    const usageRaw = fs.readFileSync(USAGE_PATH, 'utf8');
-    const usageDoc = JSON.parse(usageRaw);
+    if (!usage) throw new Error('no season-matching usage file');
+    const usageDoc = usage.doc;
     const usageByGsis = {};
     for (const p of Object.values(usageDoc.players || {})) {
       if (p.gsis_id) usageByGsis[p.gsis_id] = p;
@@ -386,7 +442,7 @@ async function main() {
       if (u) usageJoinedCount++;
     }
     usageAvailable = true;
-    console.log(`\nUsage-share enrichment: ${usageJoinedCount}/${Object.keys(stats).length} rows joined (${(usageJoinedCount/Object.keys(stats).length*100).toFixed(1)}%)`);
+    console.log(`\nUsage-share enrichment: ${usageJoinedCount}/${Object.keys(stats).length} rows joined (${(usageJoinedCount/Object.keys(stats).length*100).toFixed(1)}%) from ${relRepo(usage.path)}`);
   } catch (err) {
     console.log(`\n⚠ usage enrichment skipped (${err.message}) — share fields will be null on every row`);
     for (const s of Object.values(stats)) {
@@ -400,8 +456,13 @@ async function main() {
   const entries = Object.values(stats);
   const outPath = path.join(__dirname, `../src/data/playerStats${SEASON}.js`);
   const enrichmentMeta = {
-    usage_source: usageAvailable ? 'data/intelligence/pbp/player_usage_data.json' : null,
+    usage_source: usageAvailable ? sourceLabel(usage.path) : null,
     usage_join_rate: entries.length > 0 ? Number((usageJoinedCount / entries.length).toFixed(3)) : null,
+    // E-4: record the team-offense and 2026-roster sources too, so a header
+    // read shows all three enrichment inputs. Informational only — the
+    // floor (scripts/check-player-stats-floor.mjs) asserts the row fields.
+    team_offense_source: teamScheme ? sourceLabel(teamScheme.path) : null,
+    roster_2026_source: rosterWeeklyByGsis.size > 0 ? sourceLabel(ROSTER_WEEKLY_PATH) : null,
   };
 
   const output = `/**
@@ -412,6 +473,8 @@ async function main() {
  * Enrichment (EM/PO Directive v2 Task 2):
  *   usage source: ${enrichmentMeta.usage_source || 'unavailable'}
  *   usage join rate: ${enrichmentMeta.usage_join_rate == null ? 'n/a' : (enrichmentMeta.usage_join_rate * 100).toFixed(1) + '%'}
+ *   team offense source: ${enrichmentMeta.team_offense_source || 'unavailable'}
+ *   2026 roster source: ${enrichmentMeta.roster_2026_source || 'unavailable'}
  *
  * Each row carries: gsis_id (canonical join key), name, team, pos, games,
  * stat lines, plus target_share / carry_share / snap_share when the usage
