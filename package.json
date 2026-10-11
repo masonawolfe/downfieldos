@@ -15,6 +15,7 @@
     "check:data-sources": "node scripts/check-data-sources.mjs",
     "data:schedule": "node scripts/fetch-schedule.js",
     "data:stats": "node scripts/build-player-stats.js",
+    "data:stats:floor": "node scripts/check-player-stats-floor.mjs",
     "data:injuries": "node scripts/fetch-injuries.js",
     "data:trades": "node scripts/fetch-trades.js",
     "data:referees": "node scripts/fetch-referees.js",
