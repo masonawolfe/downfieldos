@@ -32,7 +32,7 @@ try {
 // E-052 (2026-10-10): frozen weekly projection snapshots (the projection of
 // record per week), the schedule (for kickoff times) and the actuals (for
 // week completeness) — read for checks #11, #19 and #20.
-import { firstKickoffUtcMs, actualsCompleteness, regWeeks } from './_lib/kickoff.js';
+import { firstKickoffUtcMs, actualsCompleteness, regWeeks, weekGames } from './_lib/kickoff.js';
 const SNAP_REL = 'src/data/intelligence/weekly_projections/';
 const SNAP_RAW = {};
 try {
@@ -352,7 +352,7 @@ check('Calibration matches the frozen weekly snapshots and grades only complete 
   if (!SCHEDULE || !ACTUALS_DOC) throw new Error('cannot recompute week completeness — schedule2026.js or weekly_actuals_2026.json not readable');
   const comp = actualsCompleteness(SCHEDULE, ACTUALS_DOC.rows);
   const partial = graded.filter(w => !comp[w]?.complete);
-  if (partial.length) throw new Error(`calibration grades partial week(s) ${partial.map(w => `${w} (${comp[w]?.games_seen ?? 0}/${comp[w]?.games_scheduled ?? '?'} games)`).join(', ')} — only complete weeks may be graded`);
+  if (partial.length) throw new Error(`calibration grades partial week(s) ${partial.map(w => `${w} (${comp[w]?.games_seen ?? 0}/${comp[w]?.games_scheduled ?? weekGames(SCHEDULE, w).length} games)`).join(', ')} — only complete weeks may be graded`);
   return `${rows.length} calibration rows match frozen snapshots for weeks ${graded.join(',') || '(none)'}; all graded weeks complete`;
 });
 
