@@ -81,7 +81,7 @@ async function main() {
     const isLast = week === regWeeks(schedule).slice(-1)[0];
     const nextSnap = `src/data/intelligence/weekly_projections/2026-w${String(week + 1).padStart(2, '0')}.json`;
     let snapCommitted = isLast;
-    if (!isLast) { try { execFileSync('git', ['-C', REPO, 'cat-file', '-e', `HEAD:${nextSnap}`]); snapCommitted = true; } catch {} }
+    if (!isLast) { try { execFileSync('git', ['-C', REPO, 'cat-file', '-e', `HEAD:${nextSnap}`], { stdio: 'ignore' }); snapCommitted = true; } catch {} }
     done = graded && snapCommitted;
     doneWhy = `committed calibration grades week ${week}: ${graded}; week ${week + 1} snapshot committed: ${snapCommitted}`;
   } catch (e) { doneWhy = `could not read committed calibration (${e.message.split('\n')[0]})`; }
