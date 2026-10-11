@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-10T11:17:42.992Z
+// Reconciled: 2026-10-11T10:48:50.987Z against availability_2026.json
+//             (generated 2026-10-11T10:45:58.560Z) — 6 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -212,8 +216,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0039849",
-        "name": "Marvin Harrison Jr.",
+        "gsis_id": "00-0033307",
+        "name": "Kendrick Bourne",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -272,12 +276,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Marvin Harrison Jr. (Out)"
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0033307",
-        "name": "Kendrick Bourne",
+        "gsis_id": "00-0038640",
+        "name": "Jalen Brooks",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -2751,8 +2756,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0031576",
-        "name": "Za'Darius Smith",
+        "gsis_id": "00-0037815",
+        "name": "Cameron Thomas",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -2859,7 +2864,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Za'Darius Smith (Out)"
       },
       {
         "pos": "CB1",
@@ -4946,8 +4952,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0036988",
-        "name": "Joshua Palmer",
+        "gsis_id": "00-0039901",
+        "name": "Keon Coleman",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -5030,12 +5036,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Joshua Palmer (Out)"
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0039901",
-        "name": "Keon Coleman",
+        "gsis_id": "00-0037261",
+        "name": "Khalil Shakir",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -5122,8 +5129,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0037261",
-        "name": "Khalil Shakir",
+        "gsis_id": "00-0035500",
+        "name": "Greg Dortch",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -5206,7 +5213,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Josh Palmer (Out)"
       },
       {
         "pos": "TE",
@@ -21433,7 +21441,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Arden Key (Out), Micheal Clemons (IR)",
+        "starter_reason": "promoted after: Arden Key (IR), Micheal Clemons (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039340",
@@ -33474,7 +33482,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Mack Hollins (Out)",
+        "starter_reason": "promoted after: Mack Hollins (IR)",
         "candidates": [
           {
             "gsis_id": "00-0037816",
@@ -41353,7 +41361,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Michael Pittman Jr. (Out)",
+        "starter_reason": "promoted after: Michael Pittman Jr. (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036252",
@@ -50826,8 +50834,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-10T11:17:42.992Z",
-  "availability_stamp": "2026-10-10T10:33:00.025Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-11T10:45:58.560Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-11T10:48:50.987Z",
+  "swaps_this_run": 6,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
