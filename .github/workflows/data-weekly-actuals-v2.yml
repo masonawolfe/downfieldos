@@ -10,12 +10,15 @@ name: Data — Weekly Actuals
 #   actuals → Emit CALIBRATION.md → Verify (11-check, must pass to commit)
 #           → Commit → deploy dispatch
 # The verifier reads the calibration this job just wrote and asserts
-# it matches the committed weekly board (check #11), so a bad table
-# can never be committed here.
+# it matches the frozen weekly snapshots (check #11, E-052), so a bad
+# table can never be committed here.
 
 on:
   schedule:
-    - cron: '31 6 * * 3'  # E-030 window: Wed 06:31 UTC — right after board-verify at 06:29 in the overnight stagger.
+    # E-053 (2026-10-10): moved Wed → Thu. The Tuesday results chain
+    # (data-tuesday-results.yml) now grades week N before the 07:00 CT draft;
+    # this Thursday run re-fetches so nflverse stat corrections are re-graded.
+    - cron: '31 6 * * 4'
   workflow_dispatch: {}
 
 permissions:
@@ -24,7 +27,9 @@ permissions:
   issues: write  # E-043 2026-09-19: needed by the watch-dispatched-deploy composite step to open/comment the outage issue.
 
 concurrency:
-  group: data-weekly-actuals
+  # E-053: shared with data-board / data-tuesday-results / data-pbp-derived —
+  # all four commit calibration or board files; serialise, never race.
+  group: data-board
   cancel-in-progress: false
 
 jobs:

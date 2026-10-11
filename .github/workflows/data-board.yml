@@ -85,6 +85,15 @@ jobs:
         run: npm run data:reconcile-rosters
       - name: Build the pre-draft board
         run: npm run data:board
+      # E-052 (2026-10-10, diagnosis 2026-10-06 #5): rebuild the weekly board
+      # from the player board just built, so team_2026 and coverage never
+      # drift again (verifier #20). build-weekly-board.js only rewrites the
+      # file when rows change. Then freeze the upcoming week's projections
+      # if its window is open (write-once; verifier #19 fails any rewrite).
+      - name: Rebuild the weekly board (E-034 v2 / E-052)
+        run: npm run data:board:weekly
+      - name: Freeze the upcoming week's projections (E-052, write-once)
+        run: npm run data:snapshot
       # QA 2026-09-17 21:05 caught the ordering trap: calibration must be
       # regenerated BEFORE the verifier runs, so verifier check #11 grades
       # the calibration that is about to ship in this commit — not the
@@ -137,6 +146,8 @@ jobs:
           # in-memory-only and the shipped UI still shows Out starters
           # a few hours after they're flagged.
           git add src/data/rosters2026.js 2>/dev/null || true
+          # E-052: weekly board + any newly frozen week snapshot.
+          git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/ 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No board changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

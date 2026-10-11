@@ -5,6 +5,7 @@
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import crypto from 'crypto';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -26,6 +27,31 @@ try {
 } catch {}
 try {
   CAL_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/calibration_2026.json', 'utf8'));
+} catch {}
+
+// E-052 (2026-10-10): frozen weekly projection snapshots (the projection of
+// record per week), the schedule (for kickoff times) and the actuals (for
+// week completeness) — read for checks #11, #19 and #20.
+import { firstKickoffUtcMs, actualsCompleteness, regWeeks } from './_lib/kickoff.js';
+const SNAP_REL = 'src/data/intelligence/weekly_projections/';
+const SNAP_RAW = {};
+try {
+  for (const f of fs.readdirSync(REPO + SNAP_REL).sort()) {
+    if (/^\d{4}-w\d{2}\.json$/.test(f)) SNAP_RAW[f] = fs.readFileSync(REPO + SNAP_REL + f, 'utf8');
+  }
+} catch {}
+const SNAPSHOTS = {};
+for (const [f, raw] of Object.entries(SNAP_RAW)) {
+  const doc = JSON.parse(raw);
+  SNAPSHOTS[doc.week] = { file: f, doc };
+}
+let SCHEDULE = null, ACTUALS_DOC = null;
+try {
+  const { pathToFileURL } = await import('url');
+  SCHEDULE = (await import(pathToFileURL(REPO + 'src/data/schedule2026.js').href)).SCHEDULE_2026;
+} catch (e) { console.error('warn: could not import schedule2026.js —', e.message); }
+try {
+  ACTUALS_DOC = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/weekly_actuals_2026.json', 'utf8'));
 } catch {}
 
 // E-038e (2026-09-18): import coachingTrees.js as a module for check #14
@@ -288,42 +314,147 @@ check('Row count is within ±5% of the previous committed board', () => {
   return `${cur} rows (prev ${prevCount}, Δ${delta >= 0 ? '+' : ''}${delta} = ${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%)`;
 });
 
-// #11 — Committed calibration matches the committed weekly board.
+// #11 — Committed calibration matches the frozen weekly snapshots (E-052).
 //
-// QA 2026-09-17 20:05 caught the class where CALIBRATION.md shipped in
-// the same commit as a weekly-board rewrite, but the calibration was
-// generated from the PRE-rewrite board — 41 of 316 `projected` values
-// were stale on arrival. The in-script assert in build-calibration.js
-// is a tautology (same in-memory board), so the real drift protection
-// lives HERE: load `calibration_2026.json` from disk and check every
-// row against the committed WEEKLY_BOARD_2026. Also refuse to pass if
-// the calibration's stamp of `weekly_board_generated_utc` is older
-// than the current WEEKLY_BOARD_META.generated — the "table lags the
-// board" signal, encoded.
-check('Calibration matches the committed weekly board (or is absent)', () => {
+// History: QA 2026-09-17 20:05 caught calibration shipping against a
+// pre-rewrite board, so #11 compared calibration to the committed
+// WEEKLY_BOARD_2026. That stopped being the right comparison once the
+// weekly board is rebuilt daily with current teams for all 18 weeks: a
+// rebuild would re-grade played weeks with hindsight and #11 would still
+// pass (DATA_PIPELINE_DIAGNOSIS_2026-10-06 #5). Since E-052 the projection
+// of record for week W is its frozen snapshot, so #11 asserts:
+//   - every calibration row's `projected` equals that week's snapshot row;
+//   - every graded week has a snapshot, and calibration's recorded
+//     rows_sha256 for it equals the snapshot file's;
+//   - every graded week is COMPLETE, recomputed here from the actuals and
+//     the schedule (not read from calibration's own meta).
+check('Calibration matches the frozen weekly snapshots and grades only complete weeks (or is absent)', () => {
   if (!CAL_DOC) return 'no calibration_2026.json on disk — skipped';
-  if (!WEEKLY_BOARD) return 'no weeklyBoard2026.js — skipped';
-  const boardWv = new Map();
-  for (const r of WEEKLY_BOARD) boardWv.set(`${r.gsis_id}_${r.week}`, r.weekly_value);
-  const mismatches = (CAL_DOC.rows || []).filter(r => {
-    const bv = boardWv.get(`${r.gsis_id}_${r.week}`);
-    return bv == null || Math.abs(bv - r.projected) > 0.001;
+  const rows = CAL_DOC.rows || [];
+  if (rows.length && Object.keys(SNAPSHOTS).length === 0) throw new Error(`${rows.length} calibration rows but no snapshot files in ${SNAP_REL}`);
+  const snapRow = new Map();
+  for (const { doc } of Object.values(SNAPSHOTS)) for (const r of doc.rows) snapRow.set(`${r.gsis_id}_${r.week}`, r);
+  const mismatches = rows.filter(r => {
+    const sr = snapRow.get(`${r.gsis_id}_${r.week}`);
+    return !sr || Math.abs(sr.weekly_value - r.projected) > 0.001;
   });
   if (mismatches.length > 0) {
-    const sample = mismatches.slice(0, 5).map(m => {
-      const bv = boardWv.get(`${m.gsis_id}_${m.week}`);
-      return `${m.name} wk${m.week}: cal=${m.projected} board=${bv}`;
-    }).join('; ');
-    throw new Error(`${mismatches.length} of ${CAL_DOC.rows.length} calibration rows do not match the committed board's weekly_value — ${sample}`);
+    const sample = mismatches.slice(0, 5).map(m => `${m.name} wk${m.week}: cal=${m.projected} snapshot=${snapRow.get(`${m.gsis_id}_${m.week}`)?.weekly_value}`).join('; ');
+    throw new Error(`${mismatches.length} of ${rows.length} calibration rows do not match their week's frozen snapshot — ${sample}`);
   }
-  // Stamp check: if calibration's weekly_board timestamp trails the current
-  // board's, the calibration is stale relative to what's about to ship.
-  const calStamp = CAL_DOC.meta?.weekly_board_generated_utc;
-  const wkbStamp = WEEKLY_META?.generated;
-  if (calStamp && wkbStamp && new Date(calStamp) < new Date(wkbStamp)) {
-    throw new Error(`CALIBRATION.md's Weekly board generated stamp (${calStamp}) is older than the current WEEKLY_BOARD (${wkbStamp}) — regenerate calibration.`);
+  const graded = [...new Set(rows.map(r => r.week))].sort((x, y) => x - y);
+  for (const w of graded) {
+    const s = SNAPSHOTS[w];
+    if (!s) throw new Error(`calibration grades week ${w} but ${SNAP_REL} has no snapshot for it`);
+    const recorded = CAL_DOC.meta?.snapshots?.[w]?.rows_sha256;
+    if (recorded !== s.doc.rows_sha256) throw new Error(`calibration meta records rows_sha256 ${recorded} for week ${w}; snapshot file has ${s.doc.rows_sha256} — regenerate calibration`);
   }
-  return `${CAL_DOC.rows.length} calibration rows match; stamp ${calStamp || 'unknown'} ≥ board ${wkbStamp || 'unknown'}`;
+  if (!SCHEDULE || !ACTUALS_DOC) throw new Error('cannot recompute week completeness — schedule2026.js or weekly_actuals_2026.json not readable');
+  const comp = actualsCompleteness(SCHEDULE, ACTUALS_DOC.rows);
+  const partial = graded.filter(w => !comp[w]?.complete);
+  if (partial.length) throw new Error(`calibration grades partial week(s) ${partial.map(w => `${w} (${comp[w]?.games_seen ?? 0}/${comp[w]?.games_scheduled ?? '?'} games)`).join(', ')} — only complete weeks may be graded`);
+  return `${rows.length} calibration rows match frozen snapshots for weeks ${graded.join(',') || '(none)'}; all graded weeks complete`;
+});
+
+// #19 — Weekly projection snapshots are intact, pre-kickoff, and never rewritten (E-052).
+//
+// The frozen file is the only honest record of what the board projected
+// for a week. Assert, per file: the rows hash recomputes; written_before_
+// kickoff recomputes from the schedule (not trusted from the file); a
+// post-kickoff snapshot is allowed only for the two seeded weeks that were
+// genuinely written late (w01: built after week 1 was played; w02: built
+// 82 min after DET@BUF kicked off) and must say "seed:"; and every file
+// present at PREV_BOARD_REF (default HEAD) is byte-identical now — the
+// "a past week is never rewritten" rule, enforced.
+const SNAPSHOT_SEEDED_LATE_WEEKS = new Set([1, 2]);
+check('Weekly projection snapshots intact, pre-kickoff and unchanged vs the previous commit', () => {
+  const IS_CI = !!process.env.CI || !!process.env.GITHUB_ACTIONS;
+  const PREV_REF = process.env.PREV_BOARD_REF || 'HEAD';
+  const files = Object.keys(SNAP_RAW);
+  if (!SCHEDULE) throw new Error('schedule2026.js not readable — cannot check kickoff times');
+  const problems = [];
+  for (const [f, raw] of Object.entries(SNAP_RAW)) {
+    const d = JSON.parse(raw);
+    const exp = `${d.season}-w${String(d.week).padStart(2, '0')}.json`;
+    if (exp !== f) problems.push(`${f}: header says season ${d.season} week ${d.week}`);
+    const rowsJson = '[' + d.rows.map(r => JSON.stringify(r)).join(',') + ']';
+    const sha = crypto.createHash('sha256').update(rowsJson).digest('hex');
+    if (sha !== d.rows_sha256) problems.push(`${f}: rows_sha256 does not recompute (${sha.slice(0, 12)} vs ${String(d.rows_sha256).slice(0, 12)})`);
+    if (d.row_count !== d.rows.length) problems.push(`${f}: row_count ${d.row_count} ≠ ${d.rows.length} rows`);
+    if (d.rows.some(r => r.week !== d.week)) problems.push(`${f}: contains rows for another week`);
+    const first = firstKickoffUtcMs(SCHEDULE, d.week);
+    const before = first != null && Date.parse(d.written_utc) < first;
+    if (before !== d.written_before_kickoff) problems.push(`${f}: written_before_kickoff=${d.written_before_kickoff} but written ${d.written_utc} vs first kickoff ${first != null ? new Date(first).toISOString() : 'unknown'}`);
+    if (!before && !(SNAPSHOT_SEEDED_LATE_WEEKS.has(d.week) && String(d.provenance || '').startsWith('seed:'))) problems.push(`${f}: written after kickoff and not one of the documented late seeds (w01, w02)`);
+  }
+  let prevFiles;
+  try {
+    prevFiles = execFileSync('git', ['ls-tree', '--name-only', `${PREV_REF}`, '--', SNAP_REL], { encoding: 'utf8', cwd: REPO }).split('\n').filter(Boolean);
+  } catch (e) {
+    const reason = `git ls-tree ${PREV_REF} -- ${SNAP_REL} failed: ${String(e.stderr || e.message).trim().split('\n').pop()}`;
+    if (IS_CI) throw new Error(`${reason}. In CI the immutability comparison must have a baseline.`);
+    if (problems.length) throw new Error(problems.join('; '));
+    return `${files.length} snapshot(s) intact — immutability vs ${PREV_REF} SKIPPED (local: ${reason})`;
+  }
+  let unchanged = 0;
+  for (const pf of prevFiles) {
+    const name = pf.split('/').pop();
+    const prevRaw = execFileSync('git', ['show', `${PREV_REF}:${pf}`], { encoding: 'utf8', cwd: REPO, maxBuffer: 64 * 1024 * 1024 });
+    if (!(name in SNAP_RAW)) problems.push(`${name}: present at ${PREV_REF}, missing now — snapshots are never removed`);
+    else if (SNAP_RAW[name] !== prevRaw) problems.push(`${name}: differs from ${PREV_REF} — a frozen week was rewritten`);
+    else unchanged++;
+  }
+  if (problems.length) throw new Error(problems.join('; '));
+  const added = files.filter(f => !prevFiles.some(pf => pf.endsWith('/' + f)));
+  return `${files.length} snapshot(s) intact; ${unchanged} byte-identical to ${PREV_REF}; new: ${added.join(', ') || 'none'}`;
+});
+
+// #20 — Weekly board is current with the player board, floored, and carries no matchup term (E-034 v2 + E-052).
+//
+// Diagnosis 2026-10-06 #5: the weekly board sat frozen at 09-18 while the
+// player board moved daily — 25 players on the wrong team, scored players
+// missing. Since E-052 data-board rebuilds it in the same job, so assert
+// the fields, not timestamps: every player-board player with a team has
+// all 18 weekly rows on that same team; weekly_value is never negative
+// (the projection only — spread_line is compared to the schedule to prove
+// signed fields were not floored); every scored row's components carry no
+// matchup term and recompute to weekly_value.
+check('Weekly board matches the player board, floors weekly_value at 0, and has no matchup term', () => {
+  if (!WEEKLY_BOARD) throw new Error('weeklyBoard2026.js not readable');
+  const nWeeks = SCHEDULE ? regWeeks(SCHEDULE).length : 18;
+  const pbTeam = new Map(PLAYER_BOARD_2026.filter(p => p.gsis_id).map(p => [p.gsis_id, p.team_2026]));
+  const rowsBy = new Map();
+  const problems = [];
+  let wrongTeam = 0, neg = 0, badComp = 0, matchupKey = 0, spreadMismatch = 0;
+  const sched = new Map();
+  for (const [t, td] of Object.entries(SCHEDULE?.teams || {})) for (const g of td.games || []) sched.set(`${t}_${g.week}`, g);
+  for (const r of WEEKLY_BOARD) {
+    if (r.gsis_id) {
+      rowsBy.set(r.gsis_id, (rowsBy.get(r.gsis_id) || 0) + 1);
+      if (pbTeam.has(r.gsis_id) && pbTeam.get(r.gsis_id) !== r.team_2026) wrongTeam++;
+    }
+    if (r.weekly_value == null) continue;
+    if (r.weekly_value < 0) neg++;
+    const c = r.weekly_value_components;
+    if (!c || c.base_weekly_pace == null) { badComp++; continue; }
+    if ('matchup_defense_adj' in c) matchupKey++;
+    const expect = Math.max(0, Math.round((c.base_weekly_pace + (c.total_adjustment || 0)) * 100) / 100);
+    if (Math.abs(expect - r.weekly_value) > 0.011) badComp++;
+    const g = sched.get(`${r.team_2026}_${r.week}`);
+    if (g && (g.spread_line ?? null) !== (r.spread_line ?? null)) spreadMismatch++;
+  }
+  const missing = [...pbTeam].filter(([g, t]) => t && (rowsBy.get(g) || 0) !== nWeeks);
+  if (wrongTeam) problems.push(`${wrongTeam} weekly rows on a different team than playerBoard2026.js`);
+  if (missing.length) problems.push(`${missing.length} player-board players with a team lack exactly ${nWeeks} weekly rows (e.g. ${missing.slice(0, 3).map(([g]) => g).join(', ')})`);
+  if (neg) problems.push(`${neg} rows with weekly_value < 0`);
+  if (matchupKey) problems.push(`${matchupKey} rows still carry matchup_defense_adj`);
+  if (badComp) problems.push(`${badComp} scored rows whose components are missing or do not recompute to weekly_value`);
+  if (spreadMismatch) problems.push(`${spreadMismatch} rows whose spread_line differs from schedule2026.js`);
+  if (WEEKLY_META?.model_version == null || !String(WEEKLY_META.model_version).startsWith('E-034 v2')) problems.push(`META.model_version is ${JSON.stringify(WEEKLY_META?.model_version)} — expected E-034 v2`);
+  if (problems.length) throw new Error(problems.join('; '));
+  const negSpread = WEEKLY_BOARD.filter(r => typeof r.spread_line === 'number' && r.spread_line < 0).length;
+  const negTz = WEEKLY_BOARD.filter(r => typeof r.tz_delta === 'number' && r.tz_delta < 0).length;
+  return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz})`;
 });
 
 // #12 — coachingTrees.js provenance ratchet (E-038 2026-09-18).

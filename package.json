@@ -32,7 +32,9 @@
     "prerender": "node scripts/prerender-routes.js",
     "data:board:md": "node scripts/build-board-md.mjs",
     "data:actuals": "node scripts/fetch-weekly-actuals.js",
-    "data:calibration": "node scripts/build-calibration.js"
+    "data:calibration": "node scripts/build-calibration.js",
+    "data:snapshot": "node scripts/snapshot-weekly-projections.mjs",
+    "data:results-gate": "node scripts/results-gate.mjs"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.61.4",

@@ -26,7 +26,9 @@ permissions:
   issues: write  # E-043 2026-09-19: needed by the watch-dispatched-deploy composite step to open/comment the outage issue.
 
 concurrency:
-  group: data-pbp-derived
+  # E-053 (2026-10-10): shared with the Tuesday results chain, which also
+  # writes src/data/intelligence/pbp/ — serialise instead of racing.
+  group: data-board
   cancel-in-progress: false
 
 jobs:

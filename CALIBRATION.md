@@ -4,15 +4,27 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-10T10:46:31.737Z |
-| Weekly board generated | 2026-09-18T01:36:59.740Z |
+| Generated | 2026-10-11T02:07:25.465Z |
+| Weekly board generated | 2026-10-11T02:05:05.888Z |
 | Player board generated | 2026-10-10T10:46:31.204Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
 | Actuals generated | 2026-10-07T13:42:22.257Z |
 | Weeks covered | 1, 2, 3, 4 |
+| Weeks partial (not graded) | none |
+| Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
 | Matched pairs | 1264 |
 
-Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17). Written from draft-copilot in-season ask: "nothing records outcomes". `projected` = `WEEKLY_BOARD_2026.weekly_value` (base + matchup + env). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected.
+Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10). `projected` = the week's frozen pre-kickoff snapshot `weekly_value` (weeks 1-5: the 2026-09-18 build, base + ±4 matchup + env; weeks 6+: E-034 v2, base + env, no matchup term, floored at 0). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.
+
+## Snapshots graded
+
+| Week | Written (UTC) | First kickoff (UTC) | Before kickoff | Model |
+|---|---|---|---|---|
+| 1 | 2026-09-18T01:36:59.740Z | 2026-09-10T00:20:00.000Z | no (post-kickoff: 16 games) | E-004 v1 (pre-2026-10-10) |
+| 2 | 2026-09-18T01:36:59.740Z | 2026-09-18T00:15:00.000Z | no (post-kickoff: 1 game) | E-004 v1 (pre-2026-10-10) |
+| 3 | 2026-09-18T01:36:59.740Z | 2026-09-25T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
+| 4 | 2026-09-18T01:36:59.740Z | 2026-10-02T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
+| 5 | 2026-09-18T01:36:59.740Z | 2026-10-09T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
 
 ## Overall
 

@@ -1,0 +1,174 @@
+name: Data — Tuesday Results Chain
+
+# E-053 (2026-10-10, DATA_PIPELINE_DIAGNOSIS_2026-10-06 #3 + #5): get week N's
+# results graded, and week N+1's projections frozen, BEFORE the Tuesday
+# 07:00 CT Tendency Report draft — with no laptop in the loop.
+#
+# nflverse publishes complete week-N play-by-play and stats_player (Monday
+# night included) at 04:27-04:35 UTC every Tuesday so far. GitHub cron has
+# fired our overnight jobs 3-7 hours late, so this workflow carries several
+# Tuesday crons; each run is idempotent (results-gate.mjs exits as a no-op
+# once week N is graded and the week N+1 snapshot is committed, and as a
+# no-op without committing while week N is still incomplete).
+#
+# One job, one commit, in this order:
+#   gate (week N complete in actuals + play-by-play?) → PBP-derived
+#   intelligence → rosters reconcile → player board → weekly board
+#   → freeze week N+1 snapshot → calibration (vs frozen snapshots)
+#   → verifier gate (must pass to commit) → BOARD.md → commit → deploy.
+#
+# Shares the `data-board` concurrency group with data-board.yml,
+# data-weekly-actuals-v2.yml and data-pbp-derived-v2.yml so no two writers
+# of the same files ever race.
+
+on:
+  schedule:
+    - cron: '45 4 * * 2'
+    - cron: '15 5 * * 2'
+    - cron: '45 5 * * 2'
+    - cron: '30 6 * * 2'
+    - cron: '30 7 * * 2'
+  workflow_dispatch:
+    inputs:
+      week:
+        description: 'Week N to grade (blank = latest finished week)'
+        required: false
+        default: ''
+      force:
+        description: 'Re-run even if week N is already graded and N+1 frozen (yes/no)'
+        required: false
+        default: 'no'
+
+permissions:
+  contents: write
+  actions: write   # gh workflow run deploy.yml
+  issues: write    # watch-dispatched-deploy composite opens/comments the outage issue
+
+concurrency:
+  group: data-board
+  cancel-in-progress: false
+
+jobs:
+  results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PBP_YEAR: '2026'
+      PBP_OUT_DIR: ${{ github.workspace }}/src/data/intelligence/pbp
+      RESULTS_WEEK: ${{ github.event.inputs.week }}
+      RESULTS_FORCE: ${{ github.event.inputs.force }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm install
+      # Same E-009b freeze gate data-board.yml honours: no board rebuild
+      # during an active draft window (DFOS-root DRAFT_WINDOW.md).
+      - name: Draft-window freeze check
+        run: node .github/scripts/check-draft-freeze.mjs
+      - name: Stamp start
+        run: echo "Results chain started $(date -u +%Y-%m-%dT%H:%M:%SZ) (run ${GITHUB_RUN_ID}, event ${GITHUB_EVENT_NAME})" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Download nflverse 2026 play-by-play, weekly rosters, snap counts
+        run: |
+          set -euo pipefail
+          echo "PBP_RAW_DIR=$RUNNER_TEMP/pbp-raw" >> "$GITHUB_ENV"
+          RAW="$RUNNER_TEMP/pbp-raw"; mkdir -p "$RAW" data/intelligence/raw
+          base=https://github.com/nflverse/nflverse-data/releases/download
+          curl -sSL --fail --max-time 300 "$base/pbp/play_by_play_2026.csv.gz" -o "$RAW/play_by_play_2026.csv.gz"
+          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_2026.csv" -o "$RAW/roster_weekly_2026.csv"
+          curl -sSL --fail --max-time 120 "$base/snap_counts/snap_counts_2026.csv" -o "$RAW/snap_counts_2026.csv" || echo "  ⚠ snap_counts_2026.csv unavailable — snap_share will be None."
+          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_2026.csv.gz" -o data/intelligence/raw/roster_weekly_2026.csv.gz
+          ls -lh "$RAW" data/intelligence/raw
+      - name: Fetch week actuals (not committed unless the gate passes)
+        run: npm run data:actuals
+      - name: Results gate — is week N complete, and is there anything to do?
+        id: gate
+        run: node scripts/results-gate.mjs --pbp "$PBP_RAW_DIR/play_by_play_2026.csv.gz"
+      - name: Stop here — nothing to do
+        if: steps.gate.outputs.done == 'true' || steps.gate.outputs.ready != 'true'
+        run: |
+          echo "No commit this run: ${{ steps.gate.outputs.reason }}" | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Install pandas
+        if: steps.gate.outputs.ready == 'true'
+        run: pip install --upgrade pandas
+      - name: Derive PBP intelligence (situational splits, scheme profiles, usage)
+        if: steps.gate.outputs.ready == 'true'
+        run: python scripts/pbp/process_pbp.py --year "$PBP_YEAR"
+      - name: Reconcile rosters against today's availability (E-044)
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run data:reconcile-rosters
+      - name: Build the player board
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run data:board
+      - name: Rebuild the weekly board (E-034 v2 / E-052)
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run data:board:weekly
+      - name: Freeze week N+1 projections (E-052, write-once)
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run data:snapshot
+      - name: Emit CALIBRATION.md against the frozen snapshots (E-032 / E-052)
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run --silent data:calibration
+      - name: Verify (verifier gate — must pass to commit)
+        if: steps.gate.outputs.ready == 'true'
+        id: verify
+        run: |
+          set -euo pipefail
+          LOG=$(mktemp)
+          npm run data:board:verify 2>&1 | tee "$LOG"
+          COUNT=$(grep -Eo 'Task acceptance: [0-9]+/[0-9]+ checks passed' "$LOG" | tail -1 | grep -Eo '[0-9]+/[0-9]+' || true)
+          echo "count=${COUNT:-?/?}" >> "$GITHUB_OUTPUT"
+      - name: Emit BOARD.md + BOARD_WEEKLY.md
+        if: steps.gate.outputs.ready == 'true'
+        run: npm run --silent data:board:md
+      - name: Commit week N results + week N+1 snapshot
+        if: steps.gate.outputs.ready == 'true'
+        id: commit
+        env:
+          VERIFIER_COUNT: ${{ steps.verify.outputs.count }}
+          WEEK: ${{ steps.gate.outputs.week }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/intelligence/weekly_actuals_2026.json CALIBRATION.md src/data/intelligence/calibration_2026.json
+          git add src/data/intelligence/pbp/
+          git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md src/data/rosters2026.js
+          git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"; echo "Nothing changed."; exit 0
+          fi
+          git commit -m "chore(data): week ${WEEK} results graded + week $((WEEK + 1)) projections frozen
+
+          All ${VERIFIER_COUNT} verifier checks passed at build time.
+          Auto-generated by .github/workflows/data-tuesday-results.yml (E-053)."
+          for attempt in 1 2 3; do
+            if git push; then break; fi
+            if [ "$attempt" = "3" ]; then echo "push failed after 3 attempts"; exit 1; fi
+            echo "  push attempt $attempt lost race; fetching + rebasing"
+            git fetch origin main
+            git rebase --autostash origin/main || { git rebase --abort || true; echo "  rebase failed — aborting"; exit 1; }
+            sleep $((RANDOM % 8 + 3))
+          done
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          echo "Results chain committed $(git rev-parse --short HEAD) at $(date -u +%Y-%m-%dT%H:%M:%SZ) — week ${WEEK} graded, week $((WEEK + 1)) frozen." | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Record dispatch floor epoch (E-043b)
+        if: steps.commit.outputs.changed == 'true'
+        id: predispatch
+        run: echo "at=$(date -u +%s)" >> "$GITHUB_OUTPUT"
+      - name: Trigger site deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
+      - name: Watch dispatched deploy + notify on non-success (E-043)
+        if: steps.commit.outputs.changed == 'true'
+        timeout-minutes: 25
+        uses: ./.github/actions/watch-dispatched-deploy
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          dispatched_after_epoch: ${{ steps.predispatch.outputs.at }}

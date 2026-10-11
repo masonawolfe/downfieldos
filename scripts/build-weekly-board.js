@@ -22,10 +22,25 @@
  *
  * E-004 — weekly_value:
  *   base = player's projection_pts / 17 (weekly pace, from the season proj)
- *   + matchup-defense adjustment (opp is bad against pos → +; opp is good → -)
  *   + environment adjustment (dome home game vs cold outdoor road)
  *   + rest adjustment (short week → -, coming off bye → +)
+ *   floored at 0 (E-034 v2, 2026-10-10).
  *   Every component stored under weekly_value_components; rationale = top 3.
+ *
+ * E-034 v2 (2026-10-10, CoS decision under Mason's standing authority,
+ * 00_System/DECISIONS.md 2026-10-10): the full-gap ±4 matchup-defense term
+ * is REMOVED from weekly_value. Walk-forward backtest on 2026 weeks 1-5
+ * (01_Schuhbox/DFOS/analysis/2026-10-09-in-season-learning/) showed it made
+ * projections worse in every week (MAE +0.49 [0.33, 0.65]); learning
+ * defenses from 2026 added nothing. The opp_* fields stay on each row as
+ * context only. Negative projections (an artifact of additive adjustments
+ * on depth players) are floored at 0. Only weekly_value is floored —
+ * spread_line and tz_delta are signed by definition and keep their sign.
+ *
+ * Past weeks are never graded from this file: the weekly projection of
+ * record for week W is the frozen pre-kickoff snapshot written by
+ * scripts/snapshot-weekly-projections.mjs to
+ * src/data/intelligence/weekly_projections/2026-wNN.json (E-052).
  *
  * Rules honoured:
  *   - context is BESIDE weekly_value, not folded into projection_pts.
@@ -118,7 +133,9 @@ function computeLeagueMedians(defense) {
   return medians;
 }
 
-function computeWeeklyValue(row, opp, weekMeta, defense, leagueMedians) {
+const MODEL_VERSION = 'E-034 v2 (2026-10-10): base pace + env/rest adjustments, no matchup term, floored at 0';
+
+function computeWeeklyValue(row, weekMeta) {
   // Base = weekly pace of season projection
   const seasonProj = row.projection_pts;   // default shape (standard_12_1qb full-PPR)
   if (seasonProj == null) return { weekly_value: null, weekly_value_components: null, weekly_value_rationale: null };
@@ -133,18 +150,7 @@ function computeWeeklyValue(row, opp, weekMeta, defense, leagueMedians) {
     contribs.push({ key, label, val: clip });
   }
 
-  // Matchup: opponent fpts allowed to this position vs league median → +/- pts
-  const pos = row.pos;
-  const oppD = defense[opp];
-  if (oppD && POS_TO_FPTS_FIELD[pos]) {
-    const allowed = oppD[POS_TO_FPTS_FIELD[pos]];
-    const median = leagueMedians[pos];
-    if (allowed != null && median != null) {
-      // Opponent that allows +3 fpts above median → +3 pts to this player, capped at ±4.
-      const adj = (allowed - median);
-      record('matchup_defense_adj', adj, `${opp} allows ${allowed.toFixed(1)} ${pos} fpts/g (median ${median.toFixed(1)})`);
-    }
-  }
+  // E-034 v2 (2026-10-10): no matchup-defense term. See file header.
 
   // Environment: dome home game slight bonus; short-week penalty
   if (weekMeta.is_dome_home) record('dome_home_adj', 0.5, 'dome home');
@@ -155,8 +161,14 @@ function computeWeeklyValue(row, opp, weekMeta, defense, leagueMedians) {
   }
 
   const totalAdj = contribs.reduce((s, c) => s + c.val, 0);
-  const total = base + totalAdj;
+  const raw = Math.round((base + totalAdj) * 100) / 100;
   comp.total_adjustment = Math.round(totalAdj * 100) / 100;
+  // E-034 v2 zero floor — the projection only. A player cannot be projected
+  // to score negative points; the additive -1.0 short-week / -0.5 travel
+  // terms used to push depth players below zero.
+  const floored = raw < 0;
+  const value = floored ? 0 : raw;
+  if (floored) comp.floor_applied = Math.round(-raw * 100) / 100;
   const top3 = [...contribs].sort((a, b) => Math.abs(b.val) - Math.abs(a.val)).slice(0, 3);
   // Q-005 (2026-09-05): every scored row gets a rationale label, even when no
   // adjustment fired (opp near league median, home dome game with no travel,
@@ -164,10 +176,11 @@ function computeWeeklyValue(row, opp, weekMeta, defense, leagueMedians) {
   // 311 scored-with-null rows. Making the "no adjustment" case explicit means
   // a consumer can distinguish "we didn't score this" from "we scored it, no
   // context signals fired."
-  const rat = top3.length > 0
+  let rat = top3.length > 0
     ? top3.map(c => `${c.label} ${c.val >= 0 ? '+' : ''}${c.val.toFixed(2)}`).join(' · ')
     : 'base pace, no context adjustments fired';
-  return { weekly_value: Math.round(total * 100) / 100, weekly_value_components: comp, weekly_value_rationale: rat };
+  if (floored) rat += ` · floored at 0 (raw ${raw.toFixed(2)})`;
+  return { weekly_value: value, weekly_value_components: comp, weekly_value_rationale: rat };
 }
 
 async function main() {
@@ -295,7 +308,7 @@ async function main() {
         tz_delta,
       };
 
-      const v = computeWeeklyValue(p, opp, weekMeta, defense, leagueMedians);
+      const v = computeWeeklyValue(p, weekMeta);
 
       // Field-source labels are repetitive per row; hoisted to META instead.
       rows.push({
@@ -328,6 +341,10 @@ async function main() {
         // Score
         weekly_value: v.weekly_value,
         weekly_value_rationale: v.weekly_value_rationale,
+        // E-052 (2026-10-10): components persisted again so the frozen weekly
+        // snapshot and the verifier can read what the projection was made of
+        // (and assert no matchup term) instead of re-deriving it.
+        weekly_value_components: v.weekly_value_components,
       });
     }
   }
@@ -366,43 +383,76 @@ async function main() {
   console.log('  rows:', totalRows, '| distinct players:', distinctPlayers, '| bye rows:', byeRows, '| rows with weekly_value:', scoredRows);
   console.log('  rows without weekly_value (rookies/no-proj + byes + K/DEF):', totalRows - scoredRows);
 
+  // E-052 (2026-10-10): write-on-change. The daily data-board run now
+  // rebuilds this file; if the rows are identical to what is committed,
+  // leave the file (and its generated stamp) untouched so the commit step
+  // sees no diff instead of an 11 MB timestamp-only rewrite every day.
+  const rowsJson = JSON.stringify(rows);
+  if (fs.existsSync(OUT)) {
+    const prev = fs.readFileSync(OUT, 'utf8');
+    const pm = prev.match(/export const WEEKLY_BOARD_2026 = (\[[\s\S]*?\]);\n\nexport const WEEKLY_BOARD_2026_META/);
+    if (pm && pm[1] === rowsJson && process.env.FORCE_WEEKLY_BOARD_WRITE !== '1') {
+      console.log(`\nRows unchanged vs committed ${path.relative(REPO_ROOT, OUT)} — not rewriting (set FORCE_WEEKLY_BOARD_WRITE=1 to force).`);
+      return;
+    }
+  }
+
+  // Input stamps, read from the modules' own META (not a text scrape).
+  const { pathToFileURL } = await import('url');
+  const pbMod = await import(pathToFileURL(path.join(REPO_ROOT, 'src', 'data', 'playerBoard2026.js')).href);
+  const playerBoardMeta = { generated: pbMod.PLAYER_BOARD_2026_META?.generated || null };
+  const defMod = await import(pathToFileURL(path.join(REPO_ROOT, 'src', 'data', 'defense2026.js')).href);
+  const defMetaKey = Object.keys(defMod).find(k => /META/.test(k));
+  const defenseGenerated = (defMetaKey && defMod[defMetaKey]?.generated) || null;
+
+  const generated = new Date().toISOString();
   const meta = {
-    generated: new Date().toISOString(),
-    source: 'assembled by scripts/build-weekly-board.js on 2026-09-04',
-    schema_version: 1,
+    generated,
+    source: 'assembled by scripts/build-weekly-board.js (E-003/E-004 2026-09-04; E-034 v2 + E-052 2026-10-10)',
+    schema_version: 2,
     row_grain: 'one row per player × week (18 weeks × N players)',
     row_count: totalRows,
-    weekly_value_method: 'base = season projection / 17. Adjustments capped ±4 pts each: matchup defense (opp fpts allowed vs league median), dome home +0.5, short week -1.0, bye return +0.8, tz travel per 3h -0.5. Rationale = top-3 signed contributors.',
+    model_version: MODEL_VERSION,
+    weekly_value_method: 'base = season projection / 17. Adjustments capped ±4 pts each: dome home +0.5, short week -1.0, bye return +0.8, tz travel per 3h -0.5. weekly_value = max(0, base + adjustments). No matchup-defense term (removed 2026-10-10, E-034 v2). Rationale = top-3 signed contributors.',
+    matchup_term: 'Removed from weekly_value 2026-10-10 by CoS decision (00_System/DECISIONS.md 2026-10-10) on the 2026-10-09 walk-forward backtest (01_Schuhbox/DFOS/analysis/2026-10-09-in-season-learning/): the full-gap ±4 term raised MAE by 0.49 [0.33, 0.65] in every week and 2026 defense learning added nothing. opp_fpts_allowed_to_pos / opp_*_rank remain on rows as context only. Re-test player learning at Week 8.',
+    zero_floor: 'weekly_value only. spread_line and tz_delta are signed by definition and are never floored.',
+    projection_of_record: 'Calibration grades week W against the frozen pre-kickoff snapshot src/data/intelligence/weekly_projections/2026-wNN.json, never against this file (which is rebuilt with current teams for all 18 weeks). E-052.',
+    inputs: {
+      player_board_generated: playerBoardMeta.generated,
+      schedule_generated: schedule.meta?.generated || null,
+      defense_generated: defenseGenerated,
+    },
     league_medians_used: leagueMedians,
+    league_medians_note: 'Context only since E-034 v2 — no longer feeds weekly_value.',
     field_sources: {
-      opp_fpts_allowed_to_pos: 'defense2026.js (2025 REG PBP fpts allowed per game to that position)',
-      opp_pos_fpts_rank: 'defense2026.js rank_fpts_allowed_${pos}_per_game — 1 = allows fewest',
-      opp_pass_def_rank: 'defense2026.js rank_pass_def_overall (composite index — 1 = best)',
-      opp_rush_def_rank: 'defense2026.js rank_rush_def_overall (composite index — 1 = best)',
+      opp_fpts_allowed_to_pos: 'defense2026.js (2025 REG PBP fpts allowed per game to that position) — context only',
+      opp_pos_fpts_rank: 'defense2026.js rank_fpts_allowed_${pos}_per_game — 1 = allows fewest — context only',
+      opp_pass_def_rank: 'defense2026.js rank_pass_def_overall (composite index — 1 = best) — context only',
+      opp_rush_def_rank: 'defense2026.js rank_rush_def_overall (composite index — 1 = best) — context only',
       stadium: 'schedule2026.js (per-game stadium from nflverse schedule)',
       is_dome_game: 'schedule2026.js roof ∈ {dome, closed}',
-      spread_line: 'schedule2026.js',
+      spread_line: 'schedule2026.js (signed; never floored)',
       total_line: 'schedule2026.js',
       former_teammates_this_matchup_count: 'intelligence/former_teammates_by_matchup.json (alphabetical TEAM_TEAM key, counts entries mentioning this player\'s gsis_id)',
-      is_short_week: 'derived from weekday === Thursday',
+      is_short_week: 'derived from weekday === Thursday and the team playing the prior week',
       is_bye_return: 'derived from previous week absent in team schedule',
-      tz_delta: 'resolved only for home games (0). Away games leave null.',
-      assigned_ref: 'schedule2026.js referee field (null until Tuesday of game week)',
+      tz_delta: 'home game 0; away game = opponent home-stadium tz − player home tz (F-003); international venue = venue_tz − player home tz (E-036). Signed; never floored.',
+      assigned_ref: 'schedule2026.js referee field (nflverse fills it after the game is played)',
       weekly_value: 'derived — see weekly_value_method',
+      weekly_value_components: 'base_weekly_pace + each fired adjustment (clipped ±4) + total_adjustment; floor_applied present when the raw value was negative.',
     },
     gap_notes: [
-      'tz_delta not resolved for away games — opp stadium tz not joined into weekly. Fix is a small stadium-tz lookup in build-weekly-board.js.',
-      'assigned_ref null everywhere at build time — 2026 refs are known Tuesday of game week. When schedule2026 backfills them, this field lights up automatically.',
+      'team_2026 is the player\'s CURRENT team applied to all 18 weeks, so past weeks here are not what was projected at the time. The record for a played week is its frozen snapshot in src/data/intelligence/weekly_projections/.',
       'former_teammates_this_matchup_count is a count of ties involving this gsis_id, not a rich breakdown. Full graph in intelligence/former_teammates_by_matchup.json.',
       'scheme-specific splits (outside-zone vs gap) — same gap flagged in defense2026.js. Not approximated.',
-      'weekly_value_components trimmed from persisted rows to keep the file browser-loadable. Rebuild locally if you want them for debugging.',
+      'No 2026 results feed weekly_value (base is 2025 pace). In-season player learning was backtested 2026-10-09 and held; re-test at Week 8.',
     ],
   };
 
   const output = `/**
- * Weekly Player Board — 2026 (E-003 + E-004 deliverable, 2026-09-04)
- * Auto-generated by scripts/build-weekly-board.js on ${new Date().toISOString()}.
- * ${totalRows} rows | schema v${meta.schema_version}
+ * Weekly Player Board — 2026 (E-003 + E-004 deliverable, 2026-09-04; E-034 v2 + E-052, 2026-10-10)
+ * Auto-generated by scripts/build-weekly-board.js on ${generated}.
+ * ${totalRows} rows | schema v${meta.schema_version} | ${MODEL_VERSION}
  *
  * Grain: one row per PLAYER × WEEK, 18 weeks (byes included, is_bye=true).
  * This is a SECOND artifact, not columns on the player board.
@@ -410,9 +460,10 @@ async function main() {
  * weekly_value is the start/sit signal. Do NOT reconcile it with season vorp
  * or total_score_beta — different questions, different tables.
  *
- * See META.gap_notes for what this artifact does NOT know.
+ * Played weeks are graded from src/data/intelligence/weekly_projections/,
+ * not from this file. See META.projection_of_record and META.gap_notes.
  */
-export const WEEKLY_BOARD_2026 = ${JSON.stringify(rows)};
+export const WEEKLY_BOARD_2026 = ${rowsJson};
 
 export const WEEKLY_BOARD_2026_META = ${JSON.stringify(meta, null, 2)};
 `;
