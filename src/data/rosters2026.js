@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-10T11:17:42.992Z
-// Reconciled: 2026-10-12T12:21:54.475Z against availability_2026.json
-//             (generated 2026-10-12T11:52:07.426Z) — 0 swap(s),
+// Reconciled: 2026-10-13T11:43:47.140Z against availability_2026.json
+//             (generated 2026-10-13T11:40:46.333Z) — 7 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -6148,8 +6148,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0037034",
-        "name": "Dee Alford",
+        "gsis_id": "00-0040709",
+        "name": "Maxwell Hairston",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -6226,7 +6226,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dee Alford (Out), Jordan Hancock (IR)"
       },
       {
         "pos": "FS",
@@ -23940,7 +23941,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Tyquan Thornton (Out)",
+        "starter_reason": "promoted after: Tyquan Thornton (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039894",
@@ -41479,8 +41480,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0036862",
-        "name": "Ben Skowronek",
+        "gsis_id": "00-0035640",
+        "name": "DK Metcalf",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -41581,12 +41582,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Ben Skowronek (Out)"
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0035640",
-        "name": "DK Metcalf",
+        "gsis_id": "00-0041397",
+        "name": "Kaden Wetjen",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -45441,8 +45443,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0034982",
-        "name": "Dre Greenlaw",
+        "gsis_id": "00-0039148",
+        "name": "Keion White",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -45555,12 +45557,13 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dre Greenlaw (SUSP)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039148",
-        "name": "Keion White",
+        "gsis_id": "00-0036341",
+        "name": "Khalid Kareem",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -45747,8 +45750,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0034982",
-        "name": "Dre Greenlaw",
+        "gsis_id": "00-0041078",
+        "name": "Jaden Dugger",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -45801,12 +45804,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dre Greenlaw (SUSP)"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0041078",
-        "name": "Jaden Dugger",
+        "gsis_id": "00-0034815",
+        "name": "Fred Warner",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -45859,7 +45863,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Garret Wallow (Out), Nick Martin (IR)"
       },
       {
         "pos": "CB1",
@@ -50851,10 +50856,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-10T11:17:42.992Z",
-  "availability_stamp": "2026-10-12T11:52:07.426Z",
+  "availability_stamp": "2026-10-13T11:40:46.333Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-12T12:21:54.475Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-13T11:43:47.140Z",
+  "swaps_this_run": 7,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
