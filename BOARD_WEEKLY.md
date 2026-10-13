@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| This build | 2026-10-13T11:43:49.433Z |
+| This build | 2026-10-13T12:05:44.609Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-12T12:21:57.357Z |
+| Prior build | 2026-10-13T11:43:49.434Z |
 | Ranked rows this build | 495 |
 | Ranked rows prior build | 495 |
 
@@ -18,11 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 346 | Jamari Thrash | WR | CLE | -149 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 189 | Tyquan Thornton | WR | KC | -78 |
+_None._
