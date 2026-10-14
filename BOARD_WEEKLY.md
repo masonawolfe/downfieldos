@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| This build | 2026-10-14T09:30:37.866Z |
+| This build | 2026-10-14T09:41:08.805Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-13T12:05:44.610Z |
+| Prior build | 2026-10-14T09:30:37.867Z |
 | Ranked rows this build | 495 |
 | Ranked rows prior build | 495 |
 
@@ -18,11 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 378 | Justin Watson | WR | KC | -159 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 184 | Raheim Sanders | RB | CLE | -77 |
+_None._
