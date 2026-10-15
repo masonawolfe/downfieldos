@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-10-15T09:09:00.454Z |
+| This build | 2026-10-15T09:20:56.297Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-14T09:41:08.806Z |
+| Prior build | 2026-10-15T09:09:00.454Z |
 | Ranked rows this build | 496 |
-| Ranked rows prior build | 495 |
+| Ranked rows prior build | 496 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -18,9 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 237 | Jake Browning | QB | LAC | -102 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._
