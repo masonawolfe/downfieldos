@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-10-17T08:32:38.808Z |
+| This build | 2026-10-17T08:45:18.334Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-16T09:14:17.125Z |
+| Prior build | 2026-10-17T08:32:38.809Z |
 | Ranked rows this build | 494 |
-| Ranked rows prior build | 496 |
+| Ranked rows prior build | 494 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -21,7 +21,4 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 323 | Will Shipley | RB | PHI | -140 |
-| 415 | Tom Kennedy | WR | DET | -171 |
+_None._
