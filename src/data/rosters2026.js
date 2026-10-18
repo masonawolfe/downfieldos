@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-17T09:34:02.937Z
+// Reconciled: 2026-10-18T08:50:42.219Z against availability_2026.json
+//             (generated 2026-10-18T08:47:51.043Z) — 5 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -6350,12 +6354,12 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040394",
-        "name": "Anthony Tyus III",
+        "gsis_id": "00-0040644",
+        "name": "Trevor Etienne",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: AJ Dillon (Out), Trevor Etienne (IR), Jonathon Brooks (IR)",
+        "starter_reason": "promoted after: AJ Dillon (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036555",
@@ -7065,12 +7069,11 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RT",
-        "gsis_id": "00-0041034",
-        "name": "Monroe Freeling",
+        "gsis_id": "00-0033284",
+        "name": "Taylor Moton",
         "grade": "Above Avg",
         "rating": 84,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Taylor Moton (PUP)",
         "candidates": [
           {
             "gsis_id": "00-0033284",
@@ -8798,7 +8801,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Dayo Odeyingbo (Out)",
+        "starter_reason": "promoted after: Dayo Odeyingbo (IR)",
         "candidates": [
           {
             "gsis_id": "00-0035386",
@@ -17614,7 +17617,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Skyy Moore (Out)",
+        "starter_reason": "promoted after: Skyy Moore (IR)",
         "candidates": [
           {
             "gsis_id": "00-0040667",
@@ -39756,7 +39759,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Jalen Hurts (Out)",
+        "starter_reason": "promoted after: Jalen Hurts (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036389",
@@ -41627,7 +41630,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Roman Wilson (Out), Ben Skowronek (Out)",
+        "starter_reason": "promoted after: Roman Wilson (IR), Ben Skowronek (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036252",
@@ -46236,8 +46239,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0040185",
-        "name": "Marques Sigle",
+        "gsis_id": "00-0039360",
+        "name": "Malik Mustapha",
         "grade": "Above Avg",
         "rating": 84,
         "rating_source": "snap_share_v1",
@@ -46296,7 +46299,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Marques Sigle (Out)"
       }
     ]
   },
@@ -49446,8 +49450,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0040242",
-        "name": "Jacory Croskey-Merritt",
+        "gsis_id": "00-0037256",
+        "name": "Rachaad White",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -49488,12 +49492,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jacory Croskey-Merritt (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0037256",
-        "name": "Rachaad White",
+        "gsis_id": "00-0033699",
+        "name": "Austin Ekeler",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -50988,8 +50993,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-17T09:34:02.937Z",
-  "availability_stamp": "2026-10-17T08:29:45.493Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-18T08:47:51.043Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-18T08:50:42.219Z",
+  "swaps_this_run": 5,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
