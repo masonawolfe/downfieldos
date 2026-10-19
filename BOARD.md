@@ -4,15 +4,15 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-18T09:01:25.402Z |
+| Generated | 2026-10-19T09:52:21.729Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Commit | `5e533d2` |
+| Commit | `0833c35` |
 | Rows in board | 1013 |
 | Draftable skill rows (ranked below) | 497 |
 | Verifier | 18/18 checks passed |
 | Schema version | 3 |
-| Board generated | 2026-10-18T09:01:23.310Z |
-| Availability generated | 2026-10-18T08:47:51.043Z |
+| Board generated | 2026-10-19T09:52:19.592Z |
+| Availability generated | 2026-10-19T09:48:58.943Z |
 
 **Recommendation column** — v1 (VORP) and v2 (β total_score_beta) agreement per row. 
 `✓ agree` = both layers rank this player similarly; 
@@ -43,10 +43,10 @@ Not a new ranking — the same logic the app runs, in a table.
 | 17 | Rashee Rice | WR | KC | 5 | O | 104 | 104 | +0 | 29 | ✓ agree (v1 pos #5, v2 pos #6) |
 | 18 | Javonte Williams | RB | DAL | 14 |  | 99 | 100 | +2 | 31 | ✓ agree (v1 pos #11, v2 pos #11) |
 | 19 | George Pickens | WR | DAL | 14 |  | 96 | 107 | +12 | 22 | ✓ agree (v1 pos #6, v2 pos #5) |
-| 20 | Chris Olave | WR | NO | 8 | Q | 93 | 92 | -1 | 29 | ✓ agree (v1 pos #7, v2 pos #8) |
+| 20 | Chris Olave | WR | NO | 8 |  | 93 | 95 | +2 | 29 | ✓ agree (v1 pos #7, v2 pos #7) |
 | 21 | Omarion Hampton | RB | LAC | 7 |  | 93 | 96 | +3 | 12 | ✓ agree (v1 pos #12, v2 pos #12) |
-| 22 | Drake London | WR | ATL | 11 |  | 92 | 93 | +1 | 19 | ✓ agree (v1 pos #8, v2 pos #7) |
-| 23 | D'Andre Swift | RB | CHI | 10 |  | 84 | 84 | +0 | 46 | ✓ agree (v1 pos #13, v2 pos #14) |
+| 22 | Drake London | WR | ATL | 11 |  | 92 | 93 | +1 | 19 | ✓ agree (v1 pos #8, v2 pos #8) |
+| 23 | D'Andre Swift | RB | CHI | 10 |  | 84 | 84 | +0 | 44 | ✓ agree (v1 pos #13, v2 pos #14) |
 | 24 | Ashton Jeanty | RB | LV | 13 |  | 84 | 87 | +3 | 12 | ✓ agree (v1 pos #14, v2 pos #13) |
 | 25 | Saquon Barkley | RB | PHI | 10 | O | 83 | 73 | -10 | 11 | ✓ agree (v1 pos #15, v2 pos #16) |
 | 26 | Davante Adams | WR | LAR | 11 |  | 77 | 88 | +12 | 46 | ✓ agree (v1 pos #9, v2 pos #9) |
@@ -64,23 +64,23 @@ Not a new ranking — the same logic the app runs, in a table.
 | 38 | Trevor Lawrence | QB | JAX | 7 |  | 59 | 59 | +0 | 42 | ✓ agree (v1 pos #6, v2 pos #6) |
 | 39 | Breece Hall | RB | NYJ | 13 | O | 57 | 47 | -10 | 27 | ✓ agree (v1 pos #19, v2 pos #21) |
 | 40 | Rhamondre Stevenson | RB | NE | 11 |  | 56 | 56 | +0 | 58 | ✓ agree (v1 pos #20, v2 pos #19) |
-| 41 | A.J. Brown | WR | NE | 11 | Q | 56 | 61 | +6 | 18 | ✓ agree (v1 pos #11, v2 pos #11) |
-| 42 | Rico Dowdle | RB | PIT | 9 | Q | 55 | 50 | -4 | 65 | ✓ agree (v1 pos #21, v2 pos #20) |
+| 41 | A.J. Brown | WR | NE | 11 |  | 56 | 63 | +7 | 18 | ✓ agree (v1 pos #11, v2 pos #11) |
+| 42 | Rico Dowdle | RB | PIT | 9 |  | 55 | 52 | -3 | 65 | ✓ agree (v1 pos #21, v2 pos #20) |
 | 43 | Nico Collins | WR | HOU | 8 |  | 54 | 60 | +6 | 23 | ✓ agree (v1 pos #12, v2 pos #12) |
-| 44 | Malik Nabers | WR | NYG | 8 |  | 49 | 52 | +3 | 28 | ✓ agree (v1 pos #13, v2 pos #13) |
+| 44 | Malik Nabers | WR | NYG | 8 |  | 49 | 52 | +3 | 26 | ✓ agree (v1 pos #13, v2 pos #13) |
 | 45 | Garrett Wilson | WR | NYJ | 13 |  | 48 | 38 | -9 | 38 | ✓ agree (v1 pos #14, v2 pos #17) |
 | 46 | RJ Harvey | RB | DEN | 10 |  | 45 | 47 | +2 | 56 | ✓ agree (v1 pos #22, v2 pos #22) |
-| 47 | TreVeyon Henderson | RB | NE | 11 | Q | 45 | 43 | -1 | 39 | ✓ agree (v1 pos #23, v2 pos #23) |
+| 47 | TreVeyon Henderson | RB | NE | 11 |  | 45 | 45 | +0 | 39 | ✓ agree (v1 pos #23, v2 pos #23) |
 | 48 | Tee Higgins | WR | CIN | 6 |  | 43 | 48 | +5 | 36 | ✓ agree (v1 pos #15, v2 pos #14) |
 | 49 | Zay Flowers | WR | BAL | 13 |  | 43 | 44 | +1 | 40 | ✓ agree (v1 pos #16, v2 pos #15) |
-| 50 | Quinshon Judkins | RB | CLE | 11 | Q | 40 | 39 | -1 | 45 | ✓ agree (v1 pos #24, v2 pos #24) |
+| 50 | Quinshon Judkins | RB | CLE | 11 | O | 40 | 32 | -8 | 45 | ✓ agree (v1 pos #24, v2 pos #25) |
 | 51 | Wan'Dale Robinson | WR | TEN | 9 |  | 37 | 27 | -10 | 105 | β says: QB EPA Cam Ward -10 · moved NYG→TEN -1.84 · 1 dome playoff wks +1.5 |
-| 52 | J.K. Dobbins | RB | DEN | 10 |  | 33 | 35 | +2 | 68 | ✓ agree (v1 pos #25, v2 pos #25) |
+| 52 | J.K. Dobbins | RB | DEN | 10 |  | 33 | 35 | +2 | 68 | ✓ agree (v1 pos #25, v2 pos #24) |
 | 53 | Kyle Pitts | TE | ATL | 11 |  | 33 | 34 | +1 | 67 | ✓ agree (v1 pos #5, v2 pos #6) |
 | 54 | Dallas Goedert | TE | PHI | 10 |  | 32 | 32 | -0 | 94 | ✓ agree (v1 pos #6, v2 pos #7) |
 | 55 | Quentin Johnston | WR | LAC | 7 |  | 31 | 36 | +5 | 103 | ✓ agree (v1 pos #18, v2 pos #19) |
 | 56 | Christian Watson | WR | GB | 11 |  | 30 | 40 | +10 | 64 | ✓ agree (v1 pos #19, v2 pos #16) |
-| 57 | Kenneth Walker III | RB | KC | 5 |  | 28 | 28 | +0 | 19 | ✓ agree (v1 pos #26, v2 pos #27) |
+| 57 | Kenneth Walker III | RB | KC | 5 |  | 28 | 28 | +0 | 17 | ✓ agree (v1 pos #26, v2 pos #27) |
 | 58 | Tony Pollard | RB | TEN | 9 |  | 28 | 30 | +2 | 63 | ✓ agree (v1 pos #27, v2 pos #26) |
 | 59 | Justin Herbert | QB | LAC | 7 |  | 28 | 31 | +3 | 34 | ✓ agree (v1 pos #7, v2 pos #7) |
 | 60 | Michael Wilson | WR | ARI | 14 |  | 26 | 28 | +1 | 75 | ✓ agree (v1 pos #20, v2 pos #21) |
@@ -94,8 +94,8 @@ Not a new ranking — the same logic the app runs, in a table.
 | 68 | Stefon Diggs | WR | WAS | 7 | Q | 16 | 16 | -0 | 104 | ✓ agree (v1 pos #24, v2 pos #26) |
 | 69 | Jared Goff | QB | DET | 6 |  | 16 | 19 | +3 | 62 | ✓ agree (v1 pos #9, v2 pos #9) |
 | 70 | Bo Nix | QB | DEN | 10 |  | 16 | 17 | +2 | 45 | ✓ agree (v1 pos #10, v2 pos #10) |
-| 71 | Caleb Williams | QB | CHI | 10 | Q | 16 | 15 | -0 | 21 | ✓ agree (v1 pos #11, v2 pos #12) |
-| 72 | Daniel Jones | QB | IND | 13 |  | 15 | 15 | +0 | 132 | ✓ agree (v1 pos #12, v2 pos #11) |
+| 71 | Caleb Williams | QB | CHI | 10 |  | 16 | 16 | +0 | 21 | ✓ agree (v1 pos #11, v2 pos #11) |
+| 72 | Daniel Jones | QB | IND | 13 |  | 15 | 15 | +0 | 132 | ✓ agree (v1 pos #12, v2 pos #12) |
 | 73 | Harold Fannin Jr. | TE | CLE | 11 |  | 15 | 15 | +0 | 63 | ✓ agree (v1 pos #8, v2 pos #10) |
 | 74 | Travis Kelce | TE | KC | 5 |  | 13 | 23 | +10 | 90 | ✓ agree (v1 pos #9, v2 pos #9) |
 | 75 | Rome Odunze | WR | CHI | 10 |  | 13 | 18 | +5 | 64 | ✓ agree (v1 pos #25, v2 pos #23) |
@@ -106,10 +106,10 @@ Not a new ranking — the same logic the app runs, in a table.
 | 80 | Aaron Jones | RB | MIN | 6 | Q | 7 | 10 | +3 | 85 | ✓ agree (v1 pos #30, v2 pos #30) |
 | 81 | Justin Jefferson | WR | MIN | 6 |  | 7 | 10 | +4 | 12 | ✓ agree (v1 pos #29, v2 pos #28) |
 | 82 | Juwan Johnson | TE | NO | 8 |  | 6 | 8 | +2 | 103 | ✓ agree (v1 pos #11, v2 pos #14) |
-| 83 | Tyler Warren | TE | IND | 13 | Q | 4 | 12 | +8 | 48 | ✓ agree (v1 pos #12, v2 pos #11) |
+| 83 | Tyler Warren | TE | IND | 13 | O | 4 | 11 | +7 | 48 | ✓ agree (v1 pos #12, v2 pos #11) |
 | 84 | Jauan Jennings | WR | MIN | 6 |  | 2 | 6 | +4 | 123 | ✓ agree (v1 pos #30, v2 pos #30) |
 | 85 | Hunter Henry | TE | NE | 11 |  | 1 | 11 | +10 | 92 | ✓ agree (v1 pos #13, v2 pos #12) |
-| 86 | Dalton Kincaid | TE | BUF | 7 |  | 1 | 10 | +9 | 81 | ✓ agree (v1 pos #14, v2 pos #13) |
+| 86 | Dalton Kincaid | TE | BUF | 7 | Q | 1 | 10 | +9 | 81 | ✓ agree (v1 pos #14, v2 pos #13) |
 | 87 | Dalton Schultz | TE | HOU | 8 |  | 0 | 6 | +6 | 98 | ✓ agree (v1 pos #15, v2 pos #15) |
 | 88 | Terry McLaurin | WR | WAS | 7 |  | 0 | 1 | +1 | 55 | ✓ agree (v1 pos #31, v2 pos #33) |
 | 89 | Joe Burrow | QB | CIN | 6 |  | 0 | 0 | +0 | 15 | ✓ agree (v1 pos #13, v2 pos #13) |
@@ -117,9 +117,9 @@ Not a new ranking — the same logic the app runs, in a table.
 | 91 | David Montgomery | RB | HOU | 8 | O | -1 | -1 | +0 | 43 | ✓ agree (v1 pos #32, v2 pos #33) |
 | 92 | Emeka Egbuka | WR | TB | 10 |  | -1 | -1 | +0 | 38 | ✓ agree (v1 pos #32, v2 pos #34) |
 | 93 | Alvin Kamara | RB | NO | 8 | Q | -2 | -0 | +2 | 119 | ✓ agree (v1 pos #33, v2 pos #32) |
-| 94 | Ladd McConkey | WR | LAC | 7 |  | -2 | 3 | +5 | 35 | ✓ agree (v1 pos #33, v2 pos #31) |
+| 94 | Ladd McConkey | WR | LAC | 7 | O | -2 | 3 | +5 | 35 | ✓ agree (v1 pos #33, v2 pos #31) |
 | 95 | Colston Loveland | TE | CHI | 10 |  | -2 | 3 | +5 | 36 | ✓ agree (v1 pos #16, v2 pos #16) |
-| 96 | Lamar Jackson | QB | BAL | 13 | O | -2 | -2 | +0 | 10 | ✓ agree (v1 pos #14, v2 pos #14) |
+| 96 | Lamar Jackson | QB | BAL | 13 | O | -2 | -2 | +0 | 9 | ✓ agree (v1 pos #14, v2 pos #14) |
 | 97 | Jacoby Brissett | QB | ARI | 14 |  | -4 | -3 | +2 | 203 | ✓ agree (v1 pos #15, v2 pos #15) |
 | 98 | Jakobi Meyers | WR | JAX | 7 |  | -7 | -2 | +5 | 77 | ✓ agree (v1 pos #34, v2 pos #35) |
 | 99 | Deebo Samuel Sr. | WR | SF | 8 | O | -9 | 3 | +12 | 131 | ✓ agree (v1 pos #35, v2 pos #32) |
@@ -127,53 +127,53 @@ Not a new ranking — the same logic the app runs, in a table.
 | 101 | Woody Marks | RB | HOU | 8 |  | -9 | -9 | +0 | 105 | ✓ agree (v1 pos #35, v2 pos #35) |
 | 102 | Jayden Daniels | QB | WAS | 7 |  | -10 | -9 | +2 | 23 | ✓ agree (v1 pos #16, v2 pos #16) |
 | 103 | Brenton Strange | TE | JAX | 7 |  | -11 | -6 | +5 | 104 | ✓ agree (v1 pos #17, v2 pos #17) |
-| 104 | Parker Washington | WR | JAX | 7 |  | -11 | -6 | +5 | 68 | ✓ agree (v1 pos #36, v2 pos #38) |
-| 105 | Darren Waller | TE | CAR | 5 |  | -11 | -13 | -2 | 359 | ✓ agree (v1 pos #18, v2 pos #19) |
-| 106 | Baker Mayfield | QB | TB | 10 | O | -11 | -9 | +2 | 75 | ✓ agree (v1 pos #17, v2 pos #17) |
+| 104 | Parker Washington | WR | JAX | 7 |  | -11 | -6 | +5 | 68 | ✓ agree (v1 pos #36, v2 pos #39) |
+| 105 | Darren Waller | TE | CAR | 5 |  | -11 | -13 | -2 | 357 | ✓ agree (v1 pos #18, v2 pos #19) |
+| 106 | Baker Mayfield | QB | TB | 10 | O | -11 | -9 | +2 | 74 | ✓ agree (v1 pos #17, v2 pos #17) |
 | 107 | Keenan Allen | WR | IND | 13 |  | -11 | -3 | +9 | 180 | ✓ agree (v1 pos #37, v2 pos #36) |
 | 108 | Mike Evans | WR | SF | 8 | Q | -14 | -3 | +11 | 60 | ✓ agree (v1 pos #38, v2 pos #37) |
 | 109 | Zach Ertz | TE | PHI | 10 |  | -15 | -15 | +0 | 646 | ✓ agree (v1 pos #19, v2 pos #20) |
 | 110 | Kyler Murray | QB | MIN | 6 |  | -15 | -12 | +4 | 88 | ✓ agree (v1 pos #18, v2 pos #18) |
-| 111 | Khalil Shakir | WR | BUF | 7 |  | -16 | -7 | +9 | 120 | ✓ agree (v1 pos #39, v2 pos #39) |
-| 112 | Marvin Harrison Jr. | WR | HOU | 8 |  | -16 | -9 | +7 | 74 | ✓ agree (v1 pos #40, v2 pos #40) |
-| 113 | Tyjae Spears | RB | TEN | 9 | Q | -17 | -15 | +2 | 122 | ✓ agree (v1 pos #36, v2 pos #37) |
+| 111 | Khalil Shakir | WR | BUF | 7 |  | -16 | -7 | +9 | 120 | ✓ agree (v1 pos #39, v2 pos #40) |
+| 112 | Marvin Harrison Jr. | WR | HOU | 8 |  | -16 | -9 | +7 | 74 | ✓ agree (v1 pos #40, v2 pos #41) |
+| 113 | Tyjae Spears | RB | TEN | 9 |  | -17 | -16 | +1 | 122 | ✓ agree (v1 pos #36, v2 pos #37) |
 | 114 | Colby Parkinson | TE | LAR | 11 |  | -18 | -6 | +12 | 136 | ✓ agree (v1 pos #20, v2 pos #18) |
 | 115 | Chuba Hubbard | RB | CAR | 5 |  | -19 | -19 | +0 | 66 | ✓ agree (v1 pos #37, v2 pos #40) |
 | 116 | Jacory Croskey-Merritt | RB | WAS | 7 | O | -19 | -14 | +5 | 95 | ✓ agree (v1 pos #38, v2 pos #36) |
-| 117 | Romeo Doubs | WR | NE | 11 |  | -21 | -10 | +11 | 117 | ✓ agree (v1 pos #41, v2 pos #41) |
+| 117 | Romeo Doubs | WR | NE | 11 | O | -21 | -5 | +15 | 117 | ✓ agree (v1 pos #41, v2 pos #38) |
 | 118 | Rachaad White | RB | WAS | 7 |  | -21 | -18 | +3 | 125 | ✓ agree (v1 pos #39, v2 pos #39) |
 | 119 | Kyle Monangai | RB | CHI | 10 | O | -21 | -17 | +4 | 61 | ✓ agree (v1 pos #40, v2 pos #38) |
 | 120 | Troy Franklin | WR | DEN | 10 |  | -22 | -13 | +9 | 171 | ✓ agree (v1 pos #42, v2 pos #42) |
 | 121 | Oronde Gadsden II | TE | LAC | 7 |  | -27 | -22 | +5 | 83 | ✓ agree (v1 pos #21, v2 pos #21) |
-| 122 | Jordan Love | QB | GB | 11 |  | -27 | -27 | +0 | 68 | ✓ agree (v1 pos #19, v2 pos #19) |
+| 122 | Jordan Love | QB | GB | 11 |  | -27 | -27 | +0 | 69 | ✓ agree (v1 pos #19, v2 pos #19) |
 | 123 | Bam Knight | RB | ARI | 14 |  | -29 | -28 | +2 | 669 | ✓ agree (v1 pos #41, v2 pos #41) |
 | 124 | Albert Okwuegbunam | TE | LV | 13 |  | -32 | -29 | +3 | 697 | ✓ agree (v1 pos #22, v2 pos #24) |
 | 125 | Theo Johnson | TE | NYG | 8 | O | -33 | -23 | +10 | 144 | ✓ agree (v1 pos #23, v2 pos #22) |
-| 126 | Chris Rodriguez Jr. | RB | JAX | 7 |  | -33 | -32 | +2 | 127 | ✓ agree (v1 pos #42, v2 pos #43) |
+| 126 | Chris Rodriguez Jr. | RB | JAX | 7 |  | -33 | -32 | +2 | 126 | ✓ agree (v1 pos #42, v2 pos #43) |
 | 127 | Michael Carter | RB | TEN | 9 |  | -34 | -31 | +3 | 660 | ✓ agree (v1 pos #43, v2 pos #42) |
 | 128 | C.J. Stroud | QB | HOU | 8 |  | -34 | -34 | +0 | 101 | ✓ agree (v1 pos #20, v2 pos #20) |
 | 129 | Brian Thomas Jr. | WR | JAX | 7 |  | -35 | -31 | +5 | 75 | ✓ agree (v1 pos #43, v2 pos #44) |
-| 130 | Sam Darnold | QB | SEA | 11 |  | -36 | -36 | +0 | 92 | ✓ agree (v1 pos #21, v2 pos #21) |
+| 130 | Sam Darnold | QB | SEA | 11 |  | -36 | -36 | +0 | 93 | ✓ agree (v1 pos #21, v2 pos #21) |
 | 131 | Jawhar Jordan | RB | HOU | 8 |  | -37 | -37 | +0 | 643 | ✓ agree (v1 pos #44, v2 pos #45) |
-| 132 | Makai Lemon | WR | PHI | 10 |  | -37 |  |  | 91 | v1 pos #44 vs v2 pos #189 |
+| 132 | Makai Lemon | WR | PHI | 10 | Q | -37 |  |  | 89 | v1 pos #44 vs v2 pos #189 |
 | 133 | Tre Tucker | WR | LV | 13 |  | -38 | -35 | +3 | 184 | ✓ agree (v1 pos #45, v2 pos #46) |
 | 134 | AJ Barner | TE | SEA | 11 |  | -38 | -28 | +9 | 126 | ✓ agree (v1 pos #24, v2 pos #23) |
 | 135 | Cade Otton | TE | TB | 10 |  | -39 | -39 | +0 | 148 | ✓ agree (v1 pos #25, v2 pos #26) |
-| 136 | DJ Moore | WR | BUF | 7 | Q | -40 | -28 | +12 | 50 | ✓ agree (v1 pos #46, v2 pos #43) |
+| 136 | DJ Moore | WR | BUF | 7 | O | -40 | -21 | +19 | 50 | ✓ agree (v1 pos #46, v2 pos #43) |
 | 137 | Tyler Allgeier | RB | ARI | 14 |  | -41 | -37 | +4 | 89 | ✓ agree (v1 pos #45, v2 pos #44) |
 | 138 | Carson Wentz | QB | MIN | 6 |  | -41 | -38 | +3 | 633 | ✓ agree (v1 pos #22, v2 pos #22) |
-| 139 | Chris Godwin Jr. | WR | TB | 10 |  | -41 | -41 | +0 | 88 | v1 pos #47 vs v2 pos #51 |
-| 140 | Tyler Shough | QB | NO | 8 |  | -41 | -40 | +2 | 87 | ✓ agree (v1 pos #23, v2 pos #24) |
+| 139 | Chris Godwin Jr. | WR | TB | 10 |  | -41 | -41 | +0 | 88 | v1 pos #47 vs v2 pos #52 |
+| 140 | Tyler Shough | QB | NO | 8 |  | -41 | -40 | +2 | 89 | ✓ agree (v1 pos #23, v2 pos #24) |
 | 141 | Justin Fields | QB | KC | 5 |  | -41 | -38 | +4 | 429 | ✓ agree (v1 pos #24, v2 pos #23) |
 | 142 | Blake Corum | RB | LAR | 11 |  | -41 | -40 | +2 | 68 | ✓ agree (v1 pos #46, v2 pos #46) |
 | 143 | Kayshon Boutte | WR | HOU | 8 |  | -43 | -35 | +8 | 164 | ✓ agree (v1 pos #48, v2 pos #47) |
-| 144 | Bryce Young | QB | CAR | 5 |  | -46 | -46 | +0 | 134 | ✓ agree (v1 pos #25, v2 pos #25) |
-| 145 | Josh Downs | WR | IND | 13 |  | -47 | -39 | +8 | 111 | ✓ agree (v1 pos #49, v2 pos #48) |
+| 144 | Bryce Young | QB | CAR | 5 |  | -46 | -46 | +0 | 133 | ✓ agree (v1 pos #25, v2 pos #25) |
+| 145 | Josh Downs | WR | IND | 13 |  | -47 | -39 | +8 | 111 | ✓ agree (v1 pos #49, v2 pos #49) |
 | 146 | Jordan Addison | WR | MIN | 6 | O | -47 | -34 | +13 | 99 | β says: Out +9.44 · 2 dome playoff wks +3 · QB EPA Kyler Murray +0.72 |
-| 147 | Theo Wease Jr. | WR | LAC | 7 |  | -47 | -40 | +7 | 666 | ✓ agree (v1 pos #51, v2 pos #49) |
-| 148 | Marquise Brown | WR | PHI | 10 |  | -48 | -46 | +2 | 685 | ✓ agree (v1 pos #52, v2 pos #52) |
-| 149 | Pat Freiermuth | TE | PIT | 9 | Q | -49 | -44 | +5 | 230 | ✓ agree (v1 pos #26, v2 pos #27) |
-| 150 | Keon Coleman | WR | BUF | 7 |  | -49 | -40 | +9 | 206 | ✓ agree (v1 pos #53, v2 pos #50) |
+| 147 | Theo Wease Jr. | WR | LAC | 7 |  | -47 | -40 | +7 | 666 | ✓ agree (v1 pos #51, v2 pos #50) |
+| 148 | Marquise Brown | WR | PHI | 10 | O | -48 | -36 | +12 | 685 | β says: Out +9.57 · moved KC→PHI +2.39 · QB EPA Tanner McKee -0.31 |
+| 149 | Pat Freiermuth | TE | PIT | 9 |  | -49 | -45 | +4 | 230 | ✓ agree (v1 pos #26, v2 pos #28) |
+| 150 | Keon Coleman | WR | BUF | 7 |  | -49 | -40 | +9 | 206 | ✓ agree (v1 pos #53, v2 pos #51) |
 | 151 | J.J. McCarthy | QB | NYG | 8 |  | -50 | -46 | +4 | 224 | ✓ agree (v1 pos #26, v2 pos #26) |
 | 152 | T.J. Hockenson | TE | MIN | 6 | O | -50 | -36 | +14 | 128 | ✓ agree (v1 pos #27, v2 pos #25) |
 | 153 | Devin Neal | RB | WAS | 7 |  | -50 | -46 | +4 | 169 | ✓ agree (v1 pos #47, v2 pos #47) |
@@ -185,47 +185,47 @@ Not a new ranking — the same logic the app runs, in a table.
 | 159 | Greg Dulcich | TE | MIA | 6 |  | -54 | -50 | +4 | 230 | ✓ agree (v1 pos #29, v2 pos #30) |
 | 160 | Jalen Coker | WR | CAR | 5 |  | -54 | -57 | -3 | 132 | ✓ agree (v1 pos #55, v2 pos #56) |
 | 161 | Devin Singletary | RB | NYG | 8 |  | -57 | -55 | +2 | 660 | ✓ agree (v1 pos #50, v2 pos #50) |
-| 162 | Tyler Higbee | TE | LAR | 11 |  | -57 | -45 | +12 | 647 | ✓ agree (v1 pos #30, v2 pos #28) |
+| 162 | Tyler Higbee | TE | LAR | 11 |  | -57 | -45 | +12 | 647 | ✓ agree (v1 pos #30, v2 pos #27) |
 | 163 | Mark Andrews | TE | BAL | 13 |  | -58 | -57 | +1 | 96 | ✓ agree (v1 pos #31, v2 pos #31) |
 | 164 | Bhayshul Tuten | RB | JAX | 7 |  | -61 | -61 | +0 | 44 | ✓ agree (v1 pos #51, v2 pos #51) |
 | 165 | Rashid Shaheed | WR | SEA | 11 |  | -62 | -53 | +9 | 150 | ✓ agree (v1 pos #56, v2 pos #54) |
 | 166 | Jeremiyah Love | RB | ARI | 14 | O | -63 |  |  | 15 | v1 pos #52 vs v2 pos #114 |
 | 167 | Marcus Mariota | QB | WAS | 7 | O | -63 | -52 | +12 | 508 | ✓ agree (v1 pos #28, v2 pos #28) |
-| 168 | Ty Johnson | RB | BUF | 7 |  | -63 | -63 | +0 | 534 | ✓ agree (v1 pos #53, v2 pos #52) |
+| 168 | Ty Johnson | RB | BUF | 7 |  | -63 | -63 | +0 | 534 | ✓ agree (v1 pos #53, v2 pos #54) |
 | 169 | Mason Taylor | TE | NYJ | 13 |  | -64 | -73 | -9 | 138 | β says: QB EPA Geno Smith -9.12 |
-| 170 | Michael Penix Jr. | QB | ATL | 11 |  | -65 | -65 | +0 | 228 | ✓ agree (v1 pos #29, v2 pos #29) |
+| 170 | Michael Penix Jr. | QB | ATL | 11 | Q | -65 | -63 | +2 | 228 | ✓ agree (v1 pos #29, v2 pos #29) |
 | 171 | Ryan Flournoy | WR | DAL | 14 |  | -68 | -56 | +11 | 199 | ✓ agree (v1 pos #57, v2 pos #55) |
 | 172 | Cooper Kupp | WR | SEA | 11 |  | -68 | -59 | +9 | 196 | ✓ agree (v1 pos #58, v2 pos #57) |
 | 173 | Tory Horton | WR | SEA | 11 |  | -69 | -59 | +9 | 199 | ✓ agree (v1 pos #59, v2 pos #58) |
-| 174 | Jaylen Wright | RB | MIA | 6 |  | -69 | -69 | +0 | 174 | ✓ agree (v1 pos #54, v2 pos #54) |
+| 174 | Jaylen Wright | RB | MIA | 6 |  | -69 | -69 | +0 | 174 | ✓ agree (v1 pos #54, v2 pos #56) |
 | 175 | Devaughn Vele | WR | NO | 8 |  | -69 | -67 | +2 | 209 | ✓ agree (v1 pos #60, v2 pos #61) |
 | 176 | Evan Engram | TE | DEN | 10 |  | -69 | -60 | +9 | 462 | ✓ agree (v1 pos #33, v2 pos #32) |
 | 177 | Dawson Knox | TE | BUF | 7 |  | -70 | -61 | +9 | 684 | ✓ agree (v1 pos #34, v2 pos #33) |
 | 178 | Elic Ayomanor | WR | TEN | 9 |  | -70 | -79 | -9 | 185 | ✓ agree (v1 pos #61, v2 pos #64) |
-| 179 | Samaje Perine | RB | CIN | 6 |  | -71 | -71 | +0 | 456 | ✓ agree (v1 pos #55, v2 pos #56) |
-| 180 | Emanuel Wilson | RB | SEA | 11 |  | -71 | -67 | +4 | 161 | ✓ agree (v1 pos #56, v2 pos #53) |
+| 179 | Samaje Perine | RB | CIN | 6 |  | -71 | -71 | +0 | 456 | ✓ agree (v1 pos #55, v2 pos #57) |
+| 180 | Emanuel Wilson | RB | SEA | 11 |  | -71 | -67 | +4 | 161 | ✓ agree (v1 pos #56, v2 pos #55) |
 | 181 | Xavier Worthy | WR | KC | 5 |  | -71 | -61 | +10 | 122 | ✓ agree (v1 pos #62, v2 pos #59) |
 | 182 | Geno Smith | QB | NYJ | 13 |  | -71 | -68 | +4 | 211 | ✓ agree (v1 pos #30, v2 pos #30) |
 | 183 | Jerry Jeudy | WR | CLE | 11 |  | -72 | -72 | +0 | 160 | ✓ agree (v1 pos #63, v2 pos #62) |
 | 184 | Noah Fant | TE | NO | 8 |  | -72 | -67 | +5 | 642 | ✓ agree (v1 pos #35, v2 pos #34) |
-| 185 | Sean Tucker | RB | TB | 10 | Q | -72 | -70 | +2 | 155 | ✓ agree (v1 pos #57, v2 pos #55) |
+| 185 | Sean Tucker | RB | TB | 10 | O | -72 | -62 | +10 | 155 | β says: Out +10 |
 | 186 | Tua Tagovailoa | QB | ATL | 11 |  | -75 | -72 | +4 | 237 | ✓ agree (v1 pos #31, v2 pos #31) |
 | 187 | Darius Slayton | WR | IND | 13 |  | -77 | -65 | +12 | 541 | β says: QB EPA Daniel Jones +8.16 · moved NYG→IND +3.83 |
-| 188 | Mike Gesicki | TE | CIN | 6 |  | -78 | -73 | +5 | 447 | ✓ agree (v1 pos #36, v2 pos #35) |
-| 189 | Emari Demercado | RB | DAL | 14 |  | -78 | -73 | +5 | 502 | ✓ agree (v1 pos #58, v2 pos #57) |
+| 188 | Mike Gesicki | TE | CIN | 6 |  | -78 | -73 | +5 | 448 | ✓ agree (v1 pos #36, v2 pos #35) |
+| 189 | Emari Demercado | RB | DAL | 14 | O | -78 | -63 | +15 | 502 | β says: Out +10 · moved ARI→DAL +3.91 · 1 dome playoff wks +1.5 |
 | 190 | Calvin Ridley | WR | TEN | 9 |  | -79 | -88 | -9 | 180 | β says: QB EPA Cam Ward -10 · 1 dome playoff wks +1.5 |
 | 191 | Shedeur Sanders | QB | CLE | 11 |  | -80 | -80 | +0 | 227 | ✓ agree (v1 pos #32, v2 pos #34) |
 | 192 | Chimere Dike | WR | TEN | 9 |  | -80 | -88 | -9 | 175 | β says: QB EPA Cam Ward -10 · 1 dome playoff wks +1.5 |
 | 193 | Gunnar Helm | TE | TEN | 9 |  | -80 | -89 | -9 | 153 | β says: QB EPA Cam Ward -10 · 1 dome playoff wks +1.5 |
-| 194 | Malik Willis | QB | MIA | 6 |  | -81 | -77 | +4 | 121 | ✓ agree (v1 pos #33, v2 pos #32) |
-| 195 | Michael Mayer | TE | LV | 13 |  | -81 | -78 | +3 | 464 | ✓ agree (v1 pos #38, v2 pos #39) |
+| 194 | Malik Willis | QB | MIA | 6 |  | -81 | -77 | +4 | 122 | ✓ agree (v1 pos #33, v2 pos #32) |
+| 195 | Michael Mayer | TE | LV | 13 |  | -81 | -78 | +3 | 463 | ✓ agree (v1 pos #38, v2 pos #39) |
 | 196 | Darnell Washington | TE | PIT | 9 |  | -82 | -78 | +4 | 474 | ✓ agree (v1 pos #39, v2 pos #38) |
 | 197 | Kevin Austin Jr. | WR | NO | 8 |  | -82 | -80 | +2 | 999 | ✓ agree (v1 pos #67, v2 pos #65) |
 | 198 | Kendrick Bourne | WR | ARI | 14 |  | -82 | -77 | +5 | 673 | β says: moved SF→ARI +4.12 · 1 dome playoff wks +1.5 · QB EPA Jacoby Brissett -0.4 |
 | 199 | Kendre Miller | RB | NO | 8 |  | -83 | -81 | +2 | 180 | ✓ agree (v1 pos #59, v2 pos #58) |
 | 200 | Mac Jones | QB | SF | 8 |  | -84 | -83 | +2 | 400 | ✓ agree (v1 pos #34, v2 pos #35) |
-| 201 | Jameis Winston | QB | NYG | 8 |  | -86 | -85 | +2 | 471 | ✓ agree (v1 pos #35, v2 pos #36) |
-| 202 | Joe Flacco | QB | CIN | 6 |  | -86 | -86 | +0 | 493 | ✓ agree (v1 pos #36, v2 pos #37) |
+| 201 | Jameis Winston | QB | NYG | 8 |  | -86 | -85 | +2 | 468 | ✓ agree (v1 pos #35, v2 pos #36) |
+| 202 | Joe Flacco | QB | CIN | 6 |  | -86 | -86 | +0 | 494 | ✓ agree (v1 pos #36, v2 pos #37) |
 | 203 | Sterling Shepard | WR | NYJ | 13 |  | -87 | -92 | -5 | 282 | β says: QB EPA Geno Smith -9.12 · moved TB→NYJ +4.34 |
 | 204 | Jake Browning | QB | LAC | 7 |  | -87 | -80 | +7 | 640 | β says: moved CIN→LAC +4.34 · 2 dome playoff wks +3 |
 | 205 | Isaiah Likely | TE | NYG | 8 |  | -87 | -80 | +8 | 106 | ✓ agree (v1 pos #40, v2 pos #40) |
@@ -233,18 +233,18 @@ Not a new ranking — the same logic the app runs, in a table.
 | 207 | Isaiah Davis | RB | NYJ | 13 |  | -90 | -90 | +0 | 518 | ✓ agree (v1 pos #61, v2 pos #63) |
 | 208 | Jaret Patterson | RB | CLE | 11 |  | -91 | -86 | +5 | 633 | ✓ agree (v1 pos #62, v2 pos #60) |
 | 209 | Keaton Mitchell | RB | LAC | 7 |  | -91 | -84 | +8 | 148 | β says: moved BAL→LAC +4.55 · 2 dome playoff wks +3 |
-| 210 | Tez Johnson | WR | TB | 10 |  | -92 | -92 | +0 | 674 | v1 pos #70 vs v2 pos #76 |
+| 210 | Tez Johnson | WR | TB | 10 |  | -92 | -92 | +0 | 674 | v1 pos #70 vs v2 pos #78 |
 | 211 | Cam Ward | QB | TEN | 9 |  | -92 | -91 | +2 | 115 | ✓ agree (v1 pos #38, v2 pos #38) |
-| 212 | Xavier Hutchinson | WR | HOU | 8 |  | -92 | -86 | +6 | 679 | ✓ agree (v1 pos #71, v2 pos #68) |
+| 212 | Xavier Hutchinson | WR | HOU | 8 |  | -92 | -86 | +6 | 679 | ✓ agree (v1 pos #71, v2 pos #69) |
 | 213 | Shane Zylstra | TE | NE | 11 | Q | -93 | -75 | +17 | 677 | β says: QB EPA Drake Maye +10 · moved DET→NE +4.64 · Questionable +2.78 |
 | 214 | Jaydon Blue | RB | PHI | 10 |  | -94 | -89 | +5 | 189 | ✓ agree (v1 pos #64, v2 pos #61) |
-| 215 | Olamide Zaccheaus | WR | ATL | 11 |  | -94 | -89 | +5 | 698 | ✓ agree (v1 pos #72, v2 pos #71) |
-| 216 | DeMario Douglas | WR | NE | 11 |  | -95 | -85 | +10 | 495 | β says: QB EPA Drake Maye +10 |
+| 215 | Olamide Zaccheaus | WR | ATL | 11 |  | -94 | -89 | +5 | 698 | ✓ agree (v1 pos #72, v2 pos #73) |
+| 216 | DeMario Douglas | WR | NE | 11 |  | -95 | -85 | +10 | 492 | β says: QB EPA Drake Maye +10 |
 | 217 | Spencer Rattler | QB | NO | 8 |  | -95 | -94 | +2 | 686 | ✓ agree (v1 pos #39, v2 pos #39) |
-| 218 | Dontayvion Wicks | WR | PHI | 10 |  | -96 | -91 | +4 | 204 | ✓ agree (v1 pos #74, v2 pos #74) |
+| 218 | Dontayvion Wicks | WR | PHI | 10 | Q | -96 | -88 | +7 | 204 | ✓ agree (v1 pos #74, v2 pos #72) |
 | 219 | Cole Kmet | TE | CHI | 10 |  | -96 | -91 | +5 | 488 | ✓ agree (v1 pos #42, v2 pos #45) |
 | 220 | Tanner Hudson | TE | CIN | 6 | O | -96 | -82 | +15 | 599 | ✓ agree (v1 pos #43, v2 pos #41) |
-| 221 | Jalen Nailor | WR | LV | 13 |  | -97 | -89 | +8 | 171 | ✓ agree (v1 pos #75, v2 pos #73) |
+| 221 | Jalen Nailor | WR | LV | 13 |  | -97 | -89 | +8 | 171 | ✓ agree (v1 pos #75, v2 pos #75) |
 | 222 | Jaleel McLaughlin | RB | CLE | 11 |  | -97 | -92 | +5 | 698 | ✓ agree (v1 pos #65, v2 pos #65) |
 | 223 | Najee Harris | RB | NYG | 8 |  | -98 | -91 | +6 | 170 | ✓ agree (v1 pos #66, v2 pos #64) |
 | 224 | Adonai Mitchell | WR | NYJ | 13 | O | -98 | -97 | +1 | 162 | β says: Out +10 · QB EPA Geno Smith -9.12 |
@@ -254,65 +254,65 @@ Not a new ranking — the same logic the app runs, in a table.
 | 228 | Brock Wright | TE | DET | 6 |  | -100 | -87 | +13 | 691 | ✓ agree (v1 pos #44, v2 pos #42) |
 | 229 | Daniel Bellinger | TE | TEN | 9 |  | -100 | -103 | -4 | 681 | β says: QB EPA Cam Ward -10 · moved NYG→TEN +4.99 · 1 dome playoff wks +1.5 |
 | 230 | Zavier Scott | RB | CHI | 10 |  | -100 | -95 | +5 | 691 | ✓ agree (v1 pos #67, v2 pos #66) |
-| 231 | Austin Hooper | TE | ATL | 11 |  | -100 | -95 | +6 | 430 | ✓ agree (v1 pos #46, v2 pos #46) |
+| 231 | Austin Hooper | TE | ATL | 11 |  | -100 | -95 | +6 | 430 | ✓ agree (v1 pos #46, v2 pos #47) |
 | 232 | Brashard Smith | RB | KC | 5 |  | -100 | -99 | +2 | 182 | ✓ agree (v1 pos #68, v2 pos #68) |
-| 233 | Darnell Mooney | WR | NYG | 8 |  | -101 | -92 | +8 | 194 | ✓ agree (v1 pos #80, v2 pos #77) |
+| 233 | Darnell Mooney | WR | NYG | 8 | Q | -101 | -89 | +11 | 194 | β says: moved ATL→NYG +5.04 · Questionable +3.03 · QB EPA Jameis Winston +1.92 |
 | 234 | Luke McCaffrey | WR | WAS | 7 |  | -101 | -100 | +1 | 620 | β says: 1 dome playoff wks +1.5 · QB EPA Jayden Daniels -0.6 |
 | 235 | Brian Robinson | RB | ATL | 11 |  | -101 | -96 | +5 | 80 | ✓ agree (v1 pos #69, v2 pos #67) |
-| 236 | Ja'Tavion Sanders | TE | CAR | 5 |  | -101 | -104 | -3 | 576 | ✓ agree (v1 pos #47, v2 pos #50) |
+| 236 | Ja'Tavion Sanders | TE | CAR | 5 | O | -101 | -94 | +7 | 576 | ✓ agree (v1 pos #47, v2 pos #46) |
 | 237 | Isaac TeSlaa | WR | DET | 6 |  | -102 | -89 | +13 | 184 | β says: QB EPA Jared Goff +10 · 2 dome playoff wks +3 |
 | 238 | Denzel Boston | WR | CLE | 11 |  | -103 |  |  | 153 | v1 pos #83 vs v2 pos #190 |
 | 239 | Carnell Tate | WR | TEN | 9 |  | -103 |  |  | 61 | v1 pos #84 vs v2 pos #191 |
-| 240 | Omar Cooper Jr. | WR | NYJ | 13 | Q | -103 |  |  | 151 | v1 pos #85 vs v2 pos #192 |
+| 240 | Omar Cooper Jr. | WR | NYJ | 13 |  | -103 |  |  | 151 | v1 pos #85 vs v2 pos #192 |
 | 241 | Tyrod Taylor | QB | GB | 11 |  | -105 | -99 | +5 | 611 | ✓ agree (v1 pos #40, v2 pos #40) |
 | 242 | Tommy Tremble | TE | CAR | 5 |  | -105 | -108 | -3 | 597 | β says: QB EPA Bryce Young -2.75 |
-| 243 | Ray Davis | RB | BUF | 7 |  | -105 | -105 | +0 | 167 | ✓ agree (v1 pos #70, v2 pos #71) |
+| 243 | Ray Davis | RB | BUF | 7 |  | -105 | -105 | +0 | 167 | ✓ agree (v1 pos #70, v2 pos #72) |
 | 244 | Jonnu Smith | TE | GB | 11 |  | -106 | -90 | +15 | 695 | β says: QB EPA Jordan Love +10 · moved PIT→GB +5.28 |
 | 245 | Shedrick Jackson | WR | ARI | 14 |  | -106 | -99 | +6 | 587 | ✓ agree (v1 pos #86, v2 pos #83) |
-| 246 | KaVontae Turpin | WR | DAL | 14 |  | -106 | -95 | +12 | 446 | β says: QB EPA Dak Prescott +10 · 1 dome playoff wks +1.5 |
+| 246 | KaVontae Turpin | WR | DAL | 14 | O | -106 | -85 | +22 | 446 | β says: QB EPA Dak Prescott +10 · Out +10 · 1 dome playoff wks +1.5 |
 | 247 | Jerome Ford | RB | ARI | 14 |  | -107 | -100 | +7 | 637 | ✓ agree (v1 pos #71, v2 pos #69) |
-| 248 | Davis Allen | TE | LAR | 11 |  | -107 | -95 | +12 | 661 | ✓ agree (v1 pos #50, v2 pos #47) |
+| 248 | Davis Allen | TE | LAR | 11 |  | -107 | -95 | +12 | 661 | ✓ agree (v1 pos #50, v2 pos #48) |
 | 249 | Ronnie Bell | WR | LV | 13 |  | -107 | -98 | +8 | 683 | β says: moved NO→LV +5.33 · 2 dome playoff wks +3 · QB EPA Kirk Cousins -0.12 |
-| 250 | Jackson Hawes | TE | BUF | 7 |  | -109 | -100 | +9 | 614 | ✓ agree (v1 pos #51, v2 pos #48) |
+| 250 | Jackson Hawes | TE | BUF | 7 |  | -109 | -100 | +9 | 614 | ✓ agree (v1 pos #51, v2 pos #49) |
 | 251 | Marvin Mims Jr. | WR | DEN | 10 |  | -109 | -99 | +9 | 192 | β says: QB EPA Bo Nix +7.92 · 1 dome playoff wks +1.5 |
 | 252 | Van Jefferson | WR | WAS | 7 |  | -109 | -103 | +6 | 634 | ✓ agree (v1 pos #90, v2 pos #88) |
 | 253 | Cedric Tillman | WR | NO | 8 |  | -109 | -102 | +7 | 667 | β says: moved CLE→NO +5.46 · 1 dome playoff wks +1.5 · QB EPA Tyler Shough +0.26 |
-| 254 | Ollie Gordon II | RB | MIA | 6 | Q | -109 | -106 | +3 | 460 | ✓ agree (v1 pos #72, v2 pos #72) |
+| 254 | Ollie Gordon II | RB | MIA | 6 | Q | -109 | -106 | +3 | 458 | ✓ agree (v1 pos #72, v2 pos #73) |
 | 255 | Lil'Jordan Humphrey | WR | DEN | 10 |  | -110 | -101 | +9 | 630 | β says: QB EPA Bo Nix +7.92 · 1 dome playoff wks +1.5 |
 | 256 | Kirk Cousins | QB | LV | 13 |  | -111 | -102 | +9 | 267 | ✓ agree (v1 pos #41, v2 pos #41) |
-| 257 | Nate Carter | RB | KC | 5 |  | -113 | -105 | +7 | 609 | ✓ agree (v1 pos #73, v2 pos #70) |
+| 257 | Nate Carter | RB | KC | 5 |  | -113 | -105 | +7 | 609 | ✓ agree (v1 pos #73, v2 pos #71) |
 | 258 | Davis Mills | QB | HOU | 8 |  | -113 | -113 | +0 | 543 | ✓ agree (v1 pos #42, v2 pos #42) |
-| 259 | Ameer Abdullah | RB | JAX | 7 |  | -114 | -108 | +6 | 599 | ✓ agree (v1 pos #74, v2 pos #73) |
-| 260 | Devontez Walker | WR | BAL | 13 |  | -114 | -114 | +1 | 650 | ✓ agree (v1 pos #93, v2 pos #96) |
+| 259 | Ameer Abdullah | RB | JAX | 7 | Q | -114 | -105 | +9 | 599 | β says: moved IND→JAX +5.7 · Questionable +3.42 |
+| 260 | Devontez Walker | WR | BAL | 13 |  | -114 | -114 | +1 | 650 | β says: QB EPA Tyler Huntley +0.71 |
 | 261 | Matthew Golden | WR | GB | 11 |  | -115 | -105 | +10 | 118 | β says: QB EPA Jordan Love +10 |
-| 262 | Isaiah Hodgins | WR | PIT | 9 |  | -116 | -107 | +9 |  | β says: moved NYG→PIT +5.81 · QB EPA Aaron Rodgers +3.54 |
+| 262 | Isaiah Hodgins | WR | PIT | 9 |  | -116 | -107 | +9 |  | ✓ agree (v1 pos #95, v2 pos #92) |
 | 263 | Elijah Higgins | TE | ARI | 14 |  | -118 | -117 | +1 | 668 | β says: 1 dome playoff wks +1.5 · QB EPA Jacoby Brissett -0.4 |
 | 264 | Adam Trautman | TE | DEN | 10 |  | -118 | -109 | +9 | 675 | ✓ agree (v1 pos #53, v2 pos #53) |
-| 265 | Jahdae Walker | WR | CHI | 10 |  | -118 | -113 | +5 | 664 | ✓ agree (v1 pos #96, v2 pos #95) |
+| 265 | Jahdae Walker | WR | CHI | 10 |  | -118 | -113 | +5 | 664 | ✓ agree (v1 pos #96, v2 pos #96) |
 | 266 | Hunter Luepke | RB | DAL | 14 |  | -119 | -117 | +2 | 617 | ✓ agree (v1 pos #75, v2 pos #75) |
-| 267 | Dyami Brown | WR | WAS | 7 |  | -119 | -112 | +7 | 616 | ✓ agree (v1 pos #97, v2 pos #94) |
+| 267 | Dyami Brown | WR | WAS | 7 |  | -119 | -112 | +7 | 616 | ✓ agree (v1 pos #97, v2 pos #95) |
 | 268 | Mitchell Evans | TE | CAR | 5 |  | -119 | -122 | -3 | 567 | β says: QB EPA Bryce Young -2.75 |
-| 269 | Josh Palmer | WR | BUF | 7 | Q | -120 | -108 | +13 | 624 | β says: QB EPA Josh Allen +8.92 · Questionable +3.6 |
+| 269 | Josh Palmer | WR | BUF | 7 |  | -120 | -111 | +9 | 624 | β says: QB EPA Josh Allen +8.92 |
 | 270 | Jeremy Ruckert | TE | NYJ | 13 |  | -121 | -130 | -9 | 662 | β says: QB EPA Geno Smith -9.12 |
-| 271 | Nicholas Singleton | RB | TEN | 9 |  | -121 |  |  | 167 | v1 pos #76 vs v2 pos #115 |
+| 271 | Nicholas Singleton | RB | TEN | 9 | O | -121 |  |  | 167 | v1 pos #76 vs v2 pos #115 |
 | 272 | Tre Harris | WR | LAC | 7 | O | -121 | -106 | +15 | 179 | β says: Out +10 · 2 dome playoff wks +3 · QB EPA Justin Herbert +2.01 |
 | 273 | Cade Stover | TE | HOU | 8 |  | -122 | -116 | +6 | 683 | ✓ agree (v1 pos #56, v2 pos #56) |
-| 274 | Kenyon Sadiq | TE | NYJ | 13 | Q | -122 |  |  | 109 | v1 pos #57 vs v2 pos #113 |
+| 274 | Kenyon Sadiq | TE | NYJ | 13 |  | -122 |  |  | 109 | v1 pos #57 vs v2 pos #113 |
 | 275 | Tyler Johnson | WR | NYJ | 13 |  | -123 | -132 | -9 | 280 | β says: QB EPA Geno Smith -9.12 |
-| 276 | Ty Simpson | QB | LAR | 11 |  | -124 |  |  | 242 | v1 pos #43 vs v2 pos #73 |
+| 276 | Ty Simpson | QB | LAR | 11 | O | -124 |  |  | 242 | v1 pos #43 vs v2 pos #73 |
 | 277 | Corey Kiner | RB | NE | 11 |  | -124 | -118 | +6 | 487 | ✓ agree (v1 pos #77, v2 pos #76) |
 | 278 | Ben Sinnott | TE | WAS | 7 |  | -124 | -123 | +1 | 672 | β says: 1 dome playoff wks +1.5 · QB EPA Jayden Daniels -0.6 |
-| 279 | Rashod Bateman | WR | BAL | 13 |  | -124 | -124 | +1 | 203 | β says: QB EPA Tyler Huntley +0.71 |
+| 279 | Rashod Bateman | WR | BAL | 13 | O | -124 | -114 | +11 | 203 | ✓ agree (v1 pos #101, v2 pos #98) |
 | 280 | Antonio Williams | WR | WAS | 7 |  | -125 |  |  | 156 | v1 pos #102 vs v2 pos #193 |
 | 281 | Tyler Badie | RB | DEN | 10 | Q | -126 | -121 | +5 | 648 | ✓ agree (v1 pos #78, v2 pos #78) |
-| 282 | Jared Wayne | WR | HOU | 8 |  | -126 | -120 | +6 | 682 | β says: QB EPA C.J. Stroud +5.96 |
-| 283 | Brandin Cooks | WR | SF | 8 |  | -126 | -111 | +16 | 528 | β says: QB EPA Brock Purdy +7.89 · moved BUF→SF +6.31 · 1 dome playoff wks +1.5 |
+| 282 | Jared Wayne | WR | HOU | 8 |  | -126 | -120 | +6 | 682 | ✓ agree (v1 pos #103, v2 pos #100) |
+| 283 | Brandin Cooks | WR | SF | 8 |  | -126 | -111 | +16 | 529 | β says: QB EPA Brock Purdy +7.89 · moved BUF→SF +6.31 · 1 dome playoff wks +1.5 |
 | 284 | Tim Patrick | WR | NYJ | 13 |  | -127 | -129 | -3 | 573 | β says: QB EPA Geno Smith -9.12 · moved JAX→NYJ +6.33 |
-| 285 | Elijah Arroyo | TE | SEA | 11 | D | -127 | -108 | +19 | 457 | β says: Doubtful +10 · QB EPA Sam Darnold +9.32 |
+| 285 | Elijah Arroyo | TE | SEA | 11 | D | -127 | -108 | +19 | 458 | β says: Doubtful +10 · QB EPA Sam Darnold +9.32 |
 | 286 | Jaylin Noel | WR | HOU | 8 |  | -127 | -121 | +6 | 190 | β says: QB EPA C.J. Stroud +5.96 |
-| 287 | Mitchell Tinsley | WR | CIN | 6 |  | -127 | -122 | +5 | 608 | ✓ agree (v1 pos #107, v2 pos #104) |
+| 287 | Mitchell Tinsley | WR | CIN | 6 |  | -127 | -122 | +5 | 608 | ✓ agree (v1 pos #107, v2 pos #105) |
 | 288 | Kalif Raymond | WR | CHI | 10 |  | -127 | -116 | +12 | 645 | β says: moved DET→CHI +6.37 · QB EPA Caleb Williams +5.28 |
-| 289 | Tutu Atwell | WR | LAR | 11 |  | -128 | -116 | +12 | 691 | β says: QB EPA Matthew Stafford +10 · 1 dome playoff wks +1.5 |
+| 289 | Tutu Atwell | WR | LAR | 11 | O | -128 | -106 | +22 | 691 | β says: QB EPA Matthew Stafford +10 · Out +10 · 1 dome playoff wks +1.5 |
 | 290 | James Mitchell | TE | DAL | 14 |  | -128 | -110 | +18 | 591 | β says: QB EPA Dak Prescott +10 · moved CAR→DAL +6.42 · 1 dome playoff wks +1.5 |
 | 291 | Tyler Conklin | TE | DET | 6 |  | -129 | -110 | +19 | 645 | β says: QB EPA Jared Goff +10 · moved LAC→DET +6.46 · 2 dome playoff wks +3 |
 | 292 | Jacardia Wright | RB | SEA | 11 | O | -130 | -120 | +10 | 665 | ✓ agree (v1 pos #79, v2 pos #77) |
@@ -372,12 +372,12 @@ Not a new ranking — the same logic the app runs, in a table.
 | 346 | Adam Thielen | WR | MIN | 6 |  | -148 | -137 | +11 | 163 | β says: moved PIT→MIN +7.42 · 2 dome playoff wks +3 · QB EPA Kyler Murray +0.72 |
 | 347 | Kaleb Johnson | RB | GB | 11 |  | -149 | -141 | +7 | 173 | ✓ agree (v1 pos #90, v2 pos #88) |
 | 348 | Johnny Mundt | TE | PHI | 10 |  | -149 | -142 | +7 | 562 | ✓ agree (v1 pos #84, v2 pos #83) |
-| 349 | Trevor Etienne | RB | CAR | 5 | Q | -150 | -145 | +5 | 690 | ✓ agree (v1 pos #91, v2 pos #90) |
-| 350 | Amar Johnson | RB | LAC | 7 |  | -150 | -147 | +3 | 454 | ✓ agree (v1 pos #92, v2 pos #93) |
+| 349 | Trevor Etienne | RB | CAR | 5 |  | -150 | -150 | +0 | 690 | v1 pos #91 vs v2 pos #95 |
+| 350 | Amar Johnson | RB | LAC | 7 |  | -150 | -147 | +3 | 454 | ✓ agree (v1 pos #92, v2 pos #92) |
 | 351 | Jamari Thrash | WR | LV | 13 |  | -150 | -140 | +10 | 240 | β says: moved CLE→LV +7.51 · 2 dome playoff wks +3 · QB EPA Kirk Cousins -0.12 |
-| 352 | Quintin Morris | TE | JAX | 7 |  | -151 | -146 | +5 | 550 | ✓ agree (v1 pos #85, v2 pos #88) |
+| 352 | Quintin Morris | TE | JAX | 7 |  | -151 | -146 | +5 | 550 | β says: QB EPA Trevor Lawrence +4.8 |
 | 353 | Josiah Deguara | TE | PHI | 10 |  | -151 | -144 | +7 | 542 | ✓ agree (v1 pos #86, v2 pos #86) |
-| 354 | Dameon Pierce | RB | PHI | 10 |  | -151 | -144 | +8 | 318 | β says: moved KC→PHI +7.57 |
+| 354 | Dameon Pierce | RB | PHI | 10 |  | -151 | -144 | +8 | 320 | β says: moved KC→PHI +7.57 |
 | 355 | Konata Mumpfield | WR | LAR | 11 |  | -151 | -140 | +12 | 678 | β says: QB EPA Matthew Stafford +10 · 1 dome playoff wks +1.5 |
 | 356 | Brevyn Spann-Ford | TE | DAL | 14 |  | -152 | -141 | +12 | 634 | β says: QB EPA Dak Prescott +10 · 1 dome playoff wks +1.5 |
 | 357 | Josh Williams | RB | TB | 10 |  | -154 | -154 | +0 | 655 | v1 pos #94 vs v2 pos #98 |
@@ -386,7 +386,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 360 | Tyler Goodson | RB | DAL | 14 |  | -155 | -145 | +9 | 480 | β says: moved IND→DAL +7.74 · 1 dome playoff wks +1.5 |
 | 361 | Cam Grandy | TE | MIN | 6 |  | -155 | -143 | +11 | 312 | ✓ agree (v1 pos #88, v2 pos #85) |
 | 362 | Ray-Ray McCloud | WR | CHI | 10 | Q | -155 | -137 | +18 | 676 | β says: moved NYG→CHI +7.74 · QB EPA Caleb Williams +5.28 · Questionable +4.64 |
-| 363 | Jordan Watkins | WR | SF | 8 |  | -155 | -146 | +9 | 999 | ✓ agree (v1 pos #134, v2 pos #131) |
+| 363 | Jordan Watkins | WR | SF | 8 |  | -155 | -146 | +9 | 999 | β says: QB EPA Brock Purdy +7.89 · 1 dome playoff wks +1.5 |
 | 364 | Kene Nwangwu | RB | NYJ | 13 |  | -155 | -155 | +0 | 696 | v1 pos #97 vs v2 pos #101 |
 | 365 | Drake Dabney | TE | GB | 11 |  | -156 | -146 | +10 |  | ✓ agree (v1 pos #89, v2 pos #87) |
 | 366 | Cody White | WR | LV | 13 |  | -156 | -145 | +11 | 535 | β says: moved SEA→LV +7.79 · 2 dome playoff wks +3 · QB EPA Kirk Cousins -0.12 |
@@ -394,11 +394,11 @@ Not a new ranking — the same logic the app runs, in a table.
 | 368 | Patrick Ricard | RB | NYG | 8 |  | -156 | -147 | +9 | 676 | β says: moved BAL→NYG +7.82 · 1 dome playoff wks +1.5 |
 | 369 | DeeJay Dallas | RB | MIN | 6 |  | -156 | -146 | +11 | 677 | β says: moved JAX→MIN +7.82 · 2 dome playoff wks +3 |
 | 370 | Zaire Mitchell-Paden | TE | HOU | 8 |  | -157 | -143 | +14 | 999 | β says: moved NO→HOU +7.84 · QB EPA C.J. Stroud +5.96 |
-| 371 | Jimmy Horn Jr. | WR | CLE | 11 |  | -157 | -149 | +8 | 663 | ✓ agree (v1 pos #137, v2 pos #134) |
+| 371 | Jimmy Horn Jr. | WR | CLE | 11 |  | -157 | -149 | +8 | 663 | β says: moved CAR→CLE +7.85 |
 | 372 | Tay Martin | WR | DET | 6 |  | -158 | -137 | +21 | 534 | β says: QB EPA Jared Goff +10 · moved WAS→DET +7.88 · 2 dome playoff wks +3 |
 | 373 | David Martin-Robinson | TE | TEN | 9 |  | -158 | -166 | -9 | 485 | β says: QB EPA Cam Ward -10 · 1 dome playoff wks +1.5 |
 | 374 | Dylan Laube | RB | LV | 13 |  | -158 | -155 | +3 | 607 | ✓ agree (v1 pos #100, v2 pos #100) |
-| 375 | Andrew Ogletree | TE | IND | 13 |  | -158 | -150 | +8 | 651 | ✓ agree (v1 pos #92, v2 pos #90) |
+| 375 | Andrew Ogletree | TE | IND | 13 |  | -158 | -150 | +8 | 651 | ✓ agree (v1 pos #92, v2 pos #91) |
 | 376 | Owen Wright | RB | LV | 13 |  | -158 | -148 | +11 | 616 | β says: moved TB→LV +7.92 · 2 dome playoff wks +3 |
 | 377 | James Proche | WR | CLE | 11 |  | -159 | -151 | +8 | 472 | β says: moved TEN→CLE +7.94 |
 | 378 | Roschon Johnson | RB | CHI | 10 |  | -159 | -159 | +0 | 681 | v1 pos #102 vs v2 pos #106 |
@@ -408,11 +408,11 @@ Not a new ranking — the same logic the app runs, in a table.
 | 382 | Brycen Tremayne | WR | CAR | 5 |  | -160 | -163 | -3 | 490 | β says: QB EPA Bryce Young -2.75 |
 | 383 | Kendall Milton | RB | CIN | 6 |  | -160 | -160 | +0 | 657 | v1 pos #104 vs v2 pos #110 |
 | 384 | Quentin Skinner | WR | BUF | 7 |  | -160 | -143 | +17 |  | β says: QB EPA Josh Allen +8.92 · moved NYJ→BUF +8.01 |
-| 385 | Savion Williams | WR | GB | 11 | Q | -160 | -146 | +15 | 679 | β says: QB EPA Jordan Love +10 · Questionable +4.81 |
+| 385 | Savion Williams | WR | GB | 11 |  | -160 | -150 | +10 | 679 | β says: QB EPA Jordan Love +10 |
 | 386 | Kalel Mullings | RB | TEN | 9 |  | -161 | -159 | +2 | 690 | ✓ agree (v1 pos #105, v2 pos #108) |
 | 387 | Xavier Weaver | WR | ARI | 14 | Q | -161 | -155 | +6 | 647 | β says: Questionable +4.83 · 1 dome playoff wks +1.5 · QB EPA Jacoby Brissett -0.4 |
 | 388 | Jacob Saylors | RB | DET | 6 |  | -162 | -159 | +3 | 644 | ✓ agree (v1 pos #106, v2 pos #107) |
-| 389 | Kylen Granson | TE | TEN | 9 |  | -162 | -163 | -0 | 505 | ✓ agree (v1 pos #93, v2 pos #96) |
+| 389 | Kylen Granson | TE | TEN | 9 | O | -162 | -153 | +10 | 505 | ✓ agree (v1 pos #93, v2 pos #92) |
 | 390 | Craig Reynolds | RB | WAS | 7 |  | -162 | -153 | +10 | 614 | β says: moved DET→WAS +8.11 · 1 dome playoff wks +1.5 |
 | 391 | Dylan Drummond | WR | ATL | 11 |  | -162 | -162 | +1 | 251 | ✓ agree (v1 pos #146, v2 pos #145) |
 | 392 | Brady Cook | QB | MIA | 6 |  | -163 | -154 | +8 | 673 | ✓ agree (v1 pos #46, v2 pos #45) |
@@ -424,20 +424,20 @@ Not a new ranking — the same logic the app runs, in a table.
 | 398 | Jordan Mims | RB | PHI | 10 |  | -164 | -155 | +8 | 337 | β says: moved TEN→PHI +8.18 |
 | 399 | Ulysses Bentley IV | RB | NO | 8 |  | -164 | -154 | +10 | 644 | β says: moved IND→NO +8.18 · 1 dome playoff wks +1.5 |
 | 400 | Travis Homer | RB | PIT | 9 |  | -164 | -156 | +8 | 326 | β says: moved CHI→PIT +8.2 |
-| 401 | Eric Saubert | TE | SEA | 11 |  | -164 | -155 | +9 | 576 | ✓ agree (v1 pos #94, v2 pos #92) |
+| 401 | Eric Saubert | TE | SEA | 11 |  | -164 | -155 | +9 | 576 | ✓ agree (v1 pos #94, v2 pos #94) |
 | 402 | Jelani Woods | TE | NYJ | 13 |  | -166 | -175 | -9 | 243 | β says: QB EPA Geno Smith -9.12 |
-| 403 | Jared Wiley | TE | KC | 5 |  | -166 | -156 | +10 | 435 | ✓ agree (v1 pos #96, v2 pos #93) |
-| 404 | Fernando Mendoza | QB | LV | 13 |  | -166 |  |  | 109 | v1 pos #47 vs v2 pos #74 |
+| 403 | Jared Wiley | TE | KC | 5 | O | -166 | -146 | +20 | 435 | β says: Out +10 · QB EPA Patrick Mahomes +8.53 · 1 dome playoff wks +1.5 |
+| 404 | Fernando Mendoza | QB | LV | 13 |  | -166 |  |  | 108 | v1 pos #47 vs v2 pos #74 |
 | 405 | Jalen Brooks | WR | ARI | 14 |  | -167 | -166 | +1 | 581 | β says: 1 dome playoff wks +1.5 · QB EPA Jacoby Brissett -0.4 |
-| 406 | KeAndre Lambert-Smith | WR | LAC | 7 | Q | -167 | -157 | +10 | 649 | β says: Questionable +5 · 2 dome playoff wks +3 · QB EPA Justin Herbert +2.01 |
+| 406 | KeAndre Lambert-Smith | WR | LAC | 7 |  | -167 | -162 | +5 | 649 | β says: 2 dome playoff wks +3 · QB EPA Justin Herbert +2.01 |
 | 407 | Bo Melton | WR | GB | 11 |  | -167 | -157 | +10 | 665 | β says: QB EPA Jordan Love +10 |
 | 408 | Malachi Corley | WR | CLE | 11 |  | -167 | -167 | +0 | 242 | v1 pos #150 vs v2 pos #155 |
 | 409 | Ben Yurosek | TE | MIN | 6 |  | -168 | -164 | +4 | 641 | ✓ agree (v1 pos #97, v2 pos #99) |
 | 410 | Nick Westbrook-Ikhine | WR | IND | 13 |  | -168 | -152 | +17 | 687 | β says: moved MIA→IND +8.41 · QB EPA Daniel Jones +8.16 |
-| 411 | Robert Tonyan | TE | PIT | 9 |  | -168 | -156 | +12 | 619 | β says: moved KC→PIT +8.42 · QB EPA Aaron Rodgers +3.54 |
+| 411 | Robert Tonyan | TE | PIT | 9 |  | -168 | -156 | +12 | 619 | ✓ agree (v1 pos #98, v2 pos #95) |
 | 412 | Jalin Hyatt | WR | NYG | 8 |  | -170 | -167 | +3 | 686 | ✓ agree (v1 pos #152, v2 pos #154) |
 | 413 | Chris Manhertz | TE | NYG | 8 |  | -170 | -167 | +3 | 625 | ✓ agree (v1 pos #99, v2 pos #101) |
-| 414 | Tyler Huntley | QB | BAL | 13 |  | -171 | -171 | +0 | 690 | ✓ agree (v1 pos #48, v2 pos #46) |
+| 414 | Tyler Huntley | QB | BAL | 13 |  | -171 | -171 | +0 | 690 | ✓ agree (v1 pos #48, v2 pos #47) |
 | 415 | Pharaoh Brown | TE | IND | 13 |  | -171 | -154 | +17 | 395 | β says: moved ARI→IND +8.53 · QB EPA Daniel Jones +8.16 |
 | 416 | Colson Yankoff | TE | WAS | 7 |  | -171 | -170 | +1 | 678 | β says: 1 dome playoff wks +1.5 · QB EPA Jayden Daniels -0.6 |
 | 417 | Tylan Wallace | WR | CLE | 11 |  | -172 | -163 | +9 | 670 | β says: moved BAL→CLE +8.59 |
@@ -449,7 +449,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 423 | Tim Jones | WR | JAX | 7 |  | -173 | -168 | +5 | 642 | ✓ agree (v1 pos #159, v2 pos #158) |
 | 424 | Blake Whiteheart | TE | CLE | 11 |  | -173 | -173 | +0 | 417 | v1 pos #102 vs v2 pos #107 |
 | 425 | Payne Durham | TE | TB | 10 |  | -173 | -173 | +0 | 564 | v1 pos #103 vs v2 pos #108 |
-| 426 | Riley Leonard | QB | IND | 13 |  | -173 | -173 | +0 | 547 | ✓ agree (v1 pos #49, v2 pos #48) |
+| 426 | Riley Leonard | QB | IND | 13 | O | -173 | -163 | +10 | 547 | ✓ agree (v1 pos #49, v2 pos #46) |
 | 427 | Jack Westover | TE | WAS | 7 |  | -173 | -164 | +10 | 626 | β says: moved NE→WAS +8.67 · 1 dome playoff wks +1.5 · QB EPA Jayden Daniels -0.6 |
 | 428 | Jalen Royals | WR | KC | 5 |  | -174 | -164 | +10 | 686 | β says: QB EPA Patrick Mahomes +8.53 · 1 dome playoff wks +1.5 |
 | 429 | Gage Larvadain | WR | BAL | 13 |  | -176 | -166 | +9 | 648 | β says: moved CLE→BAL +8.79 · QB EPA Tyler Huntley +0.71 |
@@ -463,21 +463,21 @@ Not a new ranking — the same logic the app runs, in a table.
 | 437 | Hayden Rucci | TE | LAC | 7 |  | -178 | -164 | +14 | 516 | β says: moved MIA→LAC +8.89 · 2 dome playoff wks +3 · QB EPA Justin Herbert +2.01 |
 | 438 | Nick Kallerup | TE | SEA | 11 |  | -178 | -168 | +9 | 295 | β says: QB EPA Sam Darnold +9.32 |
 | 439 | Thomas Fidone II | TE | NYG | 8 |  | -178 | -174 | +3 | 645 | β says: QB EPA Jameis Winston +1.92 · 1 dome playoff wks +1.5 |
-| 440 | Kameron Johnson | WR | TB | 10 |  | -178 | -178 | +0 | 652 | ✓ agree (v1 pos #163, v2 pos #164) |
+| 440 | Kameron Johnson | WR | TB | 10 |  | -178 | -178 | +0 | 652 | ✓ agree (v1 pos #163, v2 pos #165) |
 | 441 | Bryce Oliver | WR | HOU | 8 |  | -179 | -164 | +15 | 543 | β says: moved TEN→HOU +8.94 · QB EPA C.J. Stroud +5.96 |
 | 442 | Dareke Young | WR | LV | 13 |  | -180 | -168 | +12 | 676 | β says: moved SEA→LV +8.98 · 2 dome playoff wks +3 · QB EPA Kirk Cousins -0.12 |
 | 443 | Deven Thompkins | WR | LV | 13 |  | -180 | -168 | +12 | 395 | β says: moved ATL→LV +9.02 · 2 dome playoff wks +3 · QB EPA Kirk Cousins -0.12 |
 | 444 | KhaDarel Hodge | WR | SF | 8 | Q | -181 | -157 | +24 | 695 | β says: moved ATL→SF +9.06 · QB EPA Brock Purdy +7.89 · Questionable +5.44 |
 | 445 | Jonathan Mingo | WR | DAL | 14 |  | -182 | -171 | +12 | 673 | β says: QB EPA Dak Prescott +10 · 1 dome playoff wks +1.5 |
 | 446 | Britain Covey | WR | PHI | 10 |  | -183 | -183 | -0 | 596 | β says: QB EPA Tanner McKee -0.31 |
-| 447 | Mitchell Trubisky | QB | TEN | 9 |  | -183 | -173 | +11 | 655 | ✓ agree (v1 pos #50, v2 pos #47) |
+| 447 | Mitchell Trubisky | QB | TEN | 9 |  | -183 | -173 | +11 | 655 | ✓ agree (v1 pos #50, v2 pos #48) |
 | 448 | David Moore | WR | CAR | 5 |  | -186 | -188 | -3 | 611 | β says: QB EPA Bryce Young -2.75 |
 | 449 | Tai Felton | WR | MIN | 6 |  | -186 | -183 | +4 | 693 | ✓ agree (v1 pos #171, v2 pos #172) |
 | 450 | Xavier Gipson | WR | PHI | 10 |  | -187 | -187 | -0 | 531 | β says: QB EPA Tanner McKee -0.31 |
 | 451 | Alex Bachman | WR | LAR | 11 |  | -189 | -168 | +21 | 429 | β says: QB EPA Matthew Stafford +10 · moved LV→LAR +9.46 · 1 dome playoff wks +1.5 |
 | 452 | Derius Davis | WR | LAC | 7 |  | -190 | -184 | +5 | 615 | ✓ agree (v1 pos #174, v2 pos #177) |
 | 453 | Devin Duvernay | WR | ARI | 14 |  | -190 | -179 | +11 | 636 | β says: moved CHI→ARI +9.48 · 1 dome playoff wks +1.5 · QB EPA Jacoby Brissett -0.4 |
-| 454 | Anthony Gould | WR | IND | 13 |  | -190 | -182 | +8 | 573 | β says: QB EPA Daniel Jones +8.16 |
+| 454 | Anthony Gould | WR | IND | 13 | Q | -190 | -176 | +14 | 573 | β says: QB EPA Daniel Jones +8.16 · Questionable +5.7 |
 | 455 | Nikko Remigio | WR | KC | 5 |  | -190 | -180 | +10 | 498 | β says: QB EPA Patrick Mahomes +8.53 · 1 dome playoff wks +1.5 |
 | 456 | Ke'Shawn Williams | WR | CIN | 6 |  | -192 | -187 | +5 | 636 | ✓ agree (v1 pos #178, v2 pos #181) |
 | 457 | Laquon Treadwell | WR | IND | 13 |  | -194 | -186 | +8 | 674 | ✓ agree (v1 pos #179, v2 pos #179) |
@@ -498,21 +498,21 @@ Not a new ranking — the same logic the app runs, in a table.
 | 472 | Myles Price | WR | MIN | 6 |  | -194 | -190 | +4 | 700 | β says: 2 dome playoff wks +3 · QB EPA Kyler Murray +0.72 |
 | 473 | Dalevon Campbell | WR | LAC | 7 | Q | -194 | -174 | +21 | 384 | β says: moved CAR→LAC +9.71 · Questionable +5.82 · 2 dome playoff wks +3 |
 | 474 | Chris Oladokun | QB | KC | 5 | Q | -221 | -213 | +8 | 578 | ✓ agree (v1 pos #51, v2 pos #49) |
-| 475 | Aidan O'Connell | QB | LV | 13 |  | -226 | -223 | +3 | 609 | ✓ agree (v1 pos #52, v2 pos #50) |
+| 475 | Aidan O'Connell | QB | LV | 13 | O | -226 | -213 | +13 | 609 | ✓ agree (v1 pos #52, v2 pos #50) |
 | 476 | Mason Rudolph | QB | PIT | 9 |  | -236 | -236 | +0 | 655 | ✓ agree (v1 pos #53, v2 pos #54) |
-| 477 | Joe Milton III | QB | PHI | 10 |  | -238 | -228 | +10 | 503 | ✓ agree (v1 pos #54, v2 pos #51) |
-| 478 | Tanner McKee | QB | PHI | 10 |  | -240 | -240 | +0 | 677 | ✓ agree (v1 pos #55, v2 pos #55) |
+| 477 | Joe Milton III | QB | PHI | 10 | O | -238 | -218 | +20 | 503 | ✓ agree (v1 pos #54, v2 pos #51) |
+| 478 | Tanner McKee | QB | PHI | 10 |  | -240 | -240 | +0 | 677 | ✓ agree (v1 pos #55, v2 pos #56) |
 | 479 | Shane Buechele | QB | BUF | 7 |  | -240 | -230 | +10 | 634 | β says: moved KC→BUF +10 |
 | 480 | Andy Dalton | QB | PHI | 10 |  | -241 | -231 | +10 | 657 | β says: moved CAR→PHI +10 |
-| 481 | Cooper Rush | QB | ATL | 11 |  | -257 | -247 | +10 | 682 | ✓ agree (v1 pos #58, v2 pos #56) |
+| 481 | Cooper Rush | QB | ATL | 11 | O | -257 | -237 | +20 | 682 | ✓ agree (v1 pos #58, v2 pos #55) |
 | 482 | Kenny Pickett | QB | CAR | 5 |  | -268 | -258 | +10 | 666 | ✓ agree (v1 pos #59, v2 pos #57) |
 | 483 | Max Brosmer | QB | MIN | 6 | O | -272 | -259 | +13 | 503 | ✓ agree (v1 pos #60, v2 pos #58) |
-| 484 | Tyson Bagent | QB | CHI | 10 |  | -285 | -285 | +0 | 546 | ✓ agree (v1 pos #61, v2 pos #60) |
+| 484 | Tyson Bagent | QB | CHI | 10 |  | -285 | -285 | +0 | 546 | ✓ agree (v1 pos #61, v2 pos #61) |
 | 485 | Teddy Bridgewater | QB | DET | 6 |  | -291 | -278 | +13 | 999 | ✓ agree (v1 pos #62, v2 pos #59) |
-| 486 | Joshua Dobbs | QB | DET | 6 |  | -298 | -285 | +13 | 687 | ✓ agree (v1 pos #63, v2 pos #61) |
-| 487 | Gardner Minshew | QB | ARI | 14 |  | -300 | -288 | +12 | 650 | ✓ agree (v1 pos #64, v2 pos #62) |
-| 488 | Zach Wilson | QB | NO | 8 |  | -301 | -290 | +12 | 684 | ✓ agree (v1 pos #65, v2 pos #63) |
-| 489 | Jalen Milroe | QB | SEA | 11 | O | -305 | -295 | +10 | 495 | ✓ agree (v1 pos #66, v2 pos #64) |
+| 486 | Joshua Dobbs | QB | DET | 6 |  | -298 | -285 | +13 | 687 | ✓ agree (v1 pos #63, v2 pos #62) |
+| 487 | Gardner Minshew | QB | ARI | 14 |  | -300 | -288 | +12 | 650 | ✓ agree (v1 pos #64, v2 pos #63) |
+| 488 | Zach Wilson | QB | NO | 8 | O | -301 | -280 | +22 | 684 | β says: moved MIA→NO +10 · Out +10 · 1 dome playoff wks +1.5 |
+| 489 | Jalen Milroe | QB | SEA | 11 | O | -305 | -295 | +10 | 497 | ✓ agree (v1 pos #66, v2 pos #64) |
 | 490 | Anthony Richardson | QB | IND | 13 |  | -305 | -305 | +0 | 476 | ✓ agree (v1 pos #67, v2 pos #68) |
 | 491 | Drew Lock | QB | SEA | 11 |  | -306 | -306 | +0 | 691 | ✓ agree (v1 pos #68, v2 pos #69) |
 | 492 | Brett Rypien | QB | TB | 10 |  | -307 | -297 | +10 | 606 | β says: moved CIN→TB +10 |
