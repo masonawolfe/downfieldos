@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-17T09:34:02.937Z
-// Reconciled: 2026-10-19T09:52:18.714Z against availability_2026.json
-//             (generated 2026-10-19T09:48:58.943Z) — 25 swap(s),
+// Reconciled: 2026-10-19T10:12:30.692Z against availability_2026.json
+//             (generated 2026-10-19T09:48:58.943Z) — 0 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -51009,8 +51009,8 @@ export const ROSTERS_META = {
   "generated": "2026-10-17T09:34:02.937Z",
   "availability_stamp": "2026-10-19T09:48:58.943Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-19T09:52:18.714Z",
-  "swaps_this_run": 25,
+  "reconciled_at": "2026-10-19T10:12:30.692Z",
+  "swaps_this_run": 0,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
