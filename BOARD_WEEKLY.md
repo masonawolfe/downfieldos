@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-10-19T10:12:33.282Z |
+| This build | 2026-10-20T09:25:17.890Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-19T09:52:21.742Z |
-| Ranked rows this build | 497 |
+| Prior build | 2026-10-19T10:12:33.283Z |
+| Ranked rows this build | 495 |
 | Ranked rows prior build | 497 |
 
 ---
@@ -18,7 +18,13 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 200 | Jeremy McNichols | RB | WAS | -86 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 116 | Jacory Croskey-Merritt | RB | WAS | -19 |
+| 117 | Romeo Doubs | WR | NE | -21 |
+| 220 | Tanner Hudson | TE | CIN | -96 |
