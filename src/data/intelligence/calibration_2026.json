@@ -1,105 +1,108 @@
 {
   "meta": {
     "season": 2026,
-    "generated_utc": "2026-10-21T09:32:55.281Z",
+    "generated_utc": "2026-10-21T12:10:22.265Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
-    "actuals_generated_utc": "2026-10-14T12:13:26.662Z",
+    "actuals_generated_utc": "2026-10-21T12:10:21.701Z",
     "weekly_board_generated_utc": "2026-09-18T01:36:59.740Z",
     "player_board_generated_utc": "2026-10-21T09:32:54.719Z",
     "scoring_note": "projected uses WEEKLY_BOARD_2026.weekly_value (base + matchup + env). actual uses fantasy_points_ppr from nflverse."
   },
   "overall": {
-    "n": 1560,
-    "mean_error": 0.45,
-    "mean_abs_error": 5.28,
-    "rmse": 6.94
+    "n": 1833,
+    "mean_error": 0.48,
+    "mean_abs_error": 5.26,
+    "rmse": 6.92
   },
   "by_pos": {
     "QB": {
-      "n": 168,
-      "mean_error": -0.47,
-      "mean_abs_error": 6.89,
-      "rmse": 8.28
+      "n": 194,
+      "mean_error": -0.46,
+      "mean_abs_error": 6.78,
+      "rmse": 8.12
     },
     "RB": {
-      "n": 391,
-      "mean_error": 0.22,
-      "mean_abs_error": 5.26,
+      "n": 459,
+      "mean_error": 0.33,
+      "mean_abs_error": 5.24,
       "rmse": 7
     },
     "WR": {
-      "n": 653,
-      "mean_error": 0.87,
-      "mean_abs_error": 5.43,
-      "rmse": 7.1
+      "n": 769,
+      "mean_error": 0.84,
+      "mean_abs_error": 5.41,
+      "rmse": 7.09
     },
     "TE": {
-      "n": 348,
-      "mean_error": 0.37,
-      "mean_abs_error": 4.26,
-      "rmse": 5.74
+      "n": 411,
+      "mean_error": 0.4,
+      "mean_abs_error": 4.27,
+      "rmse": 5.8
     }
   },
   "by_flag_fired_vs_not": {
     "dome_home": {
       "fired": {
-        "n": 153,
-        "mean_error": 0.8,
-        "mean_abs_error": 5.46,
-        "rmse": 7.15
+        "n": 173,
+        "mean_error": 0.69,
+        "mean_abs_error": 5.47,
+        "rmse": 7.22
       },
       "not_fired": {
-        "n": 1407,
-        "mean_error": 0.41,
-        "mean_abs_error": 5.26,
-        "rmse": 6.92
+        "n": 1660,
+        "mean_error": 0.45,
+        "mean_abs_error": 5.24,
+        "rmse": 6.89
       }
     },
     "short_week": {
       "fired": {
-        "n": 81,
-        "mean_error": 2.49,
-        "mean_abs_error": 5.73,
-        "rmse": 7.46
+        "n": 101,
+        "mean_error": 2.46,
+        "mean_abs_error": 5.58,
+        "rmse": 7.2
       },
       "not_fired": {
-        "n": 1479,
-        "mean_error": 0.34,
-        "mean_abs_error": 5.26,
-        "rmse": 6.91
+        "n": 1732,
+        "mean_error": 0.36,
+        "mean_abs_error": 5.24,
+        "rmse": 6.9
       }
     },
     "bye_return": {
       "fired": {
-        "n": 0
+        "n": 19,
+        "mean_error": 4.87,
+        "mean_abs_error": 6.73,
+        "rmse": 8.6
       },
       "not_fired": {
-        "n": 1560,
-        "mean_error": 0.45,
-        "mean_abs_error": 5.28,
-        "rmse": 6.94
+        "n": 1814,
+        "mean_error": 0.43,
+        "mean_abs_error": 5.24,
+        "rmse": 6.9
       }
     },
     "tz_travel": {
       "fired": {
-        "n": 146,
-        "mean_error": -0.05,
-        "mean_abs_error": 5.32,
-        "rmse": 6.74
+        "n": 190,
+        "mean_error": 0.41,
+        "mean_abs_error": 5.22,
+        "rmse": 6.68
       },
       "not_fired": {
-        "n": 1414,
-        "mean_error": 0.5,
-        "mean_abs_error": 5.28,
-        "rmse": 6.96
+        "n": 1643,
+        "mean_error": 0.48,
+        "mean_abs_error": 5.26,
+        "rmse": 6.95
       }
     },
     "matchup": {
       "fired": {
-        "n": 1560,
-        "mean_error": 0.45,
-        "mean_abs_error": 5.28,
-        "rmse": 6.94
+        "n": 1833,
+        "mean_error": 0.48,
+        "mean_abs_error": 5.26,
+        "rmse": 6.92
       },
       "not_fired": {
         "n": 0
@@ -328,6 +331,26 @@
       "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90"
     },
     {
+      "gsis_id": "00-0040719",
+      "name": "Bhayshul Tuten",
+      "pos": "RB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 2.71,
+      "actual": 24.7,
+      "error": 21.99,
+      "abs_error": 21.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0039491",
       "name": "Jalen Coker",
       "pos": "WR",
@@ -346,6 +369,26 @@
         "matchup": true
       },
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
+      "gsis_id": "00-0041489",
+      "name": "Germie Bernard",
+      "pos": "WR",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 3.95,
+      "actual": 25.7,
+      "error": 21.75,
+      "abs_error": 21.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 31.6 WR fpts/g (median 31.1) +0.50"
     },
     {
       "gsis_id": "00-0036963",
@@ -428,6 +471,26 @@
       "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0038563",
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 5.71,
+      "actual": 26.7,
+      "error": 20.99,
+      "abs_error": 20.99,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0040590",
       "name": "Konata Mumpfield",
       "pos": "WR",
@@ -446,66 +509,6 @@
         "matchup": true
       },
       "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00"
-    },
-    {
-      "gsis_id": "00-0035704",
-      "name": "Drew Lock",
-      "pos": "QB",
-      "team": "SEA",
-      "opponent": "ARI",
-      "week": 2,
-      "projected": 0.63,
-      "actual": 21.4,
-      "error": 20.77,
-      "abs_error": 20.77,
-      "flags": {
-        "dome_home": false,
-        "short_week": false,
-        "bye_return": false,
-        "tz_travel": false,
-        "matchup": true
-      },
-      "rationale": "ARI allows 18.5 QB fpts/g (median 17.9) +0.60"
-    },
-    {
-      "gsis_id": "00-0037840",
-      "name": "Kyren Williams",
-      "pos": "RB",
-      "team": "LAR",
-      "opponent": "PHI",
-      "week": 4,
-      "projected": 16.02,
-      "actual": 36.7,
-      "error": 20.68,
-      "abs_error": 20.68,
-      "flags": {
-        "dome_home": false,
-        "short_week": false,
-        "bye_return": false,
-        "tz_travel": true,
-        "matchup": true
-      },
-      "rationale": "PHI allows 23.0 RB fpts/g (median 22.2) +0.80 · 3h TZ delta -0.50"
-    },
-    {
-      "gsis_id": "00-0039918",
-      "name": "Caleb Williams",
-      "pos": "QB",
-      "team": "CHI",
-      "opponent": "CAR",
-      "week": 1,
-      "projected": 16.67,
-      "actual": 37.26,
-      "error": 20.59,
-      "abs_error": 20.59,
-      "flags": {
-        "dome_home": false,
-        "short_week": false,
-        "bye_return": false,
-        "tz_travel": false,
-        "matchup": true
-      },
-      "rationale": "CAR allows 15.6 QB fpts/g (median 17.9) -2.30"
     }
   ],
   "rows": [
@@ -610,6 +613,26 @@
       "rationale": "base pace, no context adjustments fired"
     },
     {
+      "gsis_id": "00-0023459",
+      "name": "Aaron Rodgers",
+      "pos": "QB",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 18.16,
+      "actual": 16.02,
+      "error": -2.14,
+      "abs_error": 2.14,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 21.0 QB fpts/g (median 17.9) +3.10"
+    },
+    {
       "gsis_id": "00-0026498",
       "name": "Matthew Stafford",
       "pos": "QB",
@@ -708,6 +731,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 14.4 QB fpts/g (median 17.9) -3.50 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0026498",
+      "name": "Matthew Stafford",
+      "pos": "QB",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 23,
+      "actual": 16.88,
+      "error": -6.12,
+      "abs_error": 6.12,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 18.5 QB fpts/g (median 17.9) +0.60 · dome home +0.50"
     },
     {
       "gsis_id": "00-0027973",
@@ -850,6 +893,26 @@
       "rationale": "NE allows 16.0 QB fpts/g (median 17.9) -1.90 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0029604",
+      "name": "Kirk Cousins",
+      "pos": "QB",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 8.55,
+      "actual": 18.52,
+      "error": 9.97,
+      "abs_error": 9.97,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 14.4 QB fpts/g (median 17.9) -3.50 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0030279",
       "name": "Keenan Allen",
       "pos": "WR",
@@ -930,6 +993,26 @@
       "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
     },
     {
+      "gsis_id": "00-0030279",
+      "name": "Keenan Allen",
+      "pos": "WR",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 14.75,
+      "actual": 16.2,
+      "error": 1.45,
+      "abs_error": 1.45,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0030506",
       "name": "Travis Kelce",
       "pos": "TE",
@@ -1008,6 +1091,26 @@
         "matchup": true
       },
       "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50"
+    },
+    {
+      "gsis_id": "00-0030506",
+      "name": "Travis Kelce",
+      "pos": "TE",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": 8.94,
+      "actual": 9.3,
+      "error": 0.36,
+      "abs_error": 0.36,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 10.5 TE fpts/g (median 13.6) -3.10 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0030565",
@@ -1110,6 +1213,26 @@
       "rationale": "CLE allows 13.9 QB fpts/g (median 17.9) -4.00"
     },
     {
+      "gsis_id": "00-0030565",
+      "name": "Geno Smith",
+      "pos": "QB",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 11.96,
+      "actual": 11.98,
+      "error": 0.02,
+      "abs_error": 0.02,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 16.0 QB fpts/g (median 17.9) -1.90"
+    },
+    {
       "gsis_id": "00-0031381",
       "name": "Davante Adams",
       "pos": "WR",
@@ -1208,6 +1331,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0031381",
+      "name": "Davante Adams",
+      "pos": "WR",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 15.52,
+      "actual": 6.9,
+      "error": -8.62,
+      "abs_error": 8.62,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90 · dome home +0.50"
     },
     {
       "gsis_id": "00-0031408",
@@ -1310,6 +1453,26 @@
       "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0031408",
+      "name": "Mike Evans",
+      "pos": "WR",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 14.5,
+      "actual": 12.4,
+      "error": -2.1,
+      "abs_error": 2.1,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
       "gsis_id": "00-0031484",
       "name": "Chris Manhertz",
       "pos": "TE",
@@ -1328,6 +1491,26 @@
         "matchup": true
       },
       "rationale": "ARI allows 17.1 TE fpts/g (median 13.6) +3.50"
+    },
+    {
+      "gsis_id": "00-0031484",
+      "name": "Chris Manhertz",
+      "pos": "TE",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": -0.67,
+      "actual": 0,
+      "error": 0.67,
+      "abs_error": 0.67,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 12.5 TE fpts/g (median 13.6) -1.10"
     },
     {
       "gsis_id": "00-0031503",
@@ -1410,6 +1593,26 @@
       "rationale": "WAS allows 19.9 QB fpts/g (median 17.9) +2.00"
     },
     {
+      "gsis_id": "00-0031503",
+      "name": "Jameis Winston",
+      "pos": "QB",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 10.29,
+      "actual": 6.48,
+      "error": -3.81,
+      "abs_error": 3.81,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 15.2 QB fpts/g (median 17.9) -2.70"
+    },
+    {
       "gsis_id": "00-0031588",
       "name": "Stefon Diggs",
       "pos": "WR",
@@ -1490,6 +1693,26 @@
       "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0031588",
+      "name": "Stefon Diggs",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 13.07,
+      "actual": 16.4,
+      "error": 3.33,
+      "abs_error": 3.33,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0031610",
       "name": "Darren Waller",
       "pos": "TE",
@@ -1568,6 +1791,26 @@
         "matchup": true
       },
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
+    },
+    {
+      "gsis_id": "00-0031610",
+      "name": "Darren Waller",
+      "pos": "TE",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 6.61,
+      "actual": 0,
+      "error": -6.61,
+      "abs_error": 6.61,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0032104",
@@ -1668,6 +1911,26 @@
         "matchup": true
       },
       "rationale": "5h TZ delta -0.83 · PHI allows 23.0 RB fpts/g (median 22.2) +0.80"
+    },
+    {
+      "gsis_id": "00-0032104",
+      "name": "Ameer Abdullah",
+      "pos": "RB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": -0.41,
+      "actual": 0,
+      "error": 0.41,
+      "abs_error": 0.41,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83"
     },
     {
       "gsis_id": "00-0032268",
@@ -1830,6 +2093,26 @@
       "rationale": "NO allows 12.5 TE fpts/g (median 13.6) -1.10"
     },
     {
+      "gsis_id": "00-0032392",
+      "name": "Austin Hooper",
+      "pos": "TE",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 3.86,
+      "actual": 1.6,
+      "error": -2.26,
+      "abs_error": 2.26,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 12.9 TE fpts/g (median 13.6) -0.70"
+    },
+    {
       "gsis_id": "00-0032398",
       "name": "Chris Moore",
       "pos": "WR",
@@ -1990,6 +2273,26 @@
       "rationale": "base pace, no context adjustments fired"
     },
     {
+      "gsis_id": "00-0032464",
+      "name": "Kalif Raymond",
+      "pos": "WR",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 5.73,
+      "actual": 3.8,
+      "error": -1.93,
+      "abs_error": 1.93,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
       "gsis_id": "00-0032764",
       "name": "Derrick Henry",
       "pos": "RB",
@@ -2088,6 +2391,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
+    },
+    {
+      "gsis_id": "00-0032764",
+      "name": "Derrick Henry",
+      "pos": "RB",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 16.69,
+      "actual": 5,
+      "error": -11.69,
+      "abs_error": 11.69,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
     },
     {
       "gsis_id": "00-0032775",
@@ -2270,6 +2593,26 @@
       "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
     },
     {
+      "gsis_id": "00-0032951",
+      "name": "Laquon Treadwell",
+      "pos": "WR",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 4,
+      "actual": 4.1,
+      "error": 0.1,
+      "abs_error": 0.1,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0033077",
       "name": "Dak Prescott",
       "pos": "QB",
@@ -2370,6 +2713,26 @@
       "rationale": "TB allows 21.0 QB fpts/g (median 17.9) +3.10 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0033077",
+      "name": "Dak Prescott",
+      "pos": "QB",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 17.22,
+      "actual": 11.02,
+      "error": -6.2,
+      "abs_error": 6.2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 15.6 QB fpts/g (median 17.9) -2.30"
+    },
+    {
       "gsis_id": "00-0033090",
       "name": "Hunter Henry",
       "pos": "TE",
@@ -2468,6 +2831,26 @@
         "matchup": true
       },
       "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50"
+    },
+    {
+      "gsis_id": "00-0033090",
+      "name": "Hunter Henry",
+      "pos": "TE",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 11.22,
+      "actual": 14.8,
+      "error": 3.58,
+      "abs_error": 3.58,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 14.3 TE fpts/g (median 13.6) +0.70"
     },
     {
       "gsis_id": "00-0033106",
@@ -2650,6 +3033,26 @@
       "rationale": "BUF allows 7.5 TE fpts/g (median 13.6) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0033110",
+      "name": "Tyler Higbee",
+      "pos": "TE",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 11.11,
+      "actual": 4.2,
+      "error": -6.91,
+      "abs_error": 6.91,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 17.1 TE fpts/g (median 13.6) +3.50 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0033119",
       "name": "Jacoby Brissett",
       "pos": "QB",
@@ -2750,6 +3153,26 @@
       "rationale": "DET allows 19.0 QB fpts/g (median 17.9) +1.10"
     },
     {
+      "gsis_id": "00-0033119",
+      "name": "Jacoby Brissett",
+      "pos": "QB",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 16.72,
+      "actual": 6.92,
+      "error": -9.8,
+      "abs_error": 9.8,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 16.8 QB fpts/g (median 17.9) -1.10"
+    },
+    {
       "gsis_id": "00-0033217",
       "name": "Mo Alie-Cox",
       "pos": "TE",
@@ -2788,6 +3211,26 @@
         "matchup": true
       },
       "rationale": "PIT allows 16.7 TE fpts/g (median 13.6) +3.10"
+    },
+    {
+      "gsis_id": "00-0033217",
+      "name": "Mo Alie-Cox",
+      "pos": "TE",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 3.39,
+      "actual": 7.1,
+      "error": 3.71,
+      "abs_error": 3.71,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
     },
     {
       "gsis_id": "00-0033246",
@@ -2868,6 +3311,26 @@
         "matchup": true
       },
       "rationale": "JAX allows 14.9 TE fpts/g (median 13.6) +1.30 · 5h TZ delta -0.83"
+    },
+    {
+      "gsis_id": "00-0033246",
+      "name": "Johnny Mundt",
+      "pos": "TE",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 1.68,
+      "actual": 1.4,
+      "error": -0.28,
+      "abs_error": 0.28,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0033280",
@@ -2970,6 +3433,26 @@
       "rationale": "SEA allows 19.2 RB fpts/g (median 22.2) -3.00"
     },
     {
+      "gsis_id": "00-0033280",
+      "name": "Christian McCaffrey",
+      "pos": "RB",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 27.71,
+      "actual": 30.7,
+      "error": 2.99,
+      "abs_error": 2.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 25.4 RB fpts/g (median 22.2) +3.20"
+    },
+    {
       "gsis_id": "00-0033288",
       "name": "George Kittle",
       "pos": "TE",
@@ -3068,6 +3551,26 @@
         "matchup": true
       },
       "rationale": "SEA allows 14.7 TE fpts/g (median 13.6) +1.10"
+    },
+    {
+      "gsis_id": "00-0033288",
+      "name": "George Kittle",
+      "pos": "TE",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 16.91,
+      "actual": 17.9,
+      "error": 0.99,
+      "abs_error": 0.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 15.8 TE fpts/g (median 13.6) +2.20"
     },
     {
       "gsis_id": "00-0033293",
@@ -3250,6 +3753,26 @@
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0033307",
+      "name": "Kendrick Bourne",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 8.58,
+      "actual": 9.7,
+      "error": 1.12,
+      "abs_error": 1.12,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
+    },
+    {
       "gsis_id": "00-0033319",
       "name": "Nick Mullens",
       "pos": "QB",
@@ -3290,6 +3813,26 @@
       "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0033375",
+      "name": "Tim Patrick",
+      "pos": "WR",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 1.98,
+      "actual": 2.5,
+      "error": 0.52,
+      "abs_error": 0.52,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00"
+    },
+    {
       "gsis_id": "00-0033376",
       "name": "Patrick Ricard",
       "pos": "RB",
@@ -3328,6 +3871,26 @@
         "matchup": true
       },
       "rationale": "ARI allows 27.1 RB fpts/g (median 22.2) +4.00"
+    },
+    {
+      "gsis_id": "00-0033439",
+      "name": "Pharaoh Brown",
+      "pos": "TE",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 1.02,
+      "actual": 1.7,
+      "error": 0.68,
+      "abs_error": 0.68,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
     },
     {
       "gsis_id": "00-0033526",
@@ -3610,6 +4173,26 @@
       "rationale": "SF allows 15.1 TE fpts/g (median 13.6) +1.50"
     },
     {
+      "gsis_id": "00-0033576",
+      "name": "Eric Saubert",
+      "pos": "TE",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": -0.11,
+      "actual": 0,
+      "error": 0.11,
+      "abs_error": 0.11,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "short week (Thu after Sun) -1.00 · DEN allows 13.7 TE fpts/g (median 13.6) +0.10"
+    },
+    {
       "gsis_id": "00-0033589",
       "name": "David Moore",
       "pos": "WR",
@@ -3648,6 +4231,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0033589",
+      "name": "David Moore",
+      "pos": "WR",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": -2.7,
+      "actual": 3.7,
+      "error": 6.4,
+      "abs_error": 6.4,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0033662",
@@ -3708,6 +4311,26 @@
         "matchup": true
       },
       "rationale": "CIN allows 21.0 TE fpts/g (median 13.6) +4.00"
+    },
+    {
+      "gsis_id": "00-0033854",
+      "name": "Dare Ogunbowale",
+      "pos": "RB",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 4.76,
+      "actual": 0,
+      "error": -4.76,
+      "abs_error": 4.76,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50"
     },
     {
       "gsis_id": "00-0033858",
@@ -3850,6 +4473,26 @@
       "rationale": "LV allows 17.4 QB fpts/g (median 17.9) -0.50"
     },
     {
+      "gsis_id": "00-0033873",
+      "name": "Patrick Mahomes",
+      "pos": "QB",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": 18.89,
+      "actual": 10.48,
+      "error": -8.41,
+      "abs_error": 8.41,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 14.3 QB fpts/g (median 17.9) -3.60 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0033881",
       "name": "Evan Engram",
       "pos": "TE",
@@ -3948,6 +4591,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 10.5 TE fpts/g (median 13.6) -3.10"
+    },
+    {
+      "gsis_id": "00-0033881",
+      "name": "Evan Engram",
+      "pos": "TE",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 6.48,
+      "actual": 3.3,
+      "error": -3.18,
+      "abs_error": 3.18,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 14.7 TE fpts/g (median 13.6) +1.10 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0033885",
@@ -4070,6 +4733,26 @@
       "rationale": "MIN allows 19.9 RB fpts/g (median 22.2) -2.30 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0033906",
+      "name": "Alvin Kamara",
+      "pos": "RB",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 13.32,
+      "actual": 14.9,
+      "error": 1.58,
+      "abs_error": 1.58,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 26.0 RB fpts/g (median 22.2) +3.80"
+    },
+    {
       "gsis_id": "00-0033908",
       "name": "Cooper Kupp",
       "pos": "WR",
@@ -4170,6 +4853,26 @@
       "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20"
     },
     {
+      "gsis_id": "00-0033908",
+      "name": "Cooper Kupp",
+      "pos": "WR",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 2.39,
+      "actual": 10,
+      "error": 7.61,
+      "abs_error": 7.61,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0033921",
       "name": "Chris Godwin Jr.",
       "pos": "WR",
@@ -4268,6 +4971,46 @@
         "matchup": true
       },
       "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
+      "gsis_id": "00-0033921",
+      "name": "Chris Godwin Jr.",
+      "pos": "WR",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 12.9,
+      "actual": 7.7,
+      "error": -5.2,
+      "abs_error": 5.2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
+      "gsis_id": "00-0033955",
+      "name": "Jeremy McNichols",
+      "pos": "RB",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 5.54,
+      "actual": 1.3,
+      "error": -4.24,
+      "abs_error": 4.24,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0034272",
@@ -4430,6 +5173,26 @@
       "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0034348",
+      "name": "Courtland Sutton",
+      "pos": "WR",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 7.81,
+      "actual": 3.9,
+      "error": -3.91,
+      "abs_error": 3.91,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0034351",
       "name": "Dallas Goedert",
       "pos": "TE",
@@ -4488,6 +5251,26 @@
         "matchup": true
       },
       "rationale": "JAX allows 14.9 TE fpts/g (median 13.6) +1.30 · 5h TZ delta -0.83"
+    },
+    {
+      "gsis_id": "00-0034351",
+      "name": "Dallas Goedert",
+      "pos": "TE",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 12.34,
+      "actual": 12.1,
+      "error": -0.24,
+      "abs_error": 0.24,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0034365",
@@ -4648,6 +5431,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
+    },
+    {
+      "gsis_id": "00-0034383",
+      "name": "Dalton Schultz",
+      "pos": "TE",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 10.75,
+      "actual": 7.3,
+      "error": -3.45,
+      "abs_error": 3.45,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "JAX allows 14.9 TE fpts/g (median 13.6) +1.30 · 6h TZ delta -1.00"
     },
     {
       "gsis_id": "00-0034419",
@@ -4928,6 +5731,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 9.7 TE fpts/g (median 13.6) -3.90"
+    },
+    {
+      "gsis_id": "00-0034753",
+      "name": "Mark Andrews",
+      "pos": "TE",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 6.37,
+      "actual": 1.4,
+      "error": -4.97,
+      "abs_error": 4.97,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 12.9 TE fpts/g (median 13.6) -0.70"
     },
     {
       "gsis_id": "00-0034771",
@@ -5350,6 +6173,26 @@
       "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0034837",
+      "name": "Calvin Ridley",
+      "pos": "WR",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 10.76,
+      "actual": 0,
+      "error": -10.76,
+      "abs_error": 10.76,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0034844",
       "name": "Saquon Barkley",
       "pos": "RB",
@@ -5650,6 +6493,26 @@
       "rationale": "LAR allows 16.8 QB fpts/g (median 17.9) -1.10 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0034857",
+      "name": "Josh Allen",
+      "pos": "QB",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 23.29,
+      "actual": 18.3,
+      "error": -4.99,
+      "abs_error": 4.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 17.4 QB fpts/g (median 17.9) -0.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0034869",
       "name": "Sam Darnold",
       "pos": "QB",
@@ -5728,6 +6591,26 @@
         "matchup": true
       },
       "rationale": "base pace, no context adjustments fired"
+    },
+    {
+      "gsis_id": "00-0034869",
+      "name": "Sam Darnold",
+      "pos": "QB",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 11.67,
+      "actual": 11.02,
+      "error": -0.65,
+      "abs_error": 0.65,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 14.6 QB fpts/g (median 17.9) -3.30 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0034960",
@@ -5830,6 +6713,26 @@
       "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0034960",
+      "name": "Jakobi Meyers",
+      "pos": "WR",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 6.2,
+      "actual": 13.3,
+      "error": 7.1,
+      "abs_error": 7.1,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0034975",
       "name": "Justice Hill",
       "pos": "RB",
@@ -5930,6 +6833,26 @@
       "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
     },
     {
+      "gsis_id": "00-0034975",
+      "name": "Justice Hill",
+      "pos": "RB",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 6.42,
+      "actual": 3.9,
+      "error": -2.52,
+      "abs_error": 2.52,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
+    },
+    {
       "gsis_id": "00-0034981",
       "name": "Foster Moreau",
       "pos": "TE",
@@ -6028,6 +6951,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
+    },
+    {
+      "gsis_id": "00-0034981",
+      "name": "Foster Moreau",
+      "pos": "TE",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 2.14,
+      "actual": 14.7,
+      "error": 12.56,
+      "abs_error": 12.56,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "JAX allows 14.9 TE fpts/g (median 13.6) +1.30 · 6h TZ delta -1.00"
     },
     {
       "gsis_id": "00-0035021",
@@ -6168,6 +7111,26 @@
         "matchup": true
       },
       "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0035208",
+      "name": "Olamide Zaccheaus",
+      "pos": "WR",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 9.58,
+      "actual": 0,
+      "error": -9.58,
+      "abs_error": 9.58,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
     },
     {
       "gsis_id": "00-0035228",
@@ -6450,6 +7413,26 @@
       "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0035250",
+      "name": "Devin Singletary",
+      "pos": "RB",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 4.98,
+      "actual": 4.3,
+      "error": -0.68,
+      "abs_error": 0.68,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 20.9 RB fpts/g (median 22.2) -1.30"
+    },
+    {
       "gsis_id": "00-0035261",
       "name": "Tony Pollard",
       "pos": "RB",
@@ -6548,6 +7531,26 @@
         "matchup": true
       },
       "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50"
+    },
+    {
+      "gsis_id": "00-0035261",
+      "name": "Tony Pollard",
+      "pos": "RB",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 9.48,
+      "actual": 7.6,
+      "error": -1.88,
+      "abs_error": 1.88,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 20.4 RB fpts/g (median 22.2) -1.80"
     },
     {
       "gsis_id": "00-0035406",
@@ -6690,6 +7693,26 @@
       "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0035500",
+      "name": "Greg Dortch",
+      "pos": "WR",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 6.93,
+      "actual": 0,
+      "error": -6.93,
+      "abs_error": 6.93,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0035537",
       "name": "Ty Johnson",
       "pos": "RB",
@@ -6748,6 +7771,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0035537",
+      "name": "Ty Johnson",
+      "pos": "RB",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 6.5,
+      "actual": 4.7,
+      "error": -1.8,
+      "abs_error": 1.8,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0035544",
@@ -6930,6 +7973,26 @@
       "rationale": "short week (Thu after Sun) -1.00 · CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
     },
     {
+      "gsis_id": "00-0035594",
+      "name": "Travis Homer",
+      "pos": "RB",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 0.27,
+      "actual": 0,
+      "error": -0.27,
+      "abs_error": 0.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 22.5 RB fpts/g (median 22.2) +0.30"
+    },
+    {
       "gsis_id": "00-0035602",
       "name": "Alex Bachman",
       "pos": "WR",
@@ -6968,6 +8031,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0035602",
+      "name": "Alex Bachman",
+      "pos": "WR",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": -0.11,
+      "actual": 0,
+      "error": 0.11,
+      "abs_error": 0.11,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90 · dome home +0.50"
     },
     {
       "gsis_id": "00-0035631",
@@ -7130,6 +8213,26 @@
       "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0035640",
+      "name": "DK Metcalf",
+      "pos": "WR",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 12.5,
+      "actual": 20.3,
+      "error": 7.8,
+      "abs_error": 7.8,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 31.6 WR fpts/g (median 31.1) +0.50"
+    },
+    {
       "gsis_id": "00-0035644",
       "name": "Noah Fant",
       "pos": "TE",
@@ -7208,6 +8311,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 10.8 TE fpts/g (median 13.6) -2.80 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0035644",
+      "name": "Noah Fant",
+      "pos": "TE",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 3.92,
+      "actual": 0,
+      "error": -3.92,
+      "abs_error": 3.92,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 11.3 TE fpts/g (median 13.6) -2.30"
     },
     {
       "gsis_id": "00-0035659",
@@ -7290,6 +8413,26 @@
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
+      "gsis_id": "00-0035659",
+      "name": "Terry McLaurin",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 12.12,
+      "actual": 3.7,
+      "error": -8.42,
+      "abs_error": 8.42,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0035662",
       "name": "Marquise Brown",
       "pos": "WR",
@@ -7328,6 +8471,26 @@
         "matchup": true
       },
       "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0035676",
+      "name": "A.J. Brown",
+      "pos": "WR",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 14.09,
+      "actual": 5.7,
+      "error": -8.39,
+      "abs_error": 8.39,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
     },
     {
       "gsis_id": "00-0035685",
@@ -7530,6 +8693,26 @@
       "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0035689",
+      "name": "Dawson Knox",
+      "pos": "TE",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 2.36,
+      "actual": 1,
+      "error": -1.36,
+      "abs_error": 1.36,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0035704",
       "name": "Drew Lock",
       "pos": "QB",
@@ -7668,6 +8851,26 @@
         "matchup": true
       },
       "rationale": "PIT allows 20.2 QB fpts/g (median 17.9) +2.30"
+    },
+    {
+      "gsis_id": "00-0035710",
+      "name": "Daniel Jones",
+      "pos": "QB",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 20.46,
+      "actual": 13.76,
+      "error": -6.7,
+      "abs_error": 6.7,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 19.4 QB fpts/g (median 17.9) +1.50"
     },
     {
       "gsis_id": "00-0035719",
@@ -7870,6 +9073,26 @@
       "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0035891",
+      "name": "Cody White",
+      "pos": "WR",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": -1.25,
+      "actual": 0,
+      "error": 1.25,
+      "abs_error": 1.25,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0035993",
       "name": "Tyler Huntley",
       "pos": "QB",
@@ -7908,6 +9131,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 18.0 QB fpts/g (median 17.9) +0.10"
+    },
+    {
+      "gsis_id": "00-0035993",
+      "name": "Tyler Huntley",
+      "pos": "QB",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 4.03,
+      "actual": 13.4,
+      "error": 9.37,
+      "abs_error": 9.37,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 13.9 QB fpts/g (median 17.9) -4.00"
     },
     {
       "gsis_id": "00-0036040",
@@ -8010,6 +9253,26 @@
       "rationale": "MIN allows 10.8 TE fpts/g (median 13.6) -2.80 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0036040",
+      "name": "Juwan Johnson",
+      "pos": "TE",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 8.52,
+      "actual": 0,
+      "error": -8.52,
+      "abs_error": 8.52,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 11.3 TE fpts/g (median 13.6) -2.30"
+    },
+    {
       "gsis_id": "00-0036139",
       "name": "Rico Dowdle",
       "pos": "RB",
@@ -8048,6 +9311,26 @@
         "matchup": true
       },
       "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00"
+    },
+    {
+      "gsis_id": "00-0036139",
+      "name": "Rico Dowdle",
+      "pos": "RB",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 13.14,
+      "actual": 7.9,
+      "error": -5.24,
+      "abs_error": 5.24,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 22.5 RB fpts/g (median 22.2) +0.30"
     },
     {
       "gsis_id": "00-0036158",
@@ -8148,6 +9431,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 18.7 RB fpts/g (median 22.2) -3.50"
+    },
+    {
+      "gsis_id": "00-0036158",
+      "name": "J.K. Dobbins",
+      "pos": "RB",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 7.59,
+      "actual": 13.6,
+      "error": 6.01,
+      "abs_error": 6.01,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 19.2 RB fpts/g (median 22.2) -3.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0036182",
@@ -8330,6 +9633,26 @@
       "rationale": "PIT allows 19.8 RB fpts/g (median 22.2) -2.40"
     },
     {
+      "gsis_id": "00-0036223",
+      "name": "Jonathan Taylor",
+      "pos": "RB",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 21.41,
+      "actual": 21.1,
+      "error": -0.31,
+      "abs_error": 0.31,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 22.3 RB fpts/g (median 22.2) +0.10"
+    },
+    {
       "gsis_id": "00-0036244",
       "name": "Colby Parkinson",
       "pos": "TE",
@@ -8408,6 +9731,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 7.5 TE fpts/g (median 13.6) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0036244",
+      "name": "Colby Parkinson",
+      "pos": "TE",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 13.41,
+      "actual": 14.1,
+      "error": 0.69,
+      "abs_error": 0.69,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 17.1 TE fpts/g (median 13.6) +3.50 · dome home +0.50"
     },
     {
       "gsis_id": "00-0036252",
@@ -8650,6 +9993,26 @@
       "rationale": "CHI allows 20.9 QB fpts/g (median 17.9) +3.00"
     },
     {
+      "gsis_id": "00-0036264",
+      "name": "Jordan Love",
+      "pos": "QB",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 20.48,
+      "actual": 20.24,
+      "error": -0.24,
+      "abs_error": 0.24,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 23.6 QB fpts/g (median 17.9) +4.00"
+    },
+    {
       "gsis_id": "00-0036265",
       "name": "AJ Dillon",
       "pos": "RB",
@@ -8830,6 +10193,26 @@
       "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
     },
     {
+      "gsis_id": "00-0036275",
+      "name": "D'Andre Swift",
+      "pos": "RB",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 14.14,
+      "actual": 23,
+      "error": 8.86,
+      "abs_error": 8.86,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
+    },
+    {
       "gsis_id": "00-0036290",
       "name": "Cole Kmet",
       "pos": "TE",
@@ -8930,6 +10313,26 @@
       "rationale": "GB allows 12.1 TE fpts/g (median 13.6) -1.50"
     },
     {
+      "gsis_id": "00-0036290",
+      "name": "Cole Kmet",
+      "pos": "TE",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 0.89,
+      "actual": 2.3,
+      "error": 1.41,
+      "abs_error": 1.41,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 9.7 TE fpts/g (median 13.6) -3.90"
+    },
+    {
       "gsis_id": "00-0036309",
       "name": "Darnell Mooney",
       "pos": "WR",
@@ -9028,6 +10431,26 @@
         "matchup": true
       },
       "rationale": "WAS allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
+      "gsis_id": "00-0036309",
+      "name": "Darnell Mooney",
+      "pos": "WR",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 2.09,
+      "actual": 2,
+      "error": -0.09,
+      "abs_error": 0.09,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 27.7 WR fpts/g (median 31.1) -3.40"
     },
     {
       "gsis_id": "00-0036322",
@@ -9210,6 +10633,26 @@
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0036331",
+      "name": "Devin Duvernay",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 2.27,
+      "actual": 0,
+      "error": -2.27,
+      "abs_error": 2.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
+    },
+    {
       "gsis_id": "00-0036355",
       "name": "Justin Herbert",
       "pos": "QB",
@@ -9310,6 +10753,26 @@
       "rationale": "DEN allows 14.6 QB fpts/g (median 17.9) -3.30 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0036355",
+      "name": "Justin Herbert",
+      "pos": "QB",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 17.98,
+      "actual": 8.76,
+      "error": -9.22,
+      "abs_error": 9.22,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 16.2 QB fpts/g (median 17.9) -1.70"
+    },
+    {
       "gsis_id": "00-0036358",
       "name": "CeeDee Lamb",
       "pos": "WR",
@@ -9408,6 +10871,26 @@
         "matchup": true
       },
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 31.6 WR fpts/g (median 31.1) +0.50"
+    },
+    {
+      "gsis_id": "00-0036358",
+      "name": "CeeDee Lamb",
+      "pos": "WR",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 15.44,
+      "actual": 16,
+      "error": 0.56,
+      "abs_error": 0.56,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0036389",
@@ -9588,6 +11071,26 @@
         "matchup": true
       },
       "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
+    },
+    {
+      "gsis_id": "00-0036407",
+      "name": "Jerry Jeudy",
+      "pos": "WR",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 11.19,
+      "actual": 10.9,
+      "error": -0.29,
+      "abs_error": 0.29,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0036410",
@@ -10070,6 +11573,26 @@
       "rationale": "NO allows 27.7 WR fpts/g (median 31.1) -3.40"
     },
     {
+      "gsis_id": "00-0036463",
+      "name": "Chris Blair",
+      "pos": "WR",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 3.7,
+      "actual": 0,
+      "error": -3.7,
+      "abs_error": 3.7,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
       "gsis_id": "00-0036550",
       "name": "Rashod Bateman",
       "pos": "WR",
@@ -10170,6 +11693,26 @@
       "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
     },
     {
+      "gsis_id": "00-0036550",
+      "name": "Rashod Bateman",
+      "pos": "WR",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 0.11,
+      "actual": 0,
+      "error": -0.11,
+      "abs_error": 0.11,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
+    },
+    {
       "gsis_id": "00-0036554",
       "name": "Nico Collins",
       "pos": "WR",
@@ -10228,6 +11771,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0036554",
+      "name": "Nico Collins",
+      "pos": "WR",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 13.68,
+      "actual": 10.9,
+      "error": -2.78,
+      "abs_error": 2.78,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "6h TZ delta -1.00 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
       "gsis_id": "00-0036555",
@@ -10308,6 +11871,26 @@
         "matchup": true
       },
       "rationale": "DET allows 19.5 RB fpts/g (median 22.2) -2.70"
+    },
+    {
+      "gsis_id": "00-0036555",
+      "name": "Chuba Hubbard",
+      "pos": "RB",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 10.09,
+      "actual": 19.1,
+      "error": 9.01,
+      "abs_error": 9.01,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 23.0 RB fpts/g (median 22.2) +0.80 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0036590",
@@ -10490,6 +12073,26 @@
       "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0036613",
+      "name": "Jaylen Waddle",
+      "pos": "WR",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 6.94,
+      "actual": 6.4,
+      "error": -0.54,
+      "abs_error": 0.54,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0036626",
       "name": "Dyami Brown",
       "pos": "WR",
@@ -10590,6 +12193,26 @@
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
+      "gsis_id": "00-0036626",
+      "name": "Dyami Brown",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 5.13,
+      "actual": 1.6,
+      "error": -3.53,
+      "abs_error": 3.53,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0036628",
       "name": "John Bates",
       "pos": "TE",
@@ -10650,6 +12273,26 @@
       "rationale": "NYG allows 11.3 TE fpts/g (median 13.6) -2.30"
     },
     {
+      "gsis_id": "00-0036628",
+      "name": "John Bates",
+      "pos": "TE",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 3.73,
+      "actual": 1.4,
+      "error": -2.33,
+      "abs_error": 2.33,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 15.1 TE fpts/g (median 13.6) +1.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0036630",
       "name": "Tylan Wallace",
       "pos": "WR",
@@ -10668,6 +12311,26 @@
         "matchup": true
       },
       "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
+      "gsis_id": "00-0036630",
+      "name": "Tylan Wallace",
+      "pos": "WR",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 5.32,
+      "actual": 2.2,
+      "error": -3.12,
+      "abs_error": 3.12,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0036637",
@@ -10750,6 +12413,26 @@
       "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50"
     },
     {
+      "gsis_id": "00-0036637",
+      "name": "Noah Gray",
+      "pos": "TE",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": 0.47,
+      "actual": 8.3,
+      "error": 7.83,
+      "abs_error": 7.83,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 10.5 TE fpts/g (median 13.6) -3.10 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0036646",
       "name": "Simi Fehoko",
       "pos": "WR",
@@ -10828,6 +12511,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0036646",
+      "name": "Simi Fehoko",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 2,
+      "actual": 0,
+      "error": -2,
+      "abs_error": 2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
       "gsis_id": "00-0036754",
@@ -11010,6 +12713,26 @@
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
+      "gsis_id": "00-0036825",
+      "name": "Feleipe Franks",
+      "pos": "TE",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": -3.2,
+      "actual": 0,
+      "error": 3.2,
+      "abs_error": 3.2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0036842",
       "name": "Kene Nwangwu",
       "pos": "RB",
@@ -11048,6 +12771,26 @@
         "matchup": true
       },
       "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
+    },
+    {
+      "gsis_id": "00-0036842",
+      "name": "Kene Nwangwu",
+      "pos": "RB",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": -2.51,
+      "actual": 0,
+      "error": 2.51,
+      "abs_error": 2.51,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00"
     },
     {
       "gsis_id": "00-0036849",
@@ -11270,6 +13013,26 @@
       "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10"
     },
     {
+      "gsis_id": "00-0036875",
+      "name": "Rhamondre Stevenson",
+      "pos": "RB",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 16.91,
+      "actual": 3.6,
+      "error": -13.31,
+      "abs_error": 13.31,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 28.0 RB fpts/g (median 22.2) +4.00"
+    },
+    {
       "gsis_id": "00-0036876",
       "name": "Kylen Granson",
       "pos": "TE",
@@ -11390,6 +13153,26 @@
       "rationale": "SEA allows 14.7 TE fpts/g (median 13.6) +1.10"
     },
     {
+      "gsis_id": "00-0036887",
+      "name": "Luke Farrell",
+      "pos": "TE",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 4.62,
+      "actual": 0,
+      "error": -4.62,
+      "abs_error": 4.62,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 15.8 TE fpts/g (median 13.6) +2.20"
+    },
+    {
       "gsis_id": "00-0036893",
       "name": "Najee Harris",
       "pos": "RB",
@@ -11468,6 +13251,26 @@
         "matchup": true
       },
       "rationale": "WAS allows 25.4 RB fpts/g (median 22.2) +3.20"
+    },
+    {
+      "gsis_id": "00-0036893",
+      "name": "Najee Harris",
+      "pos": "RB",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 2.57,
+      "actual": 0.2,
+      "error": -2.37,
+      "abs_error": 2.37,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 20.9 RB fpts/g (median 22.2) -1.30"
     },
     {
       "gsis_id": "00-0036894",
@@ -11568,6 +13371,26 @@
         "matchup": true
       },
       "rationale": "IND allows 15.1 TE fpts/g (median 13.6) +1.50"
+    },
+    {
+      "gsis_id": "00-0036894",
+      "name": "Pat Freiermuth",
+      "pos": "TE",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 9.67,
+      "actual": 3.1,
+      "error": -6.57,
+      "abs_error": 6.57,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 15.7 TE fpts/g (median 13.6) +2.10"
     },
     {
       "gsis_id": "00-0036900",
@@ -11730,6 +13553,26 @@
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
     },
     {
+      "gsis_id": "00-0036912",
+      "name": "DeVonta Smith",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 7.97,
+      "actual": 20.5,
+      "error": 12.53,
+      "abs_error": 12.53,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
       "gsis_id": "00-0036919",
       "name": "Kenny Gainwell",
       "pos": "RB",
@@ -11828,6 +13671,26 @@
         "matchup": true
       },
       "rationale": "DAL allows 25.9 RB fpts/g (median 22.2) +3.70 · short week (Thu after Sun) -1.00"
+    },
+    {
+      "gsis_id": "00-0036919",
+      "name": "Kenny Gainwell",
+      "pos": "RB",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 10.74,
+      "actual": 3.4,
+      "error": -7.34,
+      "abs_error": 7.34,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 19.8 RB fpts/g (median 22.2) -2.40"
     },
     {
       "gsis_id": "00-0036963",
@@ -12030,6 +13893,26 @@
       "rationale": "BAL allows 11.4 TE fpts/g (median 13.6) -2.20"
     },
     {
+      "gsis_id": "00-0036970",
+      "name": "Kyle Pitts",
+      "pos": "TE",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 11.7,
+      "actual": 23,
+      "error": 11.3,
+      "abs_error": 11.3,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 12.9 TE fpts/g (median 13.6) -0.70"
+    },
+    {
       "gsis_id": "00-0036971",
       "name": "Trevor Lawrence",
       "pos": "QB",
@@ -12130,6 +14013,26 @@
       "rationale": "PHI allows 15.8 QB fpts/g (median 17.9) -2.10 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0036971",
+      "name": "Trevor Lawrence",
+      "pos": "QB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 17.21,
+      "actual": 27.34,
+      "error": 10.13,
+      "abs_error": 10.13,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 14.4 QB fpts/g (median 17.9) -3.50 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0036972",
       "name": "Mac Jones",
       "pos": "QB",
@@ -12210,6 +14113,26 @@
       "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0036980",
+      "name": "Elijah Moore",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": -1.66,
+      "actual": 1.4,
+      "error": 3.06,
+      "abs_error": 3.06,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
       "gsis_id": "00-0036988",
       "name": "Josh Palmer",
       "pos": "WR",
@@ -12268,6 +14191,26 @@
         "matchup": true
       },
       "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00"
+    },
+    {
+      "gsis_id": "00-0036988",
+      "name": "Josh Palmer",
+      "pos": "WR",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 5.66,
+      "actual": 4.7,
+      "error": -0.96,
+      "abs_error": 0.96,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0036997",
@@ -12368,6 +14311,26 @@
         "matchup": true
       },
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 22.5 RB fpts/g (median 22.2) +0.30"
+    },
+    {
+      "gsis_id": "00-0036997",
+      "name": "Javonte Williams",
+      "pos": "RB",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 15.13,
+      "actual": 13,
+      "error": -2.13,
+      "abs_error": 2.13,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
     },
     {
       "gsis_id": "00-0037004",
@@ -12530,6 +14493,26 @@
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
+      "gsis_id": "00-0037005",
+      "name": "Tommy Tremble",
+      "pos": "TE",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 1.06,
+      "actual": 20.6,
+      "error": 19.54,
+      "abs_error": 19.54,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0037085",
       "name": "Tyler Badie",
       "pos": "RB",
@@ -12608,6 +14591,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 18.7 RB fpts/g (median 22.2) -3.50"
+    },
+    {
+      "gsis_id": "00-0037085",
+      "name": "Tyler Badie",
+      "pos": "RB",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": -1.79,
+      "actual": 0.6,
+      "error": 2.39,
+      "abs_error": 2.39,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 19.2 RB fpts/g (median 22.2) -3.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0037091",
@@ -12710,6 +14713,26 @@
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
     },
     {
+      "gsis_id": "00-0037091",
+      "name": "Bo Melton",
+      "pos": "WR",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 5.59,
+      "actual": 0,
+      "error": -5.59,
+      "abs_error": 5.59,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0037093",
       "name": "Dareke Young",
       "pos": "WR",
@@ -12790,6 +14813,26 @@
       "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0037093",
+      "name": "Dareke Young",
+      "pos": "WR",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": -2.65,
+      "actual": 0,
+      "error": 2.65,
+      "abs_error": 2.65,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0037120",
       "name": "Tyler Goodson",
       "pos": "RB",
@@ -12828,6 +14871,26 @@
         "matchup": true
       },
       "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50"
+    },
+    {
+      "gsis_id": "00-0037120",
+      "name": "Tyler Goodson",
+      "pos": "RB",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 0.22,
+      "actual": 1.9,
+      "error": 1.68,
+      "abs_error": 1.68,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
     },
     {
       "gsis_id": "00-0037132",
@@ -12930,6 +14993,26 @@
       "rationale": "5h TZ delta -0.83 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
+      "gsis_id": "00-0037132",
+      "name": "Britain Covey",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": -3.23,
+      "actual": 0,
+      "error": 3.23,
+      "abs_error": 3.23,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
       "gsis_id": "00-0037157",
       "name": "Bam Knight",
       "pos": "RB",
@@ -12968,6 +15051,26 @@
         "matchup": true
       },
       "rationale": "DET allows 19.5 RB fpts/g (median 22.2) -2.70"
+    },
+    {
+      "gsis_id": "00-0037157",
+      "name": "Bam Knight",
+      "pos": "RB",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 6.41,
+      "actual": 11.8,
+      "error": 5.39,
+      "abs_error": 5.39,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50"
     },
     {
       "gsis_id": "00-0037228",
@@ -13068,6 +15171,26 @@
         "matchup": true
       },
       "rationale": "IND allows 20.4 RB fpts/g (median 22.2) -1.80"
+    },
+    {
+      "gsis_id": "00-0037228",
+      "name": "Jaylen Warren",
+      "pos": "RB",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 13.87,
+      "actual": 9.8,
+      "error": -4.07,
+      "abs_error": 4.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 22.5 RB fpts/g (median 22.2) +0.30"
     },
     {
       "gsis_id": "00-0037231",
@@ -13190,6 +15313,26 @@
       "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0037238",
+      "name": "Drake London",
+      "pos": "WR",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 20.52,
+      "actual": 12.2,
+      "error": -8.32,
+      "abs_error": 8.32,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
       "gsis_id": "00-0037239",
       "name": "Chris Olave",
       "pos": "WR",
@@ -13288,6 +15431,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 23.8 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0037239",
+      "name": "Chris Olave",
+      "pos": "WR",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 18.89,
+      "actual": 14.3,
+      "error": -4.59,
+      "abs_error": 4.59,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
       "gsis_id": "00-0037240",
@@ -13490,6 +15653,26 @@
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 31.6 WR fpts/g (median 31.1) +0.50"
     },
     {
+      "gsis_id": "00-0037247",
+      "name": "George Pickens",
+      "pos": "WR",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 17.05,
+      "actual": 13.3,
+      "error": -3.75,
+      "abs_error": 3.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0037248",
       "name": "James Cook",
       "pos": "RB",
@@ -13588,6 +15771,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0037248",
+      "name": "James Cook",
+      "pos": "RB",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 18.73,
+      "actual": 24.3,
+      "error": 5.57,
+      "abs_error": 5.57,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0037252",
@@ -13750,6 +15953,26 @@
       "rationale": "NYG allows 26.0 RB fpts/g (median 22.2) +3.80"
     },
     {
+      "gsis_id": "00-0037256",
+      "name": "Rachaad White",
+      "pos": "RB",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 9.41,
+      "actual": 15.7,
+      "error": 6.29,
+      "abs_error": 6.29,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0037258",
       "name": "Dameon Pierce",
       "pos": "RB",
@@ -13768,6 +15991,26 @@
         "matchup": true
       },
       "rationale": "JAX allows 18.8 RB fpts/g (median 22.2) -3.40 · 5h TZ delta -0.83"
+    },
+    {
+      "gsis_id": "00-0037258",
+      "name": "Dameon Pierce",
+      "pos": "RB",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 2.82,
+      "actual": 15,
+      "error": 12.18,
+      "abs_error": 12.18,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 24.3 RB fpts/g (median 22.2) +2.10"
     },
     {
       "gsis_id": "00-0037261",
@@ -13870,6 +16113,26 @@
       "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0037261",
+      "name": "Khalil Shakir",
+      "pos": "WR",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 11.79,
+      "actual": 13.4,
+      "error": 1.61,
+      "abs_error": 1.61,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0037263",
       "name": "Tyler Allgeier",
       "pos": "RB",
@@ -13970,6 +16233,26 @@
       "rationale": "DET allows 19.5 RB fpts/g (median 22.2) -2.70"
     },
     {
+      "gsis_id": "00-0037263",
+      "name": "Tyler Allgeier",
+      "pos": "RB",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 5.74,
+      "actual": 5.8,
+      "error": 0.06,
+      "abs_error": 0.06,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50"
+    },
+    {
       "gsis_id": "00-0037277",
       "name": "Teagan Quitoriano",
       "pos": "TE",
@@ -14048,6 +16331,26 @@
         "matchup": true
       },
       "rationale": "NO allows 27.7 WR fpts/g (median 31.1) -3.40"
+    },
+    {
+      "gsis_id": "00-0037291",
+      "name": "Jalen Nailor",
+      "pos": "WR",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 2.23,
+      "actual": 1.9,
+      "error": -0.33,
+      "abs_error": 0.33,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
     },
     {
       "gsis_id": "00-0037292",
@@ -14148,6 +16451,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 10.8 TE fpts/g (median 13.6) -2.80"
+    },
+    {
+      "gsis_id": "00-0037311",
+      "name": "Ko Kieft",
+      "pos": "TE",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 3.1,
+      "actual": 0,
+      "error": -3.1,
+      "abs_error": 3.1,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 16.7 TE fpts/g (median 13.6) +3.10"
     },
     {
       "gsis_id": "00-0037380",
@@ -14390,6 +16713,26 @@
       "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20"
     },
     {
+      "gsis_id": "00-0037545",
+      "name": "Rashid Shaheed",
+      "pos": "WR",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 2.76,
+      "actual": 11.8,
+      "error": 9.04,
+      "abs_error": 9.04,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0037557",
       "name": "Ronnie Rivers",
       "pos": "RB",
@@ -14470,6 +16813,26 @@
       "rationale": "BAL allows 23.4 RB fpts/g (median 22.2) +1.20"
     },
     {
+      "gsis_id": "00-0037594",
+      "name": "Julius Chestnut",
+      "pos": "RB",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": -1.55,
+      "actual": 0,
+      "error": 1.55,
+      "abs_error": 1.55,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 20.4 RB fpts/g (median 22.2) -1.80"
+    },
+    {
       "gsis_id": "00-0037614",
       "name": "John Metchie III",
       "pos": "WR",
@@ -14528,6 +16891,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0037614",
+      "name": "John Metchie III",
+      "pos": "WR",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 2.37,
+      "actual": 4.4,
+      "error": 2.03,
+      "abs_error": 2.03,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0037664",
@@ -14710,6 +17093,26 @@
       "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0037740",
+      "name": "Garrett Wilson",
+      "pos": "WR",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 12.21,
+      "actual": 8.4,
+      "error": -3.81,
+      "abs_error": 3.81,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00"
+    },
+    {
       "gsis_id": "00-0037741",
       "name": "Jahan Dotson",
       "pos": "WR",
@@ -14810,6 +17213,26 @@
       "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0037741",
+      "name": "Jahan Dotson",
+      "pos": "WR",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 7.05,
+      "actual": 17.7,
+      "error": 10.65,
+      "abs_error": 10.65,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
       "gsis_id": "00-0037742",
       "name": "Treylon Burks",
       "pos": "WR",
@@ -14888,6 +17311,26 @@
         "matchup": true
       },
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
+    },
+    {
+      "gsis_id": "00-0037742",
+      "name": "Treylon Burks",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 4.33,
+      "actual": 10.6,
+      "error": 6.27,
+      "abs_error": 6.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0037744",
@@ -14990,6 +17433,26 @@
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
+      "gsis_id": "00-0037744",
+      "name": "Trey McBride",
+      "pos": "TE",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 17.78,
+      "actual": 12.3,
+      "error": -5.48,
+      "abs_error": 5.48,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80"
+    },
+    {
       "gsis_id": "00-0037745",
       "name": "Velus Jones Jr.",
       "pos": "RB",
@@ -15008,6 +17471,26 @@
         "matchup": true
       },
       "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50"
+    },
+    {
+      "gsis_id": "00-0037745",
+      "name": "Velus Jones Jr.",
+      "pos": "RB",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": -5,
+      "actual": 2.9,
+      "error": 7.9,
+      "abs_error": 7.9,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0037746",
@@ -15110,6 +17593,26 @@
       "rationale": "BAL allows 23.4 RB fpts/g (median 22.2) +1.20"
     },
     {
+      "gsis_id": "00-0037746",
+      "name": "Brian Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 3.68,
+      "actual": 3,
+      "error": -0.68,
+      "abs_error": 0.68,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0037755",
       "name": "Jelani Woods",
       "pos": "TE",
@@ -15168,6 +17671,26 @@
         "matchup": true
       },
       "rationale": "CLE allows 12.9 TE fpts/g (median 13.6) -0.70"
+    },
+    {
+      "gsis_id": "00-0037755",
+      "name": "Jelani Woods",
+      "pos": "TE",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 0.7,
+      "actual": 1.9,
+      "error": 1.2,
+      "abs_error": 1.2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0037801",
@@ -15268,6 +17791,26 @@
         "matchup": true
       },
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 31.6 WR fpts/g (median 31.1) +0.50"
+    },
+    {
+      "gsis_id": "00-0037801",
+      "name": "KaVontae Turpin",
+      "pos": "WR",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 5.17,
+      "actual": 0,
+      "error": -5.17,
+      "abs_error": 5.17,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0037805",
@@ -15390,6 +17933,26 @@
       "rationale": "NYG allows 11.3 TE fpts/g (median 13.6) -2.30"
     },
     {
+      "gsis_id": "00-0037809",
+      "name": "Chig Okonkwo",
+      "pos": "TE",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 8.29,
+      "actual": 13.9,
+      "error": 5.61,
+      "abs_error": 5.61,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 15.1 TE fpts/g (median 13.6) +1.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0037816",
       "name": "Romeo Doubs",
       "pos": "WR",
@@ -15488,6 +18051,26 @@
         "matchup": true
       },
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0037816",
+      "name": "Romeo Doubs",
+      "pos": "WR",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 9.61,
+      "actual": 11.2,
+      "error": 1.59,
+      "abs_error": 1.59,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
     },
     {
       "gsis_id": "00-0037834",
@@ -15590,6 +18173,26 @@
       "rationale": "SEA allows 15.3 QB fpts/g (median 17.9) -2.60"
     },
     {
+      "gsis_id": "00-0037834",
+      "name": "Brock Purdy",
+      "pos": "QB",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 24.15,
+      "actual": 17.36,
+      "error": -6.79,
+      "abs_error": 6.79,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 19.9 QB fpts/g (median 17.9) +2.00"
+    },
+    {
       "gsis_id": "00-0037838",
       "name": "Isaiah Likely",
       "pos": "TE",
@@ -15688,6 +18291,26 @@
         "matchup": true
       },
       "rationale": "WAS allows 15.8 TE fpts/g (median 13.6) +2.20"
+    },
+    {
+      "gsis_id": "00-0037838",
+      "name": "Isaiah Likely",
+      "pos": "TE",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 4.21,
+      "actual": 23.9,
+      "error": 19.69,
+      "abs_error": 19.69,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 12.5 TE fpts/g (median 13.6) -1.10"
     },
     {
       "gsis_id": "00-0037840",
@@ -15790,6 +18413,26 @@
       "rationale": "BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0037840",
+      "name": "Kyren Williams",
+      "pos": "RB",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 20.22,
+      "actual": 9.7,
+      "error": -10.52,
+      "abs_error": 10.52,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 27.1 RB fpts/g (median 22.2) +4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0038041",
       "name": "Jake Ferguson",
       "pos": "TE",
@@ -15890,6 +18533,26 @@
       "rationale": "TB allows 15.7 TE fpts/g (median 13.6) +2.10 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0038041",
+      "name": "Jake Ferguson",
+      "pos": "TE",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 9.68,
+      "actual": 3.3,
+      "error": -6.38,
+      "abs_error": 6.38,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 12.1 TE fpts/g (median 13.6) -1.50"
+    },
+    {
       "gsis_id": "00-0038046",
       "name": "Charlie Kolar",
       "pos": "TE",
@@ -15948,6 +18611,26 @@
         "matchup": true
       },
       "rationale": "dome home +0.50 · DEN allows 13.7 TE fpts/g (median 13.6) +0.10"
+    },
+    {
+      "gsis_id": "00-0038046",
+      "name": "Charlie Kolar",
+      "pos": "TE",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 0.18,
+      "actual": 5,
+      "error": 4.82,
+      "abs_error": 4.82,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 11.0 TE fpts/g (median 13.6) -2.60"
     },
     {
       "gsis_id": "00-0038090",
@@ -16270,6 +18953,26 @@
       "rationale": "HOU allows 12.5 TE fpts/g (median 13.6) -1.10"
     },
     {
+      "gsis_id": "00-0038115",
+      "name": "Daniel Bellinger",
+      "pos": "TE",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 6.08,
+      "actual": 0,
+      "error": -6.08,
+      "abs_error": 6.08,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 15.1 TE fpts/g (median 13.6) +1.50"
+    },
+    {
       "gsis_id": "00-0038117",
       "name": "Wan'Dale Robinson",
       "pos": "WR",
@@ -16368,6 +19071,26 @@
         "matchup": true
       },
       "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0038117",
+      "name": "Wan'Dale Robinson",
+      "pos": "WR",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 17.59,
+      "actual": 5.2,
+      "error": -12.39,
+      "abs_error": 12.39,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0038120",
@@ -16528,6 +19251,26 @@
         "matchup": true
       },
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
+      "gsis_id": "00-0038124",
+      "name": "Christian Watson",
+      "pos": "WR",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 17.21,
+      "actual": 9.4,
+      "error": -7.81,
+      "abs_error": 7.81,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0038128",
@@ -16730,6 +19473,26 @@
       "rationale": "DAL allows 12.2 TE fpts/g (median 13.6) -1.40 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0038129",
+      "name": "Cade Otton",
+      "pos": "TE",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 11.25,
+      "actual": 1.4,
+      "error": -9.85,
+      "abs_error": 9.85,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 16.7 TE fpts/g (median 13.6) +3.10"
+    },
+    {
       "gsis_id": "00-0038134",
       "name": "Kenneth Walker III",
       "pos": "RB",
@@ -16808,6 +19571,26 @@
         "matchup": true
       },
       "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10"
+    },
+    {
+      "gsis_id": "00-0038134",
+      "name": "Kenneth Walker III",
+      "pos": "RB",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": 8.59,
+      "actual": 27.9,
+      "error": 19.31,
+      "abs_error": 19.31,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 18.7 RB fpts/g (median 22.2) -3.50 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0038359",
@@ -16970,6 +19753,66 @@
       "rationale": "5h TZ delta -0.83 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
+      "gsis_id": "00-0038393",
+      "name": "Dontayvion Wicks",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 1.88,
+      "actual": 4.4,
+      "error": 2.52,
+      "abs_error": 2.52,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
+      "gsis_id": "00-0038394",
+      "name": "Will Mallory",
+      "pos": "TE",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 3.2,
+      "actual": 4,
+      "error": 0.8,
+      "abs_error": 0.8,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
+    },
+    {
+      "gsis_id": "00-0038400",
+      "name": "Tanner McKee",
+      "pos": "QB",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 1.64,
+      "actual": 12.6,
+      "error": 10.96,
+      "abs_error": 10.96,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 15.6 QB fpts/g (median 17.9) -2.30"
+    },
+    {
       "gsis_id": "00-0038409",
       "name": "Lew Nichols III",
       "pos": "RB",
@@ -17028,6 +19871,26 @@
         "matchup": true
       },
       "rationale": "IND allows 20.4 RB fpts/g (median 22.2) -1.80"
+    },
+    {
+      "gsis_id": "00-0038409",
+      "name": "Lew Nichols III",
+      "pos": "RB",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 0.3,
+      "actual": 0,
+      "error": -0.3,
+      "abs_error": 0.3,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 22.5 RB fpts/g (median 22.2) +0.30"
     },
     {
       "gsis_id": "00-0038416",
@@ -17108,6 +19971,26 @@
         "matchup": true
       },
       "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
+    },
+    {
+      "gsis_id": "00-0038440",
+      "name": "Zavier Scott",
+      "pos": "RB",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 3.35,
+      "actual": 0,
+      "error": -3.35,
+      "abs_error": 3.35,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
     },
     {
       "gsis_id": "00-0038454",
@@ -17210,6 +20093,26 @@
       "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0038454",
+      "name": "Keaton Mitchell",
+      "pos": "RB",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 1.56,
+      "actual": 0.4,
+      "error": -1.16,
+      "abs_error": 1.16,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 19.5 RB fpts/g (median 22.2) -2.70"
+    },
+    {
       "gsis_id": "00-0038488",
       "name": "Brady Russell",
       "pos": "RB",
@@ -17290,6 +20193,26 @@
       "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50"
     },
     {
+      "gsis_id": "00-0038488",
+      "name": "Brady Russell",
+      "pos": "RB",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": -5,
+      "actual": 0,
+      "error": 5,
+      "abs_error": 5,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0038498",
       "name": "E.J. Jenkins",
       "pos": "TE",
@@ -17328,6 +20251,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80"
+    },
+    {
+      "gsis_id": "00-0038498",
+      "name": "E.J. Jenkins",
+      "pos": "TE",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 0,
+      "actual": 0,
+      "error": 0,
+      "abs_error": 0,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0038519",
@@ -17408,6 +20351,26 @@
         "matchup": true
       },
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0038519",
+      "name": "Nikko Remigio",
+      "pos": "WR",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": -2.98,
+      "actual": 0,
+      "error": 2.98,
+      "abs_error": 2.98,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0038542",
@@ -17510,6 +20473,26 @@
       "rationale": "BAL allows 23.4 RB fpts/g (median 22.2) +1.20"
     },
     {
+      "gsis_id": "00-0038542",
+      "name": "Bijan Robinson",
+      "pos": "RB",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 22.05,
+      "actual": 7.3,
+      "error": -14.75,
+      "abs_error": 14.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0038543",
       "name": "Jaxon Smith-Njigba",
       "pos": "WR",
@@ -17610,6 +20593,26 @@
       "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20"
     },
     {
+      "gsis_id": "00-0038543",
+      "name": "Jaxon Smith-Njigba",
+      "pos": "WR",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 16.08,
+      "actual": 25.4,
+      "error": 9.32,
+      "abs_error": 9.32,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0038544",
       "name": "Quentin Johnston",
       "pos": "WR",
@@ -17688,6 +20691,26 @@
         "matchup": true
       },
       "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0038544",
+      "name": "Quentin Johnston",
+      "pos": "WR",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 9.97,
+      "actual": 6.7,
+      "error": -3.27,
+      "abs_error": 3.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30"
     },
     {
       "gsis_id": "00-0038547",
@@ -17828,6 +20851,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 19.9 RB fpts/g (median 22.2) -2.30 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0038551",
+      "name": "Kendre Miller",
+      "pos": "RB",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 8.56,
+      "actual": 9,
+      "error": 0.44,
+      "abs_error": 0.44,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 26.0 RB fpts/g (median 22.2) +3.80"
     },
     {
       "gsis_id": "00-0038555",
@@ -18010,6 +21053,26 @@
       "rationale": "IND allows 15.1 TE fpts/g (median 13.6) +1.50"
     },
     {
+      "gsis_id": "00-0038558",
+      "name": "Darnell Washington",
+      "pos": "TE",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 7.75,
+      "actual": 12.5,
+      "error": 4.75,
+      "abs_error": 4.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 15.7 TE fpts/g (median 13.6) +2.10"
+    },
+    {
       "gsis_id": "00-0038559",
       "name": "Michael Wilson",
       "pos": "WR",
@@ -18108,6 +21171,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0038559",
+      "name": "Michael Wilson",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 14.98,
+      "actual": 7.2,
+      "error": -7.78,
+      "abs_error": 7.78,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
       "gsis_id": "00-0038563",
@@ -18210,6 +21293,26 @@
       "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0038563",
+      "name": "Tre Tucker",
+      "pos": "WR",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 5.71,
+      "actual": 26.7,
+      "error": 20.99,
+      "abs_error": 20.99,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0038564",
       "name": "Cameron Latu",
       "pos": "TE",
@@ -18288,6 +21391,26 @@
         "matchup": true
       },
       "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50"
+    },
+    {
+      "gsis_id": "00-0038564",
+      "name": "Cameron Latu",
+      "pos": "TE",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 0.7,
+      "actual": 0,
+      "error": -0.7,
+      "abs_error": 0.7,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 14.3 TE fpts/g (median 13.6) +0.70"
     },
     {
       "gsis_id": "00-0038573",
@@ -18390,6 +21513,26 @@
       "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0038573",
+      "name": "Derius Davis",
+      "pos": "WR",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": -3.03,
+      "actual": 0.4,
+      "error": 3.43,
+      "abs_error": 3.43,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30"
+    },
+    {
       "gsis_id": "00-0038576",
       "name": "Charlie Jones",
       "pos": "WR",
@@ -18428,6 +21571,26 @@
         "matchup": true
       },
       "rationale": "WAS allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
+      "gsis_id": "00-0038576",
+      "name": "Charlie Jones",
+      "pos": "WR",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": -3.4,
+      "actual": 8.6,
+      "error": 12,
+      "abs_error": 12,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 27.7 WR fpts/g (median 31.1) -3.40"
     },
     {
       "gsis_id": "00-0038597",
@@ -18630,6 +21793,26 @@
       "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0038606",
+      "name": "Parker Washington",
+      "pos": "WR",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 5.96,
+      "actual": 10.4,
+      "error": 4.44,
+      "abs_error": 4.44,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0038608",
       "name": "Kayshon Boutte",
       "pos": "WR",
@@ -18728,6 +21911,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0038608",
+      "name": "Kayshon Boutte",
+      "pos": "WR",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 7.96,
+      "actual": 3.6,
+      "error": -4.36,
+      "abs_error": 4.36,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "6h TZ delta -1.00 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
       "gsis_id": "00-0038611",
@@ -18830,6 +22033,26 @@
       "rationale": "5h TZ delta -0.83 · PHI allows 23.0 RB fpts/g (median 22.2) +0.80"
     },
     {
+      "gsis_id": "00-0038611",
+      "name": "Chris Rodriguez Jr.",
+      "pos": "RB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 4.34,
+      "actual": 5.5,
+      "error": 1.16,
+      "abs_error": 1.16,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0038618",
       "name": "Xavier Hutchinson",
       "pos": "WR",
@@ -18928,6 +22151,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0038618",
+      "name": "Xavier Hutchinson",
+      "pos": "WR",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 5.09,
+      "actual": 3,
+      "error": -2.09,
+      "abs_error": 2.09,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "6h TZ delta -1.00 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
       "gsis_id": "00-0038619",
@@ -19070,6 +22313,26 @@
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
     },
     {
+      "gsis_id": "00-0038621",
+      "name": "DeMario Douglas",
+      "pos": "WR",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 5.26,
+      "actual": 19.6,
+      "error": 14.34,
+      "abs_error": 14.34,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
+    },
+    {
       "gsis_id": "00-0038640",
       "name": "Jalen Brooks",
       "pos": "WR",
@@ -19148,6 +22411,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0038640",
+      "name": "Jalen Brooks",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 3.62,
+      "actual": 5,
+      "error": 1.38,
+      "abs_error": 1.38,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
       "gsis_id": "00-0038643",
@@ -19410,6 +22693,26 @@
       "rationale": "PIT allows 16.7 TE fpts/g (median 13.6) +3.10 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0038710",
+      "name": "Blake Whiteheart",
+      "pos": "TE",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": -1.93,
+      "actual": 1.8,
+      "error": 3.73,
+      "abs_error": 3.73,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 11.4 TE fpts/g (median 13.6) -2.20"
+    },
+    {
       "gsis_id": "00-0038728",
       "name": "Jared Wayne",
       "pos": "WR",
@@ -19570,6 +22873,26 @@
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 22.5 RB fpts/g (median 22.2) +0.30"
     },
     {
+      "gsis_id": "00-0038738",
+      "name": "Hunter Luepke",
+      "pos": "RB",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 2.34,
+      "actual": 3.9,
+      "error": 1.56,
+      "abs_error": 1.56,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
+    },
+    {
       "gsis_id": "00-0038740",
       "name": "Jalen Moreno-Cropper",
       "pos": "WR",
@@ -19710,6 +23033,26 @@
       "rationale": "NYJ allows 28.0 RB fpts/g (median 22.2) +4.00"
     },
     {
+      "gsis_id": "00-0038794",
+      "name": "Jaleel McLaughlin",
+      "pos": "RB",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 5.12,
+      "actual": 9.5,
+      "error": 4.38,
+      "abs_error": 4.38,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 23.4 RB fpts/g (median 22.2) +1.20"
+    },
+    {
       "gsis_id": "00-0038797",
       "name": "Emanuel Wilson",
       "pos": "RB",
@@ -19808,6 +23151,26 @@
         "matchup": true
       },
       "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50"
+    },
+    {
+      "gsis_id": "00-0038797",
+      "name": "Emanuel Wilson",
+      "pos": "RB",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 0.44,
+      "actual": 5.2,
+      "error": 4.76,
+      "abs_error": 4.76,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0038824",
@@ -19968,6 +23331,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0038840",
+      "name": "Brycen Tremayne",
+      "pos": "WR",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": -1.2,
+      "actual": 0,
+      "error": 1.2,
+      "abs_error": 1.2,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0038896",
@@ -20170,6 +23553,26 @@
       "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0038933",
+      "name": "Dalton Kincaid",
+      "pos": "TE",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 6.51,
+      "actual": 10.8,
+      "error": 4.29,
+      "abs_error": 4.29,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0038935",
       "name": "Brenton Strange",
       "pos": "TE",
@@ -20270,6 +23673,26 @@
       "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0038935",
+      "name": "Brenton Strange",
+      "pos": "TE",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 7.9,
+      "actual": 9.4,
+      "error": 1.5,
+      "abs_error": 1.5,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 12.5 TE fpts/g (median 13.6) -1.10 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0038951",
       "name": "Sean Tucker",
       "pos": "RB",
@@ -20368,6 +23791,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0038976",
+      "name": "Marvin Mims Jr.",
+      "pos": "WR",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 0.01,
+      "actual": 3.3,
+      "error": 3.29,
+      "abs_error": 3.29,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0038994",
@@ -20550,6 +23993,26 @@
       "rationale": "CHI allows 12.9 TE fpts/g (median 13.6) -0.70"
     },
     {
+      "gsis_id": "00-0038996",
+      "name": "Tucker Kraft",
+      "pos": "TE",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 13.21,
+      "actual": 8.7,
+      "error": -4.51,
+      "abs_error": 4.51,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 12.2 TE fpts/g (median 13.6) -1.40"
+    },
+    {
       "gsis_id": "00-0038997",
       "name": "Josh Downs",
       "pos": "WR",
@@ -20650,6 +24113,26 @@
       "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
     },
     {
+      "gsis_id": "00-0038997",
+      "name": "Josh Downs",
+      "pos": "WR",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 12.66,
+      "actual": 8.7,
+      "error": -3.96,
+      "abs_error": 3.96,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0039021",
       "name": "Roschon Johnson",
       "pos": "RB",
@@ -20708,6 +24191,26 @@
         "matchup": true
       },
       "rationale": "GB allows 21.9 RB fpts/g (median 22.2) -0.30"
+    },
+    {
+      "gsis_id": "00-0039021",
+      "name": "Roschon Johnson",
+      "pos": "RB",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": -0.12,
+      "actual": 14.5,
+      "error": 14.62,
+      "abs_error": 14.62,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
     },
     {
       "gsis_id": "00-0039032",
@@ -20808,6 +24311,26 @@
         "matchup": true
       },
       "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50"
+    },
+    {
+      "gsis_id": "00-0039032",
+      "name": "Tyjae Spears",
+      "pos": "RB",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 6.79,
+      "actual": 1.8,
+      "error": -4.99,
+      "abs_error": 4.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 20.4 RB fpts/g (median 22.2) -1.80"
     },
     {
       "gsis_id": "00-0039040",
@@ -20950,6 +24473,26 @@
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
+      "gsis_id": "00-0039041",
+      "name": "Elijah Higgins",
+      "pos": "TE",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 2.74,
+      "actual": 5.8,
+      "error": 3.06,
+      "abs_error": 3.06,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80"
+    },
+    {
       "gsis_id": "00-0039050",
       "name": "Payne Durham",
       "pos": "TE",
@@ -21050,6 +24593,26 @@
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 31.6 WR fpts/g (median 31.1) +0.50"
     },
     {
+      "gsis_id": "00-0039062",
+      "name": "Jonathan Mingo",
+      "pos": "WR",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 0.7,
+      "actual": 0,
+      "error": -0.7,
+      "abs_error": 0.7,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0039064",
       "name": "Zay Flowers",
       "pos": "WR",
@@ -21128,6 +24691,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0039064",
+      "name": "Zay Flowers",
+      "pos": "WR",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 9.95,
+      "actual": 12.7,
+      "error": 2.75,
+      "abs_error": 2.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
     },
     {
       "gsis_id": "00-0039065",
@@ -21330,6 +24913,26 @@
       "rationale": "3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0039066",
+      "name": "Michael Mayer",
+      "pos": "TE",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 2.18,
+      "actual": 16.5,
+      "error": 14.32,
+      "abs_error": 14.32,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 7.5 TE fpts/g (median 13.6) -4.00 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0039067",
       "name": "Rashee Rice",
       "pos": "WR",
@@ -21490,6 +25093,26 @@
       "rationale": "BUF allows 7.5 TE fpts/g (median 13.6) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0039074",
+      "name": "Davis Allen",
+      "pos": "TE",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 8.19,
+      "actual": 0,
+      "error": -8.19,
+      "abs_error": 8.19,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 17.1 TE fpts/g (median 13.6) +3.50 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0039075",
       "name": "Puka Nacua",
       "pos": "WR",
@@ -21548,6 +25171,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0039075",
+      "name": "Puka Nacua",
+      "pos": "WR",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 22.13,
+      "actual": 14,
+      "error": -8.13,
+      "abs_error": 8.13,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90 · dome home +0.50"
     },
     {
       "gsis_id": "00-0039139",
@@ -21770,6 +25413,26 @@
       "rationale": "DET allows 19.0 QB fpts/g (median 17.9) +1.10"
     },
     {
+      "gsis_id": "00-0039150",
+      "name": "Bryce Young",
+      "pos": "QB",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 14.08,
+      "actual": 19.84,
+      "error": 5.76,
+      "abs_error": 5.76,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 15.8 QB fpts/g (median 17.9) -2.10 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0039163",
       "name": "C.J. Stroud",
       "pos": "QB",
@@ -21868,6 +25531,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 19.4 QB fpts/g (median 17.9) +1.50"
+    },
+    {
+      "gsis_id": "00-0039163",
+      "name": "C.J. Stroud",
+      "pos": "QB",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 15.24,
+      "actual": 22.98,
+      "error": 7.74,
+      "abs_error": 7.74,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "6h TZ delta -1.00 · JAX allows 18.1 QB fpts/g (median 17.9) +0.20"
     },
     {
       "gsis_id": "00-0039299",
@@ -21970,6 +25653,26 @@
       "rationale": "SF allows 23.7 RB fpts/g (median 22.2) +1.50"
     },
     {
+      "gsis_id": "00-0039299",
+      "name": "George Holani",
+      "pos": "RB",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": -3.32,
+      "actual": 8,
+      "error": 11.32,
+      "abs_error": 11.32,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0039337",
       "name": "Malik Nabers",
       "pos": "WR",
@@ -22070,6 +25773,26 @@
       "rationale": "WAS allows 35.0 WR fpts/g (median 31.1) +3.90"
     },
     {
+      "gsis_id": "00-0039337",
+      "name": "Malik Nabers",
+      "pos": "WR",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 10.88,
+      "actual": 28.5,
+      "error": 17.62,
+      "abs_error": 17.62,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 27.7 WR fpts/g (median 31.1) -3.40"
+    },
+    {
       "gsis_id": "00-0039338",
       "name": "Brock Bowers",
       "pos": "TE",
@@ -22128,6 +25851,26 @@
         "matchup": true
       },
       "rationale": "3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0039338",
+      "name": "Brock Bowers",
+      "pos": "TE",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 11,
+      "actual": 11,
+      "error": 0,
+      "abs_error": 0,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 7.5 TE fpts/g (median 13.6) -4.00 · dome home +0.50"
     },
     {
       "gsis_id": "00-0039342",
@@ -22210,6 +25953,26 @@
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
+      "gsis_id": "00-0039355",
+      "name": "Luke McCaffrey",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 6.18,
+      "actual": 0,
+      "error": -6.18,
+      "abs_error": 6.18,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0039359",
       "name": "Cade Stover",
       "pos": "TE",
@@ -22268,6 +26031,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 14.2 TE fpts/g (median 13.6) +0.60"
+    },
+    {
+      "gsis_id": "00-0039359",
+      "name": "Cade Stover",
+      "pos": "TE",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 3.57,
+      "actual": 0.5,
+      "error": -3.07,
+      "abs_error": 3.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "JAX allows 14.9 TE fpts/g (median 13.6) +1.30 · 6h TZ delta -1.00"
     },
     {
       "gsis_id": "00-0039361",
@@ -22370,6 +26153,26 @@
       "rationale": "DAL allows 25.9 RB fpts/g (median 22.2) +3.70 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0039361",
+      "name": "Bucky Irving",
+      "pos": "RB",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 11.65,
+      "actual": 6.9,
+      "error": -4.75,
+      "abs_error": 4.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 19.8 RB fpts/g (median 22.2) -2.40"
+    },
+    {
       "gsis_id": "00-0039364",
       "name": "Sione Vaki",
       "pos": "RB",
@@ -22468,6 +26271,26 @@
         "matchup": true
       },
       "rationale": "ARI allows 27.1 RB fpts/g (median 22.2) +4.00"
+    },
+    {
+      "gsis_id": "00-0039373",
+      "name": "Audric Estimé",
+      "pos": "RB",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 13.42,
+      "actual": 7.9,
+      "error": -5.52,
+      "abs_error": 5.52,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 26.0 RB fpts/g (median 22.2) +3.80"
     },
     {
       "gsis_id": "00-0039384",
@@ -22570,6 +26393,26 @@
       "rationale": "WAS allows 25.4 RB fpts/g (median 22.2) +3.20"
     },
     {
+      "gsis_id": "00-0039384",
+      "name": "Tyrone Tracy Jr.",
+      "pos": "RB",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": 9.55,
+      "actual": 18.5,
+      "error": 8.95,
+      "abs_error": 8.95,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 20.9 RB fpts/g (median 22.2) -1.30"
+    },
+    {
       "gsis_id": "00-0039391",
       "name": "Kimani Vidal",
       "pos": "RB",
@@ -22648,6 +26491,46 @@
         "matchup": true
       },
       "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0039391",
+      "name": "Kimani Vidal",
+      "pos": "RB",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 6.37,
+      "actual": 7,
+      "error": 0.63,
+      "abs_error": 0.63,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 19.5 RB fpts/g (median 22.2) -2.70"
+    },
+    {
+      "gsis_id": "00-0039405",
+      "name": "Jawhar Jordan",
+      "pos": "RB",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 3.03,
+      "actual": 12,
+      "error": 8.97,
+      "abs_error": 8.97,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "JAX allows 18.8 RB fpts/g (median 22.2) -3.40 · 6h TZ delta -1.00"
     },
     {
       "gsis_id": "00-0039407",
@@ -22750,6 +26633,26 @@
       "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0039407",
+      "name": "Dylan Laube",
+      "pos": "RB",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 3.24,
+      "actual": 0.9,
+      "error": -2.34,
+      "abs_error": 2.34,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0039410",
       "name": "Ryan Flournoy",
       "pos": "WR",
@@ -22848,6 +26751,26 @@
         "matchup": true
       },
       "rationale": "short week (Thu after Sun) -1.00 · TB allows 31.6 WR fpts/g (median 31.1) +0.50"
+    },
+    {
+      "gsis_id": "00-0039410",
+      "name": "Ryan Flournoy",
+      "pos": "WR",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 7.43,
+      "actual": 17,
+      "error": 9.57,
+      "abs_error": 9.57,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0039424",
@@ -22950,6 +26873,26 @@
       "rationale": "MIN allows 23.8 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0039424",
+      "name": "Devaughn Vele",
+      "pos": "WR",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 9.37,
+      "actual": 7.2,
+      "error": -2.17,
+      "abs_error": 2.17,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
+    },
+    {
       "gsis_id": "00-0039451",
       "name": "Isaiah Williams",
       "pos": "WR",
@@ -23050,6 +26993,26 @@
       "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0039451",
+      "name": "Isaiah Williams",
+      "pos": "WR",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 1.02,
+      "actual": 0.4,
+      "error": -0.62,
+      "abs_error": 0.62,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00"
+    },
+    {
       "gsis_id": "00-0039489",
       "name": "Hayden Rucci",
       "pos": "TE",
@@ -23088,6 +27051,26 @@
         "matchup": true
       },
       "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · 5h TZ delta -0.83"
+    },
+    {
+      "gsis_id": "00-0039489",
+      "name": "Hayden Rucci",
+      "pos": "TE",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": -1.93,
+      "actual": 0,
+      "error": 1.93,
+      "abs_error": 1.93,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 12.5 TE fpts/g (median 13.6) -1.10 · 5h TZ delta -0.83"
     },
     {
       "gsis_id": "00-0039491",
@@ -23148,6 +27131,26 @@
         "matchup": true
       },
       "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0039491",
+      "name": "Jalen Coker",
+      "pos": "WR",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 5.02,
+      "actual": 15.7,
+      "error": 10.68,
+      "abs_error": 10.68,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0039530",
@@ -23250,6 +27253,26 @@
       "rationale": "TB allows 15.7 TE fpts/g (median 13.6) +2.10 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0039530",
+      "name": "Brevyn Spann-Ford",
+      "pos": "TE",
+      "team": "DAL",
+      "opponent": "GB",
+      "week": 6,
+      "projected": 0,
+      "actual": 7.5,
+      "error": 7.5,
+      "abs_error": 7.5,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "GB allows 12.1 TE fpts/g (median 13.6) -1.50"
+    },
+    {
       "gsis_id": "00-0039589",
       "name": "Kameron Johnson",
       "pos": "WR",
@@ -23348,6 +27371,26 @@
         "matchup": true
       },
       "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00 · short week (Thu after Sun) -1.00"
+    },
+    {
+      "gsis_id": "00-0039589",
+      "name": "Kameron Johnson",
+      "pos": "WR",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 4.86,
+      "actual": 0,
+      "error": -4.86,
+      "abs_error": 4.86,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
     },
     {
       "gsis_id": "00-0039603",
@@ -23468,6 +27511,26 @@
         "matchup": true
       },
       "rationale": "NYG allows 11.3 TE fpts/g (median 13.6) -2.30"
+    },
+    {
+      "gsis_id": "00-0039686",
+      "name": "Colson Yankoff",
+      "pos": "TE",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 1.38,
+      "actual": 0,
+      "error": -1.38,
+      "abs_error": 1.38,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 15.1 TE fpts/g (median 13.6) +1.50 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0039710",
@@ -23610,6 +27673,26 @@
       "rationale": "LAC allows 14.3 QB fpts/g (median 17.9) -3.60"
     },
     {
+      "gsis_id": "00-0039732",
+      "name": "Bo Nix",
+      "pos": "QB",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 15.39,
+      "actual": 4.48,
+      "error": -10.91,
+      "abs_error": 10.91,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 15.3 QB fpts/g (median 17.9) -2.60 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0039738",
       "name": "Blake Corum",
       "pos": "RB",
@@ -23708,6 +27791,26 @@
         "matchup": true
       },
       "rationale": "BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0039738",
+      "name": "Blake Corum",
+      "pos": "RB",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 11.69,
+      "actual": 14,
+      "error": 2.31,
+      "abs_error": 2.31,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 27.1 RB fpts/g (median 22.2) +4.00 · dome home +0.50"
     },
     {
       "gsis_id": "00-0039739",
@@ -24050,6 +28153,26 @@
       "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
     },
     {
+      "gsis_id": "00-0039792",
+      "name": "Devontez Walker",
+      "pos": "WR",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 0.7,
+      "actual": 0,
+      "error": -0.7,
+      "abs_error": 0.7,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
+    },
+    {
       "gsis_id": "00-0039793",
       "name": "AJ Barner",
       "pos": "TE",
@@ -24148,6 +28271,26 @@
         "matchup": true
       },
       "rationale": "SF allows 15.1 TE fpts/g (median 13.6) +1.50"
+    },
+    {
+      "gsis_id": "00-0039793",
+      "name": "AJ Barner",
+      "pos": "TE",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 7.33,
+      "actual": 4.6,
+      "error": -2.73,
+      "abs_error": 2.73,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "short week (Thu after Sun) -1.00 · DEN allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
       "gsis_id": "00-0039794",
@@ -24250,6 +28393,26 @@
       "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
     },
     {
+      "gsis_id": "00-0039794",
+      "name": "Braelon Allen",
+      "pos": "RB",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 1.33,
+      "actual": 12.4,
+      "error": 11.07,
+      "abs_error": 11.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00"
+    },
+    {
       "gsis_id": "00-0039796",
       "name": "Rasheen Ali",
       "pos": "RB",
@@ -24328,6 +28491,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 21.8 RB fpts/g (median 22.2) -0.40"
+    },
+    {
+      "gsis_id": "00-0039796",
+      "name": "Rasheen Ali",
+      "pos": "RB",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": 1.51,
+      "actual": 0,
+      "error": -1.51,
+      "abs_error": 1.51,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
     },
     {
       "gsis_id": "00-0039798",
@@ -24410,6 +28593,26 @@
       "rationale": "CLE allows 22.1 RB fpts/g (median 22.2) -0.10"
     },
     {
+      "gsis_id": "00-0039798",
+      "name": "Isaiah Davis",
+      "pos": "RB",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 1.33,
+      "actual": 3.6,
+      "error": 2.27,
+      "abs_error": 2.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00"
+    },
+    {
       "gsis_id": "00-0039816",
       "name": "Anthony Gould",
       "pos": "WR",
@@ -24488,6 +28691,26 @@
         "matchup": true
       },
       "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
+      "gsis_id": "00-0039816",
+      "name": "Anthony Gould",
+      "pos": "WR",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 4.24,
+      "actual": 0,
+      "error": -4.24,
+      "abs_error": 4.24,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0039847",
@@ -24650,6 +28873,26 @@
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
+      "gsis_id": "00-0039849",
+      "name": "Marvin Harrison Jr.",
+      "pos": "WR",
+      "team": "ARI",
+      "opponent": "LAR",
+      "week": 6,
+      "projected": 12.48,
+      "actual": 6.4,
+      "error": -6.08,
+      "abs_error": 6.08,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00"
+    },
+    {
       "gsis_id": "00-0039851",
       "name": "Drake Maye",
       "pos": "QB",
@@ -24750,6 +28993,26 @@
       "rationale": "LV allows 17.4 QB fpts/g (median 17.9) -0.50"
     },
     {
+      "gsis_id": "00-0039851",
+      "name": "Drake Maye",
+      "pos": "QB",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 24.39,
+      "actual": 23.8,
+      "error": -0.59,
+      "abs_error": 0.59,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 20.6 QB fpts/g (median 17.9) +2.70"
+    },
+    {
       "gsis_id": "00-0039855",
       "name": "Jalen McMillan",
       "pos": "WR",
@@ -24848,6 +29111,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0039868",
+      "name": "Troy Franklin",
+      "pos": "WR",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 5.11,
+      "actual": 1.2,
+      "error": -3.91,
+      "abs_error": 3.91,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0039874",
@@ -25008,6 +29291,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 20.7 RB fpts/g (median 22.2) -1.50 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0039875",
+      "name": "Ray Davis",
+      "pos": "RB",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 4.02,
+      "actual": 1.9,
+      "error": -2.12,
+      "abs_error": 2.12,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0039880",
@@ -25250,6 +29553,26 @@
       "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
     },
     {
+      "gsis_id": "00-0039893",
+      "name": "Brian Thomas Jr.",
+      "pos": "WR",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 4.51,
+      "actual": 0,
+      "error": -4.51,
+      "abs_error": 4.51,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83"
+    },
+    {
       "gsis_id": "00-0039894",
       "name": "Xavier Worthy",
       "pos": "WR",
@@ -25328,6 +29651,26 @@
         "matchup": true
       },
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0039894",
+      "name": "Xavier Worthy",
+      "pos": "WR",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": 4.03,
+      "actual": 14.3,
+      "error": 10.27,
+      "abs_error": 10.27,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0039901",
@@ -25430,6 +29773,26 @@
       "rationale": "LAR allows 33.1 WR fpts/g (median 31.1) +2.00 · -3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0039901",
+      "name": "Keon Coleman",
+      "pos": "WR",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 9.83,
+      "actual": 15.9,
+      "error": 6.07,
+      "abs_error": 6.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0039910",
       "name": "Jayden Daniels",
       "pos": "QB",
@@ -25488,6 +29851,26 @@
         "matchup": true
       },
       "rationale": "NYG allows 18.9 QB fpts/g (median 17.9) +1.00"
+    },
+    {
+      "gsis_id": "00-0039910",
+      "name": "Jayden Daniels",
+      "pos": "QB",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 16.97,
+      "actual": 21,
+      "error": 4.03,
+      "abs_error": 4.03,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "-3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0039912",
@@ -25630,6 +30013,26 @@
       "rationale": "SEA allows 26.1 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0039915",
+      "name": "Ladd McConkey",
+      "pos": "WR",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 8.01,
+      "actual": 2.7,
+      "error": -5.31,
+      "abs_error": 5.31,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30"
+    },
+    {
       "gsis_id": "00-0039917",
       "name": "Michael Penix Jr.",
       "pos": "QB",
@@ -25690,6 +30093,26 @@
       "rationale": "BAL allows 19.0 QB fpts/g (median 17.9) +1.10"
     },
     {
+      "gsis_id": "00-0039917",
+      "name": "Michael Penix Jr.",
+      "pos": "QB",
+      "team": "ATL",
+      "opponent": "CHI",
+      "week": 6,
+      "projected": 17.25,
+      "actual": 23.1,
+      "error": 5.85,
+      "abs_error": 5.85,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CHI allows 20.9 QB fpts/g (median 17.9) +3.00"
+    },
+    {
       "gsis_id": "00-0039918",
       "name": "Caleb Williams",
       "pos": "QB",
@@ -25728,6 +30151,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 11.8 QB fpts/g (median 17.9) -4.00"
+    },
+    {
+      "gsis_id": "00-0039918",
+      "name": "Caleb Williams",
+      "pos": "QB",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 19.07,
+      "actual": 16.5,
+      "error": -2.57,
+      "abs_error": 2.57,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 18.0 QB fpts/g (median 17.9) +0.10"
     },
     {
       "gsis_id": "00-0039919",
@@ -25830,6 +30273,26 @@
       "rationale": "base pace, no context adjustments fired"
     },
     {
+      "gsis_id": "00-0039919",
+      "name": "Rome Odunze",
+      "pos": "WR",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 13.98,
+      "actual": 6.9,
+      "error": -7.08,
+      "abs_error": 7.08,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
       "gsis_id": "00-0039920",
       "name": "Malachi Corley",
       "pos": "WR",
@@ -25930,6 +30393,26 @@
       "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
     },
     {
+      "gsis_id": "00-0039920",
+      "name": "Malachi Corley",
+      "pos": "WR",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 5.58,
+      "actual": 0,
+      "error": -5.58,
+      "abs_error": 5.58,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0039923",
       "name": "J.J. McCarthy",
       "pos": "QB",
@@ -25948,6 +30431,26 @@
         "matchup": true
       },
       "rationale": "NO allows 15.2 QB fpts/g (median 17.9) -2.70"
+    },
+    {
+      "gsis_id": "00-0040009",
+      "name": "Savion Williams",
+      "pos": "WR",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 5.98,
+      "actual": 8.1,
+      "error": 2.12,
+      "abs_error": 2.12,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0040024",
@@ -26050,6 +30553,26 @@
       "rationale": "5h TZ delta -0.83 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
+      "gsis_id": "00-0040024",
+      "name": "Darius Cooper",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": -0.87,
+      "actual": 1.9,
+      "error": 2.77,
+      "abs_error": 2.77,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
       "gsis_id": "00-0040075",
       "name": "LaJohntay Wester",
       "pos": "WR",
@@ -26148,6 +30671,26 @@
         "matchup": true
       },
       "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0040075",
+      "name": "LaJohntay Wester",
+      "pos": "WR",
+      "team": "BAL",
+      "opponent": "CLE",
+      "week": 6,
+      "projected": -4,
+      "actual": 0,
+      "error": 4,
+      "abs_error": 4,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CLE allows 26.2 WR fpts/g (median 31.1) -4.00"
     },
     {
       "gsis_id": "00-0040078",
@@ -26290,6 +30833,26 @@
       "rationale": "NE allows 19.2 RB fpts/g (median 22.2) -3.00 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0040122",
+      "name": "Ashton Jeanty",
+      "pos": "RB",
+      "team": "LV",
+      "opponent": "BUF",
+      "week": 6,
+      "projected": 17.44,
+      "actual": 15.8,
+      "error": -1.64,
+      "abs_error": 1.64,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BUF allows 24.6 RB fpts/g (median 22.2) +2.40 · dome home +0.50"
+    },
+    {
       "gsis_id": "00-0040124",
       "name": "Tetairoa McMillan",
       "pos": "WR",
@@ -26368,6 +30931,26 @@
         "matchup": true
       },
       "rationale": "DET allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0040124",
+      "name": "Tetairoa McMillan",
+      "pos": "WR",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 9.35,
+      "actual": 14.6,
+      "error": 5.25,
+      "abs_error": 5.25,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0040126",
@@ -26468,6 +31051,26 @@
         "matchup": true
       },
       "rationale": "GB allows 12.1 TE fpts/g (median 13.6) -1.50"
+    },
+    {
+      "gsis_id": "00-0040126",
+      "name": "Colston Loveland",
+      "pos": "TE",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 6.43,
+      "actual": 18.5,
+      "error": 12.07,
+      "abs_error": 12.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 9.7 TE fpts/g (median 13.6) -3.90"
     },
     {
       "gsis_id": "00-0040128",
@@ -26670,6 +31273,26 @@
       "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0040129",
+      "name": "Emeka Egbuka",
+      "pos": "WR",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 15.24,
+      "actual": 17.8,
+      "error": 2.56,
+      "abs_error": 2.56,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
       "gsis_id": "00-0040131",
       "name": "Kyle Williams",
       "pos": "WR",
@@ -26768,6 +31391,26 @@
         "matchup": true
       },
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0040131",
+      "name": "Kyle Williams",
+      "pos": "WR",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 2.89,
+      "actual": 2.2,
+      "error": -0.69,
+      "abs_error": 0.69,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
     },
     {
       "gsis_id": "00-0040134",
@@ -26950,6 +31593,26 @@
       "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0040138",
+      "name": "Jaylin Noel",
+      "pos": "WR",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 3.05,
+      "actual": 20.7,
+      "error": 17.65,
+      "abs_error": 17.65,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "6h TZ delta -1.00 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
+    },
+    {
       "gsis_id": "00-0040142",
       "name": "Kaleb Johnson",
       "pos": "RB",
@@ -27048,6 +31711,26 @@
         "matchup": true
       },
       "rationale": "base pace, no context adjustments fired"
+    },
+    {
+      "gsis_id": "00-0040142",
+      "name": "Kaleb Johnson",
+      "pos": "RB",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 4.58,
+      "actual": -0.2,
+      "error": -4.78,
+      "abs_error": 4.78,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 25.9 RB fpts/g (median 22.2) +3.70"
     },
     {
       "gsis_id": "00-0040154",
@@ -27310,6 +31993,26 @@
       "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0040170",
+      "name": "Elic Ayomanor",
+      "pos": "WR",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 11.28,
+      "actual": 1.3,
+      "error": -9.98,
+      "abs_error": 9.98,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0040172",
       "name": "Jordan Watkins",
       "pos": "WR",
@@ -27328,6 +32031,46 @@
         "matchup": true
       },
       "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90"
+    },
+    {
+      "gsis_id": "00-0040172",
+      "name": "Jordan Watkins",
+      "pos": "WR",
+      "team": "SF",
+      "opponent": "WAS",
+      "week": 6,
+      "projected": 6.2,
+      "actual": 3.2,
+      "error": -3,
+      "abs_error": 3,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "WAS allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
+      "gsis_id": "00-0040184",
+      "name": "KeAndre Lambert-Smith",
+      "pos": "WR",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": -1.69,
+      "actual": 6.2,
+      "error": 7.89,
+      "abs_error": 7.89,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30"
     },
     {
       "gsis_id": "00-0040187",
@@ -27408,6 +32151,26 @@
         "matchup": true
       },
       "rationale": "DET allows 13.7 TE fpts/g (median 13.6) +0.10"
+    },
+    {
+      "gsis_id": "00-0040187",
+      "name": "Mitchell Evans",
+      "pos": "TE",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 0.24,
+      "actual": 0.1,
+      "error": -0.14,
+      "abs_error": 0.14,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 8.3 TE fpts/g (median 13.6) -4.00 · coming off bye +0.80"
     },
     {
       "gsis_id": "00-0040189",
@@ -27510,6 +32273,26 @@
       "rationale": "dome home +0.50 · DEN allows 13.7 TE fpts/g (median 13.6) +0.10"
     },
     {
+      "gsis_id": "00-0040189",
+      "name": "Oronde Gadsden II",
+      "pos": "TE",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 6.29,
+      "actual": 4.7,
+      "error": -1.59,
+      "abs_error": 1.59,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 11.0 TE fpts/g (median 13.6) -2.60"
+    },
+    {
       "gsis_id": "00-0040194",
       "name": "Jackson Hawes",
       "pos": "TE",
@@ -27548,6 +32331,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0040194",
+      "name": "Jackson Hawes",
+      "pos": "TE",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": 0.05,
+      "actual": 0,
+      "error": -0.05,
+      "abs_error": 0.05,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0040198",
@@ -27730,6 +32533,26 @@
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
     },
     {
+      "gsis_id": "00-0040225",
+      "name": "Thomas Fidone II",
+      "pos": "TE",
+      "team": "NYG",
+      "opponent": "NO",
+      "week": 6,
+      "projected": -1.1,
+      "actual": 0,
+      "error": 1.1,
+      "abs_error": 1.1,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NO allows 12.5 TE fpts/g (median 13.6) -1.10"
+    },
+    {
       "gsis_id": "00-0040236",
       "name": "Kyle Monangai",
       "pos": "RB",
@@ -27910,6 +32733,26 @@
       "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00 · short week (Thu after Sun) -1.00"
     },
     {
+      "gsis_id": "00-0040237",
+      "name": "Tez Johnson",
+      "pos": "WR",
+      "team": "TB",
+      "opponent": "PIT",
+      "week": 6,
+      "projected": 9.91,
+      "actual": 2.7,
+      "error": -7.21,
+      "abs_error": 7.21,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PIT allows 35.0 WR fpts/g (median 31.1) +3.90"
+    },
+    {
       "gsis_id": "00-0040238",
       "name": "LeQuint Allen Jr.",
       "pos": "RB",
@@ -27988,6 +32831,26 @@
         "matchup": true
       },
       "rationale": "5h TZ delta -0.83 · PHI allows 23.0 RB fpts/g (median 22.2) +0.80"
+    },
+    {
+      "gsis_id": "00-0040238",
+      "name": "LeQuint Allen Jr.",
+      "pos": "RB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": -1.78,
+      "actual": 0.1,
+      "error": 1.88,
+      "abs_error": 1.88,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83"
     },
     {
       "gsis_id": "00-0040242",
@@ -28130,6 +32993,26 @@
       "rationale": "base pace, no context adjustments fired"
     },
     {
+      "gsis_id": "00-0040277",
+      "name": "Jahdae Walker",
+      "pos": "WR",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 6.25,
+      "actual": 0,
+      "error": -6.25,
+      "abs_error": 6.25,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
       "gsis_id": "00-0040311",
       "name": "Theo Wease Jr.",
       "pos": "WR",
@@ -28148,6 +33031,46 @@
         "matchup": true
       },
       "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0040311",
+      "name": "Theo Wease Jr.",
+      "pos": "WR",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 5.33,
+      "actual": 4.1,
+      "error": -1.23,
+      "abs_error": 1.23,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 27.8 WR fpts/g (median 31.1) -3.30"
+    },
+    {
+      "gsis_id": "00-0040352",
+      "name": "Coleman Owen",
+      "pos": "WR",
+      "team": "IND",
+      "opponent": "TEN",
+      "week": 6,
+      "projected": 4,
+      "actual": 0,
+      "error": -4,
+      "abs_error": 4,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0040363",
@@ -28228,6 +33151,26 @@
         "matchup": true
       },
       "rationale": "LAR allows 12.8 TE fpts/g (median 13.6) -0.80 · -3h TZ delta -0.50"
+    },
+    {
+      "gsis_id": "00-0040363",
+      "name": "Keleki Latu",
+      "pos": "TE",
+      "team": "BUF",
+      "opponent": "LV",
+      "week": 6,
+      "projected": -1.5,
+      "actual": 0,
+      "error": 1.5,
+      "abs_error": 1.5,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "LV allows 10.1 TE fpts/g (median 13.6) -3.50 · -3h TZ delta -0.50"
     },
     {
       "gsis_id": "00-0040429",
@@ -28610,6 +33553,26 @@
       "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10"
     },
     {
+      "gsis_id": "00-0040556",
+      "name": "Corey Kiner",
+      "pos": "RB",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 6.33,
+      "actual": 5.7,
+      "error": -0.63,
+      "abs_error": 0.63,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 28.0 RB fpts/g (median 22.2) +4.00"
+    },
+    {
       "gsis_id": "00-0040563",
       "name": "Efton Chism III",
       "pos": "WR",
@@ -28688,6 +33651,26 @@
         "matchup": true
       },
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
+      "gsis_id": "00-0040563",
+      "name": "Efton Chism III",
+      "pos": "WR",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 1.46,
+      "actual": 0,
+      "error": -1.46,
+      "abs_error": 1.46,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
     },
     {
       "gsis_id": "00-0040582",
@@ -28828,6 +33811,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 22.3 RB fpts/g (median 22.2) +0.10"
+    },
+    {
+      "gsis_id": "00-0040583",
+      "name": "Woody Marks",
+      "pos": "RB",
+      "team": "HOU",
+      "opponent": "JAX",
+      "week": 6,
+      "projected": 4.67,
+      "actual": 10.1,
+      "error": 5.43,
+      "abs_error": 5.43,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "JAX allows 18.8 RB fpts/g (median 22.2) -3.40 · 6h TZ delta -1.00"
     },
     {
       "gsis_id": "00-0040584",
@@ -29010,6 +34013,46 @@
       "rationale": "PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 3h TZ delta -0.50"
     },
     {
+      "gsis_id": "00-0040590",
+      "name": "Konata Mumpfield",
+      "pos": "WR",
+      "team": "LAR",
+      "opponent": "ARI",
+      "week": 6,
+      "projected": 2.12,
+      "actual": 3.5,
+      "error": 1.38,
+      "abs_error": 1.38,
+      "flags": {
+        "dome_home": true,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ARI allows 30.2 WR fpts/g (median 31.1) -0.90 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0040644",
+      "name": "Trevor Etienne",
+      "pos": "RB",
+      "team": "CAR",
+      "opponent": "PHI",
+      "week": 6,
+      "projected": 2.41,
+      "actual": -0.1,
+      "error": -2.51,
+      "abs_error": 2.51,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "PHI allows 23.0 RB fpts/g (median 22.2) +0.80 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0040646",
       "name": "Jalen Royals",
       "pos": "WR",
@@ -29090,6 +34133,26 @@
       "rationale": "LV allows 32.9 WR fpts/g (median 31.1) +1.80"
     },
     {
+      "gsis_id": "00-0040646",
+      "name": "Jalen Royals",
+      "pos": "WR",
+      "team": "KC",
+      "opponent": "LAC",
+      "week": 6,
+      "projected": -2,
+      "actual": 4.4,
+      "error": 6.4,
+      "abs_error": 6.4,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": true,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00 · coming off bye +0.80"
+    },
+    {
       "gsis_id": "00-0040648",
       "name": "Tory Horton",
       "pos": "WR",
@@ -29128,6 +34191,26 @@
         "matchup": true
       },
       "rationale": "LAC allows 26.9 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0040648",
+      "name": "Tory Horton",
+      "pos": "WR",
+      "team": "SEA",
+      "opponent": "DEN",
+      "week": 6,
+      "projected": 2.39,
+      "actual": 2.3,
+      "error": -0.09,
+      "abs_error": 0.09,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DEN allows 27.0 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00"
     },
     {
       "gsis_id": "00-0040663",
@@ -29230,6 +34313,26 @@
       "rationale": "NYJ allows 14.3 TE fpts/g (median 13.6) +0.70"
     },
     {
+      "gsis_id": "00-0040663",
+      "name": "Harold Fannin Jr.",
+      "pos": "TE",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 9.12,
+      "actual": 1.9,
+      "error": -7.22,
+      "abs_error": 7.22,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 11.4 TE fpts/g (median 13.6) -2.20"
+    },
+    {
       "gsis_id": "00-0040666",
       "name": "Omarion Hampton",
       "pos": "RB",
@@ -29330,6 +34433,26 @@
       "rationale": "DEN allows 17.2 RB fpts/g (median 22.2) -4.00 · dome home +0.50"
     },
     {
+      "gsis_id": "00-0040666",
+      "name": "Omarion Hampton",
+      "pos": "RB",
+      "team": "LAC",
+      "opponent": "KC",
+      "week": 6,
+      "projected": 12.38,
+      "actual": 7.9,
+      "error": -4.48,
+      "abs_error": 4.48,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "KC allows 19.5 RB fpts/g (median 22.2) -2.70"
+    },
+    {
       "gsis_id": "00-0040667",
       "name": "Matthew Golden",
       "pos": "WR",
@@ -29428,6 +34551,26 @@
         "matchup": true
       },
       "rationale": "CHI allows 34.8 WR fpts/g (median 31.1) +3.70"
+    },
+    {
+      "gsis_id": "00-0040667",
+      "name": "Matthew Golden",
+      "pos": "WR",
+      "team": "GB",
+      "opponent": "DAL",
+      "week": 6,
+      "projected": 8.65,
+      "actual": 22.4,
+      "error": 13.75,
+      "abs_error": 13.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "DAL allows 39.1 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0040668",
@@ -29650,6 +34793,26 @@
       "rationale": "HOU allows 14.4 QB fpts/g (median 17.9) -3.50"
     },
     {
+      "gsis_id": "00-0040676",
+      "name": "Cam Ward",
+      "pos": "QB",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 12.63,
+      "actual": 6.78,
+      "error": -5.85,
+      "abs_error": 5.85,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0040691",
       "name": "Jaxson Dart",
       "pos": "QB",
@@ -29788,6 +34951,26 @@
         "matchup": true
       },
       "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00"
+    },
+    {
+      "gsis_id": "00-0040705",
+      "name": "Chimere Dike",
+      "pos": "WR",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 10.72,
+      "actual": 0,
+      "error": -10.72,
+      "abs_error": 10.72,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0040715",
@@ -29988,6 +35171,26 @@
         "matchup": true
       },
       "rationale": "5h TZ delta -0.83 · PHI allows 23.0 RB fpts/g (median 22.2) +0.80"
+    },
+    {
+      "gsis_id": "00-0040719",
+      "name": "Bhayshul Tuten",
+      "pos": "RB",
+      "team": "JAX",
+      "opponent": "HOU",
+      "week": 6,
+      "projected": 2.71,
+      "actual": 24.7,
+      "error": 21.99,
+      "abs_error": 21.99,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83"
     },
     {
       "gsis_id": "00-0040727",
@@ -30210,6 +35413,26 @@
       "rationale": "LAC allows 18.7 RB fpts/g (median 22.2) -3.50"
     },
     {
+      "gsis_id": "00-0040730",
+      "name": "RJ Harvey",
+      "pos": "RB",
+      "team": "DEN",
+      "opponent": "SEA",
+      "week": 6,
+      "projected": 8.27,
+      "actual": 14.6,
+      "error": 6.33,
+      "abs_error": 6.33,
+      "flags": {
+        "dome_home": false,
+        "short_week": true,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "SEA allows 19.2 RB fpts/g (median 22.2) -3.00 · short week (Thu after Sun) -1.00"
+    },
+    {
       "gsis_id": "00-0040734",
       "name": "TreVeyon Henderson",
       "pos": "RB",
@@ -30288,6 +35511,26 @@
         "matchup": true
       },
       "rationale": "LV allows 23.3 RB fpts/g (median 22.2) +1.10"
+    },
+    {
+      "gsis_id": "00-0040734",
+      "name": "TreVeyon Henderson",
+      "pos": "RB",
+      "team": "NE",
+      "opponent": "NYJ",
+      "week": 6,
+      "projected": 16.25,
+      "actual": 3,
+      "error": -13.25,
+      "abs_error": 13.25,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYJ allows 28.0 RB fpts/g (median 22.2) +4.00"
     },
     {
       "gsis_id": "00-0040735",
@@ -30390,6 +35633,26 @@
       "rationale": "base pace, no context adjustments fired"
     },
     {
+      "gsis_id": "00-0040735",
+      "name": "Luther Burden III",
+      "pos": "WR",
+      "team": "CHI",
+      "opponent": "ATL",
+      "week": 6,
+      "projected": 10.08,
+      "actual": 17.5,
+      "error": 7.42,
+      "abs_error": 7.42,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "ATL allows 32.9 WR fpts/g (median 31.1) +1.80"
+    },
+    {
       "gsis_id": "00-0040736",
       "name": "Mason Taylor",
       "pos": "TE",
@@ -30428,6 +35691,26 @@
         "matchup": true
       },
       "rationale": "CLE allows 12.9 TE fpts/g (median 13.6) -0.70"
+    },
+    {
+      "gsis_id": "00-0040736",
+      "name": "Mason Taylor",
+      "pos": "TE",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 6.68,
+      "actual": 7.3,
+      "error": 0.62,
+      "abs_error": 0.62,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
     },
     {
       "gsis_id": "00-0040737",
@@ -30628,6 +35911,26 @@
         "matchup": true
       },
       "rationale": "MIN allows 11.8 QB fpts/g (median 17.9) -4.00 · dome home +0.50"
+    },
+    {
+      "gsis_id": "00-0040743",
+      "name": "Tyler Shough",
+      "pos": "QB",
+      "team": "NO",
+      "opponent": "NYG",
+      "week": 6,
+      "projected": 16.63,
+      "actual": 26.96,
+      "error": 10.33,
+      "abs_error": 10.33,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NYG allows 18.9 QB fpts/g (median 17.9) +1.00"
     },
     {
       "gsis_id": "00-0040782",
@@ -30890,6 +36193,26 @@
       "rationale": "5h TZ delta -0.83 · JAX allows 31.2 WR fpts/g (median 31.1) +0.10"
     },
     {
+      "gsis_id": "00-0040867",
+      "name": "Makai Lemon",
+      "pos": "WR",
+      "team": "PHI",
+      "opponent": "CAR",
+      "week": 6,
+      "projected": 6.35,
+      "actual": 4.9,
+      "error": -1.45,
+      "abs_error": 1.45,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "CAR allows 27.2 WR fpts/g (median 31.1) -3.90"
+    },
+    {
       "gsis_id": "00-0040886",
       "name": "Nicholas Singleton",
       "pos": "RB",
@@ -31130,6 +36453,26 @@
       "rationale": "CLE allows 12.9 TE fpts/g (median 13.6) -0.70"
     },
     {
+      "gsis_id": "00-0041032",
+      "name": "Kenyon Sadiq",
+      "pos": "TE",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 3.62,
+      "actual": 2.2,
+      "error": -1.42,
+      "abs_error": 1.42,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "base pace, no context adjustments fired"
+    },
+    {
       "gsis_id": "00-0041037",
       "name": "Denzel Boston",
       "pos": "WR",
@@ -31228,6 +36571,26 @@
         "matchup": true
       },
       "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
+    },
+    {
+      "gsis_id": "00-0041037",
+      "name": "Denzel Boston",
+      "pos": "WR",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 9.93,
+      "actual": 2.5,
+      "error": -7.43,
+      "abs_error": 7.43,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0041040",
@@ -31330,6 +36693,26 @@
       "rationale": "NYG allows 33.1 WR fpts/g (median 31.1) +2.00"
     },
     {
+      "gsis_id": "00-0041040",
+      "name": "Antonio Williams",
+      "pos": "WR",
+      "team": "WAS",
+      "opponent": "SF",
+      "week": 6,
+      "projected": 5.2,
+      "actual": 8,
+      "error": 2.8,
+      "abs_error": 2.8,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": true,
+        "matchup": true
+      },
+      "rationale": "SF allows 32.3 WR fpts/g (median 31.1) +1.20 · -3h TZ delta -0.50"
+    },
+    {
       "gsis_id": "00-0041438",
       "name": "Carnell Tate",
       "pos": "WR",
@@ -31430,6 +36813,26 @@
       "rationale": "HOU allows 25.7 WR fpts/g (median 31.1) -4.00"
     },
     {
+      "gsis_id": "00-0041438",
+      "name": "Carnell Tate",
+      "pos": "WR",
+      "team": "TEN",
+      "opponent": "IND",
+      "week": 6,
+      "projected": 9.93,
+      "actual": 19,
+      "error": 9.07,
+      "abs_error": 9.07,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
+    },
+    {
       "gsis_id": "00-0041489",
       "name": "Germie Bernard",
       "pos": "WR",
@@ -31510,6 +36913,26 @@
       "rationale": "IND allows 36.1 WR fpts/g (median 31.1) +4.00"
     },
     {
+      "gsis_id": "00-0041489",
+      "name": "Germie Bernard",
+      "pos": "WR",
+      "team": "PIT",
+      "opponent": "TB",
+      "week": 6,
+      "projected": 3.95,
+      "actual": 25.7,
+      "error": 21.75,
+      "abs_error": 21.75,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "TB allows 31.6 WR fpts/g (median 31.1) +0.50"
+    },
+    {
       "gsis_id": "00-0041511",
       "name": "Omar Cooper Jr.",
       "pos": "WR",
@@ -31528,6 +36951,26 @@
         "matchup": true
       },
       "rationale": "TEN allows 35.7 WR fpts/g (median 31.1) +4.00"
+    },
+    {
+      "gsis_id": "00-0041511",
+      "name": "Omar Cooper Jr.",
+      "pos": "WR",
+      "team": "NYJ",
+      "opponent": "NE",
+      "week": 6,
+      "projected": 3.93,
+      "actual": 22.3,
+      "error": 18.37,
+      "abs_error": 18.37,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "NE allows 29.1 WR fpts/g (median 31.1) -2.00"
     },
     {
       "gsis_id": "00-0041512",
@@ -31688,6 +37131,26 @@
         "matchup": true
       },
       "rationale": "NYJ allows 30.5 WR fpts/g (median 31.1) -0.60"
+    },
+    {
+      "gsis_id": "00-0041547",
+      "name": "KC Concepcion",
+      "pos": "WR",
+      "team": "CLE",
+      "opponent": "BAL",
+      "week": 6,
+      "projected": 7.06,
+      "actual": 7.9,
+      "error": 0.84,
+      "abs_error": 0.84,
+      "flags": {
+        "dome_home": false,
+        "short_week": false,
+        "bye_return": false,
+        "tz_travel": false,
+        "matchup": true
+      },
+      "rationale": "BAL allows 35.9 WR fpts/g (median 31.1) +4.00"
     },
     {
       "gsis_id": "00-0041562",
