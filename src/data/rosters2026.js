@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-21T10:25:45.187Z
+// Reconciled: 2026-10-22T09:23:50.894Z against availability_2026.json
+//             (generated 2026-10-22T09:21:09.158Z) — 1 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -8093,8 +8097,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040236",
-        "name": "Kyle Monangai",
+        "gsis_id": "00-0039021",
+        "name": "Roschon Johnson",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -8135,7 +8139,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kyle Monangai (Out)"
       },
       {
         "pos": "WR1",
@@ -27778,7 +27783,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Kobie Turner (Out)",
+        "starter_reason": "promoted after: Kobie Turner (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039138",
@@ -51153,8 +51158,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-21T10:25:45.187Z",
-  "availability_stamp": "2026-10-21T09:18:16.023Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-22T09:21:09.158Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-22T09:23:50.894Z",
+  "swaps_this_run": 1,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
