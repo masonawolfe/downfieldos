@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-21T10:25:45.187Z
-// Reconciled: 2026-10-22T09:34:56.649Z against availability_2026.json
-//             (generated 2026-10-22T09:21:09.158Z) — 0 swap(s),
+// Reconciled: 2026-10-23T09:19:55.076Z against availability_2026.json
+//             (generated 2026-10-23T09:17:00.645Z) — 9 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -8758,8 +8758,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0035386",
-        "name": "T.J. Edwards",
+        "gsis_id": "00-0039840",
+        "name": "Austin Booker",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -8866,12 +8866,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: T.J. Edwards (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039840",
-        "name": "Austin Booker",
+        "gsis_id": "00-0037271",
+        "name": "D'Marco Jackson",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -8978,7 +8979,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Montez Sweat (SUSP)"
       },
       {
         "pos": "DT",
@@ -9028,8 +9030,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0035386",
-        "name": "T.J. Edwards",
+        "gsis_id": "00-0037271",
+        "name": "D'Marco Jackson",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -9106,12 +9108,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: T.J. Edwards (Out)"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0037271",
-        "name": "D'Marco Jackson",
+        "gsis_id": "00-0038390",
+        "name": "Noah Sewell",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -41905,8 +41908,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0036862",
-        "name": "Ben Skowronek",
+        "gsis_id": "00-0037382",
+        "name": "Brandon Johnson",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -42013,7 +42016,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Ben Skowronek (Out)"
       },
       {
         "pos": "TE",
@@ -42573,8 +42577,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "DT",
-        "gsis_id": "00-0034810",
-        "name": "Sebastian Joseph-Day",
+        "gsis_id": "00-0027969",
+        "name": "Cameron Heyward",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -42621,7 +42625,8 @@ export const ROSTERS_2026 = {
             "posAbb": "DT",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Sebastian Joseph-Day (IR)"
       },
       {
         "pos": "LB1",
@@ -46584,12 +46589,11 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0040129",
-        "name": "Emeka Egbuka",
+        "gsis_id": "00-0035359",
+        "name": "David Sills V",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: David Sills V (IR)",
         "candidates": [
           {
             "gsis_id": "00-0035359",
@@ -46679,8 +46683,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0040237",
-        "name": "Tez Johnson",
+        "gsis_id": "00-0040129",
+        "name": "Emeka Egbuka",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -46773,8 +46777,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0039589",
-        "name": "Kameron Johnson",
+        "gsis_id": "00-0040237",
+        "name": "Tez Johnson",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
@@ -51158,10 +51162,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-21T10:25:45.187Z",
-  "availability_stamp": "2026-10-22T09:21:09.158Z",
+  "availability_stamp": "2026-10-23T09:17:00.645Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-22T09:34:56.649Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-23T09:19:55.076Z",
+  "swaps_this_run": 9,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
