@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-10-23T09:31:07.967Z |
+| This build | 2026-10-24T08:52:14.287Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-23T09:19:57.192Z |
-| Ranked rows this build | 498 |
+| Prior build | 2026-10-23T09:31:07.968Z |
+| Ranked rows this build | 497 |
 | Ranked rows prior build | 498 |
 
 ---
@@ -21,4 +21,6 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 214 | Cole Kmet | TE | CHI | -96 |
