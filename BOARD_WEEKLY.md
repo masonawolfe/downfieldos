@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| This build | 2026-10-10T10:46:33.332Z |
+| This build | 2026-10-25T09:20:35.111Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-10T10:36:08.182Z |
+| Prior build | 2026-10-25T09:08:37.151Z |
 | Ranked rows this build | 498 |
 | Ranked rows prior build | 498 |
 

@@ -4,15 +4,15 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-11T02:07:25.465Z |
-| Weekly board generated | 2026-10-11T02:05:05.888Z |
-| Player board generated | 2026-10-10T10:46:31.204Z |
+| Generated | 2026-10-25T18:36:51.276Z |
+| Weekly board generated | 2026-10-25T18:35:44.610Z |
+| Player board generated | 2026-10-25T09:20:33.183Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-10-07T13:42:22.257Z |
-| Weeks covered | 1, 2, 3, 4 |
+| Actuals generated | 2026-10-21T12:10:21.701Z |
+| Weeks covered | 1, 2, 3, 4, 5, 6 |
 | Weeks partial (not graded) | none |
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
-| Matched pairs | 1264 |
+| Matched pairs | 1833 |
 
 Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10). `projected` = the week's frozen pre-kickoff snapshot `weekly_value` (weeks 1-5: the 2026-09-18 build, base + ±4 matchup + env; weeks 6+: E-034 v2, base + env, no matchup term, floored at 0). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.
 
@@ -25,21 +25,23 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10)
 | 3 | 2026-09-18T01:36:59.740Z | 2026-09-25T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
 | 4 | 2026-09-18T01:36:59.740Z | 2026-10-02T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
 | 5 | 2026-09-18T01:36:59.740Z | 2026-10-09T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
+| 6 | 2026-09-18T01:36:59.740Z | 2026-10-16T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
+| 7 | 2026-09-18T01:36:59.740Z | 2026-10-23T00:15:00.000Z | yes | E-004 v1 (pre-2026-10-10) |
 
 ## Overall
 
 | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|
-| 1264 | 0.43 | 5.26 | 6.94 |
+| 1833 | 0.48 | 5.26 | 6.92 |
 
 ## By position
 
 | Pos | N | Mean error | Mean \|error\| | RMSE |
 |---|---|---|---|---|
-| QB | 135 | -0.66 | 6.73 | 8.15 |
-| RB | 316 | 0.16 | 5.15 | 6.98 |
-| WR | 536 | 0.89 | 5.5 | 7.17 |
-| TE | 277 | 0.41 | 4.22 | 5.69 |
+| QB | 194 | -0.46 | 6.78 | 8.12 |
+| RB | 459 | 0.33 | 5.24 | 7 |
+| WR | 769 | 0.84 | 5.41 | 7.09 |
+| TE | 411 | 0.4 | 4.27 | 5.8 |
 
 ## Per-adjustment: fired vs not fired
 
@@ -47,11 +49,11 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 
 | Adjustment | Fired N | Fired mean err | Fired \|err\| | Not-fired N | Not-fired mean err | Not-fired \|err\| |
 |---|---|---|---|---|---|---|
-| matchup | 1264 | 0.43 | 5.26 | 0 | — | — |
-| dome_home | 125 | 0.68 | 5.46 | 1139 | 0.41 | 5.24 |
-| short_week | 61 | 3.63 | 5.92 | 1203 | 0.27 | 5.23 |
-| bye_return | 0 | — | — | 1264 | 0.43 | 5.26 |
-| tz_travel | 104 | -1.01 | 5.36 | 1160 | 0.56 | 5.25 |
+| matchup | 1833 | 0.48 | 5.26 | 0 | — | — |
+| dome_home | 173 | 0.69 | 5.47 | 1660 | 0.45 | 5.24 |
+| short_week | 101 | 2.46 | 5.58 | 1732 | 0.36 | 5.24 |
+| bye_return | 19 | 4.87 | 6.73 | 1814 | 0.43 | 5.24 |
+| tz_travel | 190 | 0.41 | 5.22 | 1643 | 0.48 | 5.26 |
 
 **The ±4 matchup cap:** if fired-mean-error and fired-|err| are close to not-fired, the cap isn't buying us signal. If fired-|err| is materially smaller (e.g. ~2 point improvement), it is. First-week sample is small — trend needs weeks 2+ to be decisive.
 
@@ -63,22 +65,22 @@ If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fi
 | Tetairoa McMillan | WR | CAR | 4 | DET | 16.55 | 45.2 | +28.65 | DET allows 35.7 WR fpts/g (median 31.1) +4.00 |
 | Kenneth Walker III | RB | KC | 1 | DEN | 7.29 | 34.1 | +26.81 | DEN allows 17.2 RB fpts/g (median 22.2) -4.00 |
 | Emanuel Wilson | RB | SEA | 4 | LAC | 1.94 | 27 | +25.06 | LAC allows 18.7 RB fpts/g (median 22.2) -3.50 |
+| Jaylen Warren | RB | PIT | 5 | IND | 11.77 | 36.8 | +25.03 | IND allows 20.4 RB fpts/g (median 22.2) -1.80 |
+| Isaiah Likely | TE | NYG | 5 | WAS | 7.51 | 32.4 | +24.89 | WAS allows 15.8 TE fpts/g (median 13.6) +2.20 |
+| Parker Washington | WR | JAX | 5 | PHI | 5.96 | 30.4 | +24.44 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83 |
 | Isaiah Likely | TE | NYG | 1 | DAL | 3.91 | 27.8 | +23.89 | DAL allows 12.2 TE fpts/g (median 13.6) -1.40 |
 | Christian Watson | WR | GB | 1 | MIN | 9.21 | 32.7 | +23.49 | MIN allows 23.8 WR fpts/g (median 31.1) -4.00 |
 | Brian Robinson | RB | ATL | 4 | NO | 2.38 | 25.7 | +23.32 | NO allows 20.9 RB fpts/g (median 22.2) -1.30 |
 | Jaxon Smith-Njigba | WR | SEA | 2 | ARI | 20.18 | 42.5 | +22.32 | ARI allows 30.2 WR fpts/g (median 31.1) -0.90 |
+| Bhayshul Tuten | RB | JAX | 6 | HOU | 2.71 | 24.7 | +21.99 | HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83 |
 | Jalen Coker | WR | CAR | 1 | CHI | 11.92 | 33.8 | +21.88 | CHI allows 34.8 WR fpts/g (median 31.1) +3.70 |
+| Germie Bernard | WR | PIT | 6 | TB | 3.95 | 25.7 | +21.75 | TB allows 31.6 WR fpts/g (median 31.1) +0.50 |
 | Amon-Ra St. Brown | WR | DET | 2 | BUF | 14.01 | 35.2 | +21.19 | BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · short week (Thu after Sun) -1.00 |
 | Rashod Bateman | WR | BAL | 2 | NO | 0.71 | 21.8 | +21.09 | NO allows 27.7 WR fpts/g (median 31.1) -3.40 |
 | Davante Adams | WR | LAR | 2 | NYG | 18.42 | 39.5 | +21.08 | NYG allows 33.1 WR fpts/g (median 31.1) +2.00 · dome home +0.50 |
 | Kalif Raymond | WR | CHI | 3 | PHI | -0.07 | 21 | +21.07 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 |
+| Tre Tucker | WR | LV | 6 | BUF | 5.71 | 26.7 | +20.99 | BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50 |
 | Konata Mumpfield | WR | LAR | 3 | DEN | -1.48 | 19.3 | +20.78 | DEN allows 27.0 WR fpts/g (median 31.1) -4.00 |
-| Drew Lock | QB | SEA | 2 | ARI | 0.63 | 21.4 | +20.77 | ARI allows 18.5 QB fpts/g (median 17.9) +0.60 |
-| Kyren Williams | RB | LAR | 4 | PHI | 16.02 | 36.7 | +20.68 | PHI allows 23.0 RB fpts/g (median 22.2) +0.80 · 3h TZ delta -0.50 |
-| Caleb Williams | QB | CHI | 1 | CAR | 16.67 | 37.26 | +20.59 | CAR allows 15.6 QB fpts/g (median 17.9) -2.30 |
-| Derrick Henry | RB | BAL | 1 | IND | 14.99 | 35.3 | +20.31 | IND allows 20.4 RB fpts/g (median 22.2) -1.80 |
-| Chuba Hubbard | RB | CAR | 4 | DET | 5.79 | 25.9 | +20.11 | DET allows 19.5 RB fpts/g (median 22.2) -2.70 |
-| Kenyon Sadiq | TE | NYJ | 3 | DET | 3.72 | 23.5 | +19.78 | DET allows 13.7 TE fpts/g (median 13.6) +0.10 |
 
 ---
 
