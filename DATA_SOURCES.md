@@ -82,7 +82,8 @@ the same artifact:
 | Path | URL |
 |---|---|
 | **Source of record** | `https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv` |
-| Not used | `https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv` |
+| Not used by the data jobs | `https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv` |
+| Checker default only (2026-10-25) | `scripts/check_results.py` (a mirror of the editorial results gate) downloads the raw/master copy when run without `--games`; the cloud drafter prompt passes the release asset above via `--games` so the source of record is unchanged. |
 
 **The release asset is the source of record.** Reasons, in order:
 
