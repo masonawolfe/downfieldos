@@ -21,9 +21,13 @@
  * weeks and would re-grade played weeks with hindsight. Only COMPLETE weeks
  * are graded: a week is complete when every scheduled REG game has player
  * rows in the actuals (a Thursday-only week 5 is reported as partial and
- * excluded). Weeks 1-5 snapshots are the 2026-09-18 build (model E-004 v1,
- * with the ±4 matchup term); weeks 6+ are E-034 v2 (no matchup term,
- * floored at 0). Each row carries its snapshot's model_version.
+ * excluded). Which model a week was graded with is read from that week's
+ * snapshot header (model_version, source_board_generated), never assumed
+ * here: as of 2026-10-25 weeks 1-7 are seeds of the 2026-09-18 build (model
+ * E-004 v1, with the ±4 matchup term; 6 and 7 seeded 2026-10-25 because the
+ * chain was not live before their kickoffs), and the first pre-kickoff
+ * freeze from E-034 v2 (no matchup term, floored at 0) is the first week
+ * whose window opens after that. Each row carries its snapshot's model_version.
  *
  * Adjustment flags are derived from each snapshot row's context fields
  * (is_dome_game + home_away, is_short_week, is_bye_return, tz_delta,
@@ -241,7 +245,23 @@ md.push(`| Weeks partial (not graded) | ${weeksPartial.map(w => `${w} (${complet
 md.push(`| Projections graded | frozen pre-kickoff snapshots, \`src/data/intelligence/weekly_projections/\` (E-052) |`);
 md.push(`| Matched pairs | ${overall.n} |`);
 md.push('');
-md.push('Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10). `projected` = the week\'s frozen pre-kickoff snapshot `weekly_value` (weeks 1-5: the 2026-09-18 build, base + ±4 matchup + env; weeks 6+: E-034 v2, base + env, no matchup term, floored at 0). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.');
+// QA 2026-10-25: the model note is derived from the snapshot headers, never a
+// fixed string. The old sentence said "weeks 6+: E-034 v2", which was wrong for
+// weeks 6 and 7 (seeded from the 2026-09-18 board on 2026-10-25) and
+// contradicted the table below it.
+const modelRuns = [];
+for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
+  const board = (d.source_board_generated || d.written_utc || '').slice(0, 10);
+  const label = `${d.model_version.split(':')[0]}, the board generated ${board}`;
+  const last = modelRuns[modelRuns.length - 1];
+  if (last && last.label === label) last.to = d.week; else modelRuns.push({ from: d.week, to: d.week, label });
+}
+const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from}-${r.to}`}: ${r.label}`).join('; ');
+const v2Weeks = Object.values(SNAPSHOTS).filter(d => /E-034 v2/.test(d.model_version)).map(d => d.week).sort((a, b) => a - b);
+const v2Note = v2Weeks.length
+  ? `the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week ${v2Weeks[0]}`
+  : 'no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens';
+md.push(`Emitted by \`scripts/build-calibration.js\` (E-032, 2026-09-17; E-052, 2026-10-10). \`projected\` = the week's frozen pre-kickoff snapshot \`weekly_value\`, graded with the model named in that snapshot's header (${modelNote}; ${v2Note}). \`actual\` = \`fantasy_points_ppr\` from nflverse. \`error\` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.`);
 md.push('');
 md.push('## Snapshots graded');
 md.push('');

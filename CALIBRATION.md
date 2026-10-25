@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-25T18:40:20.359Z |
+| Generated | 2026-10-25T19:13:42.142Z |
 | Weekly board generated | 2026-10-25T18:35:44.610Z |
 | Player board generated | 2026-10-25T18:40:19.191Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
@@ -14,7 +14,7 @@
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
 | Matched pairs | 1833 |
 
-Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10). `projected` = the week's frozen pre-kickoff snapshot `weekly_value` (weeks 1-5: the 2026-09-18 build, base + ±4 matchup + env; weeks 6+: E-034 v2, base + env, no matchup term, floored at 0). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.
+Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10). `projected` = the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1-7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens). `actual` = `fantasy_points_ppr` from nflverse. `error` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.
 
 ## Snapshots graded
 
