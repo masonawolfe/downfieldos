@@ -388,7 +388,8 @@ export default function DownfieldOS() {
             <div style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>v7 — {typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'}</div>
             {/* Binding constraint 2026-08-22: no name on the site. Sidebar
                 mailto removed; feedback path routes through the newsletter
-                Beehiiv address once wired. Do not restore a personal email. */}
+                Beehiiv address once wired (2026-10-25: the newsletter is now on
+                Substack, see src/config/newsletter.js). Do not restore a personal email. */}
             {/* nflverse attribution (CC BY 4.0 §3(a)(1)). Full source list
                 and modification notice at /DATA_SOURCES.md in the repo. */}
             <div style={{ fontSize: 9, color: "#64748b", marginTop: 8, lineHeight: 1.4 }}>
