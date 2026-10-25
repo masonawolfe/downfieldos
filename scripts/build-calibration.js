@@ -105,9 +105,10 @@ function deriveFlags(r) {
   // Matchup fired = the row carries a defensive rank we could grade against.
   // Not the same as "adjustment was non-zero" — near-median matchups still
   // count as "we tried to score this matchup", producing a small adjustment.
-  // E-052: E-034 v2 snapshots (week 6+) carry components and no matchup
-  // term, so "matchup fired" is false there by construction. Older (v1)
-  // snapshots keep the E-032 definition. (Fixing the v1 definition is
+  // E-052: E-034 v2 snapshots (any week whose header names that model;
+  // none existed as of 2026-10-25, weeks 1-7 being seeds of the 2026-09-18
+  // v1 board) carry components and no matchup term, so "matchup fired" is
+  // false there by construction. Older (v1) snapshots keep the E-032 definition. (Fixing the v1 definition is
   // diagnosis #9, out of scope for E-052.)
   const matchup = r.weekly_value_components
     ? 'matchup_defense_adj' in r.weekly_value_components
@@ -193,6 +194,24 @@ for (const flag of ['dome_home', 'short_week', 'bye_return', 'tz_travel', 'match
 // Top misses (largest absolute error) — the copilot's Caleb + Stafford belong here
 const topMisses = [...perPair].sort((a, b) => b.abs_error - a.abs_error).slice(0, 20);
 
+// QA 2026-10-25: the model note is derived from the snapshot headers, never a
+// fixed string. The old sentence said "weeks 6+: E-034 v2", which was wrong for
+// weeks 6 and 7 (seeded from the 2026-09-18 board on 2026-10-25) and
+// contradicted the table below it.
+const modelRuns = [];
+for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
+  const board = (d.source_board_generated || d.written_utc || '').slice(0, 10);
+  const label = `${d.model_version.split(':')[0]}, the board generated ${board}`;
+  const last = modelRuns[modelRuns.length - 1];
+  if (last && last.label === label) last.to = d.week; else modelRuns.push({ from: d.week, to: d.week, label });
+}
+const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from}-${r.to}`}: ${r.label}`).join('; ');
+const v2Weeks = Object.values(SNAPSHOTS).filter(d => /E-034 v2/.test(d.model_version)).map(d => d.week).sort((a, b) => a - b);
+const v2Note = v2Weeks.length
+  ? `the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week ${v2Weeks[0]}`
+  : 'no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens';
+const modelNoteText = `graded with the model named in each week's snapshot header (${modelNote}; ${v2Note})`;
+
 const meta = {
   season: SEASON,
   generated_utc: new Date().toISOString(),
@@ -211,7 +230,9 @@ const meta = {
     written_before_kickoff: d.written_before_kickoff, post_kickoff_game_ids: d.post_kickoff_game_ids,
     model_version: d.model_version, rows_sha256: d.rows_sha256,
   }])),
-  scoring_note: 'projected = the week\'s frozen snapshot weekly_value (weeks 1-5: E-004 v1 incl. ±4 matchup term, 2026-09-18 build; weeks 6+: E-034 v2, no matchup term, floored at 0). actual = fantasy_points_ppr from nflverse.',
+  // QA 2026-10-25: derived from the snapshot headers (see modelNote above),
+  // never a fixed string; this ships verbatim in the public json.
+  scoring_note: `projected = the week's frozen pre-kickoff snapshot weekly_value, ${modelNoteText}. actual = fantasy_points_ppr from nflverse.`,
 };
 
 const out = {
@@ -245,22 +266,6 @@ md.push(`| Weeks partial (not graded) | ${weeksPartial.map(w => `${w} (${complet
 md.push(`| Projections graded | frozen pre-kickoff snapshots, \`src/data/intelligence/weekly_projections/\` (E-052) |`);
 md.push(`| Matched pairs | ${overall.n} |`);
 md.push('');
-// QA 2026-10-25: the model note is derived from the snapshot headers, never a
-// fixed string. The old sentence said "weeks 6+: E-034 v2", which was wrong for
-// weeks 6 and 7 (seeded from the 2026-09-18 board on 2026-10-25) and
-// contradicted the table below it.
-const modelRuns = [];
-for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
-  const board = (d.source_board_generated || d.written_utc || '').slice(0, 10);
-  const label = `${d.model_version.split(':')[0]}, the board generated ${board}`;
-  const last = modelRuns[modelRuns.length - 1];
-  if (last && last.label === label) last.to = d.week; else modelRuns.push({ from: d.week, to: d.week, label });
-}
-const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from}-${r.to}`}: ${r.label}`).join('; ');
-const v2Weeks = Object.values(SNAPSHOTS).filter(d => /E-034 v2/.test(d.model_version)).map(d => d.week).sort((a, b) => a - b);
-const v2Note = v2Weeks.length
-  ? `the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week ${v2Weeks[0]}`
-  : 'no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens';
 md.push(`Emitted by \`scripts/build-calibration.js\` (E-032, 2026-09-17; E-052, 2026-10-10). \`projected\` = the week's frozen pre-kickoff snapshot \`weekly_value\`, graded with the model named in that snapshot's header (${modelNote}; ${v2Note}). \`actual\` = \`fantasy_points_ppr\` from nflverse. \`error\` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.`);
 md.push('');
 md.push('## Snapshots graded');

@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_utc": "2026-10-25T19:13:42.142Z",
+    "generated_utc": "2026-10-25T19:23:15.815Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
     "actuals_generated_utc": "2026-10-25T18:40:02.243Z",
     "weekly_board_generated_utc": "2026-10-25T18:35:44.610Z",
@@ -107,7 +107,7 @@
         "rows_sha256": "55ddbb7f2b572dbb99769236fb42b288d99b449e6495d71724fcd03524011f85"
       }
     },
-    "scoring_note": "projected = the week's frozen snapshot weekly_value (weeks 1-5: E-004 v1 incl. ±4 matchup term, 2026-09-18 build; weeks 6+: E-034 v2, no matchup term, floored at 0). actual = fantasy_points_ppr from nflverse."
+    "scoring_note": "projected = the week's frozen pre-kickoff snapshot weekly_value, graded with the model named in each week's snapshot header (weeks 1-7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens). actual = fantasy_points_ppr from nflverse."
   },
   "overall": {
     "n": 1833,
