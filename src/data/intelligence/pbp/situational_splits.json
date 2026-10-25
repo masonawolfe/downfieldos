@@ -147,30 +147,30 @@
   "CHI": {
     "team": "CHI",
     "red_zone": {
-      "plays": 101,
-      "pass_rate": 0.426,
-      "run_rate": 0.574
+      "plays": 109,
+      "pass_rate": 0.431,
+      "run_rate": 0.569
     },
     "goal_line": {
-      "plays": 34,
-      "pass_rate": 0.294,
-      "run_rate": 0.706
+      "plays": 35,
+      "pass_rate": 0.286,
+      "run_rate": 0.714
     },
     "third_down": {
-      "plays": 87,
-      "pass_rate": 0.644,
-      "conversion_rate": 0.46
+      "plays": 100,
+      "pass_rate": 0.67,
+      "conversion_rate": 0.44
     },
     "fourth_down": {
-      "total": 46,
-      "go_for_it": 15,
-      "punt": 17,
-      "field_goal": 11,
-      "go_rate": 0.326
+      "total": 54,
+      "go_for_it": 17,
+      "punt": 19,
+      "field_goal": 15,
+      "go_rate": 0.315
     },
     "two_minute_drill": {
-      "plays": 48,
-      "pass_rate": 0.833
+      "plays": 56,
+      "pass_rate": 0.786
     }
   },
   "CIN": {
@@ -492,6 +492,35 @@
       "pass_rate": 0.775
     }
   },
+  "LAR": {
+    "team": "LAR",
+    "red_zone": {
+      "plays": 64,
+      "pass_rate": 0.578,
+      "run_rate": 0.422
+    },
+    "goal_line": {
+      "plays": 18,
+      "pass_rate": 0.5,
+      "run_rate": 0.5
+    },
+    "third_down": {
+      "plays": 74,
+      "pass_rate": 0.77,
+      "conversion_rate": 0.459
+    },
+    "fourth_down": {
+      "total": 41,
+      "go_for_it": 10,
+      "punt": 19,
+      "field_goal": 8,
+      "go_rate": 0.244
+    },
+    "two_minute_drill": {
+      "plays": 48,
+      "pass_rate": 0.708
+    }
+  },
   "LV": {
     "team": "LV",
     "red_zone": {
@@ -577,9 +606,9 @@
   "NE": {
     "team": "NE",
     "red_zone": {
-      "plays": 54,
-      "pass_rate": 0.63,
-      "run_rate": 0.37
+      "plays": 58,
+      "pass_rate": 0.603,
+      "run_rate": 0.397
     },
     "goal_line": {
       "plays": 11,
@@ -587,20 +616,20 @@
       "run_rate": 0.545
     },
     "third_down": {
-      "plays": 77,
-      "pass_rate": 0.727,
-      "conversion_rate": 0.442
+      "plays": 84,
+      "pass_rate": 0.726,
+      "conversion_rate": 0.429
     },
     "fourth_down": {
-      "total": 41,
-      "go_for_it": 10,
-      "punt": 18,
+      "total": 47,
+      "go_for_it": 11,
+      "punt": 22,
       "field_goal": 10,
-      "go_rate": 0.244
+      "go_rate": 0.234
     },
     "two_minute_drill": {
-      "plays": 49,
-      "pass_rate": 0.612
+      "plays": 55,
+      "pass_rate": 0.655
     }
   },
   "NO": {

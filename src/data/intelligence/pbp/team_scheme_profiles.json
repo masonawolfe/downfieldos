@@ -132,27 +132,27 @@
   "CHI": {
     "team": "CHI",
     "offense": {
-      "pass_rate": 0.514,
-      "run_rate": 0.486,
-      "total_plays": 432,
-      "pass_rate_down_1": 0.481,
-      "pass_rate_down_2": 0.476,
-      "pass_rate_down_3": 0.644,
-      "pass_rate_down_4": 0.533,
-      "no_huddle_rate": 0.053,
+      "pass_rate": 0.519,
+      "run_rate": 0.481,
+      "total_plays": 497,
+      "pass_rate_down_1": 0.474,
+      "pass_rate_down_2": 0.485,
+      "pass_rate_down_3": 0.67,
+      "pass_rate_down_4": 0.529,
+      "no_huddle_rate": 0.046,
       "run_direction": {
-        "right": 0.534,
-        "left": 0.365,
-        "middle": 0.101
+        "right": 0.532,
+        "left": 0.38,
+        "middle": 0.089
       }
     },
     "defense": {
-      "total_plays_faced": 302,
-      "opp_pass_rate": 0.606,
-      "opp_pass_rate_down_1": 0.519,
-      "opp_pass_rate_down_2": 0.551,
-      "opp_pass_rate_down_3": 0.839,
-      "opp_pass_rate_down_4": 0.75
+      "total_plays_faced": 351,
+      "opp_pass_rate": 0.613,
+      "opp_pass_rate_down_1": 0.545,
+      "opp_pass_rate_down_2": 0.553,
+      "opp_pass_rate_down_3": 0.826,
+      "opp_pass_rate_down_4": 0.778
     }
   },
   "CIN": {
@@ -441,6 +441,32 @@
       "opp_pass_rate_down_4": 0.167
     }
   },
+  "LAR": {
+    "team": "LAR",
+    "offense": {
+      "pass_rate": 0.646,
+      "run_rate": 0.354,
+      "total_plays": 404,
+      "pass_rate_down_1": 0.567,
+      "pass_rate_down_2": 0.681,
+      "pass_rate_down_3": 0.77,
+      "pass_rate_down_4": 0.6,
+      "no_huddle_rate": 0.111,
+      "run_direction": {
+        "middle": 0.42,
+        "right": 0.308,
+        "left": 0.273
+      }
+    },
+    "defense": {
+      "total_plays_faced": 367,
+      "opp_pass_rate": 0.523,
+      "opp_pass_rate_down_1": 0.342,
+      "opp_pass_rate_down_2": 0.598,
+      "opp_pass_rate_down_3": 0.753,
+      "opp_pass_rate_down_4": 0.667
+    }
+  },
   "LV": {
     "team": "LV",
     "offense": {
@@ -522,27 +548,27 @@
   "NE": {
     "team": "NE",
     "offense": {
-      "pass_rate": 0.529,
-      "run_rate": 0.471,
-      "total_plays": 380,
-      "pass_rate_down_1": 0.444,
-      "pass_rate_down_2": 0.504,
-      "pass_rate_down_3": 0.727,
-      "pass_rate_down_4": 0.7,
+      "pass_rate": 0.543,
+      "run_rate": 0.457,
+      "total_plays": 429,
+      "pass_rate_down_1": 0.474,
+      "pass_rate_down_2": 0.511,
+      "pass_rate_down_3": 0.726,
+      "pass_rate_down_4": 0.727,
       "no_huddle_rate": 0.005,
       "run_direction": {
-        "middle": 0.382,
-        "left": 0.331,
-        "right": 0.287
+        "middle": 0.364,
+        "left": 0.338,
+        "right": 0.297
       }
     },
     "defense": {
-      "total_plays_faced": 344,
-      "opp_pass_rate": 0.599,
-      "opp_pass_rate_down_1": 0.545,
-      "opp_pass_rate_down_2": 0.589,
-      "opp_pass_rate_down_3": 0.743,
-      "opp_pass_rate_down_4": 0.429
+      "total_plays_faced": 409,
+      "opp_pass_rate": 0.592,
+      "opp_pass_rate_down_1": 0.528,
+      "opp_pass_rate_down_2": 0.581,
+      "opp_pass_rate_down_3": 0.759,
+      "opp_pass_rate_down_4": 0.444
     }
   },
   "NO": {
