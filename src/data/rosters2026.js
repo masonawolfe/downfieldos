@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-24T09:42:42.715Z
-// Reconciled: 2026-10-25T18:40:18.240Z against availability_2026.json
-//             (generated 2026-10-25T09:05:40.532Z) — 0 swap(s),
+// Reconciled: 2026-10-26T10:04:53.836Z against availability_2026.json
+//             (generated 2026-10-26T10:01:31.927Z) — 17 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -1260,8 +1260,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039807",
-        "name": "Max Melton",
+        "gsis_id": "00-0039007",
+        "name": "Garrett Williams",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -1338,12 +1338,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Max Melton (Out)"
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0039807",
-        "name": "Max Melton",
+        "gsis_id": "00-0039239",
+        "name": "Kalen King",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -1420,7 +1421,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Max Melton (Out)"
       },
       {
         "pos": "FS",
@@ -1854,8 +1856,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0035208",
-        "name": "Olamide Zaccheaus",
+        "gsis_id": "00-0041044",
+        "name": "Zachariah Branch",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -1920,7 +1922,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Olamide Zaccheaus (Out)"
       },
       {
         "pos": "TE",
@@ -6459,8 +6462,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0036265",
-        "name": "AJ Dillon",
+        "gsis_id": "00-0040644",
+        "name": "Trevor Etienne",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -6507,7 +6510,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: AJ Dillon (Out)"
       },
       {
         "pos": "WR1",
@@ -15188,8 +15192,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0041552",
-        "name": "Tyler Onyedim",
+        "gsis_id": "00-0035248",
+        "name": "Zach Allen",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -15302,12 +15306,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Tyler Onyedim (Out)"
       },
       {
         "pos": "DT",
-        "gsis_id": "00-0037294",
-        "name": "Jordan Jackson",
+        "gsis_id": "00-0035763",
+        "name": "Malcolm Roach",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -15348,7 +15353,8 @@ export const ROSTERS_2026 = {
             "posAbb": "DT",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jordan Jackson (Out)"
       },
       {
         "pos": "LB1",
@@ -28060,8 +28066,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0037191",
-        "name": "Trent McDuffie",
+        "gsis_id": "00-0037195",
+        "name": "Jaylen Watson",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -28132,7 +28138,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Trent McDuffie (Out)"
       },
       {
         "pos": "SCB",
@@ -29370,8 +29377,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039423",
-        "name": "Jonah Laulu",
+        "gsis_id": "00-0034275",
+        "name": "Folorunso Fatukasi",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -29448,7 +29455,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jonah Laulu (Out)"
       },
       {
         "pos": "DT",
@@ -30952,8 +30960,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0038603",
-        "name": "Robert Beal Jr.",
+        "gsis_id": "00-0036409",
+        "name": "Jordyn Brooks",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -31084,7 +31092,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Robert Beal Jr. (Out)"
       },
       {
         "pos": "DT",
@@ -31222,8 +31231,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0036362",
-        "name": "Willie Gay Jr.",
+        "gsis_id": "00-0041522",
+        "name": "Jacob Rodriguez",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -31282,7 +31291,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Willie Gay Jr. (Out), Trey Moore (IR), Ronnie Harrison Jr. (IR)"
       },
       {
         "pos": "CB1",
@@ -31726,8 +31736,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0041104",
-        "name": "Demond Claiborne",
+        "gsis_id": "00-0037525",
+        "name": "Jordan Mason",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -31774,7 +31784,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Demond Claiborne (Out)"
       },
       {
         "pos": "WR1",
@@ -38305,8 +38316,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0038120",
-        "name": "Breece Hall",
+        "gsis_id": "00-0039794",
+        "name": "Braelon Allen",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -38353,12 +38364,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Breece Hall (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0039794",
-        "name": "Braelon Allen",
+        "gsis_id": "00-0039798",
+        "name": "Isaiah Davis",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -39640,8 +39652,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0039372",
-        "name": "Jarvis Brownlee Jr.",
+        "gsis_id": "00-0041038",
+        "name": "D'Angelo Ponds",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -39712,7 +39724,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jarvis Brownlee Jr. (Out)"
       },
       {
         "pos": "FS",
@@ -47216,8 +47229,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0041079",
-        "name": "DeMonte Capehart",
+        "gsis_id": "00-0039063",
+        "name": "Calijah Kancey",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -47294,12 +47307,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: DeMonte Capehart (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0039063",
-        "name": "Calijah Kancey",
+        "gsis_id": "00-0032889",
+        "name": "A'Shawn Robinson",
         "grade": "Average",
         "rating": 77,
         "rating_source": "snap_share_v1",
@@ -48019,8 +48033,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0039032",
-        "name": "Tyjae Spears",
+        "gsis_id": "00-0037594",
+        "name": "Julius Chestnut",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -48061,7 +48075,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Tyjae Spears (Out)"
       },
       {
         "pos": "WR1",
@@ -51080,10 +51095,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-24T09:42:42.715Z",
-  "availability_stamp": "2026-10-25T09:05:40.532Z",
+  "availability_stamp": "2026-10-26T10:01:31.927Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-25T18:40:18.240Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-26T10:04:53.836Z",
+  "swaps_this_run": 17,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
