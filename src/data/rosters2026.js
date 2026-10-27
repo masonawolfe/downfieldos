@@ -4,7 +4,7 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-24T09:42:42.715Z
-// Reconciled: 2026-10-26T10:25:58.580Z against availability_2026.json
+// Reconciled: 2026-10-27T07:36:52.368Z against availability_2026.json
 //             (generated 2026-10-26T10:01:31.927Z) — 0 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
@@ -51097,7 +51097,7 @@ export const ROSTERS_META = {
   "generated": "2026-10-24T09:42:42.715Z",
   "availability_stamp": "2026-10-26T10:01:31.927Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-26T10:25:58.580Z",
+  "reconciled_at": "2026-10-27T07:36:52.368Z",
   "swaps_this_run": 0,
   "no_backup_this_run": 0,
   "sources": [
