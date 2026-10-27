@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-10-27T07:36:56.011Z |
+| This build | 2026-10-27T09:49:01.069Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-10-26T10:26:02.183Z |
-| Ranked rows this build | 498 |
+| Prior build | 2026-10-27T07:36:56.012Z |
+| Ranked rows this build | 500 |
 | Ranked rows prior build | 498 |
 
 ---
@@ -18,7 +18,10 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 286 | Eli Stowers | TE | PHI | -128 |
+| 309 | Grant Calcaterra | TE | PHI | -135 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._
