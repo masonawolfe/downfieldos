@@ -1,11 +1,11 @@
 {
   "meta": {
     "season": 2026,
-    "generated_utc": "2026-10-28T10:34:39.395Z",
+    "generated_utc": "2026-10-28T10:46:33.548Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
     "actuals_generated_utc": "2026-10-27T07:36:37.688Z",
     "weekly_board_generated_utc": "2026-10-28T10:34:38.550Z",
-    "player_board_generated_utc": "2026-10-28T10:34:38.039Z",
+    "player_board_generated_utc": "2026-10-28T10:46:32.436Z",
     "projections_source": "src/data/intelligence/weekly_projections/2026-wNN.json — frozen pre-kickoff snapshots (E-052). Never the live weeklyBoard2026.js.",
     "weeks_complete": [
       1,
