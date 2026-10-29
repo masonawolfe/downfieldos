@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-29T11:03:20.653Z |
+| Generated | 2026-10-29T13:32:40.684Z |
 | Weekly board generated | 2026-10-29T10:53:30.372Z |
 | Player board generated | 2026-10-29T11:03:19.813Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-10-27T07:36:37.688Z |
+| Actuals generated | 2026-10-29T13:32:40.188Z |
 | Weeks covered | 1, 2, 3, 4, 5, 6, 7 |
 | Weeks partial (not graded) | none |
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
