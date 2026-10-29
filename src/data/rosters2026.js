@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-28T11:28:48.370Z
+// Reconciled: 2026-10-29T10:53:28.861Z against availability_2026.json
+//             (generated 2026-10-29T10:50:30.940Z) — 3 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -7560,8 +7564,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB1",
-        "gsis_id": "00-0036934",
-        "name": "Jaelan Phillips",
+        "gsis_id": "00-0037007",
+        "name": "Patrick Jones II",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -7662,12 +7666,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaelan Phillips (Out)"
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0037007",
-        "name": "Patrick Jones II",
+        "gsis_id": "00-0040136",
+        "name": "Princely Umanmielen",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -40074,8 +40079,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0037258",
-        "name": "Dameon Pierce",
+        "gsis_id": "00-0036567",
+        "name": "Elijah Mitchell",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -40140,7 +40145,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dameon Pierce (IR)"
       },
       {
         "pos": "WR1",
@@ -49854,7 +49860,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Terry McLaurin (Out)",
+        "starter_reason": "promoted after: Terry McLaurin (IR)",
         "candidates": [
           {
             "gsis_id": "00-0041040",
@@ -51206,8 +51212,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-28T11:28:48.370Z",
-  "availability_stamp": "2026-10-28T10:30:37.614Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-10-29T10:50:30.940Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-10-29T10:53:28.861Z",
+  "swaps_this_run": 3,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",

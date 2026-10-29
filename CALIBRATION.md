@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Generated | 2026-10-28T10:46:33.548Z |
-| Weekly board generated | 2026-10-28T10:34:38.550Z |
-| Player board generated | 2026-10-28T10:46:32.436Z |
+| Generated | 2026-10-29T10:53:31.211Z |
+| Weekly board generated | 2026-10-29T10:53:30.372Z |
+| Player board generated | 2026-10-29T10:53:29.842Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
 | Actuals generated | 2026-10-27T07:36:37.688Z |
 | Weeks covered | 1, 2, 3, 4, 5, 6, 7 |
