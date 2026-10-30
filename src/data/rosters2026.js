@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-28T11:28:48.370Z
-// Reconciled: 2026-10-29T11:03:19.035Z against availability_2026.json
-//             (generated 2026-10-29T10:50:30.940Z) — 0 swap(s),
+// Reconciled: 2026-10-30T10:51:55.896Z against availability_2026.json
+//             (generated 2026-10-30T10:48:56.474Z) — 2 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -7777,8 +7777,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0038101",
-        "name": "Akayleb Evans",
+        "gsis_id": "00-0039380",
+        "name": "Chau Smith-Wade",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -7855,16 +7855,16 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Akayleb Evans (IR), Jaycee Horn (IR)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039380",
-        "name": "Chau Smith-Wade",
+        "gsis_id": "00-0041063",
+        "name": "Will Lee III",
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Jaycee Horn (IR)",
         "candidates": [
           {
             "gsis_id": "00-0038101",
@@ -51212,10 +51212,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-28T11:28:48.370Z",
-  "availability_stamp": "2026-10-29T10:50:30.940Z",
+  "availability_stamp": "2026-10-30T10:48:56.474Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-10-29T11:03:19.035Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-10-30T10:51:55.896Z",
+  "swaps_this_run": 2,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
