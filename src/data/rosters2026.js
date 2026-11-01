@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-31T11:01:58.880Z
+// Reconciled: 2026-11-01T11:15:46.382Z against availability_2026.json
+//             (generated 2026-11-01T11:12:47.591Z) — 4 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -3107,8 +3111,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0040156",
-        "name": "Billy Bowman Jr.",
+        "gsis_id": "00-0034843",
+        "name": "Mike Hughes",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -3173,7 +3177,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Billy Bowman Jr. (Out)"
       },
       {
         "pos": "FS",
@@ -8187,8 +8192,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040236",
-        "name": "Kyle Monangai",
+        "gsis_id": "00-0039021",
+        "name": "Roschon Johnson",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -8229,7 +8234,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kyle Monangai (Out)"
       },
       {
         "pos": "WR1",
@@ -25172,8 +25178,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0036374",
-        "name": "L'Jarius Sneed",
+        "gsis_id": "00-0041497",
+        "name": "Jadon Canady",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -25232,7 +25238,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: L'Jarius Sneed (IR)"
       },
       {
         "pos": "FS",
@@ -26881,7 +26888,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Derwin James Jr. (Out)",
+        "starter_reason": "promoted after: Derwin James Jr. (IR)",
         "candidates": [
           {
             "gsis_id": "00-0034790",
@@ -33570,8 +33577,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040734",
-        "name": "TreVeyon Henderson",
+        "gsis_id": "00-0040556",
+        "name": "Corey Kiner",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -33618,7 +33625,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: TreVeyon Henderson (Out)"
       },
       {
         "pos": "WR1",
@@ -51154,8 +51162,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-31T11:01:58.880Z",
-  "availability_stamp": "2026-10-31T10:19:11.452Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-01T11:12:47.591Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-01T11:15:46.382Z",
+  "swaps_this_run": 4,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
