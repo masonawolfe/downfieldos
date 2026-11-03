@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-10-31T11:01:58.880Z
-// Reconciled: 2026-11-02T12:48:29.000Z against availability_2026.json
-//             (generated 2026-11-02T12:16:10.186Z) — 0 swap(s),
+// Reconciled: 2026-11-03T11:53:29.961Z against availability_2026.json
+//             (generated 2026-11-03T11:50:20.787Z) — 5 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -2831,8 +2831,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0033945",
-        "name": "Samson Ebukam",
+        "gsis_id": "00-0040056",
+        "name": "Jared Ivey",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -2957,7 +2957,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Samson Ebukam (Out)"
       },
       {
         "pos": "CB1",
@@ -9387,8 +9388,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0041060",
-        "name": "Malik Muhammad",
+        "gsis_id": "00-0039071",
+        "name": "Tyrique Stevenson",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -9483,7 +9484,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Malik Muhammad (Out)"
       },
       {
         "pos": "SCB",
@@ -23787,8 +23789,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0033038",
-        "name": "Eric Murray",
+        "gsis_id": "00-0040213",
+        "name": "Rayuan Lane III",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -23847,7 +23849,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Eric Murray (Out)"
       }
     ]
   },
@@ -44469,8 +44472,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0034350",
-        "name": "Uchenna Nwosu",
+        "gsis_id": "00-0036994",
+        "name": "Ernest Jones IV",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -44571,7 +44574,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Uchenna Nwosu (Out)"
       },
       {
         "pos": "CB1",
@@ -47638,8 +47642,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0039068",
-        "name": "Yaya Diaby",
+        "gsis_id": "00-0033964",
+        "name": "Al-Quadin Muhammad",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -47728,7 +47732,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Yaya Diaby (Out)"
       },
       {
         "pos": "CB1",
@@ -51177,10 +51182,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-10-31T11:01:58.880Z",
-  "availability_stamp": "2026-11-02T12:16:10.186Z",
+  "availability_stamp": "2026-11-03T11:50:20.787Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-02T12:48:29.000Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-03T11:53:29.961Z",
+  "swaps_this_run": 5,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
