@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-11-03T11:53:34.511Z |
+| This build | 2026-11-03T12:15:40.849Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-02T12:48:33.444Z |
+| Prior build | 2026-11-03T11:53:34.511Z |
 | Ranked rows this build | 499 |
-| Ranked rows prior build | 498 |
+| Ranked rows prior build | 499 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -18,9 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 164 | Jadarian Price | RB | SEA | -62 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._
