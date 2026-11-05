@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-11-04T12:27:19.045Z |
+| This build | 2026-11-05T12:14:45.881Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-04T12:04:52.245Z |
-| Ranked rows this build | 496 |
+| Prior build | 2026-11-04T12:27:19.046Z |
+| Ranked rows this build | 498 |
 | Ranked rows prior build | 496 |
 
 ---
@@ -18,7 +18,10 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 266 | Terrell Jennings | RB | NE | -120 |
+| 413 | Carter Runyon | TE | LV | -170 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._

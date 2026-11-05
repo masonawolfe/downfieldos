@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-04T13:10:17.420Z
+// Reconciled: 2026-11-05T12:14:42.253Z against availability_2026.json
+//             (generated 2026-11-05T12:11:26.024Z) — 5 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -3235,8 +3239,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0035993",
-        "name": "Tyler Huntley",
+        "gsis_id": "00-0040981",
+        "name": "Joe Fagnano",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -3277,7 +3281,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Tyler Huntley (Out)"
       },
       {
         "pos": "RB1",
@@ -4833,8 +4838,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0036302",
-        "name": "Jaylinn Hawkins",
+        "gsis_id": "00-0040104",
+        "name": "Keondre Jackson",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -4881,7 +4886,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaylinn Hawkins (Out)"
       }
     ]
   },
@@ -19244,8 +19250,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0035685",
-        "name": "David Montgomery",
+        "gsis_id": "00-0038705",
+        "name": "Emari Demercado",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -19298,7 +19304,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: David Montgomery (Out)"
       },
       {
         "pos": "WR1",
@@ -28219,8 +28226,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0037195",
-        "name": "Jaylen Watson",
+        "gsis_id": "00-0039772",
+        "name": "Josh Wallace",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -28291,7 +28298,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaylen Watson (Out)"
       },
       {
         "pos": "SCB",
@@ -43214,8 +43222,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0034869",
-        "name": "Sam Darnold",
+        "gsis_id": "00-0035704",
+        "name": "Drew Lock",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -43238,7 +43246,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 3
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Sam Darnold (Out)"
       },
       {
         "pos": "RB1",
@@ -51159,8 +51168,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-04T13:10:17.420Z",
-  "availability_stamp": "2026-11-04T12:00:48.134Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-05T12:11:26.024Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-05T12:14:42.253Z",
+  "swaps_this_run": 5,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
