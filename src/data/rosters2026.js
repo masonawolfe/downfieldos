@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-04T13:10:17.420Z
-// Reconciled: 2026-11-05T12:41:21.067Z against availability_2026.json
-//             (generated 2026-11-05T12:11:26.024Z) — 0 swap(s),
+// Reconciled: 2026-11-06T12:03:07.879Z against availability_2026.json
+//             (generated 2026-11-06T11:59:47.231Z) — 6 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -3282,7 +3282,7 @@ export const ROSTERS_2026 = {
             "posRank": 99
           }
         ],
-        "starter_reason": "promoted after: Tyler Huntley (Out)"
+        "starter_reason": "promoted after: Tyler Huntley (IR)"
       },
       {
         "pos": "RB1",
@@ -4570,8 +4570,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0039232",
-        "name": "Nate Wiggins",
+        "gsis_id": "00-0033281",
+        "name": "Marlon Humphrey",
         "grade": "Above Avg",
         "rating": 86,
         "rating_source": "snap_share_v1",
@@ -4636,12 +4636,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Nate Wiggins (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0033281",
-        "name": "Marlon Humphrey",
+        "gsis_id": "00-0033548",
+        "name": "Chidobe Awuzie",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -4710,8 +4711,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0038038",
-        "name": "Kyle Hamilton",
+        "gsis_id": "00-0040636",
+        "name": "Keyon Martin",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -4782,7 +4783,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kyle Hamilton (Out)"
       },
       {
         "pos": "FS",
@@ -22354,8 +22356,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR1",
-        "gsis_id": "00-0041106",
-        "name": "CJ Williams",
+        "gsis_id": "00-0034960",
+        "name": "Jakobi Meyers",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -22438,12 +22440,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: CJ Williams (Out)"
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0034960",
-        "name": "Jakobi Meyers",
+        "gsis_id": "00-0038606",
+        "name": "Parker Washington",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -22530,8 +22533,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0038606",
-        "name": "Parker Washington",
+        "gsis_id": "00-0041100",
+        "name": "Josh Cameron",
         "grade": "Above Avg",
         "rating": 81,
         "rating_source": "snap_share_v1",
@@ -51168,10 +51171,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-04T13:10:17.420Z",
-  "availability_stamp": "2026-11-05T12:11:26.024Z",
+  "availability_stamp": "2026-11-06T11:59:47.231Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-05T12:41:21.067Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-06T12:03:07.879Z",
+  "swaps_this_run": 6,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
