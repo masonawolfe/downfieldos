@@ -4,6 +4,7 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import { Logo } from '../ui/Logo';
 import { T } from '../../data/teams';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
+import { AsOf } from '../ui/AsOf';
 import { NEWSLETTER_NAME, NEWSLETTER_URL } from '../../config/newsletter';
 
 const MODULE_CARDS = [
@@ -86,6 +87,8 @@ export function LandingPage({ onSelectTeam, navigate }) {
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
               <div style={{ fontSize: 20 }}>😤</div>
               <span style={{ fontSize: 14, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1.5, color: "#f97316" }}>Most Miserable Fan Bases</span>
+              {/* Freshness plan step 12: a March 2026 file, so it says so. */}
+              <AsOf meta={fanSentimentData?.metadata} tone="dark" />
             </div>
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
               {topMisery.map((team, i) => (

@@ -5,9 +5,10 @@ import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
 import { DNA_2026 } from '../../data/dna2026';
 import { OPPONENTS_2026 } from '../../data/opponents2026';
-import { FA_MOVES_2026 } from '../../data/faMoves2026';
+import { FA_MOVES_2026, FA_MOVES_2026_META } from '../../data/faMoves2026';
 import { CURRENT_SEASON, GAMES_PER_SEASON } from '../../config';
-import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
+import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
+import { AsOf } from '../ui/AsOf';
 import { RECORDS_2025 } from '../../data/records2025';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
@@ -270,7 +271,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {/* -- ROSTER VIEW (MERGED 2026 PROJECTION) -- */}
       {viewMode === "roster" && (
         <div>
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>Projected 2026 Roster</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>Projected 2026 Roster <AsOf meta={FA_MOVES_2026_META} /></h3>
           {fa.note && <p style={{ fontSize: 13, color: "#f97316", fontWeight: 600, margin: "4px 0 12px" }}>{fa.note}</p>}
 
           {/* Transaction Summary */}
@@ -340,7 +341,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {/* -- DRAFT NEEDS VIEW -- */}
       {viewMode === "needs" && (
         <div>
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>2026 Draft Priorities</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>2026 Draft Priorities <AsOf meta={DRAFT_NEEDS_2026_META} /></h3>
           <p style={{ fontSize: 12, color: "#94a3b8", margin: "0 0 12px" }}>Draft: April 23-25, 2026 in Pittsburgh. Prospect cards coming soon.</p>
 
           <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>

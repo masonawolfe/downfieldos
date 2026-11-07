@@ -1,5 +1,8 @@
 {
   "date": "2026-04-22",
+  "static": true,
+  "verified_on": "2026-04-22",
+  "label": "Offseason notes, April 2026",
   "season_context": "post_free_agency_pre_draft",
   "note": "Hand-curated 2026 offseason narrative — to be replaced by Cloudflare intel-scraper Worker output. Each item is publishable as a tweet draft.",
   "teams": {

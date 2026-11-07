@@ -16,6 +16,7 @@ import { InsightCard } from '../ui/InsightCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
+import { AsOf } from '../ui/AsOf';
 import { byeWeekFor, teamsOnByeInWeek, opponentInWeek } from '../../utils/schedule';
 import { injuryFor } from '../../utils/injuries';
 import { PERSONAS, evaluate } from '../../utils/valuation';
@@ -270,6 +271,9 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
               downloadCSV(`fantasy-${posFilter}-week${selectedWeek}`, headers, rows);
             }} />
             <div style={{ display: "flex", gap: 16, fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
+              {/* Freshness plan step 12 (2026-11-07): the rows' Contract Yr badge
+                  reads contract_year_players.json, so its file label sits here. */}
+              <span style={{ display: "flex", alignItems: "center", gap: 4 }}>Contract Yr <AsOf meta={contractYearData?.metadata} style={{ textTransform: "none", letterSpacing: 0 }} /></span>
               <span style={{ display: "flex", alignItems: "center", gap: 4 }}>Score <MethodologyTip type="opportunityScore" /></span><span style={{ display: "flex", alignItems: "center", gap: 4, width: 120, justifyContent: "center" }}>Boom / Bust <MethodologyTip type="boomPct" /></span>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { DollarSign, TrendingUp, ChevronDown, ChevronRight } from 'lucide-react';
 import contractData from '../../data/intelligence/contract_year_players.json';
+import { AsOf } from './AsOf';
 import { tn } from '../../utils/formatters';
 
 /**
@@ -55,6 +56,8 @@ export function ContractYearCard({ filterTeam, compact = false }) {
           <span style={{ fontSize: 12, color: '#94a3b8', background: '#f1f5f9', padding: '2px 10px', borderRadius: 10 }}>
             {filterTeam ? tn(filterTeam) : `${players.length} players`}
           </span>
+          {/* Freshness plan step 12: a March 2026 list, so the card says so. */}
+          <AsOf meta={contractData?.metadata} />
         </div>
         <div style={{ display: 'grid', gap: 8 }}>
           {top.map(p => (
@@ -83,6 +86,8 @@ export function ContractYearCard({ filterTeam, compact = false }) {
           <span style={{ fontSize: 12, color: '#94a3b8', background: '#fff', padding: '2px 10px', borderRadius: 10 }}>
             {filterTeam ? tn(filterTeam) : `${players.length} players`}
           </span>
+          {/* Freshness plan step 12: a March 2026 list, so the card says so. */}
+          <AsOf meta={contractData?.metadata} />
         </div>
         {expanded ? <ChevronDown size={20} color="#94a3b8" /> : <ChevronRight size={20} color="#94a3b8" />}
       </button>

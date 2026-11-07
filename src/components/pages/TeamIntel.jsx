@@ -49,15 +49,17 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>Comp: {pct(stats.compRate)} | Sack: {pct(stats.sackRate)} | {stats.n.toLocaleString()} plays</div>
         </div>
       </div>
-      <TeamNewsCard team={team} />
       {(() => {
         const wire = latestTeamHeadlines(team, 5);
         if (!wire.length) return null;
         return (
           <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-              <span style={{ fontSize: 11, fontWeight: 800, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b" }}>ESPN Wire</span>
-              <span style={{ fontSize: 10, color: "#94a3b8" }}>· {tn(team)} · last {wire.length} headlines</span>
+            {/* Freshness plan step 3 (2026-11-07): the live wire is the
+                latest news, so it carries the title and sits above the
+                dated offseason card. */}
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
+              <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>Latest News</h3>
+              <span style={{ fontSize: 11, color: "#94a3b8" }}>ESPN wire · {tn(team)} · last {wire.length} stories</span>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {wire.map((n, i) => (
@@ -65,13 +67,14 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
                   <span style={{ fontSize: 10, color: "#94a3b8", fontFamily: "monospace", minWidth: 76, marginTop: 3 }}>{(n.published || "").slice(0, 10)}</span>
                   {/* Counsel 2026-09-05: headline dropped from the ESPN wire.
                       Categories-derived label + generic action. */}
-                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 3).join(' · ') || 'ESPN'} — read on ESPN →</span>
+                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 3).join(' · ') || 'ESPN'}: read on ESPN →</span>
                 </a>
               ))}
             </div>
           </div>
         );
       })()}
+      <TeamNewsCard team={team} />
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>The Scouting Report</h3>
         <div style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", whiteSpace: "pre-wrap" }}>{overview}</div>

@@ -1,3 +1,6 @@
+// Freshness plan step 12 (2026-11-07): static by design. Hand list of March 2026 moves; verified_on is the last content commit.
+export const FA_MOVES_2026_META = { label: "Offseason moves, March 2026", verified_on: "2026-03-22", source_season: 2026 };
+
 export const FA_MOVES_2026 = {
   ARI:{added:[{name:"Tyler Allgeier",pos:"RB"},{name:"Isaac Seumalo",pos:"OG"},{name:"Gardner Minshew",pos:"QB"}],lost:[{name:"Kyler Murray",pos:"QB",note:"released, signed with MIN"}]},
   ATL:{added:[{name:"Tua Tagovailoa",pos:"QB",deal:"$1.3M/1yr",note:"competing with Penix Jr"},{name:"Jahan Dotson",pos:"WR"}],lost:[{name:"Kirk Cousins",pos:"QB",note:"released"},{name:"Arnold Ebiketie",pos:"EDGE",note:"signed with PHI"}],note:"Kyle Pitts franchise tagged; Penix returning from Nov 2025 ACL"},

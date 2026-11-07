@@ -16088,6 +16088,9 @@ export const PLAYER_STATS_2025 = [
 ];
 
 export const PLAYER_STATS_2025_META = {
+  "label": "2025 season",
+  "verified_on": "2026-11-04",
+  "source_season": 2025,
   "usage_source": "src/data/intelligence/pbp/player_usage_data_2025.json",
   "usage_join_rate": 0.807,
   "team_offense_source": "src/data/intelligence/pbp/team_scheme_profiles_2025.json",
