@@ -666,19 +666,17 @@ async function modeSeason() {
     if (!exists('src/config.js')) red('season', 'config', cfgRow, 'src/config.js', 'missing');
     else {
       const src = readText('src/config.js');
-      // LAST_COMPLETE_SEASON from step 17 (branch freshness/r2-s17); CURRENT_SEASON until that merges.
-      // Once the new name exists anywhere in src, the old one is a red wherever it appears.
-      const m = src.match(/export\s+const\s+(LAST_COMPLETE_SEASON)\s*=\s*(\d{4})\s*;/) || src.match(/export\s+const\s+(CURRENT_SEASON)\s*=\s*(\d{4})\s*;/);
+      // Step 17 renamed CURRENT_SEASON to LAST_COMPLETE_SEASON (merged with release 2, 2026-11-07).
+      // The old name is a red wherever it appears in src.
+      const m = src.match(/export\s+const\s+(LAST_COMPLETE_SEASON)\s*=\s*(\d{4})\s*;/);
       const codeFiles = [...ALL_SRC].filter(f => CODE_RE.test(f));
-      if (codeFiles.some(f => /\bLAST_COMPLETE_SEASON\b/.test(readText(f)))) {
-        for (const f of codeFiles) {
-          const i = readText(f).search(/\bCURRENT_SEASON\b/);
-          if (i >= 0) red('season', 'config', cfgRow, 'src/config.js', `${f}:${readText(f).slice(0, i).split('\n').length} names CURRENT_SEASON, the name step 17 retired for LAST_COMPLETE_SEASON`);
-        }
+      for (const f of codeFiles) {
+        const i = readText(f).search(/\bCURRENT_SEASON\b/);
+        if (i >= 0) red('season', 'config', cfgRow, 'src/config.js', `${f}:${readText(f).slice(0, i).split('\n').length} names CURRENT_SEASON, the name step 17 retired for LAST_COMPLETE_SEASON`);
       }
       const s = src.match(/export\s+const\s+SEASONS\s*=\s*\[([^\]]*)\]/);
       const list = s ? s[1].split(',').map(x => Number(x.trim())).filter(Number.isInteger) : [];
-      if (!m) red('season', 'config', cfgRow, 'src/config.js', 'no LAST_COMPLETE_SEASON (or CURRENT_SEASON) constant');
+      if (!m) red('season', 'config', cfgRow, 'src/config.js', 'no LAST_COMPLETE_SEASON constant');
       else {
         if (Number(m[2]) !== BASE) red('season', 'config', cfgRow, 'src/config.js', `${m[1]} is ${m[2]}, base_season is ${BASE}`);
         if (list[list.length - 1] !== Number(m[2])) red('season', 'config', cfgRow, 'src/config.js', `SEASONS ends ${list[list.length - 1] ?? 'nowhere'}, not ${m[1]} ${m[2]}`);

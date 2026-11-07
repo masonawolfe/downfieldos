@@ -247,9 +247,9 @@ export const CASES = [
     expect: (c) => ({ mode: 'age', rule: 'future', file: ACTUALS(c) }),
   },
   {
-    id: 27, name: 'CURRENT_SEASON left in src once LAST_COMPLETE_SEASON exists (step 17)',
+    id: 27, name: 'CURRENT_SEASON left in src after the step 17 rename',
     args: () => ['--mode', 'season'],
-    mutate: (c) => c.editText('src/config.js', t => `${t}\nexport const LAST_COMPLETE_SEASON = ${c.base};\n`),
+    mutate: (c) => c.editText('src/config.js', t => `${t}\nexport const CURRENT_SEASON = LAST_COMPLETE_SEASON;\n`),
     expect: () => ({ mode: 'season', rule: 'config', file: 'src/config.js' }),
   },
   {
