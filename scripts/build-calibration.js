@@ -233,14 +233,22 @@ const afterKickoff = { weeks: afterKickoffWeeks, overall: agg(afterRows), by_pos
 // Step 1's dated note: old figures (nflverse's fantasy_points_ppr over
 // every complete week, as the headline was built before) beside new ones (the board's rules, the
 // headline only weeks written before kickoff), for each week graded on the
-// day the change landed. Recomputed from these rows on every build, so the
-// note always matches the rows it sits beside; the week list is fixed.
-const SCORING_CHANGE = { date: '2026-11-07', weeks: [1, 2, 3, 4, 5, 6, 7, 8] };
+// day the change landed.
+//
+// Review 2026-11-07: the published note is FROZEN. Its figures were written
+// once on 2026-11-07 to scripts/_lib/scoring-change-2026-11-07.json and are
+// read from there on every build, so a later nflverse stat correction (the
+// Thursday re-fetch) cannot move the record silently ("the record is never
+// rewritten silently", plan step 1.8). The same figures recomputed from
+// today's rows ship beside it as `live_recompute`, labelled, with a count
+// of how far they have drifted from the frozen ones.
+const FROZEN_CHANGE = JSON.parse(fs.readFileSync(path.join(__dirname, '_lib', 'scoring-change-2026-11-07.json'), 'utf8'));
+const SCORING_CHANGE = { date: FROZEN_CHANGE.date, weeks: FROZEN_CHANGE.weeks };
 const oldErr = r => Math.round((r.actual_nflverse_ppr - r.projected) * 100) / 100;
 const aggOld = rows => agg(rows.filter(r => r.actual_nflverse_ppr != null).map(r => ({ error: oldErr(r), abs_error: Math.abs(oldErr(r)) })));
 const changeRows = perPair.filter(r => SCORING_CHANGE.weeks.includes(r.week));
 const changeHeadline = changeRows.filter(r => headlineSet.has(r.week));
-const scoringChange = {
+const liveChange = {
   date: SCORING_CHANGE.date,
   what: `actual moved from nflverse fantasy_points_ppr to fantasy_points_graded (${GRADED_RULES}, the projection's rules); the headline dropped the weeks written after kickoff`,
   weeks: SCORING_CHANGE.weeks.filter(w => gradeWeeks.has(w)),
@@ -254,6 +262,31 @@ const scoringChange = {
   same_weeks_new_rules: { overall: agg(changeRows), qb: agg(changeRows.filter(r => r.pos === 'QB')) },
   headline_new: { weeks: SCORING_CHANGE.weeks.filter(w => headlineSet.has(w)), overall: agg(changeHeadline), qb: agg(changeHeadline.filter(r => r.pos === 'QB')) },
 };
+// Which published figures the live recompute no longer matches (0 means the
+// rows still say exactly what the frozen note says).
+const liveDrift = [];
+{
+  const cmp = (label, a, b) => { for (const k of ['n', 'mean_error', 'mean_abs_error', 'rmse']) if ((a?.[k] ?? null) !== (b?.[k] ?? null)) liveDrift.push(`${label}.${k}`); };
+  if (liveChange.rows_moved !== FROZEN_CHANGE.rows_moved) liveDrift.push('rows_moved');
+  for (const fw of FROZEN_CHANGE.per_week) {
+    const lw = liveChange.per_week.find(x => x.week === fw.week);
+    for (const k of ['old', 'new', 'qb_old', 'qb_new']) cmp(`week${fw.week}.${k}`, fw[k], lw?.[k]);
+  }
+  for (const k of ['headline_old', 'headline_new']) { cmp(`${k}.overall`, FROZEN_CHANGE[k].overall, liveChange[k].overall); cmp(`${k}.qb`, FROZEN_CHANGE[k].qb, liveChange[k].qb); }
+  cmp('same_weeks_new_rules.overall', FROZEN_CHANGE.same_weeks_new_rules.overall, liveChange.same_weeks_new_rules.overall);
+  cmp('same_weeks_new_rules.qb', FROZEN_CHANGE.same_weeks_new_rules.qb, liveChange.same_weeks_new_rules.qb);
+}
+const scoringChange = {
+  ...FROZEN_CHANGE,
+  live_recompute: {
+    label: 'NOT the record. The same figures recomputed from the rows in this file on this build; nflverse stat corrections move these, never the frozen note above.',
+    generated_at: new Date().toISOString(),
+    figures_differing_from_frozen: liveDrift.length,
+    differing: liveDrift,
+    ...liveChange,
+  },
+};
+if (liveDrift.length) console.log(`  note: ${liveDrift.length} figure(s) in the live recompute of the 2026-11-07 note differ from the frozen record (${liveDrift.slice(0, 5).join(', ')}${liveDrift.length > 5 ? ', ...' : ''})`);
 
 // QA 2026-10-25: the model note is derived from the snapshot headers, never a
 // fixed string. The old sentence said "weeks 6+: E-034 v2", which was wrong for
@@ -266,13 +299,20 @@ for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
   const last = modelRuns[modelRuns.length - 1];
   if (last && last.label === label) last.to = d.week; else modelRuns.push({ from: d.week, to: d.week, label });
 }
-const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from}-${r.to}`}: ${r.label}`).join('; ');
+const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from} to ${r.to}`}: ${r.label}`).join('; ');
 const v2Weeks = Object.values(SNAPSHOTS).filter(d => /E-034 v2/.test(d.model_version)).map(d => d.week).sort((a, b) => a - b);
 const v2Note = v2Weeks.length
   ? `the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week ${v2Weeks[0]}`
   : 'no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens';
 const modelNoteText = `graded with the model named in each week's snapshot header (${modelNote}; ${v2Note})`;
 
+// Reader copy (scoring_note here, CALIBRATION.md below) shares one week-list style.
+// "1 to 8" for a run, "1 and 2" or "3, 5 and 7" otherwise (no Oxford comma).
+const weeksText = ws => {
+  if (!ws.length) return 'none';
+  if (ws.length > 2 && ws.every((w, i) => i === 0 || w === ws[i - 1] + 1)) return `${ws[0]} to ${ws[ws.length - 1]}`;
+  return ws.length === 1 ? `${ws[0]}` : `${ws.slice(0, -1).join(', ')} and ${ws[ws.length - 1]}`;
+};
 const generatedAt = new Date().toISOString();
 const meta = {
   season: SEASON,
@@ -302,7 +342,7 @@ const meta = {
   }])),
   // QA 2026-10-25: derived from the snapshot headers (see modelNote above),
   // never a fixed string; this ships verbatim in the public json.
-  scoring_note: `projected = the week's frozen pre-kickoff snapshot weekly_value, ${modelNoteText}. actual = fantasy_points_graded, the nflverse components scored under the board's own rules (${GRADED_RULES}), the rules the projection is built under; nflverse's fantasy_points_ppr is kept on each row as actual_nflverse_ppr. The headline covers weeks ${headlineWeeks.join(', ') || 'none'}, whose snapshots were written before kickoff; weeks ${afterKickoffWeeks.join(', ') || 'none'} were written after kickoff and are reported apart under after_kickoff.`,
+  scoring_note: `projected = the week's frozen pre-kickoff snapshot weekly_value, ${modelNoteText}. actual = fantasy_points_graded, the nflverse components scored under the board's own rules (${GRADED_RULES}), the rules the projection is built under; nflverse's fantasy_points_ppr is kept on each row as actual_nflverse_ppr. The headline covers week${headlineWeeks.length === 1 ? '' : 's'} ${weeksText(headlineWeeks)}, whose snapshot${headlineWeeks.length === 1 ? ' was' : 's were'} written before kickoff; week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)} ${afterKickoffWeeks.length === 1 ? 'was' : 'were'} written after kickoff and ${afterKickoffWeeks.length === 1 ? 'is' : 'are'} reported apart under after_kickoff.`,
 };
 
 const out = {
@@ -323,12 +363,6 @@ console.log(`  wrote ${OUT_JSON}`);
 // CALIBRATION.md, the human-readable summary beside BOARD.md. Reader copy:
 // no em dashes, no Oxford commas, acronyms spelled out on first use.
 const NA = 'n/a';
-// "1 to 8" for a run, "1 and 2" or "3, 5 and 7" otherwise (no Oxford comma).
-const weeksText = ws => {
-  if (!ws.length) return 'none';
-  if (ws.length > 2 && ws.every((w, i) => i === 0 || w === ws[i - 1] + 1)) return `${ws[0]} to ${ws[ws.length - 1]}`;
-  return ws.length === 1 ? `${ws[0]}` : `${ws.slice(0, -1).join(', ')} and ${ws[ws.length - 1]}`;
-};
 const fmt = x => (x == null ? NA : Object.is(x, -0) || x === 0 ? '0' : x > 0 ? `+${x}` : `${x}`);
 const md = [];
 md.push('# DFOS · CALIBRATION');
@@ -418,9 +452,9 @@ md.push('');
   const c = scoringChange;
   md.push(`## Note, ${c.date}: grading moved to the board's own scoring`);
   md.push('');
-  md.push(`Until ${c.date} \`actual\` was nflverse's \`fantasy_points_ppr\`. That column takes 2 points off per interception and per fumble lost and adds 2 per two-point conversion and 6 per special teams touchdown. The projection is built without any of those terms, so the two sides of each row were scored by different rules. From ${c.date} \`actual\` is \`fantasy_points_graded\`, scored under the board's rules (\`${GRADED_RULES}\`), and the headline leaves out week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)}, whose snapshot${afterKickoffWeeks.length === 1 ? ' was' : 's were'} written after kickoff. Nothing in the projection changed. ${c.rows_moved} of ${changeRows.length} graded rows in weeks ${weeksText(c.weeks)} have a different actual.`);
+  md.push(`Until ${c.date} \`actual\` was nflverse's \`fantasy_points_ppr\`. That column takes 2 points off per interception and per fumble lost and adds 2 per two-point conversion and 6 per special teams touchdown. The projection is built without any of those terms, so the two sides of each row were scored by different rules. From ${c.date} \`actual\` is \`fantasy_points_graded\`, scored under the board's rules (\`${GRADED_RULES}\`), and the headline leaves out week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)}, whose snapshot${afterKickoffWeeks.length === 1 ? ' was' : 's were'} written after kickoff. Nothing in the projection changed. ${c.rows_moved} of ${c.graded_rows} graded rows in weeks ${weeksText(c.weeks)} had a different actual that day.`);
   md.push('');
-  md.push('Old is nflverse\'s points; new is the board\'s rules. Both are recomputed from the rows in this file.');
+  md.push(`Old is nflverse's points; new is the board's rules. These figures were frozen on ${c.frozen_on}, when the change landed, and later stat corrections from nflverse do not move them. The same figures recomputed from today's rows are in \`calibration_${SEASON}.json\` under \`scoring_change_2026_11_07.live_recompute\`; ${c.live_recompute.figures_differing_from_frozen === 0 ? 'today none of them differ from the frozen ones' : `today ${c.live_recompute.figures_differing_from_frozen} of them differ from the frozen ones`}.`);
   md.push('');
   md.push('| Week | N | Old mean error | New mean error | Old mean absolute error | New mean absolute error | QB old mean error | QB new mean error | In new headline |');
   md.push('|---|---|---|---|---|---|---|---|---|');

@@ -471,9 +471,12 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
 //   - graded_rules (actuals and calibration meta) equals the projection's
 //     rules name (the default league shape's scoring in the board meta);
 //   - every calibration row's `actual` is that row's graded value;
-//   - no headline week has written_before_kickoff false (read from the
-//     snapshot header and recomputed from the schedule), and the headline
-//     counts exactly the rows of its weeks.
+//   - meta.headline_weeks equals the set worked out here (complete weeks
+//     whose snapshot is written before kickoff, header and schedule both),
+//     so no headline week was written after kickoff and none is missing;
+//   - overall, by_pos, by_flag_fired_vs_not and top_misses are built from
+//     exactly the rows of those weeks (by_pos n sums to overall.n);
+//   - a missing calibration file fails once graded actuals exist.
 // The nflverse recompute (does nflverse's own column match the stored
 // components?) is NOT here: scripts/reconcile-actuals-scoring.mjs. A term
 // we do not store must not stop the Tuesday commit (plan step 1, the split).
@@ -503,28 +506,66 @@ check("Graded actuals recompute under the projection's rules and the calibration
   const nRows = (ACTUALS_DOC.rows || []).length;
   if (missing) problems.push(`${missing} of ${nRows} actuals rows lack fantasy_points_graded`);
   if (bad) problems.push(`${bad} of ${nRows} actuals rows' fantasy_points_graded do not recompute under ${rulesName} within 0.01`);
-  let calNote = 'no calibration_2026.json on disk, calibration half skipped';
+  // Review 2026-11-07: a missing or unparseable calibration file is not a
+  // skip once there are graded actuals to calibrate (every workflow writes
+  // calibration before it verifies).
+  if (!CAL_DOC && graded.size > 0) throw new Error(`calibration_2026.json is missing or unparseable while ${graded.size} actuals rows carry fantasy_points_graded`);
+  let calNote = 'no calibration_2026.json on disk and no graded actuals, calibration half skipped';
   if (CAL_DOC) {
     const cm = CAL_DOC.meta || {};
     if (cm.graded_rules !== rulesName) problems.push(`calibration meta.graded_rules is ${JSON.stringify(cm.graded_rules)}; the projection's rules are ${JSON.stringify(rulesName)}`);
     const rows = CAL_DOC.rows || [];
     const offActual = rows.filter(r => !graded.has(`${r.gsis_id}_${r.week}`) || Math.abs(graded.get(`${r.gsis_id}_${r.week}`) - r.actual) > 0.001);
     if (offActual.length) problems.push(`${offActual.length} of ${rows.length} calibration rows' actual is not the row's fantasy_points_graded (e.g. ${offActual.slice(0, 3).map(r => `${r.name} wk${r.week}: ${r.actual} vs ${graded.get(`${r.gsis_id}_${r.week}`)}`).join('; ')})`);
+    // Review 2026-11-07: the expected headline is worked out here, not read
+    // from meta.headline_weeks. It is every complete week (recomputed from
+    // the actuals and the schedule, as #11 does) that has a snapshot whose
+    // header says written_before_kickoff true AND whose written_utc is
+    // before the week's first kickoff in the schedule. meta.headline_weeks
+    // must equal that set exactly, so a thinned or empty headline fails.
+    if (!SCHEDULE) throw new Error('cannot recompute the expected headline weeks: schedule2026.js not readable');
+    const comp = actualsCompleteness(SCHEDULE, ACTUALS_DOC.rows || []);
+    const completeWeeks = Object.keys(comp).map(Number).filter(w => comp[w].complete).sort((x, y) => x - y);
+    const beforeKickoff = w => {
+      const s = SNAPSHOTS[w]?.doc;
+      const first = firstKickoffUtcMs(SCHEDULE, w);
+      return !!s && first != null && s.written_before_kickoff === true && Date.parse(s.written_utc) < first;
+    };
+    const expectHw = completeWeeks.filter(w => SNAPSHOTS[w] && beforeKickoff(w));
+    const sameList = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
+    const wc = Array.isArray(cm.weeks_complete) ? [...cm.weeks_complete].sort((x, y) => x - y) : null;
+    if (!wc || !sameList(wc, completeWeeks)) problems.push(`calibration meta.weeks_complete is ${JSON.stringify(cm.weeks_complete)}; recomputed from the actuals and the schedule: [${completeWeeks.join(',')}]`);
     const hw = cm.headline_weeks;
+    const hset = new Set(Array.isArray(hw) ? hw : []);
     if (!Array.isArray(hw)) problems.push('calibration meta.headline_weeks missing');
     else {
-      for (const w of hw) {
-        const s = SNAPSHOTS[w]?.doc;
-        const first = SCHEDULE ? firstKickoffUtcMs(SCHEDULE, w) : null;
-        const recomputed = s && first != null ? Date.parse(s.written_utc) < first : null;
-        if (!s) problems.push(`headline week ${w} has no snapshot`);
-        else if (s.written_before_kickoff !== true || recomputed !== true) problems.push(`headline week ${w} has written_before_kickoff ${s.written_before_kickoff} (recomputed from the schedule: ${recomputed})`);
+      const hwSorted = [...hw].sort((x, y) => x - y);
+      for (const w of hwSorted) {
+        if (!beforeKickoff(w)) problems.push(`headline week ${w} was not written before kickoff (snapshot ${SNAPSHOTS[w] ? `header ${SNAPSHOTS[w].doc.written_before_kickoff}` : 'missing'})`);
       }
-      const hset = new Set(hw);
-      const nHead = rows.filter(r => hset.has(r.week)).length;
-      if (CAL_DOC.overall?.n !== nHead) problems.push(`calibration overall.n is ${CAL_DOC.overall?.n}; headline weeks ${hw.join(',')} hold ${nHead} rows`);
+      if (expectHw.length > 0 && hw.length === 0) problems.push(`calibration headline is empty while weeks ${expectHw.join(',')} are complete and written before kickoff`);
+      if (!sameList(hwSorted, expectHw)) problems.push(`calibration meta.headline_weeks is [${hwSorted.join(',')}]; expected [${expectHw.join(',')}] (complete weeks with a snapshot written before kickoff, header and schedule both)`);
     }
-    calNote = `calibration graded_rules ${cm.graded_rules}; ${rows.length} rows' actual = graded; headline weeks ${(hw || []).join(',')} all written before kickoff (overall.n ${CAL_DOC.overall?.n})`;
+    // The headline aggregates (overall, by_pos, by_flag_fired_vs_not,
+    // top_misses) must be built from exactly the rows of the expected weeks.
+    const expectSet = new Set(expectHw);
+    const headRows = rows.filter(r => expectSet.has(r.week));
+    const nHead = headRows.length;
+    if (CAL_DOC.overall?.n !== nHead) problems.push(`calibration overall.n is ${CAL_DOC.overall?.n}; expected headline weeks ${expectHw.join(',') || '(none)'} hold ${nHead} rows`);
+    const bp = CAL_DOC.by_pos || {};
+    const sumPos = Object.values(bp).reduce((a, x) => a + (x?.n || 0), 0);
+    if (sumPos !== CAL_DOC.overall?.n) problems.push(`calibration by_pos n sums to ${sumPos}; overall.n is ${CAL_DOC.overall?.n}`);
+    for (const p of ['QB', 'RB', 'WR', 'TE']) {
+      const want = headRows.filter(r => r.pos === p).length;
+      if ((bp[p]?.n ?? 0) !== want) problems.push(`calibration by_pos.${p}.n is ${bp[p]?.n}; headline rows hold ${want}`);
+    }
+    for (const [flag, v] of Object.entries(CAL_DOC.by_flag_fired_vs_not || {})) {
+      const fired = headRows.filter(r => r.flags?.[flag]).length;
+      if ((v?.fired?.n ?? 0) !== fired || (v?.not_fired?.n ?? 0) !== nHead - fired) problems.push(`calibration by_flag_fired_vs_not.${flag} is ${v?.fired?.n} fired / ${v?.not_fired?.n} not; headline rows hold ${fired} / ${nHead - fired}`);
+    }
+    const offMiss = (CAL_DOC.top_misses || []).filter(r => !expectSet.has(r.week));
+    if (offMiss.length) problems.push(`${offMiss.length} top_misses rows sit outside the headline weeks (e.g. ${offMiss.slice(0, 3).map(r => `${r.name} wk${r.week}`).join('; ')})`);
+    calNote = `calibration graded_rules ${cm.graded_rules}; ${rows.length} rows' actual = graded; headline weeks ${(hw || []).join(',')} equal the recomputed set [${expectHw.join(',')}]; overall.n ${CAL_DOC.overall?.n} = by_pos sum ${sumPos} = headline rows ${nHead}`;
   }
   if (problems.length) throw new Error(`${problems.join('; ')}${sample.length ? `. Sample: ${sample.join('; ')}` : ''}`);
   return `${nRows} actuals rows recompute under ${rulesName} (largest difference ${maxDiff.toFixed(3)}); ${calNote}`;

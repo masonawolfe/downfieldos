@@ -15,6 +15,14 @@
  * (the same reason check-defense-field stays out of the verifier). The
  * graded half (the board's rules) is verifier check #21.
  *
+ * NOT WIRED YET (review 2026-11-07): no workflow runs this script until the
+ * gate exists (plan step 5, read by the chain in step 7, both R2). Until
+ * then a renamed nflverse column turns its component into 0 or null with no
+ * red anywhere: #21 still passes, because it checks the graded column only
+ * against the stored components. The only signs are the reconcile count in
+ * the actuals file's scoring_notes and the fetch log line. R2 dependency:
+ * step 5 must call this script (or its reconcileRows) on chain_input.
+ *
  * Usage:
  *   node scripts/reconcile-actuals-scoring.mjs                 # src/data/intelligence/weekly_actuals_2026.json
  *   node scripts/reconcile-actuals-scoring.mjs path/to/file.json
