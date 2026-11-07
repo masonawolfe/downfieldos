@@ -15,7 +15,8 @@ name: Data — Tuesday Results Chain
 #   gate (week N complete in actuals + play-by-play?) → PBP-derived
 #   intelligence → rosters reconcile → player board → weekly board
 #   → freeze week N+1 snapshot → calibration (vs frozen snapshots)
-#   → verifier gate (must pass to commit) → BOARD.md → commit → deploy.
+#   → verifier gate (must pass to commit) → BOARD.md → commit → deploy
+#   (main only) → freshness gate on the chain's inputs (freshness step 7).
 #
 # Shares the `data-board` concurrency group with data-board.yml,
 # data-weekly-actuals-v2.yml and data-pbp-derived-v2.yml so no two writers
@@ -198,15 +199,39 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         id: predispatch
         run: echo "at=$(date -u +%s)" >> "$GITHUB_OUTPUT"
+      # DATA_FRESHNESS_PLAN step 7 fix (a): the dispatch and the watch both
+      # run only on main. A branch run would otherwise dispatch a real deploy
+      # from the branch (--ref "$GITHUB_REF_NAME"), and a watch with no deploy
+      # behind it files a public "never-registered" issue
+      # (watch-dispatched-deploy/action.yml:247-259).
       - name: Trigger site deploy
-        if: steps.commit.outputs.changed == 'true'
+        if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
       - name: Watch dispatched deploy + notify on non-success (E-043)
-        if: steps.commit.outputs.changed == 'true'
+        if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
         timeout-minutes: 25
         uses: ./.github/actions/watch-dispatched-deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           dispatched_after_epoch: ${{ steps.predispatch.outputs.at }}
+      # DATA_FRESHNESS_PLAN step 7: the gate reads the chain's own inputs, last.
+      # The commit holding week N's results and the week N+1 snapshot has
+      # already landed, and the dispatch has gone; the verifier before the
+      # commit stays the real block. Fix (b): the explicit condition keeps a
+      # no-op slot (ready != 'true') from judging uncommitted actuals, and
+      # !cancelled() lets it run after a failed dispatch or watch. Fix (c):
+      # --week is the results gate's week, because coverage's 6 hour grace
+      # would read week N-1 as latest from 05:15 to about 07:12 UTC.
+      # Before gate_blocking_from (data/freshness_manifest.json) it annotates
+      # (--report); from that date a red fails the job here. A chain red never
+      # means a failed deploy: the watch above owns that.
+      - name: Freshness gate on the chain's inputs (report before gate_blocking_from)
+        if: ${{ !cancelled() && steps.gate.outputs.ready == 'true' && steps.commit.outcome == 'success' }}
+        env:
+          GATE_WEEK: ${{ steps.gate.outputs.week }}
+        run: |
+          set -euo pipefail
+          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs)"
+          npm run --silent check:freshness -- --tier chain_input --week "$GATE_WEEK" ${REPORT_FLAG}
