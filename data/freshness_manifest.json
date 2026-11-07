@@ -273,7 +273,7 @@
       "ui_consumers": [
         "src/components/pages/Season2026.jsx"
       ],
-      "label_route": "/2026-preview",
+      "label_route": null,
       "consumers": [
         "src/components/pages/Season2026.jsx",
         "src/components/pages/PlayerPage.jsx",
@@ -285,7 +285,7 @@
       "static": true,
       "verified_on": "2026-03-15",
       "label": "Pre-draft, March 2026",
-      "note": null
+      "note": "Label_route is null because the AsOf label on /2026-preview renders under the Roster and Needs view toggles (Season2026.jsx viewMode, default matchups), which open by a click; render-smoke never clicks, so QA reads it there (plan step 5, render proof). Found by the step 5 render proof, 2026-11-07."
     },
     {
       "path": "src/data/draftProspects2026.json",
@@ -385,7 +385,7 @@
       "ui_consumers": [
         "src/components/pages/Season2026.jsx"
       ],
-      "label_route": "/2026-preview",
+      "label_route": null,
       "consumers": [
         "src/components/pages/Season2026.jsx",
         "src/data/intelligence/index.js (team overrides on the former-teammates graph)",
@@ -399,7 +399,7 @@
       "static": true,
       "verified_on": "2026-03-22",
       "label": "Offseason moves, March 2026",
-      "note": "Step 13 was not done in release 1. This March hand list still overrides the November former-teammates graph at import (src/data/intelligence/index.js:17), so the matchup engine's teammate ties can carry March teams. The plan's fix failed on the ground: former_teammates_active.json stores no team season, and 568 of its 1,742 players are on no 2026 roster. The engineer's proposal (count a graph team only when rosters2026.js carries the player) waits for CoS. The label covers Season2026 only; the override path has no label."
+      "note": "Step 13 was not done in release 1. This March hand list still overrides the November former-teammates graph at import (src/data/intelligence/index.js:17), so the matchup engine's teammate ties can carry March teams. The plan's fix failed on the ground: former_teammates_active.json stores no team season, and 568 of its 1,742 players are on no 2026 roster. The engineer's proposal (count a graph team only when rosters2026.js carries the player) waits for CoS. The label covers Season2026 only; the override path has no label. label_route is null because the AsOf label on /2026-preview renders under the Roster and Needs view toggles (Season2026.jsx viewMode, default matchups), which open by a click; render-smoke never clicks, so QA reads it there (plan step 5, render proof). Found by the step 5 render proof, 2026-11-07."
     },
     {
       "path": "src/data/games2026.json",

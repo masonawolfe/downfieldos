@@ -15,8 +15,13 @@
  */
 
 import puppeteer from 'puppeteer';
+import { labelExpectations, missingLabels } from './render-labels.mjs';
 
-const BASE = 'https://downfieldos.com';
+// SMOKE_BASE points the same checks at a local `vite preview` for a proof run.
+const BASE = process.env.SMOKE_BASE || 'https://downfieldos.com';
+// Freshness plan step 5: each manifest row with a label_route must show its
+// label in that route's rendered text (render-labels.mjs).
+const LABELS = labelExpectations();
 const ROUTES = [
   '/',
   '/dashboard',
@@ -45,18 +50,20 @@ async function checkRoute(browser, route) {
     await page.goto(BASE + route, { waitUntil: 'networkidle0', timeout: 30_000 });
   } catch (e) {
     await page.close();
-    return { route, ok: false, reason: `navigation failed: ${e.message}`, uncaughtCount: errors.length, consoleErrorCount: consoleErrors.length };
+    return { route, ok: false, reason: `navigation failed: ${e.message}`, uncaughtCount: errors.length, consoleErrorCount: consoleErrors.length, labelsMissing: [] };
   }
 
   const bodyText = await page.evaluate(() => document.body.innerText || '');
   const hasErrorBoundary = ERROR_BOUNDARY_TEXT.test(bodyText);
+  const labelsMissing = missingLabels(route, bodyText, LABELS).map(e => `"${e.label}" (${e.file})`);
 
   await page.close();
 
-  const ok = errors.length === 0 && !hasErrorBoundary;
+  const ok = errors.length === 0 && !hasErrorBoundary && labelsMissing.length === 0;
   return {
     route,
     ok,
+    labelsMissing,
     uncaughtCount: errors.length,
     consoleErrorCount: consoleErrors.length,
     errorBoundary: hasErrorBoundary,
@@ -97,7 +104,7 @@ for (const r of ROUTES) {
     rr.retried = true;
   }
   results.push(rr);
-  const line = `${rr.ok ? 'OK    ' : 'BROKEN'} ${r.padEnd(20)} uncaught=${rr.uncaughtCount} console_err=${rr.consoleErrorCount}${rr.retried ? ' (after retry)' : ''}${rr.errorBoundary ? '  ERROR BOUNDARY' : ''}${rr.firstError ? '  first: ' + rr.firstError.slice(0, 120) : ''}`;
+  const line = `${rr.ok ? 'OK    ' : 'BROKEN'} ${r.padEnd(20)} uncaught=${rr.uncaughtCount} console_err=${rr.consoleErrorCount}${rr.retried ? ' (after retry)' : ''}${rr.errorBoundary ? '  ERROR BOUNDARY' : ''}${rr.labelsMissing?.length ? `  LABEL MISSING ${rr.labelsMissing.join(', ')}` : ''}${rr.firstError ? '  first: ' + rr.firstError.slice(0, 120) : ''}`;
   console.log(line);
 }
 await browser.close();
