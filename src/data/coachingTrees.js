@@ -305,7 +305,7 @@ export const COACHING_TREES = {
       // coaching_staff_verify_2026-11.json; bounded search of the team's own
       // pages found no source). Cut to what a source states, as CLE (E-038f).
       trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.neworleanssaints.com/team/coaches-roster/kellen-moore',
-      trees_note: "The Saints bio lists Moore's Cowboys, Chargers and Eagles roles but names neither Sean Payton nor Nick Sirianni; Moore never served on a Payton staff. Restore SIRIANNI when a source states it.",
+      trees_note: "The Saints bio lists Moore's Cowboys, Chargers and Eagles roles but names neither Sean Payton nor Nick Sirianni. Restore either label when a source states it.",
       // E-038f: "Air-Coryell / RPO hybrid" was descriptor. Bio documents
       // Moore's OC path (Cowboys → LAC → Eagles → NO HC) — lineage only.
       style: 'Cowboys OC → LAC OC → Eagles OC lineage (Moore)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore',
@@ -348,7 +348,7 @@ export const COACHING_TREES = {
       // coaching_staff_verify_2026-11.json; bounded search of the team's own
       // pages found no source). Cut to what a source states, as CLE (E-038f).
       trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.steelers.com/team/coaches-roster/mike-mccarthy',
-      trees_note: "The Steelers bio and hiring release place McCarthy's Kansas City years under Marty Schottenheimer, years before Andy Reid coached there; no Reid staff is stated.",
+      trees_note: "The Steelers bio and hiring release place McCarthy's Kansas City years under Marty Schottenheimer and name no Andy Reid staff.",
       // E-038f: "West Coast timing" is my characterization. The bio documents
       // McCarthy's Packers HC (2006-18) and Cowboys HC (2020-23) tenure —
       // lineage only.
