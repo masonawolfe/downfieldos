@@ -23,10 +23,14 @@
  *                 design; src/config.js disagrees with base_season (step 17)
  *   label         a ui_consumer of a labelled file does not render AsOf
  *   imports       src/components or src/utils import a year-named data path
- *                 whose year is not the setting and not declared by design
+ *                 whose year is not the setting and not declared by design;
+ *                 a scanned directory is gone or the scan finds fewer
+ *                 year-named imports than its floor
  *   staging       a declared output is missing from its workflow's git add;
  *                 a workflow names a year-named file that is not the setting
- *   unread        anything the site bundle reaches imports an unread row
+ *   unread        anything the site bundle reaches imports an unread row;
+ *                 src/main.jsx is missing or not index.html's entry, or the
+ *                 walk reaches fewer modules than its floor
  *   built         a build_time file is missing from dist/
  *   all           every mode above
  *
@@ -52,7 +56,15 @@
  *                         commit dates over the season instead of its stamp,
  *                         against its ceiling (plan step 5, QA's replay). It is
  *                         a git-history check, so it fails red in a shallow
- *                         clone rather than read every file as just built.
+ *                         clone rather than read every file as just built, and
+ *                         on a row whose history in the window is too thin to
+ *                         measure (no commit before the window and fewer than
+ *                         two in it).
+ *   --replay-since DATE   start the replay window at DATE instead of the
+ *                         season's first kickoff. A file that existed at DATE
+ *                         is aged from DATE to its first commit after it. The
+ *                         manifest's max_age_replay block records the window
+ *                         the ceilings were judged on and each decision.
  *
  * Exit 0 when nothing is red (or the reds only annotate), 1 on a red, 2 on a
  * usage error.
@@ -92,16 +104,25 @@ const HOUR = 3.6e6;
 // ceiling to land their final refresh before in_season_only clocks stop.
 const SEASON_TAIL_HOURS = 192;
 const YEAR_RE = /20\d\d/g;
+// A stamp this far ahead of now is a red, not a fresh file (clock skew allowance).
+const FUTURE_SKEW_MINUTES = 10;
+// Floors for the source scans, so a moved entry or directory reads red, not as
+// nothing to check. Measured on 2026-11-07: 94 modules reachable from
+// src/main.jsx, 39 year-named data imports in src/components and src/utils. A
+// refactor that drops below a floor lowers it here, by name, in the same commit.
+const ENTRY = 'src/main.jsx';
+const MIN_REACHABLE_MODULES = 80;
+const MIN_YEAR_IMPORTS = 30;
 
 // ── Arguments ────────────────────────────────────────────────────────────
-const USAGE = 'usage: node scripts/check-freshness.mjs [--mode a,b|all] [--tier t,u] [--report] [--json] [--block-on-event push] [--week N] [--as-of DATE] [--as-season YEAR] [--replay]';
+const USAGE = 'usage: node scripts/check-freshness.mjs [--mode a,b|all] [--tier t,u] [--report] [--json] [--block-on-event push] [--week N] [--as-of DATE] [--as-season YEAR] [--replay [--replay-since DATE]]';
 function usage(msg) {
   console.error(`check-freshness: ${msg}\n${USAGE}`);
   process.exit(2);
 }
 function parseArgs(argv) {
-  const o = { modes: null, tiers: null, report: false, json: false, blockOn: null, week: null, asOf: null, asSeason: null, replay: false };
-  const takes = new Set(['--mode', '--tier', '--block-on-event', '--week', '--as-of', '--as-season']);
+  const o = { modes: null, tiers: null, report: false, json: false, blockOn: null, week: null, asOf: null, asSeason: null, replay: false, replaySince: null };
+  const takes = new Set(['--mode', '--tier', '--block-on-event', '--week', '--as-of', '--as-season', '--replay-since']);
   for (let i = 0; i < argv.length; i++) {
     let [k, v] = argv[i].includes('=') ? [argv[i].slice(0, argv[i].indexOf('=')), argv[i].slice(argv[i].indexOf('=') + 1)] : [argv[i], undefined];
     if (takes.has(k) && v === undefined) {
@@ -121,12 +142,17 @@ function parseArgs(argv) {
       const t = Date.parse(v);
       if (Number.isNaN(t)) usage(`--as-of takes a date, got ${JSON.stringify(v)}`);
       o.asOf = t;
+    } else if (k === '--replay-since') {
+      const t = Date.parse(v);
+      if (Number.isNaN(t)) usage(`--replay-since takes a date, got ${JSON.stringify(v)}`);
+      o.replaySince = t;
     } else if (k === '--as-season') {
       if (!/^20\d\d$/.test(v)) usage(`--as-season takes a year, got ${JSON.stringify(v)}`);
       o.asSeason = Number(v);
     } else if (k === '--help' || k === '-h') { console.log(USAGE); process.exit(0); }
     else usage(`unknown argument ${argv[i]}`);
   }
+  if (o.replaySince != null && !o.replay) usage('--replay-since needs --replay');
   if (!o.modes || o.modes.includes('all')) o.modes = o.modes && o.modes.some(m => m !== 'all') ? usage('all cannot be combined with other modes') : [...MODES];
   const badMode = o.modes.filter(m => !MODES.includes(m));
   if (badMode.length) usage(`unknown mode ${badMode.join(', ')}`);
@@ -229,16 +255,26 @@ async function stampValue(row, key) {
   }
 }
 
-/** When the content was made: the stamp's generated_at, or a static row's verified_on. */
+/**
+ * When the content was made: the stamp's generated_at, or a static row's
+ * verified_on. `clock` says whether the row declares one: a declared clock
+ * that does not resolve or parse is a red wherever it is read, and only a row
+ * with no clock at all (a code file, an undated hand file) may be skipped.
+ */
 async function contentTime(row) {
   if (row.stamp?.generated_at) {
     const v = await stampValue(row, 'generated_at');
-    if (!v.ok) return { ms: null, why: v.why };
+    if (!v.ok) return { ms: null, clock: true, why: v.why };
     const ms = Date.parse(v.value);
-    return Number.isNaN(ms) ? { ms: null, why: `generated_at ${JSON.stringify(v.value)} is not a time` } : { ms, src: `stamp ${v.value}` };
+    return Number.isNaN(ms) ? { ms: null, clock: true, why: `generated_at ${JSON.stringify(v.value)} is not a time` } : { ms, clock: true, src: `stamp ${v.value}` };
   }
-  if (row.static && row.verified_on) return { ms: Date.parse(row.verified_on), src: `verified_on ${row.verified_on}` };
-  return { ms: null, why: 'no generated_at stamp and no verified_on' };
+  if (row.static && row.verified_on) {
+    // A round trip, so 2026-02-30 is not read as 2026-03-02.
+    const parsed = /^\d{4}-\d{2}-\d{2}$/.test(row.verified_on) ? Date.parse(row.verified_on) : NaN;
+    const ms = !Number.isNaN(parsed) && new Date(parsed).toISOString().slice(0, 10) === row.verified_on ? parsed : NaN;
+    return Number.isNaN(ms) ? { ms: null, clock: true, why: `verified_on ${JSON.stringify(row.verified_on)} is not a date` } : { ms, clock: true, src: `verified_on ${row.verified_on}` };
+  }
+  return { ms: null, clock: false, why: 'no generated_at stamp and no verified_on' };
 }
 
 const isoH = (ms) => new Date(ms).toISOString().replace(/:\d\d\.\d{3}Z$/, 'Z');
@@ -283,7 +319,17 @@ try {
 }
 const SEASON = OPT.asSeason ?? setting.season;
 const BASE = setting.base_season + (SEASON - setting.season);
-const expectedYear = (row) => (row.expected_season === 'season' ? SEASON : row.expected_season === 'base_season' ? BASE : null);
+// A write-once row declared by design is history: its files keep the year in
+// their path at every setting (the weekly_projections snapshots), so the
+// rollover lists only files that must move. The next season's files are a new
+// row, and registration names the first one unregistered.
+const historyYear = (row) => {
+  if (!(row.write_once && row.season_by_design)) return null;
+  const ys = [...new Set(yearsIn(row.path))];
+  return ys.length === 1 ? ys[0] : null;
+};
+const expectedYear = (row) => historyYear(row) ?? (row.expected_season === 'season' ? SEASON : row.expected_season === 'base_season' ? BASE : null);
+const expectLabel = (row) => (historyYear(row) != null ? `write-once history ${historyYear(row)}` : `${row.expected_season} ${expectedYear(row)}`);
 const ALL_ROWS = manifest.rows;
 const ROWS = OPT.tiers ? ALL_ROWS.filter(r => OPT.tiers.includes(r.tier)) : ALL_ROWS;
 
@@ -409,6 +455,7 @@ async function modeAge() {
     const t = await contentTime(r);
     if (t.ms == null) { red('age', 'no-time', r, r.path, `cannot age it: ${t.why}`); continue; }
     const age = (NOW - t.ms) / HOUR;
+    if (t.ms > NOW + FUTURE_SKEW_MINUTES * 60e3) { red('age', 'future', r, r.path, `stamped ${hours(t.ms - NOW)} hours after ${isoH(NOW)} (${t.src}); a stamp from the future cannot be aged`); continue; }
     if (age > r.max_age_hours) red('age', 'max_age_hours', r, r.path, `${hours(NOW - t.ms)} hours old, ceiling ${r.max_age_hours} (${t.src})`);
   }
   note('age', `${T.checked} rows aged at ${isoH(NOW)}${T.skipped ? `, ${T.skipped} out of season` : ''}`);
@@ -427,15 +474,26 @@ function replay() {
     note('age', `replay refused: git rev-parse --is-shallow-repository printed ${shallow}`);
     return;
   }
-  const start = WINDOW?.start ?? null;
+  const start = OPT.replaySince ?? WINDOW?.start ?? null;
   if (start == null) { red('age', 'replay', null, SCHEDULE_PATH, `no season window: ${scheduleWhy || 'schedule has no kickoffs'}`); return; }
+  if (start >= NOW) { red('age', 'replay', null, SCHEDULE_PATH, `the replay window starts ${isoH(start)}, not before ${isoH(NOW)}`); return; }
+  note('age', `replay window ${isoH(start)} to ${isoH(NOW)}${OPT.replaySince != null ? ' (--replay-since)' : ' (season start)'}`);
   for (const r of rows) {
     T.checked++;
     const dates = git(['log', '--format=%cI', 'HEAD', '--', r.path]).split('\n').filter(Boolean).map(Date.parse).filter(t => t <= NOW).sort((a, b) => a - b);
     const inWin = dates.filter(t => t >= start);
     const prior = dates.filter(t => t < start).pop();
+    // A file that existed at the window start is aged from the start to its
+    // first commit after it (the prior commit stands in for the start).
     const series = prior != null ? [prior, ...inWin] : inWin;
     if (!series.length) { red('age', 'replay', r, r.path, `no commit before ${isoH(NOW)}`); continue; }
+    // Born inside the window with one commit: no gap to measure, so every file
+    // of a one-commit history would read as just built. Red, not a pass.
+    if (prior == null && inWin.length < 2) {
+      note('age', `${r.path}: first commit ${isoH(inWin[0])}, inside the window, and ${inWin.length} commit in it`);
+      red('age', 'replay', r, r.path, `history too thin to replay: first commit ${isoH(inWin[0])} is inside the window and it has ${inWin.length} commit there, so no gap can be measured`);
+      continue;
+    }
     let worst = { gap: 0, from: null, to: null };
     for (let i = 1; i < series.length; i++) {
       const from = Math.max(series[i - 1], start);
@@ -555,6 +613,7 @@ async function modeLineage() {
       const sr = rowFor(ALL_ROWS, src);
       if (!sr) { red('lineage', 'source-row', r, r.path, `source ${src} has no row`); continue; }
       const st = await contentTime(sr);
+      if (st.ms == null && st.clock) { red('lineage', 'source-time', r, r.path, `cannot date source ${src}: ${st.why}`); continue; }
       if (st.ms == null) continue; // a source with no clock (a code file, an undated hand file) cannot be newer by stamp
       if (st.ms > served.ms + r.lineage_grace_hours * HOUR) {
         red('lineage', 'derived_from', r, r.path, `source ${src} (${st.src}) is ${hours(st.ms - served.ms)} hours newer than the served copy (${served.src}), grace ${r.lineage_grace_hours}`);
@@ -568,6 +627,7 @@ async function modeLineage() {
 async function modeSeason() {
   const T = tally.season;
   if (OPT.asSeason != null) note('season', `as season ${SEASON} (base_season ${BASE}); data/season.json says ${setting.season} (base_season ${setting.base_season})`);
+  for (const r of ROWS.filter(x => historyYear(x) != null)) note('season', `${r.path}: write-once history, held at ${historyYear(r)} at every setting${historyYear(r) !== SEASON ? `; season ${SEASON}'s files need a row of their own` : ''}`);
   if (!SCHEDULE) red('season', 'schedule', null, SCHEDULE_PATH, `no schedule for season ${SEASON}: ${scheduleWhy}`);
   for (const r of ROWS) {
     const want = expectedYear(r);
@@ -576,7 +636,7 @@ async function modeSeason() {
       T.checked++;
       const ok = want != null ? ys.every(y => y === want) : (r.season_by_design || ys.every(y => y === SEASON));
       const byDesignNoClock = want == null && r.season_by_design;
-      if (!ok && !byDesignNoClock) red('season', 'path-year', r, r.path, want != null ? `the path names ${ys.join(',')}, the row expects ${r.expected_season} ${want}` : `the path names ${ys.join(',')}, not ${SEASON}, with no season_by_design reason`);
+      if (!ok && !byDesignNoClock) red('season', 'path-year', r, r.path, want != null ? `the path names ${ys.join(',')}, the row expects ${expectLabel(r)}` : `the path names ${ys.join(',')}, not ${SEASON}, with no season_by_design reason`);
     }
     if (want == null || !r.stamp?.source_season) continue;
     // A glob row's stamp sits in each file it matches.
@@ -585,7 +645,7 @@ async function modeSeason() {
       T.checked++;
       const v = await stampValue(t, 'source_season');
       if (!v.ok) { red('season', 'source_season', r, t.path, `cannot read source_season: ${v.why}`); continue; }
-      if (Number(v.value) !== want) red('season', 'source_season', r, t.path, `source_season ${v.value}, the row expects ${r.expected_season} ${want}`);
+      if (Number(v.value) !== want) red('season', 'source_season', r, t.path, `source_season ${v.value}, the row expects ${expectLabel(r)}`);
     }
   }
   // Step 17: src/config.js holds the last complete season of play data and must equal base_season.
@@ -596,7 +656,15 @@ async function modeSeason() {
     else {
       const src = readText('src/config.js');
       // LAST_COMPLETE_SEASON from step 17 (branch freshness/r2-s17); CURRENT_SEASON until that merges.
-      const m = src.match(/export\s+const\s+(LAST_COMPLETE_SEASON|CURRENT_SEASON)\s*=\s*(\d{4})\s*;/);
+      // Once the new name exists anywhere in src, the old one is a red wherever it appears.
+      const m = src.match(/export\s+const\s+(LAST_COMPLETE_SEASON)\s*=\s*(\d{4})\s*;/) || src.match(/export\s+const\s+(CURRENT_SEASON)\s*=\s*(\d{4})\s*;/);
+      const codeFiles = [...ALL_SRC].filter(f => CODE_RE.test(f));
+      if (codeFiles.some(f => /\bLAST_COMPLETE_SEASON\b/.test(readText(f)))) {
+        for (const f of codeFiles) {
+          const i = readText(f).search(/\bCURRENT_SEASON\b/);
+          if (i >= 0) red('season', 'config', cfgRow, 'src/config.js', `${f}:${readText(f).slice(0, i).split('\n').length} names CURRENT_SEASON, the name step 17 retired for LAST_COMPLETE_SEASON`);
+        }
+      }
       const s = src.match(/export\s+const\s+SEASONS\s*=\s*\[([^\]]*)\]/);
       const list = s ? s[1].split(',').map(x => Number(x.trim())).filter(Number.isInteger) : [];
       if (!m) red('season', 'config', cfgRow, 'src/config.js', 'no LAST_COMPLETE_SEASON (or CURRENT_SEASON) constant');
@@ -667,12 +735,16 @@ const isData = (p) => /^(src\/data|public\/data)\//.test(p);
 
 function modeImports() {
   const T = tally.imports;
-  const files = [...walk('src/components'), ...walk('src/utils')].filter(f => CODE_RE.test(f));
+  const dirs = ['src/components', 'src/utils'];
+  for (const d of dirs) if (!walk(d).some(f => CODE_RE.test(f))) red('imports', 'scan', null, d, 'no code files to scan: the directory moved or is empty, so the imports mode would check nothing');
+  const files = dirs.flatMap(walk).filter(f => CODE_RE.test(f));
+  let found = 0;
   for (const f of files) {
     for (const { spec, target, line } of specsOf(f)) {
       if (!isData(target)) continue;
       const ys = yearsIn(target.replace(/^(src|public)\/data\//, ''));
       if (!ys.length) continue;
+      found++;
       const r = rowFor(ALL_ROWS, target);
       if (OPT.tiers && !(r && OPT.tiers.includes(r.tier))) continue;
       T.checked++;
@@ -681,12 +753,13 @@ function modeImports() {
       const want = expectedYear(r);
       const byDesign = r.season_by_design && r.tier !== 'unread' && (want == null || ys.every(y => y === want));
       if (!byDesign) {
-        const why = r.tier === 'unread' && r.season_by_design ? `its season_by_design reason covers an archive (tier unread), not a reader` : r.season_by_design ? `the row expects ${r.expected_season} ${want}` : 'the row declares no season_by_design reason';
+        const why = r.tier === 'unread' && r.season_by_design ? `its season_by_design reason covers an archive (tier unread), not a reader` : r.season_by_design ? `the row expects ${expectLabel(r)}` : 'the row declares no season_by_design reason';
         red('imports', 'year', r, r.path, `${f}:${line} imports ${spec}: the year ${ys.join(',')} is not ${SEASON} and ${why}`);
       }
     }
   }
-  note('imports', `${T.checked} year-named data imports in src/components and src/utils, season ${SEASON}`);
+  if (found < MIN_YEAR_IMPORTS) red('imports', 'scan', null, dirs.join(', '), `${found} year-named data imports found in ${files.length} code files, under the floor of ${MIN_YEAR_IMPORTS}: the scan is not reaching the imports`);
+  note('imports', `${T.checked} year-named data imports checked (${found} found in ${files.length} code files, floor ${MIN_YEAR_IMPORTS}), season ${SEASON}`);
 }
 
 function modeUnread() {
@@ -694,7 +767,13 @@ function modeUnread() {
   const code = [...ALL_SRC].filter(f => CODE_RE.test(f));
   const reach = new Set();
   const via = new Map();
-  const stack = ['src/main.jsx'];
+  if (!ALL_SRC.has(ENTRY)) red('unread', 'entry', null, ENTRY, 'the site entry is missing, so nothing reachable can be checked');
+  if (exists('index.html')) {
+    const m = readText('index.html').match(/<script\b[^>]*\btype=["']module["'][^>]*\bsrc=["']\/?([^"']+)["']/);
+    if (!m) red('unread', 'entry', null, 'index.html', `has no module script, so ${ENTRY} is not shown to be the site entry`);
+    else if (m[1] !== ENTRY) red('unread', 'entry', null, 'index.html', `loads ${m[1]}, not ${ENTRY}: the reach is walked from the wrong entry`);
+  }
+  const stack = [ENTRY];
   while (stack.length) {
     const f = stack.pop();
     if (reach.has(f)) continue;
@@ -710,7 +789,9 @@ function modeUnread() {
     const hit = r.glob ? [...reach].find(p => globRe(r.path).test(p)) : reach.has(r.path) ? r.path : null;
     if (hit) red('unread', 'imported', r, r.path, `marked unread, but the site bundle reaches it from ${via.get(hit)}`);
   }
-  note('unread', `${T.checked} unread rows against ${[...reach].filter(f => code.includes(f)).length} modules reachable from src/main.jsx`);
+  const reached = [...reach].filter(f => code.includes(f)).length;
+  if (reached < MIN_REACHABLE_MODULES) red('unread', 'reach', null, ENTRY, `${reached} modules reachable, under the floor of ${MIN_REACHABLE_MODULES}: the walk is not reaching the site bundle`);
+  note('unread', `${T.checked} unread rows against ${reached} modules reachable from ${ENTRY} (floor ${MIN_REACHABLE_MODULES})`);
 }
 
 // ── staging ──────────────────────────────────────────────────────────────

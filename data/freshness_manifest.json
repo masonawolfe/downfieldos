@@ -4,6 +4,19 @@
   "season_file": "data/season.json",
   "gate_blocking_from": "2026-11-24",
   "max_age_basis": "Largest gap between commits of each file on origin/main from 2026-09-10 to 31c5321 (git log --format=%cI), rounded up to a family ceiling: daily 48, twice weekly 144, weekly 192, monthly 768. Rows not measurable there say so in their note.",
+  "max_age_replay": {
+    "command": "node scripts/check-freshness.mjs --mode age --replay --replay-since <since>",
+    "measured": "2026-11-07 on freshness/r2-s5 (HEAD carries origin/main 31c5321 and release 1)",
+    "since": "2026-09-20T15:13:22Z",
+    "why_since": "The season-start replay (2026-09-10) reds 13 rows on gaps that end by 2026-09-19: the E-026 outage (12 data workflows broken until the 2026-09-16 repair) and rosters2026.js with only its Tuesday, Wednesday and Saturday writer until E-044 added the daily one at fcaa19d (2026-09-20). Those gaps are history the ceilings were never meant to hold, so the ceilings are judged from fcaa19d on.",
+    "result": "Every measurable row is under its ceiling from that date; 3 reds, each a row the replay cannot measure yet.",
+    "decisions": {
+      "src/data/games2026.json": "Ceiling 48 kept. Not committed on origin/main from 2026-09-16 until release 1 (a true stale gap that step 11 closes, not a false red). Re-measure after one ceiling of release 1 runs on main.",
+      "src/data/defense2026.js": "Ceiling 192 kept, borrowed from weekly_actuals_2026.json (the same Tuesday chain). No 2026 rebuild on origin/main before release 1. Re-measure after the first Tuesday chain on main.",
+      "src/data/intelligence/referee_appearances_compact.json": "Ceiling 192 kept, borrowed from referee_appearances.json (the same run). Never staged on origin/main before step 14. Re-measure after the next data-referees-v2 run on main.",
+      "every other row": "No change: the largest gap and the open gap since the date above are under the ceiling."
+    }
+  },
   "also_tracked": [
     "src/config.js",
     "public/sitemap.xml",
@@ -2048,7 +2061,7 @@
         "source_season": "/season"
       },
       "expected_season": "season",
-      "season_by_design": null,
+      "season_by_design": "Write-once weekly snapshots: each file is history of the season in its name and never moves. The gate holds a write_once row at its path year at every setting, so the rollover lists only files that must move.",
       "max_age_hours": null,
       "change_driven": false,
       "in_season_only": false,
@@ -2069,7 +2082,7 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Write-once snapshots: no age clock and no coverage here; checks #19 and #20 own them. The 2026 in the glob follows the season setting, so a 2027 snapshot is unregistered until this row moves, by name.",
+      "note": "Write-once snapshots: no age clock and no coverage here; checks #19 and #20 own them. The row stays at its year after the rollover: the next season's first snapshot is unregistered until a row of its own is added beside this one, and registration names it.",
       "glob": true,
       "write_once": true
     },
