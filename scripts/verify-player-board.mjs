@@ -457,6 +457,79 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
   return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz})`;
 });
 
+// #21 — Graded actuals use the projection's rules, and the calibration
+// headline uses only weeks written before kickoff (DATA_FRESHNESS_PLAN
+// 2026-11-01, step 1).
+//
+// QA defect 3: the actuals took nflverse's fantasy_points_ppr (which counts
+// interceptions, fumbles lost, two-point conversions and return scores)
+// while the projection is built without them, so calibration compared two
+// scorings. Assert the field, from the board's own published rules, not
+// from the producer's code:
+//   - every actuals row's fantasy_points_graded recomputes from its
+//     components under the projection's rules within 0.01;
+//   - graded_rules (actuals and calibration meta) equals the projection's
+//     rules name (the default league shape's scoring in the board meta);
+//   - every calibration row's `actual` is that row's graded value;
+//   - no headline week has written_before_kickoff false (read from the
+//     snapshot header and recomputed from the schedule), and the headline
+//     counts exactly the rows of its weeks.
+// The nflverse recompute (does nflverse's own column match the stored
+// components?) is NOT here: scripts/reconcile-actuals-scoring.mjs. A term
+// we do not store must not stop the Tuesday commit (plan step 1, the split).
+check("Graded actuals recompute under the projection's rules and the calibration headline uses only weeks written before kickoff", () => {
+  if (!ACTUALS_DOC) throw new Error('weekly_actuals_2026.json not readable');
+  const val = meta?.valuation_2026_09_04 || {};
+  const rulesName = val.shapes?.[val.default_shape]?.scoring;
+  const rules = rulesName ? val.scoring_rules?.[rulesName] : null;
+  if (!rulesName || !rules) throw new Error(`cannot read the projection's rules from PLAYER_BOARD_2026_META.valuation_2026_09_04 (default_shape ${JSON.stringify(val.default_shape)}, scoring ${JSON.stringify(rulesName)})`);
+  const problems = [];
+  if (ACTUALS_DOC.meta?.graded_rules !== rulesName) problems.push(`actuals meta.graded_rules is ${JSON.stringify(ACTUALS_DOC.meta?.graded_rules)}; the projection's rules are ${JSON.stringify(rulesName)}`);
+  const n = x => (typeof x === 'number' && Number.isFinite(x) ? x : 0);
+  let bad = 0, missing = 0, maxDiff = 0;
+  const sample = [];
+  const graded = new Map();
+  for (const r of ACTUALS_DOC.rows || []) {
+    const c = r.components || {};
+    const te = r.pos === 'TE' ? (rules.te_rec_bonus || 0) : 0;
+    const expect = n(c.receptions) * (rules.rec + te) + n(c.rec_yd) * rules.rec_yd + n(c.rec_td) * rules.rec_td
+      + n(c.rush_yd) * rules.rush_yd + n(c.rush_td) * rules.rush_td + n(c.pass_yd) * rules.pass_yd + n(c.pass_td) * rules.pass_td;
+    if (typeof r.fantasy_points_graded !== 'number') { missing++; if (sample.length < 5) sample.push(`${r.name} wk${r.week}: no fantasy_points_graded`); continue; }
+    const d = Math.abs(expect - r.fantasy_points_graded);
+    if (d > maxDiff) maxDiff = d;
+    if (d > 0.01) { bad++; if (sample.length < 5) sample.push(`${r.name} wk${r.week}: graded ${r.fantasy_points_graded} vs ${Math.round(expect * 100) / 100}`); }
+    graded.set(`${r.gsis_id}_${r.week}`, r.fantasy_points_graded);
+  }
+  const nRows = (ACTUALS_DOC.rows || []).length;
+  if (missing) problems.push(`${missing} of ${nRows} actuals rows lack fantasy_points_graded`);
+  if (bad) problems.push(`${bad} of ${nRows} actuals rows' fantasy_points_graded do not recompute under ${rulesName} within 0.01`);
+  let calNote = 'no calibration_2026.json on disk, calibration half skipped';
+  if (CAL_DOC) {
+    const cm = CAL_DOC.meta || {};
+    if (cm.graded_rules !== rulesName) problems.push(`calibration meta.graded_rules is ${JSON.stringify(cm.graded_rules)}; the projection's rules are ${JSON.stringify(rulesName)}`);
+    const rows = CAL_DOC.rows || [];
+    const offActual = rows.filter(r => !graded.has(`${r.gsis_id}_${r.week}`) || Math.abs(graded.get(`${r.gsis_id}_${r.week}`) - r.actual) > 0.001);
+    if (offActual.length) problems.push(`${offActual.length} of ${rows.length} calibration rows' actual is not the row's fantasy_points_graded (e.g. ${offActual.slice(0, 3).map(r => `${r.name} wk${r.week}: ${r.actual} vs ${graded.get(`${r.gsis_id}_${r.week}`)}`).join('; ')})`);
+    const hw = cm.headline_weeks;
+    if (!Array.isArray(hw)) problems.push('calibration meta.headline_weeks missing');
+    else {
+      for (const w of hw) {
+        const s = SNAPSHOTS[w]?.doc;
+        const first = SCHEDULE ? firstKickoffUtcMs(SCHEDULE, w) : null;
+        const recomputed = s && first != null ? Date.parse(s.written_utc) < first : null;
+        if (!s) problems.push(`headline week ${w} has no snapshot`);
+        else if (s.written_before_kickoff !== true || recomputed !== true) problems.push(`headline week ${w} has written_before_kickoff ${s.written_before_kickoff} (recomputed from the schedule: ${recomputed})`);
+      }
+      const hset = new Set(hw);
+      const nHead = rows.filter(r => hset.has(r.week)).length;
+      if (CAL_DOC.overall?.n !== nHead) problems.push(`calibration overall.n is ${CAL_DOC.overall?.n}; headline weeks ${hw.join(',')} hold ${nHead} rows`);
+    }
+    calNote = `calibration graded_rules ${cm.graded_rules}; ${rows.length} rows' actual = graded; headline weeks ${(hw || []).join(',')} all written before kickoff (overall.n ${CAL_DOC.overall?.n})`;
+  }
+  if (problems.length) throw new Error(`${problems.join('; ')}${sample.length ? `. Sample: ${sample.join('; ')}` : ''}`);
+  return `${nRows} actuals rows recompute under ${rulesName} (largest difference ${maxDiff.toFixed(3)}); ${calNote}`;
+});
+
 // #12 — coachingTrees.js provenance ratchet (E-038 2026-09-18).
 //
 // Every team should carry {hc,oc,dc}_verified_on with an ISO date inside the
