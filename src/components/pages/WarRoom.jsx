@@ -7,7 +7,8 @@ import { tn } from '../../utils/formatters';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
-import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
+import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
+import { AsOf } from '../ui/AsOf';
 import draftProspects from '../../data/draftProspects2026.json';
 import { PLAYER_BOARD_2026 } from '../../data/playerBoard2026';
 
@@ -111,7 +112,7 @@ function ProspectBoard({ team }) {
   return (
     <div style={{ marginTop: 24 }}>
       <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 8px", display: "flex", alignItems: "center", gap: 8 }}>
-        <GraduationCap size={20} color="#f97316" /> Draft Prospect Board
+        <GraduationCap size={20} color="#f97316" /> Draft Prospect Board <AsOf meta={DRAFT_NEEDS_2026_META} />
       </h3>
       <p style={{ fontSize: 13, color: "#64748b", margin: "0 0 16px" }}>
         52 prospects scouted — {fits.length} fit {team}'s needs ({teamNeeds.join(', ')})

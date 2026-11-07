@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Flag, AlertTriangle, TrendingUp, TrendingDown } from 'lucide-react';
 import refereeData from '../../data/intelligence/referee_profiles.json';
+import { AsOf } from './AsOf';
 import appearanceData from '../../data/intelligence/referee_appearances_compact.json';
 
 // Merge appearance counts from the nflverse `officials` feed onto every ref
@@ -57,6 +58,7 @@ export function RefereeProfileCard({ compact = false }) {
           <Flag size={20} color="#dc2626" />
           <span style={{ fontSize: 18, fontWeight: 800, color: '#0f172a' }}>Flag-Happy Crews</span>
           <span style={{ fontSize: 12, color: '#94a3b8', background: '#f1f5f9', padding: '2px 10px', borderRadius: 10 }}>High volume</span>
+          <AsOf meta={refereeData?.metadata} />
         </div>
         <div style={{ display: 'grid', gap: 8 }}>
           {top.map(c => {
@@ -84,6 +86,8 @@ export function RefereeProfileCard({ compact = false }) {
           <Flag size={20} color="#dc2626" />
           <span style={{ fontSize: 20, fontWeight: 900, color: '#0f172a' }}>Referee Crew Profiles</span>
           <span style={{ fontSize: 12, color: '#94a3b8', background: '#fff', padding: '2px 10px', borderRadius: 10 }}>{crews.length} crews</span>
+          {/* Freshness plan step 12: tendencies are 2025 averages. */}
+          <AsOf meta={refereeData?.metadata} />
         </div>
         <div style={{ fontSize: 12, color: '#64748b' }}>Flag tendencies, O/U lean, and matchup impact by crew</div>
       </div>

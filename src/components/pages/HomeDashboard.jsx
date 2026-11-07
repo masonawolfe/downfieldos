@@ -15,6 +15,7 @@ import { calcSchemeFamiliarity } from '../../utils/schemeFamiliarity';
 import { calcDivisionalFamiliarity } from '../../utils/divisionalFamiliarity';
 import { calcEnvironmentFactors } from '../../utils/environmentFactors';
 import fanSentimentData from '../../data/intelligence/fan_sentiment.json';
+import { AsOf } from '../ui/AsOf';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { latestLeagueHeadlines } from '../../utils/teamNews';
 
@@ -170,6 +171,8 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
               <span style={{ fontSize: 14, color: "#334155", lineHeight: 1.5 }}>{h}</span>
             </div>
           ))}
+          {/* Freshness plan step 12: the sentiment lines are from a March 2026 file. */}
+          {headlines.length > 0 && <div style={{ marginBottom: 10 }}><AsOf meta={fanSentimentData?.metadata} /></div>}
           {latestLeagueHeadlines(5).map((n, i) => (
             <div key={`n-${i}`} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginTop: i === 0 && headlines.length > 0 ? 14 : 0, marginBottom: 8, paddingTop: i === 0 && headlines.length > 0 ? 12 : 0, borderTop: i === 0 && headlines.length > 0 ? "1px solid #f1f5f9" : "none" }}>
               <span style={{ fontSize: 10, fontWeight: 800, color: "#f97316", background: "#f9731615", padding: "2px 6px", borderRadius: 4, letterSpacing: 0.5, minWidth: 34, textAlign: "center", marginTop: 2 }}>{n.team}</span>

@@ -3,10 +3,11 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, BarChart3, TrendingUp, Flame, Star, Shield, GraduationCap } from "lucide-react";
 import { T } from '../../data/teams';
 import { genRoster2026 } from '../../utils/roster';
-import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
+import { PLAYER_STATS_2025, PLAYER_STATS_2025_META } from '../../data/playerStats2025';
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import draftProspects from '../../data/draftProspects2026.json';
-import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
+import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
+import { AsOf } from '../ui/AsOf';
 import { analyzeDraftPick } from '../../utils/draftAnalysis';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 
@@ -111,7 +112,7 @@ function RosteredPlayerView({ player, team, teamName }) {
           <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "10px 16px", background: "#fef2f2", borderRadius: 12, border: "1px solid #fecaca" }}>
             <TrendingUp size={16} color="#dc2626" />
             <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626" }}>Contract Year</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626" }}>Contract Year <AsOf meta={contractYearData?.metadata} /></div>
               <div style={{ fontSize: 12, color: "#64748b" }}>{contractInfo.current_salary} — expires after 2026</div>
               {contractInfo.performance_incentive && <div style={{ fontSize: 12, color: "#94a3b8" }}>{contractInfo.performance_incentive}</div>}
             </div>
@@ -125,6 +126,8 @@ function RosteredPlayerView({ player, team, teamName }) {
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
             <BarChart3 size={18} color="#f97316" />
             <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2025 Season Stats</h3>
+            {/* Freshness plan step 12: the label comes from the stats file's own META. */}
+            <AsOf meta={PLAYER_STATS_2025_META} />
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))", gap: 16 }}>
             {playerStats.pos === 'QB' && <>
@@ -286,7 +289,7 @@ function ProspectView({ prospect }) {
       {topFitAnalysis.length > 0 && (
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: "0 0 16px", display: "flex", alignItems: "center", gap: 8 }}>
-            <Shield size={16} color="#f97316" /> Top Team Fits
+            <Shield size={16} color="#f97316" /> Top Team Fits <AsOf meta={DRAFT_NEEDS_2026_META} />
           </h3>
           {topFitAnalysis.map(({ team, schemeFit, schemeFitScore, fantasyImpact }) => (
             <div key={team} style={{ padding: "12px 0", borderBottom: "1px solid #f1f5f9" }}>

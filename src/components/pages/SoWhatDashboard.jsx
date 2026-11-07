@@ -1,7 +1,8 @@
 import { useState, useMemo } from "react";
 import { Star, Zap, AlertTriangle, Eye, Activity, BookOpen, Target, ChevronDown, ChevronRight, Users } from "lucide-react";
 import { T } from '../../data/teams';
-import { DNA } from '../../data/dna';
+import { DNA, DNA_META } from '../../data/dna';
+import { AsOf } from '../ui/AsOf';
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn, tnp } from '../../utils/formatters';
@@ -26,7 +27,7 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
   return (
     <div>
       <h2 style={{ fontSize: 32, fontWeight: 900, color: "#0f172a", margin: "0 0 4px", letterSpacing: -1 }}>What You Need to Know</h2>
-      <p style={{ fontSize: 15, color: "#64748b", margin: "0 0 28px" }}>The state of the NFL, in plain English.{filterNote}</p>
+      <p style={{ fontSize: 15, color: "#64748b", margin: "0 0 28px" }}>The state of the NFL, in plain English.{filterNote} {/* Freshness plan step 12: team identity lines are dna.js. */}<AsOf meta={DNA_META} /></p>
       {primaryTeam && (() => {
         const myRank = ranked.findIndex(r => r.a === primaryTeam) + 1;
         const my = ranked.find(r => r.a === primaryTeam);
@@ -46,6 +47,7 @@ export function SoWhatDashboard({ plays, primaryTeam }) {
             <Users size={20} color="#f97316" />
             <span style={{ fontSize: 18, fontWeight: 800, color: "#0f172a" }}>Team Identity Cards</span>
             <span style={{ fontSize: 12, color: "#94a3b8", background: "#f1f5f9", padding: "2px 10px", borderRadius: 10 }}>32 teams</span>
+            <AsOf meta={DNA_META} />
           </div>
           {showCards ? <ChevronDown size={20} color="#94a3b8" /> : <ChevronRight size={20} color="#94a3b8" />}
         </button>
