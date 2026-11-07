@@ -127,7 +127,12 @@ export const COACHING_TREES = {
       // E-038b: Stefanski replaces Morris — Vikings/Browns pedigree, worked
       // with Gary Kubiak (Shanahan family); Cleveland ran wide-zone / heavy
       // play-action. Prior MCVAY label was Morris-era.
-      trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
+      // 2026-11-07 correction (cor-2026-11-07-trees-cut-to-source): SHANAHAN was
+      // an inference the stamped bio does not state (record
+      // coaching_staff_verify_2026-11.json; bounded search of the team's own
+      // pages found no source). Cut to what a source states, as CLE (E-038f).
+      trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.atlantafalcons.com/team/coaches-roster/kevin-stefanski',
+      trees_note: "The Falcons bio names Brad Childress, Leslie Frazier and Mike Zimmer as the head coaches Stefanski worked under in Minnesota, then his Browns tenure; none founds a tree in this file.",
       // E-038f (2026-09-18, QA 10:05): trimmed scheme descriptor to lineage
       // only. The Wikipedia bio documents Stefanski's Vikings assistant and
       // Browns HC path but does not use "wide-zone / play-action heavy" as a
@@ -157,7 +162,13 @@ export const COACHING_TREES = {
     CAR: {
       hc: 'Dave Canales',       hc_verified_on: '2026-11-07', hc_source: 'https://www.panthers.com/team/coaches/',
       oc: 'Brad Idzik',         oc_verified_on: '2026-11-07', oc_source: 'https://www.panthers.com/team/coaches/',
-      dc: 'Ejiro Evero',        dc_verified_on: '2026-09-18', dc_source: 'https://www.panthers.com/team/coaches/',
+      // 2026-11-07 correction (cor-2026-11-07-car-dc-interim): Ejiro Evero
+      // was fired October 30, 2026 after Week 8; panthers.com lists Todd Wash
+      // as "Interim defensive coordinator". dc_title carries the interim
+      // title the way TB carries its non-standard shape (Q-043).
+      dc: 'Todd Wash',          dc_verified_on: '2026-11-07', dc_source: 'https://www.panthers.com/team/coaches/',
+      dc_title: 'Interim defensive coordinator',
+      dc_note: 'Ejiro Evero was fired on October 30, 2026 after Week 8. Todd Wash is the interim defensive coordinator.',
       trees: ['MCVAY', 'PAYTON'], style: null,
     },
     CHI: {
@@ -253,7 +264,12 @@ export const COACHING_TREES = {
       // E-038b: Klint Kubiak (son of Gary Kubiak, Vikings/49ers/Saints OC)
       // is a Shanahan-tree wide-zone coach. Prior BELICHICK label was Carroll-
       // era defense-first; that identity flips under Kubiak.
-      trees: ['SHANAHAN'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
+      // 2026-11-07 correction (cor-2026-11-07-trees-cut-to-source): SHANAHAN was
+      // an inference the stamped bio does not state (record
+      // coaching_staff_verify_2026-11.json; bounded search of the team's own
+      // pages found no source). Cut to what a source states, as CLE (E-038f).
+      trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.raiders.com/team/coaches-roster/klint-kubiak',
+      trees_note: "The Raiders bio lists Kubiak's 2023 49ers role and names him the son of Gary Kubiak but does not name a Shanahan staff or system. Restore SHANAHAN when a source states it.",
       // E-038f: "zone concepts" is a scheme descriptor; the bio documents
       // Klint Kubiak's positions but does not name a scheme label.
       style: 'Vikings OC → 49ers passing coordinator → Saints OC lineage (Kubiak family)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Klint_Kubiak',
@@ -284,7 +300,12 @@ export const COACHING_TREES = {
       // is an Air-Coryell / RPO-hybrid, not the Payton legacy the prior label
       // implied. Kept PAYTON tree since Sean Payton's system left roots in
       // NO's roster/scheme, but style renamed.
-      trees: ['PAYTON', 'SIRIANNI'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Kellen_Moore_(quarterback)',
+      // 2026-11-07 correction (cor-2026-11-07-trees-cut-to-source): PAYTON, SIRIANNI was
+      // an inference the stamped bio does not state (record
+      // coaching_staff_verify_2026-11.json; bounded search of the team's own
+      // pages found no source). Cut to what a source states, as CLE (E-038f).
+      trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.neworleanssaints.com/team/coaches-roster/kellen-moore',
+      trees_note: "The Saints bio lists Moore's Cowboys, Chargers and Eagles roles but names neither Sean Payton nor Nick Sirianni; Moore never served on a Payton staff. Restore SIRIANNI when a source states it.",
       // E-038f: "Air-Coryell / RPO hybrid" was descriptor. Bio documents
       // Moore's OC path (Cowboys → LAC → Eagles → NO HC) — lineage only.
       style: 'Cowboys OC → LAC OC → Eagles OC lineage (Moore)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore',
@@ -322,7 +343,12 @@ export const COACHING_TREES = {
       // HC 2020-2023 — West Coast / Reid-adjacent lineage (his own branch,
       // McCarthy is a Marty Schottenheimer/Andy Reid tree hybrid). Style
       // shifts from Tomlin's zone-blitz identity to McCarthy West Coast timing.
-      trees: ['REID'], trees_verified_on: '2026-09-18', trees_source: 'https://en.wikipedia.org/wiki/Mike_McCarthy_(American_football_coach)',
+      // 2026-11-07 correction (cor-2026-11-07-trees-cut-to-source): REID was
+      // an inference the stamped bio does not state (record
+      // coaching_staff_verify_2026-11.json; bounded search of the team's own
+      // pages found no source). Cut to what a source states, as CLE (E-038f).
+      trees: [], trees_verified_on: '2026-11-07', trees_source: 'https://www.steelers.com/team/coaches-roster/mike-mccarthy',
+      trees_note: "The Steelers bio and hiring release place McCarthy's Kansas City years under Marty Schottenheimer, years before Andy Reid coached there; no Reid staff is stated.",
       // E-038f: "West Coast timing" is my characterization. The bio documents
       // McCarthy's Packers HC (2006-18) and Cowboys HC (2020-23) tenure —
       // lineage only.
@@ -437,7 +463,11 @@ export const COACHING_TREES = {
     // Confirmed all-continuity from 2025 (Joe Brady's 2025 hire not counted
     // as 2026-new).
     BUF: { hc: false, oc: false, dc: false, note: 'Joe Brady / Pete Carmichael / Jim Leonhard — full 2025 staff returned.' },
-    CAR: { hc: false, oc: false, dc: false, note: 'Canales / Idzik / Evero — full 2025 staff returned.' },
+    // 2026-11-07: dc stays false. changes_2026 records offseason changes, and
+    // the flag feeds the board's round 1 and 2 coordinator penalty
+    // (build-player-board.js coordinator_is_new_2026); changing it midseason is
+    // a model change for Mason. The note carries the midseason change.
+    CAR: { hc: false, oc: false, dc: false, note: 'Canales / Idzik / Evero: full 2025 staff returned. Evero was fired October 30, 2026 after Week 8; Todd Wash is interim defensive coordinator.' },
     MIN: { hc: false, oc: false, dc: false, note: "Kevin O'Connell / Wes Phillips / Brian Flores — full 2025 staff returned." },
   },
 };

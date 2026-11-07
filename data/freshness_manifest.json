@@ -100,9 +100,9 @@
       "tier": "public",
       "on_stale": "red",
       "static": true,
-      "verified_on": "2026-09-18",
-      "label": "Coaching staffs, checked September 18, 2026",
-      "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. verified_on is the OLDEST of the 114 per-entry _verified_on stamps (verified_on_rule), so one unchecked entry keeps the file red. Replaces check #12's season-only test. No component renders an AsOf label for it today.",
+      "verified_on": "2026-11-07",
+      "label": "Coaching staffs, checked November 7, 2026",
+      "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. verified_on is the OLDEST of the 114 per-entry _verified_on stamps, so one unchecked entry keeps the file red. 2026-11-07: all 114 re-verified from 01_Schuhbox/DFOS/coaching_staff_verify_2026-11.json (109 match, CAR dc corrected, four trees labels cut to source). Replaces check #12's season-only test. No component renders an AsOf label for it today.",
       "verified_on_rule": {
         "kind": "oldest_entry",
         "pattern": "_verified_on:\\s*'(\\d{4}-\\d{2}-\\d{2})'",
