@@ -2,8 +2,8 @@ import { useState, useMemo, useEffect } from "react";
 import { TrendingUp, ArrowUpRight, ArrowDownRight, BookOpen } from "lucide-react";
 import { useIsMobile } from '../../hooks/useIsMobile';
 import { T } from '../../data/teams';
-import { DNA, DNA_META } from '../../data/dna';
-import { DNA_2026, DNA_2026_META } from '../../data/dna2026';
+import { DNA } from '../../data/dna';
+import { DNA_2026 } from '../../data/dna2026';
 import { OPPONENTS_2026 } from '../../data/opponents2026';
 import { FA_MOVES_2026, FA_MOVES_2026_META } from '../../data/faMoves2026';
 import { CURRENT_SEASON, GAMES_PER_SEASON } from '../../config';
@@ -34,8 +34,6 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
   // Deduplicate division (played twice — keep both as home/away)
   const myInfo = T.find(t => t.a === myTeam);
   const dna26 = DNA_2026[myTeam] || DNA[myTeam];
-  // Freshness plan step 12: the label follows whichever file the identity came from.
-  const dna26Meta = DNA_2026[myTeam] ? DNA_2026_META : DNA_META;
   const fa = FA_MOVES_2026[myTeam] || { added: [], lost: [] };
   const needs = DRAFT_NEEDS_2026[myTeam] || [];
 
@@ -82,7 +80,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
           <div>
             <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 900, fontFamily: "monospace" }}>{myTeam}</div>
             <div style={{ fontSize: 14, color: "#94a3b8" }}>{myInfo?.n} — {myInfo?.c} {myInfo?.d}</div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: "#f97316", marginTop: 6 }}>{dna26.s} <AsOf meta={dna26Meta} tone="dark" /></div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: "#f97316", marginTop: 6 }}>{dna26.s}</div>
           </div>
           <div style={{ textAlign: "right" }}>
             <div style={{ fontSize: 12, color: "#94a3b8" }}>{CURRENT_SEASON} Record</div>
@@ -103,7 +101,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {viewMode === "matchups" && (
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents <AsOf meta={DNA_2026_META} /></h3>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents</h3>
             <ExportButton onClick={() => {
               const headers = ["Opponent", "Location", "Division", `${CURRENT_SEASON} Record`, "Identity", "Matchup Grade"];
               const rows = allOpponents.map(oItem => {

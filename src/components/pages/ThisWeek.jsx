@@ -4,8 +4,7 @@ import { agg, lgbl } from '../../utils/aggregation';
 import { CURRENT_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
-import { DNA, DNA_META } from '../../data/dna';
-import { AsOf } from '../ui/AsOf';
+import { DNA } from '../../data/dna';
 import { SCHEDULE_2026 } from '../../data/schedule2026';
 import { matchupPreview } from '../../utils/narratives';
 import { MatchupGrade } from '../ui/MatchupGrade';
@@ -142,7 +141,7 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
             <div style={{ marginLeft: 12, textAlign: "left" }}>
               <div style={{ fontSize: 15, fontWeight: 700, color: "#0f172a" }}>{tn(game.away)} at {tn(game.home)}</div>
               <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
-                {DNA[game.away].s} vs {DNA[game.home].s} <AsOf meta={DNA_META} />
+                {DNA[game.away].s} vs {DNA[game.home].s}
               </div>
             </div>
           </div>

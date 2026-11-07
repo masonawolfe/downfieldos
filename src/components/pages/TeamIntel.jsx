@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { DNA, DNA_META } from '../../data/dna';
-import { AsOf } from '../ui/AsOf';
+import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
 import { teamSoWhat } from '../../utils/narratives';
@@ -46,7 +45,7 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
         </div>
         <div>
           <div style={{ fontSize: 22, fontWeight: 800, color: "#fff" }}>{tn(team)}</div>
-          <div style={{ fontSize: 15, color: "#f97316", fontWeight: 600 }}>{DNA[team].s} <AsOf meta={DNA_META} tone="dark" /></div>
+          <div style={{ fontSize: 15, color: "#f97316", fontWeight: 600 }}>{DNA[team].s}</div>
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>Comp: {pct(stats.compRate)} | Sack: {pct(stats.sackRate)} | {stats.n.toLocaleString()} plays</div>
         </div>
       </div>
