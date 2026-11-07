@@ -20,13 +20,19 @@
  *         gameId, week, date, gametime, weekday,
  *         home, away, home_score, away_score, winner, margin,
  *         total, overtime,
- *         home_stats: { plays, sr, xr, pr, epa_per_play_est },
- *         away_stats: { plays, sr, xr, pr, epa_per_play_est },
- *         expected_pass_rate_baseline: 0.55, // league baseline reference
- *         narrative: '<one-liner> — e.g., "Chiefs blow out Broncos 31-10 in Mahomes return"'
+ *         played,
+ *         home_stats: { plays, pass_rate, success_rate, explosive_rate, redzone_snaps, epa_proxy } | null,
+ *         away_stats: same shape | null,
+ *         narrative: '<one-liner>, e.g. "KC 31, DEN 10. double-digit win."'
  *       }, ...
  *     ]
  *   }
+ *
+ * Write guard (2026-11-07, review of step 11): the file is only replaced
+ * when the new feed holds the full regular season (MIN_GAMES) and has no
+ * fewer played games than the file on disk. A 200 response with no 2026
+ * rows, a renamed column or a truncated body throws instead, so the build
+ * exits 1 and the workflows' continue-on-error keeps the last good file.
  *
  * The narrative is deterministic (built from score margin + top stat),
  * never LLM-generated — the recap is a data view, not an editorial one.
@@ -46,7 +52,11 @@ const OUT = path.join(REPO_ROOT, 'src/data/games2026.json');
 const SEASON = 2026;
 const WEEKS = process.env.WEEKS
   ? process.env.WEEKS.split(',').map(w => parseInt(w.trim(), 10)).filter(n => !Number.isNaN(n))
-  : null; // null = every week present in the plays file
+  : null; // null = every regular-season week in games.csv (1 to 18)
+
+// 17 games per team x 32 teams / 2 = 272 regular-season games. Applies to
+// the default (all weeks) build only; a WEEKS override narrows on purpose.
+const MIN_GAMES = 272;
 
 function parseCSVLine(line) {
   const out = [];
@@ -75,10 +85,15 @@ async function fetchGames() {
   const lines = text.split('\n').filter(l => l.length > 0);
   const header = parseCSVLine(lines[0]);
   const idx = Object.fromEntries(header.map((h, i) => [h, i]));
+  const required = ['game_id', 'season', 'week', 'gameday', 'weekday', 'gametime', 'away_team', 'away_score', 'home_team', 'home_score', 'total', 'overtime'];
+  const missing = required.filter(c => !(c in idx));
+  if (missing.length) throw new Error(`nflverse games.csv is missing columns: ${missing.join(', ')}`);
   const rows = [];
   for (let i = 1; i < lines.length; i++) {
     const cells = parseCSVLine(lines[i]);
     if (cells[idx.season] !== String(SEASON)) continue;
+    // A short row is a truncated body; skip it so the count guard sees it.
+    if (cells.length !== header.length) continue;
     // nflverse encodes the Rams as "LA" in the schedule while the DFOS
     // team registry uses "LAR" (matches every other feed). Normalize on
     // ingest so downstream lookups (tn(), TeamIntel joins, weeklyBoard
@@ -142,6 +157,8 @@ function narrative(g, homeStats, awayStats) {
     const kick = g.gametime ? ` ${g.gametime} ET` : '';
     return `${away} at ${home}. Kickoff ${g.weekday}${kick}.`.trim();
   }
+  const otSuffix = g.overtime ? ', OT' : '';
+  if (winner === 'TIE') return `${away} ${away_score}, ${home} ${home_score}. Tie${otSuffix}.`;
   const loser = winner === home ? away : home;
   const winnerScore = winner === home ? home_score : away_score;
   const loserScore = winner === home ? away_score : home_score;
@@ -161,7 +178,6 @@ function narrative(g, homeStats, awayStats) {
     else if (total <= 25) shape = 'low-scoring nail-biter';
     else shape = 'nail-biter';
   } else shape = 'tie';
-  const otSuffix = g.overtime ? ', OT' : '';
   return `${winner} ${winnerScore}, ${loser} ${loserScore}. ${shape}${otSuffix}.`;
 }
 
@@ -223,6 +239,22 @@ async function main() {
     weeks_included: [...new Set(games.map(g => g.week))].sort((a, b) => a - b),
     games,
   };
+
+  // Write guard: refuse a short or regressed feed (see header).
+  const playedNow = games.filter(g => g.played).length;
+  const badScore = games.filter(g => g.played && !(Number.isInteger(g.home_score) && Number.isInteger(g.away_score)));
+  if (badScore.length) throw new Error(`refusing to write: ${badScore.length} played games have non-integer scores (first ${badScore[0].gameId})`);
+  if (!WEEKS && games.length < MIN_GAMES) {
+    throw new Error(`refusing to write: ${games.length} regular-season games, need ${MIN_GAMES}. Kept ${OUT}`);
+  }
+  if (fs.existsSync(OUT)) {
+    let prev = null;
+    try { prev = JSON.parse(fs.readFileSync(OUT, 'utf8')); } catch { prev = null; }
+    const prevPlayed = (prev?.games || []).filter(g => g.played && (!WEEKS || WEEKS.includes(g.week))).length;
+    if (playedNow < prevPlayed) {
+      throw new Error(`refusing to write: ${playedNow} played games, the file on disk has ${prevPlayed}. Kept ${OUT}`);
+    }
+  }
 
   fs.writeFileSync(OUT, JSON.stringify(out, null, 2));
   console.log(`\n  Wrote ${OUT}`);
