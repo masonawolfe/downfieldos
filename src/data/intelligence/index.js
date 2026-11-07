@@ -3,7 +3,8 @@
  *
  * Central import point for all intelligence JSON files.
  * Validates data structure, applies 2026 FA transaction overrides
- * to correct team assignments, and rebuilds matchup index.
+ * where rosters2026.js does not confirm the graph team, and rebuilds
+ * the matchup index.
  *
  * Supports both build-time static imports (default) and runtime
  * lazy-loading from /data/intelligence/ for updated data.
@@ -15,6 +16,12 @@
 import rawActive from './former_teammates_active.json';
 import rawMatchups from './former_teammates_by_matchup.json';
 import { FA_MOVES_2026 } from '../faMoves2026';
+import { ROSTERS_2026 } from '../rosters2026';
+import { applyFAOverrides as applyOverridesWith, rebuildMatchupIndex } from './faOverrides';
+
+// Graph team counts as the 2026 team only when rosters2026.js carries the
+// player on it; the March override applies everywhere else (step 13).
+const applyFAOverrides = edges => applyOverridesWith(edges, FA_MOVES_2026, ROSTERS_2026).edges;
 
 // Validate and normalize — handle malformed data gracefully
 function safeActive(data) {
@@ -25,94 +32,11 @@ function safeActive(data) {
   };
 }
 
-/**
- * Build player → team override map from FA_MOVES_2026.
- * Players who were "added" to a team get their team reassigned.
- * Players who were "lost" and not added elsewhere get flagged for removal.
- */
-function buildTeamOverrides() {
-  const overrides = {};
-  const lostPlayers = {};
-
-  // First pass: track all lost players and their former teams
-  Object.entries(FA_MOVES_2026).forEach(([team, moves]) => {
-    (moves.lost || []).forEach(p => {
-      lostPlayers[p.name] = team;
-    });
-  });
-
-  // Second pass: added players get definitive team assignment
-  Object.entries(FA_MOVES_2026).forEach(([team, moves]) => {
-    (moves.added || []).forEach(p => {
-      overrides[p.name] = team;
-      delete lostPlayers[p.name]; // no longer lost — we know where they went
-    });
-  });
-
-  return { overrides, lostPlayers };
-}
-
-/**
- * Apply FA_MOVES_2026 team overrides to all edges.
- * Updates player_1.team and player_2.team based on offseason transactions.
- * Removes edges where a player left their team and destination is unknown.
- */
-function applyFAOverrides(edges) {
-  const { overrides, lostPlayers } = buildTeamOverrides();
-  const corrected = {};
-
-  Object.entries(edges).forEach(([id, edge]) => {
-    const e = { ...edge };
-
-    // Update player_1 team
-    if (e.player_1?.name) {
-      if (overrides[e.player_1.name]) {
-        e.player_1 = { ...e.player_1, team: overrides[e.player_1.name] };
-      } else if (lostPlayers[e.player_1.name]) {
-        return; // player left, destination unknown — skip edge
-      }
-    }
-
-    // Update player_2 team (former teammate edges)
-    if (e.player_2?.name) {
-      if (overrides[e.player_2.name]) {
-        e.player_2 = { ...e.player_2, team: overrides[e.player_2.name] };
-      } else if (lostPlayers[e.player_2.name]) {
-        return; // skip
-      }
-    }
-
-    // For revenge games: skip if player now plays for the "former team"
-    // (e.g., they returned to that team)
-    if (e.type === 'revenge_game' && e.player_1?.team === e.former_team) {
-      return;
-    }
-
-    corrected[id] = e;
-  });
-
-  return corrected;
-}
-
-/**
- * Rebuild matchup index from corrected edges.
- * Keys are sorted team pairs (e.g., "BUF_CHI").
- */
-function rebuildMatchupIndex(edges) {
-  const matchups = {};
-
-  Object.entries(edges).forEach(([id, edge]) => {
-    const t1 = edge.player_1?.team;
-    const t2 = edge.type === 'revenge_game' ? edge.former_team : edge.player_2?.team;
-    if (!t1 || !t2 || t1 === t2) return;
-
-    const key = [t1, t2].sort().join('_');
-    if (!matchups[key]) matchups[key] = [];
-    matchups[key].push(id);
-  });
-
-  return { matchups };
-}
+// faMoves2026 overrides and the matchup index live in ./faOverrides.js
+// (freshness plan step 13), shared with scripts/report-famoves-overrides.mjs,
+// which prints the build-time line. ROSTERS_2026 is already in the site
+// bundle through src/data/index.js and src/utils/roster.js, so this import
+// adds no new chunk.
 
 // Process: validate → apply FA overrides → rebuild index
 const validated = safeActive(rawActive);

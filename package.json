@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
+    "build": "node scripts/report-famoves-overrides.mjs && vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
+    "data:famoves:report": "node scripts/report-famoves-overrides.mjs",
     "preview": "vite preview",
     "data:fetch": "node scripts/fetch-nflverse-rosters.js",
     "data:pbp": "node scripts/fetch-nflverse-pbp.js",
