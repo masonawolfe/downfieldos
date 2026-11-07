@@ -1,0 +1,68 @@
+name: Data freshness verify
+
+# DATA_FRESHNESS_PLAN step 6 (v4.3, 2026-11-07): the scheduled red gate.
+#
+# Reads scripts/check-freshness.mjs on main and fails red on any red in the
+# named modes. It never commits and never deploys: the only thing it writes is
+# the gate's JSON report, uploaded as a run artifact (even when the check
+# fails) for the dashboard reader in step 16.
+#
+# Why this is the signal of record: a Tuesday chain slot that finds week N
+# already graded exits as a no-op, green ("Stop here" in
+# data-tuesday-results.yml). So after a chain red, the chain's own latest run
+# reads green. This workflow re-reads main after each chain run and every day.
+#
+# Triggers:
+#   - cron 07:45 UTC daily, the backstop. workflow_run has misbehaved here
+#     before (E-041: 15 firings one day, 0 the next, cause unknown).
+#   - workflow_run on the Tuesday chain's completion. The name below is
+#     copied byte for byte from line 1 of data-tuesday-results.yml (it holds
+#     U+2014). There is no conclusion == 'success' guard, unlike
+#     data-board.yml:49: a red chain must not skip this check.
+#   - workflow_dispatch, for a hand read.
+#
+# Modes are named because `all` includes `built`, which is always red with no
+# dist/ (this job does not build). npm run --silent keeps stdout pure JSON.
+#
+# Known gap: read straight after a chain commit, this run does not see the
+# results gate's week, so from about 05:15 to 07:12 UTC on a Tuesday it can
+# read week N-1 as latest. The chain's own last step passes --week, and the
+# drafter's 08:10 UTC read and the daily cron catch the rest.
+#
+# Depth: chain to this workflow is two levels. GitHub allows three, so nothing
+# may trigger off this workflow's parents beyond that.
+
+on:
+  schedule:
+    - cron: '45 7 * * *'
+  workflow_run:
+    workflows: ['Data — Tuesday Results Chain']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Freshness gate (every mode but built)
+        run: |
+          set -euo pipefail
+          echo "Freshness verify on $(git rev-parse --short HEAD) at $(date -u +%Y-%m-%dT%H:%M:%SZ) (event ${GITHUB_EVENT_NAME})"
+          npm run --silent check:freshness -- --mode registration,age,coverage,lineage,season,label,imports,staging,unread --json > freshness-report.json
+      - name: Upload the freshness report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: freshness-report
+          path: freshness-report.json
+          if-no-files-found: warn
+          retention-days: 30
