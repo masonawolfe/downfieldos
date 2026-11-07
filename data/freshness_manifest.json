@@ -99,7 +99,7 @@
       "tier": "public",
       "on_stale": "red",
       "static": true,
-      "verified_on": "2026-09-18",
+      "verified_on": "2026-11-07",
       "label": "Coaching staffs, checked September 18, 2026",
       "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. The 114 per-role {hc,oc,dc}_verified_on stamps are all 2026-09-18. Replaces check #12's season-only test. No component renders an AsOf label for it today."
     },
