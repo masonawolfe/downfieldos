@@ -1,0 +1,17 @@
+# fixture: each line below is one literal season default a workflow must not carry
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        default: '2026'
+jobs:
+  a:
+    env:
+      PBP_YEAR: '2026'
+    steps:
+      - env:
+          SEASON: ${{ github.event.inputs.season || '2026' }}
+        run: |
+          m=$(date -u +%m); y=$(date -u +%Y)
+          SEASONS=2023,2024,2025 npm run x
+          for yr in 2023 2024 2025; do echo $yr; done

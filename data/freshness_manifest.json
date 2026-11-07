@@ -19,13 +19,16 @@
   "fields": {
     "stamp.kind": "json (a JSON pointer into the file), js_meta (a pointer into an exported object), header (a regex over the first 2 KB, legacy) or build_time (deploy only). stamp.file names a sibling file when the stamp lives there. No git kind: every checkout here is depth 1.",
     "stamp pointers": "Each pointer names the key the committed file carries today. Producers moved to contractMeta keep their old key beside generated_at, so the pointer holds before and after their next run.",
+    "stamp_next": "The contract pointers (generated_at and source_season from contractMeta) a row moves to once its producer's next scheduled run on main lands those keys. Recorded 2026-11-07 in step 4: the producer already writes them, the committed file does not carry them yet. The gate reads stamp until the follow-up repoints it and drops stamp_next.",
     "expected_season": "\"season\" or \"base_season\" from data/season.json, or null when the file has no season.",
     "season_by_design": "null, or the reason a file or its path carries a year other than the setting.",
     "coverage": "graded_week, report_week, season_present or games_finished; null for none.",
     "coverage_read": "Where in the file the gate reads what the content covers (added to the plan's fields in step 4, because a stamp cannot say it).",
     "tier": "chain_input, public, beta, internal or unread. unread: no page reads it; red the day anything imports it.",
     "on_stale": "block_chain, block_deploy or red.",
-    "note": "Free text: why a value is what it is, and what is known and not fixed (added to the plan's fields in step 4)."
+    "note": "Free text: why a value is what it is, and what is known and not fixed (added to the plan's fields in step 4).",
+    "lineage_grace_hours": "At least one producer cadence plus 8 hours (plan step 4(d)). Cadence by family ceiling: daily 24, twice weekly 120 (the Friday to Wednesday interval), weekly 168, monthly 744. null only with a lineage_grace_reason.",
+    "lineage_grace_reason": "Required when derived_from is non-empty and lineage_grace_hours is null: why the row has no lineage clock."
   },
   "rows": [
     {
@@ -132,6 +135,11 @@
         "export": "DEFENSE_2026_META",
         "generated_at": "/generated",
         "source_season": "/source_season"
+      },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
       },
       "expected_season": "season",
       "season_by_design": null,
@@ -406,6 +414,11 @@
         "generated_at": "/generated_at",
         "source_season": "/season"
       },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
+      },
       "expected_season": "season",
       "season_by_design": null,
       "max_age_hours": 48,
@@ -555,6 +568,11 @@
         "source_season": "/source_season",
         "label": "/label"
       },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
+      },
       "expected_season": "base_season",
       "season_by_design": "The board's projection base is the last complete season (data/season.json base_season, E-034 v2).",
       "max_age_hours": null,
@@ -581,7 +599,7 @@
       "static": false,
       "verified_on": null,
       "label": "2025 season",
-      "note": "Change driven: the job commits only when rows change (largest gap 417.1), so no age clock. Its META keeps only label, verified_on and source_season (R1); verified_on is the build date, so it stands as the stamp. No label_route: PlayerCard opens on a click and /player/:id is unlisted, and R1 found the stats block never renders because the lookup is by \"C.Williams\"-style names."
+      "note": "Marked change driven (largest gap 417.1), so no age clock. In fact the file changes on every run, through verified_on and its header date, so a weekly age clock may fit better; that is left to QA's replay in step 5. Step 4(a): build-player-stats.js spreads contractMeta from this branch on, and since the file already changes on every run, generated_at adds no commit. Until its next run the committed META keeps only label, verified_on and source_season (R1), so verified_on stands as the stamp and stamp_next names the contract keys. verified_on stays the date AsOf prints. No label_route: PlayerCard opens on a click and /player/:id is unlisted, and R1 found the stats block never renders because the lookup is by \"C.Williams\"-style names."
     },
     {
       "path": "src/data/records2025.js",
@@ -873,7 +891,8 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Change driven: written only when rows change (largest gap 552.5), so no age clock and no lineage clock, since a newer source with no row change is correct here. Rests on the snapshots' checks #19 and #20 and on DFOS.DATA.LIVE."
+      "note": "Change driven: written only when rows change (largest gap 552.5), so no age clock and no lineage clock, since a newer source with no row change is correct here. Rests on the snapshots' checks #19 and #20 and on DFOS.DATA.LIVE.",
+      "lineage_grace_reason": "Change driven: written only when rows change, so a source newer than this file with no row change is correct. No lineage clock; it rests on checks #19 and #20 and on DFOS.DATA.LIVE."
     },
     {
       "path": "src/data/intelligence/availability_2026.json",
@@ -1289,6 +1308,11 @@
         "generated_at": "/meta/generated",
         "source_season": "/meta/season"
       },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
       "expected_season": "season",
       "season_by_design": null,
       "max_age_hours": 144,
@@ -1320,6 +1344,11 @@
         "kind": "json",
         "generated_at": "/meta/generated",
         "source_season": "/meta/season"
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
       },
       "expected_season": "season",
       "season_by_design": null,
@@ -1366,6 +1395,11 @@
         "generated_at": "/meta/generated",
         "source_season": null
       },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
       "expected_season": "season",
       "season_by_design": null,
       "max_age_hours": 192,
@@ -1388,7 +1422,7 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Largest gap 169.7 (Thursday cron). No source season key today; gains /meta/source_season (the latest season in the feed) on its next run, then repoint."
+      "note": "Largest gap 169.7 (Thursday cron). No source season key today; gains /meta/generated_at and /meta/source_season (the latest season in the feed) on its next run; stamp_next names them for the repoint."
     },
     {
       "path": "src/data/intelligence/referee_appearances_compact.json",
@@ -1401,6 +1435,11 @@
         "kind": "json",
         "generated_at": "/meta/generated",
         "source_season": null
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
       },
       "expected_season": "season",
       "season_by_design": null,
@@ -1491,7 +1530,7 @@
       "derived_from": [
         "src/data/intelligence/referee_appearances.json"
       ],
-      "lineage_grace_hours": 153,
+      "lineage_grace_hours": 176,
       "ui_consumers": [],
       "label_route": null,
       "consumers": [],
@@ -1500,7 +1539,7 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Step 4(f): unread, red the day anything imports it. The window moves to season-2 to season (2024 to 2026) in step 4(b); the committed copy still covers 2023 to 2025, so season_present reads red until its next run. Largest gap 144.3; lineage grace is that plus 8."
+      "note": "Step 4(f): unread, red the day anything imports it. The window moves to season-2 to season (2024 to 2026) in step 4(b); the committed copy still covers 2023 to 2025, so season_present reads red until its next run. Lineage grace 176 is the weekly producer cadence (168) plus 8, the plan's floor. The workflow_run trigger on Data Referees usually rebuilds it soon after referee_appearances.json, but the Friday cron is the backstop (risk 12, E-041), so the grace does not lean on it. Largest gap measured 144.3."
     },
     {
       "path": "src/data/intelligence/team_news.json",

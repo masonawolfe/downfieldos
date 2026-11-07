@@ -1,0 +1,3 @@
+// fixture: imports season.js and still pins the year (the form build-games-2026.js had before step 4)
+import { SEASON as SETTING_SEASON } from './_lib/season.js';
+const SEASON = 2026;

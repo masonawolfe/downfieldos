@@ -1,0 +1,4 @@
+// fixture: the clean form; usage docs may still name a year
+//   SEASON=2025 node scripts/example.js
+import { seasonFrom } from './_lib/season.js';
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
