@@ -34,7 +34,7 @@
  *     commit.
  *
  * Usage:
- *   node scripts/fetch-weekly-actuals.js            # SEASON=current
+ *   node scripts/fetch-weekly-actuals.js            # SEASON from data/season.json
  *   SEASON=2025 node scripts/fetch-weekly-actuals.js
  */
 
@@ -43,17 +43,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchGzippedCSV, normTeam, num, int } from './_lib/nflverse.js';
 import { GRADED_RULES, gradedPoints, reconcileRows } from './_lib/actuals-scoring.js';
+import { seasonFrom } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-function currentNflSeason() {
-  const now = new Date();
-  const y = now.getUTCFullYear();
-  const m = now.getUTCMonth() + 1;
-  return m >= 3 ? y : y - 1;
-}
-
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || String(currentNflSeason()), 10);
+// Freshness plan step 4(b): the default season is data/season.json's
+// `season`, not a date rule. An explicit SEASON or argument still wins.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 const URL = `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_${SEASON}.csv.gz`;
 
 // The board's published rules: the same object build-player-board.js
@@ -131,12 +128,14 @@ async function main() {
   const P = rec.columns.fantasy_points_ppr, S = rec.columns.fantasy_points_std;
   const largest = Math.max(P.max_abs_diff, S.max_abs_diff).toFixed(2);
   console.log(`  nflverse columns recomputed from components: fantasy_points_ppr ${P.reconciled} of ${P.rows}, fantasy_points_std ${S.reconciled} of ${S.rows}, largest difference ${largest}`);
-  const generatedAt = new Date().toISOString();
+  // Freshness plan step 4(a): generated_at, source_season and sources come
+  // from the shared contract stamp. generated_utc stays beside it because
+  // build-calibration.js and the verifier read it.
+  const stamp = contractMeta({ sourceSeason: SEASON, sources: [URL, 'src/data/playerBoard2026.js'] });
   const meta = {
     season: SEASON,
-    source_season: SEASON,
-    generated_at: generatedAt,
-    generated_utc: generatedAt,
+    ...stamp,
+    generated_utc: stamp.generated_at,
     row_count: out.length,
     weeks_present: distinctWeeks,
     source_url: URL,

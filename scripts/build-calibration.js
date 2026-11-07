@@ -59,9 +59,12 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.dirname(__dirname);
 
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
+// Freshness plan step 4(b): the default season is data/season.json's.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 
 import { actualsCompleteness, firstKickoffUtcMs } from './_lib/kickoff.js';
+import { seasonFrom } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const boardMod = await import(path.join(REPO, 'src', 'data', 'weeklyBoard2026.js'));
 const WEEKLY_BOARD_META = boardMod.WEEKLY_BOARD_2026_META || null;
@@ -313,12 +316,22 @@ const weeksText = ws => {
   if (ws.length > 2 && ws.every((w, i) => i === 0 || w === ws[i - 1] + 1)) return `${ws[0]} to ${ws[ws.length - 1]}`;
   return ws.length === 1 ? `${ws[0]}` : `${ws.slice(0, -1).join(', ')} and ${ws[ws.length - 1]}`;
 };
-const generatedAt = new Date().toISOString();
+// Freshness plan step 4(a): the shared contract stamp. generated_utc stays
+// beside generated_at because CALIBRATION.md and the verifier read it.
+const stamp = contractMeta({
+  sourceSeason: actualsDoc.meta.source_season ?? actualsDoc.meta.season ?? SEASON,
+  sources: [
+    path.relative(REPO, actualsPath),
+    `src/data/intelligence/weekly_projections/${SEASON}-wNN.json`,
+    'src/data/weeklyBoard2026.js',
+    'src/data/playerBoard2026.js',
+    'src/data/schedule2026.js',
+  ],
+});
 const meta = {
   season: SEASON,
-  source_season: actualsDoc.meta.source_season ?? actualsDoc.meta.season ?? SEASON,
-  generated_at: generatedAt,
-  generated_utc: generatedAt,
+  ...stamp,
+  generated_utc: stamp.generated_at,
   actuals_source: actualsDoc.meta.source_url,
   actuals_generated_utc: actualsDoc.meta.generated_utc,
   // QA 2026-09-17: stamp the boards this run read, so downstream can see
