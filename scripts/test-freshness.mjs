@@ -10,7 +10,8 @@
  *      that follows is the case's own and not a real red already in the tree;
  *   2. after the case's one mutation, the same command must exit 1 (or the
  *      case's expectExit) and print the file and the rule;
- *   3. the copy is reset.
+ *   3. the copy is reset to its base commit (a case's prepare may add commits,
+ *      for the replay cases).
  *
  * Every command and both exit codes are printed, so the log is the proof.
  *
@@ -62,8 +63,10 @@ if (fs.existsSync(path.join(REPO, 'node_modules'))) fs.symlinkSync(path.join(REP
 must('git', ['init', '-q', '-b', 'fixture'], { cwd: WORK });
 must('git', [...GIT, 'add', '-A'], { cwd: WORK });
 must('git', [...GIT, 'commit', '-q', '-m', 'fixture base'], { cwd: WORK });
+const BASE = must('git', ['rev-parse', 'HEAD'], { cwd: WORK }).trim();
+const BASE_TIME = Date.parse(must('git', ['log', '-1', '--format=%cI', BASE], { cwd: WORK }).trim());
 const reset = () => {
-  must('git', ['checkout', '-q', '--', '.'], { cwd: WORK });
+  must('git', ['reset', '-q', '--hard', BASE], { cwd: WORK });
   must('git', ['clean', '-fdq'], { cwd: WORK });
   fs.rmSync(path.join(WORK, 'dist'), { recursive: true, force: true });
 };
@@ -89,13 +92,23 @@ const T = new Date(newest + 3.6e6).toISOString();
 const probe = JSON.parse(must(process.execPath, ['scripts/check-freshness.mjs', '--mode', 'coverage', '--tier', 'chain_input', '--as-of', T, '--json'], { cwd: WORK }));
 const L = probe.latest_finished_week.grace_6h;
 const ctx = {
-  season, base, T, L,
+  season, base, T, L, baseTime: BASE_TIME, manifest,
   buildTimePaths: manifest.rows.filter(r => r.stamp?.kind === 'build_time').map(r => r.path),
   read: (p) => fs.readFileSync(rel(p), 'utf8'),
   readJson,
   exists: (p) => fs.existsSync(rel(p)),
   write: (p, text) => { fs.mkdirSync(path.dirname(rel(p)), { recursive: true }); fs.writeFileSync(rel(p), text); },
   rm: (p) => fs.rmSync(rel(p)),
+  mv: (from, to) => fs.renameSync(rel(from), rel(to)),
+  list: (dir) => fs.readdirSync(rel(dir)).sort(),
+  // One commit of the whole copy, author and committer dated at ms (the replay reads %cI).
+  commitAt: (ms, msg) => {
+    const date = new Date(ms).toISOString();
+    must('git', [...GIT, 'add', '-A'], { cwd: WORK });
+    must('git', [...GIT, 'commit', '-q', '-m', msg], { cwd: WORK, env: { ...process.env, GIT_AUTHOR_DATE: date, GIT_COMMITTER_DATE: date } });
+  },
+  // Back to the single fixture commit: the one-commit history the replay must refuse.
+  dropHistory: () => must('git', ['reset', '-q', '--hard', BASE], { cwd: WORK }),
   editText: (p, fn) => {
     const before = fs.readFileSync(rel(p), 'utf8');
     const after = fn(before);
