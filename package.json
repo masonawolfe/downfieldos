@@ -13,6 +13,8 @@
     "data:reconcile-rosters": "node scripts/reconcile-rosters-availability.mjs",
     "data:schedule:verify-upstream": "node scripts/verify-schedule-upstream.mjs",
     "check:data-sources": "node scripts/check-data-sources.mjs",
+    "check:freshness": "node scripts/check-freshness.mjs",
+    "test:freshness": "node scripts/test-freshness.mjs",
     "data:schedule": "node scripts/fetch-schedule.js",
     "data:stats": "node scripts/build-player-stats.js",
     "data:stats:floor": "node scripts/check-player-stats-floor.mjs",
@@ -51,6 +53,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "yaml": "^2.8.1"
   }
 }
