@@ -41,11 +41,14 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      # Freshness plan step 4(b): the window is season-2 to season from
+      # data/season.json, the same default build-referee-tendencies.js uses,
+      # so no season literal lives in this file.
       - name: Fetch PBP for trailing seasons
         run: |
           set -euo pipefail
           mkdir -p ../data/intelligence/raw
-          for yr in 2023 2024 2025; do
+          for yr in $(node scripts/_lib/season.js window 3 | tr ',' ' '); do
             url="https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${yr}.csv.gz"
             code=$(curl -sIL --max-time 30 "$url" -o /dev/null -w "%{http_code}")
             if [ "$code" = "200" ]; then
@@ -56,7 +59,7 @@ jobs:
             fi
           done
       - name: Compute referee tendencies
-        run: SEASONS=2023,2024,2025 npm run data:referee-tendencies
+        run: npm run data:referee-tendencies
       - name: Commit if changed
         id: commit
         run: |

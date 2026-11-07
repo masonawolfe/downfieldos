@@ -16,14 +16,15 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { BASE_SEASON, seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // SEASON = the completed NFL season we're aggregating stats from. Defaults to
-// 2025 (the most recent completed season). 2026 stats do not exist yet — running
-// SEASON=2026 will 404 until nflverse publishes the first weekly stats.
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2025', 10);
+// base_season in data/season.json (freshness plan step 4(b)): the last
+// complete season, which the board uses as its projection base.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2], BASE_SEASON);
 const PBP_URL = `https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${SEASON}.csv`;
 // nflverse retired the `player_stats` release in favor of `stats_player`; regular-season
 // aggregates live at stats_player_reg_YYYY.csv. Fields renamed: `interceptions` →
