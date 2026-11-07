@@ -33,10 +33,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { reconcileRows, NFLVERSE_SCORING } from './_lib/actuals-scoring.js';
+import { seasonFrom } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(__dirname, '..');
-const SEASON = parseInt(process.env.SEASON || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON);
 const file = process.argv[2] || path.join(REPO, 'src', 'data', 'intelligence', `weekly_actuals_${SEASON}.json`);
 const TOL = 0.01;
 

@@ -30,19 +30,20 @@
  * QA has been running by hand.
  *
  * Usage:
- *   node scripts/verify-schedule-upstream.mjs             # SEASON=2026 default
+ *   node scripts/verify-schedule-upstream.mjs             # season in data/season.json
  *   SEASON=2026 node scripts/verify-schedule-upstream.mjs
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 
-const SEASON = parseInt(process.env.SEASON || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON);
 // E-047 (2026-09-29): must be the SAME source of record fetch-schedule.js
 // uses, or the gate grades the file against a feed that did not produce
 // it. See DATA_SOURCES.md § Schedule source of record. Overridable only

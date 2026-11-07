@@ -50,16 +50,21 @@ except ImportError:
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-def _current_nfl_season():
-    """NFL league year rolls over ~March 1. Before then we're still on the
-    previous season's data. Prevents the '2025 hardcode' rot the CoS
-    audit caught in data-injuries.yml on 2026-08-30."""
-    from datetime import datetime, timezone
-    now = datetime.now(timezone.utc)
-    return now.year if now.month >= 3 else now.year - 1
+def _season_setting():
+    """The in-season year from data/season.json, the one season setting every
+    producer reads (freshness plan step 4(b), 2026-11-07). It replaces the
+    March date rule, which prevented the '2025 hardcode' rot the CoS audit
+    caught in data-injuries.yml on 2026-08-30 but could disagree with the
+    setting. A missing or malformed setting raises, so no run guesses a
+    season. PBP_YEAR or --year still wins, for backfills."""
+    setting = Path(__file__).resolve().parents[2] / "data" / "season.json"
+    season = json.loads(setting.read_text(encoding="utf-8")).get("season")
+    if isinstance(season, bool) or not isinstance(season, int) or not 1999 <= season <= 2100:
+        raise ValueError(f"season setting {setting}: season must be an integer year, got {season!r}")
+    return season
 
 _env_year = os.environ.get("PBP_YEAR", "").strip()
-YEAR = int(_env_year) if _env_year else _current_nfl_season()
+YEAR = int(_env_year) if _env_year else _season_setting()
 # BASE_DIR = where outputs land. RAW_DIR = where the nflverse CSVs live.
 # Both are overridable via env vars so the same script serves both local runs
 # and .github/workflows/data-pbp-derived.yml, which points them at repo paths.

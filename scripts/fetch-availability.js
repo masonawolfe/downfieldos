@@ -16,6 +16,7 @@
  *
  * Usage:
  *   node scripts/fetch-availability.js
+ *   node scripts/fetch-availability.js           # season in data/season.json
  *   SEASON=2026 node scripts/fetch-availability.js
  *
  * Schema (per directive):
@@ -34,10 +35,11 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath } from 'url';
+import { seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 const SLEEPER_URL = 'https://api.sleeper.app/v1/players/nfl';
 // E-023: probe repo-relative first (CI puts the file at <repo>/data/...),
 // fall back to Mason-local parent layout (<DFOS>/data/...).

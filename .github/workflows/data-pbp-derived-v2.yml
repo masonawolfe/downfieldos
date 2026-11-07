@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       year:
-        description: 'PBP season override (blank = derived: current NFL season since March)'
+        description: 'PBP season override (blank = season in data/season.json)'
         required: false
         default: ''
 
@@ -46,18 +46,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      # Node reads data/season.json through scripts/_lib/season.js (built-ins
+      # only, so no npm install is needed).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Install pandas
         run: pip install --upgrade pandas
-      - name: Derive PBP_YEAR when unset
-        # Empty PBP_YEAR → current NFL season (rolls March 1). Falls back to
-        # SEASON-1 if the current-season files don't exist yet (preseason).
-        # Matches fetch-injuries.js pattern.
+      - name: Resolve PBP_YEAR when unset
+        # Freshness plan step 4(b), 2026-11-07: empty PBP_YEAR means the
+        # season in data/season.json, the one season setting, instead of the
+        # March date rule this step used to carry. The download step below
+        # still falls back to SEASON-1 if the season's files don't exist yet
+        # (preseason).
         run: |
           set -euo pipefail
           if [ -z "${PBP_YEAR:-}" ]; then
-            m=$(date -u +%m); y=$(date -u +%Y)
-            if [ "$m" -ge 3 ]; then PBP_YEAR="$y"; else PBP_YEAR=$((y-1)); fi
-            echo "Derived PBP_YEAR=$PBP_YEAR"
+            PBP_YEAR="$(node scripts/_lib/season.js season)"
+            echo "PBP_YEAR from data/season.json: $PBP_YEAR"
           fi
           echo "PBP_YEAR=$PBP_YEAR" >> "$GITHUB_ENV"
           # See job env comment: PBP_RAW_DIR moved here because runner.temp

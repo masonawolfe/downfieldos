@@ -8,7 +8,7 @@
  * current season hasn't produced regular-season snap data yet).
  *
  * Usage:
- *   node scripts/fetch-nflverse-roster-base.js               # defaults to SEASON=2026
+ *   node scripts/fetch-nflverse-roster-base.js               # season in data/season.json
  *   SEASON=2025 node scripts/fetch-nflverse-roster-base.js   # or pass via env
  *   node scripts/fetch-nflverse-roster-base.js 2025          # or as first arg
  *
@@ -19,6 +19,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { seasonFrom } from './_lib/season.js';
 import { appendRefreshLogEntry } from './_lib/refresh_log.js';
 // E-044 (2026-09-20): picker logic moved to a shared module so the board
 // build's reconcile step (build-player-board.js) can re-run it against
@@ -29,7 +30,7 @@ import { outReason, pickAvailable as pickAvailableShared } from './_lib/starter_
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 const SNAP_SEASON_OVERRIDE = process.env.SNAP_SEASON ? parseInt(process.env.SNAP_SEASON, 10) : null;
 
 const DEPTH_CHART_URL = `https://github.com/nflverse/nflverse-data/releases/download/depth_charts/depth_charts_${SEASON}.csv`;

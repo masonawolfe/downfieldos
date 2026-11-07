@@ -46,10 +46,12 @@ import crypto from 'crypto';
 import { execFileSync } from 'child_process';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { firstKickoffUtcMs, kickoffsUtc, upcomingWeek, actualsCompleteness, regWeeks } from './_lib/kickoff.js';
+import { SEASON as SETTING_SEASON } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(__dirname, '..');
-const SEASON = 2026;
+// Freshness plan step 4(b), 2026-11-07: the season in data/season.json.
+const SEASON = SETTING_SEASON;
 export const SNAP_DIR = path.join(REPO, 'src', 'data', 'intelligence', 'weekly_projections');
 const WINDOW_HOURS_BEFORE_KICKOFF = 30;
 
