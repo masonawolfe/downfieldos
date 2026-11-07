@@ -2,14 +2,17 @@
 /**
  * build-games-2026.js
  *
- * Joins nflverse `schedules/games.csv` (final scores + dates) with the
- * already-cached `public/data/plays-2026.json` (DFOS play schema) to emit
- * one compact per-game recap file the site can read directly.
+ * Reads nflverse `schedules/games.csv` (final scores + dates) and emits
+ * one compact per-game recap file the site can read directly. Scores come
+ * from games.csv alone. If `public/data/plays-2026.json` (DFOS play schema)
+ * happens to exist it is joined for the per-team stats; it is optional, and
+ * when it is absent `home_stats` / `away_stats` are null. Nothing in `src`
+ * reads those two fields (DATA_FRESHNESS_PLAN step 11, 2026-11-01).
  *
  * Output: src/data/games2026.json
  *   {
  *     generated_at: ISO,
- *     source: 'nflverse/games.csv + public/data/plays-2026.json',
+ *     source: 'nflverse/games.csv',
  *     season: 2026,
  *     weeks_included: [1],
  *     games: [
@@ -100,7 +103,10 @@ async function fetchGames() {
   return rows;
 }
 
+// Plays are optional: the deploy builds only completed seasons' play files,
+// so plays-2026.json is normally absent. Scores never depended on it.
 function loadPlays() {
+  if (!fs.existsSync(PLAYS_JSON)) return [];
   return JSON.parse(fs.readFileSync(PLAYS_JSON, 'utf8'));
 }
 
@@ -212,7 +218,7 @@ async function main() {
 
   const out = {
     generated_at: new Date().toISOString(),
-    source: 'nflverse/games.csv + public/data/plays-2026.json',
+    source: 'nflverse/games.csv',
     season: SEASON,
     weeks_included: [...new Set(games.map(g => g.week))].sort((a, b) => a - b),
     games,

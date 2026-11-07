@@ -128,6 +128,15 @@ jobs:
       # the repo. See scripts/build-board-md.mjs.
       - name: Emit BOARD.md + BOARD_WEEKLY.md (E-009a)
         run: npm run --silent data:board:md
+      # DATA_FRESHNESS_PLAN step 11, fix e (2026-11-01): the Tuesday chain's
+      # later slots no-op once a week is graded (results-gate `done` ignores
+      # games), so this daily run is the retry that heals /this-week within a
+      # day after a failed fetch, and marks games played as scores arrive.
+      # continue-on-error: a failed fetch keeps the last good file and never
+      # blocks the board commit.
+      - name: Rebuild the This Week game feed (games2026.json)
+        continue-on-error: true
+        run: npm run data:games
       - name: Commit if changed
         id: commit
         env:
@@ -148,6 +157,8 @@ jobs:
           git add src/data/rosters2026.js 2>/dev/null || true
           # E-052: weekly board + any newly frozen week snapshot.
           git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/ 2>/dev/null || true
+          # Step 11: the This Week recap feed rebuilt above.
+          git add src/data/games2026.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No board changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"
