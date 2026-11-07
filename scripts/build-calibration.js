@@ -35,6 +35,21 @@
  * WEEKLY_BOARD_2026 today (build-weekly-board.js writes only the rationale
  * text and the final number), so we re-derive the flags rather than parse
  * a free-text field.
+ *
+ * DATA_FRESHNESS_PLAN 2026-11-01, step 1 (written 2026-11-07):
+ *   - `actual` is fantasy_points_graded: the board's own rules (meta
+ *     graded_rules, "full_ppr"), the rules the projection is built under.
+ *     nflverse's fantasy_points_ppr also counts interceptions, fumbles lost,
+ *     two-point conversions and special teams touchdowns, so grading on it
+ *     compared two different scorings. It is kept on each row as
+ *     `actual_nflverse_ppr` for the dated note.
+ *   - The headline (overall, by position, by adjustment, top misses) uses
+ *     only weeks whose snapshot was written before kickoff. Weeks 1 and 2
+ *     were seeded after kickoff; they stay in `rows` (verifier #11) and are
+ *     reported apart under `after_kickoff`.
+ *   - CALIBRATION.md carries a dated note with the old and new figures for
+ *     every week graded when the change landed. Verifier #21 checks the
+ *     graded column, graded_rules and the headline weeks.
  */
 
 import fs from 'fs';
@@ -78,6 +93,13 @@ if (!fs.existsSync(actualsPath)) {
   process.exit(1);
 }
 const actualsDoc = JSON.parse(fs.readFileSync(actualsPath, 'utf8'));
+// Step 1: grade only on the board's rules. An actuals file written before
+// fetch-weekly-actuals.js stored the graded column cannot be graded.
+const GRADED_RULES = actualsDoc.meta?.graded_rules;
+if (!GRADED_RULES || !actualsDoc.rows.some(r => r.fantasy_points_graded != null)) {
+  console.error(`calibration refused: ${path.relative(REPO, actualsPath)} has no graded_rules / fantasy_points_graded. Run \`npm run data:actuals\` first (DATA_FRESHNESS_PLAN step 1).`);
+  process.exit(1);
+}
 const actualsByKey = new Map();
 for (const r of actualsDoc.rows) {
   actualsByKey.set(`${r.gsis_id}_${r.week}`, r);
@@ -124,7 +146,7 @@ for (const actual of actualsDoc.rows) {
   if (!hit) continue;
   const r = hit.row;
   const proj = r.weekly_value;
-  const act = actual.fantasy_points_ppr;
+  const act = actual.fantasy_points_graded;
   if (proj == null || act == null) continue;
   const err = Math.round((act - proj) * 100) / 100;
   perPair.push({
@@ -136,6 +158,7 @@ for (const actual of actualsDoc.rows) {
     week: r.week,
     projected: proj,
     actual: act,
+    actual_nflverse_ppr: actual.fantasy_points_ppr,
     error: err,
     abs_error: Math.abs(err),
     flags: deriveFlags(r),
@@ -178,21 +201,92 @@ function agg(rows) {
   };
 }
 
-// Overall + by-flag agg
-const overall = agg(perPair);
-const byPos = {};
-for (const p of ['QB', 'RB', 'WR', 'TE']) byPos[p] = agg(perPair.filter(r => r.pos === p));
+// Step 1: the headline uses only weeks whose snapshot was written before
+// kickoff. The flag is read from the snapshot header, which verifier #19
+// recomputes from the schedule.
+const headlineWeeks = weeksComplete.filter(w => SNAPSHOTS[w]?.written_before_kickoff === true);
+const afterKickoffWeeks = weeksComplete.filter(w => SNAPSHOTS[w]?.written_before_kickoff !== true);
+const headlineSet = new Set(headlineWeeks);
+const headlineRows = perPair.filter(r => headlineSet.has(r.week));
+const afterRows = perPair.filter(r => !headlineSet.has(r.week));
+
+const POS = ['QB', 'RB', 'WR', 'TE'];
+const byPosOf = rows => Object.fromEntries(POS.map(p => [p, agg(rows.filter(r => r.pos === p))]));
+
+// Overall + by-flag agg (headline weeks only)
+const overall = agg(headlineRows);
+const byPos = byPosOf(headlineRows);
 
 const byFlag = {};
 for (const flag of ['dome_home', 'short_week', 'bye_return', 'tz_travel', 'matchup']) {
   byFlag[flag] = {
-    fired: agg(perPair.filter(r => r.flags[flag])),
-    not_fired: agg(perPair.filter(r => !r.flags[flag])),
+    fired: agg(headlineRows.filter(r => r.flags[flag])),
+    not_fired: agg(headlineRows.filter(r => !r.flags[flag])),
   };
 }
 
-// Top misses (largest absolute error) — the copilot's Caleb + Stafford belong here
-const topMisses = [...perPair].sort((a, b) => b.abs_error - a.abs_error).slice(0, 20);
+// Top misses (largest absolute error), headline weeks only
+const topMisses = [...headlineRows].sort((a, b) => b.abs_error - a.abs_error).slice(0, 20);
+
+const afterKickoff = { weeks: afterKickoffWeeks, overall: agg(afterRows), by_pos: byPosOf(afterRows) };
+
+// Step 1's dated note: old figures (nflverse's fantasy_points_ppr over
+// every complete week, as the headline was built before) beside new ones (the board's rules, the
+// headline only weeks written before kickoff), for each week graded on the
+// day the change landed.
+//
+// Review 2026-11-07: the published note is FROZEN. Its figures were written
+// once on 2026-11-07 to scripts/_lib/scoring-change-2026-11-07.json and are
+// read from there on every build, so a later nflverse stat correction (the
+// Thursday re-fetch) cannot move the record silently ("the record is never
+// rewritten silently", plan step 1.8). The same figures recomputed from
+// today's rows ship beside it as `live_recompute`, labelled, with a count
+// of how far they have drifted from the frozen ones.
+const FROZEN_CHANGE = JSON.parse(fs.readFileSync(path.join(__dirname, '_lib', 'scoring-change-2026-11-07.json'), 'utf8'));
+const SCORING_CHANGE = { date: FROZEN_CHANGE.date, weeks: FROZEN_CHANGE.weeks };
+const oldErr = r => Math.round((r.actual_nflverse_ppr - r.projected) * 100) / 100;
+const aggOld = rows => agg(rows.filter(r => r.actual_nflverse_ppr != null).map(r => ({ error: oldErr(r), abs_error: Math.abs(oldErr(r)) })));
+const changeRows = perPair.filter(r => SCORING_CHANGE.weeks.includes(r.week));
+const changeHeadline = changeRows.filter(r => headlineSet.has(r.week));
+const liveChange = {
+  date: SCORING_CHANGE.date,
+  what: `actual moved from nflverse fantasy_points_ppr to fantasy_points_graded (${GRADED_RULES}, the projection's rules); the headline dropped the weeks written after kickoff`,
+  weeks: SCORING_CHANGE.weeks.filter(w => gradeWeeks.has(w)),
+  rows_moved: changeRows.filter(r => r.actual_nflverse_ppr != null && Math.abs(r.actual_nflverse_ppr - r.actual) > 0.001).length,
+  per_week: SCORING_CHANGE.weeks.filter(w => gradeWeeks.has(w)).map(w => {
+    const wr = changeRows.filter(r => r.week === w);
+    const q = wr.filter(r => r.pos === 'QB');
+    return { week: w, in_headline: headlineSet.has(w), old: aggOld(wr), new: agg(wr), qb_old: aggOld(q), qb_new: agg(q) };
+  }),
+  headline_old: { weeks: SCORING_CHANGE.weeks.filter(w => gradeWeeks.has(w)), overall: aggOld(changeRows), qb: aggOld(changeRows.filter(r => r.pos === 'QB')) },
+  same_weeks_new_rules: { overall: agg(changeRows), qb: agg(changeRows.filter(r => r.pos === 'QB')) },
+  headline_new: { weeks: SCORING_CHANGE.weeks.filter(w => headlineSet.has(w)), overall: agg(changeHeadline), qb: agg(changeHeadline.filter(r => r.pos === 'QB')) },
+};
+// Which published figures the live recompute no longer matches (0 means the
+// rows still say exactly what the frozen note says).
+const liveDrift = [];
+{
+  const cmp = (label, a, b) => { for (const k of ['n', 'mean_error', 'mean_abs_error', 'rmse']) if ((a?.[k] ?? null) !== (b?.[k] ?? null)) liveDrift.push(`${label}.${k}`); };
+  if (liveChange.rows_moved !== FROZEN_CHANGE.rows_moved) liveDrift.push('rows_moved');
+  for (const fw of FROZEN_CHANGE.per_week) {
+    const lw = liveChange.per_week.find(x => x.week === fw.week);
+    for (const k of ['old', 'new', 'qb_old', 'qb_new']) cmp(`week${fw.week}.${k}`, fw[k], lw?.[k]);
+  }
+  for (const k of ['headline_old', 'headline_new']) { cmp(`${k}.overall`, FROZEN_CHANGE[k].overall, liveChange[k].overall); cmp(`${k}.qb`, FROZEN_CHANGE[k].qb, liveChange[k].qb); }
+  cmp('same_weeks_new_rules.overall', FROZEN_CHANGE.same_weeks_new_rules.overall, liveChange.same_weeks_new_rules.overall);
+  cmp('same_weeks_new_rules.qb', FROZEN_CHANGE.same_weeks_new_rules.qb, liveChange.same_weeks_new_rules.qb);
+}
+const scoringChange = {
+  ...FROZEN_CHANGE,
+  live_recompute: {
+    label: 'NOT the record. The same figures recomputed from the rows in this file on this build; nflverse stat corrections move these, never the frozen note above.',
+    generated_at: new Date().toISOString(),
+    figures_differing_from_frozen: liveDrift.length,
+    differing: liveDrift,
+    ...liveChange,
+  },
+};
+if (liveDrift.length) console.log(`  note: ${liveDrift.length} figure(s) in the live recompute of the 2026-11-07 note differ from the frozen record (${liveDrift.slice(0, 5).join(', ')}${liveDrift.length > 5 ? ', ...' : ''})`);
 
 // QA 2026-10-25: the model note is derived from the snapshot headers, never a
 // fixed string. The old sentence said "weeks 6+: E-034 v2", which was wrong for
@@ -205,16 +299,26 @@ for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
   const last = modelRuns[modelRuns.length - 1];
   if (last && last.label === label) last.to = d.week; else modelRuns.push({ from: d.week, to: d.week, label });
 }
-const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from}-${r.to}`}: ${r.label}`).join('; ');
+const modelNote = modelRuns.map(r => `week${r.from === r.to ? ` ${r.from}` : `s ${r.from} to ${r.to}`}: ${r.label}`).join('; ');
 const v2Weeks = Object.values(SNAPSHOTS).filter(d => /E-034 v2/.test(d.model_version)).map(d => d.week).sort((a, b) => a - b);
 const v2Note = v2Weeks.length
   ? `the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week ${v2Weeks[0]}`
   : 'no week has a pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) yet; the first will be the next week whose snapshot window opens';
 const modelNoteText = `graded with the model named in each week's snapshot header (${modelNote}; ${v2Note})`;
 
+// Reader copy (scoring_note here, CALIBRATION.md below) shares one week-list style.
+// "1 to 8" for a run, "1 and 2" or "3, 5 and 7" otherwise (no Oxford comma).
+const weeksText = ws => {
+  if (!ws.length) return 'none';
+  if (ws.length > 2 && ws.every((w, i) => i === 0 || w === ws[i - 1] + 1)) return `${ws[0]} to ${ws[ws.length - 1]}`;
+  return ws.length === 1 ? `${ws[0]}` : `${ws.slice(0, -1).join(', ')} and ${ws[ws.length - 1]}`;
+};
+const generatedAt = new Date().toISOString();
 const meta = {
   season: SEASON,
-  generated_utc: new Date().toISOString(),
+  source_season: actualsDoc.meta.source_season ?? actualsDoc.meta.season ?? SEASON,
+  generated_at: generatedAt,
+  generated_utc: generatedAt,
   actuals_source: actualsDoc.meta.source_url,
   actuals_generated_utc: actualsDoc.meta.generated_utc,
   // QA 2026-09-17: stamp the boards this run read, so downstream can see
@@ -224,6 +328,12 @@ const meta = {
   player_board_generated_utc: PLAYER_BOARD_META?.generated || null,
   projections_source: 'src/data/intelligence/weekly_projections/2026-wNN.json — frozen pre-kickoff snapshots (E-052). Never the live weeklyBoard2026.js.',
   weeks_complete: weeksComplete,
+  // Step 1: the headline (overall, by_pos, by_flag_fired_vs_not,
+  // top_misses) covers headline_weeks only; after_kickoff covers the rest.
+  headline_weeks: headlineWeeks,
+  after_kickoff_weeks: afterKickoffWeeks,
+  graded_rules: GRADED_RULES,
+  actual_column: 'fantasy_points_graded',
   weeks_partial_excluded: weeksPartial.map(w => ({ week: w, ...completeness[w] })),
   snapshots: Object.fromEntries(Object.values(SNAPSHOTS).map(d => [d.week, {
     file: d.file, written_utc: d.written_utc, first_kickoff_utc: d.first_kickoff_utc,
@@ -232,7 +342,7 @@ const meta = {
   }])),
   // QA 2026-10-25: derived from the snapshot headers (see modelNote above),
   // never a fixed string; this ships verbatim in the public json.
-  scoring_note: `projected = the week's frozen pre-kickoff snapshot weekly_value, ${modelNoteText}. actual = fantasy_points_ppr from nflverse.`,
+  scoring_note: `projected = the week's frozen pre-kickoff snapshot weekly_value, ${modelNoteText}. actual = fantasy_points_graded, the nflverse components scored under the board's own rules (${GRADED_RULES}), the rules the projection is built under; nflverse's fantasy_points_ppr is kept on each row as actual_nflverse_ppr. The headline covers week${headlineWeeks.length === 1 ? '' : 's'} ${weeksText(headlineWeeks)}, whose snapshot${headlineWeeks.length === 1 ? ' was' : 's were'} written before kickoff; week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)} ${afterKickoffWeeks.length === 1 ? 'was' : 'were'} written after kickoff and ${afterKickoffWeeks.length === 1 ? 'is' : 'are'} reported apart under after_kickoff.`,
 };
 
 const out = {
@@ -241,6 +351,8 @@ const out = {
   by_pos: byPos,
   by_flag_fired_vs_not: byFlag,
   top_misses: topMisses,
+  after_kickoff: afterKickoff,
+  scoring_change_2026_11_07: scoringChange,
   rows: perPair,
 };
 
@@ -248,71 +360,121 @@ const OUT_JSON = path.join(REPO, 'src', 'data', 'intelligence', `calibration_${S
 fs.writeFileSync(OUT_JSON, JSON.stringify(out, null, 2));
 console.log(`  wrote ${OUT_JSON}`);
 
-// CALIBRATION.md — human-readable summary beside BOARD.md
+// CALIBRATION.md, the human-readable summary beside BOARD.md. Reader copy:
+// no em dashes, no Oxford commas, acronyms spelled out on first use.
+const NA = 'n/a';
+const fmt = x => (x == null ? NA : Object.is(x, -0) || x === 0 ? '0' : x > 0 ? `+${x}` : `${x}`);
 const md = [];
 md.push('# DFOS · CALIBRATION');
 md.push('');
-md.push('**Weekly projected vs actual — one row per player-week the board scored, aggregated per adjustment.**');
+md.push('**Weekly projected against actual points: one row per player-week the board scored, aggregated by position and by adjustment.**');
+md.push('');
+md.push('All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), running back (RB), wide receiver (WR) and tight end (TE).');
 md.push('');
 md.push('| | |');
 md.push('|---|---|');
 md.push(`| Generated | ${meta.generated_utc} |`);
-md.push(`| Weekly board generated | ${meta.weekly_board_generated_utc || '(missing — no META)'} |`);
-md.push(`| Player board generated | ${meta.player_board_generated_utc || '(missing — no META)'} |`);
+md.push(`| Weekly board generated | ${meta.weekly_board_generated_utc || '(missing: no META)'} |`);
+md.push(`| Player board generated | ${meta.player_board_generated_utc || '(missing: no META)'} |`);
 md.push(`| Actuals source | \`${meta.actuals_source}\` |`);
 md.push(`| Actuals generated | ${meta.actuals_generated_utc} |`);
 md.push(`| Weeks covered | ${weeksComplete.join(', ')} |`);
+md.push(`| Headline weeks (snapshot written before kickoff) | ${headlineWeeks.join(', ') || 'none'} |`);
+md.push(`| Weeks written after kickoff (shown apart) | ${afterKickoffWeeks.join(', ') || 'none'} |`);
 md.push(`| Weeks partial (not graded) | ${weeksPartial.map(w => `${w} (${completeness[w].games_seen} of ${completeness[w].games_scheduled} games)`).join(', ') || 'none'} |`);
 md.push(`| Projections graded | frozen pre-kickoff snapshots, \`src/data/intelligence/weekly_projections/\` (E-052) |`);
-md.push(`| Matched pairs | ${overall.n} |`);
+md.push(`| Actual points | \`fantasy_points_graded\`, scored under the board's own rules (\`${GRADED_RULES}\`) |`);
+md.push(`| Matched pairs | ${perPair.length} (headline ${overall.n}, written after kickoff ${afterKickoff.overall.n}) |`);
 md.push('');
-md.push(`Emitted by \`scripts/build-calibration.js\` (E-032, 2026-09-17; E-052, 2026-10-10). \`projected\` = the week's frozen pre-kickoff snapshot \`weekly_value\`, graded with the model named in that snapshot's header (${modelNote}; ${v2Note}). \`actual\` = \`fantasy_points_ppr\` from nflverse. \`error\` = actual - projected. Positive error means the board under-projected. Only complete weeks are graded.`);
+md.push(`Emitted by \`scripts/build-calibration.js\` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). \`projected\` is the week's frozen pre-kickoff snapshot \`weekly_value\`, graded with the model named in that snapshot's header (${modelNote}; ${v2Note}). \`actual\` is \`fantasy_points_graded\`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. \`error\` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.`);
 md.push('');
 md.push('## Snapshots graded');
 md.push('');
-md.push('| Week | Written (UTC) | First kickoff (UTC) | Before kickoff | Model |');
-md.push('|---|---|---|---|---|');
+md.push('| Week | Written (UTC) | First kickoff (UTC) | Before kickoff | In headline | Model |');
+md.push('|---|---|---|---|---|---|');
 for (const d of Object.values(SNAPSHOTS).sort((a, b) => a.week - b.week)) {
-  md.push(`| ${d.week} | ${d.written_utc} | ${d.first_kickoff_utc} | ${d.written_before_kickoff ? 'yes' : `no (post-kickoff: ${d.post_kickoff_game_ids.length} game${d.post_kickoff_game_ids.length === 1 ? '' : 's'})`} | ${d.model_version.split(':')[0]} |`);
+  md.push(`| ${d.week} | ${d.written_utc} | ${d.first_kickoff_utc} | ${d.written_before_kickoff ? 'yes' : `no (post-kickoff: ${d.post_kickoff_game_ids.length} game${d.post_kickoff_game_ids.length === 1 ? '' : 's'})`} | ${headlineSet.has(d.week) ? 'yes' : gradeWeeks.has(d.week) ? 'no, shown apart' : 'not graded yet'} | ${d.model_version.split(':')[0]} |`);
 }
 md.push('');
-md.push('## Overall');
+md.push(`## Headline: weeks ${weeksText(headlineWeeks)}`);
 md.push('');
-md.push('| N | Mean error | Mean \\|error\\| | RMSE |');
+md.push('| N | Mean error | Mean absolute error | Root mean square error |');
 md.push('|---|---|---|---|');
-md.push(`| ${overall.n} | ${overall.mean_error} | ${overall.mean_abs_error} | ${overall.rmse} |`);
+md.push(`| ${overall.n} | ${overall.mean_error ?? NA} | ${overall.mean_abs_error ?? NA} | ${overall.rmse ?? NA} |`);
 md.push('');
-md.push('## By position');
+md.push('## By position (headline weeks)');
 md.push('');
-md.push('| Pos | N | Mean error | Mean \\|error\\| | RMSE |');
+md.push('| Pos | N | Mean error | Mean absolute error | Root mean square error |');
 md.push('|---|---|---|---|---|');
-for (const p of ['QB', 'RB', 'WR', 'TE']) {
+for (const p of POS) {
   const a = byPos[p];
-  md.push(`| ${p} | ${a.n} | ${a.mean_error ?? '—'} | ${a.mean_abs_error ?? '—'} | ${a.rmse ?? '—'} |`);
+  md.push(`| ${p} | ${a.n} | ${a.mean_error ?? NA} | ${a.mean_abs_error ?? NA} | ${a.rmse ?? NA} |`);
 }
 md.push('');
-md.push('## Per-adjustment: fired vs not fired');
+md.push(`## Written after kickoff: week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)} (not in the headline)`);
 md.push('');
-md.push('If an adjustment adds signal, fired-mean-error should be closer to 0 than not-fired-mean-error. If both are similar, the adjustment isn\'t moving the needle. If fired-mean-error is worse, the adjustment is hurting.');
+md.push('These snapshots were seeded after the week had kicked off, so they are not a fair pre-kickoff test. They stay graded row by row and are kept out of every headline table.');
 md.push('');
-md.push('| Adjustment | Fired N | Fired mean err | Fired \\|err\\| | Not-fired N | Not-fired mean err | Not-fired \\|err\\| |');
+md.push('| Pos | N | Mean error | Mean absolute error | Root mean square error |');
+md.push('|---|---|---|---|---|');
+{
+  const a = afterKickoff.overall;
+  md.push(`| All | ${a.n} | ${a.mean_error ?? NA} | ${a.mean_abs_error ?? NA} | ${a.rmse ?? NA} |`);
+}
+for (const p of POS) {
+  const a = afterKickoff.by_pos[p];
+  md.push(`| ${p} | ${a.n} | ${a.mean_error ?? NA} | ${a.mean_abs_error ?? NA} | ${a.rmse ?? NA} |`);
+}
+md.push('');
+md.push('## Per adjustment: fired against not fired (headline weeks)');
+md.push('');
+md.push('If an adjustment adds signal, the fired mean error should sit closer to 0 than the not-fired mean error. If both are similar, the adjustment is not moving the needle. If the fired mean error is worse, the adjustment is hurting.');
+md.push('');
+md.push('| Adjustment | Fired N | Fired mean error | Fired mean absolute error | Not-fired N | Not-fired mean error | Not-fired mean absolute error |');
 md.push('|---|---|---|---|---|---|---|');
 for (const flag of ['matchup', 'dome_home', 'short_week', 'bye_return', 'tz_travel']) {
   const f = byFlag[flag].fired;
   const nf = byFlag[flag].not_fired;
-  md.push(`| ${flag} | ${f.n} | ${f.mean_error ?? '—'} | ${f.mean_abs_error ?? '—'} | ${nf.n} | ${nf.mean_error ?? '—'} | ${nf.mean_abs_error ?? '—'} |`);
+  md.push(`| ${flag} | ${f.n} | ${f.mean_error ?? NA} | ${f.mean_abs_error ?? NA} | ${nf.n} | ${nf.mean_error ?? NA} | ${nf.mean_abs_error ?? NA} |`);
 }
 md.push('');
-md.push('**The ±4 matchup cap:** if fired-mean-error and fired-|err| are close to not-fired, the cap isn\'t buying us signal. If fired-|err| is materially smaller (e.g. ~2 point improvement), it is. First-week sample is small — trend needs weeks 2+ to be decisive.');
+md.push('**The ±4 matchup cap:** if the fired mean error and mean absolute error are close to the not-fired ones, the cap is not buying signal. If the fired mean absolute error is materially smaller (about 2 points), it is.');
 md.push('');
-md.push('## Top 20 misses (largest |error|) — the copilot\'s Caleb + Stafford should be here');
+md.push('## Top 20 misses, headline weeks (largest absolute error)');
 md.push('');
 md.push('| Player | Pos | Team | Wk | Opp | Projected | Actual | Error | Rationale |');
 md.push('|---|---|---|---|---|---|---|---|---|');
 for (const r of topMisses) {
-  md.push(`| ${r.name} | ${r.pos} | ${r.team || '—'} | ${r.week} | ${r.opponent || '—'} | ${r.projected} | ${r.actual} | ${r.error > 0 ? '+' : ''}${r.error} | ${r.rationale ? r.rationale.replace(/\|/g, '/') : '—'} |`);
+  md.push(`| ${r.name} | ${r.pos} | ${r.team || NA} | ${r.week} | ${r.opponent || NA} | ${r.projected} | ${r.actual} | ${r.error > 0 ? '+' : ''}${r.error} | ${r.rationale ? r.rationale.replace(/\|/g, '/') : NA} |`);
 }
 md.push('');
+{
+  const c = scoringChange;
+  md.push(`## Note, ${c.date}: grading moved to the board's own scoring`);
+  md.push('');
+  md.push(`Until ${c.date} \`actual\` was nflverse's \`fantasy_points_ppr\`. That column takes 2 points off per interception and per fumble lost and adds 2 per two-point conversion and 6 per special teams touchdown. The projection is built without any of those terms, so the two sides of each row were scored by different rules. From ${c.date} \`actual\` is \`fantasy_points_graded\`, scored under the board's rules (\`${GRADED_RULES}\`), and the headline leaves out week${afterKickoffWeeks.length === 1 ? '' : 's'} ${weeksText(afterKickoffWeeks)}, whose snapshot${afterKickoffWeeks.length === 1 ? ' was' : 's were'} written after kickoff. Nothing in the projection changed. ${c.rows_moved} of ${c.graded_rows} graded rows in weeks ${weeksText(c.weeks)} had a different actual that day.`);
+  md.push('');
+  md.push(`Old is nflverse's points; new is the board's rules. These figures were frozen on ${c.frozen_on}, when the change landed, and later stat corrections from nflverse do not move them. The same figures recomputed from today's rows are in \`calibration_${SEASON}.json\` under \`scoring_change_2026_11_07.live_recompute\`; ${c.live_recompute.figures_differing_from_frozen === 0 ? 'today none of them differ from the frozen ones' : `today ${c.live_recompute.figures_differing_from_frozen} of them differ from the frozen ones`}.`);
+  md.push('');
+  md.push('| Week | N | Old mean error | New mean error | Old mean absolute error | New mean absolute error | QB old mean error | QB new mean error | In new headline |');
+  md.push('|---|---|---|---|---|---|---|---|---|');
+  for (const w of c.per_week) {
+    md.push(`| ${w.week} | ${w.new.n} | ${fmt(w.old.mean_error)} | ${fmt(w.new.mean_error)} | ${w.old.mean_abs_error ?? NA} | ${w.new.mean_abs_error ?? NA} | ${fmt(w.qb_old.mean_error)} | ${fmt(w.qb_new.mean_error)} | ${w.in_headline ? 'yes' : 'no'} |`);
+  }
+  const ho = c.headline_old, sw = c.same_weeks_new_rules, hn = c.headline_new;
+  md.push('');
+  md.push('| Headline | Weeks | N | Mean error | Mean absolute error | QB N | QB mean error | QB mean absolute error |');
+  md.push('|---|---|---|---|---|---|---|---|');
+  md.push(`| Old: nflverse points, every week | ${ho.weeks.join(', ')} | ${ho.overall.n} | ${fmt(ho.overall.mean_error)} | ${ho.overall.mean_abs_error ?? NA} | ${ho.qb.n} | ${fmt(ho.qb.mean_error)} | ${ho.qb.mean_abs_error ?? NA} |`);
+  md.push(`| Board's rules, same weeks | ${ho.weeks.join(', ')} | ${sw.overall.n} | ${fmt(sw.overall.mean_error)} | ${sw.overall.mean_abs_error ?? NA} | ${sw.qb.n} | ${fmt(sw.qb.mean_error)} | ${sw.qb.mean_abs_error ?? NA} |`);
+  md.push(`| New: board's rules, written before kickoff | ${hn.weeks.join(', ')} | ${hn.overall.n} | ${fmt(hn.overall.mean_error)} | ${hn.overall.mean_abs_error ?? NA} | ${hn.qb.n} | ${fmt(hn.qb.mean_error)} | ${hn.qb.mean_abs_error ?? NA} |`);
+  md.push('');
+  const flip = (ho.qb.mean_error ?? 0) < 0 && (hn.qb.mean_error ?? 0) > 0;
+  md.push(flip
+    ? `**The quarterback read flips.** On nflverse's points the board read as over-projecting quarterbacks (mean error ${fmt(ho.qb.mean_error)}). On the board's own rules it under-projects them (${fmt(sw.qb.mean_error)} over the same weeks, ${fmt(hn.qb.mean_error)} in the new headline). The shift is nflverse's interception and fumble penalties, net of its two-point and return points; the projection counts none of them.`
+    : `**Quarterbacks:** mean error ${fmt(ho.qb.mean_error)} on nflverse's points, ${fmt(sw.qb.mean_error)} on the board's rules over the same weeks and ${fmt(hn.qb.mean_error)} in the new headline.`);
+  md.push('');
+}
 md.push('---');
 md.push('');
 md.push('*Regenerated on every build of `data:calibration`. E-032 (2026-09-17).*');
@@ -323,6 +485,7 @@ fs.writeFileSync(OUT_MD, md.join('\n'));
 console.log(`  wrote ${OUT_MD}`);
 
 console.log('');
+console.log(`headline weeks ${headlineWeeks.join(',')}; after kickoff ${afterKickoffWeeks.join(',')} (n=${afterKickoff.overall.n})`);
 console.log(`overall: n=${overall.n} mean_err=${overall.mean_error} mean|err|=${overall.mean_abs_error} rmse=${overall.rmse}`);
 console.log('by pos:');
-for (const p of ['QB', 'RB', 'WR', 'TE']) console.log(`  ${p}: n=${byPos[p].n} mean_err=${byPos[p].mean_error} |err|=${byPos[p].mean_abs_error}`);
+for (const p of POS) console.log(`  ${p}: n=${byPos[p].n} mean_err=${byPos[p].mean_error} |err|=${byPos[p].mean_abs_error}`);
