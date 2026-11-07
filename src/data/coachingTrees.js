@@ -107,9 +107,9 @@ export const COACHING_TREES = {
   // in the header for a follow-up pass but do not gate check #12.
   teams: {
     ARI: {
-      hc: 'Mike LaFleur',       hc_verified_on: '2026-11-07', hc_source: 'https://www.azcardinals.com/team/coaches/',
-      oc: 'Nathaniel Hackett',  oc_verified_on: '2026-11-07', oc_source: 'https://www.azcardinals.com/team/coaches/',
-      dc: 'Nick Rallis',        dc_verified_on: '2026-11-07', dc_source: 'https://www.azcardinals.com/team/coaches/',
+      hc: 'Mike LaFleur',       hc_verified_on: '2026-11-07', hc_source: 'https://www.azcardinals.com/team/coaches-roster/',
+      oc: 'Nathaniel Hackett',  oc_verified_on: '2026-11-07', oc_source: 'https://www.azcardinals.com/team/coaches-roster/',
+      dc: 'Nick Rallis',        dc_verified_on: '2026-11-07', dc_source: 'https://www.azcardinals.com/team/coaches-roster/',
       // E-038b (2026-09-18): trees/style refreshed for new HC Mike LaFleur.
       // Brother of Matt LaFleur; 49ers assistant under Kyle Shanahan
       // (2016-2020), Jets OC (2021-22), Rams OC (2023). Wikipedia bio
@@ -140,9 +140,9 @@ export const COACHING_TREES = {
       style: 'Vikings assistant → Browns HC lineage (Stefanski)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Kevin_Stefanski',
     },
     BAL: {
-      hc: 'Jesse Minter',       hc_verified_on: '2026-11-07', hc_source: 'https://www.baltimoreravens.com/team/coaches/',
-      oc: 'Declan Doyle',       oc_verified_on: '2026-11-07', oc_source: 'https://www.baltimoreravens.com/team/coaches/',
-      dc: 'Anthony Weaver',     dc_verified_on: '2026-11-07', dc_source: 'https://www.baltimoreravens.com/team/coaches/',
+      hc: 'Jesse Minter',       hc_verified_on: '2026-11-07', hc_source: 'https://www.baltimoreravens.com/team/coaches-roster/',
+      oc: 'Declan Doyle',       oc_verified_on: '2026-11-07', oc_source: 'https://www.baltimoreravens.com/team/coaches-roster/',
+      dc: 'Anthony Weaver',     dc_verified_on: '2026-11-07', dc_source: 'https://www.baltimoreravens.com/team/coaches-roster/',
       // E-038b: Minter came from Michigan DC + Chargers DC — both under Jim
       // Harbaugh — so still HARBAUGH tree, but the style shifts from
       // Lamar-RPO to defensive-forward Harbaugh identity (Minter is a DC
@@ -154,19 +154,19 @@ export const COACHING_TREES = {
       style: 'Michigan DC → Chargers DC lineage (Minter, Jim Harbaugh)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Jesse_Minter',
     },
     BUF: {
-      hc: 'Joe Brady',          hc_verified_on: '2026-11-07', hc_source: 'https://www.buffalobills.com/team/coaches/',
-      oc: 'Pete Carmichael',    oc_verified_on: '2026-11-07', oc_source: 'https://www.buffalobills.com/team/coaches/',
-      dc: 'Jim Leonhard',       dc_verified_on: '2026-11-07', dc_source: 'https://www.buffalobills.com/team/coaches/',
+      hc: 'Joe Brady',          hc_verified_on: '2026-11-07', hc_source: 'https://www.buffalobills.com/team/coaches-roster/',
+      oc: 'Pete Carmichael',    oc_verified_on: '2026-11-07', oc_source: 'https://www.buffalobills.com/team/coaches-roster/',
+      dc: 'Jim Leonhard',       dc_verified_on: '2026-11-07', dc_source: 'https://www.buffalobills.com/team/coaches-roster/',
       trees: ['BELICHICK', 'REID'], style: null,
     },
     CAR: {
-      hc: 'Dave Canales',       hc_verified_on: '2026-11-07', hc_source: 'https://www.panthers.com/team/coaches/',
-      oc: 'Brad Idzik',         oc_verified_on: '2026-11-07', oc_source: 'https://www.panthers.com/team/coaches/',
+      hc: 'Dave Canales',       hc_verified_on: '2026-11-07', hc_source: 'https://www.panthers.com/team/coaches-roster/',
+      oc: 'Brad Idzik',         oc_verified_on: '2026-11-07', oc_source: 'https://www.panthers.com/team/coaches-roster/',
       // 2026-11-07 correction (cor-2026-11-07-car-dc-interim): Ejiro Evero
       // was fired October 30, 2026 after Week 8; panthers.com lists Todd Wash
       // as "Interim defensive coordinator". dc_title carries the interim
       // title the way TB carries its non-standard shape (Q-043).
-      dc: 'Todd Wash',          dc_verified_on: '2026-11-07', dc_source: 'https://www.panthers.com/team/coaches/',
+      dc: 'Todd Wash',          dc_verified_on: '2026-11-07', dc_source: 'https://www.panthers.com/team/coaches-roster/',
       dc_title: 'Interim defensive coordinator',
       dc_note: 'Ejiro Evero was fired on October 30, 2026 after Week 8. Todd Wash is the interim defensive coordinator.',
       trees: ['MCVAY', 'PAYTON'], style: null,
@@ -184,9 +184,9 @@ export const COACHING_TREES = {
       trees: ['MCVAY'], style: null,
     },
     CLE: {
-      hc: 'Todd Monken',        hc_verified_on: '2026-11-07', hc_source: 'https://www.clevelandbrowns.com/team/coaches/',
-      oc: 'Travis Switzer',     oc_verified_on: '2026-11-07', oc_source: 'https://www.clevelandbrowns.com/team/coaches/',
-      dc: 'Mike Rutenberg',     dc_verified_on: '2026-11-07', dc_source: 'https://www.clevelandbrowns.com/team/coaches/',
+      hc: 'Todd Monken',        hc_verified_on: '2026-11-07', hc_source: 'https://www.clevelandbrowns.com/team/coaches-roster/',
+      oc: 'Travis Switzer',     oc_verified_on: '2026-11-07', oc_source: 'https://www.clevelandbrowns.com/team/coaches-roster/',
+      dc: 'Mike Rutenberg',     dc_verified_on: '2026-11-07', dc_source: 'https://www.clevelandbrowns.com/team/coaches-roster/',
       // E-038b: Monken's path (Gruden → Cowboys → Bucs → Georgia → Ravens OC
       // → Browns HC) does not map cleanly to any of the 10 defined trees.
       // Recorded per peer's rule as an ambiguity, not guessed at.
@@ -198,9 +198,9 @@ export const COACHING_TREES = {
       style: 'Bucs → Georgia OC → Ravens OC → Browns HC lineage (Monken)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Todd_Monken',
     },
     DAL: {
-      hc: 'Brian Schottenheimer', hc_verified_on: '2026-11-07', hc_source: 'https://www.dallascowboys.com/team/coaches/',
-      oc: 'Klayton Adams',        oc_verified_on: '2026-11-07', oc_source: 'https://www.dallascowboys.com/team/coaches/',
-      dc: 'Christian Parker',     dc_verified_on: '2026-11-07', dc_source: 'https://www.dallascowboys.com/team/coaches/',
+      hc: 'Brian Schottenheimer', hc_verified_on: '2026-11-07', hc_source: 'https://www.dallascowboys.com/team/coaches-roster/',
+      oc: 'Klayton Adams',        oc_verified_on: '2026-11-07', oc_source: 'https://www.dallascowboys.com/team/coaches-roster/',
+      dc: 'Christian Parker',     dc_verified_on: '2026-11-07', dc_source: 'https://www.dallascowboys.com/team/coaches-roster/',
       trees: ['BELICHICK'], style: null,
     },
     DEN: {
@@ -210,15 +210,15 @@ export const COACHING_TREES = {
       trees: ['PAYTON'], style: 'Payton offense',
     },
     DET: {
-      hc: 'Dan Campbell',       hc_verified_on: '2026-11-07', hc_source: 'https://www.detroitlions.com/team/coaches/',
-      oc: 'Drew Petzing',       oc_verified_on: '2026-11-07', oc_source: 'https://www.detroitlions.com/team/coaches/',
-      dc: 'Kelvin Sheppard',    dc_verified_on: '2026-11-07', dc_source: 'https://www.detroitlions.com/team/coaches/',
+      hc: 'Dan Campbell',       hc_verified_on: '2026-11-07', hc_source: 'https://www.detroitlions.com/team/coaches-roster/',
+      oc: 'Drew Petzing',       oc_verified_on: '2026-11-07', oc_source: 'https://www.detroitlions.com/team/coaches-roster/',
+      dc: 'Kelvin Sheppard',    dc_verified_on: '2026-11-07', dc_source: 'https://www.detroitlions.com/team/coaches-roster/',
       trees: ['CAMPBELL', 'PAYTON'], style: null,
     },
     GB: {
-      hc: 'Matt LaFleur',       hc_verified_on: '2026-11-07', hc_source: 'https://www.packers.com/team/coaches/',
-      oc: 'Adam Stenavich',     oc_verified_on: '2026-11-07', oc_source: 'https://www.packers.com/team/coaches/',
-      dc: 'Jonathan Gannon',    dc_verified_on: '2026-11-07', dc_source: 'https://www.packers.com/team/coaches/',
+      hc: 'Matt LaFleur',       hc_verified_on: '2026-11-07', hc_source: 'https://www.packers.com/team/coaches-roster/',
+      oc: 'Adam Stenavich',     oc_verified_on: '2026-11-07', oc_source: 'https://www.packers.com/team/coaches-roster/',
+      dc: 'Jonathan Gannon',    dc_verified_on: '2026-11-07', dc_source: 'https://www.packers.com/team/coaches-roster/',
       trees: ['SHANAHAN', 'MCVAY'], style: null,
     },
     HOU: {
@@ -234,9 +234,9 @@ export const COACHING_TREES = {
       trees: ['SIRIANNI', 'REID'], style: null,
     },
     JAX: {
-      hc: 'Liam Coen',          hc_verified_on: '2026-11-07', hc_source: 'https://www.jaguars.com/team/coaches/',
-      oc: 'Grant Udinski',      oc_verified_on: '2026-11-07', oc_source: 'https://www.jaguars.com/team/coaches/',
-      dc: 'Anthony Campanile',  dc_verified_on: '2026-11-07', dc_source: 'https://www.jaguars.com/team/coaches/',
+      hc: 'Liam Coen',          hc_verified_on: '2026-11-07', hc_source: 'https://www.jaguars.com/team/coaches-roster/',
+      oc: 'Grant Udinski',      oc_verified_on: '2026-11-07', oc_source: 'https://www.jaguars.com/team/coaches-roster/',
+      dc: 'Anthony Campanile',  dc_verified_on: '2026-11-07', dc_source: 'https://www.jaguars.com/team/coaches-roster/',
       trees: ['MCVAY'], style: null,
     },
     KC: {
@@ -246,9 +246,9 @@ export const COACHING_TREES = {
       trees: ['REID'], style: 'Reid system',
     },
     LAC: {
-      hc: 'Jim Harbaugh',       hc_verified_on: '2026-11-07', hc_source: 'https://www.chargers.com/team/coaches/',
-      oc: 'Mike McDaniel',      oc_verified_on: '2026-11-07', oc_source: 'https://www.chargers.com/team/coaches/',
-      dc: "Chris O'Leary",      dc_verified_on: '2026-11-07', dc_source: 'https://www.chargers.com/team/coaches/',
+      hc: 'Jim Harbaugh',       hc_verified_on: '2026-11-07', hc_source: 'https://www.chargers.com/team/coaches-roster/',
+      oc: 'Mike McDaniel',      oc_verified_on: '2026-11-07', oc_source: 'https://www.chargers.com/team/coaches-roster/',
+      dc: "Chris O'Leary",      dc_verified_on: '2026-11-07', dc_source: 'https://www.chargers.com/team/coaches-roster/',
       trees: ['HARBAUGH'], style: null,
     },
     LAR: {
@@ -311,9 +311,9 @@ export const COACHING_TREES = {
       style: 'Cowboys OC → LAC OC → Eagles OC lineage (Moore)', style_verified_on: '2026-11-07', style_source: 'https://en.wikipedia.org/wiki/Kellen_Moore',
     },
     NYG: {
-      hc: 'John Harbaugh',      hc_verified_on: '2026-11-07', hc_source: 'https://www.giants.com/team/coaches/',
-      oc: 'Matt Nagy',          oc_verified_on: '2026-11-07', oc_source: 'https://www.giants.com/team/coaches/',
-      dc: 'Dennard Wilson',     dc_verified_on: '2026-11-07', dc_source: 'https://www.giants.com/team/coaches/',
+      hc: 'John Harbaugh',      hc_verified_on: '2026-11-07', hc_source: 'https://www.giants.com/team/coaches-roster/',
+      oc: 'Matt Nagy',          oc_verified_on: '2026-11-07', oc_source: 'https://www.giants.com/team/coaches-roster/',
+      dc: 'Dennard Wilson',     dc_verified_on: '2026-11-07', dc_source: 'https://www.giants.com/team/coaches-roster/',
       // E-038b: John Harbaugh moved from BAL to NYG. HARBAUGH tree, obviously
       // — physical run game, special-teams emphasis, defense-forward identity
       // that carries from Baltimore. OC Matt Nagy adds REID-family passing
