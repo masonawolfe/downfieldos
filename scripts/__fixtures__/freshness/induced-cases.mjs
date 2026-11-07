@@ -14,7 +14,9 @@
  * entry or directory, a source clock that does not resolve, a date that does
  * not parse, a stamp from the future, the retired season name, a one-commit
  * history under --replay); 29 proves --week is a floor, not a ceiling (a
- * caller's lower week cannot hide a week finished since).
+ * caller's lower week cannot hide a week finished since); 30 and 31 prove the
+ * oldest-entry rule on coachingTrees.js (a bumped manifest date, an entry
+ * older than it; 2026-11-07).
  *
  * No season year is written here: every year comes from data/season.json
  * through ctx, so the cases survive the rollover. The one year in this file is
@@ -231,8 +233,9 @@ export const CASES = [
   {
     id: 25, name: 'a static row whose verified_on does not parse (age)',
     args: (c) => ['--mode', 'age', '--tier', 'public', '--as-of', c.T],
-    // The public tier holds two real age reds today (coachingTrees.js and the
-    // compact referee file); the copy freshens both so the red is the case's own.
+    // The public tier held two real age reds when this was written
+    // (coachingTrees.js until its 2026-11-07 re-verify, and the compact referee
+    // file); the copy freshens both so the red is the case's own.
     prepare: (c) => {
       c.editJson('data/freshness_manifest.json', d => { rowOf(d, 'src/data/coachingTrees.js').verified_on = c.T.slice(0, 10); });
       c.editJson('src/data/intelligence/referee_appearances_compact.json', d => { d.meta.generated = iso(Date.parse(c.T) - HOUR); });
@@ -270,5 +273,19 @@ export const CASES = [
       g.played = false; g.home_score = null; g.away_score = null;
     }),
     expect: (c) => ({ mode: 'coverage', rule: 'graded_week', file: `src/data/games${c.season}.json` }),
+  },
+  {
+    id: 30, name: 'coachingTrees.js: the manifest date bumped past the oldest entry date (registration)',
+    // A bumped manifest date alone must not clear the file's clock.
+    args: () => ['--mode', 'registration'],
+    mutate: (c) => c.editJson('data/freshness_manifest.json', d => { rowOf(d, 'src/data/coachingTrees.js').verified_on = `${c.season}-12-31`; }),
+    expect: () => ({ mode: 'registration', rule: 'oldest-entry', file: 'src/data/coachingTrees.js' }),
+  },
+  {
+    id: 31, name: 'coachingTrees.js: one entry older than the manifest date (registration)',
+    // One unchecked entry keeps the file's clock at its date.
+    args: () => ['--mode', 'registration'],
+    mutate: (c) => c.editText('src/data/coachingTrees.js', t => t.replace(/_verified_on: '\d{4}-\d{2}-\d{2}'/, `_verified_on: '${c.base}-01-02'`)),
+    expect: () => ({ mode: 'registration', rule: 'oldest-entry', file: 'src/data/coachingTrees.js' }),
   },
 ];

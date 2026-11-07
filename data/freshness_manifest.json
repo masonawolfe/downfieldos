@@ -41,7 +41,8 @@
     "on_stale": "block_chain, block_deploy or red.",
     "note": "Free text: why a value is what it is, and what is known and not fixed (added to the plan's fields in step 4).",
     "lineage_grace_hours": "At least one producer cadence plus 8 hours (plan step 4(d)). Cadence by family ceiling: daily 24, twice weekly 120 (the Friday to Wednesday interval), weekly 168, monthly 744. null only with a lineage_grace_reason.",
-    "lineage_grace_reason": "Required when derived_from is non-empty and lineage_grace_hours is null: why the row has no lineage clock."
+    "lineage_grace_reason": "Required when derived_from is non-empty and lineage_grace_hours is null: why the row has no lineage clock.",
+    "verified_on_rule": "Optional, static rows only. {kind: 'oldest_entry', pattern, min_entries}: the registration mode reds unless verified_on equals the oldest entry date the pattern finds in the file (at least min_entries of them). Added 2026-11-07 for coachingTrees.js."
   },
   "rows": [
     {
@@ -101,7 +102,12 @@
       "static": true,
       "verified_on": "2026-09-18",
       "label": "Coaching staffs, checked September 18, 2026",
-      "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. The 114 per-role {hc,oc,dc}_verified_on stamps are all 2026-09-18. Replaces check #12's season-only test. No component renders an AsOf label for it today."
+      "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. verified_on is the OLDEST of the 114 per-entry _verified_on stamps (verified_on_rule), so one unchecked entry keeps the file red. Replaces check #12's season-only test. No component renders an AsOf label for it today.",
+      "verified_on_rule": {
+        "kind": "oldest_entry",
+        "pattern": "_verified_on:\\s*'(\\d{4}-\\d{2}-\\d{2})'",
+        "min_entries": 114
+      }
     },
     {
       "path": "src/data/defense2025.js",

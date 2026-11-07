@@ -451,6 +451,22 @@ async function modeRegistration() {
     }
   }
   note('registration', `${ptrOk} of ${ptrs} stamp pointers resolve`);
+  // A hand file whose entries carry their own dates (coachingTrees.js, 114
+  // `_verified_on` stamps): the row's verified_on must be the OLDEST entry
+  // date, so one unchecked entry keeps the file's clock old. Without this, a
+  // bumped manifest date alone would clear the age red (2026-11-07).
+  let oldestChecked = 0;
+  for (const r of ROWS.filter(x => x.verified_on_rule)) {
+    const rule = r.verified_on_rule;
+    if (rule.kind !== 'oldest_entry' || !rule.pattern) { red('registration', 'oldest-entry', r, r.path, `unknown verified_on_rule ${JSON.stringify(rule)}`); continue; }
+    if (!exists(r.path)) continue;
+    const dates = [...readText(r.path).matchAll(new RegExp(rule.pattern, 'g'))].map(m => m[1]).sort();
+    oldestChecked++;
+    if (rule.min_entries != null && dates.length < rule.min_entries) { red('registration', 'oldest-entry', r, r.path, `${dates.length} entry dates match ${rule.pattern}, fewer than ${rule.min_entries}`); continue; }
+    if (!dates.length) { red('registration', 'oldest-entry', r, r.path, `no entry date matches ${rule.pattern}`); continue; }
+    if (dates[0] !== r.verified_on) red('registration', 'oldest-entry', r, r.path, `the row says verified_on ${r.verified_on}, the oldest of ${dates.length} entry dates is ${dates[0]}`);
+  }
+  if (oldestChecked) note('registration', `${oldestChecked} row(s) checked: verified_on is the oldest entry date`);
 }
 
 // ── age (and --replay) ──────────────────────────────────────────────────
