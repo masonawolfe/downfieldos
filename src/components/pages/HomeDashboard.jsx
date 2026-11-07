@@ -179,7 +179,7 @@ export function HomeDashboard({ plays, rosters, primaryTeam, navigate, onNavigat
               <a href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, textDecoration: "none" }}>
                 {/* Counsel 2026-09-05: headline dropped from the ESPN wire.
                     Render a categories-derived label + generic action instead. */}
-                {(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 2).join(' · ') || 'ESPN'} — read on ESPN →
+                {(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 2).join(' · ') || 'ESPN'}: read on ESPN →
               </a>
             </div>
           ))}
