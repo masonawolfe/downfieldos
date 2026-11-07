@@ -17,6 +17,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchCSV, normTeam } from './_lib/nflverse.js';
+import { selectCurrentReports, assertCurrentFloor } from './_lib/injuries-current.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -102,17 +103,16 @@ async function main() {
     byTeam[p.team].push(p);
   }
 
-  // The highest report week in the file. A player's `latest` row can come from
-  // any earlier week (a week 2 "Out" survives for a player who played week 7),
-  // so the "currently" counts are taken on this week only, the same filter
-  // src/utils/injuries.js applies (freshness plan step 10).
-  const reportWeeks = players.map(p => p.latest?.week).filter(w => Number.isFinite(w));
-  const latestReportWeek = reportWeeks.length ? Math.max(...reportWeeks) : null;
-  const onLatestWeek = p => latestReportWeek != null && p.latest?.week === latestReportWeek;
-
-  // Ranking of currently-out players by team, useful for a fantasy sit/start card
-  const currentlyOut = players.filter(p => onLatestWeek(p) && p.latest.report_status === 'Out').length;
-  const currentlyQ = players.filter(p => onLatestWeek(p) && p.latest.report_status === 'Questionable').length;
+  // Which rows are current: each team's highest week with a game status,
+  // within one week of the league's latest (freshness plan step 10, per-team
+  // fix; see scripts/_lib/injuries-current.js for why one file-wide week
+  // blanked 30 teams on the Wednesday and Friday runs). The compact file and
+  // the "currently" counts both come from this one selection, so meta and
+  // the UI stay in step.
+  const current = selectCurrentReports(players);
+  const latestReportWeek = current.latestReportWeek;
+  const currentlyOut = current.currentlyOut;
+  const currentlyQ = current.currentlyQuestionable;
 
   const OUT = path.join(__dirname, `../src/data/intelligence/injuries_${seasonUsed}.json`);
   const meta = {
@@ -124,23 +124,24 @@ async function main() {
     total_reports: rows.length,
     unique_players: players.length,
     latest_report_week: latestReportWeek,
+    report_week_by_team: current.reportWeekByTeam,
+    teams_reporting: current.teamsReporting,
     currently_out: currentlyOut,
     currently_questionable: currentlyQ,
   };
 
-  // Compact "current status" file — only the latest status per player, no weekly
-  // history. This is what UI code imports (kept small enough to bundle).
-  const compact = players
-    .filter(p => p.latest?.report_status || p.latest?.practice_status)
-    .map(p => ({
-      team: p.team,
-      name: p.name,
-      position: p.position,
-      status: p.latest.report_status || null,          // Out / Doubtful / Questionable
-      injury: p.latest.report_primary_injury || p.latest.practice_primary_injury || null,
-      week: p.latest.week,
-      updated: p.latest.date_modified,
-    }));
+  // Compact "current status" file: each player's row from his team's report
+  // week, no weekly history. This is what UI code imports (kept small enough
+  // to bundle).
+  const compact = current.rows.map(({ player: p, row }) => ({
+    team: p.team,
+    name: p.name,
+    position: p.position,
+    status: row.report_status || null,          // Out / Doubtful / Questionable
+    injury: row.report_primary_injury || row.practice_primary_injury || null,
+    week: row.week,
+    updated: row.date_modified,
+  }));
   const byTeamCompact = {};
   for (const p of compact) {
     if (!byTeamCompact[p.team]) byTeamCompact[p.team] = [];
@@ -156,6 +157,9 @@ async function main() {
   for (const k of REQUIRED_META_KEYS) {
     if (meta[k] == null) throw new Error(`shape assert: meta.${k} is null/missing`);
   }
+  // Floor, not equality: a regular-season feed must give at least 16 teams a
+  // current game-status report and at least one player Out.
+  assertCurrentFloor(current);
   if (!Array.isArray(players) || players.length === 0) throw new Error(`shape assert: full.players is empty or not-array (${typeof players})`);
   const nflTeamCount = Object.keys(byTeam).length;
   if (nflTeamCount < 25 || nflTeamCount > 32) throw new Error(`shape assert: full.byTeam has ${nflTeamCount} teams — expected 25-32 (some teams may have zero reports; a floor of 25 catches "join dropped every team")`);
@@ -175,7 +179,9 @@ async function main() {
   const compactOut = OUT.replace(/\.json$/, '_current.json');
   fs.writeFileSync(compactOut, JSON.stringify({ meta, byTeam: byTeamCompact, players: compact }));
 
-  console.log(`  ${players.length} unique players; latest report week ${latestReportWeek}: ${currentlyOut} Out, ${currentlyQ} Questionable`);
+  const weekCounts = {};
+  for (const w of Object.values(current.reportWeekByTeam)) weekCounts[w] = (weekCounts[w] || 0) + 1;
+  console.log(`  ${players.length} unique players; ${current.teamsReporting} teams with a current report (by report week: ${Object.entries(weekCounts).map(([w, n]) => `week ${w} ${n}`).join(', ')}); ${currentlyOut} Out, ${currentlyQ} Questionable`);
   console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB — full)`);
   console.log(`Wrote ${compactOut} (${(fs.statSync(compactOut).size / 1024).toFixed(0)} KB — current-status only)`);
 }
