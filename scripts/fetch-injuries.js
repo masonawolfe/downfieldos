@@ -102,9 +102,17 @@ async function main() {
     byTeam[p.team].push(p);
   }
 
+  // The highest report week in the file. A player's `latest` row can come from
+  // any earlier week (a week 2 "Out" survives for a player who played week 7),
+  // so the "currently" counts are taken on this week only, the same filter
+  // src/utils/injuries.js applies (freshness plan step 10).
+  const reportWeeks = players.map(p => p.latest?.week).filter(w => Number.isFinite(w));
+  const latestReportWeek = reportWeeks.length ? Math.max(...reportWeeks) : null;
+  const onLatestWeek = p => latestReportWeek != null && p.latest?.week === latestReportWeek;
+
   // Ranking of currently-out players by team, useful for a fantasy sit/start card
-  const currentlyOut = players.filter(p => p.latest?.report_status === 'Out').length;
-  const currentlyQ = players.filter(p => p.latest?.report_status === 'Questionable').length;
+  const currentlyOut = players.filter(p => onLatestWeek(p) && p.latest.report_status === 'Out').length;
+  const currentlyQ = players.filter(p => onLatestWeek(p) && p.latest.report_status === 'Questionable').length;
 
   const OUT = path.join(__dirname, `../src/data/intelligence/injuries_${seasonUsed}.json`);
   const meta = {
@@ -115,6 +123,7 @@ async function main() {
     generated: new Date().toISOString(),
     total_reports: rows.length,
     unique_players: players.length,
+    latest_report_week: latestReportWeek,
     currently_out: currentlyOut,
     currently_questionable: currentlyQ,
   };
@@ -143,7 +152,7 @@ async function main() {
   // to the feed, not the page. Any assertion failure here exits the
   // workflow BEFORE the git commit, so the last-known-good file stays
   // in the repo.
-  const REQUIRED_META_KEYS = ['season', 'source', 'generated', 'total_reports', 'unique_players'];
+  const REQUIRED_META_KEYS = ['season', 'source', 'generated', 'total_reports', 'unique_players', 'latest_report_week'];
   for (const k of REQUIRED_META_KEYS) {
     if (meta[k] == null) throw new Error(`shape assert: meta.${k} is null/missing`);
   }
@@ -166,7 +175,7 @@ async function main() {
   const compactOut = OUT.replace(/\.json$/, '_current.json');
   fs.writeFileSync(compactOut, JSON.stringify({ meta, byTeam: byTeamCompact, players: compact }));
 
-  console.log(`  ${players.length} unique players, ${currentlyOut} currently Out, ${currentlyQ} Questionable`);
+  console.log(`  ${players.length} unique players; latest report week ${latestReportWeek}: ${currentlyOut} Out, ${currentlyQ} Questionable`);
   console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB — full)`);
   console.log(`Wrote ${compactOut} (${(fs.statSync(compactOut).size / 1024).toFixed(0)} KB — current-status only)`);
 }
