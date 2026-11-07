@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-11-07T11:02:13.460Z |
+| This build | 2026-11-07T11:16:48.585Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-06T12:23:34.172Z |
+| Prior build | 2026-11-07T11:02:13.461Z |
 | Ranked rows this build | 496 |
-| Ranked rows prior build | 495 |
+| Ranked rows prior build | 496 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -18,9 +18,7 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-| # | Player | Pos | Team | VORP |
-|---:|---|:---:|:---:|---:|
-| 348 | Dameon Pierce | RB | PHI | -151 |
+_None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._
