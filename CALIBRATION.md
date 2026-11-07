@@ -6,7 +6,7 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-07T19:43:01.255Z |
+| Generated | 2026-11-07T19:55:04.054Z |
 | Weekly board generated | 2026-11-07T11:02:11.434Z |
 | Player board generated | 2026-11-07T11:16:45.211Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
@@ -19,7 +19,7 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 | Actual points | `fantasy_points_graded`, scored under the board's own rules (`full_ppr`) |
 | Matched pairs | 2353 (headline 1715, written after kickoff 638) |
 
-Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1-7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
+Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1 to 7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
 
 ## Snapshots graded
 
@@ -103,9 +103,9 @@ If an adjustment adds signal, the fired mean error should sit closer to 0 than t
 
 ## Note, 2026-11-07: grading moved to the board's own scoring
 
-Until 2026-11-07 `actual` was nflverse's `fantasy_points_ppr`. That column takes 2 points off per interception and per fumble lost and adds 2 per two-point conversion and 6 per special teams touchdown. The projection is built without any of those terms, so the two sides of each row were scored by different rules. From 2026-11-07 `actual` is `fantasy_points_graded`, scored under the board's rules (`full_ppr`), and the headline leaves out weeks 1 and 2, whose snapshots were written after kickoff. Nothing in the projection changed. 228 of 2353 graded rows in weeks 1 to 8 have a different actual.
+Until 2026-11-07 `actual` was nflverse's `fantasy_points_ppr`. That column takes 2 points off per interception and per fumble lost and adds 2 per two-point conversion and 6 per special teams touchdown. The projection is built without any of those terms, so the two sides of each row were scored by different rules. From 2026-11-07 `actual` is `fantasy_points_graded`, scored under the board's rules (`full_ppr`), and the headline leaves out weeks 1 and 2, whose snapshots were written after kickoff. Nothing in the projection changed. 228 of 2353 graded rows in weeks 1 to 8 had a different actual that day.
 
-Old is nflverse's points; new is the board's rules. Both are recomputed from the rows in this file.
+Old is nflverse's points; new is the board's rules. These figures were frozen on 2026-11-07, when the change landed, and later stat corrections from nflverse do not move them. The same figures recomputed from today's rows are in `calibration_2026.json` under `scoring_change_2026_11_07.live_recompute`; today none of them differ from the frozen ones.
 
 | Week | N | Old mean error | New mean error | Old mean absolute error | New mean absolute error | QB old mean error | QB new mean error | In new headline |
 |---|---|---|---|---|---|---|---|---|
