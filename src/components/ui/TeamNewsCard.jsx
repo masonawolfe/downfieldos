@@ -3,6 +3,10 @@ import { Newspaper, Twitter, Check, ArrowUpRight, Briefcase, AlertTriangle, Mic,
 import teamNewsData from '../../data/intelligence/team_news.json';
 import { tn } from '../../utils/formatters';
 
+// team_news.json is static by design (freshness plan step 3): its label and
+// verified_on date come from the file itself.
+const TEAM_NEWS_LABEL = teamNewsData?.label || "Offseason notes";
+
 const KIND_META = {
   signing:   { label: "Signing",   color: "#16a34a", icon: Briefcase },
   trade:     { label: "Trade",     color: "#2563eb", icon: ArrowUpRight },
@@ -14,9 +18,9 @@ const KIND_META = {
 
 function fmtDate(iso) {
   if (!iso) return "";
-  const [, m, d] = iso.split("-");
+  const [y, m, d] = iso.split("-");
   const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  return `${months[parseInt(m, 10) - 1]} ${parseInt(d, 10)}`;
+  return `${months[parseInt(m, 10) - 1]} ${parseInt(d, 10)}, ${y}`;
 }
 
 export function TeamNewsCard({ team }) {
@@ -37,11 +41,10 @@ export function TeamNewsCard({ team }) {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Newspaper size={18} color="#f97316" />
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>Latest News</h3>
+          {/* Freshness plan step 3 (2026-11-07): a static, hand-curated file
+              names its own date from the file; the live wire carries the news title. */}
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>{TEAM_NEWS_LABEL}</h3>
         </div>
-        <span style={{ fontSize: 11, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1 }}>
-          {teamNewsData.season_context?.replace(/_/g, " ") || "Recent"}
-        </span>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {items.map((item, i) => {
