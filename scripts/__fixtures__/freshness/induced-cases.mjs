@@ -13,7 +13,8 @@
  * 21 to 28 are the paths review found passing with nothing checked (a moved
  * entry or directory, a source clock that does not resolve, a date that does
  * not parse, a stamp from the future, the retired season name, a one-commit
- * history under --replay).
+ * history under --replay); 29 proves --week is a floor, not a ceiling (a
+ * caller's lower week cannot hide a week finished since).
  *
  * No season year is written here: every year comes from data/season.json
  * through ctx, so the cases survive the rollover. The one year in this file is
@@ -257,5 +258,17 @@ export const CASES = [
     prepare: replayHistory,
     mutate: (c) => c.dropHistory(),
     expect: (c) => ({ mode: 'age', rule: 'replay', file: ACTUALS(c) }),
+  },
+  {
+    id: 29, name: '--week below the latest finished week (a chain dispatch for an older week): the games file with week L unscored still reads red',
+    // The caller's week is five below L (3 when L is 8). Replacing L with it
+    // would check weeks 1 to 3 only and pass vacuously; a floor still reads L.
+    args: (c) => ['--mode', 'coverage', '--tier', 'chain_input', '--as-of', c.T, '--week', String(Math.max(1, c.L - 5))],
+    prepare: (c) => { if (c.L < 2) throw new Error(`latest finished week at T is ${c.L}, so no lower --week exists and this case proves nothing`); },
+    mutate: (c) => c.editJson(`src/data/games${c.season}.json`, d => {
+      const g = d.games.find(x => x.week === c.L);
+      g.played = false; g.home_score = null; g.away_score = null;
+    }),
+    expect: (c) => ({ mode: 'coverage', rule: 'graded_week', file: `src/data/games${c.season}.json` }),
   },
 ];

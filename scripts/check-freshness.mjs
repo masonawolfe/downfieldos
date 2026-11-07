@@ -44,9 +44,11 @@
  *                         stderr
  *   --block-on-event E    fail only when GITHUB_EVENT_NAME is E (push); on any
  *                         other event the reds annotate
- *   --week N              the latest finished week, from the caller (the
- *                         Tuesday chain passes the results gate's week, plan
- *                         step 7 fix c)
+ *   --week N              a floor on the latest finished week, from the
+ *                         caller (the Tuesday chain passes the results gate's
+ *                         week, plan step 7 fix c). The gate reads the higher
+ *                         of N and the week it computes at the row's grace,
+ *                         so a caller's week only raises the bar
  *   --as-of DATE          proof pass: judge as if now were DATE
  *   --as-season YEAR      proof pass: judge as if data/season.json said YEAR
  *                         (base_season moves by the same amount); every
@@ -356,9 +358,8 @@ function seasonWindow() {
 const WINDOW = seasonWindow();
 // Without a schedule the gate cannot say it is out of season, so it ages everything.
 const IN_SEASON = WINDOW ? NOW >= WINDOW.start && NOW <= WINDOW.end : true;
-/** The latest regular-season week whose last kickoff is older than graceHours, or the caller's --week. */
-function latestFinishedWeek(graceHours) {
-  if (OPT.week != null) return OPT.week;
+/** The latest regular-season week whose last kickoff is older than graceHours, raised to the caller's --week if that is higher (a floor, never a ceiling). */
+function computedFinishedWeek(graceHours) {
   if (!SCHEDULE) return null;
   let latest = 0;
   for (const w of regWeeks(SCHEDULE)) {
@@ -366,6 +367,16 @@ function latestFinishedWeek(graceHours) {
     if (k != null && k + graceHours * HOUR <= NOW) latest = w;
   }
   return latest;
+}
+function latestFinishedWeek(graceHours) {
+  const computed = computedFinishedWeek(graceHours);
+  if (OPT.week == null) return computed;
+  return computed == null ? OPT.week : Math.max(OPT.week, computed);
+}
+/** Where L came from, for the red line and the note. */
+function weekSource(graceHours, L) {
+  if (OPT.week == null) return `grace ${graceHours} h`;
+  return L > OPT.week ? `grace ${graceHours} h, above --week ${OPT.week}` : 'from --week';
 }
 
 // DRAFT_WINDOW.md: the same small YAML subset .github/scripts/check-draft-freeze.mjs reads.
@@ -595,11 +606,11 @@ async function modeCoverage() {
       if (!g.found) short.push(`${cr.games} does not resolve`);
       else if (want != null && !(Number(g.value) >= want)) short.push(`${g.value} games synced, weeks 1 to ${L} hold ${want}`);
     } else short.push(`unknown coverage ${r.coverage}`);
-    for (const s of short) red('coverage', r.coverage, r, r.path, `${s} (latest finished week ${L}${OPT.week != null ? ', from --week' : `, grace ${r.coverage_grace_hours} h`})`);
+    for (const s of short) red('coverage', r.coverage, r, r.path, `${s} (latest finished week ${L}, ${weekSource(r.coverage_grace_hours, L)})`);
   }
   // The second-source recomputes run on the chain inputs only (plan step 5: the gate calls them on chain_input).
   for (const r of ROWS.filter(x => x.tier === 'chain_input' && RECOMPUTED.test(x.path))) recompute(r);
-  note('coverage', `latest finished week ${[...used].map(([g, L]) => `${L} at ${g} h grace`).join(', ') || 'not computed'}${OPT.week != null ? ' (from --week)' : ''}; ${T.checked} checks`);
+  note('coverage', `latest finished week ${[...used].map(([g, L]) => `${L} at ${g} h grace`).join(', ') || 'not computed'}${OPT.week != null ? ` (--week ${OPT.week} is a floor)` : ''}; ${T.checked} checks`);
 }
 
 // ── lineage ──────────────────────────────────────────────────────────────
