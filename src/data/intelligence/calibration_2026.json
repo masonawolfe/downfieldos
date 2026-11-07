@@ -1,13 +1,20 @@
 {
   "meta": {
     "season": 2026,
+    "generated_at": "2026-11-07T22:04:06.387Z",
     "source_season": 2026,
-    "generated_at": "2026-11-07T19:55:04.054Z",
-    "generated_utc": "2026-11-07T19:55:04.054Z",
+    "sources": [
+      "src/data/intelligence/weekly_actuals_2026.json",
+      "src/data/intelligence/weekly_projections/2026-wNN.json",
+      "src/data/weeklyBoard2026.js",
+      "src/data/playerBoard2026.js",
+      "src/data/schedule2026.js"
+    ],
+    "generated_utc": "2026-11-07T22:04:06.387Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
-    "actuals_generated_utc": "2026-11-07T19:43:00.918Z",
-    "weekly_board_generated_utc": "2026-11-07T11:02:11.434Z",
-    "player_board_generated_utc": "2026-11-07T11:16:45.211Z",
+    "actuals_generated_utc": "2026-11-07T22:03:46.854Z",
+    "weekly_board_generated_utc": "2026-11-07T22:04:05.679Z",
+    "player_board_generated_utc": "2026-11-07T22:04:05.268Z",
     "projections_source": "src/data/intelligence/weekly_projections/2026-wNN.json — frozen pre-kickoff snapshots (E-052). Never the live weeklyBoard2026.js.",
     "weeks_complete": [
       1,
@@ -1054,7 +1061,7 @@
     },
     "live_recompute": {
       "label": "NOT the record. The same figures recomputed from the rows in this file on this build; nflverse stat corrections move these, never the frozen note above.",
-      "generated_at": "2026-11-07T19:55:04.054Z",
+      "generated_at": "2026-11-07T22:04:06.387Z",
       "figures_differing_from_frozen": 0,
       "differing": [],
       "date": "2026-11-07",

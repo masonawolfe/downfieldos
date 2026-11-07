@@ -1,5 +1,9 @@
 {
-  "generated_at": "2026-11-07T19:45:47.639Z",
+  "generated_at": "2026-11-07T22:04:08.521Z",
+  "source_season": 2026,
+  "sources": [
+    "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
+  ],
   "source": "nflverse/games.csv",
   "season": 2026,
   "weeks_included": [

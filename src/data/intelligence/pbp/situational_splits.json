@@ -70,20 +70,20 @@
       "run_rate": 0.714
     },
     "third_down": {
-      "plays": 95,
-      "pass_rate": 0.779,
-      "conversion_rate": 0.4
+      "plays": 109,
+      "pass_rate": 0.752,
+      "conversion_rate": 0.385
     },
     "fourth_down": {
-      "total": 60,
-      "go_for_it": 8,
-      "punt": 34,
-      "field_goal": 14,
-      "go_rate": 0.133
+      "total": 68,
+      "go_for_it": 10,
+      "punt": 39,
+      "field_goal": 15,
+      "go_rate": 0.147
     },
     "two_minute_drill": {
-      "plays": 69,
-      "pass_rate": 0.739
+      "plays": 75,
+      "pass_rate": 0.707
     }
   },
   "BUF": {
@@ -408,29 +408,29 @@
   "JAX": {
     "team": "JAX",
     "red_zone": {
-      "plays": 68,
-      "pass_rate": 0.559,
-      "run_rate": 0.441
+      "plays": 79,
+      "pass_rate": 0.532,
+      "run_rate": 0.468
     },
     "goal_line": {
-      "plays": 18,
-      "pass_rate": 0.611,
-      "run_rate": 0.389
+      "plays": 22,
+      "pass_rate": 0.545,
+      "run_rate": 0.455
     },
     "third_down": {
-      "plays": 84,
-      "pass_rate": 0.619,
-      "conversion_rate": 0.488
+      "plays": 96,
+      "pass_rate": 0.635,
+      "conversion_rate": 0.469
     },
     "fourth_down": {
-      "total": 43,
+      "total": 51,
       "go_for_it": 5,
-      "punt": 25,
-      "field_goal": 10,
-      "go_rate": 0.116
+      "punt": 28,
+      "field_goal": 14,
+      "go_rate": 0.098
     },
     "two_minute_drill": {
-      "plays": 41,
+      "plays": 44,
       "pass_rate": 0.659
     }
   },

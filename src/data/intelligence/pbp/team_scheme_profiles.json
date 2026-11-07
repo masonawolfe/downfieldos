@@ -54,26 +54,26 @@
   "BAL": {
     "team": "BAL",
     "offense": {
-      "pass_rate": 0.525,
-      "run_rate": 0.475,
-      "total_plays": 474,
-      "pass_rate_down_1": 0.404,
-      "pass_rate_down_2": 0.534,
-      "pass_rate_down_3": 0.779,
-      "pass_rate_down_4": 0.5,
-      "no_huddle_rate": 0.036,
+      "pass_rate": 0.509,
+      "run_rate": 0.491,
+      "total_plays": 528,
+      "pass_rate_down_1": 0.386,
+      "pass_rate_down_2": 0.525,
+      "pass_rate_down_3": 0.752,
+      "pass_rate_down_4": 0.4,
+      "no_huddle_rate": 0.032,
       "run_direction": {
-        "left": 0.419,
-        "right": 0.419,
-        "middle": 0.162
+        "right": 0.433,
+        "left": 0.421,
+        "middle": 0.146
       }
     },
     "defense": {
-      "total_plays_faced": 498,
-      "opp_pass_rate": 0.564,
-      "opp_pass_rate_down_1": 0.491,
-      "opp_pass_rate_down_2": 0.544,
-      "opp_pass_rate_down_3": 0.745,
+      "total_plays_faced": 553,
+      "opp_pass_rate": 0.555,
+      "opp_pass_rate_down_1": 0.483,
+      "opp_pass_rate_down_2": 0.525,
+      "opp_pass_rate_down_3": 0.746,
       "opp_pass_rate_down_4": 0.5
     }
   },
@@ -366,27 +366,27 @@
   "JAX": {
     "team": "JAX",
     "offense": {
-      "pass_rate": 0.525,
-      "run_rate": 0.475,
-      "total_plays": 408,
-      "pass_rate_down_1": 0.439,
-      "pass_rate_down_2": 0.58,
-      "pass_rate_down_3": 0.619,
+      "pass_rate": 0.518,
+      "run_rate": 0.482,
+      "total_plays": 463,
+      "pass_rate_down_1": 0.436,
+      "pass_rate_down_2": 0.553,
+      "pass_rate_down_3": 0.635,
       "pass_rate_down_4": 0.6,
       "no_huddle_rate": 0.032,
       "run_direction": {
-        "left": 0.392,
-        "right": 0.345,
-        "middle": 0.263
+        "left": 0.395,
+        "right": 0.377,
+        "middle": 0.229
       }
     },
     "defense": {
-      "total_plays_faced": 412,
-      "opp_pass_rate": 0.624,
-      "opp_pass_rate_down_1": 0.508,
-      "opp_pass_rate_down_2": 0.696,
-      "opp_pass_rate_down_3": 0.759,
-      "opp_pass_rate_down_4": 0.7
+      "total_plays_faced": 466,
+      "opp_pass_rate": 0.594,
+      "opp_pass_rate_down_1": 0.478,
+      "opp_pass_rate_down_2": 0.667,
+      "opp_pass_rate_down_3": 0.731,
+      "opp_pass_rate_down_4": 0.583
     }
   },
   "KC": {

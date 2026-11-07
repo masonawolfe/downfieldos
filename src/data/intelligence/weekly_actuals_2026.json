@@ -1,9 +1,13 @@
 {
   "meta": {
     "season": 2026,
+    "generated_at": "2026-11-07T22:03:46.854Z",
     "source_season": 2026,
-    "generated_at": "2026-11-07T19:43:00.918Z",
-    "generated_utc": "2026-11-07T19:43:00.918Z",
+    "sources": [
+      "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
+      "src/data/playerBoard2026.js"
+    ],
+    "generated_utc": "2026-11-07T22:03:46.854Z",
     "row_count": 2725,
     "weeks_present": [
       1,
