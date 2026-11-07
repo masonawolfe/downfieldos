@@ -77,10 +77,13 @@ jobs:
       # still ships that commit.
       # Before gate_blocking_from (data/freshness_manifest.json) both
       # structural steps run as --report. The staleness modes always annotate.
+      # A malformed gate_blocking_from fails these steps only on push; on a
+      # dispatch the helper prints an ::error:: and --report, so a bad date
+      # cannot freeze the data deploys either (npm test catches it first).
       - name: Freshness gate, structural modes (blocks on push from gate_blocking_from)
         run: |
           set -euo pipefail
-          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs)"
+          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs --fail-closed-on-event push)"
           npm run --silent check:freshness -- --mode registration,imports,staging,label --block-on-event push ${REPORT_FLAG}
       - name: Freshness gate, staleness modes (always annotates)
         run: npm run --silent check:freshness -- --mode age,coverage,lineage,season,unread --report
@@ -123,7 +126,7 @@ jobs:
       - name: Freshness gate, deploy-time files in dist (blocks on push from gate_blocking_from)
         run: |
           set -euo pipefail
-          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs)"
+          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs --fail-closed-on-event push)"
           npm run --silent check:freshness -- --mode built --block-on-event push ${REPORT_FLAG}
       - name: Setup Pages
         uses: actions/configure-pages@v5

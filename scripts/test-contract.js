@@ -27,6 +27,7 @@ import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
 import { readSeasonSetting, SEASON, BASE_SEASON, seasonWindow, seasonFrom } from './_lib/season.js';
 import { contractMeta } from './_lib/stamp.js';
+import { isDay } from './_lib/gate-blocking.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.dirname(__dirname);
@@ -166,7 +167,22 @@ const FIELDS = ['path', 'producer', 'outputs_also', 'workflows', 'stamp', 'expec
 const rows = m.rows;
 assert(m.schema === 1, 'schema 1');
 assert(m.season_file === 'data/season.json', 'season_file names data/season.json');
-assert(/^\d{4}-\d{2}-\d{2}$/.test(m.gate_blocking_from), `gate_blocking_from is a date (${m.gate_blocking_from})`);
+// The deploy and the chain read this date through scripts/_lib/gate-blocking.mjs,
+// so the check is the helper's own isDay(): a bad date fails CI here, before main.
+assert(isDay(m.gate_blocking_from), `gate_blocking_from is a real day, by gate-blocking.mjs's isDay() (${m.gate_blocking_from})`);
+assert(!isDay('2026-11-31') && !isDay('2026-02-29') && isDay('2028-02-29'), 'induced: isDay() refuses 2026-11-31 and 2026-02-29 and takes 2028-02-29');
+{
+  const gb = (args, event) => {
+    const env = { ...process.env };
+    if (event == null) delete env.GITHUB_EVENT_NAME; else env.GITHUB_EVENT_NAME = event;
+    try { return { code: 0, out: execFileSync(process.execPath, [path.join(__dirname, '_lib', 'gate-blocking.mjs'), ...args], { encoding: 'utf8', env, stdio: ['ignore', 'pipe', 'pipe'] }) }; }
+    catch (e) { return { code: e.status, out: e.stdout || '' }; }
+  };
+  const before = gb(['--as-of', '2000-01-01']);
+  const after = gb(['--as-of', '9999-12-31']);
+  assert(before.code === 0 && before.out === '--report\n' && after.code === 0 && after.out === '', 'gate-blocking.mjs prints --report before the date and nothing on or after it');
+  assert(gb(['--as-of', '2026-11-31']).code === 2, 'induced: gate-blocking.mjs exits 2 on a bad --as-of');
+}
 const missingFields = rows.filter(r => FIELDS.some(f => !(f in r))).map(r => r.path);
 assert(missingFields.length === 0, `every row carries all ${FIELDS.length} fields${missingFields.length ? ` (missing on ${missingFields.join(', ')})` : ''}`);
 const paths = rows.map(r => r.path);
