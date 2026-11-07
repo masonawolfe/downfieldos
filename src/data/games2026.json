@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T19:38:10.012Z",
+  "generated_at": "2026-11-07T19:45:47.639Z",
   "source": "nflverse/games.csv",
   "season": 2026,
   "weeks_included": [
@@ -1427,7 +1427,7 @@
       "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TIE 27, WAS 27. tie, OT."
+      "narrative": "NYG 27, WAS 27. Tie, OT."
     },
     {
       "gameId": "2026_05_DEN_LAC",
