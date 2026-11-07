@@ -6,7 +6,8 @@ import { genRoster2026 } from '../../utils/roster';
 import { PLAYER_STATS_2025, PLAYER_STATS_2025_META } from '../../data/playerStats2025';
 import contractYearData from '../../data/intelligence/contract_year_players.json';
 import draftProspects from '../../data/draftProspects2026.json';
-import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
+import { DRAFT_PROSPECTS_2026_META } from '../../data/draftProspects2026.meta';
+import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
 import { AsOf } from '../ui/AsOf';
 import { analyzeDraftPick } from '../../utils/draftAnalysis';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
@@ -289,7 +290,7 @@ function ProspectView({ prospect }) {
       {topFitAnalysis.length > 0 && (
         <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: "0 0 16px", display: "flex", alignItems: "center", gap: 8 }}>
-            <Shield size={16} color="#f97316" /> Top Team Fits <AsOf meta={DRAFT_NEEDS_2026_META} />
+            <Shield size={16} color="#f97316" /> Top Team Fits <AsOf meta={DRAFT_PROSPECTS_2026_META} />
           </h3>
           {topFitAnalysis.map(({ team, schemeFit, schemeFitScore, fantasyImpact }) => (
             <div key={team} style={{ padding: "12px 0", borderBottom: "1px solid #f1f5f9" }}>

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Newspaper, Twitter, Check, ArrowUpRight, Briefcase, AlertTriangle, Mic, FileText } from "lucide-react";
 import teamNewsData from '../../data/intelligence/team_news.json';
 import { tn } from '../../utils/formatters';
+import { AsOf } from './AsOf';
 
 // team_news.json is static by design (freshness plan step 3): its label and
-// verified_on date come from the file itself.
-const TEAM_NEWS_LABEL = teamNewsData?.label || "Offseason notes";
+// verified_on date come from the file itself, printed through AsOf. There is
+// no fallback: a file without a label prints no heading text, so the page
+// never shows a dateless title and the label render check catches it.
 
 const KIND_META = {
   signing:   { label: "Signing",   color: "#16a34a", icon: Briefcase },
@@ -43,7 +45,9 @@ export function TeamNewsCard({ team }) {
           <Newspaper size={18} color="#f97316" />
           {/* Freshness plan step 3 (2026-11-07): a static, hand-curated file
               names its own date from the file; the live wire carries the news title. */}
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>{TEAM_NEWS_LABEL}</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>
+            <AsOf meta={teamNewsData} style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", background: "transparent", border: "none", padding: 0, borderRadius: 0 }} />
+          </h3>
         </div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
