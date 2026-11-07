@@ -115,6 +115,9 @@ export function applyFAOverrides(edges, faMoves, rosters) {
     corrected[id] = e;
   });
 
+  // A player met on edges with different graph teams can land in both sets;
+  // count him once, as applied, so the two counts always sum to the players seen.
+  applied.forEach(k => skipped.delete(k));
   return { edges: corrected, stats: { applied: applied.size, skipped: skipped.size } };
 }
 

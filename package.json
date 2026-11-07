@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/report-famoves-overrides.mjs && vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
+    "build": "node scripts/report-famoves-overrides.mjs --report && vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
     "data:famoves:report": "node scripts/report-famoves-overrides.mjs",
     "preview": "vite preview",
     "data:fetch": "node scripts/fetch-nflverse-rosters.js",
@@ -22,7 +22,7 @@
     "data:referees": "node scripts/fetch-referees.js",
     "data:contracts": "node scripts/fetch-contracts.js",
     "data:news": "node scripts/fetch-team-news.js",
-    "test": "node scripts/test-rosters.js && node scripts/test-injuries.js",
+    "test": "node scripts/test-rosters.js && node scripts/test-injuries.js && node scripts/test-famoves.mjs",
     "data:availability": "node scripts/fetch-availability.js",
     "data:board": "node scripts/build-player-board.js",
     "data:board:verify": "node scripts/verify-player-board.mjs",

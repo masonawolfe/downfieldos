@@ -12,8 +12,11 @@
  * candidates pool, not a full roster: a player it lacks is unconfirmed, not gone.
  *
  * Exits non-zero only on a structural fault: an empty roster index (every
- * override would apply blind) or a counted player that is neither applied nor
- * skipped. Run: node scripts/report-famoves-overrides.mjs [--json]
+ * override would apply blind) or a kept edge that still carries a "lost" player
+ * whose graph team rosters2026.js does not confirm. With --report (how
+ * `npm run build` calls it) a fault prints a warning and exits 0, so this
+ * line can never stop a deploy; the freshness gate is where reds live.
+ * Run: node scripts/report-famoves-overrides.mjs [--json] [--report]
  */
 import fs from 'fs';
 import path from 'path';
@@ -29,27 +32,29 @@ const graphPath = path.join(root, 'src/data/intelligence/former_teammates_active
 const graph = JSON.parse(fs.readFileSync(graphPath, 'utf8'));
 const edges = graph.edges || {};
 
-const rosterIndex = buildRosterIndex(ROSTERS_2026);
-if (rosterIndex.size === 0) {
-  console.error('report-famoves-overrides: rosters2026.js gave 0 players; every override would apply unchecked');
+const REPORT = process.argv.includes('--report');
+function fault(msg) {
+  if (REPORT) { console.warn(`::warning::report-famoves-overrides: ${msg}`); return; }
+  console.error(`report-famoves-overrides: ${msg}`);
   process.exit(1);
 }
+
+const rosterIndex = buildRosterIndex(ROSTERS_2026);
+if (rosterIndex.size === 0) fault('rosters2026.js gave 0 players; every override would apply unchecked');
 
 const { edges: out, stats } = applyFAOverrides(edges, FA_MOVES_2026, ROSTERS_2026);
 
-// Independent recount: distinct faMoves players present in the graph.
-const { overrides, lostPlayers } = buildTeamOverrides(FA_MOVES_2026);
-const present = new Set();
-Object.entries(edges).forEach(([id, e]) => {
+// Field assertion: no kept edge may carry a "lost" faMoves player whose graph
+// team rosters2026.js does not confirm (the stale BUF case: Bosa, Slay, Savage).
+const { lostPlayers } = buildTeamOverrides(FA_MOVES_2026);
+const stale = [];
+Object.entries(out).forEach(([id, e]) => {
   const [g1, g2] = edgeGsisIds(e.edge_id || id);
   [[e.player_1, g1], [e.player_2, g2]].forEach(([p, g]) => {
-    if (p?.name && (p.name in overrides || p.name in lostPlayers)) present.add(g || `name:${p.name}`);
+    if (p?.name && p.name in lostPlayers && !(g && rosterIndex.get(g)?.has(p.team))) stale.push(`${p.name} ${p.team} (${id})`);
   });
 });
-if (present.size !== stats.applied + stats.skipped) {
-  console.error(`report-famoves-overrides: ${present.size} faMoves players in the graph, but applied ${stats.applied} + skipped ${stats.skipped}`);
-  process.exit(1);
-}
+if (stale.length) fault(`${stale.length} kept edge end(s) carry an unconfirmed lost player: ${stale.slice(0, 5).join('; ')}`);
 
 console.log(overridesLine(stats));
 const inN = Object.keys(edges).length;
