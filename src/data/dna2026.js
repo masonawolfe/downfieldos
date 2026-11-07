@@ -1,3 +1,6 @@
+// Freshness plan step 12 (2026-11-07): static by design. Preseason narratives; verified_on is the last content commit.
+export const DNA_2026_META = { label: "Preseason, August 2026", verified_on: "2026-08-23", source_season: 2026 };
+
 export const DNA_2026 = {
   ARI:{p:.55,e:.40,x:.06,s:"Rebuilding — Brissett Bridges, Beck Taking Reps"},
   ATL:{p:.56,e:.46,x:.08,s:"Tua Arrives — Penix Competition"},

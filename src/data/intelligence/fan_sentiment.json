@@ -737,6 +737,9 @@
     "scoring_framework": "1-10 scales reflecting emotional temperature at snapshot moment, not predictive of season outcome"
   },
   "metadata": {
+    "label": "Offseason, March 2026",
+    "verified_on": "2026-03-21",
+    "source_season": 2026,
     "placeholder_teams_added_2026_09_05": [
       "CAR",
       "CLE",
