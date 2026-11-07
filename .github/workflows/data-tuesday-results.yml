@@ -104,8 +104,11 @@ jobs:
       # DATA_FRESHNESS_PLAN step 2: defense2026.js from this season's REG
       # play-by-play through the graded week, reusing the downloads above.
       # continue-on-error: a failed build restores the committed file and the
-      # board still builds; check-defense-field.mjs (and the gate, from step 5)
-      # reads it red. The later slots no-op once week N is graded, so a red is
+      # board still builds. That file holds 2026 data through week N-1 and
+      # passes check-defense-field.mjs, so in R1 a failure shows only as the
+      # summary line, the ::warning:: annotation and this step's
+      # continue-on-error mark; the gate's coverage mode turns it red from
+      # step 5. The later slots no-op once week N is graded, so a failure is
       # rerun by dispatch with force=yes.
       - name: Rebuild defense2026.js from 2026 play-by-play (context only, no model term)
         if: steps.gate.outputs.ready == 'true'
@@ -118,7 +121,7 @@ jobs:
           DEFENSE_THROUGH_WEEK: ${{ steps.gate.outputs.week }}
         run: |
           set -euo pipefail
-          npm run data:defense || { git checkout -- src/data/defense2026.js; echo "defense build failed; kept the committed defense2026.js" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; }
+          npm run data:defense || { git checkout -- src/data/defense2026.js; echo "::warning::defense build failed; kept the committed defense2026.js"; echo "defense build failed; kept the committed defense2026.js" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; }
       - name: Build the player board
         if: steps.gate.outputs.ready == 'true'
         run: npm run data:board

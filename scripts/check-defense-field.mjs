@@ -26,19 +26,27 @@
  *   5. The served field: from week 10 on, the newest snapshot's
  *      opp_fpts_allowed_to_pos equals the file's value for that opponent and
  *      position, on a sample of 50 rows. Snapshots before week 10 carry the
- *      2025 table by history and are exempt.
+ *      2025 table by history and are exempt. Values are compared only when
+ *      the snapshot served this defense build (its source_board_inputs:
+ *      the same defense_generated, or the same season and weeks). A snapshot
+ *      that served an older build of the same season, with fewer weeks, is
+ *      reported as "snapshot predates current defense build" and passes (a
+ *      failed Tuesday defense step then a force=yes rerun). Any other
+ *      mismatch, such as last season's build, fails.
  *
- * FLOOR is 0.70 until the first 2026 rebuild prints its four values; then
- * about 0.90 if those read 0.95 or better (plan step 2, engineer 2026-11-01
- * 20:40). The floor catches last season's table; it does not catch a file
- * that is a few weeks stale, which the gate's `coverage` mode owns.
+ * FLOOR is 0.90, set from the first 2026 rebuild (2026-11-07, weeks 1 to 8),
+ * which printed QB +0.995, RB +0.994, WR +0.999 and TE +0.999. Plan step 2
+ * (engineer 2026-11-01 20:40) asks for about 0.90 once those read 0.95 or
+ * better; until that rebuild the floor was 0.70. The floor catches last
+ * season's table; it does not catch a file that is a few weeks stale, which
+ * the gate's `coverage` mode owns.
  *
  * Usage:
  *   node scripts/check-defense-field.mjs
  *     [--file src/data/defense2026.js]
  *     [--actuals src/data/intelligence/weekly_actuals_2026.json]
  *     [--snapshots src/data/intelligence/weekly_projections]
- *     [--floor 0.70]
+ *     [--floor 0.90]
  * Exit 0 when all five pass, 1 when any fails, 2 on a usage or read error.
  */
 
@@ -55,7 +63,8 @@ const argVal = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1
 const FILE = path.resolve(argVal('--file', path.join(REPO, 'src', 'data', 'defense2026.js')));
 const ACTUALS = path.resolve(argVal('--actuals', path.join(REPO, 'src', 'data', 'intelligence', 'weekly_actuals_2026.json')));
 const SNAP_DIR = path.resolve(argVal('--snapshots', path.join(REPO, 'src', 'data', 'intelligence', 'weekly_projections')));
-const FLOOR = Number(argVal('--floor', '0.70'));
+const FLOOR = Number(argVal('--floor', '0.90'));
+const FLOOR_TXT = Number.isFinite(FLOOR) ? FLOOR.toFixed(Math.max(2, (String(FLOOR).split('.')[1] || '').length)) : String(FLOOR);
 const SERVED_FROM_WEEK = 10;
 const SAMPLE = 50;
 const POSITIONS = ['QB', 'RB', 'WR', 'TE'];
@@ -120,7 +129,7 @@ async function main() {
   const fileSeason = def.meta.source_season ?? null;
   const labels = [...new Set(Object.values(def.rows).map(r => r.defense_source).filter(Boolean))];
   console.log(`check-defense-field: ${rel(FILE)} (${def.exportName}; source_season ${fileSeason ?? 'not stated'}; defense_source ${labels.join(', ') || 'none'})`);
-  console.log(`  against ${rel(ACTUALS)} (season ${actuals.meta?.season ?? '?'}, weeks ${(actuals.meta?.weeks_present || []).join(',')}), floor ${FLOOR.toFixed(2)}`);
+  console.log(`  against ${rel(ACTUALS)} (season ${actuals.meta?.season ?? '?'}, weeks ${(actuals.meta?.weeks_present || []).join(',')}), floor ${FLOOR_TXT}`);
 
   // ── 1. Recompute from the actuals ───────────────────────────────────────
   const fileWeeks = Array.isArray(def.meta.weeks_covered) && def.meta.weeks_covered.length ? new Set(def.meta.weeks_covered) : null;
@@ -157,7 +166,7 @@ async function main() {
     const y = teams.map(t => recomputed[t][p]);
     if (x.some(v => typeof v !== 'number' || !Number.isFinite(v))) { rho[p] = NaN; failures.push(`2 floor: ${p} has non-numeric ${field(p)}`); continue; }
     rho[p] = spearman(x, y);
-    if (!(rho[p] >= FLOOR)) failures.push(`2 floor: ${p} rank correlation ${fmt(rho[p])} is below ${FLOOR.toFixed(2)}`);
+    if (!(rho[p] >= FLOOR)) failures.push(`2 floor: ${p} rank correlation ${fmt(rho[p])} is below ${FLOOR_TXT}`);
   }
   console.log(`  2 rank correlation, file vs recomputation: ${POSITIONS.map(p => `${p} ${fmt(rho[p])}`).join(' · ')}`);
 
@@ -201,17 +210,43 @@ async function main() {
     console.log(`  5 served field: exempt (newest snapshot ${newest ? newest.f : 'none'} is before week ${SERVED_FROM_WEEK})`);
   } else {
     const snap = JSON.parse(fs.readFileSync(path.join(SNAP_DIR, newest.f), 'utf8'));
-    const cand = (snap.rows || []).filter(r => POSITIONS.includes(r.pos) && r.opponent);
-    const step = Math.max(1, Math.floor(cand.length / SAMPLE));
-    const sample = cand.filter((_, i) => i % step === 0).slice(0, SAMPLE);
-    const bad = [];
-    for (const r of sample) {
-      const want = def.rows[norm(r.opponent)]?.[field(r.pos)] ?? null;
-      if (r.opp_fpts_allowed_to_pos !== want) bad.push(`${r.name || r.gsis_id} ${r.pos} vs ${r.opponent}: snapshot ${r.opp_fpts_allowed_to_pos}, file ${want}`);
+    // Which defense build did the snapshot serve? The snapshot is write-once,
+    // so after a failed Tuesday defense step and a force=yes rerun it keeps
+    // the older build while the file moves on. Compare values only when the
+    // snapshot used this build (same generated stamp, or the same season and
+    // weeks); an older build of this season is a named state, not a diff.
+    // serialise() in snapshot-weekly-projections.mjs spreads the header at the top level.
+    const head = snap.header || snap;
+    const inputs = head.source_board_inputs || {};
+    const snapGen = inputs.defense_generated ?? null;
+    const snapSeason = inputs.defense_source_season ?? head.field_seasons?.opp_fpts_allowed_to_pos_season ?? null;
+    const snapWeeks = Array.isArray(inputs.defense_weeks_covered) ? inputs.defense_weeks_covered : null;
+    const fileWeeksList = Array.isArray(def.meta.weeks_covered) ? def.meta.weeks_covered : null;
+    const sameWeeks = snapWeeks && fileWeeksList && snapWeeks.join(',') === fileWeeksList.join(',');
+    const sameBuild = (snapGen != null && snapGen === def.meta.generated) || (snapSeason === fileSeason && sameWeeks);
+    const olderBuild = !sameBuild && fileSeason != null && snapSeason === fileSeason && snapWeeks && fileWeeksList
+      && snapWeeks.length < fileWeeksList.length && snapWeeks.every(w => fileWeeksList.includes(w));
+    if (!sameBuild) {
+      const desc = `snapshot defense build: season ${snapSeason ?? 'not stated'}, weeks ${snapWeeks ? snapWeeks.join(',') : 'not stated'}; file: season ${fileSeason ?? 'not stated'}, weeks ${fileWeeksList ? fileWeeksList.join(',') : 'not stated'}`;
+      if (olderBuild) console.log(`  5 served field: snapshot predates current defense build (${newest.f}; ${desc})`);
+      else {
+        failures.push(`5 served field (${newest.f}): snapshot served a different defense build (${desc})`);
+        console.log(`  5 served field: ${newest.f} served a different defense build (${desc})`);
+      }
     }
-    if (sample.length < Math.min(SAMPLE, cand.length) || !sample.length) bad.push(`only ${sample.length} sampled rows`);
-    if (bad.length) failures.push(`5 served field (${newest.f}): ${bad.length} of ${sample.length} rows differ: ${bad.slice(0, 5).join('; ')}`);
-    console.log(`  5 served field: ${newest.f}, ${sample.length} rows sampled, ${bad.length} differ`);
+    const cand = sameBuild ? (snap.rows || []).filter(r => POSITIONS.includes(r.pos) && r.opponent) : null;
+    if (cand) {
+      const step = Math.max(1, Math.floor(cand.length / SAMPLE));
+      const sample = cand.filter((_, i) => i % step === 0).slice(0, SAMPLE);
+      const bad = [];
+      for (const r of sample) {
+        const want = def.rows[norm(r.opponent)]?.[field(r.pos)] ?? null;
+        if (r.opp_fpts_allowed_to_pos !== want) bad.push(`${r.name || r.gsis_id} ${r.pos} vs ${r.opponent}: snapshot ${r.opp_fpts_allowed_to_pos}, file ${want}`);
+      }
+      if (sample.length < Math.min(SAMPLE, cand.length) || !sample.length) bad.push(`only ${sample.length} sampled rows`);
+      if (bad.length) failures.push(`5 served field (${newest.f}): ${bad.length} of ${sample.length} rows differ: ${bad.slice(0, 5).join('; ')}`);
+      console.log(`  5 served field: ${newest.f}, ${sample.length} rows sampled, ${bad.length} differ`);
+    }
   }
 
   if (failures.length) {

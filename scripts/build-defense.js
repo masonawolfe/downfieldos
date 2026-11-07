@@ -381,6 +381,22 @@ export const DEFENSE_2026 = ${JSON.stringify(byTeam, null, 2)};
 
 export const DEFENSE_2026_META = ${JSON.stringify(meta, null, 2)};
 `;
+  // Write on change, as build-weekly-board.js does: when the rows and the
+  // META (less its generated stamp) match the committed file, leave it and
+  // its stamp alone, so a force=yes rerun with nothing new commits nothing.
+  if (fs.existsSync(OUT) && process.env.FORCE_DEFENSE_WRITE !== '1') {
+    const prev = fs.readFileSync(OUT, 'utf8');
+    const pm = prev.match(/export const DEFENSE_2026 = (\{[\s\S]*?\});\n\nexport const DEFENSE_2026_META = (\{[\s\S]*?\});\n?$/);
+    if (pm) {
+      let prevMeta = null;
+      try { prevMeta = JSON.parse(pm[2]); } catch { prevMeta = null; }
+      const strip = (m) => { const { generated: _g, ...rest } = m || {}; return JSON.stringify(rest); };
+      if (prevMeta && pm[1] === JSON.stringify(byTeam, null, 2) && strip(prevMeta) === strip(meta)) {
+        console.log(`\nRows and weeks_covered unchanged vs committed ${path.relative(REPO_ROOT, OUT)}; not rewriting (set FORCE_DEFENSE_WRITE=1 to force).`);
+        return;
+      }
+    }
+  }
   fs.writeFileSync(OUT, output);
   console.log(`\nWrote ${OUT} (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB)`);
   console.log('  teams covered:', rows.length);
