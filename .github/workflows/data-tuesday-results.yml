@@ -125,6 +125,14 @@ jobs:
       - name: Emit BOARD.md + BOARD_WEEKLY.md
         if: steps.gate.outputs.ready == 'true'
         run: npm run --silent data:board:md
+      # DATA_FRESHNESS_PLAN step 11 (2026-11-01): rebuild the This Week
+      # recap feed from nflverse games.csv once the gate has passed. A failed
+      # fetch must never stop the snapshot, so it is continue-on-error and
+      # the last good src/data/games2026.json stays in place.
+      - name: Rebuild the This Week game feed (games2026.json)
+        if: steps.gate.outputs.ready == 'true'
+        continue-on-error: true
+        run: npm run data:games
       - name: Commit week N results + week N+1 snapshot
         if: steps.gate.outputs.ready == 'true'
         id: commit
@@ -139,6 +147,7 @@ jobs:
           git add src/data/intelligence/pbp/
           git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md src/data/rosters2026.js
           git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/
+          git add src/data/games2026.json
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "Nothing changed."; exit 0
           fi
