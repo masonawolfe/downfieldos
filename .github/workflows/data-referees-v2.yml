@@ -40,7 +40,10 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/intelligence/referee_appearances.json
+          # Freshness plan step 14 (2026-11-07): stage the compact file too. The
+          # script writes it every run, but only the full file was staged, so
+          # RefereeProfileCard served the 2026-08-21 copy.
+          git add src/data/intelligence/referee_appearances.json src/data/intelligence/referee_appearances_compact.json
           if git diff --cached --quiet; then
             echo "No referee changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"
