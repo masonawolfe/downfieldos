@@ -504,6 +504,29 @@ function loadDefense2026() {
   }
 }
 
+// The defense file's own season label, never a hard-coded year
+// (DATA_FRESHNESS_PLAN step 2). Reads DEFENSE_2026_META.source_season and
+// weeks_covered; a file built before step 2 carries its season only in each
+// row's defense_source (nflverse_pbp_<yyyy>_REG).
+let DEFENSE_LABEL_CACHE = null;
+function defense2026Label() {
+  if (DEFENSE_LABEL_CACHE) return DEFENSE_LABEL_CACHE;
+  let season = null, weeks = null;
+  try {
+    const src = loadFile('src/data/defense2026.js');
+    const mm = src.match(/export const DEFENSE_2026_META = ({[\s\S]*});\s*$/);
+    const meta = mm ? JSON.parse(mm[1]) : {};
+    season = meta.source_season ?? null;
+    weeks = Array.isArray(meta.weeks_covered) && meta.weeks_covered.length ? meta.weeks_covered : null;
+    if (season == null) {
+      const ms = src.match(/"defense_source":\s*"nflverse_pbp_(\d{4})_REG"/);
+      season = ms ? Number(ms[1]) : null;
+    }
+  } catch { /* label falls back below */ }
+  DEFENSE_LABEL_CACHE = `${season ?? 'unknown-season'} REG PBP${weeks ? `, weeks ${weeks[0]} to ${weeks[weeks.length - 1]}` : ''}`;
+  return DEFENSE_LABEL_CACHE;
+}
+
 async function attachContextLayer(rows) {
   const { byKeyStrict: contractByKey, byName: contractByName, meta: contractMeta } = loadContractYear();
   const coaching = await loadCoachingTrees();
@@ -650,7 +673,7 @@ async function attachContextLayer(rows) {
       r.own_team_defense_rush_epa_per_att_allowed = d.rush_epa_per_att_allowed;
       r.own_team_defense_rank_pass_overall = d.rank_pass_def_overall;
       r.own_team_defense_rank_rush_overall = d.rank_rush_def_overall;
-      r.own_team_defense_source = 'defense2026.js (from 2025 REG PBP)';
+      r.own_team_defense_source = `defense2026.js (from ${defense2026Label()})`;
       counters.defense_hits++;
     }
 
@@ -1228,7 +1251,7 @@ export const PLAYER_BOARD_${SEASON}_META = ${JSON.stringify({
         'dna2026.js (32 teams — p/e/x/state)',
         'stadiums.js (name/city/tz/surface/altitude/dome)',
         'intelligence/fan_sentiment.json (29 of 32 teams; missing CAR CLE NYG)',
-        'defense2026.js (own-team-defense summary; opponent-side joins live on weekly board — E-003)',
+        `defense2026.js (${defense2026Label()}; own-team-defense summary; opponent-side joins live on weekly board — E-003)`,
         'intelligence/history_2023_2024.json (E-005 — age + 2023 + 2024 + games_missed_last_3)',
       ],
       coordinator_moves_2026_curated: contextResult.meta.coordinator_moves,

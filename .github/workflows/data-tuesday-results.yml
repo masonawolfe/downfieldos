@@ -101,6 +101,24 @@ jobs:
       - name: Reconcile rosters against today's availability (E-044)
         if: steps.gate.outputs.ready == 'true'
         run: npm run data:reconcile-rosters
+      # DATA_FRESHNESS_PLAN step 2: defense2026.js from this season's REG
+      # play-by-play through the graded week, reusing the downloads above.
+      # continue-on-error: a failed build restores the committed file and the
+      # board still builds; check-defense-field.mjs (and the gate, from step 5)
+      # reads it red. The later slots no-op once week N is graded, so a red is
+      # rerun by dispatch with force=yes.
+      - name: Rebuild defense2026.js from 2026 play-by-play (context only, no model term)
+        if: steps.gate.outputs.ready == 'true'
+        id: defense
+        continue-on-error: true
+        env:
+          SEASON: '2026'
+          DEFENSE_PBP: ${{ env.PBP_RAW_DIR }}/play_by_play_2026.csv.gz
+          DEFENSE_ROSTER: ${{ env.PBP_RAW_DIR }}/roster_weekly_2026.csv
+          DEFENSE_THROUGH_WEEK: ${{ steps.gate.outputs.week }}
+        run: |
+          set -euo pipefail
+          npm run data:defense || { git checkout -- src/data/defense2026.js; echo "defense build failed; kept the committed defense2026.js" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; }
       - name: Build the player board
         if: steps.gate.outputs.ready == 'true'
         run: npm run data:board
@@ -139,6 +157,7 @@ jobs:
           git add src/data/intelligence/pbp/
           git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md src/data/rosters2026.js
           git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/
+          git add src/data/defense2026.js
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "Nothing changed."; exit 0
           fi

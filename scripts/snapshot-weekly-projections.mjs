@@ -28,6 +28,16 @@
  *   has graded weeks 1-4 against since E-032.
  *
  * Test hook: --now <ISO> overrides the clock (local proofs only).
+ *
+ * The season of opp_fpts_allowed_to_pos (DATA_FRESHNESS_PLAN step 2, 2026-11):
+ *   w01 to w09 were frozen while src/data/defense2026.js still held the 2025
+ *   REG play-by-play table, so their opp_fpts_allowed_to_pos values are 2025
+ *   numbers. Those files are write-once and stay as frozen; they carry no
+ *   field_seasons block. From w10 on, defense2026.js is rebuilt in the
+ *   Tuesday chain from 2026 REG play-by-play to date, and each new snapshot
+ *   states the field's season and weeks in header.field_seasons, read from
+ *   the weekly board's META.inputs (the defense file's own META), never
+ *   assumed. The field is context only: weekly_value has no matchup term.
  */
 
 import fs from 'fs';
@@ -77,6 +87,18 @@ function loadModuleFromSource(src, name) {
   return import(pathToFileURL(tmp).href);
 }
 
+function fieldSeasons(boardMeta) {
+  const season = boardMeta?.inputs?.defense_source_season ?? null;
+  const weeks = boardMeta?.inputs?.defense_weeks_covered;
+  const span = Array.isArray(weeks) && weeks.length ? `, weeks ${weeks[0]} to ${weeks[weeks.length - 1]}` : '';
+  return {
+    opp_fpts_allowed_to_pos: season == null
+      ? 'season not stated by the weekly board (built before DATA_FRESHNESS_PLAN step 2); w01 to w09 carry the 2025 REG table'
+      : `${season} REG play-by-play${season === SEASON ? ' to date' : ''}${span} (defense2026.js); context only, no matchup term in weekly_value`,
+    opp_fpts_allowed_to_pos_season: season,
+  };
+}
+
 function buildSnapshot({ week, rowsAll, boardMeta, writtenUtc, provenance, schedule }) {
   const rows = rowsAll
     .filter(r => r.week === week && !r.is_bye && r.weekly_value != null)
@@ -95,6 +117,7 @@ function buildSnapshot({ week, rowsAll, boardMeta, writtenUtc, provenance, sched
     model_version: boardMeta?.model_version || 'E-004 v1 (pre-2026-10-10): base pace + matchup-defense adj (±4 cap, full team gap) + env/rest adjustments, no floor',
     source_board_generated: boardMeta?.generated || null,
     source_board_inputs: boardMeta?.inputs || null,
+    field_seasons: fieldSeasons(boardMeta),
     provenance,
     policy: 'Write-once. Never rewritten. Calibration grades this week against these rows. E-052.',
   };
