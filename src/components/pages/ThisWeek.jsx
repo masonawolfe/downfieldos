@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Trophy, ChevronUp, ChevronDown, ChevronRight, Flame, Eye, Calendar, Download } from "lucide-react";
 import { agg, lgbl } from '../../utils/aggregation';
-import { LAST_COMPLETE_SEASON, PLAY_EXPLORER_META } from '../../config';
+import { LAST_COMPLETE_SEASON, PLAY_EXPLORER_META, SEASONS } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { DNA } from '../../data/dna';
@@ -261,7 +261,7 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <label style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Season</label>
           <select value={selectedSeason} onChange={e => setSelectedSeason(Number(e.target.value))} style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 10, padding: "10px 14px", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-            <option value={2025}>2025</option><option value={2024}>2024</option><option value={2023}>2023</option>
+            {[...SEASONS].reverse().map(y => <option key={y} value={y}>{y}</option>)}
           </select>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>

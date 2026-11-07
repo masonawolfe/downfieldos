@@ -11,7 +11,9 @@
  * `data/season.json` (freshness plan step 4), which every season-following
  * script reads. `LAST_COMPLETE_SEASON` must equal `base_season` in that
  * file and be the last entry of `SEASONS` (freshness plan step 17; the
- * `season` mode of `scripts/check-freshness.mjs`, step 5, asserts it).
+ * `season` mode of `scripts/check-freshness.mjs`, step 5, will assert it;
+ * that check does not exist yet). The play explorer's label and its season
+ * selector on /this-week are both built from `SEASONS`.
  *
  * `LAST_COMPLETE_SEASON` moves only when a full season of play data is
  * loaded, never at kickoff: setting it to the in-season year would print
