@@ -3,7 +3,7 @@ import { Flame, AlertTriangle } from "lucide-react";
 import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
 import { agg, lgbl } from '../../utils/aggregation';
-import { CURRENT_SEASON } from '../../config';
+import { LAST_COMPLETE_SEASON } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { downloadCSV } from '../../utils/csvExport';
@@ -33,7 +33,7 @@ export function FantasyIntel({ plays, rosters, primaryTeam }) {
   const [personaKey, setPersonaKey] = useState('BALANCED');   // was 'MASON'; renamed 2026-09-05 per binding constraint
   const persona = useMemo(() => PERSONAS.find(p => p.key === personaKey) || PERSONAS[0], [personaKey]);
   const bl = useMemo(() => lgbl(plays), [plays]);
-  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : CURRENT_SEASON, [plays]);
+  const latestSeason = useMemo(() => plays.length > 0 ? plays[plays.length - 1].season : LAST_COMPLETE_SEASON, [plays]);
 
   // Generate fantasy matchup board
   const matchupBoard = useMemo(() => {

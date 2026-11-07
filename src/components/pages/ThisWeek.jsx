@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Trophy, ChevronUp, ChevronDown, ChevronRight, Flame, Eye, Calendar, Download } from "lucide-react";
 import { agg, lgbl } from '../../utils/aggregation';
-import { CURRENT_SEASON } from '../../config';
+import { LAST_COMPLETE_SEASON, PLAY_EXPLORER_META } from '../../config';
 import { calcMatchupGrade } from '../../utils/grading';
 import { pct, tn } from '../../utils/formatters';
 import { DNA } from '../../data/dna';
@@ -14,11 +14,12 @@ import { FormerTeammatesCard } from '../ui/FormerTeammatesCard';
 import { Tooltip } from '../ui/Tooltip';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { WeekRecaps } from '../ui/WeekRecaps';
+import { AsOf } from '../ui/AsOf';
 import games2026 from '../../data/games2026.json';
 
 export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, primaryTeam }) {
   const [selectedWeek, setSelectedWeek] = useState(18);
-  const [selectedSeason, setSelectedSeason] = useState(CURRENT_SEASON);
+  const [selectedSeason, setSelectedSeason] = useState(LAST_COMPLETE_SEASON);
   const [expandedGame, setExpandedGame] = useState(null);
 
   // Build the week's matchups. Primary: from PBP `plays` (works for 2023-2025
@@ -255,7 +256,7 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
         </div>
       )}
 
-      <h3 style={{ fontSize: 15, fontWeight: 800, color: "#0f172a", textTransform: "uppercase", letterSpacing: 1.5, margin: "0 0 12px" }}>Historical week explorer</h3>
+      <h3 style={{ fontSize: 15, fontWeight: 800, color: "#0f172a", textTransform: "uppercase", letterSpacing: 1.5, margin: "0 0 12px" }}>Historical week explorer <AsOf meta={PLAY_EXPLORER_META} style={{ textTransform: "none", letterSpacing: 0 }} /></h3>
       <div style={{ display: "flex", gap: 12, marginBottom: 24, alignItems: "flex-end" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
           <label style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.5, color: "#64748b", fontFamily: "monospace" }}>Season</label>
