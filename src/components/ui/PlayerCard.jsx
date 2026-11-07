@@ -74,7 +74,7 @@ export function PlayerCard({ player, team, onClose }) {
               <div>
                 <div style={{ fontSize: 12, fontWeight: 700, color: INJURY_COLOR[injury.status] || '#64748b' }}>{injury.status || 'Injury reported'}</div>
                 <div style={{ fontSize: 11, color: "#64748b" }}>
-                  {injury.injury || 'undisclosed'}{injury.week ? ` — Week ${injury.week}` : ''}{injury.updated ? ` · ${injury.updated}` : ''}
+                  {injury.injury || 'undisclosed'}{injury.week ? `, Week ${injury.week}` : ''}{injury.updated ? ` · ${injury.updated}` : ''}
                 </div>
               </div>
             </div>
