@@ -43,7 +43,7 @@ on:
   # workflow_dispatch on a branch, so this push trigger proves the job body.
   # Limited to this branch. Revert this commit before the merge to main.
   push:
-    branches: ['freshness/r2-s67']
+    branches: ['freshness/r2', 'freshness/r2-proof']
 
 permissions:
   contents: read
