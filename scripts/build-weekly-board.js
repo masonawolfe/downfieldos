@@ -77,6 +77,27 @@ const TZ_OFFSETS = {
   'America/Sao_Paulo': -3,
 };
 
+// E-036 explicit overrides (2026-11-10): an international game whose roof
+// was closed, settled from sources. The E-036 assert below fails any intl
+// game with roof dome/closed unless its game_id is here AND the entry's
+// `roof` matches the schedule's roof, so a later upstream change (or a new
+// intl game) fails loudly again instead of riding through.
+//   dome_home_adj: whether the +0.5 "dome home" bonus fires. It credits a
+//   team at its own indoor stadium; at a neutral international site no one
+//   is at home, so it stays off. That also matches the frozen projection of
+//   record (2026-w09.json, frozen with roof null and no bonus).
+const INTL_ROOF_OVERRIDES = {
+  '2026_09_CIN_ATL': {
+    roof: 'closed',
+    dome_home_adj: false,
+    verified_on: '2026-11-10',
+    sources: [
+      'nflverse schedules: roof null through the 2026-11-02 refresh (52f68eb), closed from the 2026-11-09 post-game refresh (ae3e85d); stadium_id MAD01, not Mercedes-Benz Stadium',
+      'https://abcnews.com/Sports/wireStory/burrow-powers-bengals-past-falcons-madrid-4th-straight-137957722 (AP game story: "Playing under the closed roof of the Bernabeu")',
+    ],
+  },
+};
+
 // F-003 (2026-09-05): opponent home-stadium tz for computing away-game tz_delta.
 // Loaded from src/data/stadiums.js at build time.
 function loadOpponentStadiumTz() {
@@ -237,6 +258,7 @@ async function main() {
   for (let w = wkMin; w <= wkMax; w++) regWeeks.push(w);
 
   const rows = [];
+  const roofByGame = new Map(); // E-036: schedule roof per game, for the override check
   for (const p of board) {
     const team = p.team_2026;
     if (!team) continue;
@@ -302,13 +324,17 @@ async function main() {
       }
 
       const weekMeta = {
-        is_dome_home: isDomeHome && g.home_away === 'H',
+        // E-036: at an international venue the bonus fires only when an
+        // explicit override says so (INTL_ROOF_OVERRIDES above).
+        is_dome_home: isDomeHome && g.home_away === 'H' &&
+          (!g.venue_country || g.venue_country === 'US' || INTL_ROOF_OVERRIDES[g.game_id]?.dome_home_adj === true),
         is_short_week: isShortWeek,
         is_bye_return: isByeReturn,
         tz_delta,
       };
 
       const v = computeWeeklyValue(p, weekMeta);
+      if (g.game_id) roofByGame.set(g.game_id, g.roof);
 
       // Field-source labels are repetitive per row; hoisted to META instead.
       rows.push({
@@ -365,7 +391,14 @@ async function main() {
     if (r.is_dome_game && r.venue_country && r.venue_country !== 'US') {
       // A truly-domed intl venue (retractable roof closed) is possible, but flag it as
       // needing an explicit override rather than silently keeping the dome-home bonus.
-      intlProblems.push(`${gid} at ${r.stadium}: is_dome_game=true but venue is intl (${r.venue_country}) — explicit override needed if intended.`);
+      const ov = INTL_ROOF_OVERRIDES[gid];
+      if (!ov) {
+        intlProblems.push(`${gid} at ${r.stadium}: is_dome_game=true but venue is intl (${r.venue_country}) — explicit override needed if intended.`);
+      } else if (ov.roof !== roofByGame.get(gid)) {
+        intlProblems.push(`${gid} at ${r.stadium}: override says roof=${ov.roof} but schedule says roof=${roofByGame.get(gid)} — re-settle the override from a source.`);
+      } else if (!Array.isArray(ov.sources) || ov.sources.length === 0 || !ov.verified_on) {
+        intlProblems.push(`${gid} at ${r.stadium}: override has no sources or verified_on.`);
+      }
     }
   }
   if (intlProblems.length > 0) {
