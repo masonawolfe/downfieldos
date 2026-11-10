@@ -28,6 +28,7 @@ they exist, are detailed in the per-source sections below.
 | `sharpfootballanalysis.com` | crew penalty tendency aggregates | `intelligence/referee_profiles.json` | aggregate figures only |
 | `cbssports.com` | referee assignment / crew corroboration | `intelligence/referee_profiles.json` | corroboration only |
 | `nfl.com` (incl. `nfl.com/operations`) | officiating rosters, transaction and contract corroboration | `intelligence/referee_profiles.json`, `contract_year_players.json`, `weekly_transactions_*.json` | facts only |
+| `abcnews.com` (AP wire game story, added 2026-11-10) | one game's roof status (closed, Bengals at Falcons in Madrid, 2026-11-08), cited as a source; nothing fetched or stored beyond the URL | `scripts/build-weekly-board.js` `INTL_ROOF_OVERRIDES` | citation only |
 | Yahoo Sports (cited as prose, no URL stored) | referee crew corroboration | `intelligence/referee_profiles.json` `metadata.source` | corroboration only |
 | 13 NFL team official sites — see list below | coaching staff names + titles | `coachingTrees.js` per-role `*_source` | factual staff listings |
 
