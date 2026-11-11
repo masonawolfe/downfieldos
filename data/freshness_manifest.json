@@ -518,9 +518,9 @@
       "tier": "public",
       "on_stale": "red",
       "static": true,
-      "verified_on": "2026-03-15",
-      "label": "2026 opponents",
-      "note": "Hand file with no stamp. verified_on is its last commit date; nobody has re-checked it against schedule2026.js."
+      "verified_on": "2026-11-11",
+      "label": "From the 2026 schedule",
+      "note": "Built at import from schedule2026.js since 2026-11-11 (cor-2026-11-11-opponents-from-schedule); no file of its own to go stale. The 2026-03-15 hand table, wrong for 31 of 32 teams, is archived at 99_Unsorted/_iterations/dfos-2026-11/opponents2026.hand-2026-03-15.js."
     },
     {
       "path": "src/data/playerBoard2026.js",

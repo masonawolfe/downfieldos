@@ -1,35 +1,38 @@
-export const OPPONENTS_2026 = {
-  ARI:{home:["LAR","SEA","SF","ATL","CAR","CLE","DET","JAX","TEN"],away:["LAR","SEA","SF","CHI","DAL","DEN","GB","HOU","MIN"]},
-  ATL:{home:["CAR","NO","TB","BAL","CIN","JAX","LAC","NE"],away:["CAR","NO","TB","ARI","BUF","CLE","DEN","HOU","NYJ"]},
-  BAL:{home:["CIN","CLE","PIT","BUF","HOU","LAC","NE","SEA"],away:["CIN","CLE","PIT","ATL","DEN","JAX","KC","LAR","SF"]},
-  BUF:{home:["MIA","NE","NYJ","BAL","CHI","DET","KC","LAC"],away:["MIA","NE","NYJ","DEN","GB","HOU","LV","LAR","MIN"]},
-  CAR:{home:["ATL","NO","TB","ARI","CHI","CLE","HOU","MIN","SEA"],away:["ATL","NO","TB","DEN","DET","GB","JAX","LAC"]},
-  CHI:{home:["DET","GB","MIN","DEN","JAX","LAC","NE","PHI"],away:["DET","GB","MIN","ARI","BUF","CAR","HOU","PIT","SEA"]},
-  CIN:{home:["BAL","CLE","PIT","DEN","GB","HOU","LAR","MIN"],away:["BAL","CLE","PIT","ATL","JAX","KC","NE","SEA","SF"]},
-  CLE:{home:["BAL","CIN","PIT","ATL","BUF","DEN","JAX","NO","SEA"],away:["BAL","CIN","PIT","ARI","CAR","HOU","LAC","NE"]},
-  DAL:{home:["NYG","PHI","WAS","DET","GB","HOU","LV","SF"],away:["NYG","PHI","WAS","DEN","JAX","KC","LAR","MIN","NE"]},
-  DEN:{home:["KC","LAC","LV","ATL","BAL","BUF","CAR","DAL","WAS"],away:["KC","LAC","LV","ARI","CHI","CIN","CLE","HOU"]},
-  DET:{home:["CHI","GB","MIN","CAR","JAX","LAR","NE","SF"],away:["CHI","GB","MIN","ARI","BUF","DAL","HOU","SEA","WAS"]},
-  GB:{home:["CHI","DET","MIN","ARI","BUF","CAR","HOU","SEA"],away:["CHI","DET","MIN","CIN","DAL","DEN","JAX","NE","SF"]},
-  HOU:{home:["IND","JAX","TEN","ARI","ATL","CHI","CLE","DEN","DET"],away:["IND","JAX","TEN","BAL","BUF","CAR","GB","KC"]},
-  IND:{home:["HOU","JAX","TEN","DEN","KC","LAR","NE","PHI","SF"],away:["HOU","JAX","TEN","LAC","LV","NO","NYG","SEA"]},
-  JAX:{home:["HOU","IND","TEN","ATL","BAL","CAR","CIN","DAL","GB"],away:["HOU","IND","TEN","ARI","CHI","CLE","DEN","DET"]},
-  KC:{home:["DEN","LAC","LV","BAL","CIN","DAL","HOU","NYJ"],away:["DEN","LAC","LV","BUF","IND","NE","NO","SEA","WAS"]},
-  LAC:{home:["DEN","KC","LV","ATL","CAR","CLE","IND","NE"],away:["DEN","KC","LV","ARI","BAL","BUF","CHI","PHI","SEA"]},
-  LAR:{home:["ARI","SEA","SF","BAL","BUF","DAL","LV","MIN"],away:["ARI","SEA","SF","CIN","DET","NE","NYG","PHI","WAS"]},
-  LV:{home:["DEN","KC","LAC","BUF","IND","NE","NO","NYG"],away:["DEN","KC","LAC","DAL","LAR","NYJ","PHI","SEA","WAS"]},
-  MIA:{home:["BUF","NE","NYJ","DEN","JAX","PIT","SEA","TB"],away:["BUF","NE","NYJ","KC","LAC","LAR","NO","SF","TEN"]},
-  MIN:{home:["CHI","DET","GB","BUF","CAR","DAL","NE","TEN"],away:["CHI","DET","GB","ARI","CIN","LAR","PHI","SEA","WAS"]},
-  NE:{home:["BUF","MIA","NYJ","CIN","DAL","GB","KC","LAR"],away:["BUF","MIA","NYJ","BAL","CHI","CLE","DET","IND","LAC","LV","MIN"]},
-  NO:{home:["ATL","CAR","TB","IND","KC","MIA","NYG","PHI"],away:["ATL","CAR","TB","CLE","LV","NE","SEA","SF","WAS"]},
-  NYG:{home:["DAL","PHI","WAS","DAL","IND","LAR","NE","SEA"],away:["DAL","PHI","WAS","LV","NO","SF","TB","TEN"]},
-  NYJ:{home:["BUF","MIA","NE","ATL","LV","PIT","SEA","SF"],away:["BUF","MIA","NE","KC","LAC","PHI","TB","TEN","WAS"]},
-  PHI:{home:["DAL","NYG","WAS","LAC","LAR","LV","MIN","NYJ"],away:["DAL","NYG","WAS","CHI","IND","NO","PIT","SF","TB"]},
-  PIT:{home:["BAL","CIN","CLE","CHI","MIA","PHI","SEA","TEN"],away:["BAL","CIN","CLE","DEN","HOU","JAX","NE","NYJ"]},
-  SEA:{home:["ARI","LAR","SF","CHI","DET","IND","LAC","LV","MIN"],away:["ARI","LAR","SF","BAL","CAR","CLE","GB","MIA","NYG","NYJ","PIT"]},
-  SF:{home:["ARI","LAR","SEA","BAL","CIN","GB","NO","NYG"],away:["ARI","LAR","SEA","DAL","DET","HOU","IND","NYJ","PHI"]},
-  TB:{home:["ATL","CAR","NO","DEN","HOU","NYG","NYJ","PHI","TEN"],away:["ATL","CAR","NO","IND","JAX","MIA","PIT","SEA"]},
-  TEN:{home:["HOU","IND","JAX","KC","LAC","MIA","NYG","NYJ"],away:["HOU","IND","JAX","ARI","DEN","MIN","PIT","SEA","TB"]},
-  WAS:{home:["DAL","NYG","PHI","DET","KC","LV","MIN","NO","SEA"],away:["DAL","NYG","PHI","DEN","LAR","NE","NYJ","TB"]},
-};
+// Each team's 2026 regular-season opponents, built from the schedule of
+// record (schedule2026.js, nflverse games.csv, refreshed by
+// data-schedule-v2.yml). Same shape as before: { TEAM: { home: [...], away: [...] } }.
+//
+// 2026-11-11: until today this was a hand-typed table from 2026-03-15,
+// written before the NFL released the 2026 schedule. It disagreed with the
+// real schedule for 31 of 32 teams, and /2026-preview's Opponents and Win
+// Projections tabs read it (corrections.jsonl cor-2026-11-11-opponents-from-schedule).
+// The hand table is archived, not deleted:
+// 99_Unsorted/_iterations/dfos-2026-11/opponents2026.hand-2026-03-15.js.
+// HomeDashboard moved off the hand table on 2026-09-05 for the same reason.
+//
+// "home" follows the schedule's designated home team, including neutral-site
+// international games (for example 2026_09_CIN_ATL in Madrid lists ATL home).
+import { SCHEDULE_2026 } from './schedule2026.js';
 
+function build(schedule) {
+  const out = {};
+  for (const [team, rec] of Object.entries(schedule?.teams || {})) {
+    const games = (rec.games || [])
+      .filter(g => (g.game_type || 'REG') === 'REG')
+      .sort((a, b) => (a.week ?? 99) - (b.week ?? 99));
+    out[team] = {
+      home: games.filter(g => g.isHome).map(g => g.opponent),
+      away: games.filter(g => !g.isHome).map(g => g.opponent),
+    };
+  }
+  return out;
+}
+
+export const OPPONENTS_2026 = build(SCHEDULE_2026);
+
+export const OPPONENTS_2026_META = {
+  label: 'From the 2026 schedule',
+  source: 'src/data/schedule2026.js (nflverse games.csv)',
+  generated: SCHEDULE_2026?.meta?.generated || null,
+  source_season: SCHEDULE_2026?.meta?.season ?? 2026,
+};

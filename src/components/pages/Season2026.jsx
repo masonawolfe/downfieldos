@@ -4,7 +4,7 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import { T } from '../../data/teams';
 import { DNA } from '../../data/dna';
 import { DNA_2026 } from '../../data/dna2026';
-import { OPPONENTS_2026 } from '../../data/opponents2026';
+import { OPPONENTS_2026, OPPONENTS_2026_META } from '../../data/opponents2026';
 import { FA_MOVES_2026, FA_MOVES_2026_META } from '../../data/faMoves2026';
 import { LAST_COMPLETE_SEASON, GAMES_PER_SEASON, PLAY_DATA_META } from '../../config';
 import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
@@ -102,7 +102,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {viewMode === "matchups" && (
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents <AsOf meta={PLAY_DATA_META} /></h3>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents <AsOf meta={OPPONENTS_2026_META} /> <AsOf meta={PLAY_DATA_META} /></h3>
             <ExportButton onClick={() => {
               const headers = ["Opponent", "Location", "Division", `${LAST_COMPLETE_SEASON} Record`, "Identity", "Matchup Grade"];
               const rows = allOpponents.map(oItem => {
