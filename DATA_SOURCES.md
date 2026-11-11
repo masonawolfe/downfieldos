@@ -30,13 +30,14 @@ they exist, are detailed in the per-source sections below.
 | `nfl.com` (incl. `nfl.com/operations`) | officiating rosters, transaction and contract corroboration | `intelligence/referee_profiles.json`, `contract_year_players.json`, `weekly_transactions_*.json` | facts only |
 | `abcnews.com` (AP wire game story, added 2026-11-10) | one game's roof status (closed, Bengals at Falcons in Madrid, 2026-11-08), cited as a source; nothing fetched or stored beyond the URL | `scripts/build-weekly-board.js` `INTL_ROOF_OVERRIDES` | citation only |
 | Yahoo Sports (cited as prose, no URL stored) | referee crew corroboration | `intelligence/referee_profiles.json` `metadata.source` | corroboration only |
-| 13 NFL team official sites — see list below | coaching staff names + titles | `coachingTrees.js` per-role `*_source` | factual staff listings |
+| 17 NFL team official sites — see list below | coaching staff names + titles | `coachingTrees.js` per-role `*_source` | factual staff listings |
 
 **NFL team official sites cited in `coachingTrees.js`:** `azcardinals.com`,
 `baltimoreravens.com`, `buccaneers.com`, `buffalobills.com`, `chargers.com`,
 `chicagobears.com`, `clevelandbrowns.com`, `dallascowboys.com`,
 `detroitlions.com`, `giants.com`, `jaguars.com`, `packers.com`,
-`panthers.com`.
+`panthers.com`. Added by the 2026-11-07 staff re-verify (`trees_source`):
+`atlantafalcons.com`, `neworleanssaints.com`, `raiders.com` and `steelers.com`.
 
 What is taken from a team site is a **fact** — who holds a coaching title on
 a given date. Facts are not copyrightable. No team-site prose, layout, or
