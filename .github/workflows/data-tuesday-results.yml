@@ -15,7 +15,8 @@ name: Data — Tuesday Results Chain
 #   gate (week N complete in actuals + play-by-play?) → PBP-derived
 #   intelligence → rosters reconcile → player board → weekly board
 #   → freeze week N+1 snapshot → calibration (vs frozen snapshots)
-#   → verifier gate (must pass to commit) → BOARD.md → commit → deploy.
+#   → verifier gate (must pass to commit) → BOARD.md → commit → deploy
+#   (main only) → freshness gate on the chain's inputs (freshness step 7).
 #
 # Shares the `data-board` concurrency group with data-board.yml,
 # data-weekly-actuals-v2.yml and data-pbp-derived-v2.yml so no two writers
@@ -53,7 +54,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      PBP_YEAR: '2026'
+      # PBP_YEAR is set by the "Resolve the season" step from data/season.json
+      # (freshness plan step 4(b), 2026-11-07: no literal season in this file).
       PBP_OUT_DIR: ${{ github.workspace }}/src/data/intelligence/pbp
       RESULTS_WEEK: ${{ github.event.inputs.week }}
       RESULTS_FORCE: ${{ github.event.inputs.force }}
@@ -72,22 +74,28 @@ jobs:
         run: node .github/scripts/check-draft-freeze.mjs
       - name: Stamp start
         run: echo "Results chain started $(date -u +%Y-%m-%dT%H:%M:%SZ) (run ${GITHUB_RUN_ID}, event ${GITHUB_EVENT_NAME})" | tee -a "$GITHUB_STEP_SUMMARY"
-      - name: Download nflverse 2026 play-by-play, weekly rosters, snap counts
+      - name: Resolve the season (season in data/season.json)
+        run: |
+          set -euo pipefail
+          PBP_YEAR="$(node scripts/_lib/season.js season)"
+          echo "PBP_YEAR=${PBP_YEAR}" >> "$GITHUB_ENV"
+          echo "Results chain season: ${PBP_YEAR}"
+      - name: Download nflverse play-by-play, weekly rosters, snap counts for the season
         run: |
           set -euo pipefail
           echo "PBP_RAW_DIR=$RUNNER_TEMP/pbp-raw" >> "$GITHUB_ENV"
           RAW="$RUNNER_TEMP/pbp-raw"; mkdir -p "$RAW" data/intelligence/raw
           base=https://github.com/nflverse/nflverse-data/releases/download
-          curl -sSL --fail --max-time 300 "$base/pbp/play_by_play_2026.csv.gz" -o "$RAW/play_by_play_2026.csv.gz"
-          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_2026.csv" -o "$RAW/roster_weekly_2026.csv"
-          curl -sSL --fail --max-time 120 "$base/snap_counts/snap_counts_2026.csv" -o "$RAW/snap_counts_2026.csv" || echo "  ⚠ snap_counts_2026.csv unavailable — snap_share will be None."
-          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_2026.csv.gz" -o data/intelligence/raw/roster_weekly_2026.csv.gz
+          curl -sSL --fail --max-time 300 "$base/pbp/play_by_play_${PBP_YEAR}.csv.gz" -o "$RAW/play_by_play_${PBP_YEAR}.csv.gz"
+          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_${PBP_YEAR}.csv" -o "$RAW/roster_weekly_${PBP_YEAR}.csv"
+          curl -sSL --fail --max-time 120 "$base/snap_counts/snap_counts_${PBP_YEAR}.csv" -o "$RAW/snap_counts_${PBP_YEAR}.csv" || echo "  ⚠ snap_counts_${PBP_YEAR}.csv unavailable — snap_share will be None."
+          curl -sSL --fail --max-time 120 "$base/weekly_rosters/roster_weekly_${PBP_YEAR}.csv.gz" -o "data/intelligence/raw/roster_weekly_${PBP_YEAR}.csv.gz"
           ls -lh "$RAW" data/intelligence/raw
       - name: Fetch week actuals (not committed unless the gate passes)
         run: npm run data:actuals
       - name: Results gate — is week N complete, and is there anything to do?
         id: gate
-        run: node scripts/results-gate.mjs --pbp "$PBP_RAW_DIR/play_by_play_2026.csv.gz"
+        run: node scripts/results-gate.mjs --pbp "$PBP_RAW_DIR/play_by_play_${PBP_YEAR}.csv.gz"
       - name: Stop here — nothing to do
         if: steps.gate.outputs.done == 'true' || steps.gate.outputs.ready != 'true'
         run: |
@@ -115,9 +123,9 @@ jobs:
         id: defense
         continue-on-error: true
         env:
-          SEASON: '2026'
-          DEFENSE_PBP: ${{ env.PBP_RAW_DIR }}/play_by_play_2026.csv.gz
-          DEFENSE_ROSTER: ${{ env.PBP_RAW_DIR }}/roster_weekly_2026.csv
+          SEASON: ${{ env.PBP_YEAR }}
+          DEFENSE_PBP: ${{ env.PBP_RAW_DIR }}/play_by_play_${{ env.PBP_YEAR }}.csv.gz
+          DEFENSE_ROSTER: ${{ env.PBP_RAW_DIR }}/roster_weekly_${{ env.PBP_YEAR }}.csv
           DEFENSE_THROUGH_WEEK: ${{ steps.gate.outputs.week }}
         run: |
           set -euo pipefail
@@ -191,15 +199,39 @@ jobs:
         if: steps.commit.outputs.changed == 'true'
         id: predispatch
         run: echo "at=$(date -u +%s)" >> "$GITHUB_OUTPUT"
+      # DATA_FRESHNESS_PLAN step 7 fix (a): the dispatch and the watch both
+      # run only on main. A branch run would otherwise dispatch a real deploy
+      # from the branch (--ref "$GITHUB_REF_NAME"), and a watch with no deploy
+      # behind it files a public "never-registered" issue
+      # (watch-dispatched-deploy/action.yml:247-259).
       - name: Trigger site deploy
-        if: steps.commit.outputs.changed == 'true'
+        if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh workflow run deploy.yml --ref "$GITHUB_REF_NAME"
       - name: Watch dispatched deploy + notify on non-success (E-043)
-        if: steps.commit.outputs.changed == 'true'
+        if: github.ref == 'refs/heads/main' && steps.commit.outputs.changed == 'true'
         timeout-minutes: 25
         uses: ./.github/actions/watch-dispatched-deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           dispatched_after_epoch: ${{ steps.predispatch.outputs.at }}
+      # DATA_FRESHNESS_PLAN step 7: the gate reads the chain's own inputs, last.
+      # The commit holding week N's results and the week N+1 snapshot has
+      # already landed, and the dispatch has gone; the verifier before the
+      # commit stays the real block. Fix (b): the explicit condition keeps a
+      # no-op slot (ready != 'true') from judging uncommitted actuals, and
+      # !cancelled() lets it run after a failed dispatch or watch. Fix (c):
+      # --week is the results gate's week, because coverage's 6 hour grace
+      # would read week N-1 as latest from 05:15 to about 07:12 UTC.
+      # Before gate_blocking_from (data/freshness_manifest.json) it annotates
+      # (--report); from that date a red fails the job here. A chain red never
+      # means a failed deploy: the watch above owns that.
+      - name: Freshness gate on the chain's inputs (report before gate_blocking_from)
+        if: ${{ !cancelled() && steps.gate.outputs.ready == 'true' && steps.commit.outcome == 'success' }}
+        env:
+          GATE_WEEK: ${{ steps.gate.outputs.week }}
+        run: |
+          set -euo pipefail
+          REPORT_FLAG="$(node scripts/_lib/gate-blocking.mjs)"
+          npm run --silent check:freshness -- --tier chain_input --week "$GATE_WEEK" ${REPORT_FLAG}

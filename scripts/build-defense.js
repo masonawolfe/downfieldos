@@ -14,7 +14,7 @@
  * defense (fewest points/EPA allowed), 32 = worst.
  *
  * Inputs (argument, then env, then default):
- *   --season <yyyy>        SEASON                 default 2026
+ *   --season <yyyy>        SEASON                 default data/season.json
  *   --pbp <path>           DEFENSE_PBP            default ../data/intelligence/raw/play_by_play_<season>.csv.gz
  *   --roster <path>        DEFENSE_ROSTER         default ../data/intelligence/raw/roster_weekly_<season>.csv
  *                                                 (nflverse weekly rosters, .csv or .csv.gz; gsis_id → position)
@@ -50,6 +50,8 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath, pathToFileURL } from 'url';
+import { SEASON as SETTING_SEASON, seasonFrom } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,8 +69,8 @@ function opt(flag, envKey) {
   const e = process.env[envKey];
   return e != null && e !== '' ? e : null;
 }
-const SEASON = Number(opt('--season', 'SEASON') || 2026);
-if (!Number.isInteger(SEASON) || SEASON < 1999) throw new Error(`bad season: ${SEASON}`);
+// Freshness plan step 4(b): the default season is data/season.json's.
+const SEASON = seasonFrom(opt('--season', 'SEASON'), SETTING_SEASON);
 const PRIOR_SEASON = SEASON - 1;
 const PBP_PATH = path.resolve(opt('--pbp', 'DEFENSE_PBP') || path.join(OUTER_RAW, `play_by_play_${SEASON}.csv.gz`));
 const ROSTER_PATH = path.resolve(opt('--roster', 'DEFENSE_ROSTER') || path.join(OUTER_RAW, `roster_weekly_${SEASON}.csv`));
@@ -339,10 +341,20 @@ async function main() {
   const weeksText = weeksCovered.length
     ? (weeksCovered.length === 1 ? `week ${weeksCovered[0]}` : `weeks ${weeksCovered[0]} to ${weeksCovered[weeksCovered.length - 1]}`)
     : 'no weeks';
-  const generated = new Date().toISOString();
+  // Freshness plan step 4(a): the shared contract stamp. `generated` stays
+  // beside generated_at because the header line and older readers use it.
+  const stamp = contractMeta({
+    sourceSeason: SEASON,
+    sources: [
+      `nflverse play_by_play_${SEASON}.csv.gz`,
+      `nflverse roster_weekly_${SEASON}.csv`,
+      ...(prior.rows ? [path.relative(REPO_ROOT, PRIOR_PATH)] : []),
+    ],
+  });
+  const generated = stamp.generated_at;
   const meta = {
     generated,
-    source_season: SEASON,
+    ...stamp,
     season_type: 'REG',
     weeks_covered: weeksCovered,
     through_week: THROUGH_WEEK,
@@ -390,7 +402,7 @@ export const DEFENSE_2026_META = ${JSON.stringify(meta, null, 2)};
     if (pm) {
       let prevMeta = null;
       try { prevMeta = JSON.parse(pm[2]); } catch { prevMeta = null; }
-      const strip = (m) => { const { generated: _g, ...rest } = m || {}; return JSON.stringify(rest); };
+      const strip = (m) => { const { generated: _g, generated_at: _ga, ...rest } = m || {}; return JSON.stringify(rest); };
       if (prevMeta && pm[1] === JSON.stringify(byTeam, null, 2) && strip(prevMeta) === strip(meta)) {
         console.log(`\nRows and weeks_covered unchanged vs committed ${path.relative(REPO_ROOT, OUT)}; not rewriting (set FORCE_DEFENSE_WRITE=1 to force).`);
         return;

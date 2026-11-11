@@ -1,0 +1,2590 @@
+{
+  "schema": 1,
+  "generated_by": "hand, DATA_FRESHNESS_PLAN step 4 (2026-11-07); edit a row in the same commit as the file it registers",
+  "season_file": "data/season.json",
+  "gate_blocking_from": "2026-11-24",
+  "max_age_basis": "Largest gap between commits of each file on origin/main from 2026-09-10 to 31c5321 (git log --format=%cI), rounded up to a family ceiling: daily 48, twice weekly 144, weekly 192, monthly 768. Rows not measurable there say so in their note.",
+  "max_age_replay": {
+    "command": "node scripts/check-freshness.mjs --mode age --replay --replay-since <since>",
+    "measured": "2026-11-07 on freshness/r2-s5 (HEAD carries origin/main 31c5321 and release 1)",
+    "since": "2026-09-20T15:13:22Z",
+    "why_since": "The season-start replay (2026-09-10) reds 13 rows on gaps that end by 2026-09-19: the E-026 outage (12 data workflows broken until the 2026-09-16 repair) and rosters2026.js with only its Tuesday, Wednesday and Saturday writer until E-044 added the daily one at fcaa19d (2026-09-20). Those gaps are history the ceilings were never meant to hold, so the ceilings are judged from fcaa19d on.",
+    "result": "Every measurable row is under its ceiling from that date; 3 reds, each a row the replay cannot measure yet.",
+    "decisions": {
+      "src/data/games2026.json": "Ceiling 48 kept. Not committed on origin/main from 2026-09-16 until release 1 (a true stale gap that step 11 closes, not a false red). Re-measure after one ceiling of release 1 runs on main.",
+      "src/data/defense2026.js": "Ceiling 192 kept, borrowed from weekly_actuals_2026.json (the same Tuesday chain). No 2026 rebuild on origin/main before release 1. Re-measure after the first Tuesday chain on main.",
+      "src/data/intelligence/referee_appearances_compact.json": "Ceiling 192 kept, borrowed from referee_appearances.json (the same run). Never staged on origin/main before step 14. Re-measure after the next data-referees-v2 run on main.",
+      "every other row": "No change: the largest gap and the open gap since the date above are under the ceiling."
+    }
+  },
+  "also_tracked": [
+    "src/config.js",
+    "public/sitemap.xml",
+    "public/robots.txt",
+    "BOARD.md",
+    "BOARD_WEEKLY.md",
+    "CALIBRATION.md",
+    "DATA_SOURCES.md",
+    "DRAFT_WINDOW.md",
+    "data/board_last_snapshot.json",
+    "data/corrections.jsonl"
+  ],
+  "fields": {
+    "stamp.kind": "json (a JSON pointer into the file), js_meta (a pointer into an exported object), header (a regex over the first 2 KB, legacy) or build_time (deploy only). stamp.file names a sibling file when the stamp lives there. No git kind: every checkout here is depth 1.",
+    "stamp pointers": "Each pointer names the key the committed file carries today. Producers moved to contractMeta keep their old key beside generated_at, so the pointer holds before and after their next run.",
+    "stamp_next": "The contract pointers (generated_at and source_season from contractMeta) a row moves to once its producer's next scheduled run on main lands those keys. Recorded 2026-11-07 in step 4: the producer already writes them, the committed file does not carry them yet. The gate reads stamp until the follow-up repoints it and drops stamp_next.",
+    "expected_season": "\"season\" or \"base_season\" from data/season.json, or null when the file has no season.",
+    "season_by_design": "null, or the reason a file or its path carries a year other than the setting.",
+    "coverage": "graded_week, report_week, season_present or games_finished; null for none.",
+    "coverage_read": "Where in the file the gate reads what the content covers (added to the plan's fields in step 4, because a stamp cannot say it).",
+    "tier": "chain_input, public, beta, internal or unread. unread: no page reads it; red the day anything imports it.",
+    "on_stale": "block_chain, block_deploy or red.",
+    "note": "Free text: why a value is what it is, and what is known and not fixed (added to the plan's fields in step 4).",
+    "lineage_grace_hours": "At least one producer cadence plus 8 hours (plan step 4(d)). Cadence by family ceiling: daily 24, twice weekly 120 (the Friday to Wednesday interval), weekly 168, monthly 744. null only with a lineage_grace_reason.",
+    "lineage_grace_reason": "Required when derived_from is non-empty and lineage_grace_hours is null: why the row has no lineage clock.",
+    "verified_on_rule": "Optional, static rows only. {kind: 'oldest_entry', pattern, min_entries}: the registration mode reds unless verified_on equals the oldest entry date the pattern finds in the file (at least min_entries of them). Added 2026-11-07 for coachingTrees.js."
+  },
+  "rows": [
+    {
+      "path": "src/data/REFRESH_LOG.md",
+      "producer": "scripts/_lib/refresh_log.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "Retired refresh log, last receipt August 30, 2026",
+      "note": "Step 4(g): retired, not deleted. One script (fetch-nflverse-roster-base.js) still appends a receipt in CI and no workflow stages it, so it is deliberately not an outputs_also of any row. The \"MUST log a receipt\" rule is superseded by this manifest; CoS records the retirement.",
+      "superseded_by": "data/freshness_manifest.json"
+    },
+    {
+      "path": "src/data/coachingTrees.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 720,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/coachingTree.js",
+        "src/utils/filmStudy.js",
+        "/so-what",
+        "/matchup-preview",
+        "/game-prep (beta)"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-11-07",
+      "label": "Coaching staffs, checked November 7, 2026",
+      "note": "Step 4(e): a hand file whose world changes in season gets a clock. 720 hours in season; a red asks the DFOS operator to re-verify, because no free source carries coordinators. verified_on is the OLDEST of the 114 per-entry _verified_on stamps, so one unchecked entry keeps the file red. 2026-11-07: all 114 re-verified from 01_Schuhbox/DFOS/coaching_staff_verify_2026-11.json (109 match, CAR dc corrected, four trees labels cut to source). Replaces check #12's season-only test. No component renders an AsOf label for it today.",
+      "verified_on_rule": {
+        "kind": "oldest_entry",
+        "pattern": "_verified_on:\\s*'(\\d{4}-\\d{2}-\\d{2})'",
+        "min_entries": 114
+      }
+    },
+    {
+      "path": "src/data/defense2025.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DEFENSE_2025_META",
+        "generated_at": "/generated",
+        "source_season": null
+      },
+      "expected_season": "base_season",
+      "season_by_design": "Last season's defense table, kept as the prior_2025 source build-defense.js joins beside the 2026 rows (step 2).",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-defense.js (prior_2025)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-09-04",
+      "label": "2025 season",
+      "note": null
+    },
+    {
+      "path": "src/data/defense2026.js",
+      "producer": "scripts/build-defense.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DEFENSE_2026_META",
+        "generated_at": "/generated",
+        "source_season": "/source_season"
+      },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "weeks": "/weeks_covered",
+        "through_week": "/through_week"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "tuesday_chain",
+        "scripts/build-player-board.js",
+        "scripts/build-weekly-board.js",
+        "scripts/snapshot-weekly-projections.mjs",
+        "scripts/check-defense-field.mjs",
+        "drafter (inside snapshots, never cited)"
+      ],
+      "tier": "chain_input",
+      "on_stale": "block_chain",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Not in the browser bundle; context for the lab and the drafter. Writes only on change, once per graded week. max_age_hours is not measured on origin/main (no 2026 rebuild landed there yet): it takes weekly_actuals_2026.json's ceiling, the same Tuesday chain (largest gap 168.9). Gains /generated_at and /sources on its next build (contractMeta); /generated stays."
+    },
+    {
+      "path": "src/data/dna.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DNA_META",
+        "generated_at": null,
+        "source_season": "/source_season",
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 team identity strings, kept as the fallback beside dna2026.js.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/DownfieldOS.jsx",
+        "14 importers in src/components and src/utils"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-04-04",
+      "label": "2025 season",
+      "note": "Not rendered: DownfieldOS.jsx:281-289 overwrites every team's p, e, x and s with buildDynamicDNA() over the 2023 to 2025 play files, so no page prints this file's text and no component owes it an AsOf label (R1, 2ee8fda). The play-derived identities that do print are unlabelled, and /this-week has no static-file label. Found in R1, not fixed."
+    },
+    {
+      "path": "src/data/dna2026.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DNA_2026_META",
+        "generated_at": null,
+        "source_season": "/source_season",
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/DownfieldOS.jsx",
+        "src/components/pages/HomeDashboard.jsx",
+        "src/components/pages/Season2026.jsx",
+        "src/utils/narratives.js",
+        "src/utils/projections.js",
+        "scripts/build-player-board.js (board join)"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-23",
+      "label": "Preseason, August 2026",
+      "note": "Not rendered: buildDynamicDNA() overwrites the hand text the same way as dna.js (DownfieldOS.jsx:281-289), so no ui_consumers. /this-week has no static-file label. The board build still joins it."
+    },
+    {
+      "path": "src/data/draftNeeds2026.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DRAFT_NEEDS_2026_META",
+        "generated_at": null,
+        "source_season": "/source_season",
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/pages/Season2026.jsx"
+      ],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/Season2026.jsx",
+        "src/components/pages/PlayerPage.jsx",
+        "src/components/pages/WarRoom.jsx",
+        "src/utils/draftAnalysis.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-15",
+      "label": "Pre-draft, March 2026",
+      "note": "Label_route is null because the AsOf label on /2026-preview renders under the Roster and Needs view toggles (Season2026.jsx viewMode, default matchups), which open by a click; render-smoke never clicks, so QA reads it there (plan step 5, render proof). Found by the step 5 render proof, 2026-11-07."
+    },
+    {
+      "path": "src/data/draftProspects2026.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/pages/WarRoom.jsx",
+        "src/components/pages/PlayerPage.jsx"
+      ],
+      "label_route": "/war-room",
+      "consumers": [
+        "src/components/pages/PlayerPage.jsx",
+        "src/components/pages/WarRoom.jsx",
+        "src/utils/draftAnalysis.js"
+      ],
+      "tier": "beta",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "Pre-draft, March 2026",
+      "note": "A bare array, so it carries no meta; its label lives in draftProspects2026.meta.js (R1 step 12). /war-room is beta and /player/:id is unlisted."
+    },
+    {
+      "path": "src/data/draftProspects2026.meta.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "DRAFT_PROSPECTS_2026_META",
+        "generated_at": null,
+        "source_season": "/source_season",
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/pages/WarRoom.jsx",
+        "src/components/pages/PlayerPage.jsx"
+      ],
+      "label_route": "/war-room",
+      "consumers": [
+        "src/components/pages/PlayerPage.jsx",
+        "src/components/pages/WarRoom.jsx"
+      ],
+      "tier": "beta",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "Pre-draft, March 2026",
+      "note": null
+    },
+    {
+      "path": "src/data/faMoves2026.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "FA_MOVES_2026_META",
+        "generated_at": null,
+        "source_season": "/source_season",
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/pages/Season2026.jsx"
+      ],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/Season2026.jsx",
+        "src/data/intelligence/index.js (team overrides on the former-teammates graph)",
+        "src/utils/freeAgentIntel.js",
+        "src/utils/roster.js",
+        "scripts/build-weekly-transactions.js",
+        "scripts/test-rosters.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-22",
+      "label": "Offseason moves, March 2026",
+      "note": "Step 13 was not done in release 1. This March hand list still overrides the November former-teammates graph at import (src/data/intelligence/index.js:17), so the matchup engine's teammate ties can carry March teams. The plan's fix failed on the ground: former_teammates_active.json stores no team season, and 568 of its 1,742 players are on no 2026 roster. The engineer's proposal (count a graph team only when rosters2026.js carries the player) waits for CoS. The label covers Season2026 only; the override path has no label. label_route is null because the AsOf label on /2026-preview renders under the Roster and Needs view toggles (Season2026.jsx viewMode, default matchups), which open by a click; render-smoke never clicks, so QA reads it there (plan step 5, render proof). Found by the step 5 render proof, 2026-11-07."
+    },
+    {
+      "path": "src/data/games2026.json",
+      "producer": "scripts/build-games-2026.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml",
+        "data-board.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/generated_at",
+        "source_season": "/season"
+      },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "rows": "/games",
+        "week_field": "week",
+        "scored_field": "played",
+        "scored_count": "every game of a finished week has played true and integer scores"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/ThisWeek.jsx",
+        "src/components/ui/WeekRecaps.jsx",
+        "/this-week"
+      ],
+      "tier": "chain_input",
+      "on_stale": "block_chain",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "The only chain input with a page reader (/this-week, Public). Its stamp sits at the root, not under meta. Coverage counts scored games per week, because a fresh stamp on a file with a played week unscored is the case age cannot see. max_age_hours is not measured on origin/main (2 commits there): R1 runs it daily in data-board.yml, whose outputs show a largest gap of 24.9, so it takes the daily ceiling. Gains /source_season and /sources on its next build; /season holds today."
+    },
+    {
+      "path": "src/data/index.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-21",
+      "label": "Code: data re-exports",
+      "note": "Code, not data. Re-exports nine data files; nothing imports it and it is unreachable from src/main.jsx. verified_on is its last commit date, not a re-check."
+    },
+    {
+      "path": "src/data/opponents2026.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/Season2026.jsx",
+        "src/utils/projections.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-15",
+      "label": "2026 opponents",
+      "note": "Hand file with no stamp. verified_on is its last commit date; nobody has re-checked it against schedule2026.js."
+    },
+    {
+      "path": "src/data/playerBoard2026.js",
+      "producer": "scripts/build-player-board.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "PLAYER_BOARD_2026_META",
+        "generated_at": "/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/intelligence/availability_2026.json",
+        "src/data/defense2026.js",
+        "src/data/playerStats2025.js",
+        "src/data/dna2026.js",
+        "src/data/intelligence/fan_sentiment.json",
+        "src/data/intelligence/contract_year_players.json",
+        "src/data/intelligence/history_2023_2024.json",
+        "data/corrections.jsonl"
+      ],
+      "lineage_grace_hours": 48,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/DraftCopilot.jsx",
+        "src/components/pages/WarRoom.jsx",
+        "scripts/build-board-md.mjs",
+        "scripts/build-weekly-board.js",
+        "scripts/build-calibration.js",
+        "scripts/fetch-weekly-actuals.js (scoring rules)",
+        "verifier"
+      ],
+      "tier": "beta",
+      "on_stale": "block_deploy",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No source season key in its META; the board is 2026 rows on the 2025 base. Largest gap 39.1. on_stale block_deploy keeps today's behaviour, the deploy's 48-hour BOARD.md step."
+    },
+    {
+      "path": "src/data/playerStats2025.js",
+      "producer": "scripts/build-player-stats.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-player-stats-v2.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "PLAYER_STATS_2025_META",
+        "generated_at": "/verified_on",
+        "source_season": "/source_season",
+        "label": "/label"
+      },
+      "stamp_next": {
+        "generated_at": "/generated_at",
+        "source_season": "/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "The board's projection base is the last complete season (data/season.json base_season, E-034 v2).",
+      "max_age_hours": null,
+      "change_driven": true,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/ui/PlayerCard.jsx",
+        "src/components/pages/PlayerPage.jsx"
+      ],
+      "label_route": null,
+      "consumers": [
+        "src/components/ui/PlayerCard.jsx",
+        "src/components/pages/PlayerPage.jsx",
+        "src/utils/playerResolver.js (unreachable)",
+        "scripts/build-player-board.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": "2025 season",
+      "note": "Marked change driven (largest gap 417.1), so no age clock. In fact the file changes on every run, through verified_on and its header date, so a weekly age clock may fit better; that is left to QA's replay in step 5. Step 4(a): build-player-stats.js spreads contractMeta from this branch on, and since the file already changes on every run, generated_at adds no commit. Until its next run the committed META keeps only label, verified_on and source_season (R1), so verified_on stands as the stamp and stamp_next names the contract keys. verified_on stays the date AsOf prints. No label_route: PlayerCard opens on a click and /player/:id is unlisted, and R1 found the stats block never renders because the lookup is by \"C.Williams\"-style names."
+    },
+    {
+      "path": "src/data/records2025.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "base_season",
+      "season_by_design": "2025 final records, a completed season the 2026 preview compares against.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/Season2026.jsx",
+        "src/utils/narratives.js",
+        "src/utils/projections.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-15",
+      "label": "2025 final records",
+      "note": "Hand file with no stamp; verified_on is its last commit date. Season2026.jsx labels these records with CURRENT_SEASON (step 17)."
+    },
+    {
+      "path": "src/data/rosters2024.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": "2024 roster archive.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/data/index.js (unreachable)"
+      ],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-15",
+      "label": "2024 rosters, archive",
+      "note": "Re-exported only by src/data/index.js, which nothing imports. verified_on is its last commit date."
+    },
+    {
+      "path": "src/data/rosters2025.js",
+      "producer": "scripts/fetch-nflverse-roster-base.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "header",
+        "generated_at": "Generated: (\\S+)",
+        "source_season": null
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 roster archive; utils/roster.js reads it beside rosters2026.js.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/roster.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-22",
+      "label": "2025 rosters, archive",
+      "note": "No workflow writes the 2025 file now; its header stamp is 2026-03-22."
+    },
+    {
+      "path": "src/data/rosters2026.js",
+      "producer": "scripts/fetch-nflverse-roster-base.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-rosters-v2.yml",
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "ROSTERS_META",
+        "generated_at": "/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/roster.js",
+        "scripts/build-player-board.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Two writers: fetch-nflverse-roster-base.js in data-rosters-v2.yml and reconcile-rosters-availability.mjs in data-board.yml and the Tuesday chain. Largest gap 24.9. No source season key; the 2026 season is in the path and the header."
+    },
+    {
+      "path": "src/data/schedule2026.js",
+      "producer": "scripts/fetch-schedule.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-schedule-v2.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "SCHEDULE_2026",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/HomeDashboard.jsx",
+        "src/components/pages/ThisWeek.jsx",
+        "src/utils/schedule.js",
+        "scripts/_lib/kickoff.js callers (finished weeks)"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 170.4 (Monday cron). It carries no scores; results come from games2026.json."
+    },
+    {
+      "path": "src/data/season2025Facts.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "base_season",
+      "season_by_design": "2025 season facts, a completed season.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-04-04",
+      "label": "2025 season facts",
+      "note": "No importer anywhere. verified_on is its last commit date."
+    },
+    {
+      "path": "src/data/stadiums.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/environmentFactors.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-17",
+      "label": "Stadium reference",
+      "note": "Reference table with no season. verified_on is its last commit date, not a re-check."
+    },
+    {
+      "path": "src/data/teams.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/DownfieldOS.jsx",
+        "12 more importers in src/components and src/utils"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-15",
+      "label": "Team reference",
+      "note": "Reference table with no season. verified_on is its last commit date, not a re-check."
+    },
+    {
+      "path": "src/data/weeklyBoard2026.js",
+      "producer": "scripts/build-weekly-board.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "js_meta",
+        "export": "WEEKLY_BOARD_2026_META",
+        "generated_at": "/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": true,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/playerBoard2026.js",
+        "src/data/schedule2026.js",
+        "src/data/defense2026.js",
+        "src/data/intelligence/former_teammates_by_matchup.json"
+      ],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/snapshot-weekly-projections.mjs",
+        "scripts/build-calibration.js",
+        "verifier"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Change driven: written only when rows change (largest gap 552.5), so no age clock and no lineage clock, since a newer source with no row change is correct here. Rests on the snapshots' checks #19 and #20 and on DFOS.DATA.LIVE.",
+      "lineage_grace_reason": "Change driven: written only when rows change, so a source newer than this file with no row change is correct. No lineage clock; it rests on checks #19 and #20 and on DFOS.DATA.LIVE."
+    },
+    {
+      "path": "src/data/intelligence/availability_2026.json",
+      "producer": "scripts/fetch-availability.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-availability.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-board.js",
+        "scripts/reconcile-rosters-availability.mjs",
+        "scripts/_lib/starter_pick.js",
+        "verifier #6 (under 24 hours)",
+        "src/utils/playerResolver.js (unreachable)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 28.9. Readers see it only inside board rows. Check #6 already holds it under 24 hours."
+    },
+    {
+      "path": "src/data/intelligence/calibration_2026.json",
+      "producer": "scripts/build-calibration.js",
+      "outputs_also": [
+        "CALIBRATION.md"
+      ],
+      "workflows": [
+        "data-board.yml",
+        "data-weekly-actuals-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "weeks": "/meta/weeks_complete"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [
+        "src/data/intelligence/weekly_actuals_2026.json"
+      ],
+      "lineage_grace_hours": 33,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "tuesday_chain",
+        "results_gate",
+        "verifier #21",
+        "drafter",
+        "CALIBRATION.md"
+      ],
+      "tier": "chain_input",
+      "on_stale": "block_chain",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 24.9; lineage grace is that plus 8. No site page reads it; the public surface is CALIBRATION.md in the repo."
+    },
+    {
+      "path": "src/data/intelligence/contract_year_players.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": null,
+        "source_season": "/metadata/source_season",
+        "verified_on": "/metadata/verified_on",
+        "label": "/metadata/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/ui/ContractYearCard.jsx",
+        "src/components/ui/PlayerCard.jsx",
+        "src/components/pages/PlayerPage.jsx",
+        "src/components/pages/FantasyIntel.jsx"
+      ],
+      "label_route": "/team-intel",
+      "consumers": [
+        "src/components/ui/ContractYearCard.jsx",
+        "src/components/ui/PlayerCard.jsx",
+        "src/components/pages/PlayerPage.jsx",
+        "src/components/pages/FantasyIntel.jsx",
+        "scripts/build-player-board.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-18",
+      "label": "Preseason list, March 2026",
+      "note": "label_route: ContractYearCard renders inside TeamIntel; whether the default team shows the card is [U] until render-smoke reads it (step 5). Not reconciled with contracts.json (QA v2)."
+    },
+    {
+      "path": "src/data/intelligence/contracts.json",
+      "producer": "scripts/fetch-contracts.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-contracts-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/contract_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 768,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Step 4(f): unread, and red the day anything imports it. The stamp is current while the source is four years behind (newest deal 2022, meta.is_stale true), which age cannot see. Monthly cron; largest gap 744.3 (one 31-day month)."
+    },
+    {
+      "path": "src/data/intelligence/fan_sentiment.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": null,
+        "source_season": "/metadata/source_season",
+        "verified_on": "/metadata/verified_on",
+        "label": "/metadata/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/ui/FanSentimentCard.jsx",
+        "src/components/pages/HomeDashboard.jsx",
+        "src/components/pages/LandingPage.jsx"
+      ],
+      "label_route": "/so-what",
+      "consumers": [
+        "src/components/ui/FanSentimentCard.jsx",
+        "src/components/pages/HomeDashboard.jsx",
+        "src/components/pages/LandingPage.jsx",
+        "scripts/build-player-board.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-21",
+      "label": "Offseason, March 2026",
+      "note": null
+    },
+    {
+      "path": "src/data/intelligence/former_teammates_active.json",
+      "producer": "scripts/fetch-nflverse-rosters.js",
+      "outputs_also": [
+        "src/data/intelligence/former_teammates_by_matchup.json"
+      ],
+      "workflows": [
+        "data-teammates-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 768,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/data/intelligence/index.js",
+        "src/utils/formerTeammates.js",
+        "src/utils/revengeGames.js",
+        "/this-week",
+        "/so-what",
+        "/matchup-preview"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Served through src/data/intelligence/index.js, which applies faMoves2026.js's March team overrides on top (step 13 not done in release 1). The file stores no team season: 568 of 1,742 players are on no 2026 roster and keep their last team, so \"lost\" edges can read stale. meta.seasons lists 2021 to 2026 but there is no single source season key, so source_season is null. Monthly cron; largest gap 744.2."
+    },
+    {
+      "path": "src/data/intelligence/former_teammates_by_matchup.json",
+      "producer": "scripts/fetch-nflverse-rosters.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-teammates-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 768,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/intelligence/former_teammates_active.json"
+      ],
+      "lineage_grace_hours": 753,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/data/intelligence/index.js",
+        "scripts/build-weekly-board.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Written in the same run as former_teammates_active.json and carries the same faMoves2026.js override and the same no-team-season limit (step 13 not done). No source season key. Largest gap 744.2; lineage grace is that plus 8."
+    },
+    {
+      "path": "src/data/intelligence/history_2023_2024.json",
+      "producer": "scripts/build-history-and-durability.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": null,
+      "season_by_design": "Completed 2023 and 2024 seasons, the board's durability history. meta.season says 2026, the season it was built for.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-board.js:485 (board join, builder only)"
+      ],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-09-04",
+      "label": "2023 and 2024 seasons",
+      "note": "Step 4(f): unread by any page; red the day a page imports it. No workflow runs its builder (npm run data:history)."
+    },
+    {
+      "path": "src/data/intelligence/index.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/formerTeammates.js",
+        "src/utils/revengeGames.js",
+        "src/hooks/useFormerTeammates.js (unreachable)"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-11-07",
+      "label": "Code: former-teammates loader",
+      "note": "Code, not data: static imports of the two former-teammates files, with faMoves2026.js overrides applied through faOverrides.js (step 13: an override yields to a graph team confirmed on rosters2026.js). verified_on is its last commit date."
+    },
+    {
+      "path": "src/data/intelligence/faOverrides.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/data/intelligence/index.js",
+        "scripts/report-famoves-overrides.mjs",
+        "scripts/test-famoves.mjs"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-11-07",
+      "label": "Code: faMoves override rule",
+      "note": "Code, not data (step 13). Pure functions: a faMoves2026.js override applies only when the graph team is not confirmed on rosters2026.js. Its count prints in the build line. verified_on is its last commit date."
+    },
+    {
+      "path": "src/data/intelligence/injuries_2025.json",
+      "producer": "scripts/fetch-injuries.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 archive, written by the August 30 fallback run before nflverse published 2026.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "2025 season, archive",
+      "note": "No importer."
+    },
+    {
+      "path": "src/data/intelligence/injuries_2025_current.json",
+      "producer": "scripts/fetch-injuries.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 archive; the UI moved to injuries_2026_current.json in step 10.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "2025 season, archive",
+      "note": "No importer since step 10 (src/utils/injuries.js:4 names the 2026 file). Red the day anything imports it again."
+    },
+    {
+      "path": "src/data/intelligence/injuries_2026.json",
+      "producer": "scripts/fetch-injuries.js",
+      "outputs_also": [
+        "src/data/intelligence/injuries_2026_current.json"
+      ],
+      "workflows": [
+        "data-injuries-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 144,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "The full weekly history beside the compact file; no reader. Wednesday and Friday crons; largest gap 121.6. Gains /meta/generated_at, /meta/source_season and /meta/sources on its next run (contractMeta); /meta/generated stays."
+    },
+    {
+      "path": "src/data/intelligence/injuries_2026_current.json",
+      "producer": "scripts/fetch-injuries.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-injuries-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 144,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "report_week",
+      "coverage_read": {
+        "week": "/meta/latest_report_week",
+        "by_team": "/meta/report_week_by_team"
+      },
+      "coverage_grace_hours": 36,
+      "derived_from": [
+        "src/data/intelligence/injuries_2026.json"
+      ],
+      "lineage_grace_hours": 130,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/injuries.js",
+        "src/components/ui/PlayerCard.jsx (through PlayerLink)",
+        "/matchup-preview",
+        "/team-intel",
+        "/fantasy-intel (beta)"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "The committed copy predates step 10's producer, so /meta/latest_report_week appears on the next scheduled run; until then coverage has nothing to read. Largest gap 121.6; lineage grace is that plus 8."
+    },
+    {
+      "path": "src/data/intelligence/referee_appearances.json",
+      "producer": "scripts/fetch-referees.js",
+      "outputs_also": [
+        "src/data/intelligence/referee_appearances_compact.json"
+      ],
+      "workflows": [
+        "data-referees-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "season_present",
+      "coverage_read": {
+        "seasons": "/games/*/season"
+      },
+      "coverage_grace_hours": 36,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-referee-tendencies.js"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 169.7 (Thursday cron). No source season key today; gains /meta/generated_at and /meta/source_season (the latest season in the feed) on its next run; stamp_next names them for the repoint."
+    },
+    {
+      "path": "src/data/intelligence/referee_appearances_compact.json",
+      "producer": "scripts/fetch-referees.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-referees-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "stamp_next": {
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season",
+        "since": "2026-11-07"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "season_present",
+      "coverage_read": {
+        "seasons": "/referees/*/seasons (keys)"
+      },
+      "coverage_grace_hours": 36,
+      "derived_from": [
+        "src/data/intelligence/referee_appearances.json"
+      ],
+      "lineage_grace_hours": 178,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/ui/RefereeProfileCard.jsx",
+        "/matchup-preview"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Staged by data-referees-v2.yml since step 14; the committed copy is still 2026-08-21 until the next scheduled run on main, so lineage reads red until then. Not measured on origin/main (never staged there): it takes referee_appearances.json's ceiling, the same run. No source season key today."
+    },
+    {
+      "path": "src/data/intelligence/referee_profiles.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": null,
+        "source_season": "/metadata/source_season",
+        "verified_on": "/metadata/verified_on",
+        "label": "/metadata/label"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 season averages with 2026 crews, a hand file.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/ui/RefereeProfileCard.jsx"
+      ],
+      "label_route": "/matchup-preview",
+      "consumers": [
+        "src/components/ui/RefereeProfileCard.jsx",
+        "scripts/check-data-sources.mjs"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-21",
+      "label": "2025 season averages",
+      "note": null
+    },
+    {
+      "path": "src/data/intelligence/referee_tendencies.json",
+      "producer": "scripts/build-referee-tendencies.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-referee-tendencies-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "season_present",
+      "coverage_read": {
+        "seasons": "/meta/seasons"
+      },
+      "coverage_grace_hours": 36,
+      "derived_from": [
+        "src/data/intelligence/referee_appearances.json"
+      ],
+      "lineage_grace_hours": 176,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Step 4(f): unread, red the day anything imports it. The window moves to season-2 to season (2024 to 2026) in step 4(b); the committed copy still covers 2023 to 2025, so season_present reads red until its next run. Lineage grace 176 is the weekly producer cadence (168) plus 8, the plan's floor. The workflow_run trigger on Data Referees usually rebuilds it soon after referee_appearances.json, but the Friday cron is the backstop (risk 12, E-041), so the grace does not lean on it. Largest gap measured 144.3."
+    },
+    {
+      "path": "src/data/intelligence/team_news.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": null,
+        "source_season": null,
+        "verified_on": "/verified_on",
+        "label": "/label"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/ui/TeamNewsCard.jsx"
+      ],
+      "label_route": "/team-intel",
+      "consumers": [
+        "src/components/ui/TeamNewsCard.jsx",
+        "src/utils/teamNews.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-04-22",
+      "label": "Offseason notes, April 2026",
+      "note": "Static by declaration (step 3): no writer exists for 2026 and the raw feed carries no text to curate from."
+    },
+    {
+      "path": "src/data/intelligence/team_news_raw.json",
+      "producer": "scripts/fetch-team-news.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-team-news-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/teamNews.js",
+        "/team-intel",
+        "/dashboard"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Twice daily cron; largest gap 32.4. No source season key."
+    },
+    {
+      "path": "src/data/intelligence/trades.json",
+      "producer": "scripts/fetch-trades.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-trades-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No reader in src or scripts. Daily cron; largest gap 37.5. No source season key (meta.min_season only)."
+    },
+    {
+      "path": "src/data/intelligence/weekly_actuals_2026.json",
+      "producer": "scripts/fetch-weekly-actuals.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml",
+        "data-weekly-actuals-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "weeks": "/meta/weeks_present",
+        "rows": "/rows",
+        "week_field": "week"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "tuesday_chain",
+        "calibration",
+        "results_gate",
+        "verifier",
+        "scripts/build-defense.js",
+        "scripts/check-defense-field.mjs",
+        "drafter"
+      ],
+      "tier": "chain_input",
+      "on_stale": "block_chain",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 168.9. The plan's example row; its stamp keys already match contractMeta from step 1."
+    },
+    {
+      "path": "src/data/intelligence/weekly_transactions_2025.json",
+      "producer": "scripts/build-weekly-transactions.js",
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "2025 archive.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "2025 season, archive",
+      "note": "No reader."
+    },
+    {
+      "path": "src/data/intelligence/weekly_transactions_2026.json",
+      "producer": "scripts/build-weekly-transactions.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-weekly-transactions-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated",
+        "source_season": "/meta/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No reader in src or scripts. Thursday cron; largest gap 183.6, the largest weekly gap measured."
+    },
+    {
+      "path": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [
+        "src/data/intelligence/pbp/player_usage_data.json",
+        "src/data/intelligence/pbp/scheme_similarity_matrix.json",
+        "src/data/intelligence/pbp/situational_splits.json",
+        "src/data/intelligence/pbp/situational_splits_history.json",
+        "src/data/intelligence/pbp/team_scheme_profiles.json"
+      ],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "games_finished",
+      "coverage_read": {
+        "games": "/games"
+      },
+      "coverage_grace_hours": 36,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/pbp/process_pbp.py"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 169.2 (Tuesday cron plus the chain)."
+    },
+    {
+      "path": "src/data/intelligence/pbp/player_usage_data.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "file": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No stamp inside the file: its top level is keyed by team or player, so a meta key would change the shape its readers walk. It is dated by pbp_sync_metadata.json, written and staged in the same process_pbp.py run (stamp.file). It gains its own stamp when process_pbp.py moves to contractMeta and its readers are checked; step 4(d) names player_usage_data.json. No reader: build-player-stats.js takes only player_usage_data_2025.json, by a strict season match. Largest gap 169.2."
+    },
+    {
+      "path": "src/data/intelligence/pbp/player_usage_data_2025.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/metadata/built_date",
+        "source_season": "/metadata/season"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "The 2025 usage the 2025 player-stats build joins (base_season).",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-stats.js",
+        "scripts/check-player-stats-floor.mjs"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-23",
+      "label": "2025 season",
+      "note": "Hand-committed 2026-10-10; no script writes this name."
+    },
+    {
+      "path": "src/data/intelligence/pbp/scheme_similarity_matrix.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "file": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No stamp inside the file: its top level is keyed by team or player, so a meta key would change the shape its readers walk. It is dated by pbp_sync_metadata.json, written and staged in the same process_pbp.py run (stamp.file). It gains its own stamp when process_pbp.py moves to contractMeta and its readers are checked; step 4(d) names player_usage_data.json. No reader. Largest gap 172.8."
+    },
+    {
+      "path": "src/data/intelligence/pbp/situational_splits.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "file": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-board.js:884 (reads ../data/intelligence/pbp, so whether it reads this copy is [U])"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No stamp inside the file: its top level is keyed by team or player, so a meta key would change the shape its readers walk. It is dated by pbp_sync_metadata.json, written and staged in the same process_pbp.py run (stamp.file). It gains its own stamp when process_pbp.py moves to contractMeta and its readers are checked; step 4(d) names player_usage_data.json. Largest gap 172.8."
+    },
+    {
+      "path": "src/data/intelligence/pbp/situational_splits_history.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "file": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Its meta object is empty and each snapshot carries its own time; dated by pbp_sync_metadata.json from the same run (stamp.file). No reader. Largest gap 169.2."
+    },
+    {
+      "path": "src/data/intelligence/pbp/team_scheme_profiles.json",
+      "producer": "scripts/pbp/process_pbp.py",
+      "outputs_also": [],
+      "workflows": [
+        "data-pbp-derived-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "file": "src/data/intelligence/pbp/pbp_sync_metadata.json",
+        "generated_at": "/last_sync",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "No stamp inside the file: its top level is keyed by team or player, so a meta key would change the shape its readers walk. It is dated by pbp_sync_metadata.json, written and staged in the same process_pbp.py run (stamp.file). It gains its own stamp when process_pbp.py moves to contractMeta and its readers are checked; step 4(d) names player_usage_data.json. No reader: build-player-stats.js takes team_scheme_profiles_2025.json first and rejects a file whose season disagrees. Largest gap 172.8."
+    },
+    {
+      "path": "src/data/intelligence/pbp/team_scheme_profiles_2025.json",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/metadata/built_date",
+        "source_season": "/metadata/season"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "The 2025 team offense the 2025 player-stats build joins (base_season).",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-stats.js",
+        "scripts/check-player-stats-floor.mjs"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-23",
+      "label": "2025 season",
+      "note": "Hand-committed 2026-10-10; no script writes this name."
+    },
+    {
+      "path": "src/data/intelligence/weekly_projections/2026-w*.json",
+      "producer": "scripts/snapshot-weekly-projections.mjs",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml",
+        "data-board.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/written_utc",
+        "source_season": "/season"
+      },
+      "expected_season": "season",
+      "season_by_design": "Write-once weekly snapshots: each file is history of the season in its name and never moves. The gate holds a write_once row at its path year at every setting, so the rollover lists only files that must move.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-calibration.js",
+        "verifier #19 and #20",
+        "drafter (never cited)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Write-once snapshots: no age clock and no coverage here; checks #19 and #20 own them. The row stays at its year after the rollover: the next season's first snapshot is unregistered until a row of its own is added beside this one, and registration names it.",
+      "glob": true,
+      "write_once": true
+    },
+    {
+      "path": "src/config.js",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": "base_season",
+      "season_by_design": "LAST_COMPLETE_SEASON is the last complete season of play data, not the in-season year (step 17); the season mode ties it to base_season and to the last entry of SEASONS.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/components/pages/AdminPanel.jsx",
+        "src/components/pages/FantasyIntel.jsx",
+        "src/components/pages/Season2026.jsx",
+        "src/components/pages/ThisWeek.jsx",
+        "src/utils/playGenerator.js"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-11-07",
+      "label": "Code: play-data seasons",
+      "note": "Code, not data (QA v2 gap 4). verified_on is its last commit date."
+    },
+    {
+      "path": "public/sitemap.xml",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "search engines"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-09-04",
+      "label": "Sitemap",
+      "note": "Hand file; 7 URLs, all lastmod 2026-09-05 (QA v2). verified_on is its last commit date."
+    },
+    {
+      "path": "public/robots.txt",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "crawlers"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-03-18",
+      "label": "Robots file",
+      "note": "Hand file. The live /robots.txt is Cloudflare managed and differs from it (QA v2). verified_on is its last commit date."
+    },
+    {
+      "path": "BOARD.md",
+      "producer": "scripts/build-board-md.mjs",
+      "outputs_also": [
+        "BOARD_WEEKLY.md",
+        "data/board_last_snapshot.json"
+      ],
+      "workflows": [
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "header",
+        "generated_at": "\\| Generated \\| (\\S+)",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/playerBoard2026.js"
+      ],
+      "lineage_grace_hours": 33,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "deploy.yml (48-hour step)",
+        "drafter"
+      ],
+      "tier": "internal",
+      "on_stale": "block_deploy",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "deploy.yml already fails when it is over 48 hours old; that step stays. Largest gap 24.9."
+    },
+    {
+      "path": "BOARD_WEEKLY.md",
+      "producer": "scripts/build-board-md.mjs",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "header",
+        "generated_at": "\\| This build \\| (\\S+)",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/playerBoard2026.js"
+      ],
+      "lineage_grace_hours": 33,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "drafter"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 24.9."
+    },
+    {
+      "path": "CALIBRATION.md",
+      "producer": "scripts/build-calibration.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml",
+        "data-weekly-actuals-v2.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "header",
+        "generated_at": "\\| Generated \\| (\\S+)",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/intelligence/calibration_2026.json"
+      ],
+      "lineage_grace_hours": 33,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "readers of the public repo",
+        "drafter"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "The public calibration surface. Largest gap 24.9."
+    },
+    {
+      "path": "DATA_SOURCES.md",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/check-data-sources.mjs (deploy E-048 step)",
+        "src/DownfieldOS.jsx (link)",
+        "src/components/pages/MatchupCenter.jsx (link)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-10-25",
+      "label": "Data sources register",
+      "note": "Hand register; the E-048 gate checks host completeness, not age. verified_on is its last commit date."
+    },
+    {
+      "path": "DRAFT_WINDOW.md",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        ".github/scripts/check-draft-freeze.mjs",
+        "data-board.yml",
+        "data-tuesday-results.yml",
+        "check-freshness (frozen, not red)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-09-05",
+      "label": "Draft-window freeze",
+      "note": "One window, ended 2026-09-08. verified_on is its last commit date."
+    },
+    {
+      "path": "data/board_last_snapshot.json",
+      "producer": "scripts/build-board-md.mjs",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml",
+        "data-tuesday-results.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/generated",
+        "source_season": null
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [
+        "src/data/playerBoard2026.js"
+      ],
+      "lineage_grace_hours": 33,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-board-md.mjs (prior build ranks)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Largest gap 24.9."
+    },
+    {
+      "path": "data/corrections.jsonl",
+      "producer": null,
+      "outputs_also": [],
+      "workflows": [],
+      "stamp": null,
+      "expected_season": null,
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-player-board.js:463",
+        "src/utils/corrections.js (unreachable)"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": true,
+      "verified_on": "2026-08-30",
+      "label": "Corrections ledger",
+      "note": "Hand ledger, 18 entries issued 2026-08-17 to 2026-08-30. JSON lines, so it has no single stamp. verified_on is its last commit date."
+    },
+    {
+      "path": "public/data/plays-2023.json",
+      "producer": "scripts/fetch-nflverse-pbp.js",
+      "outputs_also": [],
+      "workflows": [
+        "deploy.yml"
+      ],
+      "stamp": {
+        "kind": "build_time"
+      },
+      "expected_season": null,
+      "season_by_design": "The site fetches exactly plays-2023.json to plays-2025.json (src/utils/playGenerator.js:117, :132-134, SEASONS in src/config.js); fetch-nflverse-pbp.js:30 stays LATEST_SEASON 2025 so the window never drops one.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/playGenerator.js",
+        "src/DownfieldOS.jsx (buildDynamicDNA)",
+        "every page that takes plays"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Built at deploy and gitignored, so registration cannot see it; the built mode asserts it in dist."
+    },
+    {
+      "path": "public/data/plays-2024.json",
+      "producer": "scripts/fetch-nflverse-pbp.js",
+      "outputs_also": [],
+      "workflows": [
+        "deploy.yml"
+      ],
+      "stamp": {
+        "kind": "build_time"
+      },
+      "expected_season": null,
+      "season_by_design": "The site fetches exactly plays-2023.json to plays-2025.json (src/utils/playGenerator.js:117, :132-134, SEASONS in src/config.js); fetch-nflverse-pbp.js:30 stays LATEST_SEASON 2025 so the window never drops one.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/playGenerator.js",
+        "src/DownfieldOS.jsx (buildDynamicDNA)",
+        "every page that takes plays"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Built at deploy and gitignored, so registration cannot see it; the built mode asserts it in dist."
+    },
+    {
+      "path": "public/data/plays-2025.json",
+      "producer": "scripts/fetch-nflverse-pbp.js",
+      "outputs_also": [],
+      "workflows": [
+        "deploy.yml"
+      ],
+      "stamp": {
+        "kind": "build_time"
+      },
+      "expected_season": "base_season",
+      "season_by_design": "The site fetches exactly plays-2023.json to plays-2025.json (src/utils/playGenerator.js:117, :132-134, SEASONS in src/config.js); fetch-nflverse-pbp.js:30 stays LATEST_SEASON 2025 so the window never drops one.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "src/utils/playGenerator.js",
+        "src/DownfieldOS.jsx (buildDynamicDNA)",
+        "every page that takes plays"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Built at deploy and gitignored, so registration cannot see it; the built mode asserts it in dist."
+    },
+    {
+      "path": "public/data/plays-meta.json",
+      "producer": "scripts/fetch-nflverse-pbp.js",
+      "outputs_also": [],
+      "workflows": [
+        "deploy.yml"
+      ],
+      "stamp": {
+        "kind": "build_time"
+      },
+      "expected_season": null,
+      "season_by_design": "The site fetches exactly plays-2023.json to plays-2025.json (src/utils/playGenerator.js:117, :132-134, SEASONS in src/config.js); fetch-nflverse-pbp.js:30 stays LATEST_SEASON 2025 so the window never drops one.",
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Built at deploy beside the play files; nothing in src fetches it. Live copy says generated 2026-09-15, unchanged since the deploy cache filled (QA v2)."
+    }
+  ]
+}

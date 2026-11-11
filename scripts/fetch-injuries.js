@@ -9,7 +9,7 @@
  * Output: src/data/intelligence/injuries_${SEASON}.json
  *
  * Usage:
- *   node scripts/fetch-injuries.js            # SEASON=2025 default
+ *   node scripts/fetch-injuries.js            # SEASON from data/season.json
  *   SEASON=2024 node scripts/fetch-injuries.js
  */
 
@@ -18,21 +18,17 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchCSV, normTeam } from './_lib/nflverse.js';
 import { selectCurrentReports, assertCurrentFloor } from './_lib/injuries-current.js';
+import { seasonFrom } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Current NFL season derivation. The league year rolls over ~March 1 (free
-// agency, new contract year). Before March we're still on the previous
-// season's data; after we're on the current. Prevents the "hardcoded '2025'"
-// rot the CoS audit flagged 2026-08-30 — the workflow will still be pulling
-// the right file next August without a human edit.
-function currentNflSeason() {
-  const now = new Date();
-  const y = now.getUTCFullYear();
-  const m = now.getUTCMonth() + 1;   // 1–12
-  return m >= 3 ? y : y - 1;
-}
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || String(currentNflSeason()), 10);
+// The target season is data/season.json's `season` (freshness plan step
+// 4(b), 2026-11-07), not a date rule: the setting moves once at rollover
+// and every producer moves with it. An explicit SEASON or argument still
+// wins. If nflverse has not published the target year yet, the fetch below
+// still falls back one season and says so in meta.season_fallback.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 const URL = `https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_${SEASON}.csv`;
 // OUT is computed in main() using the season that actually returned data —
 // so a fallback run writes injuries_2025.json rather than a phantom
@@ -115,12 +111,19 @@ async function main() {
   const currentlyQ = current.currentlyQuestionable;
 
   const OUT = path.join(__dirname, `../src/data/intelligence/injuries_${seasonUsed}.json`);
+  // Freshness plan step 4(a): the shared contract stamp. `generated` stays
+  // beside generated_at for the readers that use it today.
+  const stamp = contractMeta({
+    sourceSeason: seasonUsed,
+    sources: [`https://github.com/nflverse/nflverse-data/releases/download/injuries/injuries_${seasonUsed}.csv`],
+  });
   const meta = {
     season: seasonUsed,
     season_requested: SEASON,
     season_fallback: seasonUsed !== SEASON,
     source: 'nflverse (injuries release)',
-    generated: new Date().toISOString(),
+    generated: stamp.generated_at,
+    ...stamp,
     total_reports: rows.length,
     unique_players: players.length,
     latest_report_week: latestReportWeek,
@@ -153,7 +156,7 @@ async function main() {
   // to the feed, not the page. Any assertion failure here exits the
   // workflow BEFORE the git commit, so the last-known-good file stays
   // in the repo.
-  const REQUIRED_META_KEYS = ['season', 'source', 'generated', 'total_reports', 'unique_players', 'latest_report_week'];
+  const REQUIRED_META_KEYS = ['season', 'source', 'generated', 'generated_at', 'source_season', 'sources', 'total_reports', 'unique_players', 'latest_report_week'];
   for (const k of REQUIRED_META_KEYS) {
     if (meta[k] == null) throw new Error(`shape assert: meta.${k} is null/missing`);
   }

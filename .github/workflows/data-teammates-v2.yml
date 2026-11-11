@@ -13,11 +13,14 @@ on:
     # once roster syncs land, one monthly rebuild is enough.
     - cron: '45 5 1 * *'  # E-030 2026-09-17: overnight UTC (was `42 12`) — monthly on the 1st, off peak-hour backlog.
   workflow_dispatch:
+  # Freshness plan step 4(b), 2026-11-07: a blank input means the season in
+  # data/season.json, read by the "Resolve the season" step; no literal season
+  # default lives in this file.
     inputs:
       current_season:
-        description: 'Current season (players current team = latest in window)'
+        description: 'Current season (players current team = latest in window; blank = season in data/season.json)'
         required: false
-        default: '2026'
+        default: ''
       history_years:
         description: 'Trailing seasons for co-teammate detection'
         required: false
@@ -41,9 +44,16 @@ jobs:
         with:
           node-version: 22
       - run: npm install
+      - name: Resolve the season (input, else season in data/season.json)
+        env:
+          SEASON_INPUT: ${{ github.event.inputs.current_season }}
+        run: |
+          set -euo pipefail
+          CURRENT_SEASON="${SEASON_INPUT:-$(node scripts/_lib/season.js season)}"
+          echo "CURRENT_SEASON=${CURRENT_SEASON}" >> "$GITHUB_ENV"
+          echo "Former teammates season: ${CURRENT_SEASON}"
       - name: Rebuild former-teammate graph
         env:
-          CURRENT_SEASON: ${{ github.event.inputs.current_season || '2026' }}
           HISTORY_YEARS: ${{ github.event.inputs.history_years || '5' }}
         run: npm run data:fetch
       - name: Commit if changed

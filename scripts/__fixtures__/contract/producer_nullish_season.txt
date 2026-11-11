@@ -1,0 +1,3 @@
+// fixture: a nullish-coalescing literal default
+import { seasonFrom } from './_lib/season.js';
+const season = process.env.SEASON ?? '2026';

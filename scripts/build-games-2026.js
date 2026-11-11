@@ -11,7 +11,7 @@
  *
  * Output: src/data/games2026.json
  *   {
- *     generated_at: ISO,
+ *     generated_at: ISO, source_season: 2026, sources: [games.csv URL],
  *     source: 'nflverse/games.csv',
  *     season: 2026,
  *     weeks_included: [1],
@@ -42,6 +42,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SEASON } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const REPO_ROOT = path.dirname(path.dirname(__filename));
@@ -49,7 +51,7 @@ const GAMES_CSV_URL = 'https://github.com/nflverse/nflverse-data/releases/downlo
 const PLAYS_JSON = path.join(REPO_ROOT, 'public/data/plays-2026.json');
 const OUT = path.join(REPO_ROOT, 'src/data/games2026.json');
 
-const SEASON = 2026;
+// SEASON comes from data/season.json (freshness plan step 4(b)).
 const WEEKS = process.env.WEEKS
   ? process.env.WEEKS.split(',').map(w => parseInt(w.trim(), 10)).filter(n => !Number.isNaN(n))
   : null; // null = every regular-season week in games.csv (1 to 18)
@@ -232,8 +234,10 @@ async function main() {
   }
   games.sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.gametime || '').localeCompare(b.gametime || ''));
 
+  // Freshness plan step 4(a): the shared contract stamp at the root, where
+  // this file has always kept generated_at.
   const out = {
-    generated_at: new Date().toISOString(),
+    ...contractMeta({ sourceSeason: SEASON, sources: [GAMES_CSV_URL] }),
     source: 'nflverse/games.csv',
     season: SEASON,
     weeks_included: [...new Set(games.map(g => g.week))].sort((a, b) => a - b),

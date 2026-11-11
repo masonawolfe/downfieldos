@@ -22,6 +22,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchCSV } from './_lib/nflverse.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const URL = 'https://github.com/nflverse/nflverse-data/releases/download/officials/officials.csv';
@@ -84,10 +85,17 @@ async function main() {
     .filter(r => r.last_season >= MIN_SEASON)
     .sort((a, b) => (b.last_season - a.last_season) || (b.game_count - a.game_count));
 
+  // Freshness plan step 4(a): the shared contract stamp. source_season is
+  // the latest season the feed holds, which the gate's season test reads;
+  // `generated` stays beside generated_at for today's readers. The compact
+  // file shares this meta object, so both files carry the same stamp.
+  const latestSeason = Math.max(...[...games.values()].map(g => g.season).filter(Number.isInteger));
+  const stamp = contractMeta({ sourceSeason: latestSeason, sources: [URL] });
   const payload = {
     meta: {
       source: 'nflverse (officials release)',
-      generated: new Date().toISOString(),
+      generated: stamp.generated_at,
+      ...stamp,
       min_season: MIN_SEASON,
       games_covered: games.size,
       active_referees: refereeList.length,

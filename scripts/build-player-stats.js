@@ -16,14 +16,16 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { BASE_SEASON, seasonFrom } from './_lib/season.js';
+import { contractMeta } from './_lib/stamp.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // SEASON = the completed NFL season we're aggregating stats from. Defaults to
-// 2025 (the most recent completed season). 2026 stats do not exist yet — running
-// SEASON=2026 will 404 until nflverse publishes the first weekly stats.
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2025', 10);
+// base_season in data/season.json (freshness plan step 4(b)): the last
+// complete season, which the board uses as its projection base.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2], BASE_SEASON);
 const PBP_URL = `https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_${SEASON}.csv`;
 // nflverse retired the `player_stats` release in favor of `stats_player`; regular-season
 // aggregates live at stats_player_reg_YYYY.csv. Fields renamed: `interceptions` →
@@ -455,14 +457,21 @@ async function main() {
   // Write output
   const entries = Object.values(stats);
   const outPath = path.join(__dirname, `../src/data/playerStats${SEASON}.js`);
-  const generatedOn = new Date().toISOString().split('T')[0];
+  // Freshness plan step 4(a), 2026-11-07: the shared contract stamp. This
+  // file already changes on every run (verified_on and the header date), so
+  // generated_at adds no commit that was not landing anyway.
+  const stamp = contractMeta({
+    sourceSeason: SEASON,
+    sources: [usePlayerStats ? PLAYER_STATS_URL : PBP_URL],
+  });
+  const generatedOn = stamp.generated_at.split('T')[0];
   const enrichmentMeta = {
     // Freshness plan step 12 (2026-11-07): the cards that render this file
     // print `label` through src/components/ui/AsOf.jsx. `source_season` is the
     // season the stat lines come from; `verified_on` is the build date.
     label: `${SEASON} season`,
     verified_on: generatedOn,
-    source_season: SEASON,
+    ...stamp,
     usage_source: usageAvailable ? sourceLabel(usage.path) : null,
     usage_join_rate: entries.length > 0 ? Number((usageJoinedCount / entries.length).toFixed(3)) : null,
     // E-4: record the team-offense and 2026-roster sources too, so a header

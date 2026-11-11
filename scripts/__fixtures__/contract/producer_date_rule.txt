@@ -1,0 +1,4 @@
+// fixture: the March date rule
+import { seasonFrom } from './_lib/season.js';
+function currentNflSeason() { const d = new Date(); return d.getUTCMonth() + 1 >= 3 ? d.getUTCFullYear() : d.getUTCFullYear() - 1; }
+const SEASON = parseInt(process.env.SEASON || String(currentNflSeason()), 10);

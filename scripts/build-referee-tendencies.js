@@ -23,7 +23,7 @@
  * Runs against the seasons whose PBP files exist under raw/.
  *
  * Usage:
- *   node scripts/build-referee-tendencies.js
+ *   node scripts/build-referee-tendencies.js        # season-2 to season, data/season.json
  *   SEASONS=2023,2024,2025 node scripts/build-referee-tendencies.js
  */
 
@@ -31,6 +31,7 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath } from 'url';
+import { seasonWindow } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,7 +39,10 @@ const REPO = path.dirname(path.dirname(__filename));
 const OUTER_RAW = path.join(REPO, '..', 'data', 'intelligence', 'raw');
 const APP_PATH = path.join(REPO, 'src', 'data', 'intelligence', 'referee_appearances.json');
 const OUT = path.join(REPO, 'src', 'data', 'intelligence', 'referee_tendencies.json');
-const SEASONS = (process.env.SEASONS || '2023,2024,2025').split(',').map(s => parseInt(s.trim(), 10));
+// Freshness plan step 4(b): the default window is season-2 to season from
+// data/season.json (2024 to 2026 while the setting is 2026), so this
+// season's games count. An explicit SEASONS list still wins.
+const SEASONS = (process.env.SEASONS || seasonWindow(3).join(',')).split(',').map(s => parseInt(s.trim(), 10));
 
 function parseCsvLine(line) {
   const out = []; let cur = ''; let inQ = false;

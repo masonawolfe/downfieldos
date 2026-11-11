@@ -10,7 +10,7 @@
  * Output: src/data/schedule${SEASON}.js
  *
  * Usage:
- *   node scripts/fetch-schedule.js               # defaults to SEASON=2026
+ *   node scripts/fetch-schedule.js               # season in data/season.json
  *   SEASON=2025 node scripts/fetch-schedule.js
  *   node scripts/fetch-schedule.js 2025
  *
@@ -21,11 +21,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { execFileSync } from 'child_process';
+import { seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 // E-047 (2026-09-29): source of record for the schedule is the nflverse
 // `schedules` RELEASE asset. See DATA_SOURCES.md § Schedule source of
 // record for why this and not nfldata/raw/master. `GAMES_URL` is

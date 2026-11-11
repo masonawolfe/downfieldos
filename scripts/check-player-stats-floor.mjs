@@ -23,7 +23,7 @@
  * season), only the > 0 floor applies, and the script says so.
  *
  * Usage:
- *   node scripts/check-player-stats-floor.mjs            # SEASON env, default 2025
+ *   node scripts/check-player-stats-floor.mjs            # SEASON env, default base_season
  *   SEASON=2025 npm run data:stats:floor
  * Env overrides (for proofs / local runs):
  *   PLAYER_STATS_FLOOR_FILE  path of the built file to check
@@ -36,10 +36,12 @@ import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath } from 'url';
+import { BASE_SEASON, seasonFrom } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, '..');
-const SEASON = parseInt(process.env.SEASON || '2025', 10);
+// Freshness plan step 4(b): the default is base_season in data/season.json.
+const SEASON = seasonFrom(process.env.SEASON, BASE_SEASON);
 const REL = `src/data/playerStats${SEASON}.js`;
 const BUILT = process.env.PLAYER_STATS_FLOOR_FILE || path.join(REPO_ROOT, REL);
 const REF = process.env.PLAYER_STATS_FLOOR_REF || 'HEAD';

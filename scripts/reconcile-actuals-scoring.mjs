@@ -15,13 +15,11 @@
  * (the same reason check-defense-field stays out of the verifier). The
  * graded half (the board's rules) is verifier check #21.
  *
- * NOT WIRED YET (review 2026-11-07): no workflow runs this script until the
- * gate exists (plan step 5, read by the chain in step 7, both R2). Until
- * then a renamed nflverse column turns its component into 0 or null with no
- * red anywhere: #21 still passes, because it checks the graded column only
- * against the stored components. The only signs are the reconcile count in
- * the actuals file's scoring_notes and the fetch log line. R2 dependency:
- * step 5 must call this script (or its reconcileRows) on chain_input.
+ * WIRED IN STEP 5 (2026-11-07): scripts/check-freshness.mjs runs this
+ * script in its coverage mode on the chain_input actuals row (rule
+ * "recompute"), so a renamed nflverse column that turns a component into 0 or
+ * null reads red at the gate. #21 still checks the graded column only against
+ * the stored components. The chain reads the gate from step 7.
  *
  * Usage:
  *   node scripts/reconcile-actuals-scoring.mjs                 # src/data/intelligence/weekly_actuals_2026.json
@@ -33,10 +31,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { reconcileRows, NFLVERSE_SCORING } from './_lib/actuals-scoring.js';
+import { seasonFrom } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(__dirname, '..');
-const SEASON = parseInt(process.env.SEASON || '2026', 10);
+const SEASON = seasonFrom(process.env.SEASON);
 const file = process.argv[2] || path.join(REPO, 'src', 'data', 'intelligence', `weekly_actuals_${SEASON}.json`);
 const TOL = 0.01;
 

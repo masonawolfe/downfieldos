@@ -32,16 +32,14 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath } from 'url';
+import { seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-function currentNflSeason() {
-  const now = new Date();
-  return now.getUTCMonth() + 1 >= 3 ? now.getUTCFullYear() : now.getUTCFullYear() - 1;
-}
-
-const SEASON = parseInt(process.env.SEASON || process.argv[2] || String(currentNflSeason()), 10);
+// Freshness plan step 4(b), 2026-11-07: the default is the season in
+// data/season.json, not the March date rule this file used to carry.
+const SEASON = seasonFrom(process.env.SEASON || process.argv[2]);
 const REPO = path.dirname(__dirname);
 const ROSTER = path.join(REPO, '..', 'data', 'intelligence', 'raw', `roster_weekly_${SEASON}.csv.gz`);
 const OUT = path.join(REPO, 'src', 'data', 'intelligence', `weekly_transactions_${SEASON}.json`);

@@ -19,6 +19,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { seasonFrom } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,7 +29,7 @@ const __dirname = path.dirname(__filename);
 // Current season = the season we're building the graph FOR (players' most-recent
 // team is treated as their current team). History spans SEASONS for co-teammate
 // detection. Both are overridable via env vars for scheduled use.
-const CURRENT_SEASON = parseInt(process.env.CURRENT_SEASON || process.argv[2] || '2026', 10);
+const CURRENT_SEASON = seasonFrom(process.env.CURRENT_SEASON || process.argv[2]);
 const HISTORY_YEARS = parseInt(process.env.HISTORY_YEARS || '5', 10);
 const SEASONS = process.env.SEASONS
   ? process.env.SEASONS.split(',').map(s => parseInt(s.trim(), 10)).filter(n => !Number.isNaN(n))

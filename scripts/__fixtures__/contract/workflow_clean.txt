@@ -1,0 +1,14 @@
+# fixture: the clean form
+on:
+  workflow_dispatch:
+    inputs:
+      season:
+        default: ''
+jobs:
+  a:
+    steps:
+      - name: Resolve the season
+        env:
+          SEASON_INPUT: ${{ github.event.inputs.season }}
+        run: echo "SEASON=${SEASON_INPUT:-$(node scripts/_lib/season.js season)}" >> "$GITHUB_ENV"
+      - run: curl -sSL "$base/pbp/play_by_play_2026.csv.gz"

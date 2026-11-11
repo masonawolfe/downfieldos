@@ -21,6 +21,7 @@ import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath, pathToFileURL } from 'url';
+import { SEASON as SETTING_SEASON } from './_lib/season.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,7 +37,8 @@ const OUTER_INTEL = [
   path.join(REPO_ROOT, 'data', 'intelligence'),
   path.join(__dirname, '..', '..', 'data', 'intelligence'),
 ].find(p => fs.existsSync(p)) || path.join(__dirname, '..', '..', 'data', 'intelligence');
-const SEASON = 2026;
+// Freshness plan step 4(b), 2026-11-07: the season in data/season.json.
+const SEASON = SETTING_SEASON;
 const OUT = path.join(REPO_ROOT, 'src', 'data', `playerBoard${SEASON}.js`);
 
 const ALL_TEAMS = ['ARI','ATL','BAL','BUF','CAR','CHI','CIN','CLE','DAL','DEN','DET','GB','HOU','IND','JAX','KC','LAC','LAR','LV','MIA','MIN','NE','NO','NYG','NYJ','PHI','PIT','SEA','SF','TB','TEN','WAS'];

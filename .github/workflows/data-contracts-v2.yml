@@ -13,11 +13,14 @@ on:
     # Monthly on the 1st, 12:00 UTC
     - cron: '57 4 1 * *'  # E-030 2026-09-17: overnight UTC (was `12 12`) — monthly on the 1st, off peak-hour backlog.
   workflow_dispatch:
+  # Freshness plan step 4(b), 2026-11-07: a blank input means the season in
+  # data/season.json, read by the "Resolve the season" step; no literal season
+  # default lives in this file.
     inputs:
       season:
-        description: 'Contract-year season (deals ending this year → contract_year)'
+        description: 'Contract-year season (deals ending this year → contract_year; blank = season in data/season.json)'
         required: false
-        default: '2026'
+        default: ''
 
 permissions:
   contents: write
@@ -37,9 +40,15 @@ jobs:
         with:
           node-version: 22
       - run: npm install
-      - name: Refresh contracts
+      - name: Resolve the season (input, else season in data/season.json)
         env:
-          SEASON: ${{ github.event.inputs.season || '2026' }}
+          SEASON_INPUT: ${{ github.event.inputs.season }}
+        run: |
+          set -euo pipefail
+          SEASON="${SEASON_INPUT:-$(node scripts/_lib/season.js season)}"
+          echo "SEASON=${SEASON}" >> "$GITHUB_ENV"
+          echo "Contracts season: ${SEASON}"
+      - name: Refresh contracts
         run: npm run data:contracts
       - name: Commit if changed
         id: commit

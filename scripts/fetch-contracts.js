@@ -10,7 +10,7 @@
  *
  * Usage:
  *   node scripts/fetch-contracts.js
- *   SEASON=2026 node scripts/fetch-contracts.js  (default; contract_year_players
+ *   SEASON=2026 node scripts/fetch-contracts.js  (default: season in data/season.json; contract_year_players
  *                                                  are those whose deal ends
  *                                                  after this season)
  *
@@ -23,11 +23,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchGzippedCSV, normTeam, num, int } from './_lib/nflverse.js';
+import { seasonFrom } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const URL = 'https://github.com/nflverse/nflverse-data/releases/download/contracts/historical_contracts.csv.gz';
 const OUT = path.join(__dirname, '../src/data/intelligence/contracts.json');
-const CONTRACT_SEASON = parseInt(process.env.SEASON || '2026', 10);
+const CONTRACT_SEASON = seasonFrom(process.env.SEASON);
 
 // OTC data uses team nicknames ("Bears"), not abbreviations. Multi-team seasons
 // are slash-joined ("PHI/JAX") with the latest team last.

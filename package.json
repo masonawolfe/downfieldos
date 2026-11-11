@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
+    "build": "node scripts/report-famoves-overrides.mjs --report && vite build && cp dist/index.html dist/404.html && node scripts/prerender-routes.js",
+    "data:famoves:report": "node scripts/report-famoves-overrides.mjs",
     "preview": "vite preview",
     "data:fetch": "node scripts/fetch-nflverse-rosters.js",
     "data:pbp": "node scripts/fetch-nflverse-pbp.js",
@@ -13,6 +14,8 @@
     "data:reconcile-rosters": "node scripts/reconcile-rosters-availability.mjs",
     "data:schedule:verify-upstream": "node scripts/verify-schedule-upstream.mjs",
     "check:data-sources": "node scripts/check-data-sources.mjs",
+    "check:freshness": "node scripts/check-freshness.mjs",
+    "test:freshness": "node scripts/test-freshness.mjs",
     "data:schedule": "node scripts/fetch-schedule.js",
     "data:stats": "node scripts/build-player-stats.js",
     "data:stats:floor": "node scripts/check-player-stats-floor.mjs",
@@ -21,7 +24,7 @@
     "data:referees": "node scripts/fetch-referees.js",
     "data:contracts": "node scripts/fetch-contracts.js",
     "data:news": "node scripts/fetch-team-news.js",
-    "test": "node scripts/test-rosters.js && node scripts/test-injuries.js",
+    "test": "node scripts/test-rosters.js && node scripts/test-injuries.js && node scripts/test-contract.js && node scripts/test-famoves.mjs",
     "data:availability": "node scripts/fetch-availability.js",
     "data:board": "node scripts/build-player-board.js",
     "data:board:verify": "node scripts/verify-player-board.mjs",
@@ -51,6 +54,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
-    "vite": "^5.4.0"
+    "vite": "^5.4.0",
+    "yaml": "^2.8.1"
   }
 }
