@@ -1,3 +1,6 @@
+// Freshness plan step 12 (2026-11-07): static by design. 2025 team identities (data reconciliation rule); verified_on is the last content commit.
+export const DNA_META = { label: "2025 season", verified_on: "2026-04-04", source_season: 2025 };
+
 export const DNA = {
   ARI:{p:.57,e:.43,x:.08,s:"Kyler's Air Raid Rebuild (3-14)"},ATL:{p:.56,e:.46,x:.07,s:"Cousins Pass-First (8-9)"},
   BAL:{p:.44,e:.54,x:.12,s:"Lamar's Run Kingdom (8-9)"},BUF:{p:.61,e:.52,x:.11,s:"Allen MVP Juggernaut (12-5)"},

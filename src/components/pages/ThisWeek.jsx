@@ -221,7 +221,7 @@ export function ThisWeek({ plays, rosters, onNavigateMatchup, onGeneratePost, pr
     );
   }
 
-  // 2026 game-recap feed (nflverse schedules + PBP). Most recent completed
+  // 2026 game-recap feed (nflverse schedules/games.csv). Most recent played
   // week is what "recent results" should show; upcoming week is what "on
   // deck" should show. Derived once from the feed, not user-selected.
   const recap2026 = useMemo(() => {

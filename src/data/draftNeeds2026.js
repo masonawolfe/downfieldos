@@ -1,3 +1,6 @@
+// Freshness plan step 12 (2026-11-07): static by design. Needs before the April 2026 draft; verified_on is the last content commit.
+export const DRAFT_NEEDS_2026_META = { label: "Pre-draft, March 2026", verified_on: "2026-03-15", source_season: 2026 };
+
 export const DRAFT_NEEDS_2026 = {
   ARI:["QB","EDGE","CB","OL"],ATL:["EDGE","OL","RB","S"],BAL:["WR","OL","CB","LB"],
   BUF:["OL","DL","LB","S"],CAR:["OL","WR","CB","S"],CHI:["EDGE","OL","CB","DL"],

@@ -1,29 +1,35 @@
-// Lookup helpers over injuries_${SEASON}_current.json. Compact file with only
-// the latest per-player report — safe to bundle.
+// Lookup helpers over injuries_${SEASON}_current.json. Compact file with one
+// current row per player, safe to bundle.
 
-import injuries from '../data/intelligence/injuries_2025_current.json';
+import injuries from '../data/intelligence/injuries_2026_current.json';
+import { buildInjuryIndex } from './injuryIndex';
 
-const byTeamName = new Map();
-const byTeam = new Map();
-for (const p of injuries.players || []) {
-  if (!p.team || !p.name) continue;
-  byTeamName.set(`${p.team}::${p.name}`, p);
-  if (!byTeam.has(p.team)) byTeam.set(p.team, []);
-  byTeam.get(p.team).push(p);
-}
+// Only rows from each team's report week count (freshness plan step 10): a
+// status that cannot be dated to the team's current report is not an active
+// designation, so the card says nothing rather than something possibly
+// false. The rule lives in ./injuryIndex.js, where scripts/test-injuries.js
+// tests it.
+const index = buildInjuryIndex(injuries);
 
-// Return the latest injury report for a specific player, or null.
+// Return this player's row from his team's current report, or null.
 export function injuryFor(name, team) {
-  if (!name || !team) return null;
-  return byTeamName.get(`${team}::${name}`) || null;
+  return index.injuryFor(name, team);
 }
 
-// Return every currently-affected player on a team, sorted Out → Doubtful →
-// Questionable.
+// Return every player on a team's current report, sorted
+// Out → Doubtful → Questionable.
 export function injuriesForTeam(team) {
-  const list = byTeam.get(team) || [];
-  const rank = { Out: 0, Doubtful: 1, Questionable: 2 };
-  return [...list].sort((a, b) => (rank[a.status] ?? 3) - (rank[b.status] ?? 3));
+  return index.injuriesForTeam(team);
+}
+
+// The report week a team's rows come from, or null when it has none.
+export function injuriesReportWeek(team) {
+  return index.reportWeekFor(team);
+}
+
+// The league's latest report week (meta.latest_report_week).
+export function injuriesLatestWeek() {
+  return (injuries.meta && injuries.meta.latest_report_week) ?? null;
 }
 
 // Metadata about the underlying source and its freshness.

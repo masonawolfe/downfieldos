@@ -1,0 +1,304 @@
+{
+  "frozen_on": "2026-11-07",
+  "frozen_from": "calibration_2026.json as built on branch freshness/r1-g2 at ea3e4d4 (actuals generated 2026-11-07T19:43:00.918Z)",
+  "graded_rows": 2353,
+  "date": "2026-11-07",
+  "what": "actual moved from nflverse fantasy_points_ppr to fantasy_points_graded (full_ppr, the projection's rules); the headline dropped the weeks written after kickoff",
+  "weeks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rows_moved": 228,
+  "per_week": [
+    {
+      "week": 1,
+      "in_headline": false,
+      "old": {
+        "n": 316,
+        "mean_error": 0.35,
+        "mean_abs_error": 5.52,
+        "rmse": 7.26
+      },
+      "new": {
+        "n": 316,
+        "mean_error": 0.6,
+        "mean_abs_error": 5.52,
+        "rmse": 7.23
+      },
+      "qb_old": {
+        "n": 35,
+        "mean_error": 0.23,
+        "mean_abs_error": 7.09,
+        "rmse": 8.69
+      },
+      "qb_new": {
+        "n": 35,
+        "mean_error": 1.89,
+        "mean_abs_error": 7.15,
+        "rmse": 8.63
+      }
+    },
+    {
+      "week": 2,
+      "in_headline": false,
+      "old": {
+        "n": 322,
+        "mean_error": -0.16,
+        "mean_abs_error": 5.22,
+        "rmse": 6.81
+      },
+      "new": {
+        "n": 322,
+        "mean_error": 0,
+        "mean_abs_error": 5.16,
+        "rmse": 6.74
+      },
+      "qb_old": {
+        "n": 37,
+        "mean_error": -1.08,
+        "mean_abs_error": 7.74,
+        "rmse": 9.3
+      },
+      "qb_new": {
+        "n": 37,
+        "mean_error": 0,
+        "mean_abs_error": 7.26,
+        "rmse": 8.86
+      }
+    },
+    {
+      "week": 3,
+      "in_headline": true,
+      "old": {
+        "n": 316,
+        "mean_error": 0.59,
+        "mean_abs_error": 5.07,
+        "rmse": 6.55
+      },
+      "new": {
+        "n": 316,
+        "mean_error": 0.75,
+        "mean_abs_error": 5.04,
+        "rmse": 6.55
+      },
+      "qb_old": {
+        "n": 32,
+        "mean_error": -0.4,
+        "mean_abs_error": 6.2,
+        "rmse": 7.44
+      },
+      "qb_new": {
+        "n": 32,
+        "mean_error": 1.35,
+        "mean_abs_error": 6.15,
+        "rmse": 7.32
+      }
+    },
+    {
+      "week": 4,
+      "in_headline": true,
+      "old": {
+        "n": 310,
+        "mean_error": 0.97,
+        "mean_abs_error": 5.24,
+        "rmse": 7.13
+      },
+      "new": {
+        "n": 310,
+        "mean_error": 1.12,
+        "mean_abs_error": 5.2,
+        "rmse": 7.1
+      },
+      "qb_old": {
+        "n": 31,
+        "mean_error": -1.44,
+        "mean_abs_error": 5.66,
+        "rmse": 6.62
+      },
+      "qb_new": {
+        "n": 31,
+        "mean_error": -0.09,
+        "mean_abs_error": 5.34,
+        "rmse": 6.4
+      }
+    },
+    {
+      "week": 5,
+      "in_headline": true,
+      "old": {
+        "n": 296,
+        "mean_error": 0.53,
+        "mean_abs_error": 5.37,
+        "rmse": 6.93
+      },
+      "new": {
+        "n": 296,
+        "mean_error": 0.71,
+        "mean_abs_error": 5.37,
+        "rmse": 6.88
+      },
+      "qb_old": {
+        "n": 33,
+        "mean_error": 0.33,
+        "mean_abs_error": 7.53,
+        "rmse": 8.79
+      },
+      "qb_new": {
+        "n": 33,
+        "mean_error": 1.36,
+        "mean_abs_error": 7.22,
+        "rmse": 8.42
+      }
+    },
+    {
+      "week": 6,
+      "in_headline": true,
+      "old": {
+        "n": 273,
+        "mean_error": 0.61,
+        "mean_abs_error": 5.12,
+        "rmse": 6.81
+      },
+      "new": {
+        "n": 273,
+        "mean_error": 0.77,
+        "mean_abs_error": 5.09,
+        "rmse": 6.79
+      },
+      "qb_old": {
+        "n": 26,
+        "mean_error": -0.42,
+        "mean_abs_error": 6.12,
+        "rmse": 7.03
+      },
+      "qb_new": {
+        "n": 26,
+        "mean_error": 0.81,
+        "mean_abs_error": 5.61,
+        "rmse": 6.76
+      }
+    },
+    {
+      "week": 7,
+      "in_headline": true,
+      "old": {
+        "n": 255,
+        "mean_error": 0.54,
+        "mean_abs_error": 4.88,
+        "rmse": 6.36
+      },
+      "new": {
+        "n": 255,
+        "mean_error": 0.67,
+        "mean_abs_error": 4.85,
+        "rmse": 6.28
+      },
+      "qb_old": {
+        "n": 29,
+        "mean_error": -0.33,
+        "mean_abs_error": 5.49,
+        "rmse": 6.66
+      },
+      "qb_new": {
+        "n": 29,
+        "mean_error": 0.64,
+        "mean_abs_error": 5.16,
+        "rmse": 5.97
+      }
+    },
+    {
+      "week": 8,
+      "in_headline": true,
+      "old": {
+        "n": 265,
+        "mean_error": 0.14,
+        "mean_abs_error": 5.05,
+        "rmse": 7.15
+      },
+      "new": {
+        "n": 265,
+        "mean_error": 0.33,
+        "mean_abs_error": 5.01,
+        "rmse": 7.09
+      },
+      "qb_old": {
+        "n": 33,
+        "mean_error": -2.32,
+        "mean_abs_error": 8.22,
+        "rmse": 10.46
+      },
+      "qb_new": {
+        "n": 33,
+        "mean_error": -0.99,
+        "mean_abs_error": 7.84,
+        "rmse": 10.1
+      }
+    }
+  ],
+  "headline_old": {
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "overall": {
+      "n": 2353,
+      "mean_error": 0.44,
+      "mean_abs_error": 5.19,
+      "rmse": 6.89
+    },
+    "qb": {
+      "n": 256,
+      "mean_error": -0.69,
+      "mean_abs_error": 6.82,
+      "rmse": 8.31
+    }
+  },
+  "same_weeks_new_rules": {
+    "overall": {
+      "n": 2353,
+      "mean_error": 0.62,
+      "mean_abs_error": 5.16,
+      "rmse": 6.85
+    },
+    "qb": {
+      "n": 256,
+      "mean_error": 0.62,
+      "mean_abs_error": 6.54,
+      "rmse": 8.01
+    }
+  },
+  "headline_new": {
+    "weeks": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "overall": {
+      "n": 1715,
+      "mean_error": 0.74,
+      "mean_abs_error": 5.1,
+      "rmse": 6.79
+    },
+    "qb": {
+      "n": 184,
+      "mean_error": 0.5,
+      "mean_abs_error": 6.28,
+      "rmse": 7.7
+    }
+  }
+}

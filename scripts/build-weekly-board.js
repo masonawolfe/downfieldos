@@ -436,7 +436,16 @@ async function main() {
   const playerBoardMeta = { generated: pbMod.PLAYER_BOARD_2026_META?.generated || null };
   const defMod = await import(pathToFileURL(path.join(REPO_ROOT, 'src', 'data', 'defense2026.js')).href);
   const defMetaKey = Object.keys(defMod).find(k => /META/.test(k));
-  const defenseGenerated = (defMetaKey && defMod[defMetaKey]?.generated) || null;
+  const defMeta = (defMetaKey && defMod[defMetaKey]) || {};
+  const defenseGenerated = defMeta.generated || null;
+  // The defense file's own season, never a hard-coded year (DATA_FRESHNESS_PLAN step 2).
+  // Files built before step 2 carry it only in each row's defense_source.
+  const defRowsKey = Object.keys(defMod).find(k => /^DEFENSE_\d{4}$/.test(k));
+  const defSourceLabel = defRowsKey ? Object.values(defMod[defRowsKey])[0]?.defense_source : null;
+  const defenseSeason = defMeta.source_season ?? (Number((/_(\d{4})_/.exec(defSourceLabel || '') || [])[1]) || null);
+  const defenseWeeks = Array.isArray(defMeta.weeks_covered) && defMeta.weeks_covered.length
+    ? `, weeks ${defMeta.weeks_covered[0]} to ${defMeta.weeks_covered[defMeta.weeks_covered.length - 1]}` : '';
+  const defenseLabel = `${defenseSeason ?? 'unknown-season'} REG PBP${defenseWeeks}`;
 
   const generated = new Date().toISOString();
   const meta = {
@@ -454,14 +463,16 @@ async function main() {
       player_board_generated: playerBoardMeta.generated,
       schedule_generated: schedule.meta?.generated || null,
       defense_generated: defenseGenerated,
+      defense_source_season: defenseSeason,
+      defense_weeks_covered: Array.isArray(defMeta.weeks_covered) ? defMeta.weeks_covered : null,
     },
     league_medians_used: leagueMedians,
     league_medians_note: 'Context only since E-034 v2 — no longer feeds weekly_value.',
     field_sources: {
-      opp_fpts_allowed_to_pos: 'defense2026.js (2025 REG PBP fpts allowed per game to that position) — context only',
-      opp_pos_fpts_rank: 'defense2026.js rank_fpts_allowed_${pos}_per_game — 1 = allows fewest — context only',
-      opp_pass_def_rank: 'defense2026.js rank_pass_def_overall (composite index — 1 = best) — context only',
-      opp_rush_def_rank: 'defense2026.js rank_rush_def_overall (composite index — 1 = best) — context only',
+      opp_fpts_allowed_to_pos: `defense2026.js (${defenseLabel} fpts allowed per game to that position) — context only`,
+      opp_pos_fpts_rank: `defense2026.js (${defenseLabel}) rank_fpts_allowed_\${pos}_per_game — 1 = allows fewest — context only`,
+      opp_pass_def_rank: `defense2026.js (${defenseLabel}) rank_pass_def_overall (composite index — 1 = best) — context only`,
+      opp_rush_def_rank: `defense2026.js (${defenseLabel}) rank_rush_def_overall (composite index — 1 = best) — context only`,
       stadium: 'schedule2026.js (per-game stadium from nflverse schedule)',
       is_dome_game: 'schedule2026.js roof ∈ {dome, closed}',
       spread_line: 'schedule2026.js (signed; never floored)',

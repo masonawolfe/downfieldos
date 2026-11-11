@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Smile, Frown, TrendingUp, Zap } from 'lucide-react';
 import sentimentData from '../../data/intelligence/fan_sentiment.json';
+import { AsOf } from './AsOf';
 import { tn } from '../../utils/formatters';
 
 /**
@@ -45,6 +46,7 @@ export function FanSentimentCard({ primaryTeam, compact = false }) {
           <Frown size={20} color="#dc2626" />
           <span style={{ fontSize: 18, fontWeight: 800, color: '#0f172a' }}>Misery Index</span>
           <span style={{ fontSize: 12, color: '#94a3b8', background: '#f1f5f9', padding: '2px 10px', borderRadius: 10 }}>Top 5</span>
+          <AsOf meta={sentimentData?.metadata} />
         </div>
         <div style={{ display: 'grid', gap: 8 }}>
           {top5.map((t, i) => (
@@ -69,6 +71,8 @@ export function FanSentimentCard({ primaryTeam, compact = false }) {
             <Frown size={20} color="#dc2626" />
             <span style={{ fontSize: 20, fontWeight: 900, color: '#0f172a' }}>Fan Sentiment</span>
             <span style={{ fontSize: 12, color: '#94a3b8', background: '#fff', padding: '2px 10px', borderRadius: 10 }}>32 teams</span>
+            {/* Freshness plan step 12: the file is from March 2026, so the card says so. */}
+            <AsOf meta={sentimentData?.metadata} />
           </div>
           <div style={{ display: 'flex', gap: 6 }}>
             {[['misery', 'Misery'], ['hope', 'Hope'], ['excitement', 'Hype'], ['delusion', 'Delusion']].map(([key, label]) => (

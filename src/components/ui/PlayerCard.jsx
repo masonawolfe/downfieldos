@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { X, TrendingUp, Star, Flame, Shield, BarChart3, ExternalLink, AlertCircle } from "lucide-react";
 import contractYearData from '../../data/intelligence/contract_year_players.json';
-import { PLAYER_STATS_2025 } from '../../data/playerStats2025';
+import { PLAYER_STATS_2025, PLAYER_STATS_2025_META } from '../../data/playerStats2025';
+import { AsOf } from './AsOf';
 import { injuryFor } from '../../utils/injuries';
 
 const contractPlayers = contractYearData?.contract_year_players || [];
@@ -73,7 +74,7 @@ export function PlayerCard({ player, team, onClose }) {
               <div>
                 <div style={{ fontSize: 12, fontWeight: 700, color: INJURY_COLOR[injury.status] || '#64748b' }}>{injury.status || 'Injury reported'}</div>
                 <div style={{ fontSize: 11, color: "#64748b" }}>
-                  {injury.injury || 'undisclosed'}{injury.week ? ` — Week ${injury.week}` : ''}{injury.updated ? ` · ${injury.updated}` : ''}
+                  {injury.injury || 'undisclosed'}{injury.week ? `, Week ${injury.week}` : ''}{injury.updated ? ` · ${injury.updated}` : ''}
                 </div>
               </div>
             </div>
@@ -96,7 +97,7 @@ export function PlayerCard({ player, team, onClose }) {
             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 12px", background: "#fef2f2", borderRadius: 8, marginBottom: 12 }}>
               <TrendingUp size={14} color="#dc2626" />
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, color: "#dc2626" }}>Contract Year</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: "#dc2626" }}>Contract Year <AsOf meta={contractYearData?.metadata} /></div>
                 <div style={{ fontSize: 11, color: "#64748b" }}>{contractInfo.current_salary} — expires after 2026</div>
                 {contractInfo.performance_incentive && <div style={{ fontSize: 11, color: "#94a3b8" }}>{contractInfo.performance_incentive}</div>}
               </div>
@@ -119,7 +120,10 @@ export function PlayerCard({ player, team, onClose }) {
             <div style={{ marginBottom: 12, padding: "10px 12px", background: "#f8fafc", borderRadius: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
                 <BarChart3 size={12} color="#64748b" />
-                <span style={{ fontSize: 10, fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: 1 }}>2025 Season</span>
+                {/* Freshness plan step 12: the label comes from the stats file's own META. */}
+                {PLAYER_STATS_2025_META?.label
+                  ? <AsOf meta={PLAYER_STATS_2025_META} />
+                  : <span style={{ fontSize: 10, fontWeight: 800, color: "#64748b", textTransform: "uppercase", letterSpacing: 1 }}>2025 Season</span>}
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
                 {playerStats.pos === 'QB' && <>

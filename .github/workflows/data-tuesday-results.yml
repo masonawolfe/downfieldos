@@ -101,6 +101,27 @@ jobs:
       - name: Reconcile rosters against today's availability (E-044)
         if: steps.gate.outputs.ready == 'true'
         run: npm run data:reconcile-rosters
+      # DATA_FRESHNESS_PLAN step 2: defense2026.js from this season's REG
+      # play-by-play through the graded week, reusing the downloads above.
+      # continue-on-error: a failed build restores the committed file and the
+      # board still builds. That file holds 2026 data through week N-1 and
+      # passes check-defense-field.mjs, so in R1 a failure shows only as the
+      # summary line, the ::warning:: annotation and this step's
+      # continue-on-error mark; the gate's coverage mode turns it red from
+      # step 5. The later slots no-op once week N is graded, so a failure is
+      # rerun by dispatch with force=yes.
+      - name: Rebuild defense2026.js from 2026 play-by-play (context only, no model term)
+        if: steps.gate.outputs.ready == 'true'
+        id: defense
+        continue-on-error: true
+        env:
+          SEASON: '2026'
+          DEFENSE_PBP: ${{ env.PBP_RAW_DIR }}/play_by_play_2026.csv.gz
+          DEFENSE_ROSTER: ${{ env.PBP_RAW_DIR }}/roster_weekly_2026.csv
+          DEFENSE_THROUGH_WEEK: ${{ steps.gate.outputs.week }}
+        run: |
+          set -euo pipefail
+          npm run data:defense || { git checkout -- src/data/defense2026.js; echo "::warning::defense build failed; kept the committed defense2026.js"; echo "defense build failed; kept the committed defense2026.js" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; }
       - name: Build the player board
         if: steps.gate.outputs.ready == 'true'
         run: npm run data:board
@@ -125,6 +146,14 @@ jobs:
       - name: Emit BOARD.md + BOARD_WEEKLY.md
         if: steps.gate.outputs.ready == 'true'
         run: npm run --silent data:board:md
+      # DATA_FRESHNESS_PLAN step 11 (2026-11-01): rebuild the This Week
+      # recap feed from nflverse games.csv once the gate has passed. A failed
+      # fetch must never stop the snapshot, so it is continue-on-error and
+      # the last good src/data/games2026.json stays in place.
+      - name: Rebuild the This Week game feed (games2026.json)
+        if: steps.gate.outputs.ready == 'true'
+        continue-on-error: true
+        run: npm run data:games
       - name: Commit week N results + week N+1 snapshot
         if: steps.gate.outputs.ready == 'true'
         id: commit
@@ -139,6 +168,8 @@ jobs:
           git add src/data/intelligence/pbp/
           git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md src/data/rosters2026.js
           git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/
+          git add src/data/games2026.json
+          git add src/data/defense2026.js
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"; echo "Nothing changed."; exit 0
           fi
