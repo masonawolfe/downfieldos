@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-11-10T18:34:29.786Z |
+| This build | 2026-11-11T06:25:03.139Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-09T13:17:13.145Z |
+| Prior build | 2026-11-10T18:34:29.787Z |
 | Ranked rows this build | 498 |
-| Ranked rows prior build | 499 |
+| Ranked rows prior build | 498 |
 
 ---
 ## Risers (moved up ≥3 ranks)
@@ -21,6 +21,4 @@ _None._
 _None._
 
 ## Dropped (in the prior build, not in this one; up to 20)
-| Prior # | Player | Pos | Team | Prior VORP |
-|---:|---|:---:|:---:|---:|
-| 260 | Josh Palmer | WR | BUF | -118 |
+_None._
