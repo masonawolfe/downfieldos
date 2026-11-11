@@ -3,6 +3,15 @@ import { DNA } from '../data/dna';
 import { RECORDS_2025 } from '../data/records2025';
 import { OPPONENTS_2026 } from '../data/opponents2026';
 import { T } from '../data/teams';
+import { SEASONS, LAST_COMPLETE_SEASON } from '../config';
+
+// Label for the win projection, rendered by `AsOf` (freshness plan step 12,
+// 2026-11-11). The model reads only last season's records and the loaded
+// play data; no 2026 result feeds it, so it stays a preseason model.
+export const WIN_PROJECTION_META = {
+  label: `Preseason model: ${LAST_COMPLETE_SEASON} records, ${SEASONS[0]} to ${SEASONS[SEASONS.length - 1]} plays`,
+  source_season: LAST_COMPLETE_SEASON,
+};
 
 // helper: get record string
 export function recordStr(tm) {

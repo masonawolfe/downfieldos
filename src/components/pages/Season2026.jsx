@@ -6,13 +6,13 @@ import { DNA } from '../../data/dna';
 import { DNA_2026 } from '../../data/dna2026';
 import { OPPONENTS_2026 } from '../../data/opponents2026';
 import { FA_MOVES_2026, FA_MOVES_2026_META } from '../../data/faMoves2026';
-import { LAST_COMPLETE_SEASON, GAMES_PER_SEASON } from '../../config';
+import { LAST_COMPLETE_SEASON, GAMES_PER_SEASON, PLAY_DATA_META } from '../../config';
 import { DRAFT_NEEDS_2026, DRAFT_NEEDS_2026_META } from '../../data/draftNeeds2026';
 import { AsOf } from '../ui/AsOf';
 import { RECORDS_2025 } from '../../data/records2025';
 import { agg, lgbl } from '../../utils/aggregation';
 import { pct, tn } from '../../utils/formatters';
-import { recordStr, projectAll32 } from '../../utils/projections';
+import { recordStr, projectAll32, WIN_PROJECTION_META } from '../../utils/projections';
 import { genRoster2026 } from '../../utils/roster';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { gmVoice, genNeeds } from '../../utils/narratives';
@@ -54,7 +54,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
           <TrendingUp size={20} color="#f97316" />
           <h1 style={{ fontSize: 24, fontWeight: 900, color: "#0f172a", margin: 0 }}>2026 Season Preview</h1>
         </div>
-        <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Opponents confirmed — weekly schedule TBD. Updated with free agency moves.</p>
+        <p style={{ color: "#64748b", fontSize: 14, margin: 0 }}>Built before the season from 2025 results, 2023 to 2025 play data and offseason moves. Each card shows the date of its data. This week's games are on This Week.</p>
       </div>
 
       {/* Team Selector */}
@@ -95,13 +95,14 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
           <div><div style={{ fontSize: 11, color: "#64748b" }}>Home Games</div><div style={{ fontSize: 18, fontWeight: 800 }}>{opp.home.length}</div></div>
           <div><div style={{ fontSize: 11, color: "#64748b" }}>Away Games</div><div style={{ fontSize: 18, fontWeight: 800 }}>{opp.away.length}</div></div>
         </div>
+        <div style={{ marginTop: 10 }}><AsOf meta={PLAY_DATA_META} tone="dark" /></div>
       </div>
 
       {/* -- MATCHUPS VIEW -- */}
       {viewMode === "matchups" && (
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents</h3>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>2026 Opponents <AsOf meta={PLAY_DATA_META} /></h3>
             <ExportButton onClick={() => {
               const headers = ["Opponent", "Location", "Division", `${LAST_COMPLETE_SEASON} Record`, "Identity", "Matchup Grade"];
               const rows = allOpponents.map(oItem => {
@@ -167,7 +168,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
             <div style={{ background: "linear-gradient(135deg, #0f172a, #1e293b)", borderRadius: 16, padding: 24, marginBottom: 20, color: "#fff" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 16 }}>
                 <div>
-                  <div style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5 }}>Projected Record</div>
+                  <div style={{ fontSize: 11, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5 }}>Projected Record <AsOf meta={WIN_PROJECTION_META} tone="dark" /></div>
                   <div style={{ fontSize: 40, fontWeight: 900, fontFamily: "monospace", lineHeight: 1 }}>{pW.toFixed(1)}<span style={{ fontSize: 20, color: "#64748b" }}>-{(17 - pW).toFixed(1)}</span></div>
                   <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 4 }}>Range: {proj.floor}–{proj.ceiling} wins (90% confidence)</div>
                 </div>
@@ -342,7 +343,7 @@ export function Season2026({ plays, rosters, onNavigateMatchup, primaryTeam }) {
       {viewMode === "needs" && (
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>2026 Draft Priorities <AsOf meta={DRAFT_NEEDS_2026_META} /></h3>
-          <p style={{ fontSize: 12, color: "#94a3b8", margin: "0 0 12px" }}>Draft: April 23-25, 2026 in Pittsburgh. Prospect cards coming soon.</p>
+          <p style={{ fontSize: 12, color: "#94a3b8", margin: "0 0 12px" }}>Written before the April 23 to 25 draft in Pittsburgh.</p>
 
           <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
             {needs.map((pos, i) => (
