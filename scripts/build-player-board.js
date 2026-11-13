@@ -22,6 +22,7 @@ import path from 'path';
 import zlib from 'zlib';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { SEASON as SETTING_SEASON } from './_lib/season.js';
+import { loadExport } from './_lib/load-export.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -47,9 +48,11 @@ function norm(t) { const u = (t || '').toUpperCase().trim(); return NORM_TEAM[u]
 
 // ─── Loaders ────────────────────────────────────────────────────────────────
 
-function loadPlayerStats() {
-  const src = fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'playerStats2025.js'), 'utf8');
-  const arr = JSON.parse(src.slice(src.indexOf('['), src.lastIndexOf(']') + 1));
+// 2026-11-13: read the named export, not "first [ to last ]". The 11-11
+// refresh added a sources array to PLAYER_STATS_2025_META, the last ] moved
+// into META and four board builds died in JSON.parse (scripts/_lib/load-export.js).
+async function loadPlayerStats() {
+  const arr = await loadExport(path.join(REPO_ROOT, 'src', 'data', 'playerStats2025.js'), 'PLAYER_STATS_2025', 'array');
   const byId = new Map();
   for (const r of arr) if (r.gsis_id) byId.set(r.gsis_id, r);
   return byId;
@@ -877,9 +880,10 @@ function loadAvailability() {
   return { meta: doc.meta || {}, byGsis: new Map(Object.entries(doc.players || {})) };
 }
 
-function loadSchedule() {
-  const src = fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'schedule2026.js'), 'utf8');
-  return JSON.parse(src.slice(src.indexOf('{'), src.lastIndexOf('}') + 1));
+// 2026-11-13: the same named-export read as loadPlayerStats, so a second
+// export in schedule2026.js cannot break the "first { to last }" slice.
+async function loadSchedule() {
+  return loadExport(path.join(REPO_ROOT, 'src', 'data', 'schedule2026.js'), 'SCHEDULE_2026', 'object');
 }
 
 function loadSituationalSplits() {
@@ -924,10 +928,10 @@ async function main() {
   console.log('DFOS — Task 6 pre-draft board build');
   console.log('===================================\n');
 
-  const stats = loadPlayerStats();
+  const stats = await loadPlayerStats();
   const roster = loadRosterWeekly();
   const { meta: availMeta, byGsis: avail } = loadAvailability();
-  const schedule = loadSchedule();
+  const schedule = await loadSchedule();
   const situationalTeams = loadSituationalSplits();
   const sleeperData = await loadSleeperData();
   const adpBySleeperId = sleeperAdpMap(sleeperData);
