@@ -16,7 +16,8 @@
  * history under --replay); 29 proves --week is a floor, not a ceiling (a
  * caller's lower week cannot hide a week finished since); 30 and 31 prove the
  * oldest-entry rule on coachingTrees.js (a bumped manifest date, an entry
- * older than it; 2026-11-07).
+ * older than it; 2026-11-07); 32 pins the rosters2026.js ceiling at 96 h
+ * (95 h passes, 97 h reads red; 2026-11-13).
  *
  * No season year is written here: every year comes from data/season.json
  * through ctx, so the cases survive the rollover. The one year in this file is
@@ -287,5 +288,21 @@ export const CASES = [
     args: () => ['--mode', 'registration'],
     mutate: (c) => c.editText('src/data/coachingTrees.js', t => t.replace(/_verified_on: '\d{4}-\d{2}-\d{2}'/, `_verified_on: '${c.base}-01-02'`)),
     expect: () => ({ mode: 'registration', rule: 'oldest-entry', file: 'src/data/coachingTrees.js' }),
+  },
+  {
+    id: 32, name: 'rosters2026.js: the base stamp at 95 h passes and at 97 h reads red (age, the 96 h ceiling of 2026-11-13)',
+    // The row reads ROSTERS_META.generated, which only the Tuesday, Wednesday
+    // and Saturday rosters job sets. The baseline at 95 h must pass and the
+    // induced stamp at 97 h must read red, so the hours are written here, not
+    // read from the row: a ceiling moved off 96 fails this case on purpose.
+    // The copy moves the row to the chain_input tier, whose age rows are fresh
+    // at T by construction, so no unrelated public-tier red can decide it.
+    args: (c) => ['--mode', 'age', '--tier', 'chain_input', '--as-of', c.T],
+    prepare: (c) => {
+      c.editJson('data/freshness_manifest.json', d => { rowOf(d, 'src/data/rosters2026.js').tier = 'chain_input'; });
+      c.editText(`src/data/rosters${c.season}.js`, t => t.replace(/(export const ROSTERS_META = \{\s*"generated": ")[^"]+"/, `$1${iso(Date.parse(c.T) - 95 * HOUR)}"`));
+    },
+    mutate: (c) => c.editText(`src/data/rosters${c.season}.js`, t => t.replace(/(export const ROSTERS_META = \{\s*"generated": ")[^"]+"/, `$1${iso(Date.parse(c.T) - 97 * HOUR)}"`)),
+    expect: (c) => ({ mode: 'age', rule: 'max_age_hours', file: `src/data/rosters${c.season}.js` }),
   },
 ];
