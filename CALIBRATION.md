@@ -6,15 +6,15 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-13T20:15:00.447Z |
+| Generated | 2026-11-13T20:19:35.683Z |
 | Weekly board generated | 2026-11-13T20:14:59.540Z |
 | Player board generated | 2026-11-13T20:14:58.982Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-11-11T06:08:15.106Z |
+| Actuals generated | 2026-11-13T20:19:35.025Z |
 | Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9 |
 | Headline weeks (snapshot written before kickoff) | 3, 4, 5, 6, 7, 8, 9 |
 | Weeks written after kickoff (shown apart) | 1, 2 |
-| Weeks partial (not graded) | none |
+| Weeks partial (not graded) | 10 (1 of 14 games) |
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
 | Actual points | `fantasy_points_graded`, scored under the board's own rules (`full_ppr`) |
 | Matched pairs | 2633 (headline 1995, written after kickoff 638) |
@@ -46,7 +46,7 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10;
 
 | Pos | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|---|
-| QB | 219 | 0.29 | 6.49 | 7.95 |
+| QB | 219 | 0.3 | 6.49 | 7.95 |
 | RB | 505 | 0.78 | 5.21 | 7.09 |
 | WR | 823 | 0.86 | 5.07 | 6.82 |
 | TE | 448 | 0.35 | 4.1 | 5.54 |
