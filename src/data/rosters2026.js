@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-11T12:52:38.472Z
+// Reconciled: 2026-11-13T20:14:57.775Z against availability_2026.json
+//             (generated 2026-11-13T12:04:43.430Z) — 6 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -17213,8 +17217,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0034384",
-        "name": "D.J. Reed",
+        "gsis_id": "00-0038125",
+        "name": "Roger McCreary",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -17285,12 +17289,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: D.J. Reed (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0038125",
-        "name": "Roger McCreary",
+        "gsis_id": "00-0035637",
+        "name": "Rock Ya-Sin",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -27252,8 +27257,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0039075",
-        "name": "Puka Nacua",
+        "gsis_id": "00-0040590",
+        "name": "Konata Mumpfield",
         "grade": "Above Avg",
         "rating": 86,
         "rating_source": "snap_share_v1",
@@ -27318,16 +27323,16 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Puka Nacua (IR), Davante Adams (IR)"
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0040590",
-        "name": "Konata Mumpfield",
+        "gsis_id": "00-0036849",
+        "name": "Tutu Atwell",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Davante Adams (IR)",
         "candidates": [
           {
             "gsis_id": "00-0038359",
@@ -33681,8 +33686,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040734",
-        "name": "TreVeyon Henderson",
+        "gsis_id": "00-0040556",
+        "name": "Corey Kiner",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -33729,7 +33734,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: TreVeyon Henderson (Out)"
       },
       {
         "pos": "WR1",
@@ -50281,8 +50287,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "C",
-        "gsis_id": "00-0033082",
-        "name": "Lucas Patrick",
+        "gsis_id": "00-0035149",
+        "name": "Nick Allegretti",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -50329,7 +50335,8 @@ export const ROSTERS_2026 = {
             "posAbb": "C",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Lucas Patrick (Out)"
       },
       {
         "pos": "RG",
@@ -51253,8 +51260,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-11T12:52:38.472Z",
-  "availability_stamp": "2026-11-11T11:48:34.207Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-13T12:04:43.430Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-13T20:14:57.775Z",
+  "swaps_this_run": 6,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",

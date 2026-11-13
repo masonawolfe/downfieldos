@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T12:05:06.748Z",
+  "generated_at": "2026-11-13T20:15:03.361Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -2619,16 +2619,16 @@
       "gametime": "20:15",
       "home": "NYG",
       "away": "WAS",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
+      "home_score": 21,
+      "away_score": 24,
+      "total": 45,
       "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
+      "winner": "WAS",
+      "margin": 3,
+      "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "WAS at NYG. Kickoff Thursday 20:15 ET."
+      "narrative": "WAS 24, NYG 21. nail-biter."
     },
     {
       "gameId": "2026_10_NE_DET",
