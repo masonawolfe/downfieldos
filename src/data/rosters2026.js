@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-14T12:23:28.292Z
+// Reconciled: 2026-11-15T11:56:22.080Z against availability_2026.json
+//             (generated 2026-11-15T11:53:25.767Z) — 5 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -4906,8 +4910,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0036302",
-        "name": "Jaylinn Hawkins",
+        "gsis_id": "00-0040104",
+        "name": "Keondre Jackson",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -4954,7 +4958,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jaylinn Hawkins (Out)"
       }
     ]
   },
@@ -12944,7 +12949,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 69,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Tyler Goodson (Out), Malik Davis (IR)",
+        "starter_reason": "promoted after: Tyler Goodson (IR), Malik Davis (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036997",
@@ -19360,8 +19365,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0035685",
-        "name": "David Montgomery",
+        "gsis_id": "00-0038705",
+        "name": "Emari Demercado",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -19420,7 +19425,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: David Montgomery (Out)"
       },
       {
         "pos": "WR1",
@@ -21715,12 +21721,11 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0041111",
-        "name": "Caden Curry",
+        "gsis_id": "00-0034825",
+        "name": "Arden Key",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Arden Key (IR)",
         "candidates": [
           {
             "gsis_id": "00-0039340",
@@ -21837,7 +21842,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Akeem Davis-Gaither (Out), Jaylon Carlies (Out)",
+        "starter_reason": "promoted after: Akeem Davis-Gaither (IR), Jaylon Carlies (Out)",
         "candidates": [
           {
             "gsis_id": "00-0036298",
@@ -23957,8 +23962,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0038134",
-        "name": "Kenneth Walker III",
+        "gsis_id": "00-0041013",
+        "name": "Emmett Johnson",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -24005,12 +24010,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kenneth Walker III (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0041013",
-        "name": "Emmett Johnson",
+        "gsis_id": "00-0040959",
+        "name": "Jaydn Ott",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -33660,7 +33666,7 @@ export const ROSTERS_2026 = {
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: TreVeyon Henderson (Out)",
+        "starter_reason": "promoted after: TreVeyon Henderson (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036875",
@@ -51191,8 +51197,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-14T12:23:28.292Z",
-  "availability_stamp": "2026-11-14T11:22:52.885Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-15T11:53:25.767Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-15T11:56:22.080Z",
+  "swaps_this_run": 5,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
