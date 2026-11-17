@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T13:04:35.494Z",
+  "generated_at": "2026-11-17T13:12:09.683Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -2866,16 +2866,16 @@
       "gametime": "20:15",
       "home": "BAL",
       "away": "LAC",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
+      "home_score": 20,
+      "away_score": 23,
+      "total": 43,
       "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
+      "winner": "LAC",
+      "margin": 3,
+      "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "LAC at BAL. Kickoff Monday 20:15 ET."
+      "narrative": "LAC 23, BAL 20. nail-biter."
     },
     {
       "gameId": "2026_11_IND_HOU",

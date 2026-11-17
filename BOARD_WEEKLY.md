@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-11-16T13:04:35.176Z |
+| This build | 2026-11-17T13:12:09.291Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-16T12:59:22.003Z |
-| Ranked rows this build | 495 |
+| Prior build | 2026-11-16T13:04:35.177Z |
+| Ranked rows this build | 496 |
 | Ranked rows prior build | 495 |
 
 ---
@@ -18,7 +18,9 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 142 | David Njoku | TE | LAC | -44 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._

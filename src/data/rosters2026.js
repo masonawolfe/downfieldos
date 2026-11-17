@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-14T12:23:28.292Z
-// Reconciled: 2026-11-16T13:04:31.536Z against availability_2026.json
-//             (generated 2026-11-16T12:38:12.368Z) — 0 swap(s),
+// Reconciled: 2026-11-17T13:12:05.308Z against availability_2026.json
+//             (generated 2026-11-17T13:08:38.533Z) — 5 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -1508,8 +1508,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "FS",
-        "gsis_id": "00-0035378",
-        "name": "Andrew Wingard",
+        "gsis_id": "00-0040230",
+        "name": "Kitan Crawford",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -1580,7 +1580,8 @@ export const ROSTERS_2026 = {
             "posAbb": "FS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Andrew Wingard (Out)"
       },
       {
         "pos": "SS",
@@ -14143,8 +14144,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0037275",
-        "name": "DaRon Bland",
+        "gsis_id": "00-0037839",
+        "name": "Cobie Durant",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -14209,12 +14210,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: DaRon Bland (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0037839",
-        "name": "Cobie Durant",
+        "gsis_id": "00-0039167",
+        "name": "Joey Porter Jr.",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -16793,8 +16795,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0037236",
-        "name": "Aidan Hutchinson",
+        "gsis_id": "00-0036964",
+        "name": "Derrick Barnes",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -16895,12 +16897,13 @@ export const ROSTERS_2026 = {
             "posAbb": "ROLB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Aidan Hutchinson (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0036964",
-        "name": "Derrick Barnes",
+        "gsis_id": "00-0038940",
+        "name": "Tyler Lacy",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -51207,10 +51210,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-14T12:23:28.292Z",
-  "availability_stamp": "2026-11-16T12:38:12.368Z",
+  "availability_stamp": "2026-11-17T13:08:38.533Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-16T13:04:31.536Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-17T13:12:05.308Z",
+  "swaps_this_run": 5,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
