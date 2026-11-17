@@ -6,20 +6,20 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-17T13:46:39.115Z |
-| Weekly board generated | 2026-11-17T13:12:06.701Z |
-| Player board generated | 2026-11-17T13:46:38.325Z |
+| Generated | 2026-11-17T13:54:28.456Z |
+| Weekly board generated | 2026-11-17T13:54:27.229Z |
+| Player board generated | 2026-11-17T13:54:26.700Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-11-13T20:19:35.025Z |
-| Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9 |
-| Headline weeks (snapshot written before kickoff) | 3, 4, 5, 6, 7, 8, 9 |
+| Actuals generated | 2026-11-17T13:54:07.103Z |
+| Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 |
+| Headline weeks (snapshot written before kickoff) | 3, 4, 5, 6, 7, 8, 9, 10 |
 | Weeks written after kickoff (shown apart) | 1, 2 |
-| Weeks partial (not graded) | 10 (1 of 14 games) |
+| Weeks partial (not graded) | none |
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
 | Actual points | `fantasy_points_graded`, scored under the board's own rules (`full_ppr`) |
-| Matched pairs | 2633 (headline 1995, written after kickoff 638) |
+| Matched pairs | 2899 (headline 2261, written after kickoff 638) |
 
-Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1 to 7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; week 10: E-034 v2 (2026-10-10), the board generated 2026-11-10; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
+Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1 to 7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; week 10: E-034 v2 (2026-10-10), the board generated 2026-11-10; week 11: E-034 v2 (2026-10-10), the board generated 2026-11-17; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
 
 ## Snapshots graded
 
@@ -34,22 +34,23 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10;
 | 7 | 2026-09-18T01:36:59.740Z | 2026-10-23T00:15:00.000Z | yes | yes | E-004 v1 (pre-2026-10-10) |
 | 8 | 2026-10-27T07:36:53.659Z | 2026-10-30T00:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
 | 9 | 2026-11-03T12:25:36.510Z | 2026-11-06T01:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
-| 10 | 2026-11-10T18:34:27.716Z | 2026-11-13T01:15:00.000Z | yes | not graded yet | E-034 v2 (2026-10-10) |
+| 10 | 2026-11-10T18:34:27.716Z | 2026-11-13T01:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
+| 11 | 2026-11-17T13:54:27.453Z | 2026-11-20T01:15:00.000Z | yes | not graded yet | E-034 v2 (2026-10-10) |
 
-## Headline: weeks 3 to 9
+## Headline: weeks 3 to 10
 
 | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|
-| 1995 | 0.67 | 5.04 | 6.76 |
+| 2261 | 0.65 | 5.07 | 6.8 |
 
 ## By position (headline weeks)
 
 | Pos | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|---|
-| QB | 219 | 0.3 | 6.49 | 7.95 |
-| RB | 505 | 0.78 | 5.21 | 7.09 |
-| WR | 823 | 0.86 | 5.07 | 6.82 |
-| TE | 448 | 0.35 | 4.1 | 5.54 |
+| QB | 250 | 0.33 | 6.59 | 8.09 |
+| RB | 572 | 0.81 | 5.23 | 7.15 |
+| WR | 929 | 0.91 | 5.09 | 6.82 |
+| TE | 510 | 0.13 | 4.11 | 5.56 |
 
 ## Written after kickoff: weeks 1 and 2 (not in the headline)
 
@@ -69,11 +70,11 @@ If an adjustment adds signal, the fired mean error should sit closer to 0 than t
 
 | Adjustment | Fired N | Fired mean error | Fired mean absolute error | Not-fired N | Not-fired mean error | Not-fired mean absolute error |
 |---|---|---|---|---|---|---|
-| matchup | 1450 | 0.81 | 5.12 | 545 | 0.29 | 4.84 |
-| dome_home | 176 | 0.1 | 4.99 | 1819 | 0.72 | 5.05 |
-| short_week | 133 | 2.15 | 5.08 | 1862 | 0.56 | 5.04 |
-| bye_return | 136 | -0.22 | 5.1 | 1859 | 0.73 | 5.04 |
-| tz_travel | 177 | 1.58 | 5.18 | 1818 | 0.58 | 5.03 |
+| matchup | 1450 | 0.81 | 5.12 | 811 | 0.35 | 4.98 |
+| dome_home | 209 | -0.06 | 5.05 | 2052 | 0.72 | 5.07 |
+| short_week | 153 | 2.19 | 5.2 | 2108 | 0.53 | 5.06 |
+| bye_return | 157 | -0.27 | 4.98 | 2104 | 0.71 | 5.07 |
+| tz_travel | 187 | 1.37 | 5.18 | 2074 | 0.58 | 5.06 |
 
 **The ±4 matchup cap:** if the fired mean error and mean absolute error are close to the not-fired ones, the cap is not buying signal. If the fired mean absolute error is materially smaller (about 2 points), it is.
 
@@ -86,6 +87,8 @@ If an adjustment adds signal, the fired mean error should sit closer to 0 than t
 | Tetairoa McMillan | WR | CAR | 4 | DET | 16.55 | 45.2 | +28.65 | DET allows 35.7 WR fpts/g (median 31.1) +4.00 |
 | Matthew Golden | WR | GB | 9 | NE | 4.65 | 32.4 | +27.75 | base pace, no context adjustments fired |
 | Joe Burrow | QB | CIN | 8 | TEN | 18.06 | 45.48 | +27.42 | base pace, no context adjustments fired |
+| George Pickens | WR | DAL | 10 | SF | 17.05 | 43.5 | +26.45 | base pace, no context adjustments fired |
+| Chuba Hubbard | RB | CAR | 10 | NO | 8.49 | 34.2 | +25.71 | base pace, no context adjustments fired |
 | Tony Pollard | RB | TEN | 7 | CLE | 11.18 | 36.5 | +25.32 | CLE allows 22.1 RB fpts/g (median 22.2) -0.10 |
 | Emanuel Wilson | RB | SEA | 4 | LAC | 1.94 | 27 | +25.06 | LAC allows 18.7 RB fpts/g (median 22.2) -3.50 |
 | Jaylen Warren | RB | PIT | 5 | IND | 11.77 | 36.8 | +25.03 | IND allows 20.4 RB fpts/g (median 22.2) -1.80 |
@@ -93,14 +96,12 @@ If an adjustment adds signal, the fired mean error should sit closer to 0 than t
 | Isaiah Likely | TE | NYG | 5 | WAS | 7.51 | 32.4 | +24.89 | WAS allows 15.8 TE fpts/g (median 13.6) +2.20 |
 | Parker Washington | WR | JAX | 5 | PHI | 5.96 | 30.4 | +24.44 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 · 5h TZ delta -0.83 |
 | Tee Higgins | WR | CIN | 8 | TEN | 13.97 | 37.5 | +23.53 | base pace, no context adjustments fired |
+| Isaiah Likely | TE | NYG | 10 | WAS | 4.31 | 27.7 | +23.39 | short week (Thu after Sun) -1.00 |
 | Brian Robinson | RB | ATL | 4 | NO | 2.38 | 25.7 | +23.32 | NO allows 20.9 RB fpts/g (median 22.2) -1.30 |
 | Bhayshul Tuten | RB | JAX | 8 | IND | 6.84 | 29.9 | +23.06 | coming off bye +0.80 |
+| Jahmyr Gibbs | RB | DET | 10 | NE | 22.2 | 44.2 | +22 | dome home +0.50 |
 | Bhayshul Tuten | RB | JAX | 6 | HOU | 2.71 | 24.7 | +21.99 | HOU allows 19.7 RB fpts/g (median 22.2) -2.50 · 5h TZ delta -0.83 |
 | Germie Bernard | WR | PIT | 6 | TB | 3.95 | 25.7 | +21.75 | TB allows 31.6 WR fpts/g (median 31.1) +0.50 |
-| Adonai Mitchell | WR | NYJ | 8 | LV | 5.64 | 27.2 | +21.56 | base pace, no context adjustments fired |
-| Kalif Raymond | WR | CHI | 3 | PHI | -0.07 | 21 | +21.07 | PHI allows 26.6 WR fpts/g (median 31.1) -4.00 |
-| Tre Tucker | WR | LV | 6 | BUF | 5.71 | 26.7 | +20.99 | BUF allows 26.5 WR fpts/g (median 31.1) -4.00 · dome home +0.50 |
-| Konata Mumpfield | WR | LAR | 3 | DEN | -1.48 | 19.3 | +20.78 | DEN allows 27.0 WR fpts/g (median 31.1) -4.00 |
 
 ## Note, 2026-11-07: grading moved to the board's own scoring
 
