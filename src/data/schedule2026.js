@@ -1,5 +1,5 @@
 // Auto-generated from nflverse schedules release (games.csv) — season 2026
-// Generated: 2026-11-16T13:42:04.853Z
+// Generated: 2026-11-18T15:22:24.972Z
 // Source: nflverse (github.com/nflverse/nflverse-data — schedules release)
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-schedule.js
 
@@ -19,7 +19,7 @@ export const SCHEDULE_2026 = {
     "total_regular_games": 272,
     "total_postseason_games": 0,
     "source": "nflverse (github.com/nflverse/nflverse-data — schedules release)",
-    "generated": "2026-11-16T13:42:04.853Z",
+    "generated": "2026-11-18T15:22:24.972Z",
     "notes": "Bye = week within regular-season span with no scheduled game. LA normalized to LAR. Env fields (roof, surface, stadium) preserved for K/DEF environment model."
   },
   "teams": {
@@ -132,7 +132,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DET",
           "isHome": true
         },
@@ -155,7 +155,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": false
         },
@@ -178,7 +178,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DEN",
           "isHome": true
         },
@@ -201,7 +201,7 @@ export const SCHEDULE_2026 = {
           "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DAL",
           "isHome": false
         },
@@ -224,7 +224,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": false
         },
@@ -247,7 +247,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": true
         },
@@ -266,8 +266,8 @@ export const SCHEDULE_2026 = {
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
           "referee": null,
-          "spread_line": 16.5,
-          "total_line": 40.5,
+          "spread_line": 15.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "KC",
@@ -288,8 +288,8 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -6.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "WAS",
@@ -517,7 +517,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": true
         },
@@ -540,7 +540,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CHI",
           "isHome": true
         },
@@ -563,7 +563,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SF",
           "isHome": true
         },
@@ -586,7 +586,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TB",
           "isHome": false
         },
@@ -609,7 +609,7 @@ export const SCHEDULE_2026 = {
           "total_line": 52.5,
           "venue_tz": "Europe/Madrid",
           "venue_country": "ES",
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CIN",
           "isHome": true
         },
@@ -632,7 +632,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "KC",
           "isHome": true
         },
@@ -651,8 +651,8 @@ export const SCHEDULE_2026 = {
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 7,
+          "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "MIN",
@@ -902,7 +902,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": false
         },
@@ -925,7 +925,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": false
         },
@@ -948,7 +948,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CIN",
           "isHome": true
         },
@@ -971,7 +971,7 @@ export const SCHEDULE_2026 = {
           "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BUF",
           "isHome": false
         },
@@ -994,7 +994,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "JAX",
           "isHome": true
         },
@@ -1014,9 +1014,10 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BAL00",
           "referee": null,
           "spread_line": 4.5,
-          "total_line": 38.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAC",
           "isHome": true
         },
@@ -1057,8 +1058,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 6,
+          "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "HOU",
@@ -1286,7 +1287,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": false
         },
@@ -1309,7 +1310,7 @@ export const SCHEDULE_2026 = {
           "total_line": 53.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": false
         },
@@ -1332,7 +1333,7 @@ export const SCHEDULE_2026 = {
           "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": true
         },
@@ -1355,7 +1356,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIN",
           "isHome": false
         },
@@ -1378,7 +1379,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": false
         },
@@ -1398,7 +1399,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BUF00",
           "referee": null,
           "spread_line": 16.5,
-          "total_line": 46.5,
+          "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "MIA",
@@ -1419,8 +1420,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3,
+          "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "KC",
@@ -1670,7 +1671,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PHI",
           "isHome": false
         },
@@ -1693,7 +1694,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TB",
           "isHome": true
         },
@@ -1716,7 +1717,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": false
         },
@@ -1739,7 +1740,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DEN",
           "isHome": true
         },
@@ -1762,7 +1763,7 @@ export const SCHEDULE_2026 = {
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NO",
           "isHome": false
         },
@@ -1803,8 +1804,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 2.5,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "TB",
@@ -2054,7 +2055,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": false
         },
@@ -2077,7 +2078,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": false
         },
@@ -2100,7 +2101,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": true
         },
@@ -2123,7 +2124,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": false
         },
@@ -2146,7 +2147,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TB",
           "isHome": true
         },
@@ -2165,7 +2166,7 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 10,
+          "spread_line": 11.5,
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
@@ -2187,8 +2188,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -2.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "DET",
@@ -2438,7 +2439,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIA",
           "isHome": false
         },
@@ -2461,7 +2462,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": false
         },
@@ -2484,7 +2485,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TEN",
           "isHome": true
         },
@@ -2507,7 +2508,7 @@ export const SCHEDULE_2026 = {
           "total_line": 52.5,
           "venue_tz": "Europe/Madrid",
           "venue_country": "ES",
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": false
         },
@@ -2530,7 +2531,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PIT",
           "isHome": true
         },
@@ -2549,8 +2550,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 51.5,
+          "spread_line": -6.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "WAS",
@@ -2571,8 +2572,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 10,
+          "total_line": 52.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "NO",
@@ -2822,7 +2823,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": false
         },
@@ -2845,7 +2846,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": true
         },
@@ -2868,7 +2869,7 @@ export const SCHEDULE_2026 = {
           "total_line": 36.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TEN",
           "isHome": false
         },
@@ -2891,7 +2892,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PIT",
           "isHome": false
         },
@@ -2914,7 +2915,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NO",
           "isHome": false
         },
@@ -2937,7 +2938,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "HOU",
           "isHome": true
         },
@@ -2947,7 +2948,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "13:00",
+          "gametime": "20:20",
           "home": "CLE",
           "away": "LV",
           "div_game": false,
@@ -2956,8 +2957,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3.5,
+          "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "LV",
@@ -3229,7 +3230,7 @@ export const SCHEDULE_2026 = {
           "total_line": 53.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": false
         },
@@ -3252,7 +3253,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PHI",
           "isHome": false
         },
@@ -3275,7 +3276,7 @@ export const SCHEDULE_2026 = {
           "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": true
         },
@@ -3298,7 +3299,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": false
         },
@@ -3321,7 +3322,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SF",
           "isHome": true
         },
@@ -3340,8 +3341,8 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 7.5,
-          "total_line": 53.5,
+          "spread_line": 8.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "TEN",
@@ -3362,8 +3363,8 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 8.5,
+          "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "PHI",
@@ -3591,7 +3592,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAC",
           "isHome": false
         },
@@ -3614,7 +3615,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": true
         },
@@ -3637,7 +3638,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": false
         },
@@ -3660,7 +3661,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "KC",
           "isHome": true
         },
@@ -3683,7 +3684,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CAR",
           "isHome": false
         },
@@ -3724,8 +3725,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -1.5,
+          "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "PIT",
@@ -3975,7 +3976,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": false
         },
@@ -3998,7 +3999,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": true
         },
@@ -4021,7 +4022,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIN",
           "isHome": true
         },
@@ -4044,7 +4045,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIA",
           "isHome": false
         },
@@ -4067,7 +4068,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": true
         },
@@ -4086,8 +4087,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 46.5,
+          "spread_line": 7,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "TB",
@@ -4108,8 +4109,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -2.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "CHI",
@@ -4359,7 +4360,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CHI",
           "isHome": true
         },
@@ -4382,7 +4383,7 @@ export const SCHEDULE_2026 = {
           "total_line": 53.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DAL",
           "isHome": true
         },
@@ -4405,7 +4406,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DET",
           "isHome": false
         },
@@ -4428,7 +4429,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CAR",
           "isHome": true
         },
@@ -4451,7 +4452,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": false
         },
@@ -4474,7 +4475,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIN",
           "isHome": true
         },
@@ -4493,8 +4494,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3.5,
+          "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "LAR",
@@ -4744,7 +4745,7 @@ export const SCHEDULE_2026 = {
           "total_line": 37.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TEN",
           "isHome": false
         },
@@ -4789,7 +4790,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYG",
           "isHome": true
         },
@@ -4812,7 +4813,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAC",
           "isHome": false
         },
@@ -4835,7 +4836,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": false
         },
@@ -4854,7 +4855,7 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 10.5,
+          "spread_line": 12.5,
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
@@ -4876,8 +4877,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 6,
+          "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "BAL",
@@ -5127,7 +5128,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PIT",
           "isHome": false
         },
@@ -5150,7 +5151,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TEN",
           "isHome": true
         },
@@ -5173,7 +5174,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIN",
           "isHome": false
         },
@@ -5196,7 +5197,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "JAX",
           "isHome": false
         },
@@ -5219,7 +5220,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DAL",
           "isHome": true
         },
@@ -5242,7 +5243,7 @@ export const SCHEDULE_2026 = {
           "total_line": 37.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIA",
           "isHome": true
         },
@@ -5261,7 +5262,7 @@ export const SCHEDULE_2026 = {
           "stadium": "Reliant Stadium",
           "stadium_id": "HOU00",
           "referee": null,
-          "spread_line": 10.5,
+          "spread_line": 12.5,
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
@@ -5283,8 +5284,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -3.5,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "NYG",
@@ -5556,7 +5557,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": true
         },
@@ -5579,7 +5580,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": false
         },
@@ -5602,7 +5603,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TEN",
           "isHome": false
         },
@@ -5621,7 +5622,7 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": -6.5,
+          "spread_line": -6,
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
@@ -5634,7 +5635,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "16:05",
+          "gametime": "13:00",
           "home": "JAX",
           "away": "TEN",
           "div_game": true,
@@ -5643,8 +5644,8 @@ export const SCHEDULE_2026 = {
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 14.5,
+          "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "TEN",
@@ -5894,7 +5895,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAC",
           "isHome": true
         },
@@ -5917,7 +5918,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": false
         },
@@ -5940,7 +5941,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DEN",
           "isHome": false
         },
@@ -5963,7 +5964,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": true
         },
@@ -5986,7 +5987,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": false
         },
@@ -6005,8 +6006,8 @@ export const SCHEDULE_2026 = {
           "stadium": "GEHA Field at Arrowhead Stadium",
           "stadium_id": "KAN00",
           "referee": null,
-          "spread_line": 16.5,
-          "total_line": 40.5,
+          "spread_line": 15.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "ARI",
@@ -6027,8 +6028,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Highmark Stadium",
           "stadium_id": "BUF00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3,
+          "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "BUF",
@@ -6278,7 +6279,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DEN",
           "isHome": true
         },
@@ -6301,7 +6302,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "KC",
           "isHome": false
         },
@@ -6324,7 +6325,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": false
         },
@@ -6347,7 +6348,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "HOU",
           "isHome": true
         },
@@ -6367,9 +6368,10 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BAL00",
           "referee": null,
           "spread_line": 4.5,
-          "total_line": 38.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BAL",
           "isHome": false
         },
@@ -6388,8 +6390,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 40.5,
+          "spread_line": 3.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "NYJ",
@@ -6401,7 +6403,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "20:20",
+          "gametime": "16:05",
           "home": "LAC",
           "away": "NE",
           "div_game": false,
@@ -6410,8 +6412,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 4.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "NE",
@@ -6661,7 +6663,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BUF",
           "isHome": true
         },
@@ -6684,7 +6686,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": true
         },
@@ -6707,7 +6709,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": false
         },
@@ -6730,7 +6732,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAC",
           "isHome": true
         },
@@ -6753,7 +6755,7 @@ export const SCHEDULE_2026 = {
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "WAS",
           "isHome": false
         },
@@ -6776,7 +6778,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": false
         },
@@ -6795,8 +6797,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3.5,
+          "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "GB",
@@ -7046,7 +7048,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": false
         },
@@ -7069,7 +7071,7 @@ export const SCHEDULE_2026 = {
           "total_line": 53.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BUF",
           "isHome": true
         },
@@ -7092,7 +7094,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": true
         },
@@ -7115,7 +7117,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": false
         },
@@ -7138,7 +7140,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SF",
           "isHome": false
         },
@@ -7161,7 +7163,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": true
         },
@@ -7193,7 +7195,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "13:00",
+          "gametime": "20:20",
           "home": "CLE",
           "away": "LV",
           "div_game": false,
@@ -7202,8 +7204,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Huntington Bank Field",
           "stadium_id": "CLE00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 3.5,
+          "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "CLE",
@@ -7431,7 +7433,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CIN",
           "isHome": true
         },
@@ -7454,7 +7456,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": false
         },
@@ -7477,7 +7479,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": true
         },
@@ -7500,7 +7502,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DET",
           "isHome": true
         },
@@ -7523,7 +7525,7 @@ export const SCHEDULE_2026 = {
           "total_line": 37.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": false
         },
@@ -7543,7 +7545,7 @@ export const SCHEDULE_2026 = {
           "stadium_id": "BUF00",
           "referee": null,
           "spread_line": 16.5,
-          "total_line": 46.5,
+          "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "BUF",
@@ -7564,8 +7566,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -3,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "NYJ",
@@ -7815,7 +7817,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NO",
           "isHome": false
         },
@@ -7838,7 +7840,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": true
         },
@@ -7861,7 +7863,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DET",
           "isHome": false
         },
@@ -7884,7 +7886,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BUF",
           "isHome": true
         },
@@ -7907,7 +7909,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": false
         },
@@ -7948,8 +7950,8 @@ export const SCHEDULE_2026 = {
           "stadium": "U.S. Bank Stadium",
           "stadium_id": "MIN01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 7,
+          "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "ATL",
@@ -8199,7 +8201,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": true
         },
@@ -8222,7 +8224,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYJ",
           "isHome": true
         },
@@ -8245,7 +8247,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CHI",
           "isHome": false
         },
@@ -8268,7 +8270,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIA",
           "isHome": false
         },
@@ -8291,7 +8293,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "GB",
           "isHome": true
         },
@@ -8314,7 +8316,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DET",
           "isHome": false
         },
@@ -8324,7 +8326,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "20:20",
+          "gametime": "16:05",
           "home": "LAC",
           "away": "NE",
           "div_game": false,
@@ -8333,8 +8335,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 4.5,
+          "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "LAC",
@@ -8584,7 +8586,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIN",
           "isHome": true
         },
@@ -8607,7 +8609,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYG",
           "isHome": false
         },
@@ -8630,7 +8632,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PIT",
           "isHome": true
         },
@@ -8653,7 +8655,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": true
         },
@@ -8676,7 +8678,7 @@ export const SCHEDULE_2026 = {
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CAR",
           "isHome": true
         },
@@ -8695,7 +8697,7 @@ export const SCHEDULE_2026 = {
           "stadium": "Soldier Field",
           "stadium_id": "CHI98",
           "referee": null,
-          "spread_line": 10,
+          "spread_line": 11.5,
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
@@ -8717,8 +8719,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Paycor Stadium",
           "stadium_id": "CIN00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 10,
+          "total_line": 52.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "CIN",
@@ -8968,7 +8970,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "WAS",
           "isHome": false
         },
@@ -8991,7 +8993,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NO",
           "isHome": true
         },
@@ -9014,7 +9016,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "HOU",
           "isHome": false
         },
@@ -9037,7 +9039,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PHI",
           "isHome": false
         },
@@ -9060,7 +9062,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "WAS",
           "isHome": true
         },
@@ -9079,7 +9081,7 @@ export const SCHEDULE_2026 = {
           "stadium": "MetLife Stadium",
           "stadium_id": "NYC01",
           "referee": null,
-          "spread_line": -6.5,
+          "spread_line": -6,
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
@@ -9101,8 +9103,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Lucas Oil Stadium",
           "stadium_id": "IND00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -3.5,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "IND",
@@ -9352,7 +9354,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": true
         },
@@ -9375,7 +9377,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NE",
           "isHome": false
         },
@@ -9398,7 +9400,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "MIA",
           "isHome": true
         },
@@ -9421,7 +9423,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": true
         },
@@ -9444,7 +9446,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "KC",
           "isHome": false
         },
@@ -9467,7 +9469,7 @@ export const SCHEDULE_2026 = {
           "total_line": 50.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "BUF",
           "isHome": true
         },
@@ -9486,8 +9488,8 @@ export const SCHEDULE_2026 = {
           "stadium": "SoFi Stadium",
           "stadium_id": "LAX01",
           "referee": null,
-          "spread_line": 3,
-          "total_line": 40.5,
+          "spread_line": 3.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "LAC",
@@ -9508,8 +9510,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Hard Rock Stadium",
           "stadium_id": "MIA00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -3,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "MIA",
@@ -9759,7 +9761,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CAR",
           "isHome": true
         },
@@ -9782,7 +9784,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DAL",
           "isHome": true
         },
@@ -9805,7 +9807,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "WAS",
           "isHome": false
         },
@@ -9828,7 +9830,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYG",
           "isHome": true
         },
@@ -9869,8 +9871,8 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 8.5,
+          "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "DAL",
@@ -10120,7 +10122,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": true
         },
@@ -10143,7 +10145,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "TB",
           "isHome": false
         },
@@ -10166,7 +10168,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NO",
           "isHome": false
         },
@@ -10189,7 +10191,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": true
         },
@@ -10212,7 +10214,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CIN",
           "isHome": false
         },
@@ -10253,8 +10255,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Acrisure Stadium",
           "stadium_id": "PIT00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -1.5,
+          "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "DEN",
@@ -10504,7 +10506,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SF",
           "isHome": true
         },
@@ -10527,7 +10529,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DEN",
           "isHome": false
         },
@@ -10550,7 +10552,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "KC",
           "isHome": true
         },
@@ -10573,7 +10575,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CHI",
           "isHome": true
         },
@@ -10596,7 +10598,7 @@ export const SCHEDULE_2026 = {
           "total_line": 39.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ARI",
           "isHome": true
         },
@@ -10619,7 +10621,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": false
         },
@@ -10638,8 +10640,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 2.5,
+          "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "SF",
@@ -10889,7 +10891,7 @@ export const SCHEDULE_2026 = {
           "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SEA",
           "isHome": false
         },
@@ -10912,7 +10914,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "WAS",
           "isHome": true
         },
@@ -10935,7 +10937,7 @@ export const SCHEDULE_2026 = {
           "total_line": 49.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": false
         },
@@ -10958,7 +10960,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LV",
           "isHome": true
         },
@@ -10981,7 +10983,7 @@ export const SCHEDULE_2026 = {
           "total_line": 55.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "DAL",
           "isHome": false
         },
@@ -11022,8 +11024,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Levi's Stadium",
           "stadium_id": "SFO01",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 2.5,
+          "total_line": 46.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "SEA",
@@ -11295,7 +11297,7 @@ export const SCHEDULE_2026 = {
           "total_line": 38.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PIT",
           "isHome": true
         },
@@ -11318,7 +11320,7 @@ export const SCHEDULE_2026 = {
           "total_line": 44.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CAR",
           "isHome": false
         },
@@ -11341,7 +11343,7 @@ export const SCHEDULE_2026 = {
           "total_line": 42.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "ATL",
           "isHome": true
         },
@@ -11364,7 +11366,7 @@ export const SCHEDULE_2026 = {
           "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CHI",
           "isHome": false
         },
@@ -11383,8 +11385,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Ford Field",
           "stadium_id": "DET00",
           "referee": null,
-          "spread_line": 5.5,
-          "total_line": 46.5,
+          "spread_line": 7,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "DET",
@@ -11405,8 +11407,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Raymond James Stadium",
           "stadium_id": "TAM00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 2.5,
+          "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "CAR",
@@ -11656,7 +11658,7 @@ export const SCHEDULE_2026 = {
           "total_line": 37.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "HOU",
           "isHome": true
         },
@@ -11679,7 +11681,7 @@ export const SCHEDULE_2026 = {
           "total_line": 43.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "IND",
           "isHome": false
         },
@@ -11702,7 +11704,7 @@ export const SCHEDULE_2026 = {
           "total_line": 36.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CLE",
           "isHome": true
         },
@@ -11725,7 +11727,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "CIN",
           "isHome": false
         },
@@ -11748,7 +11750,7 @@ export const SCHEDULE_2026 = {
           "total_line": 45.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "JAX",
           "isHome": true
         },
@@ -11767,8 +11769,8 @@ export const SCHEDULE_2026 = {
           "stadium": "AT&T Stadium",
           "stadium_id": "DAL00",
           "referee": null,
-          "spread_line": 7.5,
-          "total_line": 53.5,
+          "spread_line": 8.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "DAL",
@@ -11780,7 +11782,7 @@ export const SCHEDULE_2026 = {
           "game_type": "REG",
           "gameday": "2026-11-29",
           "weekday": "Sunday",
-          "gametime": "16:05",
+          "gametime": "13:00",
           "home": "JAX",
           "away": "TEN",
           "div_game": true,
@@ -11789,8 +11791,8 @@ export const SCHEDULE_2026 = {
           "stadium": "EverBank Stadium",
           "stadium_id": "JAX00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": 14.5,
+          "total_line": 47.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "JAX",
@@ -12040,7 +12042,7 @@ export const SCHEDULE_2026 = {
           "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYG",
           "isHome": true
         },
@@ -12063,7 +12065,7 @@ export const SCHEDULE_2026 = {
           "total_line": 51.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "SF",
           "isHome": false
         },
@@ -12086,7 +12088,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "PHI",
           "isHome": true
         },
@@ -12109,7 +12111,7 @@ export const SCHEDULE_2026 = {
           "total_line": 48.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "LAR",
           "isHome": true
         },
@@ -12132,7 +12134,7 @@ export const SCHEDULE_2026 = {
           "total_line": 40.5,
           "venue_tz": null,
           "venue_country": null,
-          "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)",
+          "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)",
           "opponent": "NYG",
           "isHome": false
         },
@@ -12151,8 +12153,8 @@ export const SCHEDULE_2026 = {
           "stadium": "Northwest Stadium",
           "stadium_id": "WAS00",
           "referee": null,
-          "spread_line": -4.5,
-          "total_line": 51.5,
+          "spread_line": -6.5,
+          "total_line": 54.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "CIN",
@@ -12173,8 +12175,8 @@ export const SCHEDULE_2026 = {
           "stadium": "State Farm Stadium",
           "stadium_id": "PHO00",
           "referee": null,
-          "spread_line": null,
-          "total_line": null,
+          "spread_line": -6.5,
+          "total_line": 41.5,
           "venue_tz": null,
           "venue_country": null,
           "opponent": "ARI",
@@ -13665,7 +13667,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_CIN_MIA",
@@ -13686,7 +13688,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_LV_NE",
@@ -13707,7 +13709,7 @@ export const SCHEDULE_2026 = {
         "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_MIN_NO",
@@ -13728,7 +13730,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_CLE_NYJ",
@@ -13749,7 +13751,7 @@ export const SCHEDULE_2026 = {
         "total_line": 38.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_IND_PIT",
@@ -13770,7 +13772,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_HOU_TEN",
@@ -13791,7 +13793,7 @@ export const SCHEDULE_2026 = {
         "total_line": 37.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_NYG_WAS",
@@ -13812,7 +13814,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_DEN_LAC",
@@ -13833,7 +13835,7 @@ export const SCHEDULE_2026 = {
         "total_line": 42.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_DET_ARI",
@@ -13854,7 +13856,7 @@ export const SCHEDULE_2026 = {
         "total_line": 55.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_SF_SEA",
@@ -13875,7 +13877,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_BAL_ATL",
@@ -13896,7 +13898,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_05_BUF_LA",
@@ -13917,7 +13919,7 @@ export const SCHEDULE_2026 = {
         "total_line": 55.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "6": [
@@ -13940,7 +13942,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_HOU_JAX",
@@ -13981,7 +13983,7 @@ export const SCHEDULE_2026 = {
         "total_line": 51.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_BAL_CLE",
@@ -14002,7 +14004,7 @@ export const SCHEDULE_2026 = {
         "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_TEN_IND",
@@ -14023,7 +14025,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_NYJ_NE",
@@ -14044,7 +14046,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_NO_NYG",
@@ -14065,7 +14067,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_CAR_PHI",
@@ -14086,7 +14088,7 @@ export const SCHEDULE_2026 = {
         "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_PIT_TB",
@@ -14107,7 +14109,7 @@ export const SCHEDULE_2026 = {
         "total_line": 38.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_ARI_LA",
@@ -14128,7 +14130,7 @@ export const SCHEDULE_2026 = {
         "total_line": 51.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_LAC_KC",
@@ -14149,7 +14151,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_BUF_LV",
@@ -14170,7 +14172,7 @@ export const SCHEDULE_2026 = {
         "total_line": 53.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_DAL_GB",
@@ -14191,7 +14193,7 @@ export const SCHEDULE_2026 = {
         "total_line": 53.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_06_WAS_SF",
@@ -14212,7 +14214,7 @@ export const SCHEDULE_2026 = {
         "total_line": 51.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "7": [
@@ -14235,7 +14237,7 @@ export const SCHEDULE_2026 = {
         "total_line": 50.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_PIT_NO",
@@ -14256,7 +14258,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_SF_ATL",
@@ -14277,7 +14279,7 @@ export const SCHEDULE_2026 = {
         "total_line": 49.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_CIN_BAL",
@@ -14298,7 +14300,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_TB_CAR",
@@ -14319,7 +14321,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_NYG_HOU",
@@ -14340,7 +14342,7 @@ export const SCHEDULE_2026 = {
         "total_line": 42.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_IND_MIN",
@@ -14361,7 +14363,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_MIA_NYJ",
@@ -14382,7 +14384,7 @@ export const SCHEDULE_2026 = {
         "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_CLE_TEN",
@@ -14403,7 +14405,7 @@ export const SCHEDULE_2026 = {
         "total_line": 36.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_DEN_ARI",
@@ -14424,7 +14426,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_GB_DET",
@@ -14445,7 +14447,7 @@ export const SCHEDULE_2026 = {
         "total_line": 55.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_LA_LV",
@@ -14466,7 +14468,7 @@ export const SCHEDULE_2026 = {
         "total_line": 49.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_KC_SEA",
@@ -14487,7 +14489,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_07_DAL_PHI",
@@ -14508,7 +14510,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "8": [
@@ -14531,7 +14533,7 @@ export const SCHEDULE_2026 = {
         "total_line": 47.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_BAL_BUF",
@@ -14552,7 +14554,7 @@ export const SCHEDULE_2026 = {
         "total_line": 54.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_TEN_CIN",
@@ -14573,7 +14575,7 @@ export const SCHEDULE_2026 = {
         "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_ARI_DAL",
@@ -14594,7 +14596,7 @@ export const SCHEDULE_2026 = {
         "total_line": 54.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_MIN_DET",
@@ -14615,7 +14617,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_IND_JAX",
@@ -14636,7 +14638,7 @@ export const SCHEDULE_2026 = {
         "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_LV_NYJ",
@@ -14657,7 +14659,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_CLE_PIT",
@@ -14678,7 +14680,7 @@ export const SCHEDULE_2026 = {
         "total_line": 38.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_ATL_TB",
@@ -14699,7 +14701,7 @@ export const SCHEDULE_2026 = {
         "total_line": 42.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_LAC_LA",
@@ -14720,7 +14722,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_KC_DEN",
@@ -14741,7 +14743,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_NE_MIA",
@@ -14762,7 +14764,7 @@ export const SCHEDULE_2026 = {
         "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_PHI_WAS",
@@ -14783,7 +14785,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_08_CHI_SEA",
@@ -14804,7 +14806,7 @@ export const SCHEDULE_2026 = {
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "9": [
@@ -14827,7 +14829,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_CIN_ATL",
@@ -14848,7 +14850,7 @@ export const SCHEDULE_2026 = {
         "total_line": 52.5,
         "venue_tz": "Europe/Madrid",
         "venue_country": "ES",
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_DEN_CAR",
@@ -14869,7 +14871,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_DAL_IND",
@@ -14890,7 +14892,7 @@ export const SCHEDULE_2026 = {
         "total_line": 51.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_NYJ_KC",
@@ -14911,7 +14913,7 @@ export const SCHEDULE_2026 = {
         "total_line": 47.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_DET_MIA",
@@ -14932,7 +14934,7 @@ export const SCHEDULE_2026 = {
         "total_line": 49.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_CLE_NO",
@@ -14953,7 +14955,7 @@ export const SCHEDULE_2026 = {
         "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_NYG_PHI",
@@ -14974,7 +14976,7 @@ export const SCHEDULE_2026 = {
         "total_line": 38.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_LA_WAS",
@@ -14995,7 +14997,7 @@ export const SCHEDULE_2026 = {
         "total_line": 48.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_HOU_LAC",
@@ -15016,7 +15018,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_LV_SF",
@@ -15037,7 +15039,7 @@ export const SCHEDULE_2026 = {
         "total_line": 51.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_GB_NE",
@@ -15058,7 +15060,7 @@ export const SCHEDULE_2026 = {
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_ARI_SEA",
@@ -15079,7 +15081,7 @@ export const SCHEDULE_2026 = {
         "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_TB_CHI",
@@ -15100,7 +15102,7 @@ export const SCHEDULE_2026 = {
         "total_line": 47.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_09_BUF_MIN",
@@ -15121,7 +15123,7 @@ export const SCHEDULE_2026 = {
         "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "10": [
@@ -15144,7 +15146,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_NE_DET",
@@ -15165,7 +15167,7 @@ export const SCHEDULE_2026 = {
         "total_line": 50.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_KC_ATL",
@@ -15186,7 +15188,7 @@ export const SCHEDULE_2026 = {
         "total_line": 47.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_HOU_CLE",
@@ -15207,7 +15209,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_MIN_GB",
@@ -15228,7 +15230,7 @@ export const SCHEDULE_2026 = {
         "total_line": 42.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_MIA_IND",
@@ -15249,7 +15251,7 @@ export const SCHEDULE_2026 = {
         "total_line": 37.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_CAR_NO",
@@ -15270,7 +15272,7 @@ export const SCHEDULE_2026 = {
         "total_line": 48.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_BUF_NYJ",
@@ -15291,7 +15293,7 @@ export const SCHEDULE_2026 = {
         "total_line": 50.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_JAX_TEN",
@@ -15312,7 +15314,7 @@ export const SCHEDULE_2026 = {
         "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_LA_ARI",
@@ -15333,7 +15335,7 @@ export const SCHEDULE_2026 = {
         "total_line": 38.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_SEA_LV",
@@ -15354,7 +15356,7 @@ export const SCHEDULE_2026 = {
         "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_SF_DAL",
@@ -15375,7 +15377,7 @@ export const SCHEDULE_2026 = {
         "total_line": 55.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_PIT_CIN",
@@ -15396,7 +15398,7 @@ export const SCHEDULE_2026 = {
         "total_line": 49.5,
         "venue_tz": null,
         "venue_country": null,
-        "surface_source": "carried-forward 2026-11-16T13:42:04.849Z (from HEAD)"
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       },
       {
         "game_id": "2026_10_LAC_BAL",
@@ -15414,9 +15416,10 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BAL00",
         "referee": null,
         "spread_line": 4.5,
-        "total_line": 38.5,
+        "total_line": 39.5,
         "venue_tz": null,
-        "venue_country": null
+        "venue_country": null,
+        "surface_source": "carried-forward 2026-11-18T15:22:24.967Z (from HEAD)"
       }
     ],
     "11": [
@@ -15435,7 +15438,7 @@ export const SCHEDULE_2026 = {
         "stadium": "Reliant Stadium",
         "stadium_id": "HOU00",
         "referee": null,
-        "spread_line": 10.5,
+        "spread_line": 12.5,
         "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null
@@ -15456,7 +15459,7 @@ export const SCHEDULE_2026 = {
         "stadium_id": "BUF00",
         "referee": null,
         "spread_line": 16.5,
-        "total_line": 46.5,
+        "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15495,7 +15498,7 @@ export const SCHEDULE_2026 = {
         "stadium": "Soldier Field",
         "stadium_id": "CHI98",
         "referee": null,
-        "spread_line": 10,
+        "spread_line": 11.5,
         "total_line": 48.5,
         "venue_tz": null,
         "venue_country": null
@@ -15515,8 +15518,8 @@ export const SCHEDULE_2026 = {
         "stadium": "AT&T Stadium",
         "stadium_id": "DAL00",
         "referee": null,
-        "spread_line": 7.5,
-        "total_line": 53.5,
+        "spread_line": 8.5,
+        "total_line": 54.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15535,8 +15538,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Ford Field",
         "stadium_id": "DET00",
         "referee": null,
-        "spread_line": 5.5,
-        "total_line": 46.5,
+        "spread_line": 7,
+        "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15555,8 +15558,8 @@ export const SCHEDULE_2026 = {
         "stadium": "GEHA Field at Arrowhead Stadium",
         "stadium_id": "KAN00",
         "referee": null,
-        "spread_line": 16.5,
-        "total_line": 40.5,
+        "spread_line": 15.5,
+        "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15575,7 +15578,7 @@ export const SCHEDULE_2026 = {
         "stadium": "MetLife Stadium",
         "stadium_id": "NYC01",
         "referee": null,
-        "spread_line": -6.5,
+        "spread_line": -6,
         "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null
@@ -15595,8 +15598,8 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": 3,
-        "total_line": 40.5,
+        "spread_line": 3.5,
+        "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15675,8 +15678,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Northwest Stadium",
         "stadium_id": "WAS00",
         "referee": null,
-        "spread_line": -4.5,
-        "total_line": 51.5,
+        "spread_line": -6.5,
+        "total_line": 54.5,
         "venue_tz": null,
         "venue_country": null
       }
@@ -15697,8 +15700,8 @@ export const SCHEDULE_2026 = {
         "stadium": "SoFi Stadium",
         "stadium_id": "LAX01",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 3.5,
+        "total_line": 45.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15717,8 +15720,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Ford Field",
         "stadium_id": "DET00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": -2.5,
+        "total_line": 54.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15737,8 +15740,8 @@ export const SCHEDULE_2026 = {
         "stadium": "AT&T Stadium",
         "stadium_id": "DAL00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 8.5,
+        "total_line": 47.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15757,8 +15760,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Highmark Stadium",
         "stadium_id": "BUF00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 3,
+        "total_line": 50.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15777,8 +15780,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Acrisure Stadium",
         "stadium_id": "PIT00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": -1.5,
+        "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15797,28 +15800,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Paycor Stadium",
         "stadium_id": "CIN00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
-        "venue_tz": null,
-        "venue_country": null
-      },
-      {
-        "game_id": "2026_12_LV_CLE",
-        "week": 12,
-        "game_type": "REG",
-        "gameday": "2026-11-29",
-        "weekday": "Sunday",
-        "gametime": "13:00",
-        "home": "CLE",
-        "away": "LV",
-        "div_game": false,
-        "roof": "outdoors",
-        "surface": "grass",
-        "stadium": "Huntington Bank Field",
-        "stadium_id": "CLE00",
-        "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 10,
+        "total_line": 52.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15837,8 +15820,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Reliant Stadium",
         "stadium_id": "HOU00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 6,
+        "total_line": 44.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15857,8 +15840,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Lucas Oil Stadium",
         "stadium_id": "IND00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": -3.5,
+        "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15877,8 +15860,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Hard Rock Stadium",
         "stadium_id": "MIA00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": -3,
+        "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15897,8 +15880,8 @@ export const SCHEDULE_2026 = {
         "stadium": "U.S. Bank Stadium",
         "stadium_id": "MIN01",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 7,
+        "total_line": 42.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15908,7 +15891,7 @@ export const SCHEDULE_2026 = {
         "game_type": "REG",
         "gameday": "2026-11-29",
         "weekday": "Sunday",
-        "gametime": "16:05",
+        "gametime": "13:00",
         "home": "JAX",
         "away": "TEN",
         "div_game": true,
@@ -15917,8 +15900,28 @@ export const SCHEDULE_2026 = {
         "stadium": "EverBank Stadium",
         "stadium_id": "JAX00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 14.5,
+        "total_line": 47.5,
+        "venue_tz": null,
+        "venue_country": null
+      },
+      {
+        "game_id": "2026_12_NE_LAC",
+        "week": 12,
+        "game_type": "REG",
+        "gameday": "2026-11-29",
+        "weekday": "Sunday",
+        "gametime": "16:05",
+        "home": "LAC",
+        "away": "NE",
+        "div_game": false,
+        "roof": "dome",
+        "surface": "matrixturf",
+        "stadium": "SoFi Stadium",
+        "stadium_id": "LAX01",
+        "referee": null,
+        "spread_line": 4.5,
+        "total_line": 39.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15937,8 +15940,8 @@ export const SCHEDULE_2026 = {
         "stadium": "State Farm Stadium",
         "stadium_id": "PHO00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": -6.5,
+        "total_line": 41.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15957,28 +15960,28 @@ export const SCHEDULE_2026 = {
         "stadium": "Levi's Stadium",
         "stadium_id": "SFO01",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 2.5,
+        "total_line": 46.5,
         "venue_tz": null,
         "venue_country": null
       },
       {
-        "game_id": "2026_12_NE_LAC",
+        "game_id": "2026_12_LV_CLE",
         "week": 12,
         "game_type": "REG",
         "gameday": "2026-11-29",
         "weekday": "Sunday",
         "gametime": "20:20",
-        "home": "LAC",
-        "away": "NE",
+        "home": "CLE",
+        "away": "LV",
         "div_game": false,
-        "roof": "dome",
-        "surface": "matrixturf",
-        "stadium": "SoFi Stadium",
-        "stadium_id": "LAX01",
+        "roof": "outdoors",
+        "surface": "grass",
+        "stadium": "Huntington Bank Field",
+        "stadium_id": "CLE00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 3.5,
+        "total_line": 40.5,
         "venue_tz": null,
         "venue_country": null
       },
@@ -15997,8 +16000,8 @@ export const SCHEDULE_2026 = {
         "stadium": "Raymond James Stadium",
         "stadium_id": "TAM00",
         "referee": null,
-        "spread_line": null,
-        "total_line": null,
+        "spread_line": 2.5,
+        "total_line": 43.5,
         "venue_tz": null,
         "venue_country": null
       }
