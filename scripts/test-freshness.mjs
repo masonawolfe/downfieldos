@@ -89,7 +89,10 @@ for (const r of manifest.rows.filter(x => x.tier === 'chain_input')) {
   if (!Number.isNaN(t)) newest = Math.max(newest, t);
 }
 const T = new Date(newest + 3.6e6).toISOString();
-const probe = JSON.parse(must(process.execPath, ['scripts/check-freshness.mjs', '--mode', 'coverage', '--tier', 'chain_input', '--as-of', T, '--json'], { cwd: WORK }));
+// The probe reads L only, so it runs with --report: a live chain-input red
+// (defense check 5 until the 2026-11-17 freeze) must not stop every case.
+// Each case's own baseline still has to exit 0, and says so when it cannot.
+const probe = JSON.parse(must(process.execPath, ['scripts/check-freshness.mjs', '--mode', 'coverage', '--tier', 'chain_input', '--as-of', T, '--json', '--report'], { cwd: WORK }));
 const L = probe.latest_finished_week.grace_6h;
 const ctx = {
   season, base, T, L, baseTime: BASE_TIME, manifest,

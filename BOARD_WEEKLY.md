@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| This build | 2026-11-11T06:25:03.139Z |
+| This build | 2026-11-18T13:21:47.489Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-10T18:34:29.787Z |
-| Ranked rows this build | 498 |
-| Ranked rows prior build | 498 |
+| Prior build | 2026-11-18T13:00:23.137Z |
+| Ranked rows this build | 496 |
+| Ranked rows prior build | 496 |
 
 ---
 ## Risers (moved up ≥3 ranks)
