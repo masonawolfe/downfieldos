@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T13:54:31.202Z",
+  "generated_at": "2026-11-18T13:00:23.493Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -3239,25 +3239,6 @@
       "narrative": "NO at CIN. Kickoff Sunday 13:00 ET."
     },
     {
-      "gameId": "2026_12_LV_CLE",
-      "week": 12,
-      "date": "2026-11-29",
-      "weekday": "Sunday",
-      "gametime": "13:00",
-      "home": "CLE",
-      "away": "LV",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
-      "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
-      "home_stats": null,
-      "away_stats": null,
-      "narrative": "LV at CLE. Kickoff Sunday 13:00 ET."
-    },
-    {
       "gameId": "2026_12_BAL_HOU",
       "week": 12,
       "date": "2026-11-29",
@@ -3338,7 +3319,7 @@
       "week": 12,
       "date": "2026-11-29",
       "weekday": "Sunday",
-      "gametime": "16:05",
+      "gametime": "13:00",
       "home": "JAX",
       "away": "TEN",
       "home_score": null,
@@ -3350,7 +3331,26 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "TEN at JAX. Kickoff Sunday 16:05 ET."
+      "narrative": "TEN at JAX. Kickoff Sunday 13:00 ET."
+    },
+    {
+      "gameId": "2026_12_NE_LAC",
+      "week": 12,
+      "date": "2026-11-29",
+      "weekday": "Sunday",
+      "gametime": "16:05",
+      "home": "LAC",
+      "away": "NE",
+      "home_score": null,
+      "away_score": null,
+      "total": null,
+      "overtime": false,
+      "winner": null,
+      "margin": null,
+      "played": false,
+      "home_stats": null,
+      "away_stats": null,
+      "narrative": "NE at LAC. Kickoff Sunday 16:05 ET."
     },
     {
       "gameId": "2026_12_WAS_ARI",
@@ -3391,13 +3391,13 @@
       "narrative": "SEA at SF. Kickoff Sunday 16:25 ET."
     },
     {
-      "gameId": "2026_12_NE_LAC",
+      "gameId": "2026_12_LV_CLE",
       "week": 12,
       "date": "2026-11-29",
       "weekday": "Sunday",
       "gametime": "20:20",
-      "home": "LAC",
-      "away": "NE",
+      "home": "CLE",
+      "away": "LV",
       "home_score": null,
       "away_score": null,
       "total": null,
@@ -3407,7 +3407,7 @@
       "played": false,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "NE at LAC. Kickoff Sunday 20:20 ET."
+      "narrative": "LV at CLE. Kickoff Sunday 20:20 ET."
     },
     {
       "gameId": "2026_12_CAR_TB",
