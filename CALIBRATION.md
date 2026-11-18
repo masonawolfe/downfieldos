@@ -6,9 +6,9 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-18T13:21:45.521Z |
-| Weekly board generated | 2026-11-18T13:00:20.055Z |
-| Player board generated | 2026-11-18T13:21:44.444Z |
+| Generated | 2026-11-18T15:27:13.676Z |
+| Weekly board generated | 2026-11-18T15:27:12.808Z |
+| Player board generated | 2026-11-18T15:27:12.306Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
 | Actuals generated | 2026-11-17T13:54:07.103Z |
 | Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 |
