@@ -16,7 +16,14 @@ name: Data — Player Board
 
 on:
   workflow_run:
-    workflows: ["Data — Availability"]
+    # Freshness plan step 8 (R3, 2026-11-18): also rebuild after the schedule
+    # job, so a schedule change reaches the board the same day (the 10-26
+    # 19-of-20 verifier failure). The name is copied byte for byte from line 1
+    # of data-schedule-v2.yml. Its only cron is Monday 05:21 UTC, so it does
+    # not reach the Tuesday chain in the shared data-board group. Depth:
+    # schedule, board, verify is three levels, the most GitHub allows, so
+    # nothing may trigger off data-board-verify.yml.
+    workflows: ["Data — Availability", "Data — Schedule"]
     types: [completed]
   # Also run on our own daily schedule — 30 min after data-availability's
   # cron. A failed availability run must not silently stop the board from
