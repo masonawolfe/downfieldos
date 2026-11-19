@@ -1631,9 +1631,7 @@
       "path": "src/data/intelligence/team_news_raw.json",
       "producer": "scripts/fetch-team-news.js",
       "outputs_also": [],
-      "workflows": [
-        "data-team-news-v2.yml"
-      ],
+      "workflows": [],
       "stamp": {
         "kind": "json",
         "generated_at": "/meta/generated",
@@ -1641,7 +1639,7 @@
       },
       "expected_season": "season",
       "season_by_design": null,
-      "max_age_hours": 48,
+      "max_age_hours": null,
       "change_driven": false,
       "in_season_only": false,
       "coverage": null,
@@ -1652,16 +1650,14 @@
       "ui_consumers": [],
       "label_route": null,
       "consumers": [
-        "src/utils/teamNews.js",
-        "/team-intel",
-        "/dashboard"
+        "src/utils/teamNews.js"
       ],
-      "tier": "public",
+      "tier": "unread",
       "on_stale": "red",
-      "static": false,
-      "verified_on": null,
-      "label": null,
-      "note": "Twice daily cron; largest gap 32.4. No source season key."
+      "static": true,
+      "verified_on": "2026-11-17",
+      "label": "ESPN team news, frozen November 17, 2026",
+      "note": "Frozen by design since 2026-11-17 (ASK 43, Mason: \"yea stop the ESPN job too\"). Its last run wrote it at 2026-11-17 13:53Z; data-team-news-v2.yml was moved to .github/workflows-archive/ on 2026-11-19 (team news plan step 1). Tier unread: since step 1 no page imports src/utils/teamNews.js, so the gate reads red the day the site bundle reaches this file again. Our own team changes file replaces it (plan steps 2 to 5). Before 2026-11-19 the row was public with a 48-hour ceiling (twice daily cron, largest gap 32.4)."
     },
     {
       "path": "src/data/intelligence/trades.json",

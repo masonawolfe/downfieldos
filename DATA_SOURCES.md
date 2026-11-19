@@ -22,7 +22,7 @@ they exist, are detailed in the per-source sections below.
 | `github.com` (nflverse releases) | pbp, rosters, depth charts, snap counts, player stats, schedules, injuries, trades, contracts, officials | most of `src/data/` | **CC BY 4.0 — required** |
 | `en.wikipedia.org` | coach career/lineage facts, 75 cited URLs | `coachingTrees.js` (`hc_source`, `oc_source`, `dc_source`, `trees_source`, `style_source`) | **CC BY-SA 4.0 — required** |
 | `sleeper.app`, `api.sleeper.app` | player records, injury status + game designation, `search_rank` (ADP proxy) | `intelligence/availability_2026.json`, `playerBoard2026.js` | recommended, labelled in-row |
-| `espn.com`, `site.web.api.espn.com` | team news: link, published timestamp, type, category labels only | `intelligence/team_news_raw.json` | no expression stored — see ESPN section |
+| `espn.com`, `site.web.api.espn.com` | **retired 2026-11-17, not read since.** Was team news: link, published timestamp, type, category labels only | `intelligence/team_news_raw.json` (frozen, shown nowhere) | no expression stored — see ESPN section |
 | `footballzebras.com` | 2026 referee crew rosters, preseason assignments | `intelligence/referee_profiles.json` | reformatted, not republished |
 | `nflpenalties.com` | crew-level penalty rate aggregates (2025 REG) | `intelligence/referee_profiles.json` | aggregate figures only |
 | `sharpfootballanalysis.com` | crew penalty tendency aggregates | `intelligence/referee_profiles.json` | aggregate figures only |
@@ -144,6 +144,13 @@ honestly as `adp_source: "sleeper_search_rank"`.
 ---
 
 ## ESPN (news headlines feed, `scripts/fetch-team-news.js`)
+
+**Retired 2026-11-17 (ASK 43).** The job stopped that day; its last run
+wrote the file at 2026-11-17 13:53Z. On 2026-11-19 (team news plan step 1)
+its workflow moved to `.github/workflows-archive/data-team-news-v2-2026-11-19.yml`
+and both pages that showed the list stopped importing it. The file is kept,
+frozen, and marked unread in `data/freshness_manifest.json`. No route reads
+espn.com.
 
 **Field reduction 2026-09-05:** the fetch script keeps only link, published
 timestamp, type, and category labels. Verbatim `headline` and `description`

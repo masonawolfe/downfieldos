@@ -11,7 +11,6 @@ import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { TeamNewsCard } from '../ui/TeamNewsCard';
-import { latestTeamHeadlines } from '../../utils/teamNews';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -49,31 +48,10 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>Comp: {pct(stats.compRate)} | Sack: {pct(stats.sackRate)} | {stats.n.toLocaleString()} plays</div>
         </div>
       </div>
-      {(() => {
-        const wire = latestTeamHeadlines(team, 5);
-        if (!wire.length) return null;
-        return (
-          <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
-            {/* Freshness plan step 3 (2026-11-07): the live wire is the
-                latest news, so it carries the title and sits above the
-                dated offseason card. */}
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
-              <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: 0 }}>Latest News</h3>
-              <span style={{ fontSize: 11, color: "#94a3b8" }}>ESPN wire · {tn(team)} · last {wire.length} stories</span>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {wire.map((n, i) => (
-                <a key={i} href={n.link || undefined} target={n.link ? "_blank" : undefined} rel="noopener noreferrer" style={{ display: "flex", alignItems: "flex-start", gap: 10, textDecoration: "none" }}>
-                  <span style={{ fontSize: 10, color: "#94a3b8", fontFamily: "monospace", minWidth: 76, marginTop: 3 }}>{(n.published || "").slice(0, 10)}</span>
-                  {/* Counsel 2026-09-05: headline dropped from the ESPN wire.
-                      Categories-derived label + generic action. */}
-                  <span style={{ fontSize: 13, color: "#334155", lineHeight: 1.5, flex: 1 }}>{(n.categories || []).map(c => c.type).filter(Boolean).slice(0, 3).join(' · ') || 'ESPN'}: read on ESPN →</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        );
-      })()}
+      {/* Team news plan step 1 (2026-11-19, ASK 43): the ESPN wire is off.
+          Its last items are from 2026-11-17 and link to a site we no
+          longer read, so the list is not shown. The "What changed" card
+          from our own data replaces it (plan step 5). */}
       <TeamNewsCard team={team} />
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>The Scouting Report</h3>
