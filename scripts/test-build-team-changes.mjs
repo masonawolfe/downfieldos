@@ -125,7 +125,7 @@ console.log('reserve and roster moves');
   check(b.some((x) => x.gsis_id === 'r3' && x.detail === 'activated'), 'reserve to active is activated');
   check(b.some((x) => x.gsis_id === 's1') && !b.some((x) => x.gsis_id === 's2'), 'signed to the active roster kept, practice squad signing left out');
   check(b.some((x) => x.gsis_id === 'x1') && !b.some((x) => x.gsis_id === 'x2'), 'release from the active roster kept, practice squad release left out');
-  check(b.some((x) => x.gsis_id === 't1' && x.detail === 'traded_in' && x.sentence.includes('from the Aardvarks')) && a.some((x) => x.gsis_id === 't1' && x.detail === 'traded_out' && x.sentence.includes('to the Bobcats')), 'a trade or claim is written for both teams with the other team named');
+  check(b.find((x) => x.gsis_id === 't1')?.sentence === 'Added tight end Tra Ded, last with the Aardvarks, before week 11.' && a.find((x) => x.gsis_id === 't1')?.sentence === 'Tight end Tra Ded is now with the Bobcats, as of week 11.', 'a trade or claim is written for both teams with the other team named');
   check(!a.concat(b).some((x) => x.gsis_id === 't2'), 'a practice squad to practice squad move is left out');
   check(!b.some((x) => x.gsis_id === 's3'), 'a move older than week_now minus 1 is left out (window)');
   check(b.length <= 5, 'cap: no team over five items');
@@ -211,7 +211,7 @@ console.log('review cases');
     { type: 'SIGNED', week: 10, gsis_id: 'zz', name: 'Zed Test', position: 'LB', team: 'XYZ', status: 'ACT' },
   ];
   const o = buildTeamChanges(i);
-  check(o.teams.LAR.some((x) => x.gsis_id === 'pn') && o.teams.LAR.some((x) => x.gsis_id === 'xs' && x.detail === 'traded_in') && o.teams.SF.some((x) => x.gsis_id === 'xs' && x.sentence.includes('to the Rams')), 'LA rows join to LAR, both sides of the trade included');
+  check(o.teams.LAR.some((x) => x.gsis_id === 'pn') && o.teams.LAR.some((x) => x.gsis_id === 'xs' && x.detail === 'added') && o.teams.SF.some((x) => x.gsis_id === 'xs' && x.sentence.includes('is now with the Rams')), 'LA rows join to LAR, both sides of the trade included');
   check(o.meta.unknown_teams.XYZ === 1 && !Object.values(o.teams).flat().some((x) => x.gsis_id === 'zz'), 'an unknown team code is listed in meta and its row is not used');
 }
 {
@@ -229,7 +229,7 @@ console.log('review cases');
   check(o.teams.AAA.find((x) => x.gsis_id === 'cut')?.sentence === 'Released punter Cut Real before week 11.', 'a STATUS_CHANGE from active to CUT is a release');
 }
 {
-  // Free agent and practice squad signings are not trades.
+  // CoS ruling 2026-11-19: every team change reads as a team change.
   const i = base();
   i.transactions.transactions = [
     { type: 'TRADED_OR_CLAIMED', week: 10, gsis_id: 'fa', name: 'Free Agent', position: 'QB', from_team: 'AAA', to_team: 'BBB', old_status: 'CUT', new_status: 'ACT' },
@@ -237,10 +237,10 @@ console.log('review cases');
     { type: 'STATUS_CHANGE', week: 11, gsis_id: 'in', name: 'Inactive Hurt', position: 'RB', team: 'AAA', from_status: 'INA', to_status: 'RES' },
   ];
   const o = buildTeamChanges(i);
-  check(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence === 'Added quarterback Free Agent, last with the Aardvarks, to the active roster before week 10.' && o.teams.BBB.find((x) => x.gsis_id === 'fa')?.detail === 'added', 'old_status CUT is written as added, last with the old team: it can be a trade or a signing (QA gate 2, Brissett)');
+  check(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence === 'Added quarterback Free Agent, last with the Aardvarks, before week 10.', 'old_status CUT is a team change: added, last with the old team (it can hide a trade, QA gate 2)');
   check(!/Signed|trade/.test(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence || ''), 'negative: a CUT row never says signed or trade');
-  check(o.teams.BBB.find((x) => x.gsis_id === 'ps')?.sentence === 'Signed quarterback Prac Squad off the Aardvarks practice squad before week 10.', 'old_status DEV is a signing off the other team\'s practice squad');
-  check(!o.teams.AAA.some((x) => x.gsis_id === 'fa' || x.gsis_id === 'ps'), 'no "Lost" item for the team that cut him or held him on its practice squad');
+  check(o.teams.BBB.find((x) => x.gsis_id === 'ps')?.sentence === 'Added quarterback Prac Squad, last with the Aardvarks, before week 10.', 'old_status DEV is a team change too: added, last with the old team');
+  check(o.teams.AAA.find((x) => x.gsis_id === 'fa')?.sentence === 'Quarterback Free Agent is now with the Bobcats, as of week 10.' && o.teams.AAA.some((x) => x.gsis_id === 'ps' && x.detail === 'now_with'), 'the old team\'s card says he is now with the new team');
   check(o.teams.AAA.some((x) => x.gsis_id === 'in' && x.detail === 'reserve'), 'a move from the inactive list to a reserve list is a reserve move');
 }
 {
@@ -290,7 +290,7 @@ console.log('review cases');
   i.rosters.AAA.defense = [{ pos: 'EDGE1', gsis_id: 'e2', name: 'Edge Two', starter_reason: 'promoted after: Edge Star (IR)', candidates: [{ gsis_id: 'es', name: 'Edge Star' }, { gsis_id: 'e2', name: 'Edge Two' }] }];
   i.injuries.players = [inj('es', 'Edge Star', 'DE', 'AAA', { 10: 'Out' })];
   const o = buildTeamChanges(i);
-  check(o.teams.BBB.some((x) => x.gsis_id === 'ti' && x.detail === 'traded_in') && o.teams.AAA.some((x) => x.gsis_id === 'ti' && x.detail === 'traded_out'), 'a trade where the player arrives on the inactive list is written for both teams');
+  check(o.teams.BBB.some((x) => x.gsis_id === 'ti' && x.detail === 'added') && o.teams.AAA.some((x) => x.gsis_id === 'ti' && x.detail === 'now_with'), 'a trade where the player arrives on the inactive list is written for both teams');
   check(o.teams.AAA.find((x) => x.gsis_id === 'ri')?.sentence === 'Guard Res Ina came off a reserve list before week 10.', 'reserve to inactive reads "came off a reserve list", not "returned to the active roster"');
   check(!o.teams.AAA.some((x) => x.gsis_id === 'rx'), 'reserve to inactive with no availability on the team makes no item');
   check(o.teams.AAA.find((x) => x.gsis_id === 'es')?.matters === true, 'a starter the depth chart says was promoted over (starter_reason) matters on the first build');
@@ -317,8 +317,8 @@ console.log('review cases');
     { type: 'SIGNED', week: 10, gsis_id: 'nob', name: 'No Body', position: 'LB', team: 'AAA', status: 'ACT' },
   ];
   const o = buildTeamChanges(i);
-  check(o.teams.AAA[0].gsis_id === 'w1' && o.teams.AAA[0].detail === 'traded_out', 'six depth injury lines and one trade of a starter: the trade leads the card');
-  check(o.teams.BBB.some((x) => x.gsis_id === 'w1' && x.detail === 'traded_in' && x.matters === true), 'the receiving team shows him too, as one who matters, because he matters to the team he left');
+  check(o.teams.AAA[0].gsis_id === 'w1' && o.teams.AAA[0].detail === 'now_with', 'six depth injury lines and one trade of a starter: the trade leads the card');
+  check(o.teams.BBB.some((x) => x.gsis_id === 'w1' && x.detail === 'added' && x.matters === true), 'the receiving team shows him too, as one who matters, because he matters to the team he left');
   check(!o.teams.AAA.some((x) => x.gsis_id === 'nob'), 'negative: a signing of a depth player does not push out depth injury lines (kind order holds inside the group)');
 
   const j = base();
@@ -374,8 +374,13 @@ console.log('committed file');
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
   check(!all.some((x) => 'other_team' in x), 'no internal ranking key (other_team) in the reader file');
   for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
-    check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'traded_in') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'traded_out'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
+    check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'added') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'now_with'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
   }
+  // CoS ruling after QA gate 2, by name.
+  check(d.teams.BAL?.find((x) => x.name === 'Jacoby Brissett')?.sentence === 'Added quarterback Jacoby Brissett, last with the Cardinals, before week 10.', 'Brissett on Baltimore\'s card: added, last with the Cardinals (nfl.com lists a trade; never "signed")');
+  check(d.teams.CLE?.find((x) => x.name === 'Zaire Mitchell-Paden')?.sentence === 'Added tight end Zaire Mitchell-Paden, last with the Texans, before week 10.', 'Mitchell-Paden on Cleveland\'s card: added, last with the Texans');
+  check(!all.some((x) => /\b(trade|traded|claim|claimed)\b/i.test(x.sentence)), 'negative: no sentence says trade or claim');
+  check(all.filter((x) => /^Signed /.test(x.sentence)).every((x) => x.detail === 'signed' && !x.sentence.includes(' last with ') && !x.sentence.includes('practice squad')), 'negative: "Signed" appears only on rows that name no other team');
   check(Object.keys(d.meta.unknown_teams || {}).length === 0, 'every team code in the inputs is known after the alias map');
   check(!Object.entries(d.teams).some(([tm, v]) => v.some((x) => x.detail === 'released' && (d.meta.skipped_release_weeks || []).some((g) => g.team === tm && g.week === x.week))), 'no released item from a skipped snapshot week');
 }

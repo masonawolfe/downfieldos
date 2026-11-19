@@ -2,7 +2,7 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-19T22:30:55.296Z",
+    "generated_at": "2026-11-19T22:32:48.436Z",
     "generated_by": "scripts/build-team-changes.js",
     "label": "Updated November 19, 2026",
     "label_basis": "the build's own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card",
@@ -13,7 +13,7 @@
       "latest_transactions_week": 11,
       "latest_report_week": 10
     },
-    "total_items": 150,
+    "total_items": 151,
     "first_build": false,
     "state_reset": null,
     "injury_report_weeks_behind": {
@@ -86,7 +86,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-19T22:19:51.951Z"
+        "generated": "2026-11-19T22:30:55.296Z"
       },
       {
         "file": "data/team_changes_weights.json",
@@ -100,13 +100,13 @@
       "kinds": "the kind order inside each group comes from data/team_changes_weights.json (card_kind_rank, counted from our own issues by scripts/count-team-change-kinds.js, plan part 6 step 4); with no usable weights file it is the plan's part 4 order, out_or_back first and role and roster_move level. No betting or draft kind exists",
       "order": "plan part 4 as ruled by CoS 2026-11-19 15:31. First, a trade, signing or release of a player who matters (for a trade, one who matters to either team) always makes the card, newest first if more than five. Then, for the slots left, players who matter before players who do not, whatever the kind; within each group, kind rank, then the newer week, then the detail order below, then name",
       "matters": "a depth chart starter now, a starter the state saw this season (including one who left the starting slots, so an injured starter still counts), a player the depth chart names in a slot's starter_reason (\"promoted after: NAME (IR)\"), matched to a gsis_id through that slot's candidates, or one of the team's top three in the graded column (fantasy_points_graded) in any of the last three graded weeks. Plan part 4 says graded usage; the graded points are the one usage measure the actuals file carries for every position (it stores no attempts or carries)",
-      "detail_order": "reserve, out, doubtful, back, activated, questionable, traded_in, traded_out, added, signed, released, new_starter, role_up, role_down",
+      "detail_order": "reserve, out, doubtful, back, activated, questionable, added, now_with, signed, released, new_starter, role_up, role_down",
       "cap": "at most 5 items per team and one item per player per team (the first in the order)",
       "out_or_back": "listed out, doubtful or questionable on the team's latest injury report week; back when listed out on the team's previous report week (a bye week is skipped) and, on the latest week, not listed out or doubtful while the availability file says active for the same team",
       "reserve": "a STATUS_CHANGE from ACT or INA to RES in weekly_transactions; the list is named from the availability file (IR injured reserve, PUP physically unable to perform), otherwise \"a reserve list\"",
       "activated": "a STATUS_CHANGE from RES to ACT (returned to the active roster), or from RES to INA while availability still places him on that team (came off a reserve list)",
-      "signed": "SIGNED with status ACT; a TRADED_OR_CLAIMED row whose old_status is CUT and new_status ACT is written as \"added, last with the <team>\" for the new team only, because a CUT between weekly snapshots can be a trade (QA gate 2, 2026-11-19: Brissett) as well as a release and signing; one whose old_status is DEV and new_status ACT is written as a signing off the other team's practice squad, with no item for the team that lost him",
-      "traded": "TRADED_OR_CLAIMED with old_status and new_status each ACT, INA or RES, written for both teams as a trade or waiver claim (the file cannot tell the two apart)",
+      "signed": "SIGNED with status ACT, a row that names no other team. Never used for a team change",
+      "team_change": "CoS ruling 2026-11-19: a TRADED_OR_CLAIMED row (the team changed between two weekly snapshots) with old_status ACT, INA, RES, CUT or DEV and new_status ACT, INA or RES is written as a team change on both cards: \"Added <position> <name>, last with the <old team>, before week N.\" and \"<Position> <name> is now with the <new team>, as of week N.\" Never signed, traded or claimed, because the snapshot cannot tell those apart (QA gate 2: Jacoby Brissett read CUT at ARI and was traded)",
       "released": "RELEASED with last_status ACT, RES or INA, or a STATUS_CHANGE from one of those to CUT. Left out when the player is still on that team (availability, the depth chart or a weekly_actuals row for that team in that week or later), and every release in a team-week with more than 20 RELEASED rows is left out as a snapshot gap and listed in meta.skipped_release_weeks. Practice squad only moves are left out",
       "new_starter": "a player in the team's depth chart starter slots who was not in them at the last build (state in data/team_changes_starters.json); the first build only records the starters; a starter who leaves the slots is kept in the state for the rest of the season, and when he returns his old record comes back with no new starter item",
       "role": "wide receivers, tight ends and running backs with targets in the last graded week, against their average over up to three earlier games for the same team (at least two); up when 4 or more targets above the average and at least 6 targets; down when 4 or more below an average of at least 6. Targets only: the actuals file carries no carries",
@@ -115,6 +115,22 @@
   },
   "teams": {
     "ARI": [
+      {
+        "gsis_id": "00-0033119",
+        "name": "Jacoby Brissett",
+        "position": "QB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
+          }
+        ],
+        "kind": "roster_move",
+        "detail": "now_with",
+        "sentence": "Quarterback Jacoby Brissett is now with the Ravens, as of week 10.",
+        "matters": true
+      },
       {
         "gsis_id": "00-0035289",
         "name": "Gardner Minshew",
@@ -190,22 +206,6 @@
         "detail": "back",
         "sentence": "Running back Bam Knight was listed out for week 9 and was not listed out for week 10.",
         "matters": true
-      },
-      {
-        "gsis_id": "00-0039854",
-        "name": "Darius Robinson",
-        "position": "DT",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Defensive tackle Darius Robinson was listed questionable on the week 10 injury report.",
-        "matters": true
       }
     ],
     "ATL": [
@@ -221,8 +221,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_out",
-        "sentence": "Lost defensive back Jessie Bates to the Jaguars by trade or waiver claim before week 10.",
+        "detail": "now_with",
+        "sentence": "Defensive back Jessie Bates is now with the Jaguars, as of week 10.",
         "matters": true
       },
       {
@@ -304,7 +304,7 @@
         ],
         "kind": "roster_move",
         "detail": "added",
-        "sentence": "Added quarterback Jacoby Brissett, last with the Cardinals, to the active roster before week 10.",
+        "sentence": "Added quarterback Jacoby Brissett, last with the Cardinals, before week 10.",
         "matters": true
       },
       {
@@ -650,6 +650,22 @@
         "detail": "doubtful",
         "sentence": "Cornerback Jalen Davis was listed doubtful on the week 10 injury report.",
         "matters": false
+      },
+      {
+        "gsis_id": "00-0026300",
+        "name": "Josh Johnson",
+        "position": "QB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
+          }
+        ],
+        "kind": "roster_move",
+        "detail": "now_with",
+        "sentence": "Quarterback Josh Johnson is now with the Cardinals, as of week 10.",
+        "matters": false
       }
     ],
     "CLE": [
@@ -738,7 +754,7 @@
         ],
         "kind": "roster_move",
         "detail": "added",
-        "sentence": "Added tight end Zaire Mitchell-Paden, last with the Texans, to the active roster before week 10.",
+        "sentence": "Added tight end Zaire Mitchell-Paden, last with the Texans, before week 10.",
         "matters": false
       }
     ],
@@ -1177,8 +1193,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_out",
-        "sentence": "Lost wide receiver Josh Downs to the Chiefs by trade or waiver claim before week 10.",
+        "detail": "now_with",
+        "sentence": "Wide receiver Josh Downs is now with the Chiefs, as of week 10.",
         "matters": true
       },
       {
@@ -1193,8 +1209,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_out",
-        "sentence": "Lost wide receiver Keenan Allen to the 49ers by trade or waiver claim before week 10.",
+        "detail": "now_with",
+        "sentence": "Wide receiver Keenan Allen is now with the 49ers, as of week 10.",
         "matters": true
       },
       {
@@ -1267,8 +1283,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_in",
-        "sentence": "Added defensive back Jessie Bates from the Falcons by trade or waiver claim before week 10.",
+        "detail": "added",
+        "sentence": "Added defensive back Jessie Bates, last with the Falcons, before week 10.",
         "matters": true
       },
       {
@@ -1331,8 +1347,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_in",
-        "sentence": "Added defensive lineman Davon Godchaux from the Saints by trade or waiver claim before week 10.",
+        "detail": "added",
+        "sentence": "Added defensive lineman Davon Godchaux, last with the Saints, before week 10.",
         "matters": false
       }
     ],
@@ -1349,8 +1365,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_in",
-        "sentence": "Added wide receiver Josh Downs from the Colts by trade or waiver claim before week 10.",
+        "detail": "added",
+        "sentence": "Added wide receiver Josh Downs, last with the Colts, before week 10.",
         "matters": true
       },
       {
@@ -1513,8 +1529,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "signed",
-        "sentence": "Signed wide receiver Xavier Smith off the 49ers practice squad before week 10.",
+        "detail": "added",
+        "sentence": "Added wide receiver Xavier Smith, last with the 49ers, before week 10.",
         "matters": true
       },
       {
@@ -1603,8 +1619,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_out",
-        "sentence": "Lost quarterback Kirk Cousins to the Vikings by trade or waiver claim before week 10.",
+        "detail": "now_with",
+        "sentence": "Quarterback Kirk Cousins is now with the Vikings, as of week 10.",
         "matters": true
       },
       {
@@ -1775,8 +1791,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_in",
-        "sentence": "Added quarterback Kirk Cousins from the Raiders by trade or waiver claim before week 10.",
+        "detail": "added",
+        "sentence": "Added quarterback Kirk Cousins, last with the Raiders, before week 10.",
         "matters": true
       },
       {
@@ -2057,8 +2073,8 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "signed",
-        "sentence": "Signed defensive back Tavierre Thomas off the Vikings practice squad before week 11.",
+        "detail": "added",
+        "sentence": "Added defensive back Tavierre Thomas, last with the Vikings, before week 11.",
         "matters": false
       }
     ],
@@ -2395,8 +2411,24 @@
           }
         ],
         "kind": "roster_move",
-        "detail": "traded_in",
-        "sentence": "Added wide receiver Keenan Allen from the Colts by trade or waiver claim before week 10.",
+        "detail": "added",
+        "sentence": "Added wide receiver Keenan Allen, last with the Colts, before week 10.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038359",
+        "name": "Xavier Smith",
+        "position": "WR",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
+          }
+        ],
+        "kind": "roster_move",
+        "detail": "now_with",
+        "sentence": "Wide receiver Xavier Smith is now with the Rams, as of week 10.",
         "matters": true
       },
       {
@@ -2449,22 +2481,6 @@
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Cornerback Deommodore Lenoir was listed questionable on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0034982",
-        "name": "Dre Greenlaw",
-        "position": "LB",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Linebacker Dre Greenlaw was listed questionable on the week 10 injury report.",
         "matters": true
       }
     ],
