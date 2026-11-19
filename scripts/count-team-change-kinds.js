@@ -36,7 +36,7 @@ const SCHEDULE_REL = `src/data/schedule${SEASON}.js`;
 const USER_AGENT = 'DownfieldOS team-changes weights (our own feed)';
 
 // The sentence rules are plan part 4's, printed exactly (corrected 2026-11-18
-// 09:25); the rank rule is not in the plan (see RULES.rank). The feed is HTML,
+// 09:25); the rank rule is the plan's as ruled 2026-11-19 16:06 CST (RULES.rank). The feed is HTML,
 // so a heading becomes a "#" line, a rule "---" and each paragraph, list item
 // or quote its own line before these rules run.
 export const RULES = {
@@ -47,7 +47,7 @@ export const RULES = {
   match: 'case-insensitive search; a sentence counts once per kind and can count under two kinds',
   week: 'an issue counts for the latest regular-season week whose last game kicked off before the issue was published, in the season it was published; counted_through_week reads only this season\'s issues, while the kind counts keep every season (the record keeps growing)',
   merge: 'one record per issue: a feed item with the same publish time as a counted issue replaces it under its new key, so a changed address is not counted twice; a re-read with under half the sentences of the counted copy keeps the counted copy, and a read whose overlap with the record carries under half its sentences is refused (nothing written)',
-  rank: 'not in the plan: the engineer\'s reading (2026-11-19), for CoS to rule. Card kinds (out_or_back, role, roster_move) are ranked by sentence count, highest first; a kind shares the rank of the kind just above it when its count is at least 80 percent of that kind\'s count. Never betting or next year\'s draft',
+  rank: 'plan part 4, as ruled by CoS 2026-11-19 16:06 CST. Card kinds (out_or_back, role, roster_move) are ranked by sentence count, highest first; a kind shares the rank of the kind just above it when its count is at least 80 percent of that kind\'s count. Never betting or next year\'s draft',
 };
 export const KINDS = {
   out_or_back: /\b(injur\w*|inactive|ruled out|out for|out with|sidelined|IR|injured reserve|concussion|returned from|back from|activated|questionable|doubtful)\b/i,

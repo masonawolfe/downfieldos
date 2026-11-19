@@ -64,6 +64,9 @@ check(JSON.stringify(rk(47, 30, 20)) === JSON.stringify({ out_or_back: 1, role: 
 check(JSON.stringify(rk(48, 29, 29)) === JSON.stringify({ out_or_back: 1, role: 2, roster_move: 2 }), '48, 29, 29: role and roster moves level, as the plan read');
 check(JSON.stringify(rk(30, 25, 5)) === JSON.stringify({ out_or_back: 1, role: 1, roster_move: 2 }), '30, 25, 5: 25 is within 80 percent, so it shares the top rank');
 check(JSON.stringify(rk(100, 85, 70)) === JSON.stringify({ out_or_back: 1, role: 1, roster_move: 1 }), 'chained: 70 is within 80 percent of 85, the kind just above, so all three share (as RULES.rank prints)');
+check(JSON.stringify(rk(100, 80, 0)) === JSON.stringify({ out_or_back: 1, role: 1, roster_move: 2 }), 'the line, ruled 2026-11-19 16:06: 80 of 100 shares the rank above');
+check(JSON.stringify(rk(100, 79, 0)) === JSON.stringify({ out_or_back: 1, role: 2, roster_move: 3 }), 'the line, ruled 2026-11-19 16:06: 79 of 100 takes the next rank');
+check(/ruled by CoS 2026-11-19 16:06 CST/.test(SRC) && !/not in the plan/.test(SRC), 'the rank rule is labelled with its ruling, not "not in the plan"');
 check(JSON.stringify(kindRankFrom({ card_kind_rank: { out_or_back: 1, role: 2, roster_move: 3 } })) === JSON.stringify({ out_or_back: 1, role: 2, roster_move: 3 }), 'the card build takes the weights file\'s ranks');
 check(JSON.stringify(kindRankFrom(null)) === JSON.stringify({ out_or_back: 1, role: 2, roster_move: 2 }) && JSON.stringify(kindRankFrom({ card_kind_rank: { out_or_back: 'x' } })) === JSON.stringify({ out_or_back: 1, role: 2, roster_move: 2 }), 'with no file, or a broken one, the card build uses the plan\'s order');
 

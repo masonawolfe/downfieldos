@@ -2,13 +2,13 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-19T22:03:36.053Z",
+    "generated_at": "2026-11-19T22:06:42.929Z",
     "generated_by": "scripts/count-team-change-kinds.js",
     "source": "https://thetendencyreport.substack.com/feed",
     "read": {
       "status": "file",
       "items": 10,
-      "at": "2026-11-19T22:03:36.053Z"
+      "at": "2026-11-19T22:06:42.929Z"
     },
     "issues_counted": 10,
     "sentences_kept": 923,
@@ -23,7 +23,7 @@
       "match": "case-insensitive search; a sentence counts once per kind and can count under two kinds",
       "week": "an issue counts for the latest regular-season week whose last game kicked off before the issue was published, in the season it was published; counted_through_week reads only this season's issues, while the kind counts keep every season (the record keeps growing)",
       "merge": "one record per issue: a feed item with the same publish time as a counted issue replaces it under its new key, so a changed address is not counted twice; a re-read with under half the sentences of the counted copy keeps the counted copy, and a read whose overlap with the record carries under half its sentences is refused (nothing written)",
-      "rank": "not in the plan: the engineer's reading (2026-11-19), for CoS to rule. Card kinds (out_or_back, role, roster_move) are ranked by sentence count, highest first; a kind shares the rank of the kind just above it when its count is at least 80 percent of that kind's count. Never betting or next year's draft"
+      "rank": "plan part 4, as ruled by CoS 2026-11-19 16:06 CST. Card kinds (out_or_back, role, roster_move) are ranked by sentence count, highest first; a kind shares the rank of the kind just above it when its count is at least 80 percent of that kind's count. Never betting or next year's draft"
     },
     "patterns": {
       "out_or_back": "\\b(injur\\w*|inactive|ruled out|out for|out with|sidelined|IR|injured reserve|concussion|returned from|back from|activated|questionable|doubtful)\\b",
