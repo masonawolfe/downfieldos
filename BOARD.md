@@ -4,14 +4,14 @@
 
 | | |
 |---|---|
-| Generated | 2026-11-19T13:47:35.022Z |
+| Generated | 2026-11-19T21:45:28.683Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Commit | `a43b628` |
+| Commit | `efbb293` |
 | Rows in board | 1024 |
 | Draftable skill rows (ranked below) | 497 |
 | Verifier | 21/21 checks passed |
 | Schema version | 3 |
-| Board generated | 2026-11-19T13:47:32.712Z |
+| Board generated | 2026-11-19T21:45:25.072Z |
 | Availability generated | 2026-11-19T12:51:43.100Z |
 
 **Recommendation column** — v1 (VORP) and v2 (β total_score_beta) agreement per row. 
@@ -440,7 +440,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 414 | Jelani Woods | TE | NYJ | 13 |  | -166 | -184 | -18 | 243 | β says: QB EPA Geno Smith -9.12 · team offense -5.08 · RZ pass rate -1.9 |
 | 415 | Fernando Mendoza | QB | LV | 13 |  | -166 |  |  | 110 | v1 pos #45 vs v2 pos #71 |
 | 416 | Kameron Johnson | WR | TB | 10 |  | -167 | -168 | -1 | 652 | β says: team pass rate -0.6 · team offense -0.36 · RZ pass rate +0.35 |
-| 417 | D'Wayne Eskridge | WR | MIN | 6 |  | -168 | -161 | +7 | 572 | β says: moved MIA→MIN +8.39 · 2 dome playoff wks +3 · RZ pass rate -2 |
+| 417 | Dee Eskridge | WR | MIN | 6 |  | -168 | -161 | +7 | 572 | β says: moved MIA→MIN +8.39 · 2 dome playoff wks +3 · RZ pass rate -2 |
 | 418 | Ben Yurosek | TE | MIN | 6 |  | -168 | -166 | +2 | 641 | ✓ agree (v1 pos #95, v2 pos #96) |
 | 419 | Bryce Oliver | WR | HOU | 8 |  | -168 | -155 | +14 | 543 | β says: moved TEN→HOU +8.41 · QB EPA C.J. Stroud +5.96 · team offense -0.52 |
 | 420 | Robert Tonyan | TE | PIT | 9 |  | -168 | -154 | +14 | 619 | β says: moved KC→PIT +8.42 · QB EPA Aaron Rodgers +3.54 · team pass rate +2.5 |

@@ -2,7 +2,7 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-19T21:40:10.051Z",
+    "generated_at": "2026-11-19T21:45:29.260Z",
     "generated_by": "scripts/build-team-changes.js",
     "label": "What changed, built from our own data through week 11",
     "graded_week": 10,
@@ -71,7 +71,7 @@
       },
       {
         "file": "src/data/rosters2026.js",
-        "generated": "2026-11-19T13:47:31.977Z"
+        "generated": "2026-11-19T21:45:23.988Z"
       },
       {
         "file": "src/data/intelligence/weekly_actuals_2026.json",
@@ -79,7 +79,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-19T21:32:08.883Z"
+        "generated": "2026-11-19T21:40:10.051Z"
       }
     ],
     "rules": {
