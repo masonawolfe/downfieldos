@@ -2,7 +2,7 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-19T21:32:08.883Z",
+    "generated_at": "2026-11-19T21:40:10.051Z",
     "generated_by": "scripts/build-team-changes.js",
     "label": "What changed, built from our own data through week 11",
     "graded_week": 10,
@@ -79,7 +79,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-19T21:29:16.738Z"
+        "generated": "2026-11-19T21:32:08.883Z"
       }
     ],
     "rules": {
@@ -209,7 +209,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "JAX",
         "kind": "roster_move",
         "detail": "traded_out",
         "sentence": "Lost defensive back Jessie Bates to the Jaguars by trade or waiver claim before week 10.",
@@ -1166,7 +1165,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "KC",
         "kind": "roster_move",
         "detail": "traded_out",
         "sentence": "Lost wide receiver Josh Downs to the Chiefs by trade or waiver claim before week 10.",
@@ -1183,7 +1181,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "SF",
         "kind": "roster_move",
         "detail": "traded_out",
         "sentence": "Lost wide receiver Keenan Allen to the 49ers by trade or waiver claim before week 10.",
@@ -1258,7 +1255,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "ATL",
         "kind": "roster_move",
         "detail": "traded_in",
         "sentence": "Added defensive back Jessie Bates from the Falcons by trade or waiver claim before week 10.",
@@ -1323,7 +1319,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "NO",
         "kind": "roster_move",
         "detail": "traded_in",
         "sentence": "Added defensive lineman Davon Godchaux from the Saints by trade or waiver claim before week 10.",
@@ -1342,7 +1337,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "IND",
         "kind": "roster_move",
         "detail": "traded_in",
         "sentence": "Added wide receiver Josh Downs from the Colts by trade or waiver claim before week 10.",
@@ -1597,7 +1591,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "MIN",
         "kind": "roster_move",
         "detail": "traded_out",
         "sentence": "Lost quarterback Kirk Cousins to the Vikings by trade or waiver claim before week 10.",
@@ -1770,7 +1763,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "LV",
         "kind": "roster_move",
         "detail": "traded_in",
         "sentence": "Added quarterback Kirk Cousins from the Raiders by trade or waiver claim before week 10.",
@@ -2391,7 +2383,6 @@
             "generated": "2026-11-19T14:43:22.933Z"
           }
         ],
-        "other_team": "IND",
         "kind": "roster_move",
         "detail": "traded_in",
         "sentence": "Added wide receiver Keenan Allen from the Colts by trade or waiver claim before week 10.",

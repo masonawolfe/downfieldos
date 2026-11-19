@@ -364,6 +364,7 @@ console.log('committed file');
   check(all.every((x) => x.week <= d.meta.week_now && x.week >= d.meta.week_now - (x.kind === 'out_or_back' && ['out', 'doubtful', 'questionable', 'back'].includes(x.detail) ? 2 : 1)), 'every item is in the window (injury report items may be two weeks back, for a bye)');
   check(Array.isArray(d.meta.unknown_positions) && d.meta.unknown_positions.length === 0, 'every position in the file has a word');
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
+  check(!all.some((x) => 'other_team' in x), 'no internal ranking key (other_team) in the reader file');
   for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
     check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'traded_in') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'traded_out'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
   }

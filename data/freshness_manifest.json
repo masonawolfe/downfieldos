@@ -1670,7 +1670,9 @@
       "outputs_also": [
         "data/team_changes_starters.json"
       ],
-      "workflows": [],
+      "workflows": [
+        "data-board.yml"
+      ],
       "stamp": {
         "kind": "json",
         "generated_at": "/meta/generated_at",
@@ -1678,14 +1680,20 @@
       },
       "expected_season": "season",
       "season_by_design": null,
-      "max_age_hours": null,
+      "max_age_hours": 36,
       "change_driven": false,
       "in_season_only": false,
       "coverage": null,
       "coverage_read": null,
       "coverage_grace_hours": null,
-      "derived_from": [],
-      "lineage_grace_hours": null,
+      "derived_from": [
+        "src/data/intelligence/injuries_2026.json",
+        "src/data/intelligence/availability_2026.json",
+        "src/data/intelligence/weekly_transactions_2026.json",
+        "src/data/rosters2026.js",
+        "src/data/intelligence/weekly_actuals_2026.json"
+      ],
+      "lineage_grace_hours": 33,
       "ui_consumers": [],
       "label_route": null,
       "consumers": [],
@@ -1694,7 +1702,7 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Team news plan step 2 (2026-11-19, Mason: \"Yeah, build our own team news\"). Built by scripts/build-team-changes.js from five local files and no network call; outputs_also is its starters state in data/, kept out of src/ so the site never bundles it. Tier unread until step 5's card imports it. Step 3 puts the build on data-board.yml, sets the 36-hour ceiling the plan names and adds derived_from for its inputs; until then no job writes it, so it carries no ceiling."
+      "note": "Team news plan step 2 (2026-11-19, Mason: \"Yeah, build our own team news\"). Built by scripts/build-team-changes.js from five local files and no network call; outputs_also is its starters state in data/, kept out of src/ so the site never bundles it. Tier unread until step 5's card imports it. Step 3 (2026-11-19): written on every data-board.yml run (daily 04:34 UTC and after each availability run) before Commit if changed. Ceiling 36 hours, the plan's figure: one missed daily run passes, two do not. Lineage grace 33 hours, as the other daily data-board rows: the longest normal lag from an input to the next board run is about 23.5 hours (Friday's injuries at 05:05 UTC to the next 04:34)."
     },
     {
       "path": "src/data/intelligence/trades.json",

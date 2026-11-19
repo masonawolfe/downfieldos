@@ -349,7 +349,7 @@ export function buildTeamChanges(input) {
       keep.push(it);
       if (keep.length === MAX_PER_TEAM) break;
     }
-    teamsOut[tm] = keep;
+    teamsOut[tm] = keep.map(({ other_team, ...it }) => it); // other_team is for ranking only, not the reader file
     total += keep.length;
   }
 
