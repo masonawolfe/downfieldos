@@ -58,8 +58,8 @@ export const RULES = {
   week_now: 'the highest of the last graded week in weekly_actuals plus one, the latest week in weekly_transactions and the latest injury report week (at most 18), so one late grading run does not blank the newer files',
   window: 'a transaction, new starter or role item is kept when its week is week_now or week_now minus 1; an injury item is kept from the team\'s latest report week when that week is week_now minus 2 or later, so a team just off a bye keeps its last report; a report week before week_now is written in the past tense',
   teams: 'team codes are normalised before any join (LA to LAR and the older codes OAK, SD, STL, WSH, JAC); a code still unknown is listed in meta.unknown_teams and its rows are not used',
-  kinds: 'out_or_back ranks first; role and roster_move share the second rank (plan part 4); no betting or draft kind exists',
-  order: 'kind rank, then players who matter most, then the newer week, then the detail order below, then name',
+  kinds: 'out_or_back ranks first and role and roster_move share the second rank, inside each group set by the order rule (plan part 4 as ruled by CoS 2026-11-19 15:31); no betting or draft kind exists',
+  order: 'plan part 4 as ruled by CoS 2026-11-19 15:31. First, a trade, signing or release of a player who matters (for a trade, one who matters to either team) always makes the card, newest first if more than five. Then, for the slots left, players who matter before players who do not, whatever the kind; within each group, kind rank, then the newer week, then the detail order below, then name',
   matters: 'a depth chart starter now, a starter the state saw this season (including one who left the starting slots, so an injured starter still counts), a player the depth chart names in a slot\'s starter_reason ("promoted after: NAME (IR)"), matched to a gsis_id through that slot\'s candidates, or one of the team\'s top three in the graded column (fantasy_points_graded) in any of the last three graded weeks. Plan part 4 says graded usage; the graded points are the one usage measure the actuals file carries for every position (it stores no attempts or carries)',
   detail_order: 'reserve, out, doubtful, back, activated, questionable, traded_in, traded_out, signed, released, new_starter, role_up, role_down',
   cap: `at most ${MAX_PER_TEAM} items per team and one item per player per team (the first in the order)`,
@@ -268,8 +268,8 @@ export function buildTeamChanges(input) {
       } else if (x.old_status === 'DEV' && x.new_status === 'ACT') {
         if (teamName[x.from_team]) add(x.to_team, { ...base, kind: 'roster_move', detail: 'signed', sentence: `Signed ${who} off the ${teamName[x.from_team]} practice squad before week ${x.week}.` });
       } else if (FROM_ROSTER.includes(x.old_status) && FROM_ROSTER.includes(x.new_status) && teamName[x.from_team]) {
-        add(x.to_team, { ...base, kind: 'roster_move', detail: 'traded_in', sentence: `Added ${who} from the ${teamName[x.from_team]} by trade or waiver claim before week ${x.week}.` });
-        add(x.from_team, { ...base, kind: 'roster_move', detail: 'traded_out', sentence: `Lost ${who} to the ${teamName[x.to_team]} by trade or waiver claim before week ${x.week}.` });
+        add(x.to_team, { ...base, other_team: x.from_team, kind: 'roster_move', detail: 'traded_in', sentence: `Added ${who} from the ${teamName[x.from_team]} by trade or waiver claim before week ${x.week}.` });
+        add(x.from_team, { ...base, other_team: x.to_team, kind: 'roster_move', detail: 'traded_out', sentence: `Lost ${who} to the ${teamName[x.to_team]} by trade or waiver claim before week ${x.week}.` });
       }
     }
   }
@@ -329,12 +329,18 @@ export function buildTeamChanges(input) {
   const teamsOut = {};
   let total = 0;
   for (const tm of teamCodes) {
-    const ranked = items[tm].map((it) => ({ ...it, matters: matters(tm, it.gsis_id) }))
-      .sort((a, b) => (KIND_RANK[a.kind] - KIND_RANK[b.kind])
-        || (Number(b.matters) - Number(a.matters))
-        || (b.week - a.week)
-        || (DETAIL_ORDER.indexOf(a.detail) - DETAIL_ORDER.indexOf(b.detail))
-        || String(a.name).localeCompare(String(b.name)));
+    // A trade counts for both cards when the player matters to either team.
+    const scored = items[tm].map((it) => ({ ...it, matters: matters(tm, it.gsis_id) || Boolean(it.other_team && matters(it.other_team, it.gsis_id)) }));
+    const tie = (a, b) => (b.week - a.week)
+      || (DETAIL_ORDER.indexOf(a.detail) - DETAIL_ORDER.indexOf(b.detail))
+      || String(a.name).localeCompare(String(b.name));
+    const isMove = (it) => it.kind === 'roster_move' && it.matters;
+    const ranked = [
+      ...scored.filter(isMove).sort(tie),
+      ...scored.filter((it) => !isMove(it)).sort((a, b) => (Number(b.matters) - Number(a.matters))
+        || (KIND_RANK[a.kind] - KIND_RANK[b.kind])
+        || tie(a, b)),
+    ];
     const seen = new Set();
     const keep = [];
     for (const it of ranked) {

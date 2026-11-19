@@ -144,9 +144,9 @@ console.log('ranking');
   const o = buildTeamChanges(i);
   const a = o.teams.AAA;
   check(a.length === 5, 'cap: seven candidates give five items');
-  check(a[0].gsis_id === 'w1' && a[0].matters === true, 'a starter ranks first within the kind');
-  check(a.filter((x) => x.gsis_id === 'w1').length === 1 && a[0].detail === 'reserve', 'one item per player: the week 11 reserve move beats the week 10 out listing (newer week before detail), and only one is kept');
-  check(!a.some((x) => x.kind === 'roster_move'), 'kind first: injury items fill the cap ahead of a roster move, even one about a starter');
+  check(a[0].gsis_id === 'q1' && a[1].gsis_id === 'w1' && a[1].matters === true, 'the starter\'s signing leads (ruled), then the starter\'s injury item ahead of depth players');
+  check(a.filter((x) => x.gsis_id === 'w1').length === 1 && a.find((x) => x.gsis_id === 'w1').detail === 'reserve', 'one item per player: the week 11 reserve move beats the week 10 out listing (newer week before detail), and only one is kept');
+  check(a.some((x) => x.gsis_id === 'q1' && x.detail === 'signed'), 'ruled 2026-11-19: a signing of a player who matters makes the card ahead of six injury lines');
 }
 
 // ── 5. new starters and the state ────────────────────────────────────────
@@ -305,6 +305,46 @@ console.log('review cases');
   check(reset.meta.sources.find((x) => x.file === 'data/team_changes_starters.json')?.generated === null, 'a state the build did not use is not named as a dated source');
 }
 
+{
+  // CoS ruling 2026-11-19 15:31 on plan part 4: moves for players who matter
+  // always make the card; then players who matter before those who do not.
+  const depth = (k) => inj(`d${k}`, `Depth ${k}`, 'LB', 'AAA', { 10: 'Out' });
+  const i = base();
+  i.injuries.players = [0, 1, 2, 3, 4, 5].map(depth);
+  i.transactions.transactions = [
+    { type: 'TRADED_OR_CLAIMED', week: 10, gsis_id: 'w1', name: 'Wes One', position: 'WR', from_team: 'AAA', to_team: 'BBB', old_status: 'ACT', new_status: 'ACT' },
+    { type: 'SIGNED', week: 10, gsis_id: 'nob', name: 'No Body', position: 'LB', team: 'AAA', status: 'ACT' },
+  ];
+  const o = buildTeamChanges(i);
+  check(o.teams.AAA[0].gsis_id === 'w1' && o.teams.AAA[0].detail === 'traded_out', 'six depth injury lines and one trade of a starter: the trade leads the card');
+  check(o.teams.BBB.some((x) => x.gsis_id === 'w1' && x.detail === 'traded_in' && x.matters === true), 'the receiving team shows him too, as one who matters, because he matters to the team he left');
+  check(!o.teams.AAA.some((x) => x.gsis_id === 'nob'), 'negative: a signing of a depth player does not push out depth injury lines (kind order holds inside the group)');
+
+  const j = base();
+  j.rosters.AAA.offense = Array.from({ length: 7 }, (_, k) => ({ pos: `WR${k + 1}`, gsis_id: `m${k}`, name: `Mover ${k}` }));
+  j.transactions.transactions = Array.from({ length: 7 }, (_, k) => ({ type: 'RELEASED', week: k < 3 ? 11 : 10, gsis_id: `m${k}`, name: `Mover ${k}`, position: 'WR', team: 'AAA', last_status: 'ACT' }));
+  j.rosters.AAA.offense = [];
+  j.prior = buildTeamChanges(base({ rosters: { AAA: { offense: Array.from({ length: 7 }, (_, k) => ({ pos: `WR${k + 1}`, gsis_id: `m${k}`, name: `Mover ${k}` })), defense: [] }, BBB: { offense: [], defense: [] } } })).state;
+  const jo = buildTeamChanges(j);
+  check(jo.teams.AAA.length === 5 && jo.teams.AAA.every((x) => x.detail === 'released') && jo.teams.AAA.filter((x) => x.week === 11).length === 3, 'seven releases of starters: five make the card, the three newest first');
+
+  const k = base();
+  k.actuals.rows = [
+    { gsis_id: 'w1', name: 'Wes One', pos: 'WR', team: 'AAA', week: 7, fantasy_points_graded: 5, components: { targets: 1 } },
+    { gsis_id: 'w1', name: 'Wes One', pos: 'WR', team: 'AAA', week: 8, fantasy_points_graded: 5, components: { targets: 2 } },
+    { gsis_id: 'w1', name: 'Wes One', pos: 'WR', team: 'AAA', week: 9, fantasy_points_graded: 5, components: { targets: 1 } },
+    { gsis_id: 'w1', name: 'Wes One', pos: 'WR', team: 'AAA', week: 10, fantasy_points_graded: 20, components: { targets: 10 } },
+  ];
+  k.injuries.players = [0, 1, 2, 3, 4].map(depth);
+  const ko = buildTeamChanges(k);
+  check(ko.teams.AAA[0].gsis_id === 'w1' && ko.teams.AAA[0].detail === 'role_up', 'a role change for a starter comes before injury lines for depth players, whatever the kind');
+  const k2 = base();
+  k2.actuals.rows = k.actuals.rows.map((r) => ({ ...r, gsis_id: 'zz', name: 'Zed Depth' }));
+  for (const w of [8, 9, 10]) for (const n of [1, 2, 3]) k2.actuals.rows.push({ gsis_id: `top${n}`, name: `Top ${n}`, pos: 'QB', team: 'AAA', week: w, fantasy_points_graded: 40, components: {} });
+  k2.injuries.players = [0, 1, 2, 3, 4].map(depth);
+  check(!buildTeamChanges(k2).teams.AAA.some((x) => x.gsis_id === 'zz'), 'negative: a role change for a depth player stays behind five depth injury lines (kind order inside the group)');
+}
+
 // ── 8. the committed file, as a reader would get it ──────────────────────
 console.log('committed file');
 {
@@ -324,6 +364,9 @@ console.log('committed file');
   check(all.every((x) => x.week <= d.meta.week_now && x.week >= d.meta.week_now - (x.kind === 'out_or_back' && ['out', 'doubtful', 'questionable', 'back'].includes(x.detail) ? 2 : 1)), 'every item is in the window (injury report items may be two weeks back, for a bye)');
   check(Array.isArray(d.meta.unknown_positions) && d.meta.unknown_positions.length === 0, 'every position in the file has a word');
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
+  for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
+    check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'traded_in') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'traded_out'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
+  }
   check(Object.keys(d.meta.unknown_teams || {}).length === 0, 'every team code in the inputs is known after the alias map');
   check(!Object.entries(d.teams).some(([tm, v]) => v.some((x) => x.detail === 'released' && (d.meta.skipped_release_weeks || []).some((g) => g.team === tm && g.week === x.week))), 'no released item from a skipped snapshot week');
 }
