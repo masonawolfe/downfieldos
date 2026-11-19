@@ -23,6 +23,7 @@ they exist, are detailed in the per-source sections below.
 | `en.wikipedia.org` | coach career/lineage facts, 75 cited URLs | `coachingTrees.js` (`hc_source`, `oc_source`, `dc_source`, `trees_source`, `style_source`) | **CC BY-SA 4.0 — required** |
 | `sleeper.app`, `api.sleeper.app` | player records, injury status + game designation, `search_rank` (ADP proxy) | `intelligence/availability_2026.json`, `playerBoard2026.js` | recommended, labelled in-row |
 | `espn.com`, `site.web.api.espn.com` | **retired 2026-11-17, not read since.** Was team news: link, published timestamp, type, category labels only | `intelligence/team_news_raw.json` (frozen, shown nowhere) | no expression stored — see ESPN section |
+| `thetendencyreport.substack.com` | our own newsletter's public feed (`/feed` only): each issue's title, date and text, counted by kind; no text is stored, only counts and titles | `data/team_changes_weights.json` | our own publication; nothing to attribute |
 | `footballzebras.com` | 2026 referee crew rosters, preseason assignments | `intelligence/referee_profiles.json` | reformatted, not republished |
 | `nflpenalties.com` | crew-level penalty rate aggregates (2025 REG) | `intelligence/referee_profiles.json` | aggregate figures only |
 | `sharpfootballanalysis.com` | crew penalty tendency aggregates | `intelligence/referee_profiles.json` | aggregate figures only |
@@ -161,6 +162,19 @@ purged from `src/data/intelligence/team_news_raw.json`.
 access to Disney Products; §2.B.viii and §3.G bar commercial use. The
 site does not display ESPN's expression. Downstream surfaces render
 category labels + link only.
+
+---
+
+## The Tendency Report (our own feed, `scripts/count-team-change-kinds.js`)
+
+**Added 2026-11-19 (team news plan step 4, on Mason's "Yeah, build our own
+team news").** The daily board run reads `https://thetendencyreport.substack.com/feed`,
+our own newsletter, and nothing else on that host. It counts each issue's
+sentences by kind under the plan's part 4 rules and writes only the counts,
+the rules, each issue's title, date and week, and "counted through week N" to
+`data/team_changes_weights.json`. No sentence of an issue is stored. The
+robots file, read in full on 2026-11-17, disallows only `/feed/private`
+under `/feed` for general agents. A redirect off the host is refused.
 
 ---
 

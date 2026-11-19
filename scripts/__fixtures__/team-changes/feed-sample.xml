@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel>
+<title>Made-up feed for scripts/test-count-team-change-kinds.mjs</title>
+<item><title><![CDATA[Issue One &amp; Two]]></title><link>issue-one</link><guid>one</guid><pubDate>Tue, 15 Sep 2026 12:00:00 GMT</pubDate>
+<content:encoded><![CDATA[<h2>The Tendency Report heading is skipped as a heading</h2><p><em>The Tendency Report masthead line with more than six words here</em></p><p>The left tackle was ruled out with a knee injury before kickoff. Short one.</p><hr><p>He signed a new deal and drew nine targets in the second half of the game.</p><p>http link line with many words in it to skip here</p><ul><li>The team placed its starter on injured reserve on Monday afternoon.</li></ul><p>The odds moved two points after the news broke on Sunday morning early.</p>]]></content:encoded></item>
+<item><title>Issue Ten</title><link>issue-ten</link><guid>ten</guid><pubDate>Tue, 17 Nov 2026 20:23:17 GMT</pubDate>
+<content:encoded><![CDATA[<p>The coordinator called more runs than in any game this season so far.</p>]]></content:encoded></item>
+</channel></rss>

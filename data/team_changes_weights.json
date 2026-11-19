@@ -1,0 +1,230 @@
+{
+  "meta": {
+    "season": 2026,
+    "source_season": 2026,
+    "generated_at": "2026-11-19T22:03:36.053Z",
+    "generated_by": "scripts/count-team-change-kinds.js",
+    "source": "https://thetendencyreport.substack.com/feed",
+    "read": {
+      "status": "file",
+      "items": 10,
+      "at": "2026-11-19T22:03:36.053Z"
+    },
+    "issues_counted": 10,
+    "sentences_kept": 923,
+    "counted_through_week": 10,
+    "counted_through_week_basis": "issues published in season 2026 only",
+    "kept_counted_copy": [],
+    "rules": {
+      "lines": "each block (paragraph, heading, list item, quote) of the issue's HTML is one line, stripped of spaces at both ends; headings get a leading \"#\" and a rule is \"---\", as in the issue files",
+      "skip": "a line that is empty or starts with any of: http  [  !  |  #  *The Tendency Report  The Tendency Report  ---, plus Substack's subscribe box, \"Thanks for reading The Tendency Report\" and \"Subscribe for free to receive new posts\" (not in the issue files)",
+      "split": "re.split(r\"(?<=[.!?])\\s+\", line)",
+      "keep": "a piece of 6 or more words by whitespace split",
+      "match": "case-insensitive search; a sentence counts once per kind and can count under two kinds",
+      "week": "an issue counts for the latest regular-season week whose last game kicked off before the issue was published, in the season it was published; counted_through_week reads only this season's issues, while the kind counts keep every season (the record keeps growing)",
+      "merge": "one record per issue: a feed item with the same publish time as a counted issue replaces it under its new key, so a changed address is not counted twice; a re-read with under half the sentences of the counted copy keeps the counted copy, and a read whose overlap with the record carries under half its sentences is refused (nothing written)",
+      "rank": "not in the plan: the engineer's reading (2026-11-19), for CoS to rule. Card kinds (out_or_back, role, roster_move) are ranked by sentence count, highest first; a kind shares the rank of the kind just above it when its count is at least 80 percent of that kind's count. Never betting or next year's draft"
+    },
+    "patterns": {
+      "out_or_back": "\\b(injur\\w*|inactive|ruled out|out for|out with|sidelined|IR|injured reserve|concussion|returned from|back from|activated|questionable|doubtful)\\b",
+      "role": "\\b(snaps?|snap share|targets?|carries|touches|starters?|first start|benched|workload)\\b",
+      "roster_move": "\\b(signed|signs|traded|trade|released|waived|claimed|acquired|elevated|practice squad)\\b",
+      "play_caller": "\\b(coordinator|play-?callers?|play-?calling|head coach|calls? (the )?plays)\\b",
+      "betting": "\\b(odds|spread|betting|sportsbook|moneyline|over\\/under|parlay)\\b",
+      "next_draft": "\\b(mock draft|draft prospects?|draft class)\\b"
+    }
+  },
+  "kinds": {
+    "out_or_back": {
+      "sentences": 47,
+      "issues": 10
+    },
+    "role": {
+      "sentences": 30,
+      "issues": 9
+    },
+    "roster_move": {
+      "sentences": 20,
+      "issues": 8
+    },
+    "play_caller": {
+      "sentences": 3,
+      "issues": 2
+    },
+    "betting": {
+      "sentences": 3,
+      "issues": 2
+    },
+    "next_draft": {
+      "sentences": 0,
+      "issues": 0
+    }
+  },
+  "card_kind_rank": {
+    "out_or_back": 1,
+    "role": 2,
+    "roster_move": 3
+  },
+  "issues": [
+    {
+      "key": "https://thetendencyreport.substack.com/p/every-forecast-was-about-last-year",
+      "title": "Every Forecast Was About Last Year",
+      "published": "2026-09-15T12:00:00.000Z",
+      "season": 2026,
+      "week": 1,
+      "sentences_kept": 91,
+      "counts": {
+        "out_or_back": 7,
+        "role": 3,
+        "roster_move": 0,
+        "play_caller": 1,
+        "betting": 2,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-thing-on-sale-was-defense",
+      "title": "The Thing on Sale Was Defense",
+      "published": "2026-09-22T12:00:00.000Z",
+      "season": 2026,
+      "week": 2,
+      "sentences_kept": 92,
+      "counts": {
+        "out_or_back": 3,
+        "role": 0,
+        "roster_move": 3,
+        "play_caller": 0,
+        "betting": 1,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-backup-is-a-measurement",
+      "title": "The Backup Is a Measurement",
+      "published": "2026-09-29T22:20:26.000Z",
+      "season": 2026,
+      "week": 3,
+      "sentences_kept": 90,
+      "counts": {
+        "out_or_back": 3,
+        "role": 7,
+        "roster_move": 1,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-lead-you-cant-collect",
+      "title": "The Lead You Can't Collect",
+      "published": "2026-10-07T02:23:24.000Z",
+      "season": 2026,
+      "week": 4,
+      "sentences_kept": 99,
+      "counts": {
+        "out_or_back": 3,
+        "role": 4,
+        "roster_move": 2,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-price-of-one-more-play",
+      "title": "The Price of One More Play",
+      "published": "2026-10-14T01:50:08.000Z",
+      "season": 2026,
+      "week": 5,
+      "sentences_kept": 136,
+      "counts": {
+        "out_or_back": 3,
+        "role": 4,
+        "roster_move": 1,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-one-time-items",
+      "title": "Same Record, Different Teams",
+      "published": "2026-10-20T12:46:38.000Z",
+      "season": 2026,
+      "week": 6,
+      "sentences_kept": 112,
+      "counts": {
+        "out_or_back": 7,
+        "role": 2,
+        "roster_move": 3,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-name-below-the-name",
+      "title": "The Name Below the Name",
+      "published": "2026-10-27T21:30:52.000Z",
+      "season": 2026,
+      "week": 7,
+      "sentences_kept": 76,
+      "counts": {
+        "out_or_back": 6,
+        "role": 3,
+        "roster_move": 1,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/fifty-two-handoffs",
+      "title": "Fifty-Two Handoffs",
+      "published": "2026-11-03T10:30:00.000Z",
+      "season": 2026,
+      "week": 8,
+      "sentences_kept": 72,
+      "counts": {
+        "out_or_back": 5,
+        "role": 3,
+        "roster_move": 3,
+        "play_caller": 2,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/short-fields",
+      "title": "Short Fields",
+      "published": "2026-11-11T06:05:21.000Z",
+      "season": 2026,
+      "week": 9,
+      "sentences_kept": 79,
+      "counts": {
+        "out_or_back": 4,
+        "role": 2,
+        "roster_move": 0,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/the-code-to-the-building",
+      "title": "The Code to the Building",
+      "published": "2026-11-17T20:23:17.000Z",
+      "season": 2026,
+      "week": 10,
+      "sentences_kept": 76,
+      "counts": {
+        "out_or_back": 6,
+        "role": 2,
+        "roster_move": 6,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    }
+  ]
+}

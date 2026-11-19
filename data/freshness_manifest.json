@@ -1706,6 +1706,43 @@
       "lineage_grace_reason": "No lineage grace: the 36-hour age ceiling is the tighter bound. The card is rebuilt on every data-board.yml run from its own inputs, so an input can lead it by more than a grace only when the card itself is that old, and the age check reads red at 36 hours. The plan's 36 is not one of the max_age_basis families (48, 144, 192, 768), so the contract's cadence-plus-8 grace has no family to read; rosters2026.js's 96 is the other off-family ceiling."
     },
     {
+      "path": "data/team_changes_weights.json",
+      "producer": "scripts/count-team-change-kinds.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-board.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 48,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "through_week": "/meta/counted_through_week"
+      },
+      "coverage_grace_hours": 204,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "scripts/build-team-changes.js"
+      ],
+      "tier": "internal",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Team news plan step 4 (2026-11-19, Mason: \"Yeah, build our own team news\"). Counts per kind from our own feed, thetendencyreport.substack.com/feed, on every data-board.yml run; a failed read writes nothing. Coverage is the plan's failing check: counted_through_week must reach the latest week whose last game kicked off 204 hours ago (8.5 days), so it reads red only when the count trails the graded week by more than one, as the plan says. In season only. Ceiling 48 (the daily family): one failed read passes, two read red. Known gap: week 18's count is never gated, because its 204-hour grace runs past the season's 192-hour tail and the row is in season only; the week 17 check is the last one. counted_through_week reads only issues published this season, so last season's record cannot hold the row green.",
+      "lineage_grace_reason": null
+    },
+    {
       "path": "src/data/intelligence/trades.json",
       "producer": "scripts/fetch-trades.js",
       "outputs_also": [],

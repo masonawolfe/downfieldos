@@ -27,11 +27,12 @@
  *   src/data/rosters2026.js                         the depth chart's starters
  *   src/data/intelligence/weekly_actuals_2026.json  targets by week, last week's top three
  *   src/data/teams.js                               team names for trade sentences
+ *   data/team_changes_weights.json                  the kind order counted from our own issues (step 4)
  *   data/team_changes_starters.json                 the starters it last saw (its own state,
  *                                                   kept out of src/ so the site never bundles it)
  *
  * Usage:
- *   node scripts/build-team-changes.js [--root DIR] [--out FILE] [--state FILE] [--now ISO]
+ *   node scripts/build-team-changes.js [--root DIR] [--out FILE] [--state FILE] [--weights FILE] [--now ISO]
  */
 
 import fs from 'node:fs';
@@ -43,6 +44,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const MAX_PER_TEAM = 5;
 const OUT_REL = `src/data/intelligence/team_changes_${SEASON}.json`;
 const STATE_REL = 'data/team_changes_starters.json';
+const WEIGHTS_REL = 'data/team_changes_weights.json';
 
 const IN = {
   injuries: `src/data/intelligence/injuries_${SEASON}.json`,
@@ -58,7 +60,7 @@ export const RULES = {
   week_now: 'the highest of the last graded week in weekly_actuals plus one, the latest week in weekly_transactions and the latest injury report week (at most 18), so one late grading run does not blank the newer files',
   window: 'a transaction, new starter or role item is kept when its week is week_now or week_now minus 1; an injury item is kept from the team\'s latest report week when that week is week_now minus 2 or later, so a team just off a bye keeps its last report; a report week before week_now is written in the past tense',
   teams: 'team codes are normalised before any join (LA to LAR and the older codes OAK, SD, STL, WSH, JAC); a code still unknown is listed in meta.unknown_teams and its rows are not used',
-  kinds: 'out_or_back ranks first and role and roster_move share the second rank, inside each group set by the order rule (plan part 4 as ruled by CoS 2026-11-19 15:31); no betting or draft kind exists',
+  kinds: 'the kind order inside each group comes from data/team_changes_weights.json (card_kind_rank, counted from our own issues by scripts/count-team-change-kinds.js, plan part 6 step 4); with no usable weights file it is the plan\'s part 4 order, out_or_back first and role and roster_move level. No betting or draft kind exists',
   order: 'plan part 4 as ruled by CoS 2026-11-19 15:31. First, a trade, signing or release of a player who matters (for a trade, one who matters to either team) always makes the card, newest first if more than five. Then, for the slots left, players who matter before players who do not, whatever the kind; within each group, kind rank, then the newer week, then the detail order below, then name',
   matters: 'a depth chart starter now, a starter the state saw this season (including one who left the starting slots, so an injured starter still counts), a player the depth chart names in a slot\'s starter_reason ("promoted after: NAME (IR)"), matched to a gsis_id through that slot\'s candidates, or one of the team\'s top three in the graded column (fantasy_points_graded) in any of the last three graded weeks. Plan part 4 says graded usage; the graded points are the one usage measure the actuals file carries for every position (it stores no attempts or carries)',
   detail_order: 'reserve, out, doubtful, back, activated, questionable, traded_in, traded_out, signed, released, new_starter, role_up, role_down',
@@ -75,7 +77,13 @@ export const RULES = {
 };
 
 const DETAIL_ORDER = ['reserve', 'out', 'doubtful', 'back', 'activated', 'questionable', 'traded_in', 'traded_out', 'signed', 'released', 'new_starter', 'role_up', 'role_down'];
-const KIND_RANK = { out_or_back: 1, role: 2, roster_move: 2 };
+const DEFAULT_KIND_RANK = { out_or_back: 1, role: 2, roster_move: 2 };
+/** The weights file's card ranks when every card kind has a positive integer rank, else the plan's order. */
+export function kindRankFrom(weights) {
+  const r = weights?.card_kind_rank;
+  const ok = r && ['out_or_back', 'role', 'roster_move'].every((k) => Number.isInteger(r[k]) && r[k] > 0);
+  return ok ? { out_or_back: r.out_or_back, role: r.role, roster_move: r.roster_move } : DEFAULT_KIND_RANK;
+}
 const ROLE_POS = new Set(['WR', 'TE', 'RB']);
 const TEAM_ALIAS = { LA: 'LAR', STL: 'LAR', OAK: 'LV', SD: 'LAC', WSH: 'WAS', JAC: 'JAX' };
 const RELEASE_GAP_FLOOR = 20;
@@ -110,7 +118,8 @@ const slotGroup = (pos) => String(pos).replace(/\d+$/, '');
  * Pure: every input in, the output object back. No clock and no disk.
  */
 export function buildTeamChanges(input) {
-  const { injuries, availability, transactions, rosters, rostersMeta, actuals, teams, prior, now } = input;
+  const { injuries, availability, transactions, rosters, rostersMeta, actuals, teams, prior, now, weights } = input;
+  const KIND_RANK = kindRankFrom(weights);
   if (prior?.generated_at && now && Date.parse(prior.generated_at) > Date.parse(now)) {
     throw new Error(`the starters state says generated ${prior.generated_at}, after this build's ${now}: a state from a test clock cannot feed a build`);
   }
@@ -148,6 +157,7 @@ export function buildTeamChanges(input) {
     rosters: { file: IN.rosters, generated: rostersMeta?.reconciled_at || rostersMeta?.generated || null },
     actuals: { file: IN.actuals, generated: actuals.meta?.generated_at || null },
     prior: { file: STATE_REL, generated: prior && prior.season === SEASON ? prior.generated_at || null : null },
+    weights: { file: WEIGHTS_REL, generated: kindRankFrom(weights) === DEFAULT_KIND_RANK ? null : weights?.meta?.generated_at || null },
   };
 
   // Starters now, by team: gsis_id -> slot group.
@@ -371,7 +381,9 @@ export function buildTeamChanges(input) {
       releases_left_out: releasesDropped,
       unknown_teams: Object.fromEntries([...unknownTeams].sort()),
       unknown_positions: [...unknownPositions].sort(),
-      sources: [src.injuries, src.availability, src.transactions, src.rosters, src.actuals, src.prior],
+      kind_rank: KIND_RANK,
+      kind_rank_from: KIND_RANK === DEFAULT_KIND_RANK ? 'the plan\'s part 4 order (no usable weights file)' : `${WEIGHTS_REL}, counted through week ${weights?.meta?.counted_through_week}`,
+      sources: [src.injuries, src.availability, src.transactions, src.rosters, src.actuals, src.prior, src.weights],
       rules: RULES,
     },
     teams: teamsOut,
@@ -387,6 +399,11 @@ async function main() {
   const stateFile = path.resolve(root, opt('--state') || STATE_REL);
   const now = opt('--now') || new Date().toISOString();
 
+  const weightsFile = path.resolve(root, opt('--weights') || WEIGHTS_REL);
+  let weights = null;
+  if (fs.existsSync(weightsFile)) {
+    try { weights = JSON.parse(fs.readFileSync(weightsFile, 'utf8')); } catch (e) { console.log(`build-team-changes: ${weightsFile} does not parse (${e.message}); the plan's kind order is used`); }
+  }
   let prior = null;
   if (fs.existsSync(stateFile)) {
     try { prior = JSON.parse(fs.readFileSync(stateFile, 'utf8')); } catch (e) { throw new Error(`${stateFile} exists but does not parse: ${e.message}`); }
@@ -401,6 +418,7 @@ async function main() {
     teams: await readExport(root, IN.teams, 'T'),
     prior,
     now,
+    weights,
   });
   const teamsWith = Object.values(out.teams).filter((v) => v.length).length;
   if (Object.keys(out.teams).length !== 32) throw new Error(`expected 32 teams, built ${Object.keys(out.teams).length}`);
