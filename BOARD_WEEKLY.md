@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-11-18T15:27:15.926Z |
+| This build | 2026-11-19T12:55:05.528Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-18T13:21:47.490Z |
-| Ranked rows this build | 496 |
+| Prior build | 2026-11-18T15:27:15.927Z |
+| Ranked rows this build | 497 |
 | Ranked rows prior build | 496 |
 
 ---
@@ -18,7 +18,12 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 258 | Tyrell Shavers | WR | BUF | -113 |
+| 417 | D'Wayne Eskridge | WR | MIN | -168 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 414 | Jared Wiley | TE | KC | -166 |

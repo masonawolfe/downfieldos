@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-18T14:24:48.777Z
-// Reconciled: 2026-11-18T15:27:11.243Z against availability_2026.json
-//             (generated 2026-11-18T12:56:53.413Z) — 0 swap(s),
+// Reconciled: 2026-11-19T12:55:01.642Z against availability_2026.json
+//             (generated 2026-11-19T12:51:43.100Z) — 5 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -16879,7 +16879,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Aidan Hutchinson (Out)",
+        "starter_reason": "promoted after: Aidan Hutchinson (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036964",
@@ -19341,8 +19341,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040583",
-        "name": "Woody Marks",
+        "gsis_id": "00-0038705",
+        "name": "Emari Demercado",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -19401,7 +19401,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Woody Marks (Out)"
       },
       {
         "pos": "WR1",
@@ -20109,8 +20110,8 @@ export const ROSTERS_2026 = {
     "defense": [
       {
         "pos": "EDGE1",
-        "gsis_id": "00-0031565",
-        "name": "Danielle Hunter",
+        "gsis_id": "00-0038599",
+        "name": "Henry To'oTo'o",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -20211,12 +20212,13 @@ export const ROSTERS_2026 = {
             "posAbb": "EDGE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Danielle Hunter (Out)"
       },
       {
         "pos": "EDGE2",
-        "gsis_id": "00-0038599",
-        "name": "Henry To'oTo'o",
+        "gsis_id": "00-0038127",
+        "name": "Logan Hall",
         "grade": "Above Avg",
         "rating": 86,
         "rating_source": "snap_share_v1",
@@ -21958,8 +21960,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0034573",
-        "name": "Charvarius Ward",
+        "gsis_id": "00-0037190",
+        "name": "Sauce Gardner",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -22036,12 +22038,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Charvarius Ward (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0037190",
-        "name": "Sauce Gardner",
+        "gsis_id": "00-0040139",
+        "name": "Justin Walley",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -51193,10 +51196,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-18T14:24:48.777Z",
-  "availability_stamp": "2026-11-18T12:56:53.413Z",
+  "availability_stamp": "2026-11-19T12:51:43.100Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-18T15:27:11.243Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-19T12:55:01.642Z",
+  "swaps_this_run": 5,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
