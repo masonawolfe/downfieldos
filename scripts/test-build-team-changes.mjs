@@ -237,7 +237,8 @@ console.log('review cases');
     { type: 'STATUS_CHANGE', week: 11, gsis_id: 'in', name: 'Inactive Hurt', position: 'RB', team: 'AAA', from_status: 'INA', to_status: 'RES' },
   ];
   const o = buildTeamChanges(i);
-  check(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence === 'Signed quarterback Free Agent to the active roster before week 10.', 'old_status CUT is written as a signing');
+  check(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence === 'Added quarterback Free Agent, last with the Aardvarks, to the active roster before week 10.' && o.teams.BBB.find((x) => x.gsis_id === 'fa')?.detail === 'added', 'old_status CUT is written as added, last with the old team: it can be a trade or a signing (QA gate 2, Brissett)');
+  check(!/Signed|trade/.test(o.teams.BBB.find((x) => x.gsis_id === 'fa')?.sentence || ''), 'negative: a CUT row never says signed or trade');
   check(o.teams.BBB.find((x) => x.gsis_id === 'ps')?.sentence === 'Signed quarterback Prac Squad off the Aardvarks practice squad before week 10.', 'old_status DEV is a signing off the other team\'s practice squad');
   check(!o.teams.AAA.some((x) => x.gsis_id === 'fa' || x.gsis_id === 'ps'), 'no "Lost" item for the team that cut him or held him on its practice squad');
   check(o.teams.AAA.some((x) => x.gsis_id === 'in' && x.detail === 'reserve'), 'a move from the inactive list to a reserve list is a reserve move');

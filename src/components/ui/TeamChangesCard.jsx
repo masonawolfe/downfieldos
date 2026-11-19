@@ -18,6 +18,7 @@ const DETAIL_META = {
   back:         { label: "Return",        color: "#16a34a", icon: HeartPulse },
   activated:    { label: "Return",        color: "#16a34a", icon: HeartPulse },
   signed:       { label: "Roster move",   color: "#2563eb", icon: ArrowUpRight },
+  added:        { label: "Roster move",   color: "#2563eb", icon: ArrowUpRight },
   released:     { label: "Roster move",   color: "#2563eb", icon: ArrowUpRight },
   traded_in:    { label: "Roster move",   color: "#2563eb", icon: Repeat },
   traded_out:   { label: "Roster move",   color: "#2563eb", icon: Repeat },

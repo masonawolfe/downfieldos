@@ -63,12 +63,12 @@ export const RULES = {
   kinds: 'the kind order inside each group comes from data/team_changes_weights.json (card_kind_rank, counted from our own issues by scripts/count-team-change-kinds.js, plan part 6 step 4); with no usable weights file it is the plan\'s part 4 order, out_or_back first and role and roster_move level. No betting or draft kind exists',
   order: 'plan part 4 as ruled by CoS 2026-11-19 15:31. First, a trade, signing or release of a player who matters (for a trade, one who matters to either team) always makes the card, newest first if more than five. Then, for the slots left, players who matter before players who do not, whatever the kind; within each group, kind rank, then the newer week, then the detail order below, then name',
   matters: 'a depth chart starter now, a starter the state saw this season (including one who left the starting slots, so an injured starter still counts), a player the depth chart names in a slot\'s starter_reason ("promoted after: NAME (IR)"), matched to a gsis_id through that slot\'s candidates, or one of the team\'s top three in the graded column (fantasy_points_graded) in any of the last three graded weeks. Plan part 4 says graded usage; the graded points are the one usage measure the actuals file carries for every position (it stores no attempts or carries)',
-  detail_order: 'reserve, out, doubtful, back, activated, questionable, traded_in, traded_out, signed, released, new_starter, role_up, role_down',
+  detail_order: 'reserve, out, doubtful, back, activated, questionable, traded_in, traded_out, added, signed, released, new_starter, role_up, role_down',
   cap: `at most ${MAX_PER_TEAM} items per team and one item per player per team (the first in the order)`,
   out_or_back: 'listed out, doubtful or questionable on the team\'s latest injury report week; back when listed out on the team\'s previous report week (a bye week is skipped) and, on the latest week, not listed out or doubtful while the availability file says active for the same team',
   reserve: 'a STATUS_CHANGE from ACT or INA to RES in weekly_transactions; the list is named from the availability file (IR injured reserve, PUP physically unable to perform), otherwise "a reserve list"',
   activated: 'a STATUS_CHANGE from RES to ACT (returned to the active roster), or from RES to INA while availability still places him on that team (came off a reserve list)',
-  signed: 'SIGNED with status ACT; a TRADED_OR_CLAIMED row whose old_status is CUT (a free agent) and new_status ACT is written as a signing; one whose old_status is DEV and new_status ACT is written as a signing off the other team\'s practice squad, with no item for the team that lost him',
+  signed: 'SIGNED with status ACT; a TRADED_OR_CLAIMED row whose old_status is CUT and new_status ACT is written as "added, last with the <team>" for the new team only, because a CUT between weekly snapshots can be a trade (QA gate 2, 2026-11-19: Brissett) as well as a release and signing; one whose old_status is DEV and new_status ACT is written as a signing off the other team\'s practice squad, with no item for the team that lost him',
   traded: 'TRADED_OR_CLAIMED with old_status and new_status each ACT, INA or RES, written for both teams as a trade or waiver claim (the file cannot tell the two apart)',
   released: 'RELEASED with last_status ACT, RES or INA, or a STATUS_CHANGE from one of those to CUT. Left out when the player is still on that team (availability, the depth chart or a weekly_actuals row for that team in that week or later), and every release in a team-week with more than 20 RELEASED rows is left out as a snapshot gap and listed in meta.skipped_release_weeks. Practice squad only moves are left out',
   new_starter: 'a player in the team\'s depth chart starter slots who was not in them at the last build (state in data/team_changes_starters.json); the first build only records the starters; a starter who leaves the slots is kept in the state for the rest of the season, and when he returns his old record comes back with no new starter item',
@@ -76,7 +76,7 @@ export const RULES = {
   sentences: 'fixed templates in our own words, positions written out in words; no source text is copied',
 };
 
-const DETAIL_ORDER = ['reserve', 'out', 'doubtful', 'back', 'activated', 'questionable', 'traded_in', 'traded_out', 'signed', 'released', 'new_starter', 'role_up', 'role_down'];
+const DETAIL_ORDER = ['reserve', 'out', 'doubtful', 'back', 'activated', 'questionable', 'traded_in', 'traded_out', 'added', 'signed', 'released', 'new_starter', 'role_up', 'role_down'];
 const DEFAULT_KIND_RANK = { out_or_back: 1, role: 2, roster_move: 2 };
 /** The weights file's card ranks when every card kind has a positive integer rank, else the plan's order. */
 export function kindRankFrom(weights) {
@@ -282,7 +282,13 @@ export function buildTeamChanges(input) {
     } else if (x.type === 'TRADED_OR_CLAIMED') {
       if (!x.to_team) continue;
       if (x.old_status === 'CUT' && x.new_status === 'ACT') {
-        add(x.to_team, { ...base, kind: 'roster_move', detail: 'signed', sentence: `Signed ${who} to the active roster before week ${x.week}.` });
+        // QA gate 2 (2026-11-19 16:31): a CUT between two weekly snapshots is
+        // not proof of a release. Jacoby Brissett read CUT at ARI in week 9 and
+        // ACT at BAL in week 10, and nfl.com lists a trade on 11/06. The data
+        // cannot tell a trade from a release and signing here, so the sentence
+        // says only what it shows: where he was last and where he is now.
+        const last = teamName[x.from_team] ? `, last with the ${teamName[x.from_team]},` : '';
+        add(x.to_team, { ...base, kind: 'roster_move', detail: 'added', sentence: `Added ${who}${last} to the active roster before week ${x.week}.` });
       } else if (x.old_status === 'DEV' && x.new_status === 'ACT') {
         if (teamName[x.from_team]) add(x.to_team, { ...base, kind: 'roster_move', detail: 'signed', sentence: `Signed ${who} off the ${teamName[x.from_team]} practice squad before week ${x.week}.` });
       } else if (FROM_ROSTER.includes(x.old_status) && FROM_ROSTER.includes(x.new_status) && teamName[x.from_team]) {
