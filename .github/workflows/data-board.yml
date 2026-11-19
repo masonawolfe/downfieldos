@@ -151,15 +151,12 @@ jobs:
       # outputs ride this commit. continue-on-error: a failed build keeps the
       # last good file and never blocks the board; the freshness gate's
       # 36-hour ceiling on team_changes_2026.json carries the red.
-      # Team news plan step 4 (2026-11-19): recount what our own issues
-      # covered, from our own feed (thetendencyreport.substack.com/feed, the
-      # only network read in the team news build), so the card's kind order
-      # follows them. continue-on-error, and a failed read writes nothing:
-      # the last weights stay, the board goes on, and the gate's coverage row
-      # on team_changes_weights.json reads red if the count falls behind.
-      - name: Recount kinds from our own feed (team_changes_weights.json)
-        continue-on-error: true
-        run: npm run data:team-weights
+      # Team news plan step 4: the kinds recount from our own feed does not
+      # run here. Substack answers GitHub's runners with HTTP 403 (run
+      # 44626003377, 2026-11-19), so CoS ruled at 16:17 CST that it runs
+      # on Mason's Mac after each Tuesday send and its file
+      # (data/team_changes_weights.json) has that one writer. The card build
+      # below reads the committed weights.
       - name: Build what changed per team (team_changes_2026.json)
         continue-on-error: true
         run: npm run data:team-changes
@@ -186,7 +183,7 @@ jobs:
           # Step 11: the This Week recap feed rebuilt above.
           git add src/data/games2026.json 2>/dev/null || true
           # Team news plan step 3: the card file and its starters state.
-          git add src/data/intelligence/team_changes_2026.json data/team_changes_starters.json data/team_changes_weights.json 2>/dev/null || true
+          git add src/data/intelligence/team_changes_2026.json data/team_changes_starters.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "No board changes to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

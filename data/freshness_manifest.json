@@ -1709,9 +1709,7 @@
       "path": "data/team_changes_weights.json",
       "producer": "scripts/count-team-change-kinds.js",
       "outputs_also": [],
-      "workflows": [
-        "data-board.yml"
-      ],
+      "workflows": [],
       "stamp": {
         "kind": "json",
         "generated_at": "/meta/generated_at",
@@ -1719,7 +1717,7 @@
       },
       "expected_season": "season",
       "season_by_design": null,
-      "max_age_hours": 48,
+      "max_age_hours": 192,
       "change_driven": false,
       "in_season_only": true,
       "coverage": "graded_week",
@@ -1739,7 +1737,7 @@
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "Team news plan step 4 (2026-11-19, Mason: \"Yeah, build our own team news\"). Counts per kind from our own feed, thetendencyreport.substack.com/feed, on every data-board.yml run; a failed read writes nothing. Coverage is the plan's failing check: counted_through_week must reach the latest week whose last game kicked off 204 hours ago (8.5 days), so it reads red only when the count trails the graded week by more than one, as the plan says. In season only. Ceiling 48 (the daily family): one failed read passes, two read red. Known gap: week 18's count is never gated, because its 204-hour grace runs past the season's 192-hour tail and the row is in season only; the week 17 check is the last one. counted_through_week reads only issues published this season, so last season's record cannot hold the row green.",
+      "note": "Team news plan step 4 (2026-11-19, Mason: \"Yeah, build our own team news\"). Counts per kind from our own feed, thetendencyreport.substack.com/feed. Written on Mason's Mac only: GitHub's runner got HTTP 403 from Substack (run 44626003377), so CoS ruled that this seat runs scripts/count-team-change-kinds.js here after each Tuesday send is verified and commits this file alone; no workflow writes it. Ceiling 192 hours (the weekly family, eight days): a weekly recount passes, a missed week reads red; the 48 h ceiling assumed a daily writer. Coverage is the plan's failing check: counted_through_week must reach the latest week whose last game kicked off 204 hours ago (8.5 days), so it reads red only when the count trails the graded week by more than one. In season only. Known gap: week 18's count is never gated, because its 204-hour grace runs past the season's 192-hour tail; the week 17 check is the last one. counted_through_week reads only issues published this season, so last season's record cannot hold the row green. A failed read writes nothing.",
       "lineage_grace_reason": null
     },
     {
