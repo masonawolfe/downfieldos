@@ -99,6 +99,14 @@ export const POSITION_WORDS = {
   K: 'kicker', P: 'punter', LS: 'long snapper',
 };
 const posWord = (code) => POSITION_WORDS[code] || 'player';
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+/** "Updated November 19, 2026": the build time as a US Eastern calendar date (team news plan step 5: the card shows its file's date). */
+export function updatedLabel(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: 'numeric', day: 'numeric' }).formatToParts(d).map((x) => [x.type, x.value]));
+  return `Updated ${MONTHS[Number(parts.month) - 1]} ${Number(parts.day)}, ${parts.year}`;
+}
 const cap1 = (w) => w.charAt(0).toUpperCase() + w.slice(1);
 
 function readJson(root, rel) {
@@ -369,7 +377,8 @@ export function buildTeamChanges(input) {
       source_season: SEASON,
       generated_at: now,
       generated_by: 'scripts/build-team-changes.js',
-      label: `What changed, built from our own data through week ${weekNow}`,
+      label: updatedLabel(now),
+      label_basis: 'the build\'s own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card',
       graded_week: gradedWeek,
       week_now: weekNow,
       week_now_basis: { graded_plus_one: gradedWeek + 1, latest_transactions_week: txWeek, latest_report_week: reportWeek },

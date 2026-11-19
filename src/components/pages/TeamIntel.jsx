@@ -11,6 +11,7 @@ import { ExportButton } from '../ui/ExportButton';
 import { ContractYearCard } from '../ui/ContractYearCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { TeamNewsCard } from '../ui/TeamNewsCard';
+import { TeamChangesCard } from '../ui/TeamChangesCard';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -48,10 +49,10 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 4 }}>Comp: {pct(stats.compRate)} | Sack: {pct(stats.sackRate)} | {stats.n.toLocaleString()} plays</div>
         </div>
       </div>
-      {/* Team news plan step 1 (2026-11-19, ASK 43): the ESPN wire is off.
-          Its last items are from 2026-11-17 and link to a site we no
-          longer read, so the list is not shown. The "What changed" card
-          from our own data replaces it (plan step 5). */}
+      {/* Team news plan step 5 (2026-11-19): "What changed", from our own
+          data, where the ESPN wire was (step 1 took the wire off). It sits
+          above the dated offseason card because it is the newer of the two. */}
+      <TeamChangesCard team={team} />
       <TeamNewsCard team={team} />
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 28, marginBottom: 20 }}>
         <h3 style={{ fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>The Scouting Report</h3>

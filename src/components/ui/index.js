@@ -18,4 +18,5 @@ export { PlayerCard } from './PlayerCard';
 export { PlayerLink } from './PlayerLink';
 export { Tooltip, STAT_TIPS } from './Tooltip';
 export { TeamNewsCard } from './TeamNewsCard';
+export { TeamChangesCard } from './TeamChangesCard';
 export { AsOf } from './AsOf';

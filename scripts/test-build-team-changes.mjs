@@ -12,7 +12,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { buildTeamChanges, POSITION_WORDS } from './build-team-changes.js';
+import { buildTeamChanges, POSITION_WORDS, updatedLabel } from './build-team-changes.js';
 import { SEASON } from './_lib/season.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -345,6 +345,12 @@ console.log('review cases');
   check(!buildTeamChanges(k2).teams.AAA.some((x) => x.gsis_id === 'zz'), 'negative: a role change for a depth player stays behind five depth injury lines (kind order inside the group)');
 }
 
+{
+  // Step 5: the card's date label, US Eastern.
+  check(updatedLabel('2026-11-20T04:34:00Z') === 'Updated November 19, 2026', 'a 04:34 UTC build is dated the evening before, Eastern (November 19)');
+  check(updatedLabel('2026-11-19T22:00:00Z') === 'Updated November 19, 2026' && updatedLabel('not a time') === null, 'an afternoon build keeps its date; a bad time gives no label');
+}
+
 // ── 8. the committed file, as a reader would get it ──────────────────────
 console.log('committed file');
 {
@@ -363,6 +369,7 @@ console.log('committed file');
   check(!all.some((x) => /https?:|espn|yahoo|apnews/i.test(JSON.stringify(x))), 'no link and no walled host named in any item');
   check(all.every((x) => x.week <= d.meta.week_now && x.week >= d.meta.week_now - (x.kind === 'out_or_back' && ['out', 'doubtful', 'questionable', 'back'].includes(x.detail) ? 2 : 1)), 'every item is in the window (injury report items may be two weeks back, for a bye)');
   check(Array.isArray(d.meta.unknown_positions) && d.meta.unknown_positions.length === 0, 'every position in the file has a word');
+  check(d.meta.label === updatedLabel(d.meta.generated_at) && /^Updated [A-Z][a-z]+ \d{1,2}, \d{4}$/.test(d.meta.label), `the file's label is its own build date in words (${d.meta.label})`);
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
   check(!all.some((x) => 'other_team' in x), 'no internal ranking key (other_team) in the reader file');
   for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
