@@ -1,0 +1,4749 @@
+{
+  "season": 2026,
+  "generated_at": "2026-11-19T21:29:16.738Z",
+  "generated_by": "scripts/build-team-changes.js",
+  "week_now": 11,
+  "note": "Starters the last build saw, per team. Read and rewritten by scripts/build-team-changes.js; never edited by hand.",
+  "teams": {
+    "ARI": {
+      "00-0041561": {
+        "pos": "QB",
+        "name": "Carson Beck",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037263": {
+        "pos": "RB",
+        "name": "Tyler Allgeier",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037157": {
+        "pos": "RB",
+        "name": "Bam Knight",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036646": {
+        "pos": "WR",
+        "name": "Simi Fehoko",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041070": {
+        "pos": "WR",
+        "name": "Reggie Virgil",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036331": {
+        "pos": "WR",
+        "name": "Devin Duvernay",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037744": {
+        "pos": "TE",
+        "name": "Trey McBride",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041113": {
+        "pos": "LT",
+        "name": "Jayden Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032954": {
+        "pos": "LG",
+        "name": "Isaac Seumalo",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035258": {
+        "pos": "C",
+        "name": "Hjalte Froholdt",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039808": {
+        "pos": "RG",
+        "name": "Isaiah Adams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033676": {
+        "pos": "RT",
+        "name": "Elijah Wilkinson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039854": {
+        "pos": "EDGE",
+        "name": "Darius Robinson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034381": {
+        "pos": "EDGE",
+        "name": "Josh Sweat",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040706": {
+        "pos": "DT",
+        "name": "Walter Nolen III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036933": {
+        "pos": "LB",
+        "name": "Zaven Collins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035144": {
+        "pos": "LB",
+        "name": "Mack Wilson Sr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040195": {
+        "pos": "CB",
+        "name": "Denzel Burke",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039807": {
+        "pos": "SCB",
+        "name": "Max Melton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040230": {
+        "pos": "FS",
+        "name": "Kitan Crawford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033890": {
+        "pos": "SS",
+        "name": "Budda Baker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "ATL": {
+      "00-0039917": {
+        "pos": "QB",
+        "name": "Michael Penix Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038542": {
+        "pos": "RB",
+        "name": "Bijan Robinson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036906": {
+        "pos": "RB",
+        "name": "Khalil Herbert",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037238": {
+        "pos": "WR",
+        "name": "Drake London",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037741": {
+        "pos": "WR",
+        "name": "Jahan Dotson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035208": {
+        "pos": "WR",
+        "name": "Olamide Zaccheaus",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036970": {
+        "pos": "TE",
+        "name": "Kyle Pitts Sr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031279": {
+        "pos": "LT",
+        "name": "Jake Matthews",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039048": {
+        "pos": "LG",
+        "name": "Matthew Bergeron",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033793": {
+        "pos": "C",
+        "name": "Corey Levin",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035630": {
+        "pos": "RG",
+        "name": "Chris Lindstrom",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035237": {
+        "pos": "RT",
+        "name": "Jawaan Taylor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039859": {
+        "pos": "DT",
+        "name": "Brandon Dorlus",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039889": {
+        "pos": "EDGE",
+        "name": "Maason Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037815": {
+        "pos": "LB",
+        "name": "Cameron Thomas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040578": {
+        "pos": "LB",
+        "name": "James Pearce Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036285": {
+        "pos": "CB",
+        "name": "A.J. Terrell Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034639": {
+        "pos": "CB",
+        "name": "Mike Ford Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039002": {
+        "pos": "SCB",
+        "name": "Sydney Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040148": {
+        "pos": "FS",
+        "name": "Xavier Watts",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038628": {
+        "pos": "SS",
+        "name": "DeMarcco Hellams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "BAL": {
+      "00-0033119": {
+        "pos": "QB",
+        "name": "Jacoby Brissett",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032764": {
+        "pos": "RB",
+        "name": "Derrick Henry",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034975": {
+        "pos": "RB",
+        "name": "Justice Hill",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036550": {
+        "pos": "WR",
+        "name": "Rashod Bateman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039064": {
+        "pos": "WR",
+        "name": "Zay Flowers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040870": {
+        "pos": "WR",
+        "name": "Ja'Kobi Lane",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034753": {
+        "pos": "TE",
+        "name": "Mark Andrews",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032965": {
+        "pos": "LT",
+        "name": "Ronnie Stanley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036369": {
+        "pos": "LG",
+        "name": "John Simpson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038112": {
+        "pos": "C",
+        "name": "Cam Jurgens",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040866": {
+        "pos": "RG",
+        "name": "Olaivavega Ioane",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039233": {
+        "pos": "RT",
+        "name": "Roger Rosengarten",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036130": {
+        "pos": "EDGE",
+        "name": "Nnamdi Madubuike",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0026190": {
+        "pos": "EDGE",
+        "name": "Calais Campbell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037756": {
+        "pos": "DT",
+        "name": "Travis Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040722": {
+        "pos": "LB",
+        "name": "Mike Green",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033935": {
+        "pos": "LB",
+        "name": "Trey Hendrickson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039232": {
+        "pos": "CB",
+        "name": "Nate Wiggins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033281": {
+        "pos": "CB",
+        "name": "Marlon Humphrey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038038": {
+        "pos": "SCB",
+        "name": "Kyle Hamilton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040688": {
+        "pos": "FS",
+        "name": "Malaki Starks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036302": {
+        "pos": "SS",
+        "name": "Jaylinn Hawkins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "BUF": {
+      "00-0034857": {
+        "pos": "QB",
+        "name": "Josh Allen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037248": {
+        "pos": "RB",
+        "name": "James Cook III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035537": {
+        "pos": "RB",
+        "name": "Ty Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039901": {
+        "pos": "WR",
+        "name": "Keon Coleman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037261": {
+        "pos": "WR",
+        "name": "Khalil Shakir",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041443": {
+        "pos": "WR",
+        "name": "Skyler Bell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038933": {
+        "pos": "TE",
+        "name": "Dalton Kincaid",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033904": {
+        "pos": "LT",
+        "name": "Dion Dawkins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037428": {
+        "pos": "LG",
+        "name": "Alec Anderson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035679": {
+        "pos": "C",
+        "name": "Connor McGovern",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038548": {
+        "pos": "RG",
+        "name": "O'Cyrus Torrence",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036976": {
+        "pos": "RT",
+        "name": "Spencer Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039873": {
+        "pos": "EDGE",
+        "name": "DeWayne Carter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034832": {
+        "pos": "LB",
+        "name": "Bradley Chubb",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040710": {
+        "pos": "DT",
+        "name": "Deone Walker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036914": {
+        "pos": "LB",
+        "name": "Greg Rousseau",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037288": {
+        "pos": "CB",
+        "name": "Christian Benford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041391": {
+        "pos": "CB",
+        "name": "Davison Igbinosun",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037034": {
+        "pos": "SCB",
+        "name": "Dee Alford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039872": {
+        "pos": "FS",
+        "name": "Cole Bishop",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035632": {
+        "pos": "SS",
+        "name": "Amani Hooker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "CAR": {
+      "00-0039150": {
+        "pos": "QB",
+        "name": "Bryce Young",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036555": {
+        "pos": "RB",
+        "name": "Chuba Hubbard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040644": {
+        "pos": "RB",
+        "name": "Trevor Etienne",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040124": {
+        "pos": "WR",
+        "name": "Tetairoa McMillan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039491": {
+        "pos": "WR",
+        "name": "Jalen Coker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038840": {
+        "pos": "WR",
+        "name": "Brycen Tremayne",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037005": {
+        "pos": "TE",
+        "name": "Tommy Tremble",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037196": {
+        "pos": "LT",
+        "name": "Rasheed Walker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036417": {
+        "pos": "LG",
+        "name": "Damien Lewis",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037814": {
+        "pos": "C",
+        "name": "Luke Fortner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036325": {
+        "pos": "RG",
+        "name": "Robert Hunt",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041034": {
+        "pos": "RT",
+        "name": "Monroe Freeling",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036220": {
+        "pos": "DT",
+        "name": "Derrick Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035890": {
+        "pos": "EDGE",
+        "name": "Tershawn Wharton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037007": {
+        "pos": "LB",
+        "name": "Patrick Jones II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036934": {
+        "pos": "LB",
+        "name": "Jaelan Phillips",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036884": {
+        "pos": "CB",
+        "name": "Marco Wilson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039380": {
+        "pos": "SCB",
+        "name": "Chau Smith-Wade",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041076": {
+        "pos": "FS",
+        "name": "Zakee Wheatley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036962": {
+        "pos": "SS",
+        "name": "Tre'von Moehrig",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "CHI": {
+      "00-0039918": {
+        "pos": "QB",
+        "name": "Caleb Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036275": {
+        "pos": "RB",
+        "name": "D'Andre Swift",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040236": {
+        "pos": "RB",
+        "name": "Kyle Monangai",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039919": {
+        "pos": "WR",
+        "name": "Rome Odunze",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032464": {
+        "pos": "WR",
+        "name": "Kalif Raymond",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040277": {
+        "pos": "WR",
+        "name": "Jahdae Walker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040126": {
+        "pos": "TE",
+        "name": "Colston Loveland",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039459": {
+        "pos": "LT",
+        "name": "Theo Benedet",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032391": {
+        "pos": "LG",
+        "name": "Joe Thuney",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035588": {
+        "pos": "C",
+        "name": "Garrett Bradbury",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036258": {
+        "pos": "RG",
+        "name": "Jonah Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038932": {
+        "pos": "RT",
+        "name": "Darnell Wright",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035386": {
+        "pos": "LB",
+        "name": "T.J. Edwards",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039840": {
+        "pos": "EDGE",
+        "name": "Austin Booker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040741": {
+        "pos": "DT",
+        "name": "Shemar Turner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037271": {
+        "pos": "LB",
+        "name": "D'Marco Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036292": {
+        "pos": "CB",
+        "name": "Jaylon Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039071": {
+        "pos": "CB",
+        "name": "Tyrique Stevenson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038111": {
+        "pos": "SCB",
+        "name": "Kyler Gordon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035357": {
+        "pos": "FS",
+        "name": "Cam Lewis",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041538": {
+        "pos": "SS",
+        "name": "Dillon Thieneman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "CIN": {
+      "00-0036442": {
+        "pos": "QB",
+        "name": "Joe Burrow",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038597": {
+        "pos": "RB",
+        "name": "Chase Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033526": {
+        "pos": "RB",
+        "name": "Samaje Perine",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036900": {
+        "pos": "WR",
+        "name": "Ja'Marr Chase",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036410": {
+        "pos": "WR",
+        "name": "Tee Higgins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040785": {
+        "pos": "WR",
+        "name": "Dohnte Meyers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034829": {
+        "pos": "TE",
+        "name": "Mike Gesicki",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034752": {
+        "pos": "LT",
+        "name": "Orlando Brown Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040140": {
+        "pos": "LG",
+        "name": "Dylan Fairchild",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032445": {
+        "pos": "C",
+        "name": "Ted Karras",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035702": {
+        "pos": "RG",
+        "name": "Dalton Risner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039925": {
+        "pos": "RT",
+        "name": "Amarius Mims",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038133": {
+        "pos": "EDGE",
+        "name": "Boye Mafe",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038546": {
+        "pos": "EDGE",
+        "name": "Myles Murphy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035683": {
+        "pos": "DT",
+        "name": "Dexter Lawrence II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040157": {
+        "pos": "LB",
+        "name": "Barrett Carter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034754": {
+        "pos": "LB",
+        "name": "Oren Burks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038642": {
+        "pos": "CB",
+        "name": "DJ Ivey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037743": {
+        "pos": "SCB",
+        "name": "Dax Hill",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037193": {
+        "pos": "FS",
+        "name": "Bryan Cook",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038560": {
+        "pos": "SS",
+        "name": "Jordan Battle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "CLE": {
+      "00-0033537": {
+        "pos": "QB",
+        "name": "Deshaun Watson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040784": {
+        "pos": "RB",
+        "name": "Quinshon Judkins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040162": {
+        "pos": "RB",
+        "name": "Dylan Sampson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041037": {
+        "pos": "WR",
+        "name": "Denzel Boston",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041547": {
+        "pos": "WR",
+        "name": "KC Concepcion",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036407": {
+        "pos": "WR",
+        "name": "Jerry Jeudy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040663": {
+        "pos": "TE",
+        "name": "Harold Fannin Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041030": {
+        "pos": "LT",
+        "name": "Spencer Fano",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037818": {
+        "pos": "LG",
+        "name": "Zion Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035526": {
+        "pos": "C",
+        "name": "Elgton Jenkins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041049": {
+        "pos": "RG",
+        "name": "Austin Barber",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035234": {
+        "pos": "RT",
+        "name": "Tytus Howard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039461": {
+        "pos": "EDGE",
+        "name": "Jamree Kromah",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035680": {
+        "pos": "LB",
+        "name": "Quincy Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033131": {
+        "pos": "DT",
+        "name": "Maliek Collins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040261": {
+        "pos": "LB",
+        "name": "Easton Mascarenas-Arnold",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034856": {
+        "pos": "CB",
+        "name": "Denzel Ward",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036974": {
+        "pos": "CB",
+        "name": "Tyson Campbell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039417": {
+        "pos": "SCB",
+        "name": "Myles Harden",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036306": {
+        "pos": "FS",
+        "name": "Daniel Thomas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036282": {
+        "pos": "SS",
+        "name": "Grant Delpit",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "DAL": {
+      "00-0033077": {
+        "pos": "QB",
+        "name": "Dak Prescott",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036997": {
+        "pos": "RB",
+        "name": "Javonte Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038738": {
+        "pos": "RB",
+        "name": "Hunter Luepke",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036358": {
+        "pos": "WR",
+        "name": "CeeDee Lamb",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039410": {
+        "pos": "WR",
+        "name": "Ryan Flournoy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037247": {
+        "pos": "WR",
+        "name": "George Pickens",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039530": {
+        "pos": "TE",
+        "name": "Brevyn Spann-Ford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039341": {
+        "pos": "LT",
+        "name": "Tyler Guyton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037243": {
+        "pos": "LG",
+        "name": "Tyler Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039348": {
+        "pos": "C",
+        "name": "Cooper Beebe",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040007": {
+        "pos": "RG",
+        "name": "Tyler Booker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036036": {
+        "pos": "RT",
+        "name": "Terence Steele",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035718": {
+        "pos": "EDGE",
+        "name": "Quinnen Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033120": {
+        "pos": "EDGE",
+        "name": "Kenny Clark",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037270": {
+        "pos": "DT",
+        "name": "Otito Ogbonnia",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034967": {
+        "pos": "LB",
+        "name": "Rashan Gary",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040725": {
+        "pos": "LB",
+        "name": "Donovan Ezeiruaku",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037839": {
+        "pos": "CB",
+        "name": "Cobie Durant",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039167": {
+        "pos": "CB",
+        "name": "Joey Porter Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040865": {
+        "pos": "SCB",
+        "name": "Caleb Downs",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033877": {
+        "pos": "FS",
+        "name": "Malik Hooker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035227": {
+        "pos": "SS",
+        "name": "P.J. Locke",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "DEN": {
+      "00-0039732": {
+        "pos": "QB",
+        "name": "Bo Nix",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041496": {
+        "pos": "RB",
+        "name": "Jonah Coleman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036158": {
+        "pos": "RB",
+        "name": "J.K. Dobbins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034348": {
+        "pos": "WR",
+        "name": "Courtland Sutton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036613": {
+        "pos": "WR",
+        "name": "Jaylen Waddle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039868": {
+        "pos": "WR",
+        "name": "Troy Franklin",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033881": {
+        "pos": "TE",
+        "name": "Evan Engram",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033538": {
+        "pos": "LT",
+        "name": "Garett Bolles",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034978": {
+        "pos": "LG",
+        "name": "Ben Powers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037278": {
+        "pos": "C",
+        "name": "Luke Wattenberg",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037001": {
+        "pos": "RG",
+        "name": "Quinn Meinerz",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034847": {
+        "pos": "RT",
+        "name": "Mike McGlinchey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035763": {
+        "pos": "EDGE",
+        "name": "Malcolm Roach",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041552": {
+        "pos": "EDGE",
+        "name": "Tyler Onyedim",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037294": {
+        "pos": "DT",
+        "name": "Jordan Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037249": {
+        "pos": "LB",
+        "name": "Nik Bonitto",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036952": {
+        "pos": "LB",
+        "name": "Jonathon Cooper",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038552": {
+        "pos": "CB",
+        "name": "Riley Moss",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037384": {
+        "pos": "SCB",
+        "name": "Ja'Quan McMillian",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036221": {
+        "pos": "FS",
+        "name": "Brandon Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036564": {
+        "pos": "SS",
+        "name": "Talanoa Hufanga",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "DET": {
+      "00-0033106": {
+        "pos": "QB",
+        "name": "Jared Goff",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039139": {
+        "pos": "RB",
+        "name": "Jahmyr Gibbs",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039364": {
+        "pos": "RB",
+        "name": "Sione Vaki",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037240": {
+        "pos": "WR",
+        "name": "Jameson Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036963": {
+        "pos": "WR",
+        "name": "Amon-Ra St. Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040669": {
+        "pos": "WR",
+        "name": "Isaac TeSlaa",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039065": {
+        "pos": "TE",
+        "name": "Sam LaPorta",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036880": {
+        "pos": "LT",
+        "name": "Penei Sewell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039408": {
+        "pos": "LG",
+        "name": "Christian Mahogany",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037297": {
+        "pos": "C",
+        "name": "Cade Mays",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040728": {
+        "pos": "RG",
+        "name": "Tate Ratledge",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0011237": {
+        "pos": "RT",
+        "name": "Blake Miller",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036964": {
+        "pos": "LB",
+        "name": "Derrick Barnes",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038940": {
+        "pos": "EDGE",
+        "name": "Tyler Lacy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036954": {
+        "pos": "DT",
+        "name": "Levi Onwuzurike",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037289": {
+        "pos": "LB",
+        "name": "Malcolm Rodriguez",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038125": {
+        "pos": "SCB",
+        "name": "Roger McCreary",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034384": {
+        "pos": "CB",
+        "name": "D.J. Reed",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033294": {
+        "pos": "FS",
+        "name": "Chuck Clark",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039141": {
+        "pos": "SS",
+        "name": "Brian Branch",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "GB": {
+      "00-0036264": {
+        "pos": "QB",
+        "name": "Jordan Love",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040142": {
+        "pos": "RB",
+        "name": "Kaleb Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039811": {
+        "pos": "RB",
+        "name": "MarShawn Lloyd",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040667": {
+        "pos": "WR",
+        "name": "Matthew Golden",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038124": {
+        "pos": "WR",
+        "name": "Christian Watson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040009": {
+        "pos": "WR",
+        "name": "Savion Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038996": {
+        "pos": "TE",
+        "name": "Tucker Kraft",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039904": {
+        "pos": "LT",
+        "name": "Jordan Morgan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032234": {
+        "pos": "LG",
+        "name": "Laken Tomlinson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037076": {
+        "pos": "C",
+        "name": "Sean Rhyan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039819": {
+        "pos": "RG",
+        "name": "Travis Glover",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040726": {
+        "pos": "RT",
+        "name": "Anthony Belton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038398": {
+        "pos": "EDGE",
+        "name": "Karl Brooks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037075": {
+        "pos": "EDGE",
+        "name": "Devonte Wyatt",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038506": {
+        "pos": "DT",
+        "name": "Jordon Riley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039112": {
+        "pos": "LB",
+        "name": "Lukas Van Ness",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040010": {
+        "pos": "LB",
+        "name": "Barryn Sorrell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035133": {
+        "pos": "CB",
+        "name": "Keisean Nixon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041470": {
+        "pos": "CB",
+        "name": "Brandon Cisse",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039867": {
+        "pos": "SCB",
+        "name": "Javon Bullard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036388": {
+        "pos": "FS",
+        "name": "Xavier McKinney",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039813": {
+        "pos": "SS",
+        "name": "Evan Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "HOU": {
+      "00-0039163": {
+        "pos": "QB",
+        "name": "C.J. Stroud",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035685": {
+        "pos": "RB",
+        "name": "David Montgomery",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038705": {
+        "pos": "RB",
+        "name": "Emari Demercado",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038618": {
+        "pos": "WR",
+        "name": "Xavier Hutchinson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036554": {
+        "pos": "WR",
+        "name": "Nico Collins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038608": {
+        "pos": "WR",
+        "name": "Kayshon Boutte",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034383": {
+        "pos": "TE",
+        "name": "Dalton Schultz",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040745": {
+        "pos": "LT",
+        "name": "Aireontae Ersery",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041532": {
+        "pos": "LG",
+        "name": "Keylan Rutledge",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034495": {
+        "pos": "C",
+        "name": "Evan Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038131": {
+        "pos": "RG",
+        "name": "Ed Ingram",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032071": {
+        "pos": "RT",
+        "name": "Trent Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038599": {
+        "pos": "LB",
+        "name": "Henry To'oTo'o",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038127": {
+        "pos": "DT",
+        "name": "Logan Hall",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041465": {
+        "pos": "LB",
+        "name": "Wade Woodaz",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039343": {
+        "pos": "CB",
+        "name": "Kamari Lassiter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037237": {
+        "pos": "CB",
+        "name": "Derek Stingley Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037246": {
+        "pos": "SCB",
+        "name": "Jalen Pitre",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039838": {
+        "pos": "FS",
+        "name": "Calen Bullock",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037130": {
+        "pos": "SS",
+        "name": "Reed Blankenship",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "IND": {
+      "00-0035710": {
+        "pos": "QB",
+        "name": "Daniel Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036223": {
+        "pos": "RB",
+        "name": "Jonathan Taylor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041125": {
+        "pos": "RB",
+        "name": "Seth McGowan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032951": {
+        "pos": "WR",
+        "name": "Laquon Treadwell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041132": {
+        "pos": "WR",
+        "name": "Deion Burks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035021": {
+        "pos": "WR",
+        "name": "Ashton Dulin",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040128": {
+        "pos": "TE",
+        "name": "Tyler Warren",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037757": {
+        "pos": "LT",
+        "name": "Bernhard Raimann",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041517": {
+        "pos": "LG",
+        "name": "Jalen Farmer",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039744": {
+        "pos": "C",
+        "name": "Tanor Bortolini",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039736": {
+        "pos": "RG",
+        "name": "Matt Goncalves",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040163": {
+        "pos": "RT",
+        "name": "Jalen Travis",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039340": {
+        "pos": "EDGE",
+        "name": "Laiatu Latu",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034825": {
+        "pos": "EDGE",
+        "name": "Arden Key",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033952": {
+        "pos": "DT",
+        "name": "Grover Stewart",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041039": {
+        "pos": "LB",
+        "name": "CJ Allen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041518": {
+        "pos": "LB",
+        "name": "Bryce Boettcher",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037190": {
+        "pos": "CB",
+        "name": "Sauce Gardner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040139": {
+        "pos": "SCB",
+        "name": "Justin Walley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036629": {
+        "pos": "FS",
+        "name": "Cam Bynum",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041043": {
+        "pos": "SS",
+        "name": "A.J. Haulcy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "JAX": {
+      "00-0036971": {
+        "pos": "QB",
+        "name": "Trevor Lawrence",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040719": {
+        "pos": "RB",
+        "name": "Bhayshul Tuten",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038611": {
+        "pos": "RB",
+        "name": "Chris Rodriguez Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041106": {
+        "pos": "WR",
+        "name": "CJ Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034960": {
+        "pos": "WR",
+        "name": "Jakobi Meyers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038606": {
+        "pos": "WR",
+        "name": "Parker Washington",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038935": {
+        "pos": "TE",
+        "name": "Brenton Strange",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036975": {
+        "pos": "LT",
+        "name": "Walker Little",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041050": {
+        "pos": "LG",
+        "name": "Emmanuel Pregnon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036985": {
+        "pos": "C",
+        "name": "Robert Hainsey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036327": {
+        "pos": "RG",
+        "name": "Ezra Cleveland",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036655": {
+        "pos": "RT",
+        "name": "Cole Van Lanen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037235": {
+        "pos": "EDGE",
+        "name": "Travon Walker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035642": {
+        "pos": "EDGE",
+        "name": "Josh Hines-Allen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032164": {
+        "pos": "DT",
+        "name": "Arik Armstead",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034473": {
+        "pos": "LB",
+        "name": "Dennis Gardeck",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040209": {
+        "pos": "LB",
+        "name": "Jalen McLeod",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040718": {
+        "pos": "CB",
+        "name": "Travis Hunter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039353": {
+        "pos": "SCB",
+        "name": "Jarrian Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038596": {
+        "pos": "FS",
+        "name": "Antonio Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034675": {
+        "pos": "SS",
+        "name": "Jessie Bates III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "KC": {
+      "00-0033873": {
+        "pos": "QB",
+        "name": "Patrick Mahomes",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038134": {
+        "pos": "RB",
+        "name": "Kenneth Walker III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041013": {
+        "pos": "RB",
+        "name": "Emmett Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039894": {
+        "pos": "WR",
+        "name": "Xavier Worthy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039067": {
+        "pos": "WR",
+        "name": "Rashee Rice",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040646": {
+        "pos": "WR",
+        "name": "Jalen Royals",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0030506": {
+        "pos": "TE",
+        "name": "Travis Kelce",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041019": {
+        "pos": "LT",
+        "name": "Kahlil Benson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039844": {
+        "pos": "LG",
+        "name": "Kingsley Suamataia",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036623": {
+        "pos": "C",
+        "name": "Creed Humphrey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036660": {
+        "pos": "RG",
+        "name": "Trey Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036557": {
+        "pos": "RT",
+        "name": "Jaylon Moore",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035262": {
+        "pos": "LB",
+        "name": "Drue Tranquill",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040640": {
+        "pos": "EDGE",
+        "name": "Ashton Gillotte",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032762": {
+        "pos": "DT",
+        "name": "Chris Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040072": {
+        "pos": "LB",
+        "name": "Jeffrey Bassa",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039324": {
+        "pos": "CB",
+        "name": "Chris Roland-Wallace",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040670": {
+        "pos": "CB",
+        "name": "Nohl Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041497": {
+        "pos": "SCB",
+        "name": "Jadon Canady",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036380": {
+        "pos": "FS",
+        "name": "Alohi Gilman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038982": {
+        "pos": "SS",
+        "name": "Chamarri Conner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "LAC": {
+      "00-0036355": {
+        "pos": "QB",
+        "name": "Justin Herbert",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040666": {
+        "pos": "RB",
+        "name": "Omarion Hampton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038454": {
+        "pos": "RB",
+        "name": "Keaton Mitchell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040727": {
+        "pos": "WR",
+        "name": "Tre Harris",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038544": {
+        "pos": "WR",
+        "name": "Quentin Johnston",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038046": {
+        "pos": "TE",
+        "name": "Charlie Kolar",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039897": {
+        "pos": "LT",
+        "name": "Joe Alt",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041105": {
+        "pos": "LG",
+        "name": "Logan Taylor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041392": {
+        "pos": "C",
+        "name": "Jake Slaughter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038103": {
+        "pos": "RG",
+        "name": "Cole Strange",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041058": {
+        "pos": "RT",
+        "name": "Travis Burke",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036181": {
+        "pos": "DT",
+        "name": "Teair Tart",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041072": {
+        "pos": "EDGE",
+        "name": "Nick Barrett",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039111": {
+        "pos": "LB",
+        "name": "Tuli Tuipulotu",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031040": {
+        "pos": "LB",
+        "name": "Khalil Mack",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039366": {
+        "pos": "SCB",
+        "name": "Tarheeb Still",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039369": {
+        "pos": "CB",
+        "name": "Cam Hart",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036992": {
+        "pos": "FS",
+        "name": "Elijah Molden",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0030294": {
+        "pos": "SS",
+        "name": "Tony Jefferson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "LAR": {
+      "00-0026498": {
+        "pos": "QB",
+        "name": "Matthew Stafford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037840": {
+        "pos": "RB",
+        "name": "Kyren Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039738": {
+        "pos": "RB",
+        "name": "Blake Corum",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040590": {
+        "pos": "WR",
+        "name": "Konata Mumpfield",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036849": {
+        "pos": "WR",
+        "name": "Tutu Atwell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038359": {
+        "pos": "WR",
+        "name": "Xavier Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033110": {
+        "pos": "TE",
+        "name": "Tyler Higbee",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036603": {
+        "pos": "LT",
+        "name": "Alaric Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039058": {
+        "pos": "LG",
+        "name": "Steve Avila",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034114": {
+        "pos": "C",
+        "name": "Coleman Shelton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036339": {
+        "pos": "RG",
+        "name": "Kevin Dotson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039077": {
+        "pos": "RT",
+        "name": "Warren McClendon Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039734": {
+        "pos": "DT",
+        "name": "Braden Fiske",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031388": {
+        "pos": "EDGE",
+        "name": "Aaron Donald",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039137": {
+        "pos": "LB",
+        "name": "Byron Young",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033868": {
+        "pos": "LB",
+        "name": "Myles Garrett",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039151": {
+        "pos": "CB",
+        "name": "Emmanuel Forbes Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039772": {
+        "pos": "CB",
+        "name": "Josh Wallace",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037841": {
+        "pos": "SCB",
+        "name": "Quentin Lake",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039834": {
+        "pos": "FS",
+        "name": "Kamren Kinchens",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036349": {
+        "pos": "SS",
+        "name": "Kam Curl",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "LV": {
+      "00-0041562": {
+        "pos": "QB",
+        "name": "Fernando Mendoza",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040122": {
+        "pos": "RB",
+        "name": "Ashton Jeanty",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040878": {
+        "pos": "RB",
+        "name": "Mike Washington Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038563": {
+        "pos": "WR",
+        "name": "Tre Tucker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037291": {
+        "pos": "WR",
+        "name": "Jalen Nailor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035891": {
+        "pos": "WR",
+        "name": "Cody White",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039338": {
+        "pos": "TE",
+        "name": "Brock Bowers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034759": {
+        "pos": "LT",
+        "name": "Kolton Miller",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037829": {
+        "pos": "LG",
+        "name": "Spencer Burford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037825": {
+        "pos": "C",
+        "name": "Tyler Linderbaum",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040871": {
+        "pos": "RG",
+        "name": "Trey Zuhn III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039349": {
+        "pos": "RT",
+        "name": "DJ Glaze",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034275": {
+        "pos": "EDGE",
+        "name": "Folorunso Fatukasi",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040169": {
+        "pos": "EDGE",
+        "name": "Tonka Hemingway",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033381": {
+        "pos": "DT",
+        "name": "Adam Butler",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034973": {
+        "pos": "LB",
+        "name": "Maxx Crosby",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036479": {
+        "pos": "LB",
+        "name": "Kwity Paye",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036901": {
+        "pos": "CB",
+        "name": "Eric Stokes",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034376": {
+        "pos": "SCB",
+        "name": "Taron Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040868": {
+        "pos": "FS",
+        "name": "Treydan Stukes",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036293": {
+        "pos": "SS",
+        "name": "Jeremy Chinn",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "MIA": {
+      "00-0040014": {
+        "pos": "QB",
+        "name": "Kyle McCord",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040198": {
+        "pos": "RB",
+        "name": "Ollie Gordon II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039874": {
+        "pos": "RB",
+        "name": "Jaylen Wright",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039880": {
+        "pos": "WR",
+        "name": "Malik Washington",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041523": {
+        "pos": "WR",
+        "name": "Caleb Douglas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041525": {
+        "pos": "WR",
+        "name": "Chris Bell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037252": {
+        "pos": "TE",
+        "name": "Greg Dulcich",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039899": {
+        "pos": "LT",
+        "name": "Patrick Paul",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041521": {
+        "pos": "LG",
+        "name": "Kadyn Proctor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036171": {
+        "pos": "C",
+        "name": "Aaron Brewer",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040742": {
+        "pos": "RG",
+        "name": "Jonah Savaiinaea",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036248": {
+        "pos": "RT",
+        "name": "Austin Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036159": {
+        "pos": "EDGE",
+        "name": "Josh Uche",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036409": {
+        "pos": "LB",
+        "name": "Jordyn Brooks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041136": {
+        "pos": "DT",
+        "name": "Rene Konga",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036362": {
+        "pos": "LB",
+        "name": "Willie Gay Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039156": {
+        "pos": "CB",
+        "name": "JuJu Brents",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041533": {
+        "pos": "SCB",
+        "name": "Chris Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041528": {
+        "pos": "FS",
+        "name": "Michael Taaffe",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040182": {
+        "pos": "SS",
+        "name": "Dante Trader Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "MIN": {
+      "00-0029604": {
+        "pos": "QB",
+        "name": "Kirk Cousins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037525": {
+        "pos": "RB",
+        "name": "Jordan Mason",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033293": {
+        "pos": "RB",
+        "name": "Aaron Jones Sr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036322": {
+        "pos": "WR",
+        "name": "Justin Jefferson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036259": {
+        "pos": "WR",
+        "name": "Jauan Jennings",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040154": {
+        "pos": "WR",
+        "name": "Tai Felton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035229": {
+        "pos": "TE",
+        "name": "T.J. Hockenson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036616": {
+        "pos": "LT",
+        "name": "Christian Darrisaw",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040500": {
+        "pos": "LG",
+        "name": "Joe Huber",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036347": {
+        "pos": "C",
+        "name": "Blake Brandel",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036483": {
+        "pos": "RG",
+        "name": "Will Fries",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034158": {
+        "pos": "RT",
+        "name": "Brian O'Neill",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039421": {
+        "pos": "DT",
+        "name": "Levi Drake Rodriguez",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040624": {
+        "pos": "EDGE",
+        "name": "Elijah Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039924": {
+        "pos": "LB",
+        "name": "Dallas Turner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035272": {
+        "pos": "LB",
+        "name": "Andrew Van Ginkel",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035236": {
+        "pos": "SCB",
+        "name": "Byron Murphy Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036222": {
+        "pos": "CB",
+        "name": "Isaiah Rodgers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0029606": {
+        "pos": "FS",
+        "name": "Harrison Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036348": {
+        "pos": "SS",
+        "name": "Joshua Metellus",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "NE": {
+      "00-0038476": {
+        "pos": "QB",
+        "name": "Tommy DeVito",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036875": {
+        "pos": "RB",
+        "name": "Rhamondre Stevenson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040556": {
+        "pos": "RB",
+        "name": "Corey Kiner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038621": {
+        "pos": "WR",
+        "name": "DeMario Douglas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033555": {
+        "pos": "WR",
+        "name": "Mack Hollins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040563": {
+        "pos": "WR",
+        "name": "Efton Chism III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033090": {
+        "pos": "TE",
+        "name": "Hunter Henry",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040699": {
+        "pos": "LT",
+        "name": "Will Campbell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0029685": {
+        "pos": "LG",
+        "name": "Greg Van Roten",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040147": {
+        "pos": "C",
+        "name": "Jared Wilson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034417": {
+        "pos": "RG",
+        "name": "Matt Pryor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031330": {
+        "pos": "RT",
+        "name": "Morgan Moses",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036916": {
+        "pos": "DT",
+        "name": "Milton Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036981": {
+        "pos": "EDGE",
+        "name": "Christian Barmore",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040574": {
+        "pos": "LB",
+        "name": "Elijah Ponder",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035678": {
+        "pos": "LB",
+        "name": "Dre'Mont Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037253": {
+        "pos": "SCB",
+        "name": "Marcus Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039147": {
+        "pos": "CB",
+        "name": "Christian Gonzalez",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033132": {
+        "pos": "FS",
+        "name": "Kevin Byard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040716": {
+        "pos": "SS",
+        "name": "Craig Woodson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "NO": {
+      "00-0040743": {
+        "pos": "QB",
+        "name": "Tyler Shough",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036973": {
+        "pos": "RB",
+        "name": "Travis Etienne Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033906": {
+        "pos": "RB",
+        "name": "Alvin Kamara",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039424": {
+        "pos": "WR",
+        "name": "Devaughn Vele",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037239": {
+        "pos": "WR",
+        "name": "Chris Olave",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041067": {
+        "pos": "WR",
+        "name": "Bryce Lance",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036040": {
+        "pos": "TE",
+        "name": "Juwan Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040125": {
+        "pos": "LT",
+        "name": "Kelvin Banks Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035668": {
+        "pos": "LG",
+        "name": "David Edwards",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035242": {
+        "pos": "C",
+        "name": "Erik McCoy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036408": {
+        "pos": "RG",
+        "name": "Cesar Ruiz",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039339": {
+        "pos": "RT",
+        "name": "Taliese Fuaga",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040642": {
+        "pos": "DT",
+        "name": "Vernon Broughton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038387": {
+        "pos": "EDGE",
+        "name": "Colby Wooden",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036321": {
+        "pos": "LB",
+        "name": "Chase Young",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035402": {
+        "pos": "LB",
+        "name": "Carl Granderson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037250": {
+        "pos": "CB",
+        "name": "Martin Emerson Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040293": {
+        "pos": "CB",
+        "name": "Michael Reid",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040643": {
+        "pos": "SCB",
+        "name": "Jonas Sanker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036253": {
+        "pos": "FS",
+        "name": "Julian Blackmon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034361": {
+        "pos": "SS",
+        "name": "Justin Reid",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "NYG": {
+      "00-0039923": {
+        "pos": "QB",
+        "name": "J.J. McCarthy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040715": {
+        "pos": "RB",
+        "name": "Cam Skattebo",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035250": {
+        "pos": "RB",
+        "name": "Devin Singletary",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041042": {
+        "pos": "WR",
+        "name": "Malachi Fields",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039337": {
+        "pos": "WR",
+        "name": "Malik Nabers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036309": {
+        "pos": "WR",
+        "name": "Darnell Mooney",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037838": {
+        "pos": "TE",
+        "name": "Isaiah Likely",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036386": {
+        "pos": "LT",
+        "name": "Andrew Thomas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036246": {
+        "pos": "LG",
+        "name": "Jon Runyan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039446": {
+        "pos": "C",
+        "name": "Bryan Hudson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041505": {
+        "pos": "RG",
+        "name": "Francis Mauigoa",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033290": {
+        "pos": "RT",
+        "name": "Jermaine Eluemunor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031270": {
+        "pos": "EDGE",
+        "name": "Shelby Harris",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040694": {
+        "pos": "EDGE",
+        "name": "Darius Alexander",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039176": {
+        "pos": "DT",
+        "name": "CJ Okoye",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040677": {
+        "pos": "LB",
+        "name": "Abdul Carter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037611": {
+        "pos": "LB",
+        "name": "Kayvon Thibodeaux",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036996": {
+        "pos": "CB",
+        "name": "Greg Newsome II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039000": {
+        "pos": "CB",
+        "name": "Deonte Banks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039821": {
+        "pos": "SCB",
+        "name": "Dru Phillips",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036998": {
+        "pos": "FS",
+        "name": "Jevon Holland",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036587": {
+        "pos": "SS",
+        "name": "Ar'Darius Washington",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "NYJ": {
+      "00-0030565": {
+        "pos": "QB",
+        "name": "Geno Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038120": {
+        "pos": "RB",
+        "name": "Breece Hall",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039794": {
+        "pos": "RB",
+        "name": "Braelon Allen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037740": {
+        "pos": "WR",
+        "name": "Garrett Wilson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039451": {
+        "pos": "WR",
+        "name": "Isaiah Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039890": {
+        "pos": "WR",
+        "name": "Adonai Mitchell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040736": {
+        "pos": "TE",
+        "name": "Mason Taylor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039790": {
+        "pos": "LT",
+        "name": "Olu Fashanu",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037255": {
+        "pos": "LG",
+        "name": "Dylan Parham",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036622": {
+        "pos": "C",
+        "name": "Josh Myers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039145": {
+        "pos": "RG",
+        "name": "Joe Tippmann",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040123": {
+        "pos": "RT",
+        "name": "Armand Membou",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041026": {
+        "pos": "EDGE",
+        "name": "David Bailey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037083": {
+        "pos": "EDGE",
+        "name": "Kingsley Enagbare",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039431": {
+        "pos": "DT",
+        "name": "Jowon Briggs",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0029607": {
+        "pos": "LB",
+        "name": "Demario Davis",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036500": {
+        "pos": "LB",
+        "name": "Jamien Sherwood",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040133": {
+        "pos": "CB",
+        "name": "Azareye'h Thomas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036987": {
+        "pos": "CB",
+        "name": "Brandon Stephens",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041038": {
+        "pos": "SCB",
+        "name": "D'Angelo Ponds",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034789": {
+        "pos": "FS",
+        "name": "Minkah Fitzpatrick",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038123": {
+        "pos": "SS",
+        "name": "Dane Belton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "PHI": {
+      "00-0039398": {
+        "pos": "QB",
+        "name": "Joe Milton III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034844": {
+        "pos": "RB",
+        "name": "Saquon Barkley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040586": {
+        "pos": "RB",
+        "name": "Jaydon Blue",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040867": {
+        "pos": "WR",
+        "name": "Makai Lemon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040024": {
+        "pos": "WR",
+        "name": "Darius Cooper",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038393": {
+        "pos": "WR",
+        "name": "Dontayvion Wicks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034351": {
+        "pos": "TE",
+        "name": "Dallas Goedert",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034429": {
+        "pos": "LT",
+        "name": "Jordan Mailata",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037002": {
+        "pos": "LG",
+        "name": "Landon Dickerson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040587": {
+        "pos": "C",
+        "name": "Drew Kendall",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039001": {
+        "pos": "RG",
+        "name": "Tyler Steen",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041554": {
+        "pos": "RT",
+        "name": "Markel Bell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038412": {
+        "pos": "EDGE",
+        "name": "Moro Ojomo",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038978": {
+        "pos": "EDGE",
+        "name": "Byron Young",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038386": {
+        "pos": "DT",
+        "name": "Jalen Carter",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036224": {
+        "pos": "LB",
+        "name": "Jonathan Greenard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039013": {
+        "pos": "LB",
+        "name": "Nolan Smith Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039841": {
+        "pos": "SCB",
+        "name": "Cooper DeJean",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039888": {
+        "pos": "CB",
+        "name": "Quinyon Mitchell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040749": {
+        "pos": "FS",
+        "name": "Andrew Mukuba",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034993": {
+        "pos": "SS",
+        "name": "Marcus Epps",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "PIT": {
+      "00-0023459": {
+        "pos": "QB",
+        "name": "Aaron Rodgers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037228": {
+        "pos": "RB",
+        "name": "Jaylen Warren",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036139": {
+        "pos": "RB",
+        "name": "Rico Dowdle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041489": {
+        "pos": "WR",
+        "name": "Germie Bernard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036775": {
+        "pos": "WR",
+        "name": "Brandon Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036862": {
+        "pos": "WR",
+        "name": "Ben Skowronek",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038558": {
+        "pos": "TE",
+        "name": "Darnell Washington",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039871": {
+        "pos": "LT",
+        "name": "Troy Fautanu",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039358": {
+        "pos": "LG",
+        "name": "Mason McCormick",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039896": {
+        "pos": "C",
+        "name": "Zach Frazier",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037336": {
+        "pos": "RG",
+        "name": "Brock Hoffman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041482": {
+        "pos": "RT",
+        "name": "Max Iheanachor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0027969": {
+        "pos": "DT",
+        "name": "Cameron Heyward",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040678": {
+        "pos": "EDGE",
+        "name": "Derrick Harmon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033886": {
+        "pos": "LB",
+        "name": "T.J. Watt",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036333": {
+        "pos": "LB",
+        "name": "Alex Highsmith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033055": {
+        "pos": "SCB",
+        "name": "Jalen Ramsey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036617": {
+        "pos": "CB",
+        "name": "Asante Samuel Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038135": {
+        "pos": "FS",
+        "name": "Jaquan Brisker",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034277": {
+        "pos": "SS",
+        "name": "DeShon Elliott",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "SEA": {
+      "00-0035704": {
+        "pos": "QB",
+        "name": "Drew Lock",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039165": {
+        "pos": "RB",
+        "name": "Zach Charbonnet",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041512": {
+        "pos": "RB",
+        "name": "Jadarian Price",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037156": {
+        "pos": "WR",
+        "name": "Irv Charles",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038543": {
+        "pos": "WR",
+        "name": "Jaxon Smith-Njigba",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033908": {
+        "pos": "WR",
+        "name": "Cooper Kupp",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039793": {
+        "pos": "TE",
+        "name": "AJ Barner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037821": {
+        "pos": "LT",
+        "name": "Charles Cross",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040639": {
+        "pos": "LG",
+        "name": "Grey Zabel",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039926": {
+        "pos": "C",
+        "name": "Jalen Sundell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039020": {
+        "pos": "RG",
+        "name": "Anthony Bradford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037812": {
+        "pos": "RT",
+        "name": "Abraham Lucas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032387": {
+        "pos": "DT",
+        "name": "Jarran Reed",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040647": {
+        "pos": "EDGE",
+        "name": "Rylie Mills",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031411": {
+        "pos": "LB",
+        "name": "DeMarcus Lawrence",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034350": {
+        "pos": "LB",
+        "name": "Uchenna Nwosu",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039169": {
+        "pos": "CB",
+        "name": "Devon Witherspoon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037137": {
+        "pos": "CB",
+        "name": "Josh Jobe",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040733": {
+        "pos": "SCB",
+        "name": "Nick Emmanwori",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034974": {
+        "pos": "FS",
+        "name": "Julian Love",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038765": {
+        "pos": "SS",
+        "name": "Ty Okada",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "SF": {
+      "00-0037834": {
+        "pos": "QB",
+        "name": "Brock Purdy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033280": {
+        "pos": "RB",
+        "name": "Christian McCaffrey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041052": {
+        "pos": "RB",
+        "name": "Kaelon Black",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035719": {
+        "pos": "WR",
+        "name": "Deebo Samuel",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040172": {
+        "pos": "WR",
+        "name": "Jordan Watkins",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031408": {
+        "pos": "WR",
+        "name": "Mike Evans",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033288": {
+        "pos": "TE",
+        "name": "George Kittle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0027857": {
+        "pos": "LT",
+        "name": "Trent Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040245": {
+        "pos": "LG",
+        "name": "Connor Colby",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0032701": {
+        "pos": "C",
+        "name": "Jake Brendel",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039351": {
+        "pos": "RG",
+        "name": "Dominick Puni",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036256": {
+        "pos": "RT",
+        "name": "Colton McKivitz",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034982": {
+        "pos": "LB",
+        "name": "Dre Greenlaw",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039148": {
+        "pos": "EDGE",
+        "name": "Keion White",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036942": {
+        "pos": "DT",
+        "name": "Osa Odighizuwa",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041078": {
+        "pos": "LB",
+        "name": "Jaden Dugger",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036563": {
+        "pos": "CB",
+        "name": "Deommodore Lenoir",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039345": {
+        "pos": "CB",
+        "name": "Renardo Green",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040152": {
+        "pos": "SCB",
+        "name": "Upton Stout",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038554": {
+        "pos": "FS",
+        "name": "Ji'Ayir Brown",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039360": {
+        "pos": "SS",
+        "name": "Malik Mustapha",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "TB": {
+      "00-0034855": {
+        "pos": "QB",
+        "name": "Baker Mayfield",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039361": {
+        "pos": "RB",
+        "name": "Bucky Irving",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036919": {
+        "pos": "RB",
+        "name": "Kenny Gainwell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040129": {
+        "pos": "WR",
+        "name": "Emeka Egbuka",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040237": {
+        "pos": "WR",
+        "name": "Tez Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039589": {
+        "pos": "WR",
+        "name": "Kameron Johnson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038129": {
+        "pos": "TE",
+        "name": "Cade Otton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036406": {
+        "pos": "LT",
+        "name": "Tristan Wirfs",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036132": {
+        "pos": "LG",
+        "name": "Ben Bredeson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039905": {
+        "pos": "C",
+        "name": "Graham Barton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039157": {
+        "pos": "RG",
+        "name": "Cody Mauch",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037835": {
+        "pos": "RT",
+        "name": "Luke Goedeke",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041079": {
+        "pos": "EDGE",
+        "name": "DeMonte Capehart",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039063": {
+        "pos": "EDGE",
+        "name": "Calijah Kancey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034773": {
+        "pos": "DT",
+        "name": "Vita Vea",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041031": {
+        "pos": "LB",
+        "name": "Rueben Bain Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039068": {
+        "pos": "LB",
+        "name": "Yaya Diaby",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037268": {
+        "pos": "CB",
+        "name": "Zyon McCollum",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040143": {
+        "pos": "SCB",
+        "name": "Jacob Parrish",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036411": {
+        "pos": "FS",
+        "name": "Antoine Winfield Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039846": {
+        "pos": "SS",
+        "name": "Tykee Smith",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "TEN": {
+      "00-0040676": {
+        "pos": "QB",
+        "name": "Cam Ward",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035261": {
+        "pos": "RB",
+        "name": "Tony Pollard",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039032": {
+        "pos": "RB",
+        "name": "Tyjae Spears",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040170": {
+        "pos": "WR",
+        "name": "Elic Ayomanor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041438": {
+        "pos": "WR",
+        "name": "Carnell Tate",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034837": {
+        "pos": "WR",
+        "name": "Calvin Ridley",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040584": {
+        "pos": "TE",
+        "name": "Gunnar Helm",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036869": {
+        "pos": "LT",
+        "name": "Dan Moore Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038536": {
+        "pos": "LG",
+        "name": "Chandler Zavala",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034112": {
+        "pos": "C",
+        "name": "Austin Schlottmann",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038586": {
+        "pos": "RG",
+        "name": "Atonio Mafi",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039731": {
+        "pos": "RT",
+        "name": "JC Latham",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037663": {
+        "pos": "EDGE",
+        "name": "Jermaine Johnson II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034163": {
+        "pos": "EDGE",
+        "name": "Jacob Martin",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034805": {
+        "pos": "DT",
+        "name": "John Franklin-Myers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039858": {
+        "pos": "LB",
+        "name": "Cedric Gray",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040503": {
+        "pos": "LB",
+        "name": "Dorian Mausi",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037758": {
+        "pos": "CB",
+        "name": "Cordale Flott",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0038121": {
+        "pos": "SCB",
+        "name": "Alontae Taylor",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040141": {
+        "pos": "FS",
+        "name": "Kevin Winston Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037155": {
+        "pos": "SS",
+        "name": "Tony Adams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    },
+    "WAS": {
+      "00-0039910": {
+        "pos": "QB",
+        "name": "Jayden Daniels",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037256": {
+        "pos": "RB",
+        "name": "Rachaad White",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033699": {
+        "pos": "RB",
+        "name": "Austin Ekeler",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041040": {
+        "pos": "WR",
+        "name": "Antonio Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0031588": {
+        "pos": "WR",
+        "name": "Stefon Diggs",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037742": {
+        "pos": "WR",
+        "name": "Treylon Burks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037809": {
+        "pos": "TE",
+        "name": "Chig Okonkwo",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039913": {
+        "pos": "LT",
+        "name": "Brandon Coleman",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037092": {
+        "pos": "LG",
+        "name": "Chris Paul",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033082": {
+        "pos": "C",
+        "name": "Lucas Patrick",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036618": {
+        "pos": "RG",
+        "name": "Sam Cosmi",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0040686": {
+        "pos": "RT",
+        "name": "Josh Conerly Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0035409": {
+        "pos": "EDGE",
+        "name": "Shy Tuttle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039906": {
+        "pos": "EDGE",
+        "name": "Jer'Zhan Newton",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034397": {
+        "pos": "DT",
+        "name": "Tim Settle",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036940": {
+        "pos": "LB",
+        "name": "Odafe Oweh",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034373": {
+        "pos": "LB",
+        "name": "Dorance Armstrong",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0036375": {
+        "pos": "SCB",
+        "name": "Amik Robertson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0033551": {
+        "pos": "CB",
+        "name": "Rasul Douglas",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0034465": {
+        "pos": "FS",
+        "name": "Jeremy Reaves",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0037616": {
+        "pos": "SS",
+        "name": "Nick Cross",
+        "since_week": null,
+        "replaced": null,
+        "left_week": null
+      }
+    }
+  }
+}

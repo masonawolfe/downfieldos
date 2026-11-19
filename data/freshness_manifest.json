@@ -739,7 +739,8 @@
       "label_route": null,
       "consumers": [
         "src/utils/roster.js",
-        "scripts/build-player-board.js"
+        "scripts/build-player-board.js",
+        "scripts/build-team-changes.js"
       ],
       "tier": "public",
       "on_stale": "red",
@@ -860,7 +861,8 @@
       "label_route": null,
       "consumers": [
         "src/DownfieldOS.jsx",
-        "12 more importers in src/components and src/utils"
+        "12 more importers in src/components and src/utils",
+        "scripts/build-team-changes.js"
       ],
       "tier": "public",
       "on_stale": "red",
@@ -942,7 +944,8 @@
         "scripts/reconcile-rosters-availability.mjs",
         "scripts/_lib/starter_pick.js",
         "verifier #6 (under 24 hours)",
-        "src/utils/playerResolver.js (unreachable)"
+        "src/utils/playerResolver.js (unreachable)",
+        "scripts/build-team-changes.js"
       ],
       "tier": "internal",
       "on_stale": "red",
@@ -1374,7 +1377,9 @@
       "lineage_grace_hours": null,
       "ui_consumers": [],
       "label_route": null,
-      "consumers": [],
+      "consumers": [
+        "scripts/build-team-changes.js"
+      ],
       "tier": "unread",
       "on_stale": "red",
       "static": false,
@@ -1660,6 +1665,38 @@
       "note": "Frozen by design since 2026-11-17 (ASK 43, Mason: \"yea stop the ESPN job too\"). Its last run wrote it at 2026-11-17 13:53Z; data-team-news-v2.yml was moved to .github/workflows-archive/ on 2026-11-19 (team news plan step 1). Tier unread: since step 1 no page imports src/utils/teamNews.js, so the gate reads red the day the site bundle reaches this file again. Our own team changes file replaces it (plan steps 2 to 5). Before 2026-11-19 the row was public with a 48-hour ceiling (twice daily cron, largest gap 32.4)."
     },
     {
+      "path": "src/data/intelligence/team_changes_2026.json",
+      "producer": "scripts/build-team-changes.js",
+      "outputs_also": [
+        "data/team_changes_starters.json"
+      ],
+      "workflows": [],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": null,
+      "change_driven": false,
+      "in_season_only": false,
+      "coverage": null,
+      "coverage_read": null,
+      "coverage_grace_hours": null,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Team news plan step 2 (2026-11-19, Mason: \"Yeah, build our own team news\"). Built by scripts/build-team-changes.js from five local files and no network call; outputs_also is its starters state in data/, kept out of src/ so the site never bundles it. Tier unread until step 5's card imports it. Step 3 puts the build on data-board.yml, sets the 36-hour ceiling the plan names and adds derived_from for its inputs; until then no job writes it, so it carries no ceiling."
+    },
+    {
       "path": "src/data/intelligence/trades.json",
       "producer": "scripts/fetch-trades.js",
       "outputs_also": [],
@@ -1727,7 +1764,8 @@
         "verifier",
         "scripts/build-defense.js",
         "scripts/check-defense-field.mjs",
-        "drafter"
+        "drafter",
+        "scripts/build-team-changes.js"
       ],
       "tier": "chain_input",
       "on_stale": "block_chain",
@@ -1790,13 +1828,15 @@
       "lineage_grace_hours": null,
       "ui_consumers": [],
       "label_route": null,
-      "consumers": [],
+      "consumers": [
+        "scripts/build-team-changes.js"
+      ],
       "tier": "unread",
       "on_stale": "red",
       "static": false,
       "verified_on": null,
       "label": null,
-      "note": "No reader in src or scripts. Thursday cron; largest gap 183.6, the largest weekly gap measured."
+      "note": "Read by scripts/build-team-changes.js since team news plan step 2 (2026-11-19); no page reads it. Thursday cron; largest gap 183.6, the largest weekly gap measured."
     },
     {
       "path": "src/data/intelligence/pbp/pbp_sync_metadata.json",
