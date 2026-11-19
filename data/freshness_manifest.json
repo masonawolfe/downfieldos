@@ -42,7 +42,8 @@
     "note": "Free text: why a value is what it is, and what is known and not fixed (added to the plan's fields in step 4).",
     "lineage_grace_hours": "At least one producer cadence plus 8 hours (plan step 4(d)). Cadence by family ceiling: daily 24, twice weekly 120 (the Friday to Wednesday interval), weekly 168, monthly 744. null only with a lineage_grace_reason.",
     "lineage_grace_reason": "Required when derived_from is non-empty and lineage_grace_hours is null: why the row has no lineage clock.",
-    "verified_on_rule": "Optional, static rows only. {kind: 'oldest_entry', pattern, min_entries}: the registration mode reds unless verified_on equals the oldest entry date the pattern finds in the file (at least min_entries of them). Added 2026-11-07 for coachingTrees.js."
+    "verified_on_rule": "Optional, static rows only. {kind: 'oldest_entry', pattern, min_entries}: the registration mode reds unless verified_on equals the oldest entry date the pattern finds in the file (at least min_entries of them). Added 2026-11-07 for coachingTrees.js.",
+    "label_from": "Optional. A JSON pointer into the row's own file where the label it renders is written, for a label that changes with every build (team_changes_2026.json's \"Updated <date>\"). The render smoke test (.github/scripts/render-labels.mjs) looks for that value on the label_route instead of the row's label; the row's label then describes it."
   },
   "rows": [
     {
@@ -1708,7 +1709,8 @@
       "verified_on": null,
       "label": "Updated <date>, the build date in words",
       "note": "Team news plan step 2 (2026-11-19, Mason: \"Yeah, build our own team news\"). Built by scripts/build-team-changes.js from five local files and no network call; outputs_also is its starters state in data/, kept out of src/ so the site never bundles it. Step 5 (2026-11-19): public, read by src/components/ui/TeamChangesCard.jsx on /team-intel, dated through AsOf from the file's own meta.label (\"Updated <date>\", the build date in US Eastern time). Step 3 (2026-11-19): written on every data-board.yml run (daily 04:34 UTC and after each availability run) before Commit if changed. Ceiling 36 hours, the plan's figure: one missed daily run passes, two do not. derived_from names its five inputs; lineage_grace_reason says why the age ceiling, not a grace, guards them. The longest normal lag from an input to the next board run is about 23.5 hours (Friday's injuries at 05:05 UTC to the next 04:34).",
-      "lineage_grace_reason": "No lineage grace: the 36-hour age ceiling is the tighter bound. The card is rebuilt on every data-board.yml run from its own inputs, so an input can lead it by more than a grace only when the card itself is that old, and the age check reads red at 36 hours. The plan's 36 is not one of the max_age_basis families (48, 144, 192, 768), so the contract's cadence-plus-8 grace has no family to read; rosters2026.js's 96 is the other off-family ceiling."
+      "lineage_grace_reason": "No lineage grace: the 36-hour age ceiling is the tighter bound. The card is rebuilt on every data-board.yml run from its own inputs, so an input can lead it by more than a grace only when the card itself is that old, and the age check reads red at 36 hours. The plan's 36 is not one of the max_age_basis families (48, 144, 192, 768), so the contract's cadence-plus-8 grace has no family to read; rosters2026.js's 96 is the other off-family ceiling.",
+      "label_from": "/meta/label"
     },
     {
       "path": "data/team_changes_weights.json",

@@ -14,6 +14,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { buildTeamChanges, POSITION_WORDS, updatedLabel } from './build-team-changes.js';
 import { SEASON } from './_lib/season.js';
+import { labelExpectations, missingLabels } from '../.github/scripts/render-labels.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.dirname(__dirname);
@@ -370,6 +371,14 @@ console.log('committed file');
   check(!all.some((x) => /https?:|espn|yahoo|apnews/i.test(JSON.stringify(x))), 'no link and no walled host named in any item');
   check(all.every((x) => x.week <= d.meta.week_now && x.week >= d.meta.week_now - (x.kind === 'out_or_back' && ['out', 'doubtful', 'questionable', 'back'].includes(x.detail) ? 2 : 1)), 'every item is in the window (injury report items may be two weeks back, for a bye)');
   check(Array.isArray(d.meta.unknown_positions) && d.meta.unknown_positions.length === 0, 'every position in the file has a word');
+  {
+    // The deploy's render smoke test (8316a93's deploy failed it: the row's descriptive label is not on the page).
+    const exp = labelExpectations();
+    const mine = (exp['/team-intel'] || []).find((e) => e.file === `src/data/intelligence/team_changes_${SEASON}.json`);
+    check(mine && mine.label === d.meta.label, `the render smoke test looks for the file's own label on /team-intel (${mine?.label})`);
+    check(missingLabels('/team-intel', `What changed ${d.meta.label} Added ...`, { '/team-intel': [mine] }).length === 0, 'rendered text with the date chip passes the smoke label check');
+    check(missingLabels('/team-intel', 'What changed Added ...', { '/team-intel': [mine] }).length === 1, 'induced: rendered text without the date chip fails it');
+  }
   check(d.meta.label === updatedLabel(d.meta.generated_at) && /^Updated [A-Z][a-z]+ \d{1,2}, \d{4}$/.test(d.meta.label), `the file's label is its own build date in words (${d.meta.label})`);
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
   check(!all.some((x) => 'other_team' in x), 'no internal ranking key (other_team) in the reader file');

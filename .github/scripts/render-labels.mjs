@@ -25,9 +25,25 @@ export function labelExpectations(manifestPath = path.join(REPO, 'data', 'freshn
   const out = {};
   for (const r of m.rows || []) {
     if (!r.label_route) continue;
-    (out[r.label_route] ||= []).push({ label: r.label, file: r.path });
+    (out[r.label_route] ||= []).push({ label: r.label_from ? fileLabel(r) : r.label, file: r.path });
   }
   return out;
+}
+
+/**
+ * A label the file writes itself, read at the row's label_from pointer (team
+ * news plan step 5, 2026-11-19: team_changes_2026.json's "Updated <date>"
+ * changes with every build, so the row cannot hold it). An unreadable file
+ * or pointer gives null, which missingLabels reports as missing.
+ */
+function fileLabel(r) {
+  try {
+    let v = JSON.parse(fs.readFileSync(path.join(REPO, r.path), 'utf8'));
+    for (const k of String(r.label_from).split('/').slice(1)) v = v?.[k];
+    return typeof v === 'string' && v.trim() ? v : null;
+  } catch {
+    return null;
+  }
 }
 
 /** The expected labels on this route that the rendered text lacks. */
