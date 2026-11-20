@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-18T14:24:48.777Z
-// Reconciled: 2026-11-19T22:10:52.924Z against availability_2026.json
-//             (generated 2026-11-19T12:51:43.100Z) — 0 swap(s),
+// Reconciled: 2026-11-20T12:48:28.667Z against availability_2026.json
+//             (generated 2026-11-20T12:45:08.473Z) — 4 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -4723,8 +4723,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0033281",
-        "name": "Marlon Humphrey",
+        "gsis_id": "00-0033548",
+        "name": "Chidobe Awuzie",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -4789,7 +4789,8 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Marlon Humphrey (Out)"
       },
       {
         "pos": "SCB",
@@ -20901,8 +20902,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0041125",
-        "name": "Seth McGowan",
+        "gsis_id": "00-0040179",
+        "name": "DJ Giddens",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -20937,7 +20938,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Seth McGowan (Out)"
       },
       {
         "pos": "WR1",
@@ -21960,8 +21962,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0037190",
-        "name": "Sauce Gardner",
+        "gsis_id": "00-0040139",
+        "name": "Justin Walley",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -22039,12 +22041,12 @@ export const ROSTERS_2026 = {
             "posRank": 99
           }
         ],
-        "starter_reason": "promoted after: Charvarius Ward (Out)"
+        "starter_reason": "promoted after: Charvarius Ward (Out), Sauce Gardner (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0040139",
-        "name": "Justin Walley",
+        "gsis_id": "00-0041320",
+        "name": "Kenneth Harris",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -51196,10 +51198,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-18T14:24:48.777Z",
-  "availability_stamp": "2026-11-19T12:51:43.100Z",
+  "availability_stamp": "2026-11-20T12:45:08.473Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-19T22:10:52.924Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-20T12:48:28.667Z",
+  "swaps_this_run": 4,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",

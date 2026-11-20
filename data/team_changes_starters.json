@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "generated_at": "2026-11-19T22:32:48.436Z",
+  "generated_at": "2026-11-20T12:48:32.199Z",
   "generated_by": "scripts/build-team-changes.js",
   "week_now": 11,
   "note": "Starters the last build saw, per team. Read and rewritten by scripts/build-team-changes.js; never edited by hand.",
@@ -430,11 +430,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0033281": {
+      "00-0033548": {
         "pos": "CB",
-        "name": "Marlon Humphrey",
-        "since_week": null,
-        "replaced": null,
+        "name": "Chidobe Awuzie",
+        "since_week": 11,
+        "replaced": "Marlon Humphrey",
         "left_week": null
       },
       "00-0038038": {
@@ -457,6 +457,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0033281": {
+        "pos": "CB",
+        "name": "Marlon Humphrey",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "BUF": {
@@ -1957,11 +1964,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0041125": {
+      "00-0040179": {
         "pos": "RB",
-        "name": "Seth McGowan",
-        "since_week": null,
-        "replaced": null,
+        "name": "DJ Giddens",
+        "since_week": 11,
+        "replaced": "Seth McGowan",
         "left_week": null
       },
       "00-0032951": {
@@ -2062,18 +2069,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0037190": {
-        "pos": "CB",
-        "name": "Sauce Gardner",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0040139": {
         "pos": "SCB",
         "name": "Justin Walley",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0041320": {
+        "pos": "CB",
+        "name": "Kenneth Harris",
+        "since_week": 11,
+        "replaced": "Sauce Gardner",
         "left_week": null
       },
       "00-0036629": {
@@ -2089,6 +2096,20 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0041125": {
+        "pos": "RB",
+        "name": "Seth McGowan",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
+      "00-0037190": {
+        "pos": "CB",
+        "name": "Sauce Gardner",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "JAX": {

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T22:10:57.831Z",
+  "generated_at": "2026-11-20T12:48:32.085Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -2885,16 +2885,16 @@
       "gametime": "20:15",
       "home": "HOU",
       "away": "IND",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
+      "home_score": 26,
+      "away_score": 3,
+      "total": 29,
       "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
+      "winner": "HOU",
+      "margin": 23,
+      "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "IND at HOU. Kickoff Thursday 20:15 ET."
+      "narrative": "HOU 26, IND 3. blowout."
     },
     {
       "gameId": "2026_11_MIA_BUF",
