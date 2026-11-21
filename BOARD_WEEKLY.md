@@ -4,10 +4,10 @@
 
 | | |
 |---|---|
-| This build | 2026-11-20T13:30:19.848Z |
+| This build | 2026-11-21T12:32:42.837Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-20T12:48:31.854Z |
-| Ranked rows this build | 497 |
+| Prior build | 2026-11-20T13:30:19.848Z |
+| Ranked rows this build | 498 |
 | Ranked rows prior build | 497 |
 
 ---
@@ -18,7 +18,9 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 351 | Malik Heath | WR | WAS | -148 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
 _None._

@@ -2,18 +2,18 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-20T13:30:20.385Z",
+    "generated_at": "2026-11-21T12:32:43.242Z",
     "generated_by": "scripts/build-team-changes.js",
-    "label": "Updated November 20, 2026",
+    "label": "Updated November 21, 2026",
     "label_basis": "the build's own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card",
     "graded_week": 10,
     "week_now": 11,
     "week_now_basis": {
       "graded_plus_one": 11,
       "latest_transactions_week": 11,
-      "latest_report_week": 10
+      "latest_report_week": 11
     },
-    "total_items": 151,
+    "total_items": 152,
     "first_build": false,
     "state_reset": null,
     "injury_report_weeks_behind": {
@@ -66,11 +66,11 @@
     "sources": [
       {
         "file": "src/data/intelligence/injuries_2026.json",
-        "generated": "2026-11-18T13:50:44.134Z"
+        "generated": "2026-11-20T13:56:01.963Z"
       },
       {
         "file": "src/data/intelligence/availability_2026.json",
-        "generated": "2026-11-20T12:45:08.473Z"
+        "generated": "2026-11-21T12:29:49.116Z"
       },
       {
         "file": "src/data/intelligence/weekly_transactions_2026.json",
@@ -78,7 +78,7 @@
       },
       {
         "file": "src/data/rosters2026.js",
-        "generated": "2026-11-20T13:30:15.335Z"
+        "generated": "2026-11-21T12:32:38.844Z"
       },
       {
         "file": "src/data/intelligence/weekly_actuals_2026.json",
@@ -86,7 +86,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-20T12:48:32.199Z"
+        "generated": "2026-11-20T13:30:20.385Z"
       },
       {
         "file": "data/team_changes_weights.json",
@@ -143,7 +143,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -163,7 +163,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -179,7 +179,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -195,11 +195,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -233,7 +233,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -265,7 +265,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -281,7 +281,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -315,12 +315,32 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Safety Jaylinn Hawkins was listed out on the week 10 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0036081",
+        "name": "Broderick Washington Jr.",
+        "position": "EDGE",
+        "week": 11,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Broderick Washington Jr. moved into the starting lineup at edge rusher on the depth chart before week 11, in place of Nnamdi Madubuike.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -334,45 +354,33 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-20T13:30:15.335Z"
+            "generated": "2026-11-21T12:32:38.844Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-20T12:48:32.199Z"
+            "generated": "2026-11-20T13:30:20.385Z"
           }
         ],
         "matters": true
       },
       {
-        "gsis_id": "00-0040870",
-        "name": "Ja'Kobi Lane",
-        "position": "WR",
-        "week": 10,
+        "gsis_id": "00-0040104",
+        "name": "Keondre Jackson",
+        "position": "SS",
+        "week": 11,
         "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Keondre Jackson moved into the starting lineup at strong safety on the depth chart before week 11, in place of Jaylinn Hawkins.",
         "sources": [
           {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-19T15:59:04.929Z"
-          }
-        ],
-        "detail": "role_up",
-        "sentence": "Wide receiver Ja'Kobi Lane drew 11 targets in week 10, up from an average of 2 over the previous 3 games.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0034753",
-        "name": "Mark Andrews",
-        "position": "TE",
-        "week": 10,
-        "kind": "role",
-        "sources": [
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
           {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-19T15:59:04.929Z"
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
           }
         ],
-        "detail": "role_up",
-        "sentence": "Tight end Mark Andrews drew 8 targets in week 10, up from an average of 3.3 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -385,7 +393,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -401,12 +409,32 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Cornerback Christian Benford was listed questionable on the week 10 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0040709",
+        "name": "Maxwell Hairston",
+        "position": "CB",
+        "week": 11,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Maxwell Hairston moved into the starting lineup at cornerback on the depth chart before week 11, in place of Christian Benford.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -440,22 +468,6 @@
         "detail": "activated",
         "sentence": "Wide receiver Tyrell Shavers returned to the active roster before week 11.",
         "matters": false
-      },
-      {
-        "gsis_id": "00-0040192",
-        "name": "Jordan Hancock",
-        "position": "DB",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/weekly_transactions_2026.json",
-            "generated": "2026-11-19T14:43:22.933Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "activated",
-        "sentence": "Defensive back Jordan Hancock returned to the active roster before week 10.",
-        "matters": false
       }
     ],
     "CAR": [
@@ -467,7 +479,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -483,7 +495,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -499,7 +511,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -515,7 +527,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -549,7 +561,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -565,7 +577,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -581,7 +593,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -599,7 +611,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -615,7 +627,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -631,7 +643,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -647,7 +659,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -681,7 +693,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -697,11 +709,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -717,7 +729,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -737,7 +749,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -775,7 +787,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -791,7 +803,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -807,7 +819,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -823,7 +835,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -839,7 +851,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -857,7 +869,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -873,7 +885,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -889,7 +901,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -905,7 +917,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -921,7 +933,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -943,7 +955,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -959,7 +971,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -975,7 +987,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -991,7 +1003,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1007,7 +1019,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1025,7 +1037,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1041,7 +1053,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1057,7 +1069,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1073,7 +1085,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1089,7 +1101,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1103,85 +1115,85 @@
         "gsis_id": "00-0031565",
         "name": "Danielle Hunter",
         "position": "DE",
-        "week": 10,
+        "week": 11,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Defensive end Danielle Hunter was listed out on the week 10 injury report.",
+        "sentence": "Defensive end Danielle Hunter is listed out on the week 11 injury report.",
         "matters": true
       },
       {
-        "gsis_id": "00-0041532",
-        "name": "Keylan Rutledge",
-        "position": "G",
-        "week": 10,
+        "gsis_id": "00-0040583",
+        "name": "Woody Marks",
+        "position": "RB",
+        "week": 11,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Guard Keylan Rutledge was listed out on the week 10 injury report.",
+        "sentence": "Running back Woody Marks is listed out on the week 11 injury report.",
         "matters": true
       },
       {
-        "gsis_id": "00-0037130",
-        "name": "Reed Blankenship",
-        "position": "S",
+        "gsis_id": "00-0036554",
+        "name": "Nico Collins",
+        "position": "WR",
         "week": 10,
+        "kind": "role",
         "sources": [
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-19T15:59:04.929Z"
+          }
+        ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Nico Collins drew 16 targets in week 10, up from an average of 4.7 over the previous 3 games.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038618",
+        "name": "Xavier Hutchinson",
+        "position": "WR",
+        "week": 10,
+        "kind": "role",
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-19T15:59:04.929Z"
+          }
+        ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Xavier Hutchinson drew 9 targets in week 10, up from an average of 4.7 over the previous 3 games.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0035166",
+        "name": "Azeez Al-Shaair",
+        "position": "LB",
+        "week": 11,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Safety Reed Blankenship was listed out for week 9 and was not listed out for week 10.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0035685",
-        "name": "David Montgomery",
-        "position": "RB",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Running back David Montgomery was listed questionable on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0032071",
-        "name": "Trent Brown",
-        "position": "T",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Tackle Trent Brown was listed questionable on the week 10 injury report.",
-        "matters": true
+        "detail": "reserve",
+        "sentence": "Linebacker Azeez Al-Shaair moved to injured reserve before week 11.",
+        "matters": false
       }
     ],
     "IND": [
@@ -1218,59 +1230,51 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0036298",
-        "name": "Akeem Davis-Gaither",
-        "position": "LB",
-        "week": 10,
+        "gsis_id": "00-0037757",
+        "name": "Bernhard Raimann",
+        "position": "T",
+        "week": 11,
         "sources": [
           {
-            "file": "src/data/intelligence/weekly_transactions_2026.json",
-            "generated": "2026-11-19T14:43:22.933Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "reserve",
-        "sentence": "Linebacker Akeem Davis-Gaither moved to injured reserve before week 10.",
+        "detail": "out",
+        "sentence": "Tackle Bernhard Raimann is listed out on the week 11 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0034573",
+        "name": "Charvarius Ward",
+        "position": "CB",
+        "week": 11,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Cornerback Charvarius Ward is listed out on the week 11 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0040163",
         "name": "Jalen Travis",
         "position": "T",
-        "week": 10,
+        "week": 11,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Tackle Jalen Travis was listed out on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0040139",
-        "name": "Justin Walley",
-        "position": "CB",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Cornerback Justin Walley was listed out for week 9 and was not listed out for week 10.",
+        "sentence": "Tackle Jalen Travis is listed out on the week 11 injury report.",
         "matters": true
       }
     ],
@@ -1299,7 +1303,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1315,7 +1319,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1331,7 +1335,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1381,12 +1385,28 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Tackle Jaylon Moore was listed out on the week 10 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0040959",
+        "name": "Jaydn Ott",
+        "position": "RB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Running back Jaydn Ott was listed questionable on the week 10 injury report.",
         "matters": true
       },
       {
@@ -1397,7 +1417,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1420,22 +1440,6 @@
         "detail": "role_up",
         "sentence": "Running back Emmett Johnson drew 7 targets in week 10, up from an average of 2.7 over the previous 3 games.",
         "matters": true
-      },
-      {
-        "gsis_id": "00-0030506",
-        "name": "Travis Kelce",
-        "position": "TE",
-        "week": 10,
-        "kind": "role",
-        "sources": [
-          {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-19T15:59:04.929Z"
-          }
-        ],
-        "detail": "role_down",
-        "sentence": "Tight end Travis Kelce drew 2 targets in week 10, down from an average of 7 over the previous 3 games.",
-        "matters": true
       }
     ],
     "LAC": [
@@ -1447,7 +1451,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1463,7 +1467,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1479,7 +1483,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1495,7 +1499,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1511,7 +1515,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1549,7 +1553,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -1569,7 +1573,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -1585,7 +1589,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1601,7 +1605,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1625,6 +1629,22 @@
         "kind": "roster_move",
         "detail": "now_with",
         "sentence": "Quarterback Kirk Cousins is now with the Vikings, as of week 10.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0037262",
+        "name": "Thomas Booker",
+        "position": "DT",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Defensive tackle Thomas Booker was listed questionable on the week 10 injury report.",
         "matters": true
       },
       {
@@ -1667,28 +1687,12 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Wide receiver Dont'e Thornton Jr. was listed questionable on the week 10 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0037262",
-        "name": "Thomas Booker",
-        "position": "DT",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Defensive tackle Thomas Booker was listed questionable on the week 10 injury report.",
         "matters": false
       }
     ],
@@ -1705,7 +1709,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -1721,7 +1725,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1737,7 +1741,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1773,7 +1777,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -1807,7 +1811,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1823,7 +1827,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1839,7 +1843,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1855,7 +1859,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1889,7 +1893,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1905,7 +1909,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1925,7 +1929,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -1941,7 +1945,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1959,7 +1963,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -1975,7 +1979,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2007,7 +2011,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2016,19 +2020,23 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0037239",
-        "name": "Chris Olave",
-        "position": "WR",
-        "week": 10,
+        "gsis_id": "00-0039860",
+        "name": "Kool-Aid McKinstry",
+        "position": "CB",
+        "week": 11,
         "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Kool-Aid McKinstry moved into the starting lineup at cornerback on the depth chart before week 11, in place of Martin Emerson Jr..",
         "sources": [
           {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-19T15:59:04.929Z"
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
           }
         ],
-        "detail": "role_down",
-        "sentence": "Wide receiver Chris Olave drew 4 targets in week 10, down from an average of 9.7 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -2057,7 +2065,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2091,7 +2099,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2107,7 +2115,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2123,12 +2131,32 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Wide receiver Omar Cooper Jr. was listed questionable on the week 10 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0033375",
+        "name": "Tim Patrick",
+        "position": "WR",
+        "week": 11,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Tim Patrick moved into the starting lineup at wide receiver on the depth chart before week 11, in place of Isaiah Williams.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -2146,25 +2174,25 @@
         "detail": "role_up",
         "sentence": "Wide receiver Isaiah Williams drew 7 targets in week 10, up from an average of 0.3 over the previous 3 games.",
         "matters": true
-      },
+      }
+    ],
+    "PHI": [
       {
-        "gsis_id": "00-0039347",
-        "name": "Trevin Wallace",
-        "position": "LB",
-        "week": 10,
+        "gsis_id": "00-0036912",
+        "name": "DeVonta Smith",
+        "position": "WR",
+        "week": 9,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Linebacker Trevin Wallace was listed out on the week 10 injury report.",
-        "matters": false
-      }
-    ],
-    "PHI": [
+        "sentence": "Wide receiver DeVonta Smith was listed out on the week 9 injury report.",
+        "matters": true
+      },
       {
         "gsis_id": "00-0038393",
         "name": "Dontayvion Wicks",
@@ -2173,7 +2201,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2189,7 +2217,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2205,28 +2233,12 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Wide receiver Britain Covey was listed out on the week 9 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0036912",
-        "name": "DeVonta Smith",
-        "position": "WR",
-        "week": 9,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Wide receiver DeVonta Smith was listed out on the week 9 injury report.",
         "matters": false
       },
       {
@@ -2237,7 +2249,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2271,7 +2283,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2303,11 +2315,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -2325,7 +2337,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2341,7 +2353,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2357,7 +2369,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2373,7 +2385,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2389,11 +2401,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -2443,7 +2455,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2459,11 +2471,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -2479,7 +2491,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2497,7 +2509,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2513,12 +2525,32 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Wide receiver Emeka Egbuka was listed questionable on the week 9 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0036993",
+        "name": "Ifeatu Melifonwu",
+        "position": "FS",
+        "week": 11,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Ifeatu Melifonwu moved into the starting lineup at free safety on the depth chart before week 11, in place of Antoine Winfield Jr..",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-21T12:32:38.844Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-20T13:30:20.385Z"
+          }
+        ],
         "matters": true
       }
     ],
@@ -2535,7 +2567,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -2551,7 +2583,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2567,7 +2599,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2617,7 +2649,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",
@@ -2633,11 +2665,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-20T12:45:08.473Z"
+            "generated": "2026-11-21T12:29:49.116Z"
           }
         ],
         "kind": "out_or_back",
@@ -2669,7 +2701,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-18T13:50:44.134Z"
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
         "kind": "out_or_back",

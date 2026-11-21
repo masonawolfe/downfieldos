@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "generated_at": "2026-11-20T13:30:20.385Z",
+  "generated_at": "2026-11-21T12:32:43.242Z",
   "generated_by": "scripts/build-team-changes.js",
   "week_now": 11,
   "note": "Starters the last build saw, per team. Read and rewritten by scripts/build-team-changes.js; never edited by hand.",
@@ -388,18 +388,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036130": {
-        "pos": "EDGE",
-        "name": "Nnamdi Madubuike",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0026190": {
         "pos": "EDGE",
         "name": "Calais Campbell",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0036081": {
+        "pos": "EDGE",
+        "name": "Broderick Washington Jr.",
+        "since_week": 11,
+        "replaced": "Nnamdi Madubuike",
         "left_week": null
       },
       "00-0037756": {
@@ -451,12 +451,26 @@
         "replaced": null,
         "left_week": null
       },
+      "00-0040104": {
+        "pos": "SS",
+        "name": "Keondre Jackson",
+        "since_week": 11,
+        "replaced": "Jaylinn Hawkins",
+        "left_week": null
+      },
+      "00-0036130": {
+        "pos": "EDGE",
+        "name": "Nnamdi Madubuike",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
       "00-0036302": {
         "pos": "SS",
         "name": "Jaylinn Hawkins",
         "since_week": null,
         "replaced": null,
-        "left_week": null
+        "left_week": 11
       },
       "00-0033281": {
         "pos": "CB",
@@ -579,18 +593,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0037288": {
-        "pos": "CB",
-        "name": "Christian Benford",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0041391": {
         "pos": "CB",
         "name": "Davison Igbinosun",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0040709": {
+        "pos": "CB",
+        "name": "Maxwell Hairston",
+        "since_week": 11,
+        "replaced": "Christian Benford",
         "left_week": null
       },
       "00-0037034": {
@@ -613,6 +627,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0037288": {
+        "pos": "CB",
+        "name": "Christian Benford",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "CAR": {
@@ -871,7 +892,7 @@
         "left_week": null
       },
       "00-0036292": {
-        "pos": "CB",
+        "pos": "SCB",
         "name": "Jaylon Johnson",
         "since_week": null,
         "replaced": null,
@@ -880,13 +901,6 @@
       "00-0039071": {
         "pos": "CB",
         "name": "Tyrique Stevenson",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
-      "00-0038111": {
-        "pos": "SCB",
-        "name": "Kyler Gordon",
         "since_week": null,
         "replaced": null,
         "left_week": null
@@ -904,6 +918,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0038111": {
+        "pos": "SCB",
+        "name": "Kyler Gordon",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "CIN": {
@@ -1352,12 +1373,19 @@
         "replaced": null,
         "left_week": null
       },
+      "00-0037561": {
+        "pos": "SS",
+        "name": "Markquese Bell",
+        "since_week": 11,
+        "replaced": "P.J. Locke",
+        "left_week": null
+      },
       "00-0035227": {
         "pos": "SS",
         "name": "P.J. Locke",
         "since_week": null,
         "replaced": null,
-        "left_week": null
+        "left_week": 11
       }
     },
     "DEN": {
@@ -2269,18 +2297,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0038134": {
-        "pos": "RB",
-        "name": "Kenneth Walker III",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0041013": {
         "pos": "RB",
         "name": "Emmett Johnson",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0040959": {
+        "pos": "RB",
+        "name": "Jaydn Ott",
+        "since_week": 11,
+        "replaced": "Kenneth Walker III",
         "left_week": null
       },
       "00-0039894": {
@@ -2408,6 +2436,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0038134": {
+        "pos": "RB",
+        "name": "Kenneth Walker III",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "LAC": {
@@ -2786,11 +2821,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0040169": {
+      "00-0037262": {
         "pos": "EDGE",
-        "name": "Tonka Hemingway",
-        "since_week": null,
-        "replaced": null,
+        "name": "Thomas Booker IV",
+        "since_week": 11,
+        "replaced": "Tonka Hemingway",
         "left_week": null
       },
       "00-0033381": {
@@ -2841,6 +2876,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0040169": {
+        "pos": "EDGE",
+        "name": "Tonka Hemingway",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "MIA": {
@@ -3333,13 +3375,6 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0035242": {
-        "pos": "C",
-        "name": "Erik McCoy",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0036408": {
         "pos": "RG",
         "name": "Cesar Ruiz",
@@ -3382,18 +3417,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0037250": {
-        "pos": "CB",
-        "name": "Martin Emerson Jr.",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0040293": {
         "pos": "CB",
         "name": "Michael Reid",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0039860": {
+        "pos": "CB",
+        "name": "Kool-Aid McKinstry",
+        "since_week": 11,
+        "replaced": "Martin Emerson Jr.",
         "left_week": null
       },
       "00-0040643": {
@@ -3416,6 +3451,20 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0035242": {
+        "pos": "C",
+        "name": "Erik McCoy",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
+      "00-0037250": {
+        "pos": "CB",
+        "name": "Martin Emerson Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "NYG": {
@@ -3603,18 +3652,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0039451": {
-        "pos": "WR",
-        "name": "Isaiah Williams",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0039890": {
         "pos": "WR",
         "name": "Adonai Mitchell",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0033375": {
+        "pos": "WR",
+        "name": "Tim Patrick",
+        "since_week": 11,
+        "replaced": "Isaiah Williams",
         "left_week": null
       },
       "00-0040736": {
@@ -3728,6 +3777,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0039451": {
+        "pos": "WR",
+        "name": "Isaiah Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "PHI": {
@@ -3766,11 +3822,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0038393": {
+      "00-0036912": {
         "pos": "WR",
-        "name": "Dontayvion Wicks",
-        "since_week": null,
-        "replaced": null,
+        "name": "DeVonta Smith",
+        "since_week": 11,
+        "replaced": "Dontayvion Wicks",
         "left_week": null
       },
       "00-0034351": {
@@ -3877,6 +3933,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0038393": {
+        "pos": "WR",
+        "name": "Dontayvion Wicks",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "PIT": {
@@ -4453,11 +4516,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036411": {
+      "00-0036993": {
         "pos": "FS",
-        "name": "Antoine Winfield Jr.",
-        "since_week": null,
-        "replaced": null,
+        "name": "Ifeatu Melifonwu",
+        "since_week": 11,
+        "replaced": "Antoine Winfield Jr.",
         "left_week": null
       },
       "00-0039846": {
@@ -4466,6 +4529,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0036411": {
+        "pos": "FS",
+        "name": "Antoine Winfield Jr.",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "TEN": {
