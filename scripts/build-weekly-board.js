@@ -50,7 +50,9 @@
  * weeks 1 to 10 (scripts/backtest-availability-zero.mjs, results in
  * 01_Schuhbox/DFOS/analysis/2026-11-22-model-build/): mean absolute error
  * 4.93 with no rule, 4.39 with (a), 4.12 with (a) and (b); better in all 10
- * weeks; 16 of 474 players zeroed by (a) played anyway. Sleeper's own "O"
+ * weeks; 16 of 474 players zeroed by (a) played anyway. The frozen Tuesday
+ * number gets only the (a) half, 4.93 to 4.39: (b) needs Friday's report and
+ * moves the live board, never a snapshot (QA, 2026-11-22). Sleeper's own "O"
  * designation is NOT used: on a Tuesday it is mostly last week's, and 113
  * of 837 players it zeroed played. Later weeks keep their pace until part 3
  * (recalculation) and part 4 (season roll-up) land. The zero is recorded in
@@ -543,7 +545,7 @@ async function main() {
       injuries_generated: availCtx.reportOut.generated,
       rows_zeroed: zeroedRows.length,
       rows_zeroed_by_status: zeroedBy,
-      backtest: 'scripts/backtest-availability-zero.mjs, weeks 1 to 10: MAE 4.93 no rule, 4.39 reserve list, 4.12 reserve list or week report Out; better in 10 of 10 weeks. 01_Schuhbox/DFOS/analysis/2026-11-22-model-build/part0-availability-backtest.json',
+      backtest: 'scripts/backtest-availability-zero.mjs, weeks 1 to 10: MAE 4.93 no rule, 4.39 reserve list, 4.12 reserve list or week report Out; better in 10 of 10 weeks. The frozen Tuesday snapshot gets the 4.39 half only: the week report is out Friday, so it moves the live board, never a snapshot. 01_Schuhbox/DFOS/analysis/2026-11-22-model-build/part0-availability-backtest.json',
       not_used: 'Sleeper game_designation O (on a Tuesday mostly the previous game\'s; 113 of 837 it would zero played).',
     },
     matchup_term: 'Removed from weekly_value 2026-10-10 by CoS decision (00_System/DECISIONS.md 2026-10-10) on the 2026-10-09 walk-forward backtest (01_Schuhbox/DFOS/analysis/2026-10-09-in-season-learning/): the full-gap ±4 term raised MAE by 0.49 [0.33, 0.65] in every week and 2026 defense learning added nothing. opp_fpts_allowed_to_pos / opp_*_rank remain on rows as context only. Re-test player learning at Week 8.',

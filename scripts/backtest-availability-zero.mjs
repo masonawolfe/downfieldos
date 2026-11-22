@@ -56,6 +56,13 @@ const git = (...a) => execFileSync('git', a, { cwd: REPO, encoding: 'utf8', maxB
 const history = git('log', '--reverse', '--format=%H %cI', REF, '--', AV_PATH)
   .trim().split('\n').filter(Boolean)
   .map(l => { const [sha, iso] = l.split(' '); return { sha, t: Date.parse(iso) }; });
+// QA note (d), 2026-11-22: on a shallow clone git log returns one commit or
+// none, every week is skipped, and the script used to exit 0 with nothing
+// graded. Fail loudly instead.
+if (history.length < 2) {
+  console.error(`backtest refused: ${history.length} commit(s) of ${AV_PATH} in ${REF}'s history; the test needs the file as it was before each week (unshallow the clone: git fetch --unshallow).`);
+  process.exit(1);
+}
 const avCache = new Map();
 function availabilityAt(tMs) {
   let pick = null;
@@ -179,3 +186,10 @@ for (const p of perWeek) {
 for (const [k, v] of Object.entries(overall)) console.log(`  overall ${k.padEnd(15)} n ${v.n}  MAE ${v.mae.toFixed(3)}  calibration-pop MAE ${v.mae_calibration_pop} (n ${v.n_calibration_pop})  zeroed ${v.zeroed}  scored anyway ${v.false_zero}`);
 console.log(`weeks the reserve-or-out rule beats no rule: ${result.weeks_reserve_or_out_beats_none} of ${graded.length}; weeks it changed nothing: ${result.weeks_where_rule_changed_nothing.join(', ') || 'none'}`);
 if (OUT) { fs.mkdirSync(path.dirname(OUT), { recursive: true }); fs.writeFileSync(OUT, JSON.stringify(result, null, 2)); console.log(`wrote ${OUT}`); }
+// QA note (d): nothing graded, or a week with no availability file before
+// its as-of time, is a failed test, not a pass.
+const skipped = perWeek.filter(p => p.skipped);
+if (graded.length === 0 || skipped.length) {
+  console.error(`backtest incomplete: ${graded.length} week(s) graded, ${skipped.length} skipped (${skipped.map(p => p.week).join(', ') || 'none'}).`);
+  process.exit(1);
+}

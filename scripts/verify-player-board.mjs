@@ -446,7 +446,8 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
   }
   const metaWeek = WEEKLY_META?.availability?.applies_to_week ?? null;
   let AVAIL = {};
-  try { AVAIL = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/availability_2026.json', 'utf8')).players || {}; }
+  let availGenerated = null;
+  try { const ad = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/availability_2026.json', 'utf8')); AVAIL = ad.players || {}; availGenerated = ad.meta?.generated || null; }
   catch (e) { problems.push(`availability_2026.json not readable: ${e.message}`); }
   const RESERVE = new Set(['IR', 'PUP', 'SUSP', 'NFI']);
   const sched = new Map();
@@ -487,12 +488,27 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
   if (metaWeek !== upWeek) problems.push(`META.availability.applies_to_week is ${JSON.stringify(metaWeek)}; the schedule says week ${upWeek} was in play when the board was built (part 0, 2026-11-22)`);
   if (zeroedWrongWeek) problems.push(`${zeroedWrongWeek} rows zeroed for availability outside the upcoming week ${upWeek}`);
   if (zeroedNonZero) problems.push(`${zeroedNonZero} rows flagged availability_zeroed with weekly_value not 0`);
-  if (reserveProjected) problems.push(`${reserveProjected} of ${reserveChecked} upcoming-week rows for players on a reserve list (availability_2026.json) still carry a projection`);
+  // QA note (b), 2026-11-22: the daily verify and the actuals job check the
+  // committed board against whatever availability file was committed last.
+  // Availability refreshes several times a day, so a player placed on a
+  // reserve list after the board was built is drift, not a broken join.
+  // Strict when the file on disk is the one the board was built from (the
+  // board job and the Tuesday chain build and verify in one checkout);
+  // otherwise red only when the join looks broken (none zeroed, or more
+  // than half the reserve-list rows still projected), and the drift is noted.
+  const builtFrom = WEEKLY_META?.availability?.availability_generated ?? null;
+  const sameFile = builtFrom != null && builtFrom === availGenerated;
+  let availNote = '';
+  if (reserveProjected) {
+    const msg = `${reserveProjected} of ${reserveChecked} upcoming-week rows for players on a reserve list (availability_2026.json) still carry a projection`;
+    if (sameFile || zeroedCount === 0 || reserveProjected * 2 > reserveChecked) problems.push(sameFile ? msg : `${msg}; the board was built from availability generated ${builtFrom}, the file on disk is ${availGenerated}, and this many is a broken join, not drift`);
+    else availNote = `; ${reserveProjected} placed on a reserve list since the board was built (board's availability ${builtFrom}, on disk ${availGenerated}): drift, fixed at the next board run`;
+  }
   if (WEEKLY_META?.model_version == null || !String(WEEKLY_META.model_version).startsWith('E-034 v2')) problems.push(`META.model_version is ${JSON.stringify(WEEKLY_META?.model_version)} — expected E-034 v2`);
   if (problems.length) throw new Error(problems.join('; '));
   const negSpread = WEEKLY_BOARD.filter(r => typeof r.spread_line === 'number' && r.spread_line < 0).length;
   const negTz = WEEKLY_BOARD.filter(r => typeof r.tz_delta === 'number' && r.tz_delta < 0).length;
-  return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz}); week ${upWeek}: ${reserveChecked} reserve-list rows all at 0, ${zeroedCount} rows zeroed for availability`;
+  return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz}); week ${upWeek}: ${reserveChecked - reserveProjected} of ${reserveChecked} reserve-list rows at 0, ${zeroedCount} rows zeroed for availability${availNote}`;
 });
 
 // #21 — Graded actuals use the projection's rules, and the calibration
