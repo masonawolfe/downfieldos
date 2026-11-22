@@ -6,7 +6,7 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-26T17:13:32.365Z |
+| Generated | 2026-11-26T18:19:32.918Z |
 | Weekly board generated | 2026-11-26T13:49:07.794Z |
 | Player board generated | 2026-11-26T14:18:30.746Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
@@ -43,6 +43,12 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10;
 | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|
 | 2512 | 0.56 | 5.01 | 6.73 |
+
+**Second line, beside the headline (added 2026-11-22):** every player the snapshot projected, with a player who had no stat line that week counted as 0 points: he did not play (injured, inactive or a healthy scratch) or played and recorded nothing. The headline above counts only player-weeks with a stat line, so it cannot see a projection given to a player who did not play. 2101 of 4613 projected player-weeks had no stat line; most are backups.
+
+| N | Mean error | Mean absolute error | Root mean square error |
+|---|---|---|---|
+| 4613 | -1.6 | 4.85 | 6.61 |
 
 ## By position (headline weeks)
 

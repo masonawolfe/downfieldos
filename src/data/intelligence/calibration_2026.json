@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-11-26T17:13:32.365Z",
+    "generated_at": "2026-11-26T18:19:32.918Z",
     "source_season": 2026,
     "sources": [
       "src/data/intelligence/weekly_actuals_2026.json",
@@ -10,7 +10,7 @@
       "src/data/playerBoard2026.js",
       "src/data/schedule2026.js"
     ],
-    "generated_utc": "2026-11-26T17:13:32.365Z",
+    "generated_utc": "2026-11-26T18:19:32.918Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
     "actuals_generated_utc": "2026-11-26T17:13:31.883Z",
     "weekly_board_generated_utc": "2026-11-26T13:49:07.794Z",
@@ -789,6 +789,53 @@
       }
     }
   },
+  "all_projected_did_not_play_as_zero": {
+    "label": "Every projected player, a player with no stat line counted as 0 (second line, added 2026-11-22; the headline is unchanged)",
+    "weeks": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "overall": {
+      "n": 4613,
+      "mean_error": -1.6,
+      "mean_abs_error": 4.85,
+      "rmse": 6.61
+    },
+    "by_pos": {
+      "QB": {
+        "n": 626,
+        "mean_error": -3.69,
+        "mean_abs_error": 6.93,
+        "rmse": 8.86
+      },
+      "RB": {
+        "n": 1125,
+        "mean_error": -1.5,
+        "mean_abs_error": 5,
+        "rmse": 6.85
+      },
+      "WR": {
+        "n": 1832,
+        "mean_error": -1.24,
+        "mean_abs_error": 4.81,
+        "rmse": 6.42
+      },
+      "TE": {
+        "n": 1030,
+        "mean_error": -1.07,
+        "mean_abs_error": 3.51,
+        "rmse": 4.83
+      }
+    },
+    "rows_without_stat_line": 2101
+  },
   "scoring_change_2026_11_07": {
     "frozen_on": "2026-11-07",
     "frozen_from": "calibration_2026.json as built on branch freshness/r1-g2 at ea3e4d4 (actuals generated 2026-11-07T19:43:00.918Z)",
@@ -1094,7 +1141,7 @@
     },
     "live_recompute": {
       "label": "NOT the record. The same figures recomputed from the rows in this file on this build; nflverse stat corrections move these, never the frozen note above.",
-      "generated_at": "2026-11-26T17:13:32.365Z",
+      "generated_at": "2026-11-26T18:19:32.918Z",
       "figures_differing_from_frozen": 0,
       "differing": [],
       "date": "2026-11-07",

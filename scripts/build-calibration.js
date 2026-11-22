@@ -228,6 +228,34 @@ for (const flag of ['dome_home', 'short_week', 'bye_return', 'tz_travel', 'match
   };
 }
 
+// Second line (2026-11-22, CoS ruling in _FROM_COS.md 12:03: "do not change
+// the headline number. Add a second, labelled line that counts projected
+// players who did not play as zero, beside the existing one"). The headline
+// grades only player-weeks with a stat line, so a projected player who did
+// not play (injured, inactive) is never counted; model part 0 removes exactly
+// that error, and only this line can show it. Same headline weeks, every
+// snapshot row with a projection, actual = graded points or 0.
+const actualByKey = new Map(actualsDoc.rows.map(r => [`${r.gsis_id}_${r.week}`, r.fantasy_points_graded]));
+const allProjectedRows = [];
+for (const doc of Object.values(SNAPSHOTS)) {
+  if (!headlineSet.has(doc.week)) continue;
+  for (const r of doc.rows) {
+    if (r.weekly_value == null) continue;
+    const key = `${r.gsis_id}_${r.week}`;
+    const played = actualByKey.has(key) && actualByKey.get(key) != null;
+    const act = played ? actualByKey.get(key) : 0;
+    const err = Math.round((act - r.weekly_value) * 100) / 100;
+    allProjectedRows.push({ pos: r.pos, error: err, abs_error: Math.abs(err), played });
+  }
+}
+const allProjected = {
+  label: 'Every projected player, a player with no stat line counted as 0 (second line, added 2026-11-22; the headline is unchanged)',
+  weeks: headlineWeeks,
+  overall: agg(allProjectedRows),
+  by_pos: byPosOf(allProjectedRows),
+  rows_without_stat_line: allProjectedRows.filter(r => !r.played).length,
+};
+
 // Top misses (largest absolute error), headline weeks only
 const topMisses = [...headlineRows].sort((a, b) => b.abs_error - a.abs_error).slice(0, 20);
 
@@ -365,6 +393,7 @@ const out = {
   by_flag_fired_vs_not: byFlag,
   top_misses: topMisses,
   after_kickoff: afterKickoff,
+  all_projected_did_not_play_as_zero: allProjected,
   scoring_change_2026_11_07: scoringChange,
   rows: perPair,
 };
@@ -414,6 +443,12 @@ md.push('');
 md.push('| N | Mean error | Mean absolute error | Root mean square error |');
 md.push('|---|---|---|---|');
 md.push(`| ${overall.n} | ${overall.mean_error ?? NA} | ${overall.mean_abs_error ?? NA} | ${overall.rmse ?? NA} |`);
+md.push('');
+md.push(`**Second line, beside the headline (added 2026-11-22):** every player the snapshot projected, with a player who had no stat line that week counted as 0 points: he did not play (injured, inactive or a healthy scratch) or played and recorded nothing. The headline above counts only player-weeks with a stat line, so it cannot see a projection given to a player who did not play. ${allProjected.rows_without_stat_line} of ${allProjected.overall.n} projected player-weeks had no stat line; most are backups.`);
+md.push('');
+md.push('| N | Mean error | Mean absolute error | Root mean square error |');
+md.push('|---|---|---|---|');
+md.push(`| ${allProjected.overall.n} | ${allProjected.overall.mean_error ?? NA} | ${allProjected.overall.mean_abs_error ?? NA} | ${allProjected.overall.rmse ?? NA} |`);
 md.push('');
 md.push('## By position (headline weeks)');
 md.push('');
