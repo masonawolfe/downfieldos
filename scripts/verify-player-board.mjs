@@ -1032,6 +1032,57 @@ check('Vacant starter slots stay under threshold', () => {
   return `${vacancies.length} vacant slot(s) (ceiling: ${VACANT_CEILING})${vacancies.length ? ` — ${vacancies.join(', ')}` : ''}`;
 });
 
+// #22 — The weekly base learns from the player's own 2026 games (2026-11-22,
+// Mason: "I want the player's number to learn from the season"). Recomputed
+// here from weekly_actuals_2026.json, playerBoard2026.js and the schedule,
+// never from the builder's own fields: base = (4 x 2025 pace + 2026 points) /
+// (4 + 2026 games) for QB, RB and WR with at least one complete earlier week
+// with a stat line; the 2025 pace otherwise (tight ends always). Strict when
+// the actuals file on disk is the one the board was built from; when it is
+// newer (the weekly actuals job refreshes it without rebuilding the board),
+// red only on a broken rule (none learned, or more than half off), else noted.
+check('Weekly base learns from 2026 games (QB, RB, WR; tight ends keep the 2025 pace)', () => {
+  if (!WEEKLY_BOARD || !ACTUALS_DOC || !SCHEDULE) throw new Error('weekly board, actuals or schedule not readable');
+  const K = 4, LEARN = new Set(['QB', 'RB', 'WR']);
+  const comp = actualsCompleteness(SCHEDULE, ACTUALS_DOC.rows);
+  const complete = new Set(Object.keys(comp).map(Number).filter(w => comp[w].complete));
+  const games = new Map();
+  for (const r of ACTUALS_DOC.rows) {
+    if (!complete.has(r.week) || r.fantasy_points_graded == null) continue;
+    if (!games.has(r.gsis_id)) games.set(r.gsis_id, []);
+    games.get(r.gsis_id).push(r);
+  }
+  const pace = new Map(PLAYER_BOARD_2026.filter(p => p.gsis_id && p.projection_pts != null).map(p => [p.gsis_id, p.projection_pts / 17]));
+  let checked = 0, off = 0, learned = 0, teLearned = 0;
+  const sample = [];
+  for (const r of WEEKLY_BOARD) {
+    if (r.weekly_value == null || !r.weekly_value_components || !pace.has(r.gsis_id)) continue;
+    const c = r.weekly_value_components;
+    const g = LEARN.has(r.pos) ? (games.get(r.gsis_id) || []).filter(x => x.week < r.week) : [];
+    const p25 = pace.get(r.gsis_id);
+    const expect = Math.round((g.length ? (K * p25 + g.reduce((s, x) => s + x.fantasy_points_graded, 0)) / (K + g.length) : p25) * 100) / 100;
+    checked++;
+    if (g.length) learned++;
+    if (r.pos === 'TE' && c.games_2026) teLearned++;
+    if (Math.abs(expect - c.base_weekly_pace) > 0.011) { off++; if (sample.length < 4) sample.push(`${r.name} wk${r.week} ${r.pos}: board ${c.base_weekly_pace}, recomputed ${expect}`); }
+  }
+  const builtFrom = WEEKLY_META?.learning?.actuals_generated ?? null;
+  const onDisk = ACTUALS_DOC.meta?.generated_at || ACTUALS_DOC.meta?.generated_utc || null;
+  const same = builtFrom != null && builtFrom === onDisk;
+  const problems = [];
+  if (WEEKLY_META?.learning?.k !== K) problems.push(`META.learning.k is ${JSON.stringify(WEEKLY_META?.learning?.k)}, expected ${K}`);
+  if (teLearned) problems.push(`${teLearned} tight end rows learn from 2026; tight ends keep the 2025 pace`);
+  if (learned === 0) problems.push('no row has a 2026 game to learn from');
+  let note = '';
+  if (off) {
+    const msg = `${off} of ${checked} scored rows have a base that does not recompute (e.g. ${sample.join('; ')})`;
+    if (same || off * 2 > checked) problems.push(same ? msg : `${msg}; board built from actuals ${builtFrom}, on disk ${onDisk}, and this many is a broken rule, not drift`);
+    else note = `; ${off} rows differ because actuals moved since the build (built ${builtFrom}, on disk ${onDisk}): fixed at the next board run`;
+  }
+  if (problems.length) throw new Error(problems.join('; '));
+  return `${checked - off} of ${checked} scored rows recompute; ${learned} learn from 2026 games; 0 tight end rows learn${note}`;
+});
+
 const passed = results.filter(r => r.pass).length;
 console.log(`\n${'='.repeat(60)}`);
 console.log(`Task acceptance: ${passed}/${results.length} checks passed`);

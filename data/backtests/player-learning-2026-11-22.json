@@ -1,0 +1,217 @@
+{
+  "generated_utc": "2026-11-22T23:50:41.274Z",
+  "git_ref": "origin/main",
+  "rule": "base = (K x 2025 pace + 2026 points) / (K + 2026 games), K = 4 fixed in advance",
+  "population": "every projected row of each frozen snapshot, weeks 2 to the last complete week, QB/RB/WR/TE with a 2025 pace; no stat line = 0; part 0 applied at the Tuesday freeze to every arm",
+  "weeks": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "rows": 4704,
+  "players": 575,
+  "rows_without_stat_line": 2121,
+  "availability_as_of": {
+    "2": "2026-09-15T12:15:00.000Z",
+    "3": "2026-09-22T12:15:00.000Z",
+    "4": "2026-09-29T12:15:00.000Z",
+    "5": "2026-10-06T12:15:00.000Z",
+    "6": "2026-10-13T12:15:00.000Z",
+    "7": "2026-10-20T12:15:00.000Z",
+    "8": "2026-10-27T12:15:00.000Z",
+    "9": "2026-11-03T13:15:00.000Z",
+    "10": "2026-11-10T13:15:00.000Z"
+  },
+  "results": {
+    "pace_2025": {
+      "mae": 3.993,
+      "by_pos": {
+        "QB": 6.477,
+        "RB": 3.798,
+        "WR": 3.836,
+        "TE": 2.977
+      },
+      "weeks_better_than_pace": null
+    },
+    "learned_k2": {
+      "mae": 3.868,
+      "by_pos": {
+        "QB": 6.204,
+        "RB": 3.65,
+        "WR": 3.683,
+        "TE": 3.017
+      },
+      "weeks_better_than_pace": 8,
+      "minus_pace": {
+        "diff": -0.124,
+        "ci95": [
+          -0.21,
+          -0.048
+        ]
+      }
+    },
+    "learned_k3": {
+      "mae": 3.87,
+      "by_pos": {
+        "QB": 6.245,
+        "RB": 3.654,
+        "WR": 3.683,
+        "TE": 2.995
+      },
+      "weeks_better_than_pace": 8,
+      "minus_pace": {
+        "diff": -0.123,
+        "ci95": [
+          -0.195,
+          -0.058
+        ]
+      }
+    },
+    "learned_k4": {
+      "mae": 3.874,
+      "by_pos": {
+        "QB": 6.273,
+        "RB": 3.659,
+        "WR": 3.688,
+        "TE": 2.982
+      },
+      "weeks_better_than_pace": 8,
+      "minus_pace": {
+        "diff": -0.119,
+        "ci95": [
+          -0.182,
+          -0.059
+        ]
+      }
+    },
+    "learned_k5": {
+      "mae": 3.879,
+      "by_pos": {
+        "QB": 6.294,
+        "RB": 3.665,
+        "WR": 3.694,
+        "TE": 2.975
+      },
+      "weeks_better_than_pace": 9,
+      "minus_pace": {
+        "diff": -0.114,
+        "ci95": [
+          -0.171,
+          -0.059
+        ]
+      }
+    },
+    "learned_k6": {
+      "mae": 3.884,
+      "by_pos": {
+        "QB": 6.311,
+        "RB": 3.67,
+        "WR": 3.701,
+        "TE": 2.971
+      },
+      "weeks_better_than_pace": 9,
+      "minus_pace": {
+        "diff": -0.109,
+        "ci95": [
+          -0.157,
+          -0.06
+        ]
+      }
+    },
+    "learned_k8": {
+      "mae": 3.894,
+      "by_pos": {
+        "QB": 6.335,
+        "RB": 3.681,
+        "WR": 3.714,
+        "TE": 2.967
+      },
+      "weeks_better_than_pace": 9,
+      "minus_pace": {
+        "diff": -0.099,
+        "ci95": [
+          -0.142,
+          -0.057
+        ]
+      }
+    },
+    "learned_k12": {
+      "mae": 3.912,
+      "by_pos": {
+        "QB": 6.364,
+        "RB": 3.701,
+        "WR": 3.737,
+        "TE": 2.965
+      },
+      "weeks_better_than_pace": 9,
+      "minus_pace": {
+        "diff": -0.081,
+        "ci95": [
+          -0.114,
+          -0.049
+        ]
+      }
+    },
+    "learned_k4_not_te": {
+      "mae": 3.873,
+      "by_pos": {
+        "QB": 6.273,
+        "RB": 3.659,
+        "WR": 3.688,
+        "TE": 2.977
+      },
+      "weeks_better_than_pace": 9,
+      "minus_pace": {
+        "diff": -0.12,
+        "ci95": [
+          -0.18,
+          -0.062
+        ]
+      }
+    }
+  },
+  "design_minus_pace_by_pos": {
+    "QB": {
+      "diff": -0.204,
+      "ci95": [
+        -0.431,
+        -0.008
+      ]
+    },
+    "RB": {
+      "diff": -0.138,
+      "ci95": [
+        -0.261,
+        -0.015
+      ]
+    },
+    "WR": {
+      "diff": -0.148,
+      "ci95": [
+        -0.253,
+        -0.043
+      ]
+    },
+    "TE": {
+      "diff": 0.005,
+      "ci95": [
+        -0.081,
+        0.085
+      ]
+    }
+  },
+  "design_minus_pace_players_who_played": {
+    "diff": -0.182,
+    "ci95": [
+      -0.279,
+      -0.096
+    ]
+  },
+  "note": "minus_pace negative = a smaller average miss than the 2025 pace; ci95 from 2000 resamples of players (seed 20261122)"
+}
