@@ -32,7 +32,7 @@ try {
 // E-052 (2026-10-10): frozen weekly projection snapshots (the projection of
 // record per week), the schedule (for kickoff times) and the actuals (for
 // week completeness) — read for checks #11, #19 and #20.
-import { firstKickoffUtcMs, actualsCompleteness, regWeeks, weekGames } from './_lib/kickoff.js';
+import { firstKickoffUtcMs, actualsCompleteness, regWeeks, weekGames, etToUtcMs } from './_lib/kickoff.js';
 const SNAP_REL = 'src/data/intelligence/weekly_projections/';
 const SNAP_RAW = {};
 try {
@@ -419,6 +419,12 @@ check('Weekly projection snapshots intact, pre-kickoff and unchanged vs the prev
 // (the projection only — spread_line is compared to the schedule to prove
 // signed fields were not floored); every scored row's components carry no
 // matchup term and recompute to weekly_value.
+// Part 0 (2026-11-22): a row whose components say availability_zeroed is 0
+// and sits in the upcoming week (META.availability.applies_to_week); and,
+// read from the source file rather than the builder's own flag, every
+// upcoming-week row for a player whose availability_2026.json status is on a
+// reserve list is 0. The second is the field check: it fails if the join
+// breaks, not only if the flag is mislabelled.
 check('Weekly board matches the player board, floors weekly_value at 0, and has no matchup term', () => {
   if (!WEEKLY_BOARD) throw new Error('weeklyBoard2026.js not readable');
   const nWeeks = SCHEDULE ? regWeeks(SCHEDULE).length : 18;
@@ -426,6 +432,23 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
   const rowsBy = new Map();
   const problems = [];
   let wrongTeam = 0, neg = 0, badComp = 0, matchupKey = 0, spreadMismatch = 0;
+  let zeroedWrongWeek = 0, zeroedNonZero = 0, reserveProjected = 0, reserveChecked = 0, zeroedCount = 0;
+  // The week in play when the board was built, recomputed here from the
+  // schedule and META.generated (never read from the builder's own META):
+  // the smallest REG week whose last kickoff is after the build time.
+  const builtMs = Date.parse(WEEKLY_META?.generated || '');
+  let upWeek = null;
+  if (SCHEDULE && !Number.isNaN(builtMs)) {
+    for (const w of regWeeks(SCHEDULE)) {
+      const ks = weekGames(SCHEDULE, w).map(g => etToUtcMs(g.gameday, g.gametime)).filter(k => k != null);
+      if (ks.length && Math.max(...ks) > builtMs) { upWeek = w; break; }
+    }
+  }
+  const metaWeek = WEEKLY_META?.availability?.applies_to_week ?? null;
+  let AVAIL = {};
+  try { AVAIL = JSON.parse(fs.readFileSync(REPO + 'src/data/intelligence/availability_2026.json', 'utf8')).players || {}; }
+  catch (e) { problems.push(`availability_2026.json not readable: ${e.message}`); }
+  const RESERVE = new Set(['IR', 'PUP', 'SUSP', 'NFI']);
   const sched = new Map();
   for (const [t, td] of Object.entries(SCHEDULE?.teams || {})) for (const g of td.games || []) sched.set(`${t}_${g.week}`, g);
   for (const r of WEEKLY_BOARD) {
@@ -438,6 +461,16 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
     const c = r.weekly_value_components;
     if (!c || c.base_weekly_pace == null) { badComp++; continue; }
     if ('matchup_defense_adj' in c) matchupKey++;
+    if (upWeek != null && r.week === upWeek && RESERVE.has(AVAIL[r.gsis_id]?.status)) {
+      reserveChecked++;
+      if (r.weekly_value !== 0) reserveProjected++;
+    }
+    if (c.availability_zeroed) {
+      zeroedCount++;
+      if (r.week !== upWeek) zeroedWrongWeek++;
+      if (r.weekly_value !== 0) zeroedNonZero++;
+      continue;
+    }
     const expect = Math.max(0, Math.round((c.base_weekly_pace + (c.total_adjustment || 0)) * 100) / 100);
     if (Math.abs(expect - r.weekly_value) > 0.011) badComp++;
     const g = sched.get(`${r.team_2026}_${r.week}`);
@@ -450,11 +483,16 @@ check('Weekly board matches the player board, floors weekly_value at 0, and has 
   if (matchupKey) problems.push(`${matchupKey} rows still carry matchup_defense_adj`);
   if (badComp) problems.push(`${badComp} scored rows whose components are missing or do not recompute to weekly_value`);
   if (spreadMismatch) problems.push(`${spreadMismatch} rows whose spread_line differs from schedule2026.js`);
+  if (upWeek == null) problems.push('could not work out the week in play from schedule2026.js and META.generated');
+  if (metaWeek !== upWeek) problems.push(`META.availability.applies_to_week is ${JSON.stringify(metaWeek)}; the schedule says week ${upWeek} was in play when the board was built (part 0, 2026-11-22)`);
+  if (zeroedWrongWeek) problems.push(`${zeroedWrongWeek} rows zeroed for availability outside the upcoming week ${upWeek}`);
+  if (zeroedNonZero) problems.push(`${zeroedNonZero} rows flagged availability_zeroed with weekly_value not 0`);
+  if (reserveProjected) problems.push(`${reserveProjected} of ${reserveChecked} upcoming-week rows for players on a reserve list (availability_2026.json) still carry a projection`);
   if (WEEKLY_META?.model_version == null || !String(WEEKLY_META.model_version).startsWith('E-034 v2')) problems.push(`META.model_version is ${JSON.stringify(WEEKLY_META?.model_version)} — expected E-034 v2`);
   if (problems.length) throw new Error(problems.join('; '));
   const negSpread = WEEKLY_BOARD.filter(r => typeof r.spread_line === 'number' && r.spread_line < 0).length;
   const negTz = WEEKLY_BOARD.filter(r => typeof r.tz_delta === 'number' && r.tz_delta < 0).length;
-  return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz})`;
+  return `${pbTeam.size} players × ${nWeeks} weeks on their player-board team; 0 negative weekly_value; 0 matchup terms; signed fields intact (spread_line < 0 on ${negSpread} rows, tz_delta < 0 on ${negTz}); week ${upWeek}: ${reserveChecked} reserve-list rows all at 0, ${zeroedCount} rows zeroed for availability`;
 });
 
 // #21 — Graded actuals use the projection's rules, and the calibration

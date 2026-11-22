@@ -37,6 +37,26 @@
  * on depth players) are floored at 0. Only weekly_value is floored —
  * spread_line and tz_delta are signed by definition and keep their sign.
  *
+ * Availability (2026-11-22, model build part 0; Mason: "Yeah, build it",
+ * 00_System/DECISIONS.md 2026-11-22). For the week in play only (the
+ * smallest REG week whose last kickoff is still ahead: week N+1 at the
+ * Tuesday freeze, the week being played from Thursday on), a player is
+ * projected at 0 when
+ *   (a) his Sleeper status in availability_2026.json is on a reserve list
+ *       (IR, PUP, SUSP, NFI), or
+ *   (b) that week's own nflverse injury report lists him Out.
+ * At the Tuesday freeze only (a) can fire, since the week's report comes
+ * out Friday; (b) moves the live board as the week goes on. Back-tested on
+ * weeks 1 to 10 (scripts/backtest-availability-zero.mjs, results in
+ * 01_Schuhbox/DFOS/analysis/2026-11-22-model-build/): mean absolute error
+ * 4.93 with no rule, 4.39 with (a), 4.12 with (a) and (b); better in all 10
+ * weeks; 16 of 474 players zeroed by (a) played anyway. Sleeper's own "O"
+ * designation is NOT used: on a Tuesday it is mostly last week's, and 113
+ * of 837 players it zeroed played. Later weeks keep their pace until part 3
+ * (recalculation) and part 4 (season roll-up) land. The zero is recorded in
+ * weekly_value_components (availability_zeroed, availability_status,
+ * availability_source) so the snapshot freezes why.
+ *
  * Past weeks are never graded from this file: the weekly projection of
  * record for week W is the frozen pre-kickoff snapshot written by
  * scripts/snapshot-weekly-projections.mjs to
@@ -51,6 +71,20 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { regWeeks as scheduleRegWeeks, lastKickoffUtcMs } from './_lib/kickoff.js';
+
+// Part 0: the week the availability rule applies to is the week still in
+// play: the smallest REG week whose LAST kickoff is still ahead. From the
+// Monday night game to the next Thursday that is week N+1, the week the
+// Tuesday chain freezes; from Thursday to Monday it is the week being played,
+// so that week's own Friday injury report reaches the live board.
+function weekInPlay(schedule, nowMs) {
+  for (const w of scheduleRegWeeks(schedule)) {
+    const k = lastKickoffUtcMs(schedule, w);
+    if (k != null && k > nowMs) return w;
+  }
+  return null;
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -136,6 +170,33 @@ function loadDefense() {
   return JSON.parse(m[1]);
 }
 
+// Part 0 (2026-11-22): who is unavailable for the upcoming week.
+const RESERVE_STATUSES = new Set(['IR', 'PUP', 'SUSP', 'NFI']);
+const RESERVE_LABEL = { IR: 'on injured reserve', PUP: 'on the physically unable to perform list', SUSP: 'suspended', NFI: 'on the non-football injury list' };
+function loadAvailability() {
+  const doc = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'availability_2026.json'), 'utf8'));
+  return { players: doc.players || {}, generated: doc.meta?.generated || null };
+}
+function loadWeekReportOut() {
+  const doc = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'injuries_2026.json'), 'utf8'));
+  const out = new Set();
+  for (const p of doc.players || []) for (const wk of p.weeks || []) {
+    if (wk.report_status === 'Out' && (wk.game_type || 'REG') === 'REG') out.add(`${p.gsis_id}_${wk.week}`);
+  }
+  return { out, generated: doc.meta?.generated || null };
+}
+function availabilityFor(gsisId, week, ctx) {
+  if (!gsisId || week !== ctx.upcomingWeek) return null;
+  const a = ctx.availability.players[gsisId];
+  if (a && RESERVE_STATUSES.has(a.status)) {
+    return { status: a.status, label: RESERVE_LABEL[a.status], source: `availability_2026.json (Sleeper) generated ${ctx.availability.generated}` };
+  }
+  if (ctx.reportOut.out.has(`${gsisId}_${week}`)) {
+    return { status: 'OUT', label: `ruled out on the week ${week} injury report`, source: `injuries_2026.json (nflverse) generated ${ctx.reportOut.generated}` };
+  }
+  return null;
+}
+
 function loadFormerTeammates() {
   return JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'former_teammates_by_matchup.json'), 'utf8'));
 }
@@ -154,9 +215,9 @@ function computeLeagueMedians(defense) {
   return medians;
 }
 
-const MODEL_VERSION = 'E-034 v2 (2026-10-10): base pace + env/rest adjustments, no matchup term, floored at 0';
+const MODEL_VERSION = 'E-034 v2 + availability (2026-11-22): base pace + env/rest adjustments, no matchup term, floored at 0, upcoming week 0 when on a reserve list or ruled out';
 
-function computeWeeklyValue(row, weekMeta) {
+function computeWeeklyValue(row, weekMeta, unavailable = null) {
   // Base = weekly pace of season projection
   const seasonProj = row.projection_pts;   // default shape (standard_12_1qb full-PPR)
   if (seasonProj == null) return { weekly_value: null, weekly_value_components: null, weekly_value_rationale: null };
@@ -188,8 +249,16 @@ function computeWeeklyValue(row, weekMeta) {
   // to score negative points; the additive -1.0 short-week / -0.5 travel
   // terms used to push depth players below zero.
   const floored = raw < 0;
-  const value = floored ? 0 : raw;
+  let value = floored ? 0 : raw;
   if (floored) comp.floor_applied = Math.round(-raw * 100) / 100;
+  // Part 0 (2026-11-22): unavailable for the upcoming week → 0. The pace and
+  // adjustments stay in the components so a reader can see what was set aside.
+  if (unavailable) {
+    comp.availability_zeroed = true;
+    comp.availability_status = unavailable.status;
+    comp.availability_source = unavailable.source;
+    return { weekly_value: 0, weekly_value_components: comp, weekly_value_rationale: `${unavailable.label}: projected 0 (pace was ${value.toFixed(2)})` };
+  }
   const top3 = [...contribs].sort((a, b) => Math.abs(b.val) - Math.abs(a.val)).slice(0, 3);
   // Q-005 (2026-09-05): every scored row gets a rationale label, even when no
   // adjustment fired (opp near league median, home dome game with no travel,
@@ -215,12 +284,18 @@ async function main() {
   const ftByMatchup = ftDoc.matchups || {};
   const leagueMedians = computeLeagueMedians(defense);
   const stadiumTz = loadOpponentStadiumTz();   // F-003
+  // Part 0: the upcoming week, from the clock (BOARD_NOW_UTC overrides it for
+  // a proof run), and who is unavailable for it.
+  const nowMs = process.env.BOARD_NOW_UTC ? Date.parse(process.env.BOARD_NOW_UTC) : Date.now();
+  if (Number.isNaN(nowMs)) throw new Error(`BOARD_NOW_UTC is not a date: ${process.env.BOARD_NOW_UTC}`);
+  const availCtx = { upcomingWeek: weekInPlay(schedule, nowMs), availability: loadAvailability(), reportOut: loadWeekReportOut() };
 
   console.log('  player rows loaded:', board.length);
   console.log('  schedule teams:', Object.keys(schedule.teams || {}).length);
   console.log('  defense teams:', Object.keys(defense).length);
   console.log('  former_teammates matchups:', Object.keys(ftByMatchup).length);
   console.log('  league medians fpts/g:', JSON.stringify(leagueMedians));
+  console.log('  upcoming week (availability applies):', availCtx.upcomingWeek, '| availability generated', availCtx.availability.generated, '| injuries generated', availCtx.reportOut.generated);
   console.log();
 
   // Build per-team week map: { TEAM: { week: {opponent, home_away, stadium, is_dome, surface, gameday, gametime, spread_line, total_line} } }
@@ -333,7 +408,8 @@ async function main() {
         tz_delta,
       };
 
-      const v = computeWeeklyValue(p, weekMeta);
+      const unavailable = availabilityFor(p.gsis_id, week, availCtx);
+      const v = computeWeeklyValue(p, weekMeta, unavailable);
       if (g.game_id) roofByGame.set(g.game_id, g.roof);
 
       // Field-source labels are repetitive per row; hoisted to META instead.
@@ -415,6 +491,10 @@ async function main() {
   const distinctPlayers = new Set(rows.map(r => r.gsis_id || r.name + '|' + r.team_2026)).size;
   console.log('  rows:', totalRows, '| distinct players:', distinctPlayers, '| bye rows:', byeRows, '| rows with weekly_value:', scoredRows);
   console.log('  rows without weekly_value (rookies/no-proj + byes + K/DEF):', totalRows - scoredRows);
+  const zeroedRows = rows.filter(r => r.weekly_value_components?.availability_zeroed);
+  const zeroedBy = {};
+  for (const r of zeroedRows) zeroedBy[r.weekly_value_components.availability_status] = (zeroedBy[r.weekly_value_components.availability_status] || 0) + 1;
+  console.log(`  availability: ${zeroedRows.length} upcoming-week rows projected 0 (${Object.entries(zeroedBy).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'})`);
 
   // E-052 (2026-10-10): write-on-change. The daily data-board run now
   // rebuilds this file; if the rows are identical to what is committed,
@@ -455,7 +535,17 @@ async function main() {
     row_grain: 'one row per player × week (18 weeks × N players)',
     row_count: totalRows,
     model_version: MODEL_VERSION,
-    weekly_value_method: 'base = season projection / 17. Adjustments capped ±4 pts each: dome home +0.5, short week -1.0, bye return +0.8, tz travel per 3h -0.5. weekly_value = max(0, base + adjustments). No matchup-defense term (removed 2026-10-10, E-034 v2). Rationale = top-3 signed contributors.',
+    weekly_value_method: 'base = season projection / 17. Adjustments capped ±4 pts each: dome home +0.5, short week -1.0, bye return +0.8, tz travel per 3h -0.5. weekly_value = max(0, base + adjustments). No matchup-defense term (removed 2026-10-10, E-034 v2). Upcoming week only: 0 when the player is on a reserve list (Sleeper IR, PUP, SUSP, NFI) or that week\'s nflverse injury report lists him Out (2026-11-22, part 0). Rationale = top-3 signed contributors, or the availability reason.',
+    availability: {
+      applies_to_week: availCtx.upcomingWeek,
+      reserve_statuses: [...RESERVE_STATUSES],
+      availability_generated: availCtx.availability.generated,
+      injuries_generated: availCtx.reportOut.generated,
+      rows_zeroed: zeroedRows.length,
+      rows_zeroed_by_status: zeroedBy,
+      backtest: 'scripts/backtest-availability-zero.mjs, weeks 1 to 10: MAE 4.93 no rule, 4.39 reserve list, 4.12 reserve list or week report Out; better in 10 of 10 weeks. 01_Schuhbox/DFOS/analysis/2026-11-22-model-build/part0-availability-backtest.json',
+      not_used: 'Sleeper game_designation O (on a Tuesday mostly the previous game\'s; 113 of 837 it would zero played).',
+    },
     matchup_term: 'Removed from weekly_value 2026-10-10 by CoS decision (00_System/DECISIONS.md 2026-10-10) on the 2026-10-09 walk-forward backtest (01_Schuhbox/DFOS/analysis/2026-10-09-in-season-learning/): the full-gap ±4 term raised MAE by 0.49 [0.33, 0.65] in every week and 2026 defense learning added nothing. opp_fpts_allowed_to_pos / opp_*_rank remain on rows as context only. Re-test player learning at Week 8.',
     zero_floor: 'weekly_value only. spread_line and tz_delta are signed by definition and are never floored.',
     projection_of_record: 'Calibration grades week W against the frozen pre-kickoff snapshot src/data/intelligence/weekly_projections/2026-wNN.json, never against this file (which is rebuilt with current teams for all 18 weeks). E-052.',
@@ -483,13 +573,14 @@ async function main() {
       tz_delta: 'home game 0; away game = opponent home-stadium tz − player home tz (F-003); international venue = venue_tz − player home tz (E-036). Signed; never floored.',
       assigned_ref: 'schedule2026.js referee field (nflverse fills it after the game is played)',
       weekly_value: 'derived — see weekly_value_method',
-      weekly_value_components: 'base_weekly_pace + each fired adjustment (clipped ±4) + total_adjustment; floor_applied present when the raw value was negative.',
+      weekly_value_components: 'base_weekly_pace + each fired adjustment (clipped ±4) + total_adjustment; floor_applied present when the raw value was negative; availability_zeroed / availability_status / availability_source present when the upcoming-week value was set to 0.',
     },
     gap_notes: [
       'team_2026 is the player\'s CURRENT team applied to all 18 weeks, so past weeks here are not what was projected at the time. The record for a played week is its frozen snapshot in src/data/intelligence/weekly_projections/.',
       'former_teammates_this_matchup_count is a count of ties involving this gsis_id, not a rich breakdown. Full graph in intelligence/former_teammates_by_matchup.json.',
       'scheme-specific splits (outside-zone vs gap) — same gap flagged in defense2026.js. Not approximated.',
-      'No 2026 results feed weekly_value (base is 2025 pace). In-season player learning was backtested 2026-10-09 and held; re-test at Week 8.',
+      'No 2026 results feed weekly_value (base is 2025 pace). In-season player learning was backtested 2026-10-09 and held; the Week 8 re-test produced no output on file (absence of output, not proof of no run).',
+      'Availability zeroes the upcoming week only. A player on a reserve list keeps his pace in later weeks until part 3 (recalculation) lands; his teammates are not yet moved up.',
     ],
   };
 
