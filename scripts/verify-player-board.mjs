@@ -1032,6 +1032,24 @@ check('Vacant starter slots stay under threshold', () => {
   return `${vacancies.length} vacant slot(s) (ceiling: ${VACANT_CEILING})${vacancies.length ? ` — ${vacancies.join(', ')}` : ''}`;
 });
 
+// #22 — One man, one defensive slot (part 6, 2026-11-22). The depth chart
+// lists some defenders at two positions; before the fix one man filled two
+// slots on 27 of 32 teams, so a receiver was shown against the same corner
+// twice under two names. Read from the shipped rosters by gsis_id.
+check('No defender fills two defensive slots on one team', () => {
+  const doubles = [];
+  for (const [team, r] of Object.entries(ROSTERS)) {
+    const seen = new Map();
+    for (const p of r.defense || []) {
+      if (!p.gsis_id) continue;
+      if (seen.has(p.gsis_id)) doubles.push(`${team} ${p.name} (${seen.get(p.gsis_id)} and ${p.pos})`);
+      else seen.set(p.gsis_id, p.pos);
+    }
+  }
+  if (doubles.length) throw new Error(`${doubles.length} defender(s) in two slots on ${new Set(doubles.map(d => d.split(' ')[0])).size} team(s): ${doubles.slice(0, 6).join('; ')}${doubles.length > 6 ? '; …' : ''}`);
+  return `0 of ${Object.values(ROSTERS).reduce((n, r) => n + (r.defense || []).filter(p => p.gsis_id).length, 0)} seated defenders in two slots`;
+});
+
 const passed = results.filter(r => r.pass).length;
 console.log(`\n${'='.repeat(60)}`);
 console.log(`Task acceptance: ${passed}/${results.length} checks passed`);

@@ -33,15 +33,25 @@
  *     of #21): a scoring term we do not store must not stop the Tuesday
  *     commit.
  *
+ * Part 6 (2026-11-22, model build; the defensive players item of 2026-11-19):
+ * from the SAME downloaded rows, also writes weekly_defense_{SEASON}.json
+ * (defender-weeks and quarterback sacks taken) and defenders_{SEASON}.json
+ * (season to date per defender, the file the Matchup Preview reads). No
+ * second fetch. See scripts/_lib/weekly-defense.js. weekly_actuals is
+ * unchanged in shape: five readers depend on it.
+ *
  * Usage:
  *   node scripts/fetch-weekly-actuals.js            # SEASON from data/season.json
+ *   ACTUALS_STATS_FILE=<path.csv.gz> node scripts/fetch-weekly-actuals.js   # local file, no fetch (proofs)
  *   SEASON=2025 node scripts/fetch-weekly-actuals.js
  */
 
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { fetchGzippedCSV, normTeam, num, int } from './_lib/nflverse.js';
+import zlib from 'zlib';
+import { fetchGzippedCSV, parseCSV, normTeam, num, int } from './_lib/nflverse.js';
+import { buildWeeklyDefense } from './_lib/weekly-defense.js';
 import { GRADED_RULES, gradedPoints, reconcileRows } from './_lib/actuals-scoring.js';
 import { seasonFrom } from './_lib/season.js';
 import { contractMeta } from './_lib/stamp.js';
@@ -65,7 +75,11 @@ async function boardRules() {
 
 async function main() {
   const RULES = await boardRules();
-  const rows = await fetchGzippedCSV(URL, `stats_player_week ${SEASON}`);
+  const LOCAL = process.env.ACTUALS_STATS_FILE;
+  const rows = LOCAL
+    ? parseCSV(zlib.gunzipSync(fs.readFileSync(LOCAL)).toString('utf8'))
+    : await fetchGzippedCSV(URL, `stats_player_week ${SEASON}`);
+  if (LOCAL) console.log(`  read local ${LOCAL} (no fetch)`);
   console.log(`  parsed ${rows.length} rows`);
 
   // REG season, skill positions only. The board's scoring rules cover
@@ -151,6 +165,23 @@ async function main() {
   const OUT = path.join(__dirname, '..', 'src', 'data', 'intelligence', `weekly_actuals_${SEASON}.json`);
   fs.writeFileSync(OUT, JSON.stringify({ meta, rows: out }, null, 2));
   console.log(`  wrote ${OUT} (${out.length} rows, weeks: ${distinctWeeks.join(',')})`);
+
+  // Part 6: defenders, from the same rows.
+  const def = buildWeeklyDefense(rows, { season: SEASON, normTeam });
+  const defStamp = contractMeta({ sourceSeason: SEASON, sources: [URL] });
+  const defMeta = {
+    season: SEASON, ...defStamp, weeks_present: def.weeks, source_url: URL,
+    defender_rows: def.defRows.length, quarterback_rows: def.qbRows.length,
+    note: 'Defender production per week from nflverse stats_player_week (DL, LB and DB rows; quarterbacks with sacks taken). Each row carries the team the player played for that week.',
+  };
+  const OUT_W = path.join(__dirname, '..', 'src', 'data', 'intelligence', `weekly_defense_${SEASON}.json`);
+  fs.writeFileSync(OUT_W, JSON.stringify({ meta: defMeta, defenders: def.defRows, quarterbacks: def.qbRows }));
+  const OUT_S = path.join(__dirname, '..', 'src', 'data', 'intelligence', `defenders_${SEASON}.json`);
+  fs.writeFileSync(OUT_S, JSON.stringify({
+    meta: { ...defMeta, players: Object.keys(def.players).length, note: 'Season to date per defender and per quarterback (sacks taken). per_game.pressure = sacks plus quarterback hits a game; takeaways = interceptions plus forced fumbles. by_team lists the weeks he played for each team. Read by the Matchup Preview, part 6.' },
+    players: def.players, quarterbacks: def.qbs,
+  }));
+  console.log(`  wrote ${OUT_W} (${def.defRows.length} defender rows, ${def.qbRows.length} quarterback rows) and ${OUT_S} (${Object.keys(def.players).length} defenders)`);
 }
 
 main().catch(err => {

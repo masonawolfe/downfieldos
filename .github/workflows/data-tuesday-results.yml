@@ -172,7 +172,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/data/intelligence/weekly_actuals_2026.json CALIBRATION.md src/data/intelligence/calibration_2026.json
+          git add src/data/intelligence/weekly_actuals_2026.json src/data/intelligence/weekly_defense_2026.json src/data/intelligence/defenders_2026.json CALIBRATION.md src/data/intelligence/calibration_2026.json
           git add src/data/intelligence/pbp/
           git add src/data/playerBoard2026.js data/board_last_snapshot.json BOARD.md BOARD_WEEKLY.md src/data/rosters2026.js
           git add src/data/weeklyBoard2026.js src/data/intelligence/weekly_projections/

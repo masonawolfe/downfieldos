@@ -438,44 +438,59 @@ async function main() {
     });
 
     // === DEFENSE ===
+    // Part 6 (2026-11-22, model build): one man, one slot. The depth chart
+    // lists some defenders at two positions (a corner also at nickel, an end
+    // also at tackle), and each slot used to pick from its own list, so one
+    // man filled two slots on 27 of 32 teams. Each pick now skips anyone
+    // already seated, in slot order (EDGE, DT, LB, CB, SCB, FS, SS), and the
+    // nickel falls back to the next corner when its own list runs out. The
+    // same rule is in reconcile-rosters-availability.mjs.
+    const usedDef = new Set();
+    const pickDef = (cands, count) => {
+      const seenId = new Set(); // one man listed twice in a pool keeps his first entry
+      const chosen = pickAvailable(cands.filter(c => !(c.gsis_id && (usedDef.has(c.gsis_id) || (seenId.has(c.gsis_id) ? true : (seenId.add(c.gsis_id), false))))), count);
+      for (const c of chosen) if (c.gsis_id) usedDef.add(c.gsis_id);
+      return chosen;
+    };
     // EDGE
     const edgeCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['LDE', 'RDE', 'LOLB', 'ROLB', 'EDGE'].includes(s.posAbb)).map(e => [e.name, e])).values()],
       'def'
     );
-    pickAvailable(edgeCands, 2).forEach((c, i) => push(defense, `EDGE${i + 1}`, c, 'EDGE', edgeCands));
+    pickDef(edgeCands, 2).forEach((c, i) => push(defense, `EDGE${i + 1}`, c, 'EDGE', edgeCands));
 
     // DT
     const dtCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['LDT', 'RDT', 'NT', 'DT'].includes(s.posAbb)).map(d => [d.name, d])).values()],
       'def'
     );
-    pickAvailable(dtCands, 1).forEach(c => push(defense, 'DT', c, 'DT', dtCands));
+    pickDef(dtCands, 1).forEach(c => push(defense, 'DT', c, 'DT', dtCands));
 
     // LB
     const lbCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['MLB', 'LILB', 'RILB', 'WLB', 'SLB', 'ILB'].includes(s.posAbb)).map(l => [l.name, l])).values()],
       'def'
     );
-    pickAvailable(lbCands, 2).forEach((c, i) => push(defense, `LB${i + 1}`, c, 'LB', lbCands));
+    pickDef(lbCands, 2).forEach((c, i) => push(defense, `LB${i + 1}`, c, 'LB', lbCands));
 
     // CB
     const cbCands = sortByRankAndSnaps(
       [...new Map(teamStarters.filter(s => ['LCB', 'RCB', 'CB'].includes(s.posAbb)).map(c => [c.name, c])).values()],
       'def'
     );
-    pickAvailable(cbCands, 2).forEach((c, i) => push(defense, `CB${i + 1}`, c, 'CB', cbCands));
+    pickDef(cbCands, 2).forEach((c, i) => push(defense, `CB${i + 1}`, c, 'CB', cbCands));
 
     // SCB (nickel)
-    const scbCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'NB'), 'def');
-    pickAvailable(scbCands, 1).forEach(c => push(defense, 'SCB', c, 'CB', scbCands));
+    // Pool: the nickel list first, then the corners (part 6 fallback).
+    const scbCands = [...sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'NB'), 'def'), ...cbCands];
+    pickDef(scbCands, 1).forEach(c => push(defense, 'SCB', c, 'CB', scbCands));
 
     // FS / SS
     const fsCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'FS'), 'def');
-    pickAvailable(fsCands, 1).forEach(c => push(defense, 'FS', c, 'S', fsCands));
+    pickDef(fsCands, 1).forEach(c => push(defense, 'FS', c, 'S', fsCands));
 
     const ssCands = sortByRankAndSnaps(teamStarters.filter(s => s.posAbb === 'SS'), 'def');
-    pickAvailable(ssCands, 1).forEach(c => push(defense, 'SS', c, 'S', ssCands));
+    pickDef(ssCands, 1).forEach(c => push(defense, 'SS', c, 'S', ssCands));
 
     rosters[team] = { offense, defense };
   });

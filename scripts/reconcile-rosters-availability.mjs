@@ -87,6 +87,12 @@ async function main() {
   for (const [team, sides] of Object.entries(rosters)) {
     for (const side of ['offense', 'defense']) {
       const rows = sides[side] || [];
+      // Part 6 (2026-11-22): one man, one slot on defence, in slot order,
+      // the rule fetch-nflverse-roster-base.js applies; the nickel falls back
+      // to the corner pool when its own runs out (rows built before part 6
+      // carry a nickel-only pool).
+      const usedDef = new Set();
+      const cbPool = side === 'defense' ? (rows.find(r => /^CB\d/.test(r.pos))?.candidates || []) : [];
       // Group rows by position family, preserving order (WR1 before WR2).
       const groups = new Map(); // groupKey → [rows in order]
       for (const row of rows) {
@@ -104,7 +110,16 @@ async function main() {
           continue;
         }
         const count = groupRows.length;
-        const { chosen } = pickAvailable(first.candidates, count, availById);
+        let pool = first.candidates;
+        if (side === 'defense') {
+          if (gk === 'SCB') pool = [...pool, ...cbPool.filter(c => !pool.some(p => p.gsis_id && p.gsis_id === c.gsis_id))];
+          // The same man can sit twice in one pool under two names or
+          // spellings (TEN, 2026-11-22: CB1 and CB2); keep his first entry.
+          const seenId = new Set();
+          pool = pool.filter(c => !(c.gsis_id && (usedDef.has(c.gsis_id) || (seenId.has(c.gsis_id) ? true : (seenId.add(c.gsis_id), false)))));
+        }
+        const { chosen } = pickAvailable(pool, count, availById);
+        if (side === 'defense') for (const c of chosen) if (c.gsis_id) usedDef.add(c.gsis_id);
         // If chosen is shorter than count, the tail rows have no
         // available candidate in the pool; annotate but leave the
         // pre-existing player so consumers see the last known state.
