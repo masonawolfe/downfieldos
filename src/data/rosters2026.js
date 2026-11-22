@@ -3,9 +3,13 @@
 // modifier), not a player evaluation. See rating_source on each row. UI
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
-// Generated: 2026-11-21T13:38:04.679Z
+// Generated: 2026-11-21T13:38:04.678Z
+// Reconciled: 2026-11-22T12:32:10.981Z against availability_2026.json
+//             (generated 2026-11-22T12:28:44.481Z) — 6 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -16,8 +20,8 @@ export const ROSTERS_2026 = {
     "offense": [
       {
         "pos": "QB",
-        "gsis_id": "00-0041561",
-        "name": "Carson Beck",
+        "gsis_id": "00-0026300",
+        "name": "Josh Johnson",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -46,7 +50,8 @@ export const ROSTERS_2026 = {
             "posAbb": "QB",
             "posRank": 4
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Carson Beck (Out)"
       },
       {
         "pos": "RB1",
@@ -10427,8 +10432,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RG",
-        "gsis_id": "00-0035702",
-        "name": "Dalton Risner",
+        "gsis_id": "00-0040359",
+        "name": "Jacob Bayer",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -10511,7 +10516,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RG",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Dalton Risner (Out)"
       },
       {
         "pos": "RT",
@@ -10801,8 +10807,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LB2",
-        "gsis_id": "00-0034754",
-        "name": "Oren Burks",
+        "gsis_id": "00-0040723",
+        "name": "Jack Kiser",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -10855,7 +10861,8 @@ export const ROSTERS_2026 = {
             "posAbb": "ILB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Oren Burks (IR)"
       },
       {
         "pos": "CB1",
@@ -14121,7 +14128,7 @@ export const ROSTERS_2026 = {
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: DaRon Bland (Out)",
+        "starter_reason": "promoted after: DaRon Bland (IR)",
         "candidates": [
           {
             "gsis_id": "00-0037275",
@@ -40397,7 +40404,7 @@ export const ROSTERS_2026 = {
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Dontayvion Wicks (Out)",
+        "starter_reason": "promoted after: Dontayvion Wicks (IR)",
         "candidates": [
           {
             "gsis_id": "00-0040867",
@@ -41894,12 +41901,11 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0036775",
-        "name": "Brandon Smith",
+        "gsis_id": "00-0039739",
+        "name": "Roman Wilson",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: Roman Wilson (IR)",
         "candidates": [
           {
             "gsis_id": "00-0036252",
@@ -42007,8 +42013,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0036862",
-        "name": "Ben Skowronek",
+        "gsis_id": "00-0036775",
+        "name": "Brandon Smith",
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
@@ -48142,8 +48148,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0039032",
-        "name": "Tyjae Spears",
+        "gsis_id": "00-0040886",
+        "name": "Nicholas Singleton",
         "grade": "Average",
         "rating": 73,
         "rating_source": "snap_share_v1",
@@ -48184,7 +48190,8 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Tyjae Spears (IR)"
       },
       {
         "pos": "WR1",
@@ -51241,8 +51248,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-21T13:38:04.678Z",
-  "availability_stamp": "2026-11-21T12:29:49.116Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-22T12:28:44.481Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-22T12:32:10.981Z",
+  "swaps_this_run": 6,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
