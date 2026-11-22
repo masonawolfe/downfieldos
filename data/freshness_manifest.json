@@ -2672,6 +2672,86 @@
       "verified_on": null,
       "label": null,
       "note": "Built at deploy beside the play files; nothing in src fetches it. Live copy says generated 2026-09-15, unchanged since the deploy cache filled (QA v2)."
+    },
+    {
+      "path": "src/data/intelligence/weekly_defense_2026.json",
+      "producer": "scripts/fetch-weekly-actuals.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml",
+        "data-weekly-actuals-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "weeks": "/meta/weeks_present",
+        "rows": "/defenders",
+        "week_field": "week"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [],
+      "label_route": null,
+      "consumers": [
+        "data (defender-weeks and quarterback sacks taken); no page reads it"
+      ],
+      "tier": "unread",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": null,
+      "note": "Model build part 6 (2026-11-22, Mason: \"Yeah, build it\"; the defensive players item of 2026-11-19). Written by scripts/fetch-weekly-actuals.js from the same nflverse stats_player_week download as weekly_actuals_2026.json, so it shares that row's cadence and ceiling (largest gap 168.9). Not bundled: the page reads defenders_2026.json."
+    },
+    {
+      "path": "src/data/intelligence/defenders_2026.json",
+      "producer": "scripts/fetch-weekly-actuals.js",
+      "outputs_also": [],
+      "workflows": [
+        "data-tuesday-results.yml",
+        "data-weekly-actuals-v2.yml"
+      ],
+      "stamp": {
+        "kind": "json",
+        "generated_at": "/meta/generated_at",
+        "source_season": "/meta/source_season"
+      },
+      "expected_season": "season",
+      "season_by_design": null,
+      "max_age_hours": 192,
+      "change_driven": false,
+      "in_season_only": true,
+      "coverage": "graded_week",
+      "coverage_read": {
+        "weeks": "/meta/weeks_present"
+      },
+      "coverage_grace_hours": 6,
+      "derived_from": [],
+      "lineage_grace_hours": null,
+      "ui_consumers": [
+        "src/components/pages/MatchupCenter.jsx"
+      ],
+      "label_route": "/matchup-preview",
+      "consumers": [
+        "src/components/pages/MatchupCenter.jsx (Player-Level Matchups, its own chunk)",
+        "/matchup-preview"
+      ],
+      "tier": "public",
+      "on_stale": "red",
+      "static": false,
+      "verified_on": null,
+      "label": "<season> season through week <N>, the last week with every game in",
+      "note": "Model build part 6 (2026-11-22). Season to date per defender, built with weekly_defense_2026.json from the same download. Public: read by Player-Level Matchups on /matchup-preview through a dynamic import, dated through AsOf from meta.label (\"2026 season through week N\", the last complete week by actualsCompleteness).",
+      "label_from": "/meta/label"
     }
   ]
 }

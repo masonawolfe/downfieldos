@@ -7,7 +7,7 @@ import { pct, tn } from '../../utils/formatters';
 import { calcMatchupGrade } from '../../utils/grading';
 import { generateTweetThread } from '../../utils/tweetThread';
 import { generatePrepSheet, generateNewsletterDraft, generateArticle } from '../../utils/prepSheet';
-import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary, verdictForMatchup } from '../../utils/narratives';
+import { matchupPreview, scriptedPlaysPreview, playerMatchupSummary } from '../../utils/narratives';
 import { TeamSelect } from '../ui/TeamSelect';
 import { MarkdownBlock } from '../ui/MarkdownBlock';
 import { RatingBar } from '../ui/RatingBar';
@@ -24,6 +24,8 @@ import { generateMatchupIntelSummary } from '../../utils/matchupIntelSummary';
 import { calculateChemistryScore } from '../../utils/formerTeammates';
 import { calcFilmStudy } from '../../utils/filmStudy';
 import { RefereeProfileCard } from '../ui/RefereeProfileCard';
+import { AsOf } from '../ui/AsOf';
+import { defenderLine } from '../../utils/defenderLine';
 
 export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryTeam }) {
   const isMobile = useIsMobile();
@@ -46,6 +48,14 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
   const [showThread, setShowThread] = useState(false);
   const [copiedIdx, setCopiedIdx] = useState(null);
   const [gameWeek, setGameWeek] = useState(1);
+  // Part 6 (2026-11-22): each defender's own 2026 production, loaded only
+  // on this page (its own chunk, not the main bundle).
+  const [defenders, setDefenders] = useState(null);
+  useEffect(() => {
+    let live = true;
+    import('../../data/intelligence/defenders_2026.json').then(m => { if (live) setDefenders(m.default || m); }).catch(() => {});
+    return () => { live = false; };
+  }, []);
   const os = useMemo(() => agg(plays, offTm), [plays, offTm]);
   const ds = useMemo(() => agg(plays, defTm), [plays, defTm]);
   const bl = useMemo(() => lgbl(plays), [plays]);
@@ -135,6 +145,10 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             </div>
           </div>
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 6 }}>{tn(playerOffLabel)} offense vs {tn(playerDefLabel)} defense</div>
+          <div data-note="matchup-best-guess" style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", fontSize: 12, color: "#64748b", marginTop: 6, lineHeight: 1.5 }}>
+            <span>Who lines up across from whom is our best guess from the depth chart. The bars show playing time, not skill. Defender numbers are his own season to date.</span>
+            <AsOf meta={defenders?.meta} />
+          </div>
         </div>
         <div style={{ padding: 24 }}>
           {playerMatchups.map((m, i) => {
@@ -142,18 +156,16 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
             const alt = m.alternates[altIdx] || m.alternates[0];
             const def = alt?.def;
             const scenario = alt?.scenario || "";
-            const edge = def ? m.off.rating - def.rating : 0;
-            // Tighter threshold: > 3 = clear, > 6 = strong, < -3 / -6 = same the other way.
-            const edgeColor = edge > 3 ? "#16a34a" : edge < -3 ? "#dc2626" : "#eab308";
-            const edgeLabel = edge > 3 ? "OFF +" + edge : edge < -3 ? "DEF +" + Math.abs(edge) : "EVEN";
-            const verdict = def ? verdictForMatchup(m.off, def, scenario, playerOffLabel, playerDefLabel) : "";
+            // Part 6 (2026-11-22): no winner is named. The old edge badge and
+            // verdict compared two playing-time ratings as if they were skill.
+            const line = def ? defenderLine(def, defenders) : null;
+            const verdict = def ? `${scenario.replace(" — ", ", ")}. ${line || ""}`.trim() : "";
             const teamForOff = playerSide === "off" ? offTm : defTm;
             const teamForDef = playerSide === "off" ? defTm : offTm;
             return (
               <div key={i} style={{ marginBottom: 20, paddingBottom: 20, borderBottom: i < playerMatchups.length - 1 ? "1px solid #f1f5f9" : "none" }}>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10, flexWrap: "wrap", gap: 8 }}>
                   <div style={{ fontSize: 14, fontWeight: 700, color: "#f97316" }}>{m.label}</div>
-                  <span style={{ fontSize: 11, fontWeight: 800, color: edgeColor, background: edgeColor + "15", padding: "3px 10px", borderRadius: 8, fontFamily: "monospace" }}>{edgeLabel}</span>
                 </div>
                 {/* Defender pivot pills */}
                 {m.alternates.length > 1 && (
@@ -183,13 +195,13 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
                   <div style={{ background: "#f0fdf4", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>OFFENSE</div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}><PlayerLink player={m.off} team={teamForOff}>{m.off.name}</PlayerLink></div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} | {m.off.grade}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{m.off.pos} · playing time</div>
                     <RatingBar value={m.off.rating} color="#16a34a" />
                   </div>
                   <div style={{ background: "#fef2f2", borderRadius: 10, padding: "10px 14px" }}>
                     <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>DEFENSE</div>
                     <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", marginBottom: 4 }}>{def ? <PlayerLink player={def} team={teamForDef}>{def.name}</PlayerLink> : "—"}</div>
-                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{def?.pos} | {def?.grade}</div>
+                    <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 6 }}>{def?.pos} · playing time</div>
                     {def && <RatingBar value={def.rating} color="#dc2626" />}
                   </div>
                 </div>

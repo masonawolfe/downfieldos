@@ -11,6 +11,7 @@ import { DRAFT_NEEDS_2026 } from '../../data/draftNeeds2026';
 import { AsOf } from '../ui/AsOf';
 import { analyzeDraftPick } from '../../utils/draftAnalysis';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
+import { playingTimeNote, playingTimeTier } from '../../utils/playingTime';
 
 const contractPlayers = contractYearData?.contract_year_players || [];
 
@@ -82,14 +83,14 @@ function RosteredPlayerView({ player, team, teamName }) {
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <span style={{ fontSize: 48, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{player.rating}</span>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 700, color: gradeColor }}>{player.grade}</div>
+            <div style={{ fontSize: 16, fontWeight: 700, color: gradeColor }}>{player.grade === 'TBD' ? 'Not rated' : `Playing time: ${playingTimeTier(player.rating)}`}</div>
             {player.trait && <div style={{ fontSize: 13, color: "#8B949E" }}>{player.trait}</div>}
           </div>
         </div>
         {/* Rating bar */}
         <div style={{ marginTop: 16, maxWidth: 300 }}>
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, color: "#64748b", marginBottom: 4 }}>
-            <span>Rating</span><span>{player.rating}/100</span>
+            <span>Playing time</span><span>{player.rating}/100</span>
           </div>
           <div style={{ height: 6, background: "#1e293b", borderRadius: 3, overflow: "hidden" }}>
             <div style={{ height: "100%", width: `${player.rating}%`, background: gradeColor, borderRadius: 3 }} />
@@ -161,14 +162,10 @@ function RosteredPlayerView({ player, team, teamName }) {
       {/* Scouting note */}
       <div style={{ background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0", padding: 24, marginBottom: 20 }}>
         <h3 style={{ fontSize: 16, fontWeight: 800, color: "#0f172a", margin: "0 0 12px", display: "flex", alignItems: "center", gap: 8 }}>
-          <Star size={16} color="#f97316" /> Scouting Note
+          <Star size={16} color="#f97316" /> Playing time
         </h3>
         <p style={{ fontSize: 14, lineHeight: 1.8, color: "#334155", margin: 0 }}>
-          {player.grade === 'Elite' && `${player.name} is one of the best at the position. Game-plan around this player. Opponents will scheme specifically to neutralize this matchup.`}
-          {player.grade === 'Above Avg' && `${player.name} is a quality starter who can win individual matchups. Solid contributor who elevates the unit around them.`}
-          {player.grade === 'Average' && `${player.name} is a competent starter but won't dominate. Scheme and matchup dependent — effective when protected by system design.`}
-          {player.grade === 'Below Avg' && `${player.name} is a liability. Opponents will target this spot. ${team} needs to scheme around this weakness.`}
-          {player.grade === 'TBD' && `${player.name} is ungraded — limited data available. Watch the preseason for role clarity.`}
+          {playingTimeNote(player)}
         </p>
       </div>
 

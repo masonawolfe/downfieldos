@@ -113,7 +113,7 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
               <div key={i} style={{ background: "#f8fafc", borderRadius: 10, padding: 12, border: "1px solid #f1f5f9" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
                   <span style={{ fontSize: 11, fontWeight: 700, color: "#f97316", fontFamily: "monospace" }}>{p.pos}</span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: p.grade === "Elite" ? "#2563eb" : p.grade === "Above Avg" ? "#16a34a" : "#64748b" }}>{p.grade} ({p.rating})</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: p.grade === "Elite" ? "#2563eb" : p.grade === "Above Avg" ? "#16a34a" : "#64748b" }}>{p.grade === "TBD" ? "Not rated" : `Playing time ${p.rating}`}</span>
                 </div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: "#0f172a" }}><PlayerLink player={p} team={team}>{p.name}</PlayerLink></div>
                 {p.trait && <div style={{ fontSize: 12, color: "#94a3b8" }}>{p.trait}</div>}

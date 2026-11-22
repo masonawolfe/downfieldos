@@ -209,7 +209,9 @@ const cov = (k) => rows.filter(r => r.coverage === k).map(r => yearFree(r.path))
 // Team news plan step 4 (2026-11-19): the weights file's counted_through_week
 // is the plan's own failing check ("goes red when the count trails the graded
 // week by more than one"), so it joins the four graded_week rows by name.
-assert(cov('graded_week') === 'calibration_YYYY.json,defenseYYYY.js,gamesYYYY.json,team_changes_weights.json,weekly_actuals_YYYY.json', `graded_week rows are actuals, calibration, games, defense and the team changes weights (${cov('graded_week')})`);
+// Model build part 6 (2026-11-22): the two defender files come from the same
+// download as the actuals and cover the same graded weeks, so they join by name.
+assert(cov('graded_week') === 'calibration_YYYY.json,defenders_YYYY.json,defenseYYYY.js,gamesYYYY.json,team_changes_weights.json,weekly_actuals_YYYY.json,weekly_defense_YYYY.json', `graded_week rows are actuals, calibration, games, defense, the team changes weights and the two defender files (${cov('graded_week')})`);
 assert(cov('report_week') === 'injuries_YYYY_current.json', 'report_week is the current injuries file');
 assert(cov('season_present') === 'referee_appearances.json,referee_appearances_compact.json,referee_tendencies.json', 'season_present rows are the three referee files');
 assert(cov('games_finished') === 'pbp_sync_metadata.json', 'games_finished is pbp_sync_metadata.json');

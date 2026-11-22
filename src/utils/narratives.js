@@ -76,7 +76,19 @@ export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {
   const dt1 = findDef("DT1"), dt2 = findDef("DT2");
 
   // Helper: build alternates list, filtering to real players
-  const alts = (arr) => arr.filter(a => isReal(a.def));
+  // Part 6 (2026-11-22): a defender is offered once per receiver, even if
+  // the depth chart lists him in two slots (rosters are now one man, one
+  // slot; this keeps an older roster from showing him twice).
+  const alts = (arr) => {
+    const seen = new Set();
+    return arr.filter(a => {
+      if (!isReal(a.def)) return false;
+      const id = a.def.gsis_id || a.def.name;
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    });
+  };
 
   const matchups = [];
 

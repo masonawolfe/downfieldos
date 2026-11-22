@@ -176,6 +176,15 @@ async function main() {
   };
   const OUT_W = path.join(__dirname, '..', 'src', 'data', 'intelligence', `weekly_defense_${SEASON}.json`);
   fs.writeFileSync(OUT_W, JSON.stringify({ meta: defMeta, defenders: def.defRows, quarterbacks: def.qbRows }));
+  // The page's date label: the last week every scheduled game is in
+  // (actualsCompleteness, the rule calibration uses), so a Thursday game
+  // alone never reads as "through week N".
+  const { SCHEDULE_2026 } = await import(path.join(__dirname, '..', 'src', 'data', 'schedule2026.js'));
+  const { actualsCompleteness } = await import('./_lib/kickoff.js');
+  const compDef = actualsCompleteness(SCHEDULE_2026, def.defRows);
+  const throughWeek = Math.max(0, ...Object.entries(compDef).filter(([, c]) => c.complete).map(([w]) => Number(w)));
+  defMeta.through_week = throughWeek || null;
+  defMeta.label = throughWeek ? `${SEASON} season through week ${throughWeek}` : null;
   const OUT_S = path.join(__dirname, '..', 'src', 'data', 'intelligence', `defenders_${SEASON}.json`);
   fs.writeFileSync(OUT_S, JSON.stringify({
     meta: { ...defMeta, players: Object.keys(def.players).length, note: 'Season to date per defender and per quarterback (sacks taken). per_game.pressure = sacks plus quarterback hits a game; takeaways = interceptions plus forced fumbles. by_team lists the weeks he played for each team. Read by the Matchup Preview, part 6.' },

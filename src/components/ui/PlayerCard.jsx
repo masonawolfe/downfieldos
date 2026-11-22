@@ -5,6 +5,7 @@ import contractYearData from '../../data/intelligence/contract_year_players.json
 import { PLAYER_STATS_2025, PLAYER_STATS_2025_META } from '../../data/playerStats2025';
 import { AsOf } from './AsOf';
 import { injuryFor } from '../../utils/injuries';
+import { playingTimeNote, playingTimeTier } from '../../utils/playingTime';
 
 const contractPlayers = contractYearData?.contract_year_players || [];
 
@@ -58,7 +59,7 @@ export function PlayerCard({ player, team, onClose }) {
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 8 }}>
             <span style={{ fontSize: 32, fontWeight: 900, color: gradeColor, fontFamily: "monospace" }}>{player.rating}</span>
             <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: gradeColor }}>{player.grade}</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: gradeColor }}>{player.grade === 'TBD' ? 'Not rated' : `Playing time: ${playingTimeTier(player.rating)}`}</div>
               {player.trait && <div style={{ fontSize: 12, color: "#8B949E" }}>{player.trait}</div>}
             </div>
           </div>
@@ -155,11 +156,7 @@ export function PlayerCard({ player, team, onClose }) {
 
           {/* Position context */}
           <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>
-            {player.grade === 'Elite' && `${player.name} is one of the best at the position. Game-plan around this player.`}
-            {player.grade === 'Above Avg' && `${player.name} is a quality starter who can win individual matchups. Solid contributor.`}
-            {player.grade === 'Average' && `${player.name} is a competent starter but won't dominate. Scheme and matchup dependent.`}
-            {player.grade === 'Below Avg' && `${player.name} is a liability. Opponents will target this spot.`}
-            {player.grade === 'TBD' && `${player.name} is ungraded — limited data available. Watch the preseason.`}
+            {playingTimeNote(player)}
           </div>
 
           {/* Full profile link */}
