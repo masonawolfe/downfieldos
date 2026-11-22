@@ -28,6 +28,11 @@ ok(d.players.C1.games === 1 && d.players.C1.totals.passes_defended === 3, 'a pla
 ok(d.qbs.Q1?.sacks_taken === 4 && d.qbs.Q1.sacks_taken_per_game === 4, 'a quarterback gets his sacks taken');
 ok(!d.players.W1 && !d.defRows.some(r => r.gsis_id === 'W1'), 'an offensive player is not a defender');
 
+// 1b. QA 2026-11-22 (part 6 row 1): the summary stops at the last complete week.
+const cut = buildWeeklyDefense(rows, { season: 2026, normTeam: t => t, summaryThroughWeek: 2 });
+ok(cut.players.D1.games === 2 && cut.players.D1.team === 'IND' && !cut.players.D1.by_team.SF, 'the summary stops at summaryThroughWeek (week 9 left out, team as of week 2)');
+ok(cut.defRows.length === d.defRows.length, 'the weekly rows are all kept');
+
 // 2. Induced: a renamed column must stop the build, not write zeros.
 const bad = rows.map(r => { const { def_pass_defended, ...rest } = r; return { ...rest, def_passes_defended: def_pass_defended }; });
 let threw = null; try { buildWeeklyDefense(bad, { season: 2026 }); } catch (e) { threw = e.message; }

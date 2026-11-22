@@ -184,13 +184,16 @@ async function main() {
   const compDef = actualsCompleteness(SCHEDULE_2026, def.defRows);
   const throughWeek = Math.max(0, ...Object.entries(compDef).filter(([, c]) => c.complete).map(([w]) => Number(w)));
   defMeta.through_week = throughWeek || null;
+  // QA 2026-11-22 (part 6 row 1): the summary the page reads stops at the
+  // last complete week, so its "through week N" label is true for every team.
+  const defSummary = buildWeeklyDefense(rows, { season: SEASON, normTeam, summaryThroughWeek: throughWeek || 0 });
   defMeta.label = throughWeek ? `${SEASON} season through week ${throughWeek}` : null;
   const OUT_S = path.join(__dirname, '..', 'src', 'data', 'intelligence', `defenders_${SEASON}.json`);
   fs.writeFileSync(OUT_S, JSON.stringify({
-    meta: { ...defMeta, players: Object.keys(def.players).length, note: 'Season to date per defender and per quarterback (sacks taken). per_game.pressure = sacks plus quarterback hits a game; takeaways = interceptions plus forced fumbles. by_team lists the weeks he played for each team. Read by the Matchup Preview, part 6.' },
-    players: def.players, quarterbacks: def.qbs,
+    meta: { ...defMeta, players: Object.keys(defSummary.players).length, summary_weeks: throughWeek ? `1 to ${throughWeek}` : 'none', note: 'Season to date per defender and per quarterback (sacks taken). per_game.pressure = sacks plus quarterback hits a game; takeaways = interceptions plus forced fumbles. by_team lists the weeks he played for each team. Read by the Matchup Preview, part 6.' },
+    players: defSummary.players, quarterbacks: defSummary.qbs,
   }));
-  console.log(`  wrote ${OUT_W} (${def.defRows.length} defender rows, ${def.qbRows.length} quarterback rows) and ${OUT_S} (${Object.keys(def.players).length} defenders)`);
+  console.log(`  wrote ${OUT_W} (${def.defRows.length} defender rows, ${def.qbRows.length} quarterback rows) and ${OUT_S} (${Object.keys(defSummary.players).length} defenders, weeks 1 to ${throughWeek})`);
 }
 
 main().catch(err => {

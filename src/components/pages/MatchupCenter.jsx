@@ -146,7 +146,7 @@ export function MatchupCenter({ plays, rosters, initialOff, initialDef, primaryT
           </div>
           <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 6 }}>{tn(playerOffLabel)} offense vs {tn(playerDefLabel)} defense</div>
           <div data-note="matchup-best-guess" style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", fontSize: 12, color: "#64748b", marginTop: 6, lineHeight: 1.5 }}>
-            <span>Who lines up across from whom is our best guess from the depth chart. The bars show playing time, not skill. Defender numbers are his own season to date.</span>
+            <span>Who lines up across from whom is our best guess from the depth chart. The bars show playing time, not skill. Defender numbers are his own season to date, in games where he recorded a stat. They cannot yet show how he does against receivers in coverage, or whether he plays this week.</span>
             <AsOf meta={defenders?.meta} />
           </div>
         </div>

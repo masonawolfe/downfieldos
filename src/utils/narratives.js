@@ -52,13 +52,11 @@ export function scriptedPlaysPreview(tm, stats, roster) {
 
 // Build verdict text given offensive player, defender, scenario, and team codes.
 // Tighter thresholds: > 6 = clear advantage, 3-6 = edge, -3 to 3 = even.
-function verdictFor(off, def, scenario, offTm, defTm) {
-  const edge = off.rating - def.rating;
-  if (edge > 8) return `${scenario}: big advantage ${offTm}. ${off.name} should win this rep most of the time.`;
-  if (edge > 3) return `${scenario}: ${off.name} has the edge. Expect targets/touches when this matchup is on the field.`;
-  if (edge < -8) return `${scenario}: clear advantage ${defTm}. ${def.name} can erase ${off.name} on islands.`;
-  if (edge < -3) return `${scenario}: ${def.name} has the edge. Forces ${offTm} to scheme ${off.name} open.`;
-  return `${scenario}: even matchup. Comes down to leverage, technique, and play call.`;
+// Part 6 (2026-11-22, QA row 2): no winner is named. The ratings are
+// playing-time tiers, so the old "big advantage", "has the edge" and "should
+// win this rep" lines read playing time as skill. The scenario alone stays.
+function verdictFor(off, def, scenario) {
+  return `${scenario.replace(" — ", ", ")}.`;
 }
 
 export function playerMatchupSummary(offRoster, defRoster, offTm, defTm) {

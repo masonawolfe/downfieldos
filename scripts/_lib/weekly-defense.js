@@ -46,7 +46,7 @@ export function assertColumns(rows) {
   if (missing.length) throw new Error(`weekly defense: stats_player_week lacks column(s) ${missing.join(', ')}`);
 }
 
-export function buildWeeklyDefense(rows, { season, normTeam = t => t }) {
+export function buildWeeklyDefense(rows, { season, normTeam = t => t, summaryThroughWeek = null }) {
   assertColumns(rows);
   const reg = rows.filter(r => r.season_type === 'REG' && r.player_id && r.week);
   const defRows = [];
@@ -65,9 +65,12 @@ export function buildWeeklyDefense(rows, { season, normTeam = t => t }) {
   defRows.sort((a, b) => a.week - b.week || a.team.localeCompare(b.team) || String(a.gsis_id).localeCompare(String(b.gsis_id)));
   qbRows.sort((a, b) => a.week - b.week || a.team.localeCompare(b.team));
 
-  // Season to date, per defender.
+  // Season to date, per defender. QA 2026-11-22 (part 6 row 1): the page's
+  // label says "through week N", so the summary stops at summaryThroughWeek
+  // (the last week every game is in); the weekly file keeps every row.
+  const inSummary = r => summaryThroughWeek == null || r.week <= summaryThroughWeek;
   const players = {};
-  for (const r of defRows) {
+  for (const r of defRows.filter(inSummary)) {
     const p = (players[r.gsis_id] ||= { name: r.name, pos: r.pos, pos_group: r.pos_group, team: r.team, last_week: 0, games: 0, totals: Object.fromEntries(Object.keys(STAT_FIELDS).map(k => [k, 0])), by_team: {} });
     p.games++;
     for (const k of Object.keys(STAT_FIELDS)) p.totals[k] += r[k];
@@ -86,7 +89,7 @@ export function buildWeeklyDefense(rows, { season, normTeam = t => t }) {
     };
   }
   const qbs = {};
-  for (const r of qbRows) {
+  for (const r of qbRows.filter(inSummary)) {
     const q = (qbs[r.gsis_id] ||= { name: r.name, team: r.team, games: 0, sacks_taken: 0, sack_yards_lost: 0, last_week: 0 });
     q.games++; q.sacks_taken += r.sacks_taken; q.sack_yards_lost += r.sack_yards_lost;
     if (r.week >= q.last_week) { q.last_week = r.week; q.team = r.team; }

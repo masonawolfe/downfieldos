@@ -16,7 +16,9 @@ export function defenderLine(def, defenders) {
   const p = defenders.players[def.gsis_id];
   if (!p || !p.games) return `${def.name}: no 2026 game on record yet.`;
   const t = p.totals, g = p.games, per = p.per_game;
-  const games = plural(g, "game", "games");
+  // QA 2026-11-22: nflverse writes a defender's row only in a week he
+  // recorded a stat, so this counts those weeks, not games played.
+  const games = `${plural(g, "game", "games")} with a recorded stat`;
   const moved = Object.keys(p.by_team || {}).length > 1
     ? ` (with ${Object.entries(p.by_team).map(([team, b]) => `${team} weeks ${b.first_week} to ${b.last_week}`).join(", ")})`
     : "";

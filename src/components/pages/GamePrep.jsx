@@ -119,13 +119,11 @@ export function GamePrep({ plays, rosters, primaryTeam, navigate }) {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 12 }}>
           {playerMatchups.slice(0, 4).map((m, i) => {
-            const edge = m.off.rating - m.def.rating;
-            const edgeColor = edge > 5 ? "#16a34a" : edge < -5 ? "#dc2626" : "#eab308";
             return (
               <div key={i} style={{ background: "#f8fafc", borderRadius: 10, padding: 14 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
                   <span style={{ fontSize: 12, fontWeight: 700, color: "#f97316" }}>{m.label}</span>
-                  <span style={{ fontSize: 10, fontWeight: 800, color: edgeColor, background: edgeColor + "15", padding: "2px 8px", borderRadius: 6 }}>{edge > 5 ? "OFF +" + edge : edge < -5 ? "DEF +" + Math.abs(edge) : "EVEN"}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, color: "#64748b" }}>playing time, not skill</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}>
                   <span style={{ fontWeight: 600 }}>{m.off.name} <span style={{ color: "#94a3b8" }}>({m.off.rating})</span></span>

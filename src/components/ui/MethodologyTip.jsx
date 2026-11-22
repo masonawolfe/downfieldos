@@ -28,11 +28,11 @@ const METHODOLOGIES = {
   },
   playerRating: {
     label: "Player Rating",
-    calc: "Based on NFL draft capital, years of experience, and known performance level. Top-3 picks start higher. Peaks at years 4-8. Star players have manual overrides.",
+    calc: "A playing-time tier, 68 to 85 by share of snaps, plus or minus 2 for experience; 72 when no snap count is on record. It measures how much a player plays, not how well.",
   },
   edgeLabel: {
-    label: "Edge Indicator",
-    calc: "Rating difference between the two players. OFF +N means the offensive player is rated N points higher. DEF +N means the defender has the edge. EVEN = within 5 points.",
+    label: "Playing time",
+    calc: "Both numbers are playing-time tiers. The gap between them says who plays more, not who wins the matchup.",
   },
 };
 
