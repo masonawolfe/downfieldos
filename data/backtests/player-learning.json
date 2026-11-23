@@ -1,5 +1,13 @@
 {
-  "generated_utc": "2026-11-22T23:50:41.274Z",
+  "generated_utc": "2026-11-23T13:47:59.716Z",
+  "k_design": 4,
+  "positions_that_clear": [
+    "QB",
+    "RB",
+    "WR"
+  ],
+  "positions_rule": "a position learns in the board when its design_minus_pace_by_pos ci95 lies wholly below zero (scripts/_lib/learning.js reads this file)",
+  "quote": "all positions at K 4: -0.119 [-0.182, -0.059], 8 of 9 weeks; with only the positions that clear (chosen after seeing this data): -0.12 [-0.18, -0.062], 9 of 9 weeks",
   "git_ref": "origin/main",
   "rule": "base = (K x 2025 pace + 2026 points) / (K + 2026 games), K = 4 fixed in advance",
   "population": "every projected row of each frozen snapshot, weeks 2 to the last complete week, QB/RB/WR/TE with a 2025 pace; no stat line = 0; part 0 applied at the Tuesday freeze to every arm",

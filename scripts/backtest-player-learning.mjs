@@ -25,13 +25,19 @@
  * Fails loudly: under two commits of availability history (a shallow
  * clone), or no week graded.
  *
- * Usage: node scripts/backtest-player-learning.mjs [--git-ref <ref>] [--out <json>]
+ * The committed result (data/backtests/player-learning.json) is what switches
+ * a position on in the board: a position learns when its interval in
+ * design_minus_pace_by_pos lies wholly below zero (scripts/_lib/learning.js).
+ * Re-run weekly and commit the file to re-check tight ends.
+ *
+ * Usage: node scripts/backtest-player-learning.mjs [--git-ref <ref>] [--out <json>]   (--out defaults to nothing; the board's file is data/backtests/player-learning.json)
  */
 import fs from 'fs';
 import path from 'path';
 import { execFileSync } from 'child_process';
 import { fileURLToPath, pathToFileURL } from 'url';
 import { actualsCompleteness, firstKickoffUtcMs } from './_lib/kickoff.js';
+import { LEARNING_K, LEARNING_BACKTEST } from './_lib/learning.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.join(__dirname, '..');
@@ -40,7 +46,7 @@ const argVal = (k, d = null) => { const i = args.indexOf(k); return i >= 0 ? arg
 const REF = argVal('--git-ref', 'HEAD');
 const OUT = argVal('--out');
 const POS = ['QB', 'RB', 'WR', 'TE'];
-const K_DESIGN = 4;
+const K_DESIGN = LEARNING_K;
 const K_GRID = [2, 3, 4, 5, 6, 8, 12];
 const RESERVE = new Set(['IR', 'PUP', 'SUSP', 'NFI']);
 const AV = 'src/data/intelligence/availability_2026.json';
@@ -124,8 +130,13 @@ for (const [k, fn] of Object.entries(arms)) {
 const design = arms[`learned_k${K_DESIGN}`];
 const byPosCI = Object.fromEntries(POS.map(p => [p, ci(design, arms.pace_2025, rows.filter(x => x.pos === p))]));
 const playedOnly = rows.filter(x => x.played);
+const positionsThatClear = POS.filter(p => byPosCI[p].ci95[1] < 0);
 const out = {
   generated_utc: new Date().toISOString(),
+  k_design: K_DESIGN,
+  positions_that_clear: positionsThatClear,
+  positions_rule: 'a position learns in the board when its design_minus_pace_by_pos ci95 lies wholly below zero (scripts/_lib/learning.js reads this file)',
+  quote: `all positions at K ${K_DESIGN}: ${res[`learned_k${K_DESIGN}`].minus_pace.diff} [${res[`learned_k${K_DESIGN}`].minus_pace.ci95.join(', ')}], ${res[`learned_k${K_DESIGN}`].weeks_better_than_pace} of ${weeks.length} weeks; with only the positions that clear (chosen after seeing this data): ${res[`learned_k${K_DESIGN}_not_te`].minus_pace.diff} [${res[`learned_k${K_DESIGN}_not_te`].minus_pace.ci95.join(', ')}], ${res[`learned_k${K_DESIGN}_not_te`].weeks_better_than_pace} of ${weeks.length} weeks`,
   git_ref: REF,
   rule: `base = (K x 2025 pace + 2026 points) / (K + 2026 games), K = ${K_DESIGN} fixed in advance`,
   population: 'every projected row of each frozen snapshot, weeks 2 to the last complete week, QB/RB/WR/TE with a 2025 pace; no stat line = 0; part 0 applied at the Tuesday freeze to every arm',

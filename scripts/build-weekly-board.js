@@ -64,12 +64,15 @@
  *   (K x 2025 pace + his 2026 points) / (K + his 2026 games), K = 4,
  * where his 2026 games are the weeks before W with a graded stat line in
  * weekly_actuals_2026.json (complete or not, review 2026-11-22), so 2026 takes half the weight
- * by his fourth game. Quarterbacks, running backs and receivers only: tight
- * ends keep the 2025 pace, because the test showed no gain for them (+0.005,
- * interval -0.081 to +0.085). Back-test, committed with the change:
- * scripts/backtest-player-learning.mjs, data/backtests/player-learning-2026-11-22.json
- * (board's own snapshot population, weeks 2 to 10: average miss 3.993 to
- * 3.873, better by 0.12 [0.06, 0.18], 9 of 9 weeks). The 2025 pace, games,
+ * by his fourth game. Which positions learn is read from the committed test
+ * result (scripts/_lib/learning.js, data/backtests/player-learning.json): a
+ * position learns when its interval clears zero. Today that is quarterbacks,
+ * running backs and receivers; tight ends keep the 2025 pace (+0.005,
+ * interval -0.081 to +0.085) and switch on when a re-run clears them. Test,
+ * board's own snapshot population, weeks 2 to 10: average miss 3.993 to
+ * 3.873, better by 0.12 [0.06, 0.18], 9 of 9 weeks with tight ends left out
+ * (8 of 9 for all positions; the tight-end split was seen before it was
+ * chosen). The 2025 pace, games,
  * points and weight are kept in weekly_value_components.
  *
  * Past weeks are never graded from this file: the weekly projection of
@@ -88,9 +91,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { regWeeks as scheduleRegWeeks, lastKickoffUtcMs, actualsCompleteness } from './_lib/kickoff.js';
 
-// 2026 learning (2026-11-22). See the file header.
-export const LEARNING_K = 4;
-export const LEARNING_POS = new Set(['QB', 'RB', 'WR']);
+// 2026 learning (2026-11-22). See the file header. K and the positions come
+// from scripts/_lib/learning.js; the positions are read from the committed
+// test result, never written by hand here (QA L-1, 2026-11-23).
+import { LEARNING_K, LEARNING_BACKTEST, learningPositions } from './_lib/learning.js';
 /** A player's 2026 games, by gsis_id: every week with a graded stat line.
  * Review 2026-11-22: not only complete weeks. If a week's results are late,
  * the frozen next week would otherwise drop every game of that week, even the
@@ -127,6 +131,8 @@ function weekInPlay(schedule, nowMs) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.join(__dirname, '..');
+// QA L-1: read from the committed test result, after REPO_ROOT exists.
+const LEARNING_POS = learningPositions(REPO_ROOT);
 const OUT = path.join(REPO_ROOT, 'src', 'data', 'weeklyBoard2026.js');
 
 const NORM_TEAM = { LA: 'LAR', OAK: 'LV', STL: 'LAR', SD: 'LAC', WSH: 'WAS', AZ: 'ARI' };
@@ -549,7 +555,7 @@ async function main() {
   console.log('  rows without weekly_value (rookies/no-proj + byes + K/DEF):', totalRows - scoredRows);
   const zeroedRows = rows.filter(r => r.weekly_value_components?.availability_zeroed);
   const learnedRows = rows.filter(r => r.weekly_value_components?.games_2026 > 0).length;
-  console.log(`  2026 learning: ${learnedRows} scored rows learn from 2026 games (K ${LEARNING_K}; QB, RB, WR), actuals generated ${seasonGames.generated}, complete weeks ${seasonGames.completeWeeks.join(',')}`);
+  console.log(`  2026 learning: ${learnedRows} scored rows learn from 2026 games (K ${LEARNING_K}; ${[...LEARNING_POS].join(', ')}), actuals generated ${seasonGames.generated}, complete weeks ${seasonGames.completeWeeks.join(',')}`);
   const zeroedBy = {};
   for (const r of zeroedRows) zeroedBy[r.weekly_value_components.availability_status] = (zeroedBy[r.weekly_value_components.availability_status] || 0) + 1;
   console.log(`  availability: ${zeroedRows.length} upcoming-week rows projected 0 (${Object.entries(zeroedBy).map(([k, n]) => `${k} ${n}`).join(', ') || 'none'})`);
@@ -598,13 +604,14 @@ async function main() {
       rule: `base = (${LEARNING_K} x prior pace + 2026 points) / (${LEARNING_K} + 2026 games); prior pace = projection_pts / 17 (the 2025 pace, or the rookie model's preseason projection for rookies); games = weeks before the row's week with a graded stat line`,
       k: LEARNING_K,
       positions: [...LEARNING_POS],
-      tight_ends: 'keep the 2025 pace: the test showed no gain (+0.005, interval -0.081 to +0.085)',
+      tight_ends: LEARNING_POS.has('TE') ? 'learn: the committed test clears them' : 'keep the 2025 pace: the committed test does not clear them (+0.005, interval -0.081 to +0.085 on 2026-11-22); re-checked whenever the test is re-run',
       actuals_generated: seasonGames.generated,
       complete_weeks: seasonGames.completeWeeks,
       weeks_with_stats: seasonGames.weeksWithStats,
       games_counted: 'every week before the row\'s week with a graded stat line, complete or not (review 2026-11-22: a late week keeps the games already graded)',
       rows_learned: learnedRows,
-      backtest: 'scripts/backtest-player-learning.mjs, data/backtests/player-learning-2026-11-22.json: weeks 2 to 10 on the frozen snapshots, average miss 3.993 (2025 pace) to 3.873 (this rule), better by 0.12 [0.06, 0.18], 9 of 9 weeks',
+      backtest: `scripts/backtest-player-learning.mjs, ${LEARNING_BACKTEST}: weeks 2 to 10 on the frozen snapshots, average miss 3.993 (2025 pace) to 3.873 (this rule), better by 0.12 [0.06, 0.18]; 9 of 9 weeks with tight ends left out, 8 of 9 for all positions`,
+      positions_from: `${LEARNING_BACKTEST}: a position learns when its interval clears zero (scripts/_lib/learning.js)`,
       decision: "Mason, 2026-11-22: \"I want the player's number to learn from the season\" (_FROM_COS.md 2026-11-22 17:49)",
     },
     availability: {

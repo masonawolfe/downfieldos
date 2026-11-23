@@ -1032,54 +1032,76 @@ check('Vacant starter slots stay under threshold', () => {
   return `${vacancies.length} vacant slot(s) (ceiling: ${VACANT_CEILING})${vacancies.length ? ` — ${vacancies.join(', ')}` : ''}`;
 });
 
-// #22 — The weekly base learns from the player's own 2026 games (2026-11-22,
-// Mason: "I want the player's number to learn from the season"). Recomputed
-// here from weekly_actuals_2026.json, playerBoard2026.js and the schedule,
-// never from the builder's own fields: base = (4 x 2025 pace + 2026 points) /
-// (4 + 2026 games) for QB, RB and WR with at least one earlier week with a
-// graded stat line; the prior pace otherwise (tight ends always). Strict when
-// the actuals file on disk is the one the board was built from; when it is
-// newer (the weekly actuals job refreshes it without rebuilding the board),
-// red only on a broken rule (none learned, or more than half off), else noted.
-check('Weekly base learns from 2026 games (QB, RB, WR; tight ends keep the 2025 pace)', () => {
-  if (!WEEKLY_BOARD || !ACTUALS_DOC || !SCHEDULE) throw new Error('weekly board, actuals or schedule not readable');
-  const K = 4, LEARN = new Set(['QB', 'RB', 'WR']);
+// #23 — The weekly base learns from the player's own 2026 games (2026-11-22,
+// Mason: "I want the player's number to learn from the season"). Numbered 23
+// because part 6's one-slot check is #22 (QA L-4, 2026-11-23).
+// Independent of the builder: the positions are derived here from the
+// committed test result (data/backtests/player-learning.json: a position
+// learns when its interval clears zero), and every row is checked exactly,
+// with no share threshold (QA L-2):
+//   - the prior is the player board's projection_pts / 17;
+//   - a learned base equals (K x prior + points_2026) / (K + games_2026);
+//   - games_2026 and points_2026 match the actuals on disk for the weeks
+//     before the row's week. The one allowed difference: the actuals file is
+//     newer than the one the board used and holds MORE earlier games (games
+//     graded since the build). Fewer games, or the same games with other
+//     points, is red whatever the file's age.
+//   - a position the test does not clear never learns.
+check('Weekly base learns from 2026 games, positions from the committed test', () => {
+  if (!WEEKLY_BOARD || !ACTUALS_DOC) throw new Error('weekly board or actuals not readable');
+  const problems = [];
+  let bt = null;
+  try { bt = JSON.parse(fs.readFileSync(REPO + 'data/backtests/player-learning.json', 'utf8')); }
+  catch (e) { throw new Error(`data/backtests/player-learning.json not readable: ${e.message}`); }
+  const K = bt.k_design;
+  const LEARN = new Set(Object.entries(bt.design_minus_pace_by_pos || {}).filter(([, v]) => Array.isArray(v.ci95) && v.ci95[1] < 0).map(([p]) => p));
+  const metaPos = new Set(WEEKLY_META?.learning?.positions || []);
+  if (WEEKLY_META?.learning?.k !== K) problems.push(`META.learning.k is ${JSON.stringify(WEEKLY_META?.learning?.k)}, the committed test used K ${K}`);
+  if (metaPos.size !== LEARN.size || [...LEARN].some(p => !metaPos.has(p))) problems.push(`META.learning.positions is [${[...metaPos].join(', ')}], the committed test clears [${[...LEARN].join(', ')}]`);
   const games = new Map();
   for (const r of ACTUALS_DOC.rows) {
-    // Every week with a graded stat line (review 2026-11-22); rows take only earlier weeks.
     if (r.fantasy_points_graded == null) continue;
     if (!games.has(r.gsis_id)) games.set(r.gsis_id, []);
     games.get(r.gsis_id).push(r);
   }
-  const pace = new Map(PLAYER_BOARD_2026.filter(p => p.gsis_id && p.projection_pts != null).map(p => [p.gsis_id, p.projection_pts / 17]));
-  let checked = 0, off = 0, learned = 0, teLearned = 0;
-  const sample = [];
-  for (const r of WEEKLY_BOARD) {
-    if (r.weekly_value == null || !r.weekly_value_components || !pace.has(r.gsis_id)) continue;
-    const c = r.weekly_value_components;
-    const g = LEARN.has(r.pos) ? (games.get(r.gsis_id) || []).filter(x => x.week < r.week) : [];
-    const p25 = pace.get(r.gsis_id);
-    const expect = Math.round((g.length ? (K * p25 + g.reduce((s, x) => s + x.fantasy_points_graded, 0)) / (K + g.length) : p25) * 100) / 100;
-    checked++;
-    if (g.length) learned++;
-    if (r.pos === 'TE' && c.games_2026) teLearned++;
-    if (Math.abs(expect - c.base_weekly_pace) > 0.011) { off++; if (sample.length < 4) sample.push(`${r.name} wk${r.week} ${r.pos}: board ${c.base_weekly_pace}, recomputed ${expect}`); }
-  }
+  const prior = new Map(PLAYER_BOARD_2026.filter(p => p.gsis_id && p.projection_pts != null).map(p => [p.gsis_id, p.projection_pts / 17]));
   const builtFrom = WEEKLY_META?.learning?.actuals_generated ?? null;
   const onDisk = ACTUALS_DOC.meta?.generated_at || ACTUALS_DOC.meta?.generated_utc || null;
-  const same = builtFrom != null && builtFrom === onDisk;
-  const problems = [];
-  if (WEEKLY_META?.learning?.k !== K) problems.push(`META.learning.k is ${JSON.stringify(WEEKLY_META?.learning?.k)}, expected ${K}`);
-  if (teLearned) problems.push(`${teLearned} tight end rows learn from 2026; tight ends keep the 2025 pace`);
-  if (learned === 0) problems.push('no row has a 2026 game to learn from');
-  let note = '';
-  if (off) {
-    const msg = `${off} of ${checked} scored rows have a base that does not recompute (e.g. ${sample.join('; ')})`;
-    if (same || off * 2 > checked) problems.push(same ? msg : `${msg}; board built from actuals ${builtFrom}, on disk ${onDisk}, and this many is a broken rule, not drift`);
-    else note = `; ${off} rows differ because actuals moved since the build (built ${builtFrom}, on disk ${onDisk}): fixed at the next board run`;
+  const newer = builtFrom != null && onDisk != null && onDisk > builtFrom;
+  const r2 = x => Math.round(x * 100) / 100;
+  let checked = 0, learned = 0, drift = 0;
+  const bad = { prior: [], arithmetic: [], actuals: [], position: [] };
+  const note = (arr, msg) => { arr.push(msg); };
+  for (const r of WEEKLY_BOARD) {
+    if (r.weekly_value == null || !r.weekly_value_components || !prior.has(r.gsis_id)) continue;
+    const c = r.weekly_value_components;
+    const p25 = r2(prior.get(r.gsis_id));
+    checked++;
+    const n = c.games_2026 || 0;
+    if (n) {
+      learned++;
+      if (!LEARN.has(r.pos)) note(bad.position, `${r.name} wk${r.week} ${r.pos}`);
+      if (Math.abs((c.prior_pace ?? NaN) - p25) > 0.011) note(bad.prior, `${r.name} wk${r.week}: prior ${c.prior_pace}, board ${p25}`);
+      const expect = r2((K * prior.get(r.gsis_id) + c.points_2026) / (K + n));
+      if (Math.abs(expect - c.base_weekly_pace) > 0.011) note(bad.arithmetic, `${r.name} wk${r.week}: base ${c.base_weekly_pace}, (K x prior + points) / (K + games) = ${expect}`);
+    } else if (Math.abs(c.base_weekly_pace - p25) > 0.011) {
+      note(bad.prior, `${r.name} wk${r.week}: unlearned base ${c.base_weekly_pace}, prior ${p25}`);
+    }
+    if (!LEARN.has(r.pos)) continue;
+    const g = (games.get(r.gsis_id) || []).filter(x => x.week < r.week);
+    const pts = r2(g.reduce((s2, x) => s2 + x.fantasy_points_graded, 0));
+    if (g.length === n) {
+      if (n && Math.abs(pts - c.points_2026) > 0.011) note(bad.actuals, `${r.name} wk${r.week}: points_2026 ${c.points_2026}, actuals ${pts}`);
+    } else if (g.length > n && newer) {
+      drift++;
+    } else {
+      note(bad.actuals, `${r.name} wk${r.week}: games_2026 ${n}, actuals before week ${r.week}: ${g.length}`);
+    }
   }
+  for (const [k, arr] of Object.entries(bad)) if (arr.length) problems.push(`${arr.length} row(s) fail the ${k} check (e.g. ${arr.slice(0, 3).join('; ')})`);
+  if (learned === 0 && LEARN.size) problems.push('no row learns from a 2026 game');
   if (problems.length) throw new Error(problems.join('; '));
-  return `${checked - off} of ${checked} scored rows recompute; ${learned} learn from 2026 games; 0 tight end rows learn${note}`;
+  return `${checked} scored rows checked exactly; ${learned} learn (positions from the committed test: ${[...LEARN].join(', ')}; K ${K})${drift ? `; ${drift} rows have games graded since the build (actuals ${onDisk}, board used ${builtFrom}): fixed at the next board run` : ''}`;
 });
 
 const passed = results.filter(r => r.pass).length;
