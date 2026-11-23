@@ -898,7 +898,8 @@
         "src/data/playerBoard2026.js",
         "src/data/schedule2026.js",
         "src/data/defense2026.js",
-        "src/data/intelligence/former_teammates_by_matchup.json"
+        "src/data/intelligence/former_teammates_by_matchup.json",
+        "src/data/intelligence/weekly_actuals_2026.json"
       ],
       "lineage_grace_hours": null,
       "ui_consumers": [],
@@ -1816,7 +1817,8 @@
         "scripts/build-defense.js",
         "scripts/check-defense-field.mjs",
         "drafter",
-        "scripts/build-team-changes.js"
+        "scripts/build-team-changes.js",
+        "scripts/build-weekly-board.js"
       ],
       "tier": "chain_input",
       "on_stale": "block_chain",

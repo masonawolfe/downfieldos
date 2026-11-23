@@ -1036,19 +1036,18 @@ check('Vacant starter slots stay under threshold', () => {
 // Mason: "I want the player's number to learn from the season"). Recomputed
 // here from weekly_actuals_2026.json, playerBoard2026.js and the schedule,
 // never from the builder's own fields: base = (4 x 2025 pace + 2026 points) /
-// (4 + 2026 games) for QB, RB and WR with at least one complete earlier week
-// with a stat line; the 2025 pace otherwise (tight ends always). Strict when
+// (4 + 2026 games) for QB, RB and WR with at least one earlier week with a
+// graded stat line; the prior pace otherwise (tight ends always). Strict when
 // the actuals file on disk is the one the board was built from; when it is
 // newer (the weekly actuals job refreshes it without rebuilding the board),
 // red only on a broken rule (none learned, or more than half off), else noted.
 check('Weekly base learns from 2026 games (QB, RB, WR; tight ends keep the 2025 pace)', () => {
   if (!WEEKLY_BOARD || !ACTUALS_DOC || !SCHEDULE) throw new Error('weekly board, actuals or schedule not readable');
   const K = 4, LEARN = new Set(['QB', 'RB', 'WR']);
-  const comp = actualsCompleteness(SCHEDULE, ACTUALS_DOC.rows);
-  const complete = new Set(Object.keys(comp).map(Number).filter(w => comp[w].complete));
   const games = new Map();
   for (const r of ACTUALS_DOC.rows) {
-    if (!complete.has(r.week) || r.fantasy_points_graded == null) continue;
+    // Every week with a graded stat line (review 2026-11-22); rows take only earlier weeks.
+    if (r.fantasy_points_graded == null) continue;
     if (!games.has(r.gsis_id)) games.set(r.gsis_id, []);
     games.get(r.gsis_id).push(r);
   }

@@ -62,8 +62,8 @@
  * 2026 learning (2026-11-22, Mason: "I want the player's number to learn
  * from the season"; _FROM_COS.md 2026-11-22 17:49). The base for week W is
  *   (K x 2025 pace + his 2026 points) / (K + his 2026 games), K = 4,
- * where his 2026 games are the complete weeks before W with a stat line in
- * weekly_actuals_2026.json (graded points), so 2026 takes half the weight
+ * where his 2026 games are the weeks before W with a graded stat line in
+ * weekly_actuals_2026.json (complete or not, review 2026-11-22), so 2026 takes half the weight
  * by his fourth game. Quarterbacks, running backs and receivers only: tight
  * ends keep the 2025 pace, because the test showed no gain for them (+0.005,
  * interval -0.081 to +0.085). Back-test, committed with the change:
@@ -91,18 +91,24 @@ import { regWeeks as scheduleRegWeeks, lastKickoffUtcMs, actualsCompleteness } f
 // 2026 learning (2026-11-22). See the file header.
 export const LEARNING_K = 4;
 export const LEARNING_POS = new Set(['QB', 'RB', 'WR']);
-/** A player's 2026 games, by gsis_id: complete weeks with a stat line, graded points. */
+/** A player's 2026 games, by gsis_id: every week with a graded stat line.
+ * Review 2026-11-22: not only complete weeks. If a week's results are late,
+ * the frozen next week would otherwise drop every game of that week, even the
+ * ones already graded, which the back-test never measured. A player whose
+ * game is not in yet simply has one game fewer; nothing is filled as 0.
+ * computeWeeklyValue still takes only weeks before the row's week. */
 function loadSeasonGames(schedule) {
   const doc = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'src', 'data', 'intelligence', 'weekly_actuals_2026.json'), 'utf8'));
   const comp = actualsCompleteness(schedule, doc.rows);
   const complete = new Set(Object.keys(comp).map(Number).filter(w => comp[w].complete));
   const by = new Map();
   for (const r of doc.rows) {
-    if (!complete.has(r.week) || r.fantasy_points_graded == null) continue;
+    if (r.fantasy_points_graded == null) continue;
     if (!by.has(r.gsis_id)) by.set(r.gsis_id, []);
     by.get(r.gsis_id).push({ week: r.week, pts: r.fantasy_points_graded });
   }
-  return { by, completeWeeks: [...complete].sort((a, b) => a - b), generated: doc.meta?.generated_at || doc.meta?.generated_utc || null };
+  const weeksWithStats = [...new Set(doc.rows.map(r => r.week))].sort((a, b) => a - b);
+  return { by, completeWeeks: [...complete].sort((a, b) => a - b), weeksWithStats, generated: doc.meta?.generated_at || doc.meta?.generated_utc || null };
 }
 
 // Part 0: the week the availability rule applies to is the week still in
@@ -254,6 +260,9 @@ function computeWeeklyValue(row, weekMeta, unavailable = null, seasonGames = nul
   const seasonProj = row.projection_pts;   // default shape (standard_12_1qb full-PPR)
   if (seasonProj == null) return { weekly_value: null, weekly_value_components: null, weekly_value_rationale: null };
   const pace2025 = Math.round((seasonProj / 17) * 100) / 100;
+  // Review 2026-11-22: rookies' projection comes from the rookie model, not
+  // a 2025 season, so the prior is named by its source.
+  const priorLabel = row.projection_source === 'stats2025_17game_pace' ? '2025 pace' : 'preseason projection';
   // 2026 learning: his games before this week (complete weeks, stat line).
   const games = seasonGames && LEARNING_POS.has(row.pos) ? (seasonGames.by.get(row.gsis_id) || []).filter(g => g.week < weekMeta.week) : [];
   const pts2026 = games.reduce((sum, g) => sum + g.pts, 0);
@@ -263,7 +272,8 @@ function computeWeeklyValue(row, weekMeta, unavailable = null, seasonGames = nul
 
   const comp = { base_weekly_pace: base };
   if (games.length) {
-    comp.pace_2025 = pace2025;
+    comp.prior_pace = pace2025;
+    comp.prior_source = row.projection_source || null;
     comp.games_2026 = games.length;
     comp.points_2026 = Math.round(pts2026 * 100) / 100;
     comp.season_weight = Math.round((games.length / (LEARNING_K + games.length)) * 100) / 100;
@@ -314,7 +324,7 @@ function computeWeeklyValue(row, weekMeta, unavailable = null, seasonGames = nul
     ? top3.map(c => `${c.label} ${c.val >= 0 ? '+' : ''}${c.val.toFixed(2)}`).join(' · ')
     : (games.length ? 'no context adjustments fired' : 'base pace, no context adjustments fired');
   if (floored) rat += ` · floored at 0 (raw ${raw.toFixed(2)})`;
-  if (games.length) rat += ` · base ${base.toFixed(2)}: 2025 pace ${pace2025.toFixed(2)} and ${(pts2026 / games.length).toFixed(2)} a game in ${games.length} game${games.length === 1 ? '' : 's'} this season (this season's weight ${Math.round(comp.season_weight * 100)}%)`;
+  if (games.length) rat += ` · base ${base.toFixed(2)}: ${priorLabel} ${pace2025.toFixed(2)} and ${(pts2026 / games.length).toFixed(2)} a game in ${games.length} game${games.length === 1 ? '' : 's'} this season (this season's weight ${Math.round(comp.season_weight * 100)}%)`;
   return { weekly_value: value, weekly_value_components: comp, weekly_value_rationale: rat };
 }
 
@@ -585,12 +595,14 @@ async function main() {
     model_version: MODEL_VERSION,
     weekly_value_method: 'base = season projection / 17. Adjustments capped ±4 pts each: dome home +0.5, short week -1.0, bye return +0.8, tz travel per 3h -0.5. The base learns from 2026 (2026-11-22): (4 x 2025 pace + 2026 points) / (4 + 2026 games), quarterbacks, running backs and receivers; tight ends keep the 2025 pace. weekly_value = max(0, base + adjustments). No matchup-defense term (removed 2026-10-10, E-034 v2). Upcoming week only: 0 when the player is on a reserve list (Sleeper IR, PUP, SUSP, NFI) or that week\'s nflverse injury report lists him Out (2026-11-22, part 0). Rationale = top-3 signed contributors, or the availability reason.',
     learning: {
-      rule: `base = (${LEARNING_K} x 2025 pace + 2026 points) / (${LEARNING_K} + 2026 games), games = complete weeks before the row's week with a stat line`,
+      rule: `base = (${LEARNING_K} x prior pace + 2026 points) / (${LEARNING_K} + 2026 games); prior pace = projection_pts / 17 (the 2025 pace, or the rookie model's preseason projection for rookies); games = weeks before the row's week with a graded stat line`,
       k: LEARNING_K,
       positions: [...LEARNING_POS],
       tight_ends: 'keep the 2025 pace: the test showed no gain (+0.005, interval -0.081 to +0.085)',
       actuals_generated: seasonGames.generated,
       complete_weeks: seasonGames.completeWeeks,
+      weeks_with_stats: seasonGames.weeksWithStats,
+      games_counted: 'every week before the row\'s week with a graded stat line, complete or not (review 2026-11-22: a late week keeps the games already graded)',
       rows_learned: learnedRows,
       backtest: 'scripts/backtest-player-learning.mjs, data/backtests/player-learning-2026-11-22.json: weeks 2 to 10 on the frozen snapshots, average miss 3.993 (2025 pace) to 3.873 (this rule), better by 0.12 [0.06, 0.18], 9 of 9 weeks',
       decision: "Mason, 2026-11-22: \"I want the player's number to learn from the season\" (_FROM_COS.md 2026-11-22 17:49)",
@@ -614,6 +626,12 @@ async function main() {
       defense_generated: defenseGenerated,
       defense_source_season: defenseSeason,
       defense_weeks_covered: Array.isArray(defMeta.weeks_covered) ? defMeta.weeks_covered : null,
+      // Review 2026-11-22: the snapshot copies inputs into its header, so a
+      // frozen week says which results its learned base used.
+      actuals_generated: seasonGames.generated,
+      actuals_weeks_with_stats: seasonGames.weeksWithStats,
+      actuals_complete_weeks: seasonGames.completeWeeks,
+      availability_generated: availCtx.availability.generated,
     },
     league_medians_used: leagueMedians,
     league_medians_note: 'Context only since E-034 v2 — no longer feeds weekly_value.',
@@ -632,7 +650,7 @@ async function main() {
       tz_delta: 'home game 0; away game = opponent home-stadium tz − player home tz (F-003); international venue = venue_tz − player home tz (E-036). Signed; never floored.',
       assigned_ref: 'schedule2026.js referee field (nflverse fills it after the game is played)',
       weekly_value: 'derived — see weekly_value_method',
-      weekly_value_components: 'base_weekly_pace (the 2025 pace, or the 2026-learned base with pace_2025, games_2026, points_2026 and season_weight beside it) + each fired adjustment (clipped ±4) + total_adjustment; floor_applied present when the raw value was negative; availability_zeroed / availability_status / availability_source present when the upcoming-week value was set to 0.',
+      weekly_value_components: 'base_weekly_pace (the 2025 pace, or the 2026-learned base with prior_pace, prior_source, games_2026, points_2026 and season_weight beside it) + each fired adjustment (clipped ±4) + total_adjustment; floor_applied present when the raw value was negative; availability_zeroed / availability_status / availability_source present when the upcoming-week value was set to 0.',
     },
     gap_notes: [
       'team_2026 is the player\'s CURRENT team applied to all 18 weeks, so past weeks here are not what was projected at the time. The record for a played week is its frozen snapshot in src/data/intelligence/weekly_projections/.',
