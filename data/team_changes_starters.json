@@ -1,6 +1,6 @@
 {
   "season": 2026,
-  "generated_at": "2026-11-22T12:48:52.849Z",
+  "generated_at": "2026-11-23T14:29:46.130Z",
   "generated_by": "scripts/build-team-changes.js",
   "week_now": 11,
   "note": "Starters the last build saw, per team. Read and rewritten by scripts/build-team-changes.js; never edited by hand.",
@@ -523,18 +523,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0041443": {
+      "00-0035500": {
         "pos": "WR",
-        "name": "Skyler Bell",
-        "since_week": null,
-        "replaced": null,
+        "name": "Greg Dortch",
+        "since_week": 11,
+        "replaced": "Skyler Bell",
         "left_week": null
       },
-      "00-0038933": {
+      "00-0035689": {
         "pos": "TE",
-        "name": "Dalton Kincaid",
-        "since_week": null,
-        "replaced": null,
+        "name": "Dawson Knox",
+        "since_week": 11,
+        "replaced": "Dalton Kincaid",
         "left_week": null
       },
       "00-0033904": {
@@ -634,6 +634,20 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0041443": {
+        "pos": "WR",
+        "name": "Skyler Bell",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
+      "00-0038933": {
+        "pos": "TE",
+        "name": "Dalton Kincaid",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       },
       "00-0037288": {
         "pos": "CB",
@@ -756,18 +770,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036884": {
-        "pos": "CB",
-        "name": "Marco Wilson",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0039380": {
         "pos": "SCB",
         "name": "Chau Smith-Wade",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0040296": {
+        "pos": "CB",
+        "name": "Corey Thornton",
+        "since_week": 11,
+        "replaced": "Marco Wilson",
         "left_week": null
       },
       "00-0041076": {
@@ -783,6 +797,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0036884": {
+        "pos": "CB",
+        "name": "Marco Wilson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "CHI": {
@@ -1495,7 +1516,7 @@
         "left_week": null
       },
       "00-0035763": {
-        "pos": "EDGE",
+        "pos": "DT",
         "name": "Malcolm Roach",
         "since_week": null,
         "replaced": null,
@@ -1504,13 +1525,6 @@
       "00-0041552": {
         "pos": "EDGE",
         "name": "Tyler Onyedim",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
-      "00-0037294": {
-        "pos": "DT",
-        "name": "Jordan Jackson",
         "since_week": null,
         "replaced": null,
         "left_week": null
@@ -1543,11 +1557,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036221": {
+      "00-0038605": {
         "pos": "FS",
-        "name": "Brandon Jones",
-        "since_week": null,
-        "replaced": null,
+        "name": "JL Skinner",
+        "since_week": 11,
+        "replaced": "Brandon Jones",
         "left_week": null
       },
       "00-0036564": {
@@ -1556,6 +1570,20 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0037294": {
+        "pos": "DT",
+        "name": "Jordan Jackson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
+      "00-0036221": {
+        "pos": "FS",
+        "name": "Brandon Jones",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "DET": {
@@ -1678,11 +1706,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0034384": {
+      "00-0035637": {
         "pos": "CB",
-        "name": "D.J. Reed",
-        "since_week": null,
-        "replaced": null,
+        "name": "Rock Ya-Sin",
+        "since_week": 11,
+        "replaced": "D.J. Reed",
         "left_week": null
       },
       "00-0037667": {
@@ -1698,6 +1726,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0034384": {
+        "pos": "CB",
+        "name": "D.J. Reed",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       },
       "00-0033294": {
         "pos": "FS",
@@ -2197,13 +2232,6 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0041106": {
-        "pos": "WR",
-        "name": "CJ Williams",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0034960": {
         "pos": "WR",
         "name": "Jakobi Meyers",
@@ -2216,6 +2244,13 @@
         "name": "Parker Washington",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0041100": {
+        "pos": "WR",
+        "name": "Josh Cameron",
+        "since_week": 11,
+        "replaced": "CJ Williams",
         "left_week": null
       },
       "00-0038935": {
@@ -2322,6 +2357,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0041106": {
+        "pos": "WR",
+        "name": "CJ Williams",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       },
       "00-0036985": {
         "pos": "C",
@@ -2607,17 +2649,17 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0039366": {
+      "00-0039369": {
         "pos": "SCB",
-        "name": "Tarheeb Still",
+        "name": "Cam Hart",
         "since_week": null,
         "replaced": null,
         "left_week": null
       },
-      "00-0039369": {
+      "00-0034356": {
         "pos": "CB",
-        "name": "Cam Hart",
-        "since_week": null,
+        "name": "Donte Jackson",
+        "since_week": 11,
         "replaced": null,
         "left_week": null
       },
@@ -2634,6 +2676,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0039366": {
+        "pos": "SCB",
+        "name": "Tarheeb Still",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "LAR": {
@@ -2842,11 +2891,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0039338": {
+      "00-0039066": {
         "pos": "TE",
-        "name": "Brock Bowers",
-        "since_week": null,
-        "replaced": null,
+        "name": "Michael Mayer",
+        "since_week": 11,
+        "replaced": "Brock Bowers",
         "left_week": null
       },
       "00-0034759": {
@@ -2946,6 +2995,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0039338": {
+        "pos": "TE",
+        "name": "Brock Bowers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       },
       "00-0040169": {
         "pos": "EDGE",
@@ -3089,12 +3145,19 @@
         "replaced": null,
         "left_week": null
       },
+      "00-0041527": {
+        "pos": "SS",
+        "name": "Kyle Louis",
+        "since_week": 11,
+        "replaced": "Dante Trader Jr.",
+        "left_week": null
+      },
       "00-0040182": {
         "pos": "SS",
         "name": "Dante Trader Jr.",
         "since_week": null,
         "replaced": null,
-        "left_week": null
+        "left_week": 11
       }
     },
     "MIN": {
@@ -3217,11 +3280,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036222": {
+      "00-0035795": {
         "pos": "CB",
-        "name": "Isaiah Rodgers",
-        "since_week": null,
-        "replaced": null,
+        "name": "James Pierre",
+        "since_week": 11,
+        "replaced": "Isaiah Rodgers",
         "left_week": null
       },
       "00-0029606": {
@@ -3237,6 +3300,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0036222": {
+        "pos": "CB",
+        "name": "Isaiah Rodgers",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "NE": {
@@ -3650,11 +3720,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0040694": {
+      "00-0041095": {
         "pos": "EDGE",
-        "name": "Darius Alexander",
-        "since_week": null,
-        "replaced": null,
+        "name": "Bobby Jamison-Travis",
+        "since_week": 11,
+        "replaced": "Darius Alexander",
         "left_week": null
       },
       "00-0039176": {
@@ -3712,6 +3782,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0040694": {
+        "pos": "EDGE",
+        "name": "Darius Alexander",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "NYJ": {
@@ -4423,17 +4500,17 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0034982": {
-        "pos": "LB",
-        "name": "Dre Greenlaw",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0039148": {
         "pos": "EDGE",
         "name": "Keion White",
         "since_week": null,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0041556": {
+        "pos": "EDGE",
+        "name": "Romello Height",
+        "since_week": 11,
         "replaced": null,
         "left_week": null
       },
@@ -4449,6 +4526,13 @@
         "name": "Jaden Dugger",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0036844": {
+        "pos": "LB",
+        "name": "Garret Wallow",
+        "since_week": 11,
+        "replaced": "Dre Greenlaw",
         "left_week": null
       },
       "00-0036563": {
@@ -4485,6 +4569,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0034982": {
+        "pos": "LB",
+        "name": "Dre Greenlaw",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
       }
     },
     "TB": {
@@ -4572,18 +4663,18 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0041079": {
-        "pos": "EDGE",
-        "name": "DeMonte Capehart",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0039063": {
         "pos": "EDGE",
         "name": "Calijah Kancey",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0032889": {
+        "pos": "EDGE",
+        "name": "A'Shawn Robinson",
+        "since_week": 11,
+        "replaced": "DeMonte Capehart",
         "left_week": null
       },
       "00-0034773": {
@@ -4635,6 +4726,13 @@
         "replaced": null,
         "left_week": null
       },
+      "00-0041079": {
+        "pos": "EDGE",
+        "name": "DeMonte Capehart",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 11
+      },
       "00-0036411": {
         "pos": "FS",
         "name": "Antoine Winfield Jr.",
@@ -4658,11 +4756,11 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0040886": {
+      "00-0037594": {
         "pos": "RB",
-        "name": "Nicholas Singleton",
+        "name": "Julius Chestnut",
         "since_week": 11,
-        "replaced": "Tyjae Spears",
+        "replaced": "Nicholas Singleton",
         "left_week": null
       },
       "00-0040170": {
@@ -4790,6 +4888,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0040886": {
+        "pos": "RB",
+        "name": "Nicholas Singleton",
+        "since_week": 11,
+        "replaced": "Tyjae Spears",
+        "left_week": 11
       },
       "00-0039032": {
         "pos": "RB",
