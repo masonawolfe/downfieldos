@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| This build | 2026-11-24T11:48:29.424Z |
+| This build | 2026-11-24T14:48:42.612Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Prior build | 2026-11-23T16:08:22.455Z |
+| Prior build | 2026-11-24T11:48:29.424Z |
 | Ranked rows this build | 498 |
 | Ranked rows prior build | 498 |
 
@@ -18,7 +18,11 @@ _None._
 _None._
 
 ## New entrants (in this build, not in the prior one; up to 20)
-_None._
+| # | Player | Pos | Team | VORP |
+|---:|---|:---:|:---:|---:|
+| 109 | Jacory Croskey-Merritt | RB | WAS | -19 |
 
 ## Dropped (in the prior build, not in this one; up to 20)
-_None._
+| Prior # | Player | Pos | Team | Prior VORP |
+|---:|---|:---:|:---:|---:|
+| 315 | George Holani | RB | SEA | -134 |

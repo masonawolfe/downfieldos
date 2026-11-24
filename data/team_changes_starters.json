@@ -1,8 +1,8 @@
 {
   "season": 2026,
-  "generated_at": "2026-11-23T16:08:23.158Z",
+  "generated_at": "2026-11-24T14:48:43.008Z",
   "generated_by": "scripts/build-team-changes.js",
-  "week_now": 11,
+  "week_now": 12,
   "note": "Starters the last build saw, per team. Read and rewritten by scripts/build-team-changes.js; never edited by hand.",
   "teams": {
     "ARI": {
@@ -3748,13 +3748,6 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036996": {
-        "pos": "CB",
-        "name": "Greg Newsome II",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0039000": {
         "pos": "CB",
         "name": "Deonte Banks",
@@ -3782,6 +3775,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0036996": {
+        "pos": "CB",
+        "name": "Greg Newsome II",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 12
       },
       "00-0040694": {
         "pos": "EDGE",
@@ -5024,18 +5024,25 @@
         "replaced": null,
         "left_week": null
       },
-      "00-0036375": {
-        "pos": "SCB",
-        "name": "Amik Robertson",
-        "since_week": null,
-        "replaced": null,
-        "left_week": null
-      },
       "00-0033551": {
         "pos": "CB",
         "name": "Rasul Douglas",
         "since_week": null,
         "replaced": null,
+        "left_week": null
+      },
+      "00-0040731": {
+        "pos": "CB",
+        "name": "Trey Amos",
+        "since_week": 12,
+        "replaced": null,
+        "left_week": null
+      },
+      "00-0039898": {
+        "pos": "SCB",
+        "name": "Mike Sainristil",
+        "since_week": 12,
+        "replaced": "Amik Robertson",
         "left_week": null
       },
       "00-0034465": {
@@ -5051,6 +5058,13 @@
         "since_week": null,
         "replaced": null,
         "left_week": null
+      },
+      "00-0036375": {
+        "pos": "SCB",
+        "name": "Amik Robertson",
+        "since_week": null,
+        "replaced": null,
+        "left_week": 12
       }
     }
   }

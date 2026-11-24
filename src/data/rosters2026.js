@@ -4,8 +4,8 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-21T13:38:04.678Z
-// Reconciled: 2026-11-24T11:48:23.108Z against availability_2026.json
-//             (generated 2026-11-23T14:26:25.834Z) — 0 swap(s),
+// Reconciled: 2026-11-24T14:48:39.453Z against availability_2026.json
+//             (generated 2026-11-24T14:44:59.043Z) — 5 swap(s),
 //             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
@@ -38087,8 +38087,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0036996",
-        "name": "Greg Newsome II",
+        "gsis_id": "00-0039000",
+        "name": "Deonte Banks",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -38177,12 +38177,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Greg Newsome II (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0039000",
-        "name": "Deonte Banks",
+        "gsis_id": "00-0039821",
+        "name": "Andru Phillips",
         "grade": "Above Avg",
         "rating": 86,
         "rating_source": "snap_share_v1",
@@ -50945,8 +50946,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "CB1",
-        "gsis_id": "00-0036375",
-        "name": "Amik Robertson",
+        "gsis_id": "00-0033551",
+        "name": "Rasul Douglas",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -50999,12 +51000,13 @@ export const ROSTERS_2026 = {
             "posAbb": "CB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Amik Robertson (Out)"
       },
       {
         "pos": "CB2",
-        "gsis_id": "00-0033551",
-        "name": "Rasul Douglas",
+        "gsis_id": "00-0040731",
+        "name": "Trey Amos",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -51061,8 +51063,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0036375",
-        "name": "Amik Robertson",
+        "gsis_id": "00-0039898",
+        "name": "Mike Sainristil",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -51115,7 +51117,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Amik Robertson (Out)"
       },
       {
         "pos": "FS",
@@ -51263,10 +51266,10 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-21T13:38:04.678Z",
-  "availability_stamp": "2026-11-23T14:26:25.834Z",
+  "availability_stamp": "2026-11-24T14:44:59.043Z",
   "reconciled_by": "reconcile-rosters-availability.mjs",
-  "reconciled_at": "2026-11-24T11:48:23.108Z",
-  "swaps_this_run": 0,
+  "reconciled_at": "2026-11-24T14:48:39.453Z",
+  "swaps_this_run": 5,
   "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
