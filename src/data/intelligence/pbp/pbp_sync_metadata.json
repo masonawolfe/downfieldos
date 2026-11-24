@@ -1,13 +1,13 @@
 {
-  "last_sync": "2026-11-17T15:54:48.628094Z",
+  "last_sync": "2026-11-24T11:48:22.811922Z",
   "season": 2026,
-  "total_plays": 26246,
-  "actual_plays": 18447,
+  "total_plays": 28467,
+  "actual_plays": 20042,
   "teams_profiled": 32,
-  "player_records": 515,
+  "player_records": 519,
   "data_source": "nflverse play_by_play_2026",
   "columns_available": 372,
-  "games": 150,
+  "games": 163,
   "data_quality": {
     "has_coverage_data": false,
     "has_blitz_data": false,

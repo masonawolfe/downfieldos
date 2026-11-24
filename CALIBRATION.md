@@ -6,20 +6,20 @@ All times are Coordinated Universal Time (UTC). Positions: quarterback (QB), run
 
 | | |
 |---|---|
-| Generated | 2026-11-23T16:08:20.136Z |
-| Weekly board generated | 2026-11-23T16:08:19.248Z |
-| Player board generated | 2026-11-23T16:08:18.685Z |
+| Generated | 2026-11-24T11:48:27.170Z |
+| Weekly board generated | 2026-11-24T11:48:25.965Z |
+| Player board generated | 2026-11-24T11:48:25.421Z |
 | Actuals source | `https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz` |
-| Actuals generated | 2026-11-19T15:59:04.929Z |
-| Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 |
-| Headline weeks (snapshot written before kickoff) | 3, 4, 5, 6, 7, 8, 9, 10 |
+| Actuals generated | 2026-11-24T11:48:07.678Z |
+| Weeks covered | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 |
+| Headline weeks (snapshot written before kickoff) | 3, 4, 5, 6, 7, 8, 9, 10, 11 |
 | Weeks written after kickoff (shown apart) | 1, 2 |
 | Weeks partial (not graded) | none |
 | Projections graded | frozen pre-kickoff snapshots, `src/data/intelligence/weekly_projections/` (E-052) |
 | Actual points | `fantasy_points_graded`, scored under the board's own rules (`full_ppr`) |
-| Matched pairs | 2899 (headline 2261, written after kickoff 638) |
+| Matched pairs | 3150 (headline 2512, written after kickoff 638) |
 
-Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1 to 7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; week 10: E-034 v2 (2026-10-10), the board generated 2026-11-10; week 11: E-034 v2 (2026-10-10), the board generated 2026-11-17; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
+Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10; scoring and headline change 2026-11-07). `projected` is the week's frozen pre-kickoff snapshot `weekly_value`, graded with the model named in that snapshot's header (weeks 1 to 7: E-004 v1 (pre-2026-10-10), the board generated 2026-09-18; week 8: E-034 v2 (2026-10-10), the board generated 2026-10-27; week 9: E-034 v2 (2026-10-10), the board generated 2026-11-03; week 10: E-034 v2 (2026-10-10), the board generated 2026-11-10; week 11: E-034 v2 (2026-10-10), the board generated 2026-11-17; week 12: E-034 v2 + availability (2026-11-22), the board generated 2026-11-24; the first pre-kickoff freeze from E-034 v2 (base + env, no matchup term, floored at 0) is week 8). `actual` is `fantasy_points_graded`: the nflverse box score scored under the rules the projection is built under, with no interception, fumble, two-point or return term. `error` is actual minus projected, so a positive error means the board under-projected. Only complete weeks are graded. The headline tables below use only weeks whose snapshot was written before kickoff.
 
 ## Snapshots graded
 
@@ -35,22 +35,23 @@ Emitted by `scripts/build-calibration.js` (E-032, 2026-09-17; E-052, 2026-10-10;
 | 8 | 2026-10-27T07:36:53.659Z | 2026-10-30T00:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
 | 9 | 2026-11-03T12:25:36.510Z | 2026-11-06T01:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
 | 10 | 2026-11-10T18:34:27.716Z | 2026-11-13T01:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
-| 11 | 2026-11-17T13:54:27.453Z | 2026-11-20T01:15:00.000Z | yes | not graded yet | E-034 v2 (2026-10-10) |
+| 11 | 2026-11-17T13:54:27.453Z | 2026-11-20T01:15:00.000Z | yes | yes | E-034 v2 (2026-10-10) |
+| 12 | 2026-11-24T11:48:26.172Z | 2026-11-26T01:00:00.000Z | yes | not graded yet | E-034 v2 + availability (2026-11-22) |
 
-## Headline: weeks 3 to 10
+## Headline: weeks 3 to 11
 
 | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|
-| 2261 | 0.65 | 5.07 | 6.8 |
+| 2512 | 0.56 | 5.01 | 6.73 |
 
 ## By position (headline weeks)
 
 | Pos | N | Mean error | Mean absolute error | Root mean square error |
 |---|---|---|---|---|
-| QB | 250 | 0.33 | 6.59 | 8.09 |
-| RB | 572 | 0.81 | 5.23 | 7.15 |
-| WR | 929 | 0.91 | 5.09 | 6.82 |
-| TE | 510 | 0.13 | 4.11 | 5.56 |
+| QB | 281 | 0.23 | 6.44 | 8.04 |
+| RB | 634 | 0.68 | 5.17 | 7.04 |
+| WR | 1030 | 0.86 | 5.05 | 6.77 |
+| TE | 567 | 0.07 | 4.03 | 5.47 |
 
 ## Written after kickoff: weeks 1 and 2 (not in the headline)
 
@@ -70,11 +71,11 @@ If an adjustment adds signal, the fired mean error should sit closer to 0 than t
 
 | Adjustment | Fired N | Fired mean error | Fired mean absolute error | Not-fired N | Not-fired mean error | Not-fired mean absolute error |
 |---|---|---|---|---|---|---|
-| matchup | 1450 | 0.81 | 5.12 | 811 | 0.35 | 4.98 |
-| dome_home | 209 | -0.06 | 5.05 | 2052 | 0.72 | 5.07 |
-| short_week | 153 | 2.19 | 5.2 | 2108 | 0.53 | 5.06 |
-| bye_return | 157 | -0.27 | 4.98 | 2104 | 0.71 | 5.07 |
-| tz_travel | 187 | 1.37 | 5.18 | 2074 | 0.58 | 5.06 |
+| matchup | 1450 | 0.81 | 5.12 | 1062 | 0.23 | 4.86 |
+| dome_home | 230 | -0.13 | 4.89 | 2282 | 0.64 | 5.02 |
+| short_week | 171 | 1.92 | 5.1 | 2341 | 0.47 | 5 |
+| bye_return | 195 | -0.83 | 4.85 | 2317 | 0.68 | 5.02 |
+| tz_travel | 198 | 1.39 | 5.12 | 2314 | 0.49 | 5 |
 
 **The ±4 matchup cap:** if the fired mean error and mean absolute error are close to the not-fired ones, the cap is not buying signal. If the fired mean absolute error is materially smaller (about 2 points), it is.
 

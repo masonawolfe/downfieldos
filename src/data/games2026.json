@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23T16:08:22.996Z",
+  "generated_at": "2026-11-24T11:48:29.732Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -3113,16 +3113,16 @@
       "gametime": "20:15",
       "home": "WAS",
       "away": "CIN",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
+      "home_score": 22,
+      "away_score": 20,
+      "total": 42,
       "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
+      "winner": "WAS",
+      "margin": 2,
+      "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "CIN at WAS. Kickoff Monday 20:15 ET."
+      "narrative": "WAS 22, CIN 20. nail-biter."
     },
     {
       "gameId": "2026_12_GB_LA",

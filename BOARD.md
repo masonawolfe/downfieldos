@@ -4,14 +4,14 @@
 
 | | |
 |---|---|
-| Generated | 2026-11-23T16:08:22.442Z |
+| Generated | 2026-11-24T11:48:29.411Z |
 | Mode | AUTOMATIC (data-board.yml) |
-| Commit | `2e3e188` |
+| Commit | `bd6eb11` |
 | Rows in board | 1025 |
 | Draftable skill rows (ranked below) | 498 |
 | Verifier | 21/21 checks passed |
 | Schema version | 3 |
-| Board generated | 2026-11-23T16:08:18.685Z |
+| Board generated | 2026-11-24T11:48:25.421Z |
 | Availability generated | 2026-11-23T14:26:25.834Z |
 
 **Recommendation column** — v1 (VORP) and v2 (β total_score_beta) agreement per row. 
@@ -28,7 +28,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 2 | Bijan Robinson | RB | ATL | 11 |  | 212 | 216 | +4 | 1 | ✓ agree (v1 pos #2, v2 pos #2) |
 | 3 | Jahmyr Gibbs | RB | DET | 6 |  | 206 | 213 | +7 | 1 | ✓ agree (v1 pos #3, v2 pos #3) |
 | 4 | Jonathan Taylor | RB | IND | 13 |  | 200 | 211 | +12 | 4 | ✓ agree (v1 pos #4, v2 pos #4) |
-| 5 | Jaxon Smith-Njigba | WR | SEA | 11 |  | 175 | 175 | +0 | 7 | ✓ agree (v1 pos #1, v2 pos #2) |
+| 5 | Jaxon Smith-Njigba | WR | SEA | 11 |  | 175 | 175 | +0 | 5 | ✓ agree (v1 pos #1, v2 pos #2) |
 | 6 | Ja'Marr Chase | WR | CIN | 6 |  | 150 | 176 | +26 | 3 | ✓ agree (v1 pos #2, v2 pos #1) |
 | 7 | James Cook | RB | BUF | 7 |  | 145 | 151 | +5 | 5 | ✓ agree (v1 pos #5, v2 pos #5) |
 | 8 | Amon-Ra St. Brown | WR | DET | 6 |  | 140 | 167 | +27 | 7 | ✓ agree (v1 pos #3, v2 pos #3) |
@@ -46,7 +46,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 20 | Javonte Williams | RB | DAL | 14 |  | 99 | 106 | +6 | 30 | ✓ agree (v1 pos #11, v2 pos #10) |
 | 21 | Omarion Hampton | RB | LAC | 7 |  | 94 | 96 | +3 | 12 | ✓ agree (v1 pos #12, v2 pos #12) |
 | 22 | Travis Etienne | RB | NO | 8 |  | 91 | 85 | -6 | 34 | ✓ agree (v1 pos #13, v2 pos #16) |
-| 23 | D'Andre Swift | RB | CHI | 10 |  | 84 | 87 | +2 | 44 | ✓ agree (v1 pos #14, v2 pos #15) |
+| 23 | D'Andre Swift | RB | CHI | 10 |  | 84 | 87 | +2 | 46 | ✓ agree (v1 pos #14, v2 pos #15) |
 | 24 | Ashton Jeanty | RB | LV | 13 |  | 84 | 89 | +5 | 12 | ✓ agree (v1 pos #15, v2 pos #13) |
 | 25 | Saquon Barkley | RB | PHI | 10 | Q | 84 | 87 | +3 | 10 | ✓ agree (v1 pos #16, v2 pos #14) |
 | 26 | CeeDee Lamb | WR | DAL | 14 |  | 79 | 99 | +20 | 10 | ✓ agree (v1 pos #8, v2 pos #8) |
@@ -63,7 +63,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 37 | Patrick Mahomes | QB | KC | 5 |  | 62 | 63 | +2 | 39 | ✓ agree (v1 pos #5, v2 pos #4) |
 | 38 | Kenny Gainwell | RB | TB | 10 |  | 61 | 57 | -3 | 86 | ✓ agree (v1 pos #19, v2 pos #20) |
 | 39 | Trevor Lawrence | QB | JAX | 7 |  | 59 | 59 | +0 | 41 | ✓ agree (v1 pos #6, v2 pos #5) |
-| 40 | Malik Nabers | WR | NYG | 8 |  | 59 | 48 | -11 | 26 | β says: QB EPA J.J. McCarthy -6.76 · RZ pass rate -4 · team pass rate -3.6 |
+| 40 | Malik Nabers | WR | NYG | 8 |  | 59 | 48 | -11 | 28 | β says: QB EPA J.J. McCarthy -6.76 · RZ pass rate -4 · team pass rate -3.6 |
 | 41 | Garrett Wilson | WR | NYJ | 13 |  | 58 | 43 | -15 | 38 | β says: QB EPA Geno Smith -9.12 · team offense -5.08 · snap share +2.55 |
 | 42 | Breece Hall | RB | NYJ | 13 |  | 58 | 55 | -3 | 27 | ✓ agree (v1 pos #20, v2 pos #21) |
 | 43 | Rhamondre Stevenson | RB | NE | 11 |  | 57 | 62 | +5 | 58 | ✓ agree (v1 pos #21, v2 pos #19) |
@@ -91,9 +91,9 @@ Not a new ranking — the same logic the app runs, in a table.
 | 65 | DK Metcalf | WR | PIT | 9 |  | 21 | 29 | +9 | 73 | ✓ agree (v1 pos #22, v2 pos #22) |
 | 66 | Jaylen Waddle | WR | DEN | 10 |  | 19 | 36 | +17 | 42 | β says: QB EPA Bo Nix +7.92 · team pass rate +2.3 · target share +2.1 |
 | 67 | DeVonta Smith | WR | PHI | 10 |  | 18 | 15 | -3 | 33 | β says: RZ pass rate -6.7 · target share +3.9 · team pass rate -3.5 |
-| 68 | Justin Jefferson | WR | MIN | 6 |  | 17 | 31 | +13 | 12 | β says: target share +7.26 · team offense -4.6 · snap share +3.63 |
+| 68 | Justin Jefferson | WR | MIN | 6 |  | 17 | 31 | +13 | 11 | β says: target share +7.26 · team offense -4.6 · snap share +3.63 |
 | 69 | Jared Goff | QB | DET | 6 |  | 16 | 19 | +3 | 62 | ✓ agree (v1 pos #9, v2 pos #9) |
-| 70 | Bo Nix | QB | DEN | 10 |  | 16 | 17 | +2 | 44 | ✓ agree (v1 pos #10, v2 pos #10) |
+| 70 | Bo Nix | QB | DEN | 10 |  | 16 | 17 | +2 | 46 | ✓ agree (v1 pos #10, v2 pos #10) |
 | 71 | Caleb Williams | QB | CHI | 10 |  | 16 | 16 | +0 | 23 | ✓ agree (v1 pos #11, v2 pos #11) |
 | 72 | Daniel Jones | QB | IND | 13 |  | 15 | 15 | +0 | 132 | ✓ agree (v1 pos #12, v2 pos #12) |
 | 73 | Harold Fannin Jr. | TE | CLE | 11 |  | 15 | 11 | -4 | 63 | ✓ agree (v1 pos #8, v2 pos #11) |
@@ -105,7 +105,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 79 | Aaron Jones | RB | MIN | 6 |  | 8 | 8 | -0 | 85 | ✓ agree (v1 pos #29, v2 pos #29) |
 | 80 | Juwan Johnson | TE | NO | 8 | Q | 6 | 5 | -1 | 103 | ✓ agree (v1 pos #11, v2 pos #14) |
 | 81 | Jakobi Meyers | WR | JAX | 7 |  | 4 | 7 | +3 | 77 | ✓ agree (v1 pos #29, v2 pos #31) |
-| 82 | Tyler Warren | TE | IND | 13 |  | 4 | 6 | +2 | 49 | ✓ agree (v1 pos #12, v2 pos #12) |
+| 82 | Tyler Warren | TE | IND | 13 |  | 4 | 6 | +2 | 48 | ✓ agree (v1 pos #12, v2 pos #12) |
 | 83 | Deebo Samuel Sr. | WR | SF | 8 |  | 2 | 16 | +14 | 130 | ✓ agree (v1 pos #30, v2 pos #27) |
 | 84 | Hunter Henry | TE | NE | 11 |  | 1 | 12 | +11 | 92 | ✓ agree (v1 pos #13, v2 pos #10) |
 | 85 | Dalton Kincaid | TE | BUF | 7 | O | 1 | 4 | +3 | 81 | ✓ agree (v1 pos #14, v2 pos #15) |
@@ -199,7 +199,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 173 | Jaylen Wright | RB | MIA | 6 |  | -68 | -68 | -1 | 174 | ✓ agree (v1 pos #53, v2 pos #53) |
 | 174 | Calvin Ridley | WR | TEN | 9 |  | -69 | -76 | -8 | 180 | β says: QB EPA Cam Ward -10 · team offense -6.4 · team pass rate +5.6 |
 | 175 | Chimere Dike | WR | TEN | 9 |  | -69 | -77 | -8 | 175 | β says: QB EPA Cam Ward -10 · team offense -6.4 · team pass rate +5.6 |
-| 176 | Evan Engram | TE | DEN | 10 |  | -69 | -55 | +14 | 463 | β says: QB EPA Bo Nix +7.92 · team pass rate +2.3 · team offense +2 |
+| 176 | Evan Engram | TE | DEN | 10 |  | -69 | -55 | +14 | 461 | β says: QB EPA Bo Nix +7.92 · team pass rate +2.3 · team offense +2 |
 | 177 | Dawson Knox | TE | BUF | 7 |  | -70 | -67 | +3 | 684 | ✓ agree (v1 pos #35, v2 pos #34) |
 | 178 | Samaje Perine | RB | CIN | 6 |  | -70 | -70 | -0 | 459 | ✓ agree (v1 pos #54, v2 pos #54) |
 | 179 | Emanuel Wilson | RB | SEA | 11 | O | -70 | -56 | +15 | 161 | β says: Out +10 · moved GB→SEA +3.52 · team offense +0.99 |
@@ -221,7 +221,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 195 | Xavier Legette | WR | CAR | 5 |  | -82 | -89 | -6 | 527 | β says: QB EPA Bryce Young -2.75 · team pass rate -1.7 · team offense -1.56 |
 | 196 | Olamide Zaccheaus | WR | ATL | 11 |  | -84 | -84 | -1 | 698 | β says: moved CHI→ATL +4.18 · RZ pass rate -2.85 · team pass rate -1.9 |
 | 197 | DeMario Douglas | WR | NE | 11 |  | -84 | -74 | +10 | 485 | β says: QB EPA Drake Maye +10 · team offense +6.36 · RZ pass rate -3.65 |
-| 198 | Mac Jones | QB | SF | 8 |  | -84 | -83 | +2 | 403 | ✓ agree (v1 pos #32, v2 pos #33) |
+| 198 | Mac Jones | QB | SF | 8 |  | -84 | -83 | +2 | 401 | ✓ agree (v1 pos #32, v2 pos #33) |
 | 199 | Pat Bryant | WR | DEN | 10 |  | -86 | -71 | +14 | 172 | β says: QB EPA Bo Nix +7.92 · team pass rate +2.3 · team offense +2 |
 | 200 | Jameis Winston | QB | NYG | 8 |  | -86 | -85 | +2 | 467 | ✓ agree (v1 pos #33, v2 pos #34) |
 | 201 | Jalen Nailor | WR | LV | 13 |  | -86 | -81 | +6 | 171 | ✓ agree (v1 pos #70, v2 pos #72) |
@@ -355,7 +355,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 329 | Khalil Herbert | RB | ATL | 11 |  | -140 | -134 | +6 | 684 | β says: moved NYJ→ATL +7.02 · team offense -0.63 |
 | 330 | Konata Mumpfield | WR | LAR | 11 |  | -141 | -121 | +20 | 678 | β says: QB EPA Matthew Stafford +10 · team offense +5.8 · 1 dome playoff wks +1.5 |
 | 331 | Quinn Ewers | QB | JAX | 7 |  | -142 | -135 | +7 | 532 | ✓ agree (v1 pos #43, v2 pos #42) |
-| 332 | Stone Smartt | TE | NO | 8 | O | -143 | -128 | +15 | 547 | β says: Out +10 · moved NYJ→NO +7.16 · team offense -3.52 |
+| 332 | Stone Smartt | TE | NO | 8 | O | -143 | -128 | +15 | 545 | β says: Out +10 · moved NYJ→NO +7.16 · team offense -3.52 |
 | 333 | Ben Sims | TE | SEA | 11 |  | -144 | -147 | -4 | 392 | β says: moved MIN→SEA +7.19 · team pass rate -6.2 · RZ pass rate -5.9 |
 | 334 | Ray-Ray McCloud | WR | CHI | 10 | Q | -144 | -131 | +13 | 676 | β says: moved NYG→CHI +7.21 · QB EPA Caleb Williams +5.28 · RZ pass rate -4.7 |
 | 335 | Jordan Watkins | WR | SF | 8 |  | -144 | -134 | +10 | 999 | β says: QB EPA Brock Purdy +7.89 · team offense +3.52 · RZ pass rate -2.15 |
@@ -379,7 +379,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 353 | Efton Chism III | WR | NE | 11 |  | -148 | -139 | +10 | 572 | β says: QB EPA Drake Maye +10 · team offense +6.36 · RZ pass rate -3.65 |
 | 354 | Trevor Etienne | RB | CAR | 5 |  | -149 | -150 | -1 | 690 | β says: team offense -1.17 |
 | 355 | Amar Johnson | RB | LAC | 7 |  | -149 | -147 | +2 | 454 | ✓ agree (v1 pos #90, v2 pos #92) |
-| 356 | Johnny Mundt | TE | PHI | 10 |  | -149 | -151 | -2 | 549 | ✓ agree (v1 pos #83, v2 pos #85) |
+| 356 | Johnny Mundt | TE | PHI | 10 |  | -149 | -151 | -2 | 550 | ✓ agree (v1 pos #83, v2 pos #85) |
 | 357 | Justin Watson | WR | KC | 5 |  | -149 | -128 | +21 | 534 | β says: QB EPA Patrick Mahomes +8.53 · moved HOU→KC +7.47 · team pass rate +3.2 |
 | 358 | Brycen Tremayne | WR | CAR | 5 |  | -149 | -156 | -6 | 490 | β says: QB EPA Bryce Young -2.75 · team pass rate -1.7 · team offense -1.56 |
 | 359 | Quentin Skinner | WR | PHI | 10 |  | -149 | -151 | -2 |  | ✓ agree (v1 pos #143, v2 pos #143) |
@@ -452,7 +452,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 426 | Carter Runyon | TE | LV | 13 |  | -170 | -169 | +1 | 355 | ✓ agree (v1 pos #98, v2 pos #98) |
 | 427 | Chris Manhertz | TE | NYG | 8 |  | -170 | -183 | -12 | 625 | β says: QB EPA J.J. McCarthy -6.76 · RZ pass rate -4 · team pass rate -3.6 |
 | 428 | KhaDarel Hodge | WR | SF | 8 |  | -171 | -152 | +19 | 488 | β says: moved ATL→SF +8.53 · QB EPA Brock Purdy +7.89 · team offense +3.52 |
-| 429 | Pharaoh Brown | TE | IND | 13 |  | -171 | -164 | +7 | 386 | β says: moved ARI→IND +8.53 · RZ pass rate -4.05 · team offense +2.88 |
+| 429 | Pharaoh Brown | TE | IND | 13 |  | -171 | -164 | +7 | 388 | β says: moved ARI→IND +8.53 · RZ pass rate -4.05 · team offense +2.88 |
 | 430 | Colson Yankoff | TE | WAS | 7 |  | -171 | -183 | -12 | 678 | β says: RZ pass rate -7.25 · team pass rate -5.5 · 1 dome playoff wks +1.5 |
 | 431 | Jonathan Mingo | WR | DAL | 14 | O | -172 | -143 | +29 | 673 | β says: QB EPA Dak Prescott +10 · Out +10 · team offense +3.92 |
 | 432 | Britain Covey | WR | PHI | 10 |  | -172 | -181 | -9 | 596 | β says: RZ pass rate -6.7 · team pass rate -3.5 · team offense +1.04 |
@@ -508,7 +508,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 482 | Andy Dalton | QB | ATL | 11 | O | -241 | -221 | +20 | 657 | β says: moved CAR→ATL +10 · Out +10 |
 | 483 | Cooper Rush | QB | TB | 10 |  | -257 | -247 | +10 | 682 | ✓ agree (v1 pos #56, v2 pos #54) |
 | 484 | Kenny Pickett | QB | CAR | 5 |  | -268 | -258 | +10 | 666 | ✓ agree (v1 pos #57, v2 pos #55) |
-| 485 | Max Brosmer | QB | MIN | 6 | O | -272 | -259 | +13 | 499 | ✓ agree (v1 pos #58, v2 pos #56) |
+| 485 | Max Brosmer | QB | MIN | 6 | O | -272 | -259 | +13 | 497 | ✓ agree (v1 pos #58, v2 pos #56) |
 | 486 | Tyson Bagent | QB | CHI | 10 |  | -285 | -285 | +0 | 546 | ✓ agree (v1 pos #59, v2 pos #59) |
 | 487 | Teddy Bridgewater | QB | DET | 6 |  | -291 | -278 | +13 | 999 | ✓ agree (v1 pos #60, v2 pos #57) |
 | 488 | Joshua Dobbs | QB | DET | 6 |  | -298 | -285 | +13 | 687 | ✓ agree (v1 pos #61, v2 pos #60) |
@@ -516,7 +516,7 @@ Not a new ranking — the same logic the app runs, in a table.
 | 490 | Jalen Milroe | QB | SEA | 11 |  | -305 | -305 | +0 | 497 | ✓ agree (v1 pos #63, v2 pos #65) |
 | 491 | Anthony Richardson | QB | IND | 13 |  | -305 | -305 | +0 | 476 | ✓ agree (v1 pos #64, v2 pos #66) |
 | 492 | Drew Lock | QB | SEA | 11 |  | -306 | -306 | +0 | 691 | ✓ agree (v1 pos #65, v2 pos #67) |
-| 493 | Brett Rypien | QB | LV | 13 |  | -307 | -294 | +13 | 601 | β says: moved CIN→LV +10 · 2 dome playoff wks +3 |
+| 493 | Brett Rypien | QB | LV | 13 |  | -307 | -294 | +13 | 600 | β says: moved CIN→LV +10 · 2 dome playoff wks +3 |
 | 494 | Nick Mullens | QB | JAX | 7 |  | -307 | -307 | +0 | 570 | ✓ agree (v1 pos #67, v2 pos #68) |
 | 495 | Kedon Slovis | QB | BAL | 13 | O | -308 | -288 | +20 | 591 | β says: moved ARI→BAL +10 · Out +10 |
 | 496 | Jarrett Stidham | QB | DEN | 10 |  | -309 | -307 | +2 | 325 | ✓ agree (v1 pos #69, v2 pos #69) |
