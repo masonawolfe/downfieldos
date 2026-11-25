@@ -2,9 +2,9 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-24T15:12:30.802Z",
+    "generated_at": "2026-11-25T14:12:43.479Z",
     "generated_by": "scripts/build-team-changes.js",
-    "label": "Updated November 24, 2026",
+    "label": "Updated November 25, 2026",
     "label_basis": "the build's own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card",
     "graded_week": 11,
     "week_now": 12,
@@ -13,7 +13,7 @@
       "latest_transactions_week": 11,
       "latest_report_week": 11
     },
-    "total_items": 151,
+    "total_items": 150,
     "first_build": false,
     "state_reset": null,
     "injury_report_weeks_behind": {
@@ -92,7 +92,7 @@
       },
       {
         "file": "src/data/intelligence/availability_2026.json",
-        "generated": "2026-11-24T14:44:59.043Z"
+        "generated": "2026-11-25T14:10:37.047Z"
       },
       {
         "file": "src/data/intelligence/weekly_transactions_2026.json",
@@ -100,7 +100,7 @@
       },
       {
         "file": "src/data/rosters2026.js",
-        "generated": "2026-11-24T15:12:25.334Z"
+        "generated": "2026-11-25T14:12:37.996Z"
       },
       {
         "file": "src/data/intelligence/weekly_actuals_2026.json",
@@ -108,7 +108,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-24T14:48:43.008Z"
+        "generated": "2026-11-24T15:12:30.802Z"
       },
       {
         "file": "data/team_changes_weights.json",
@@ -165,7 +165,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -322,66 +322,6 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0036081",
-        "name": "Broderick Washington Jr.",
-        "position": "EDGE",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Broderick Washington Jr. moved into the starting lineup at edge rusher on the depth chart before week 11, in place of Nnamdi Madubuike.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0033548",
-        "name": "Chidobe Awuzie",
-        "position": "CB",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Chidobe Awuzie moved into the starting lineup at cornerback on the depth chart before week 11, in place of Marlon Humphrey.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0040104",
-        "name": "Keondre Jackson",
-        "position": "SS",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Keondre Jackson moved into the starting lineup at strong safety on the depth chart before week 11, in place of Jaylinn Hawkins.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
         "gsis_id": "00-0039064",
         "name": "Zay Flowers",
         "position": "WR",
@@ -396,6 +336,22 @@
         "detail": "role_up",
         "sentence": "Wide receiver Zay Flowers drew 11 targets in week 11, up from an average of 6 over the previous 3 games.",
         "matters": true
+      },
+      {
+        "gsis_id": "00-0040888",
+        "name": "Adam Randall",
+        "position": "RB",
+        "week": 11,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "activated",
+        "sentence": "Running back Adam Randall returned to the active roster before week 11.",
+        "matters": false
       }
     ],
     "BUF": [
@@ -432,63 +388,51 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0035689",
-        "name": "Dawson Knox",
-        "position": "TE",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Dawson Knox moved into the starting lineup at tight end on the depth chart before week 11, in place of Dalton Kincaid.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0035500",
-        "name": "Greg Dortch",
+        "gsis_id": "00-0034827",
+        "name": "DJ Moore",
         "position": "WR",
         "week": 11,
         "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Greg Dortch moved into the starting lineup at wide receiver on the depth chart before week 11, in place of Skyler Bell.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
           }
         ],
+        "detail": "role_up",
+        "sentence": "Wide receiver DJ Moore drew 10 targets in week 11, up from an average of 6 over the previous 3 games.",
         "matters": true
       },
       {
-        "gsis_id": "00-0040709",
-        "name": "Maxwell Hairston",
-        "position": "CB",
+        "gsis_id": "00-0037261",
+        "name": "Khalil Shakir",
+        "position": "WR",
         "week": 11,
         "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Maxwell Hairston moved into the starting lineup at cornerback on the depth chart before week 11, in place of Christian Benford.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
           }
         ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Khalil Shakir drew 9 targets in week 11, up from an average of 4.3 over the previous 3 games.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0035537",
+        "name": "Ty Johnson",
+        "position": "RB",
+        "week": 11,
+        "kind": "role",
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
+          }
+        ],
+        "detail": "role_up",
+        "sentence": "Running back Ty Johnson drew 8 targets in week 11, up from an average of 2 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -507,26 +451,6 @@
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Linebacker Jaelan Phillips was listed questionable on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0040296",
-        "name": "Corey Thornton",
-        "position": "CB",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Corey Thornton moved into the starting lineup at cornerback on the depth chart before week 11, in place of Marco Wilson.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
         "matters": true
       },
       {
@@ -576,6 +500,22 @@
         "detail": "doubtful",
         "sentence": "Running back Jonathon Brooks was listed doubtful on the week 10 injury report.",
         "matters": false
+      },
+      {
+        "gsis_id": "00-0035277",
+        "name": "Mike Jackson",
+        "position": "CB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "doubtful",
+        "sentence": "Cornerback Mike Jackson was listed doubtful on the week 10 injury report.",
+        "matters": false
       }
     ],
     "CHI": [
@@ -614,41 +554,21 @@
     ],
     "CIN": [
       {
-        "gsis_id": "00-0040723",
-        "name": "Jack Kiser",
+        "gsis_id": "00-0039313",
+        "name": "Swayze Bozeman",
         "position": "LB",
-        "week": 11,
+        "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Jack Kiser moved into the starting lineup at linebacker on the depth chart before week 11, in place of Oren Burks.",
+        "sentence": "Swayze Bozeman moved into the starting lineup at linebacker on the depth chart before week 12, in place of Jack Kiser.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0040359",
-        "name": "Jacob Bayer",
-        "position": "RG",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Jacob Bayer moved into the starting lineup at right guard on the depth chart before week 11, in place of Dalton Risner.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -700,6 +620,22 @@
         "detail": "out",
         "sentence": "Safety Kyle Dugger was listed out on the week 10 injury report.",
         "matters": false
+      },
+      {
+        "gsis_id": "00-0038619",
+        "name": "Andrei Iosivas",
+        "position": "WR",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "doubtful",
+        "sentence": "Wide receiver Andrei Iosivas was listed doubtful on the week 10 injury report.",
+        "matters": false
       }
     ],
     "CLE": [
@@ -731,7 +667,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -753,6 +689,26 @@
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Wide receiver Denzel Boston was listed questionable on the week 10 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0039852",
+        "name": "Jared Verse",
+        "position": "EDGE",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Jared Verse moved into the starting lineup at edge rusher on the depth chart before week 12, in place of Jamree Kromah.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-25T14:12:37.996Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-24T15:12:30.802Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -856,21 +812,41 @@
     ],
     "DEN": [
       {
-        "gsis_id": "00-0038605",
-        "name": "JL Skinner",
-        "position": "FS",
-        "week": 11,
+        "gsis_id": "00-0036727",
+        "name": "Adam Prentice",
+        "position": "RB",
+        "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "JL Skinner moved into the starting lineup at free safety on the depth chart before week 11, in place of Brandon Jones.",
+        "sentence": "Adam Prentice moved into the starting lineup at running back on the depth chart before week 12, in place of J.K. Dobbins.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
+          }
+        ],
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0036392",
+        "name": "Matt Peart",
+        "position": "LG",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Matt Peart moved into the starting lineup at left guard on the depth chart before week 12, in place of Ben Powers.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-25T14:12:37.996Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -921,7 +897,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -1012,6 +988,22 @@
         "matters": true
       },
       {
+        "gsis_id": "00-0036932",
+        "name": "Micah Parsons",
+        "position": "LB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Linebacker Micah Parsons was listed out on the week 10 injury report.",
+        "matters": true
+      },
+      {
         "gsis_id": "00-0037076",
         "name": "Sean Rhyan",
         "position": "C",
@@ -1057,22 +1049,6 @@
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Guard Kevin Zeitler was listed questionable on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0039112",
-        "name": "Lukas Van Ness",
-        "position": "LB",
-        "week": 10,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-20T13:56:01.963Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Linebacker Lukas Van Ness was listed questionable on the week 10 injury report.",
         "matters": true
       }
     ],
@@ -1121,7 +1097,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -1294,23 +1270,19 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0040227",
-        "name": "Jonah Monheim",
-        "position": "C",
+        "gsis_id": "00-0034960",
+        "name": "Jakobi Meyers",
+        "position": "WR",
         "week": 11,
         "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Jonah Monheim moved into the starting lineup at center on the depth chart before week 11, in place of Robert Hainsey.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
           }
         ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Jakobi Meyers drew 10 targets in week 11, up from an average of 5 over the previous 3 games.",
         "matters": true
       },
       {
@@ -1319,18 +1291,14 @@
         "position": "WR",
         "week": 11,
         "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Josh Cameron moved into the starting lineup at wide receiver on the depth chart before week 11, in place of CJ Williams.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
           }
         ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Josh Cameron drew 7 targets in week 11, up from an average of 1.7 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -1384,47 +1352,63 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0037807",
-        "name": "Joshua Ezeudu",
-        "position": "RT",
-        "week": 11,
+        "gsis_id": "00-0039827",
+        "name": "Hunter Nourzad",
+        "position": "RG",
+        "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Joshua Ezeudu moved into the starting lineup at right tackle on the depth chart before week 11, in place of Jaylon Moore.",
+        "sentence": "Hunter Nourzad moved into the starting lineup at right guard on the depth chart before week 12, in place of Mike Caliendo.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
       },
       {
-        "gsis_id": "00-0037207",
-        "name": "Mike Caliendo",
-        "position": "RG",
+        "gsis_id": "00-0039824",
+        "name": "Jared Wiley",
+        "position": "TE",
         "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Mike Caliendo moved into the starting lineup at right guard on the depth chart before week 11, in place of Trey Smith.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-19T14:43:22.933Z"
           },
           {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/availability_2026.json",
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
-        "matters": true
+        "kind": "out_or_back",
+        "detail": "reserve",
+        "sentence": "Tight end Jared Wiley moved to injured reserve before week 11.",
+        "matters": false
       }
     ],
     "LAC": [
+      {
+        "gsis_id": "00-0036736",
+        "name": "Kayode Awosika",
+        "position": "G",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Guard Kayode Awosika was listed questionable on the week 10 injury report.",
+        "matters": true
+      },
       {
         "gsis_id": "00-0039915",
         "name": "Ladd McConkey",
@@ -1439,26 +1423,6 @@
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Wide receiver Ladd McConkey was listed questionable on the week 10 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0034356",
-        "name": "Donte Jackson",
-        "position": "CB",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Donte Jackson moved into the starting lineup at cornerback on the depth chart before week 11.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
         "matters": true
       },
       {
@@ -1570,34 +1534,30 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
       },
       {
-        "gsis_id": "00-0036093",
-        "name": "Bill Murray",
-        "position": "LG",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Bill Murray moved into the starting lineup at left guard on the depth chart before week 11, in place of Steve Avila.",
+        "gsis_id": "00-0040737",
+        "name": "Terrance Ferguson",
+        "position": "TE",
+        "week": 10,
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
           }
         ],
-        "matters": true
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Tight end Terrance Ferguson was listed out on the week 10 injury report.",
+        "matters": false
       }
     ],
     "LV": [
@@ -1618,39 +1578,23 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0039066",
-        "name": "Michael Mayer",
-        "position": "TE",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Michael Mayer moved into the starting lineup at tight end on the depth chart before week 11, in place of Brock Bowers.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
         "gsis_id": "00-0040729",
         "name": "Jack Bech",
         "position": "WR",
-        "week": 11,
+        "week": 12,
         "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Jack Bech moved into the starting lineup at wide receiver on the depth chart before week 12, in place of Cody White.",
         "sources": [
           {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-24T11:48:07.678Z"
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-25T14:12:37.996Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
-        "detail": "role_up",
-        "sentence": "Wide receiver Jack Bech drew 9 targets in week 11, up from an average of 3.7 over the previous 3 games.",
         "matters": true
       },
       {
@@ -1720,26 +1664,6 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0041527",
-        "name": "Kyle Louis",
-        "position": "SS",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Kyle Louis moved into the starting lineup at strong safety on the depth chart before week 11, in place of Dante Trader Jr..",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
         "gsis_id": "00-0040175",
         "name": "Jordan Phillips",
         "position": "DL",
@@ -1751,7 +1675,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -1771,12 +1695,28 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "reserve",
         "sentence": "Defensive lineman Zeek Biggers moved to injured reserve before week 11.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0038728",
+        "name": "Jared Wayne",
+        "position": "WR",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Wide receiver Jared Wayne was listed out on the week 10 injury report.",
         "matters": false
       }
     ],
@@ -1846,23 +1786,19 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0035795",
-        "name": "James Pierre",
-        "position": "CB",
+        "gsis_id": "00-0040154",
+        "name": "Tai Felton",
+        "position": "WR",
         "week": 11,
         "kind": "role",
-        "detail": "new_starter",
-        "sentence": "James Pierre moved into the starting lineup at cornerback on the depth chart before week 11, in place of Isaiah Rodgers.",
         "sources": [
           {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "file": "src/data/intelligence/weekly_actuals_2026.json",
+            "generated": "2026-11-24T11:48:07.678Z"
           }
         ],
+        "detail": "role_up",
+        "sentence": "Wide receiver Tai Felton drew 12 targets in week 11, up from an average of 3 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -1950,6 +1886,22 @@
     ],
     "NO": [
       {
+        "gsis_id": "00-0041326",
+        "name": "CJ Donaldson",
+        "position": "RB",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Running back CJ Donaldson was listed out on the week 10 injury report.",
+        "matters": true
+      },
+      {
         "gsis_id": "00-0035242",
         "name": "Erik McCoy",
         "position": "C",
@@ -2012,26 +1964,6 @@
         "detail": "questionable",
         "sentence": "Running back Travis Etienne was listed questionable on the week 10 injury report.",
         "matters": true
-      },
-      {
-        "gsis_id": "00-0041065",
-        "name": "Jeremiah Wright",
-        "position": "RG",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Jeremiah Wright moved into the starting lineup at right guard on the depth chart before week 11.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
       }
     ],
     "NYG": [
@@ -2046,11 +1978,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2170,21 +2102,21 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0033375",
-        "name": "Tim Patrick",
-        "position": "WR",
-        "week": 11,
+        "gsis_id": "00-0040165",
+        "name": "Malachi Moore",
+        "position": "SCB",
+        "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Tim Patrick moved into the starting lineup at wide receiver on the depth chart before week 11, in place of Isaiah Williams.",
+        "sentence": "Malachi Moore moved into the starting lineup at slot cornerback on the depth chart before week 12, in place of D'Angelo Ponds.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2208,6 +2140,26 @@
     ],
     "PHI": [
       {
+        "gsis_id": "00-0039746",
+        "name": "Will Shipley",
+        "position": "RB",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Will Shipley moved into the starting lineup at running back on the depth chart before week 12, in place of Jaydon Blue.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-25T14:12:37.996Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-24T15:12:30.802Z"
+          }
+        ],
+        "matters": true
+      },
+      {
         "gsis_id": "00-0036912",
         "name": "DeVonta Smith",
         "position": "WR",
@@ -2218,11 +2170,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2294,6 +2246,26 @@
         "matters": true
       },
       {
+        "gsis_id": "00-0036894",
+        "name": "Pat Freiermuth",
+        "position": "TE",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Pat Freiermuth moved into the starting lineup at tight end on the depth chart before week 12, in place of Darnell Washington.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-25T14:12:37.996Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-24T15:12:30.802Z"
+          }
+        ],
+        "matters": true
+      },
+      {
         "gsis_id": "00-0039739",
         "name": "Roman Wilson",
         "position": "WR",
@@ -2304,11 +2276,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2316,37 +2288,21 @@
       {
         "gsis_id": "00-0038645",
         "name": "Spencer Anderson",
-        "position": "RG",
+        "position": "LG",
         "week": 11,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Spencer Anderson moved into the starting lineup at right guard on the depth chart before week 11.",
+        "sentence": "Spencer Anderson moved into the starting lineup at left guard on the depth chart before week 11.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0041489",
-        "name": "Germie Bernard",
-        "position": "WR",
-        "week": 11,
-        "kind": "role",
-        "sources": [
-          {
-            "file": "src/data/intelligence/weekly_actuals_2026.json",
-            "generated": "2026-11-24T11:48:07.678Z"
-          }
-        ],
-        "detail": "role_up",
-        "sentence": "Wide receiver Germie Bernard drew 10 targets in week 11, up from an average of 4.3 over the previous 3 games.",
         "matters": true
       }
     ],
@@ -2427,7 +2383,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -2465,7 +2421,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -2524,41 +2480,21 @@
     ],
     "TB": [
       {
-        "gsis_id": "00-0032889",
-        "name": "A'Shawn Robinson",
-        "position": "EDGE",
-        "week": 11,
+        "gsis_id": "00-0041057",
+        "name": "Keionte Scott",
+        "position": "SCB",
+        "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "A'Shawn Robinson moved into the starting lineup at edge rusher on the depth chart before week 11, in place of DeMonte Capehart.",
+        "sentence": "Keionte Scott moved into the starting lineup at slot cornerback on the depth chart before week 12.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0036993",
-        "name": "Ifeatu Melifonwu",
-        "position": "FS",
-        "week": 11,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Ifeatu Melifonwu moved into the starting lineup at free safety on the depth chart before week 11, in place of Antoine Winfield Jr..",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2609,7 +2545,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -2660,11 +2596,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2715,7 +2651,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-24T14:44:59.043Z"
+            "generated": "2026-11-25T14:10:37.047Z"
           }
         ],
         "kind": "out_or_back",
@@ -2724,41 +2660,21 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0039898",
-        "name": "Mike Sainristil",
-        "position": "SCB",
+        "gsis_id": "00-0040242",
+        "name": "Jacory Croskey-Merritt",
+        "position": "RB",
         "week": 12,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Mike Sainristil moved into the starting lineup at slot cornerback on the depth chart before week 12, in place of Amik Robertson.",
+        "sentence": "Jacory Croskey-Merritt moved into the starting lineup at running back on the depth chart before week 12, in place of Austin Ekeler.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
+            "generated": "2026-11-25T14:12:37.996Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
-          }
-        ],
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0040731",
-        "name": "Trey Amos",
-        "position": "CB",
-        "week": 12,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Trey Amos moved into the starting lineup at cornerback on the depth chart before week 12.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-24T15:12:25.334Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T14:48:43.008Z"
+            "generated": "2026-11-24T15:12:30.802Z"
           }
         ],
         "matters": true
@@ -2778,6 +2694,22 @@
         "detail": "role_up",
         "sentence": "Wide receiver Antonio Williams drew 11 targets in week 11, up from an average of 5 over the previous 3 games.",
         "matters": true
+      },
+      {
+        "gsis_id": "00-0039686",
+        "name": "Colson Yankoff",
+        "position": "TE",
+        "week": 10,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-20T13:56:01.963Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Tight end Colson Yankoff was listed out on the week 10 injury report.",
+        "matters": false
       }
     ]
   }
