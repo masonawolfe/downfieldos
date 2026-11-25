@@ -2,7 +2,7 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-25T14:12:43.479Z",
+    "generated_at": "2026-11-25T14:51:35.954Z",
     "generated_by": "scripts/build-team-changes.js",
     "label": "Updated November 25, 2026",
     "label_basis": "the build's own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card",
@@ -100,7 +100,7 @@
       },
       {
         "file": "src/data/rosters2026.js",
-        "generated": "2026-11-25T14:12:37.996Z"
+        "generated": "2026-11-25T14:51:32.148Z"
       },
       {
         "file": "src/data/intelligence/weekly_actuals_2026.json",
@@ -108,7 +108,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-24T15:12:30.802Z"
+        "generated": "2026-11-25T14:12:43.479Z"
       },
       {
         "file": "data/team_changes_weights.json",
@@ -564,11 +564,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -702,11 +702,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -822,11 +822,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -842,11 +842,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -1362,11 +1362,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -1534,11 +1534,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -1588,11 +1588,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -1978,11 +1978,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2112,11 +2112,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2150,11 +2150,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2170,11 +2170,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2256,11 +2256,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2276,11 +2276,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2296,11 +2296,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2490,11 +2490,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2596,11 +2596,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
@@ -2670,11 +2670,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-25T14:12:37.996Z"
+            "generated": "2026-11-25T14:51:32.148Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-24T15:12:30.802Z"
+            "generated": "2026-11-25T14:12:43.479Z"
           }
         ],
         "matters": true
