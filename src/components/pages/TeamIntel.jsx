@@ -12,6 +12,7 @@ import { ContractYearCard } from '../ui/ContractYearCard';
 import { NewsletterCTA } from '../ui/NewsletterCTA';
 import { TeamNewsCard } from '../ui/TeamNewsCard';
 import { TeamChangesCard } from '../ui/TeamChangesCard';
+import { playingTimeTier } from '../../utils/playingTime';
 
 export function TeamIntel({ plays, rosters, primaryTeam }) {
   const [team, setTeam] = useState(primaryTeam || "KC");
@@ -30,10 +31,14 @@ export function TeamIntel({ plays, rosters, primaryTeam }) {
           <p style={{ fontSize: 14, color: "#64748b", margin: "0 0 24px" }}>Everything you need to know. Filters apply to all metrics.</p>
         </div>
         <ExportButton label="Export Roster" onClick={() => {
-          const headers = ["Unit", "Position", "Player", "Grade", "Rating", ];
+          // Part 6 (2026-11-26, QA): the export wrote a "Grade" column (Elite to
+          // Below Avg) from the playing-time rating, a skill verdict the page no
+          // longer shows. It now says what the number measures.
+          const headers = ["Unit", "Position", "Player", "Playing time tier", "Playing time (of 100, measures how much he plays, not how well)"];
+          const tierOf = p => (p.grade === "TBD" || p.rating == null ? "not rated" : playingTimeTier(p.rating));
           const rows = [
-            ...roster.offense.map(p => ["Offense", p.pos, p.name, p.grade, p.rating]),
-            ...roster.defense.map(p => ["Defense", p.pos, p.name, p.grade, p.rating]),
+            ...roster.offense.map(p => ["Offense", p.pos, p.name, tierOf(p), p.rating]),
+            ...roster.defense.map(p => ["Defense", p.pos, p.name, tierOf(p), p.rating]),
           ];
           downloadCSV(`${team}-roster`, headers, rows);
         }} />
