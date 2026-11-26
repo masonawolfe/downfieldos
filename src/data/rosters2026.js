@@ -4,8 +4,12 @@
 // should render this under an honest label — "Snap share tier" or similar.
 // CoS audit 2026-08-30 finding #4.
 // Generated: 2026-11-25T15:53:24.601Z
+// Reconciled: 2026-11-26T13:49:06.682Z against availability_2026.json
+//             (generated 2026-11-26T13:47:06.347Z) — 11 swap(s),
+//             0 no-backup slot(s).
 // Sources: depth_charts_2026.csv, snap_counts_2026.csv, roster_2026.csv, availability_2026.json
 // Do not edit manually — re-run: SEASON=2026 node scripts/fetch-nflverse-roster-base.js
+//                   or:            node scripts/reconcile-rosters-availability.mjs
 // E-044 (2026-09-20): each starter row carries a `candidates` array
 // (pos_rank 1-3 pool) so the board build can re-pick against today's
 // availability at ship time. ROSTERS_META.availability_stamp names the
@@ -9575,8 +9579,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SCB",
-        "gsis_id": "00-0038111",
-        "name": "Kyler Gordon",
+        "gsis_id": "00-0037129",
+        "name": "Josh Blackwell",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -9677,7 +9681,8 @@ export const ROSTERS_2026 = {
             "posAbb": "NB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kyler Gordon (Out)"
       },
       {
         "pos": "FS",
@@ -13177,8 +13182,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0038041",
-        "name": "Jake Ferguson",
+        "gsis_id": "00-0039530",
+        "name": "Brevyn Spann-Ford",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -13237,7 +13242,8 @@ export const ROSTERS_2026 = {
             "posAbb": "TE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Jake Ferguson (Out)"
       },
       {
         "pos": "LT",
@@ -14362,8 +14368,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "SS",
-        "gsis_id": "00-0035227",
-        "name": "P.J. Locke",
+        "gsis_id": "00-0037561",
+        "name": "Markquese Bell",
         "grade": "Above Avg",
         "rating": 78,
         "rating_source": "snap_share_v1",
@@ -14410,7 +14416,8 @@ export const ROSTERS_2026 = {
             "posAbb": "SS",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: P.J. Locke (Out)"
       }
     ]
   },
@@ -14503,7 +14510,7 @@ export const ROSTERS_2026 = {
         "grade": "Average",
         "rating": 70,
         "rating_source": "snap_share_v1",
-        "starter_reason": "promoted after: J.K. Dobbins (Out), Tyler Badie (IR), RJ Harvey (IR)",
+        "starter_reason": "promoted after: J.K. Dobbins (SUSP), Tyler Badie (IR), RJ Harvey (IR)",
         "candidates": [
           {
             "gsis_id": "00-0041496",
@@ -17594,8 +17601,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0035700",
-        "name": "Josh Jacobs",
+        "gsis_id": "00-0040142",
+        "name": "Kaleb Johnson",
         "grade": "Average",
         "rating": 74,
         "rating_source": "snap_share_v1",
@@ -17642,12 +17649,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Josh Jacobs (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0040142",
-        "name": "Kaleb Johnson",
+        "gsis_id": "00-0039811",
+        "name": "MarShawn Lloyd",
         "grade": "Below Avg",
         "rating": 67,
         "rating_source": "snap_share_v1",
@@ -17786,8 +17794,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "WR2",
-        "gsis_id": "00-0038124",
-        "name": "Christian Watson",
+        "gsis_id": "00-0040009",
+        "name": "Savion Williams",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -17870,12 +17878,13 @@ export const ROSTERS_2026 = {
             "posAbb": "SWR",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Christian Watson (Out)"
       },
       {
         "pos": "WR3",
-        "gsis_id": "00-0040009",
-        "name": "Savion Williams",
+        "gsis_id": "00-0037091",
+        "name": "Bo Melton",
         "grade": "Average",
         "rating": 75,
         "rating_source": "snap_share_v1",
@@ -23961,8 +23970,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "RB1",
-        "gsis_id": "00-0038134",
-        "name": "Kenneth Walker III",
+        "gsis_id": "00-0041013",
+        "name": "Emmett Johnson",
         "grade": "Above Avg",
         "rating": 82,
         "rating_source": "snap_share_v1",
@@ -24009,12 +24018,13 @@ export const ROSTERS_2026 = {
             "posAbb": "RB",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Kenneth Walker III (Out)"
       },
       {
         "pos": "RB2",
-        "gsis_id": "00-0041013",
-        "name": "Emmett Johnson",
+        "gsis_id": "00-0040959",
+        "name": "Jaydn Ott",
         "grade": "Average",
         "rating": 71,
         "rating_source": "snap_share_v1",
@@ -27375,8 +27385,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "TE",
-        "gsis_id": "00-0033110",
-        "name": "Tyler Higbee",
+        "gsis_id": "00-0036244",
+        "name": "Colby Parkinson",
         "grade": "Above Avg",
         "rating": 79,
         "rating_source": "snap_share_v1",
@@ -27423,7 +27433,8 @@ export const ROSTERS_2026 = {
             "posAbb": "TE",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Tyler Higbee (Out)"
       },
       {
         "pos": "LT",
@@ -43867,8 +43878,8 @@ export const ROSTERS_2026 = {
       },
       {
         "pos": "LG",
-        "gsis_id": "00-0034342",
-        "name": "Quenton Nelson",
+        "gsis_id": "00-0040639",
+        "name": "Grey Zabel",
         "grade": "Above Avg",
         "rating": 87,
         "rating_source": "snap_share_v1",
@@ -43975,7 +43986,8 @@ export const ROSTERS_2026 = {
             "posAbb": "LG",
             "posRank": 99
           }
-        ]
+        ],
+        "starter_reason": "promoted after: Quenton Nelson (Out)"
       },
       {
         "pos": "C",
@@ -51274,8 +51286,11 @@ export const ROSTERS_2026 = {
 
 export const ROSTERS_META = {
   "generated": "2026-11-25T15:53:24.601Z",
-  "availability_stamp": "2026-11-25T14:10:37.047Z",
-  "reconciled_by": "fetch-nflverse-roster-base.js",
+  "availability_stamp": "2026-11-26T13:47:06.347Z",
+  "reconciled_by": "reconcile-rosters-availability.mjs",
+  "reconciled_at": "2026-11-26T13:49:06.682Z",
+  "swaps_this_run": 11,
+  "no_backup_this_run": 0,
   "sources": [
     "depth_charts_2026.csv",
     "snap_counts_2026.csv",
