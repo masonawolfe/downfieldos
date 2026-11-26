@@ -382,12 +382,25 @@ console.log('committed file');
   check(d.meta.label === updatedLabel(d.meta.generated_at) && /^Updated [A-Z][a-z]+ \d{1,2}, \d{4}$/.test(d.meta.label), `the file's label is its own build date in words (${d.meta.label})`);
   check(!('state' in d) && !('starters' in d), 'the starters state is not in the file the site will bundle');
   check(!all.some((x) => 'other_team' in x), 'no internal ranking key (other_team) in the reader file');
-  for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
-    check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'added') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'now_with'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
+  // 2026-11-26: these five named checks were written against the 11-19 build
+  // and name roster moves made before week 10. A roster move stays on a card
+  // for its week and the next (the window check above), so from week 12 they
+  // age off and the checks went red on a data commit: 20 deploys failed from
+  // 2026-11-24 14:45 UTC. npm test runs in the deploy, and a data job's commit
+  // must never turn it red (scripts/test-contract.js). They now run only while
+  // their week is in the card's window, and say so when skipped.
+  const NAMED_WEEK = 10;
+  const namedInWindow = d.meta.week_now >= NAMED_WEEK && d.meta.week_now - 1 <= NAMED_WEEK;
+  if (namedInWindow) {
+    for (const [nm, a, b] of [['Kirk Cousins', 'MIN', 'LV'], ['Keenan Allen', 'SF', 'IND'], ['Josh Downs', 'KC', 'IND']]) {
+      check(d.teams[a]?.some((x) => x.name === nm && x.detail === 'added') && d.teams[b]?.some((x) => x.name === nm && x.detail === 'now_with'), `done check (CoS 15:31): ${nm} on the ${a} card and on the ${b} card`);
+    }
+    // CoS ruling after QA gate 2, by name.
+    check(d.teams.BAL?.find((x) => x.name === 'Jacoby Brissett')?.sentence === 'Added quarterback Jacoby Brissett, last with the Cardinals, before week 10.', 'Brissett on Baltimore\'s card: added, last with the Cardinals (nfl.com lists a trade; never "signed")');
+    check(d.teams.CLE?.find((x) => x.name === 'Zaire Mitchell-Paden')?.sentence === 'Added tight end Zaire Mitchell-Paden, last with the Texans, before week 10.', 'Mitchell-Paden on Cleveland\'s card: added, last with the Texans');
+  } else {
+    console.log(`  ⏭  five named week ${NAMED_WEEK} checks skipped: the card is at week ${d.meta.week_now}, so week ${NAMED_WEEK} moves are out of its window (they ran and passed while it was in)`);
   }
-  // CoS ruling after QA gate 2, by name.
-  check(d.teams.BAL?.find((x) => x.name === 'Jacoby Brissett')?.sentence === 'Added quarterback Jacoby Brissett, last with the Cardinals, before week 10.', 'Brissett on Baltimore\'s card: added, last with the Cardinals (nfl.com lists a trade; never "signed")');
-  check(d.teams.CLE?.find((x) => x.name === 'Zaire Mitchell-Paden')?.sentence === 'Added tight end Zaire Mitchell-Paden, last with the Texans, before week 10.', 'Mitchell-Paden on Cleveland\'s card: added, last with the Texans');
   check(!all.some((x) => /\b(trade|traded|claim|claimed)\b/i.test(x.sentence)), 'negative: no sentence says trade or claim');
   check(all.filter((x) => /^Signed /.test(x.sentence)).every((x) => x.detail === 'signed' && !x.sentence.includes(' last with ') && !x.sentence.includes('practice squad')), 'negative: "Signed" appears only on rows that name no other team');
   check(Object.keys(d.meta.unknown_teams || {}).length === 0, 'every team code in the inputs is known after the alias map');
