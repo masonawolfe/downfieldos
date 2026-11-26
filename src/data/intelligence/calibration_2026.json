@@ -1,7 +1,7 @@
 {
   "meta": {
     "season": 2026,
-    "generated_at": "2026-11-26T14:18:31.819Z",
+    "generated_at": "2026-11-26T17:13:32.365Z",
     "source_season": 2026,
     "sources": [
       "src/data/intelligence/weekly_actuals_2026.json",
@@ -10,9 +10,9 @@
       "src/data/playerBoard2026.js",
       "src/data/schedule2026.js"
     ],
-    "generated_utc": "2026-11-26T14:18:31.819Z",
+    "generated_utc": "2026-11-26T17:13:32.365Z",
     "actuals_source": "https://github.com/nflverse/nflverse-data/releases/download/stats_player/stats_player_week_2026.csv.gz",
-    "actuals_generated_utc": "2026-11-24T11:48:07.678Z",
+    "actuals_generated_utc": "2026-11-26T17:13:31.883Z",
     "weekly_board_generated_utc": "2026-11-26T13:49:07.794Z",
     "player_board_generated_utc": "2026-11-26T14:18:30.746Z",
     "projections_source": "src/data/intelligence/weekly_projections/2026-wNN.json — frozen pre-kickoff snapshots (E-052). Never the live weeklyBoard2026.js.",
@@ -46,7 +46,14 @@
     ],
     "graded_rules": "full_ppr",
     "actual_column": "fantasy_points_graded",
-    "weeks_partial_excluded": [],
+    "weeks_partial_excluded": [
+      {
+        "week": 12,
+        "games_seen": 1,
+        "games_scheduled": 16,
+        "complete": false
+      }
+    ],
     "snapshots": {
       "1": {
         "file": "src/data/intelligence/weekly_projections/2026-w01.json",
@@ -1087,7 +1094,7 @@
     },
     "live_recompute": {
       "label": "NOT the record. The same figures recomputed from the rows in this file on this build; nflverse stat corrections move these, never the frozen note above.",
-      "generated_at": "2026-11-26T14:18:31.818Z",
+      "generated_at": "2026-11-26T17:13:32.365Z",
       "figures_differing_from_frozen": 0,
       "differing": [],
       "date": "2026-11-07",
