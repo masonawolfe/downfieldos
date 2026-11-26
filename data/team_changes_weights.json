@@ -2,17 +2,17 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-19T22:06:42.929Z",
+    "generated_at": "2026-11-26T20:20:27.813Z",
     "generated_by": "scripts/count-team-change-kinds.js",
     "source": "https://thetendencyreport.substack.com/feed",
     "read": {
-      "status": "file",
-      "items": 10,
-      "at": "2026-11-19T22:06:42.929Z"
+      "status": 200,
+      "items": 11,
+      "at": "2026-11-26T20:20:27.813Z"
     },
-    "issues_counted": 10,
-    "sentences_kept": 923,
-    "counted_through_week": 10,
+    "issues_counted": 11,
+    "sentences_kept": 997,
+    "counted_through_week": 11,
     "counted_through_week_basis": "issues published in season 2026 only",
     "kept_counted_copy": [],
     "rules": {
@@ -36,16 +36,16 @@
   },
   "kinds": {
     "out_or_back": {
-      "sentences": 47,
-      "issues": 10
+      "sentences": 49,
+      "issues": 11
     },
     "role": {
-      "sentences": 30,
-      "issues": 9
+      "sentences": 31,
+      "issues": 10
     },
     "roster_move": {
-      "sentences": 20,
-      "issues": 8
+      "sentences": 22,
+      "issues": 9
     },
     "play_caller": {
       "sentences": 3,
@@ -221,6 +221,22 @@
         "out_or_back": 6,
         "role": 2,
         "roster_move": 6,
+        "play_caller": 0,
+        "betting": 0,
+        "next_draft": 0
+      }
+    },
+    {
+      "key": "https://thetendencyreport.substack.com/p/three-points-at-a-time",
+      "title": "Three Points at a Time",
+      "published": "2026-11-24T10:30:00.000Z",
+      "season": 2026,
+      "week": 11,
+      "sentences_kept": 74,
+      "counts": {
+        "out_or_back": 2,
+        "role": 1,
+        "roster_move": 2,
         "play_caller": 0,
         "betting": 0,
         "next_draft": 0
