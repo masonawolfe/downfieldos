@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27T14:13:33.215Z",
+  "generated_at": "2026-11-28T12:54:27.122Z",
   "source_season": 2026,
   "sources": [
     "https://github.com/nflverse/nflverse-data/releases/download/schedules/games.csv"
@@ -3208,16 +3208,16 @@
       "gametime": "15:00",
       "home": "PIT",
       "away": "DEN",
-      "home_score": null,
-      "away_score": null,
-      "total": null,
+      "home_score": 27,
+      "away_score": 5,
+      "total": 32,
       "overtime": false,
-      "winner": null,
-      "margin": null,
-      "played": false,
+      "winner": "PIT",
+      "margin": 22,
+      "played": true,
       "home_stats": null,
       "away_stats": null,
-      "narrative": "DEN at PIT. Kickoff Friday 15:00 ET."
+      "narrative": "PIT 27, DEN 5. blowout."
     },
     {
       "gameId": "2026_12_NO_CIN",

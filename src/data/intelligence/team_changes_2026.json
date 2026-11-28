@@ -2,9 +2,9 @@
   "meta": {
     "season": 2026,
     "source_season": 2026,
-    "generated_at": "2026-11-27T14:13:33.369Z",
+    "generated_at": "2026-11-28T12:54:27.241Z",
     "generated_by": "scripts/build-team-changes.js",
-    "label": "Updated November 27, 2026",
+    "label": "Updated November 28, 2026",
     "label_basis": "the build's own time (generated_at) as a calendar date in US Eastern time, the date a reader sees on the card",
     "graded_week": 12,
     "week_now": 13,
@@ -13,31 +13,23 @@
       "latest_transactions_week": 12,
       "latest_report_week": 12
     },
-    "total_items": 141,
+    "total_items": 143,
     "first_build": false,
     "state_reset": null,
     "injury_report_weeks_behind": {
       "ARI": 11,
       "BAL": 11,
-      "BUF": 11,
       "CAR": 11,
-      "CHI": 11,
       "CIN": 11,
-      "DAL": 11,
-      "DEN": 11,
-      "DET": 11,
       "HOU": 11,
       "IND": 11,
       "JAX": 11,
-      "KC": 11,
       "LAC": 11,
       "LV": 11,
       "MIA": 11,
       "MIN": 11,
       "NO": 11,
       "NYJ": 11,
-      "PHI": 11,
-      "PIT": 11,
       "SF": 11,
       "TB": 11,
       "TEN": 11,
@@ -56,11 +48,11 @@
     "sources": [
       {
         "file": "src/data/intelligence/injuries_2026.json",
-        "generated": "2026-11-25T15:29:00.144Z"
+        "generated": "2026-11-27T14:52:18.538Z"
       },
       {
         "file": "src/data/intelligence/availability_2026.json",
-        "generated": "2026-11-27T13:44:03.522Z"
+        "generated": "2026-11-28T12:52:57.363Z"
       },
       {
         "file": "src/data/intelligence/weekly_transactions_2026.json",
@@ -68,7 +60,7 @@
       },
       {
         "file": "src/data/rosters2026.js",
-        "generated": "2026-11-27T14:13:28.130Z"
+        "generated": "2026-11-28T12:54:23.369Z"
       },
       {
         "file": "src/data/intelligence/weekly_actuals_2026.json",
@@ -76,7 +68,7 @@
       },
       {
         "file": "data/team_changes_starters.json",
-        "generated": "2026-11-27T13:45:39.966Z"
+        "generated": "2026-11-27T14:13:33.369Z"
       },
       {
         "file": "data/team_changes_weights.json",
@@ -113,11 +105,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
@@ -133,7 +125,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -152,11 +144,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -172,11 +164,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -189,7 +181,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -198,7 +190,48 @@
         "matters": false
       }
     ],
-    "ATL": [],
+    "ATL": [
+      {
+        "gsis_id": "00-0036463",
+        "name": "Chris Blair",
+        "position": "WR",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Chris Blair moved into the starting lineup at wide receiver on the depth chart before week 13, in place of Jahan Dotson.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038587",
+        "name": "Jammie Robinson",
+        "position": "SS",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Jammie Robinson moved into the starting lineup at strong safety on the depth chart before week 13, in place of DeMarcco Hellams.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
+        "matters": true
+      }
+    ],
     "BAL": [
       {
         "gsis_id": "00-0036302",
@@ -208,7 +241,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -224,7 +257,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -240,7 +273,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -276,7 +309,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "roster_move",
@@ -290,32 +323,48 @@
         "gsis_id": "00-0037288",
         "name": "Christian Benford",
         "position": "CB",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Cornerback Christian Benford was listed out on the week 11 injury report.",
+        "detail": "questionable",
+        "sentence": "Cornerback Christian Benford was listed questionable on the week 12 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0038933",
         "name": "Dalton Kincaid",
         "position": "TE",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "doubtful",
-        "sentence": "Tight end Dalton Kincaid was listed doubtful on the week 11 injury report.",
+        "detail": "questionable",
+        "sentence": "Tight end Dalton Kincaid was listed questionable on the week 12 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038548",
+        "name": "O'Cyrus Torrence",
+        "position": "G",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Guard O'Cyrus Torrence was listed questionable on the week 12 injury report.",
         "matters": true
       },
       {
@@ -329,11 +378,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -342,32 +391,16 @@
         "gsis_id": "00-0038557",
         "name": "Dorian Williams",
         "position": "LB",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Linebacker Dorian Williams was listed out on the week 11 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0036888",
-        "name": "Damar Hamlin",
-        "position": "S",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
-        "sentence": "Safety Damar Hamlin was listed questionable on the week 11 injury report.",
+        "sentence": "Linebacker Dorian Williams was listed questionable on the week 12 injury report.",
         "matters": false
       }
     ],
@@ -396,7 +429,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -412,7 +445,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -428,7 +461,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -444,7 +477,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -458,16 +491,48 @@
         "gsis_id": "00-0038111",
         "name": "Kyler Gordon",
         "position": "CB",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Cornerback Kyler Gordon was listed out on the week 11 injury report.",
+        "sentence": "Cornerback Kyler Gordon was listed out on the week 12 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0037271",
+        "name": "D'Marco Jackson",
+        "position": "LB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Linebacker D'Marco Jackson was listed questionable on the week 12 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0039071",
+        "name": "Tyrique Stevenson",
+        "position": "CB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Cornerback Tyrique Stevenson was listed questionable on the week 12 injury report.",
         "matters": true
       },
       {
@@ -481,11 +546,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -501,46 +566,14 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
-      },
-      {
-        "gsis_id": "00-0041051",
-        "name": "Zavion Thomas",
-        "position": "WR",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Wide receiver Zavion Thomas was listed questionable on the week 11 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0034780",
-        "name": "Isaac Yiadom",
-        "position": "DB",
-        "week": 12,
-        "sources": [
-          {
-            "file": "src/data/intelligence/weekly_transactions_2026.json",
-            "generated": "2026-11-26T15:49:53.644Z"
-          }
-        ],
-        "kind": "roster_move",
-        "detail": "added",
-        "sentence": "Added defensive back Isaac Yiadom, last with the Commanders, before week 12.",
-        "matters": false
       }
     ],
     "CIN": [
@@ -552,7 +585,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -568,7 +601,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -584,7 +617,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -600,7 +633,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -616,7 +649,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -653,11 +686,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -673,11 +706,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -685,88 +718,84 @@
     ],
     "DAL": [
       {
-        "gsis_id": "00-0037275",
-        "name": "DaRon Bland",
-        "position": "CB",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Cornerback DaRon Bland was listed out on the week 11 injury report.",
-        "matters": true
-      },
-      {
         "gsis_id": "00-0038041",
         "name": "Jake Ferguson",
         "position": "TE",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Tight end Jake Ferguson was listed out on the week 11 injury report.",
+        "sentence": "Tight end Jake Ferguson was listed out on the week 12 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0035227",
         "name": "P.J. Locke",
         "position": "S",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Safety P.J. Locke was listed out on the week 11 injury report.",
+        "sentence": "Safety P.J. Locke was listed out on the week 12 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0040007",
         "name": "Tyler Booker",
         "position": "G",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Guard Tyler Booker was listed out on the week 11 injury report.",
+        "sentence": "Guard Tyler Booker was listed out on the week 12 injury report.",
         "matters": true
       },
       {
-        "gsis_id": "00-0040725",
-        "name": "Donovan Ezeiruaku",
-        "position": "LB",
-        "week": 11,
+        "gsis_id": "00-0039062",
+        "name": "Jonathan Mingo",
+        "position": "WR",
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Linebacker Donovan Ezeiruaku was listed out for week 10 and was not listed out for week 11.",
-        "matters": true
+        "detail": "out",
+        "sentence": "Wide receiver Jonathan Mingo was listed out on the week 12 injury report.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0035705",
+        "name": "Jalen Thompson",
+        "position": "DB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-26T15:49:53.644Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "activated",
+        "sentence": "Defensive back Jalen Thompson returned to the active roster before week 12.",
+        "matters": false
       }
     ],
     "DEN": [
@@ -787,39 +816,19 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0036221",
-        "name": "Brandon Jones",
-        "position": "S",
-        "week": 11,
+        "gsis_id": "00-0037085",
+        "name": "Tyler Badie",
+        "position": "RB",
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
-        "sentence": "Safety Brandon Jones was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0037085",
-        "name": "Tyler Badie",
-        "position": "RB",
-        "week": 13,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Tyler Badie moved into the starting lineup at running back on the depth chart before week 13, in place of Adam Prentice.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
-          }
-        ],
+        "sentence": "Running back Tyler Badie was listed questionable on the week 12 injury report.",
         "matters": true
       },
       {
@@ -833,11 +842,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -846,103 +855,123 @@
         "gsis_id": "00-0040240",
         "name": "Caleb Lohner",
         "position": "TE",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Tight end Caleb Lohner was listed out on the week 11 injury report.",
+        "sentence": "Tight end Caleb Lohner was listed out on the week 12 injury report.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0040153",
+        "name": "Sai'vion Jones",
+        "position": "DE",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Defensive end Sai'vion Jones was listed out on the week 12 injury report.",
         "matters": false
       }
     ],
     "DET": [
       {
-        "gsis_id": "00-0037297",
-        "name": "Cade Mays",
-        "position": "C",
-        "week": 11,
+        "gsis_id": "00-0033294",
+        "name": "Chuck Clark",
+        "position": "S",
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Safety Chuck Clark was listed questionable on the week 12 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038936",
+        "name": "Juice Scruggs",
+        "position": "C",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Juice Scruggs moved into the starting lineup at center on the depth chart before week 12, in place of Cade Mays.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0041447",
+        "name": "Skyler Gill-Howard",
+        "position": "DL",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/weekly_transactions_2026.json",
+            "generated": "2026-11-26T15:49:53.644Z"
+          },
+          {
+            "file": "src/data/intelligence/availability_2026.json",
+            "generated": "2026-11-28T12:52:57.363Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "reserve",
+        "sentence": "Defensive lineman Skyler Gill-Howard moved to injured reserve before week 12.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0039862",
+        "name": "Ennis Rakestraw Jr.",
+        "position": "CB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Center Cade Mays was listed out on the week 11 injury report.",
-        "matters": true
+        "sentence": "Cornerback Ennis Rakestraw Jr. was listed out on the week 12 injury report.",
+        "matters": false
       },
       {
-        "gsis_id": "00-0037667",
-        "name": "Kerby Joseph",
-        "position": "S",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Safety Kerby Joseph was listed out for week 10 and was not listed out for week 11.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0034384",
-        "name": "D.J. Reed",
-        "position": "CB",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Cornerback D.J. Reed was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0039364",
-        "name": "Sione Vaki",
-        "position": "RB",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Running back Sione Vaki was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0038940",
-        "name": "Tyler Lacy",
+        "gsis_id": "00-0036335",
+        "name": "DJ Wonnum",
         "position": "DE",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
-        "sentence": "Defensive end Tyler Lacy was listed questionable on the week 11 injury report.",
-        "matters": true
+        "sentence": "Defensive end DJ Wonnum was listed questionable on the week 12 injury report.",
+        "matters": false
       }
     ],
     "GB": [
@@ -954,7 +983,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -970,7 +999,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -986,7 +1015,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1002,7 +1031,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1018,7 +1047,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1036,7 +1065,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1052,12 +1081,32 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Running back Woody Marks was listed out on the week 11 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038977",
+        "name": "Tank Dell",
+        "position": "WR",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Tank Dell moved into the starting lineup at wide receiver on the depth chart before week 13, in place of Kayshon Boutte.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -1068,7 +1117,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1084,28 +1133,12 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Wide receiver Marvin Harrison Jr. was listed out on the week 11 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0037633",
-        "name": "Jacob Hummel",
-        "position": "LB",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Linebacker Jacob Hummel was listed questionable on the week 11 injury report.",
         "matters": false
       }
     ],
@@ -1122,7 +1155,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "roster_move",
@@ -1138,7 +1171,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1154,7 +1187,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1170,7 +1203,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1186,7 +1219,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1204,7 +1237,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1220,7 +1253,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1236,16 +1269,36 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "back",
         "sentence": "Safety Jessie Bates was listed out for week 10 and was not listed out for week 11.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0040238",
+        "name": "LeQuint Allen Jr.",
+        "position": "RB",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "LeQuint Allen Jr. moved into the starting lineup at running back on the depth chart before week 13, in place of Bhayshul Tuten.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
         "matters": true
       },
       {
@@ -1256,32 +1309,16 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "back",
         "sentence": "Defensive tackle Jordan Davis was listed out for week 10 and was not listed out for week 11.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0040342",
-        "name": "Danny Striggow",
-        "position": "DE",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Defensive end Danny Striggow was listed questionable on the week 11 injury report.",
         "matters": false
       }
     ],
@@ -1290,48 +1327,32 @@
         "gsis_id": "00-0036557",
         "name": "Jaylon Moore",
         "position": "T",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Tackle Jaylon Moore was listed out on the week 11 injury report.",
+        "sentence": "Tackle Jaylon Moore was listed out on the week 12 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0038134",
         "name": "Kenneth Walker III",
         "position": "RB",
-        "week": 11,
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
-        "sentence": "Running back Kenneth Walker III was listed out on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0036660",
-        "name": "Trey Smith",
-        "position": "G",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Guard Trey Smith was listed out on the week 11 injury report.",
+        "sentence": "Running back Kenneth Walker III was listed out on the week 12 injury report.",
         "matters": true
       },
       {
@@ -1345,11 +1366,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -1366,12 +1387,28 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "reserve",
         "sentence": "Running back Ben VanSumeren moved to injured reserve before week 12.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0040748",
+        "name": "Omarr Norman-Lott",
+        "position": "DT",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Defensive tackle Omarr Norman-Lott was listed out on the week 12 injury report.",
         "matters": false
       }
     ],
@@ -1384,7 +1421,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1400,7 +1437,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1416,7 +1453,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1425,40 +1462,44 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0036736",
-        "name": "Kayode Awosika",
-        "position": "RG",
-        "week": 12,
+        "gsis_id": "00-0040464",
+        "name": "DJ Uiagalelei",
+        "position": "QB",
+        "week": 13,
         "kind": "role",
         "detail": "new_starter",
-        "sentence": "Kayode Awosika moved into the starting lineup at right guard on the depth chart before week 12, in place of Cole Strange.",
+        "sentence": "DJ Uiagalelei moved into the starting lineup at quarterback on the depth chart before week 13, in place of Justin Herbert.",
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
       },
       {
-        "gsis_id": "00-0038553",
-        "name": "Daiyan Henley",
-        "position": "LB",
-        "week": 11,
+        "gsis_id": "00-0039391",
+        "name": "Kimani Vidal",
+        "position": "RB",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Kimani Vidal moved into the starting lineup at running back on the depth chart before week 13, in place of Keaton Mitchell.",
         "sources": [
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Linebacker Daiyan Henley was listed out on the week 11 injury report.",
-        "matters": false
+        "matters": true
       }
     ],
     "LAR": [
@@ -1470,7 +1511,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1486,7 +1527,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1505,11 +1546,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -1522,7 +1563,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1540,7 +1581,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1556,7 +1597,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1572,7 +1613,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1591,11 +1632,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -1608,7 +1649,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1642,12 +1683,28 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "doubtful",
         "sentence": "Safety Dante Trader Jr. was listed doubtful on the week 11 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0039383",
+        "name": "Jaylin Simpson",
+        "position": "CB",
+        "week": 11,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "doubtful",
+        "sentence": "Cornerback Jaylin Simpson was listed doubtful on the week 11 injury report.",
         "matters": true
       },
       {
@@ -1658,7 +1715,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1674,28 +1731,12 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "out",
         "sentence": "Punter Bradley Pinion was listed out on the week 11 injury report.",
-        "matters": false
-      },
-      {
-        "gsis_id": "00-0038728",
-        "name": "Jared Wayne",
-        "position": "WR",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Wide receiver Jared Wayne was listed out on the week 11 injury report.",
         "matters": false
       }
     ],
@@ -1708,7 +1749,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1724,11 +1765,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
@@ -1744,11 +1785,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
@@ -1764,7 +1805,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1780,7 +1821,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1799,7 +1840,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1815,7 +1856,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1831,7 +1872,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1847,7 +1888,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1863,11 +1904,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
@@ -1889,7 +1930,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
@@ -1907,7 +1948,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1923,7 +1964,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1942,11 +1983,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -1959,7 +2000,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1975,7 +2016,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -1985,78 +2026,6 @@
       }
     ],
     "PHI": [
-      {
-        "gsis_id": "00-0038393",
-        "name": "Dontayvion Wicks",
-        "position": "WR",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Wide receiver Dontayvion Wicks was listed out on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0036912",
-        "name": "DeVonta Smith",
-        "position": "WR",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Wide receiver DeVonta Smith was listed out for week 9 and was not listed out for week 11.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0036501",
-        "name": "Michael Carter II",
-        "position": "S",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          },
-          {
-            "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "back",
-        "sentence": "Safety Michael Carter II was listed out for week 9 and was not listed out for week 11.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0039746",
-        "name": "Will Shipley",
-        "position": "RB",
-        "week": 11,
-        "sources": [
-          {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Running back Will Shipley was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
       {
         "gsis_id": "00-0033246",
         "name": "Johnny Mundt",
@@ -2068,14 +2037,86 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
+      },
+      {
+        "gsis_id": "00-0036501",
+        "name": "Michael Carter II",
+        "position": "SS",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Michael Carter II moved into the starting lineup at strong safety on the depth chart before week 13, in place of Marcus Epps.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0039746",
+        "name": "Will Shipley",
+        "position": "RB",
+        "week": 12,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Will Shipley moved into the starting lineup at running back on the depth chart before week 12, in place of Jaydon Blue.",
+        "sources": [
+          {
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
+          }
+        ],
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0038116",
+        "name": "Arnold Ebiketie",
+        "position": "LB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Linebacker Arnold Ebiketie was listed out on the week 12 injury report.",
+        "matters": false
+      },
+      {
+        "gsis_id": "00-0032580",
+        "name": "Jonathan Jones",
+        "position": "CB",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Cornerback Jonathan Jones was listed out on the week 12 injury report.",
+        "matters": false
       }
     ],
     "PIT": [
@@ -2091,7 +2132,7 @@
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "roster_move",
@@ -2100,67 +2141,75 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0034277",
-        "name": "DeShon Elliott",
-        "position": "S",
-        "week": 11,
+        "gsis_id": "00-0036333",
+        "name": "Alex Highsmith",
+        "position": "LB",
+        "week": 12,
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Safety DeShon Elliott was listed questionable on the week 11 injury report.",
+        "detail": "out",
+        "sentence": "Linebacker Alex Highsmith was listed out on the week 12 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0036862",
+        "name": "Ben Skowronek",
+        "position": "WR",
+        "week": 12,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "out",
+        "sentence": "Wide receiver Ben Skowronek was listed out on the week 12 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0036252",
-        "name": "Michael Pittman",
+        "name": "Michael Pittman Jr.",
         "position": "WR",
-        "week": 11,
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Michael Pittman Jr. moved into the starting lineup at wide receiver on the depth chart before week 13, in place of Brandon Smith.",
         "sources": [
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Wide receiver Michael Pittman was listed questionable on the week 11 injury report.",
         "matters": true
       },
       {
         "gsis_id": "00-0038577",
         "name": "Nick Herbig",
         "position": "LB",
-        "week": 11,
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Nick Herbig moved into the starting lineup at linebacker on the depth chart before week 13, in place of Alex Highsmith.",
         "sources": [
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
-          }
-        ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Linebacker Nick Herbig was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0039739",
-        "name": "Roman Wilson",
-        "position": "WR",
-        "week": 11,
-        "sources": [
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
-        "kind": "out_or_back",
-        "detail": "questionable",
-        "sentence": "Wide receiver Roman Wilson was listed questionable on the week 11 injury report.",
         "matters": true
       }
     ],
@@ -2176,11 +2225,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -2196,11 +2245,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -2247,12 +2296,28 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Linebacker Dre Greenlaw was listed questionable on the week 11 injury report.",
+        "matters": true
+      },
+      {
+        "gsis_id": "00-0036972",
+        "name": "Mac Jones",
+        "position": "QB",
+        "week": 11,
+        "sources": [
+          {
+            "file": "src/data/intelligence/injuries_2026.json",
+            "generated": "2026-11-27T14:52:18.538Z"
+          }
+        ],
+        "kind": "out_or_back",
+        "detail": "questionable",
+        "sentence": "Quarterback Mac Jones was listed questionable on the week 11 injury report.",
         "matters": true
       },
       {
@@ -2263,7 +2328,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2279,32 +2344,12 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
         "detail": "questionable",
         "sentence": "Cornerback Upton Stout was listed questionable on the week 11 injury report.",
-        "matters": true
-      },
-      {
-        "gsis_id": "00-0037287",
-        "name": "Vederian Lowe",
-        "position": "RT",
-        "week": 12,
-        "kind": "role",
-        "detail": "new_starter",
-        "sentence": "Vederian Lowe moved into the starting lineup at right tackle on the depth chart before week 12, in place of Colton McKivitz.",
-        "sources": [
-          {
-            "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
-          },
-          {
-            "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
-          }
-        ],
         "matters": true
       }
     ],
@@ -2317,7 +2362,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2333,7 +2378,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2349,7 +2394,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2368,11 +2413,11 @@
         "sources": [
           {
             "file": "src/data/rosters2026.js",
-            "generated": "2026-11-27T14:13:28.130Z"
+            "generated": "2026-11-28T12:54:23.369Z"
           },
           {
             "file": "data/team_changes_starters.json",
-            "generated": "2026-11-27T13:45:39.966Z"
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
         "matters": true
@@ -2385,7 +2430,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2419,7 +2464,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2435,7 +2480,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2451,7 +2496,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2460,20 +2505,24 @@
         "matters": true
       },
       {
-        "gsis_id": "00-0040881",
-        "name": "Fernando Carmona",
-        "position": "G",
-        "week": 11,
+        "gsis_id": "00-0038043",
+        "name": "Joshua Williams",
+        "position": "CB",
+        "week": 13,
+        "kind": "role",
+        "detail": "new_starter",
+        "sentence": "Joshua Williams moved into the starting lineup at cornerback on the depth chart before week 13, in place of Cordale Flott.",
         "sources": [
           {
-            "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "file": "src/data/rosters2026.js",
+            "generated": "2026-11-28T12:54:23.369Z"
+          },
+          {
+            "file": "data/team_changes_starters.json",
+            "generated": "2026-11-27T14:13:33.369Z"
           }
         ],
-        "kind": "out_or_back",
-        "detail": "out",
-        "sentence": "Guard Fernando Carmona was listed out on the week 11 injury report.",
-        "matters": false
+        "matters": true
       }
     ],
     "WAS": [
@@ -2485,7 +2534,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2501,7 +2550,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2517,7 +2566,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2533,7 +2582,7 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           }
         ],
         "kind": "out_or_back",
@@ -2549,11 +2598,11 @@
         "sources": [
           {
             "file": "src/data/intelligence/injuries_2026.json",
-            "generated": "2026-11-25T15:29:00.144Z"
+            "generated": "2026-11-27T14:52:18.538Z"
           },
           {
             "file": "src/data/intelligence/availability_2026.json",
-            "generated": "2026-11-27T13:44:03.522Z"
+            "generated": "2026-11-28T12:52:57.363Z"
           }
         ],
         "kind": "out_or_back",
